@@ -10,8 +10,8 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT * FROM players WHERE playerID = '".$q."'";
-	//$sql="SELECT * FROM players";
+	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
+	$sql="SELECT * FROM players";
 	
 	echo $sql;
 	echo "<br />";
@@ -20,7 +20,7 @@
 	$result = mysql_query($sql);
   
 	//atable as class for table width in CSS
-	echo "<table border='1'> 
+	echo "<table border='1' class=&quot;atable&quot;> 
 	<tr>
 	<th>PlayerID</th>
 	<th>Firstname</th>
