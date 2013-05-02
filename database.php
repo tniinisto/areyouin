@@ -20,7 +20,7 @@
 	$result = mysql_query($sql);
   
 	//atable as class for table width in CSS
-	echo "<table border='1' class=&quot;atable&quot;> 
+	echo "<table border='1' id=&quot;atable&quot;> 
 	<tr>
 	<th>PlayerID</th>
 	<th>Firstname</th>
