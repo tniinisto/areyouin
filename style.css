@@ -253,9 +253,7 @@ CONTENT
 
 /* Test for table max-width */
 #atable {
-	width: 90%;
-	margin-left: 10px;
-	margin-right: 10px;
+	width: 50px;
 	table-layout:fixed;
 }
 
