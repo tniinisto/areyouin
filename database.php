@@ -2,15 +2,16 @@
 
 	$q=$_GET["q"];
 
-	$con = mysql_connect('localhost', 'root', 'trinity');
+	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	  {
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db("ruin", $con);
+	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT * FROM players WHERE playerID = '".$q."'";
+	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
+	$sql="SELECT * FROM players";
 	
 	echo $sql;
 	echo "<br />";
@@ -18,28 +19,28 @@
 
 	$result = mysql_query($sql);
   
-  echo "<table border='1'>
-  <tr>
-  <th>PlayerID</th>
-  <th>Firstname</th>
-  <th>Mobile</th>
-  <th>Email</th>
-  </tr>";
+	echo "<table border='1'>
+	<tr>
+	<th>PlayerID</th>
+	<th>Firstname</th>
+	<th>Mobile</th>
+	<th>Email</th>
+	</tr>";
 
-  while($row = mysql_fetch_array($result))
-    {
-    echo "<tr>";
+	while($row = mysql_fetch_array($result))
+	{
+		echo "<tr>";
 		echo "<td>" . $row['playerID'] . "</td>";
-    echo "<td>" . $row['name'] . "</td>";
-    echo "<td>" . $row['mobile'] . "</td>";
-    echo "<td>" . $row['email'] . "</td>";
-    echo "</tr>";
-    }
-  echo "</table>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "<td>" . $row['mobile'] . "</td>";
+		echo "<td>" . $row['email'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
 
 	mysql_close($con);
   
-  //echo "<b> Working </b>";
+	//echo "<b> Working </b>";
 
   ?>
   

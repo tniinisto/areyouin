@@ -21,6 +21,7 @@ smaller than 980
 	#sidebar .widget {
 		padding: 8% 7%;
 		margin-bottom: 10px;
+		/*display: none;*/
 	}
 
 	/* embedded videos */
@@ -88,6 +89,7 @@ smaller than 650
 		width: 100%;
 		margin: 0;
 		float: none;
+		/*display: none;*/
 	}
 	#sidebar .widget {
 		padding: 3% 4%;
@@ -104,7 +106,7 @@ smaller than 650
 }
 
 /************************************************************************************
-smaller than 560
+smaller than 480
 *************************************************************************************/
 @media screen and (max-width: 480px) {
 
