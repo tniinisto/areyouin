@@ -251,6 +251,7 @@ CONTENT
 	margin: 0 0 15px;
 }
 
+/* Test for table max-width */
 .atable {
 	max-width: 200px;
 }

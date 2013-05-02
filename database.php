@@ -10,8 +10,8 @@
 
 	mysql_select_db("areyouin", $con);
 
-	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
-	$sql="SELECT * FROM players";
+	$sql="SELECT * FROM players WHERE playerID = '".$q."'";
+	//$sql="SELECT * FROM players";
 	
 	echo $sql;
 	echo "<br />";
