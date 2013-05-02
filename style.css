@@ -253,8 +253,8 @@ CONTENT
 
 /* Test for table max-width */
 #atable {
-	font-size: 50%;
-	width: 50px;
+	font-size: 75%;
+	width: 75%;
 	table-layout:fixed;
 }
 
