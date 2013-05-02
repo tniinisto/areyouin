@@ -253,8 +253,10 @@ CONTENT
 
 /* Test for table max-width */
 #atable {
-	width: 50px
-	max-width: 50px;
+	width: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-collapse: collapse;
 }
 
 /************************************************************************************
