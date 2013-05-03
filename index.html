@@ -24,6 +24,8 @@
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 <![endif]-->
 
+<!-- Scripts -->
+<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
 <script type="text/javascript" src="main.js"> </script>
 
 </head>
@@ -41,10 +43,10 @@
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
-				<li><a href="#">Games</a></li>
-				<li><a href="#">Team</a></li>
-				<li><a href="#">Map</a> </li>
-				<li><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>
+				<li id="linkgames" class="current"><a href="#">Games</a></li>
+				<li id="linkteam"><a href="#">Team</a></li>
+				<li id="linkmap"><a href="#">Map</a> </li>
+				<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
@@ -152,5 +154,37 @@
 </div>
 <!-- /#pagewrap -->
 
+<!-- scripts -->
+<script>
+
+	jQuery(document).ready(function(){
+
+		<!-- /set links background -->	
+		$("#linkgames").click(function(event){
+			$("#main-nav").children().removeClass("current");
+			$("#linkgames").addClass("current");
+		});
+		
+		$("#linkteam").click(function(event){
+			$("#main-nav").children().removeClass("current");
+			$("#linkteam").addClass("current");
+		});
+		
+		$("#linkmap").click(function(event){
+			$("#main-nav").children().removeClass("current");
+			$("#linkmap").addClass("current");
+		});
+
+		$("#linkhistory").click(function(event){
+			$("#main-nav").children().removeClass("current");
+			$("#linkhistory").addClass("current");
+		});		
+		<!-- set links background/ -->
+
+		
+	});
+			
+</script>
+			
 </body>
 </html>
