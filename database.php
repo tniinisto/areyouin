@@ -34,14 +34,14 @@
 		ob_start();
 		imagepng($img);
 		$png = ob_get_clean();
-		$uri = "data:image/png;base64," . base64_encode($png);
+		$uri = "data:image/png;base64," . base64_encode($png) . "/>";
 
 		echo "<tr>";
 		echo "<td>" . $row['playerID'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";
-		echo "<td> <img src=" . $uri . "/> </td>";
+		echo "<td> <img src=" . $uri . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
