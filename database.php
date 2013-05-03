@@ -37,7 +37,7 @@
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";		
-		echo "<td><img src=" . $image . "></td>";
+		echo "<td>" . imagepng($image) . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
