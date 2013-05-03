@@ -25,7 +25,6 @@
 	<th>Firstname</th>
 	<th>Mobile</th>
 	<th>Email</th>
-	<th>Photo</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result))
