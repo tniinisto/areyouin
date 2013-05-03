@@ -29,12 +29,14 @@
 
 	while($row = mysql_fetch_array($result))
 	{
+		
 		echo "<tr>";
 		echo "<td>" . $row['playerID'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";		
 		echo "</tr>";
+		
 	}
 	echo "</table>";
 
