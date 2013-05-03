@@ -35,10 +35,8 @@
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";
-		//echo "<td>" . $row['photo'] . "</td>";
-		//echo "<td>" . <img src="data:image/jpeg;base64, base64_encode(" . $row['photo'] .")</td>";
-		//header('Content-type: image/jpeg'); // e.g. if it's JPEG image
-		echo "<td> header('Content-type: image/jpeg'); " . $row['photo'] . "</td>";
+		header("Content-type: image/png");
+		echo "<td>" . $row['photo'] . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
