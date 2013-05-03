@@ -41,7 +41,7 @@
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";
-		echo "<td> <img src=" . $uri . "alt=\"the image\" /> </td>";
+		echo "<td> <img src=" . $uri . "/> </td>";
 		echo "</tr>";
 	}
 	echo "</table>";
