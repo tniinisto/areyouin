@@ -29,14 +29,20 @@
 
 	while($row = mysql_fetch_array($result))
 	{
-		
+		$img = $row['photo'];
+
+		ob_start();
+		imagepng($img);
+		$png = ob_get_clean();
+		$uri = "data:image/png;base64," . base64_encode($png);
+
 		echo "<tr>";
 		echo "<td>" . $row['playerID'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
-		echo "<td>" . $row['email'] . "</td>";		
+		echo "<td>" . $row['email'] . "</td>";
+		echo "<td> <img src=" . $uri . "alt=\"the image\" /> </td>";
 		echo "</tr>";
-		
 	}
 	echo "</table>";
 
