@@ -30,13 +30,6 @@
 
 	while($row = mysql_fetch_array($result))
 	{
-		/*$img = $row['photo'];
-
-		ob_start();
-		imagepng($img);
-		$png = ob_get_clean();
-		$uri = "data:image/png;base64," . base64_encode($png) . "/>";*/
-
 		echo "<tr>";
 		echo "<td>" . $row['playerID'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
@@ -48,8 +41,6 @@
 	echo "</table>";
 
 	mysql_close($con);
-  
-	//echo "<b> Working </b>";
 
   ?>
   
