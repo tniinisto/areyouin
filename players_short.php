@@ -12,8 +12,8 @@
 
 	$sql="SELECT name, photourl FROM players";
 	
-	//echo $sql;
-	//echo "<br />";
+	echo $sql;
+	echo "<br />";
 	//echo "<br />";
 
 	$result = mysql_query($sql);
