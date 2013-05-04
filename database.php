@@ -25,6 +25,7 @@
 	<th>Firstname</th>
 	<th>Mobile</th>
 	<th>Email</th>
+	<th>Photo</th>
 	</tr>";
 
 	while($row = mysql_fetch_array($result))
@@ -41,7 +42,7 @@
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";
-		//echo "<td> <img src=" . $uri . "</td>";
+		echo "<td> <img src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "</tr>";
 	}
 	echo "</table>";
