@@ -83,12 +83,12 @@ h6 {
 }
 
 /* reset webkit search input styles */
-input[type=search] {
+input[type=text, password] {
 	-webkit-appearance: none;
 	outline: none;
 }
-input[type="search"]::-webkit-search-decoration, 
-input[type="search"]::-webkit-search-cancel-button {
+input[type="text, password"]::-webkit-search-decoration, 
+input[type="text, password"]::-webkit-search-cancel-button {
 	display: none;
 }
 
