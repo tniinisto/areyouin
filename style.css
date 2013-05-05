@@ -130,14 +130,14 @@ HEADER
 /* loginform */
 #loginform {
 	position: absolute;
-	right: 10px;
-	top: 10px;
+	right: 5px;
+	top: 5px;
 	z-index: 100;
-	width: 200px;
+	width: 150px;
 }
 
 #loginform #s {
-	width: 140px;
+	width: 150px;
 	float: right;
 	background: #fff;
 	border: none;
