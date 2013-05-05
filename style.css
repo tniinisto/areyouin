@@ -128,17 +128,17 @@ HEADER
 }
 
 /* loginform */
-#loginform {
+/*#loginform {
 	position: absolute;
 	right: 5px;
-	top: 0px;
+	top: 5px;
 	z-index: 100;
 	width: 100px;
-}
+}*/
 
 #loginform #s {
 	width: 100px;
-	/* float: right; */
+	float: right;
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
