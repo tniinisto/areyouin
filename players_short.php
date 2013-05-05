@@ -10,8 +10,8 @@
 
 	$sql="SELECT name, photourl FROM players";
 	
-	echo $sql;
-	echo "<br />";
+	//echo $sql;
+	//echo "<br />";
 	//echo "<br />";
 	
 	//echo "<ul id=\"players_short\">";
@@ -20,14 +20,24 @@
 
 	$result = mysql_query($sql);
   	
-	echo "<ul id=\"players_short\">";
+	/*echo "<ul id=\"players_short\">";
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<li> <img width=\"50\" height=\"50\" src=\"images/" . $row['photourl'] . "\"" . $row['name'] . "></li>";
 		//echo "<li>" .$row['name'] . "</li>";
 	}
-	echo "</ul>";
+	echo "</ul>";*/
 
+	echo "<table border='0' id='players_short'>"; 
+	while($row = mysql_fetch_array($result))
+	{
+		echo "<tr>";
+		echo "<td> <img src=\"images/" . $row['photourl'] . "\"></td>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";	
+	
 	mysql_close($con);
 
   ?>
