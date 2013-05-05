@@ -130,7 +130,7 @@ HEADER
 /* loginform */
 #loginform {
 	position: absolute;
-	right: 20px;
+	right: 10px;
 	top: 5px;
 	z-index: 100;
 	width: 100px;
@@ -154,6 +154,10 @@ HEADER
 	-webkit-transition: width .7s;
 	-moz-transition: width .7s;
 	transition: width .7s;
+}
+
+#login, #password{
+	width: 100px;
 }
 
 /************************************************************************************
