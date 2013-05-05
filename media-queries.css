@@ -46,17 +46,17 @@ smaller than 650
 	}
 
 	/* search form */
-	#searchform {
+	#loginform {
 		position: absolute;
 		top: 5px;
 		right: 0;
 		z-index: 100;
 		height: 40px;
 	}
-	#searchform #s {
+	#loginform #s {
 		width: 70px;
 	}
-	#searchform #s:focus {
+	#loginform #s:focus {
 		width: 150px;
 	}
 
