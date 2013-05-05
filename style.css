@@ -128,14 +128,13 @@ HEADER
 }
 
 /* loginform */
-/*
 loginform {
 	position: absolute;
 	right: 10px;
 	top: 10px;
 	z-index: 100;
-	width: 260px;
-}*/
+	width: 200px;
+}
 
 /*
 #loginform #s {
