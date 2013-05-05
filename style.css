@@ -127,15 +127,15 @@ HEADER
 	top: 55px;
 }
 
-/* searchform */
-#searchform {
+/* loginform */
+#loginform {
 	position: absolute;
 	right: 10px;
 	bottom: 6px;
 	z-index: 100;
 	width: 160px;
 }
-#searchform #s {
+#loginform #s {
 	width: 140px;
 	float: right;
 	background: #fff;
