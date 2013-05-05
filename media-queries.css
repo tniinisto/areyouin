@@ -2,8 +2,24 @@
 smaller than 980
 *************************************************************************************/
 @media screen and (max-width: 980px) {
+	/* main nav */
+	#main-nav {
+		position: static;
+	}
 
-  /* pagewrap */
+	/* site logo */
+	#site-logo {
+		margin: 15px 100px 5px 0;
+		position: static;
+	}
+
+	/* site description */
+	#site-description {
+		margin: 0 0 15px;
+		position: static;
+	}
+	
+	/* pagewrap */
 	#pagewrap {
 		width: 95%;
 	}
