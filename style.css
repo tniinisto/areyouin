@@ -131,14 +131,14 @@ HEADER
 #loginform {
 	position: absolute;
 	right: 5px;
-	top: 5px;
+	top: 0px;
 	z-index: 100;
-	width: 150px;
+	width: 100px;
 }
 
 #loginform #s {
-	width: 150px;
-	float: right;
+	width: 100px;
+	/* float: right; */
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
