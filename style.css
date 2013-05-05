@@ -83,12 +83,12 @@ h6 {
 }
 
 /* reset webkit search input styles */
-input[type=text, password] {
+input[type=text] {
 	-webkit-appearance: none;
 	outline: none;
 }
-input[type="text, password"]::-webkit-search-decoration, 
-input[type="text, password"]::-webkit-search-cancel-button {
+input[type="text"]::-webkit-search-decoration, 
+input[type="text"]::-webkit-search-cancel-button {
 	display: none;
 }
 
@@ -131,7 +131,7 @@ HEADER
 #loginform {
 	position: absolute;
 	right: 10px;
-	bottom: 6px;
+	top: 6px;
 	z-index: 100;
 	width: 160px;
 }
