@@ -129,15 +129,15 @@ HEADER
 
 /* loginform */
 #loginform {
-	position: absolute;
+	/*position: absolute;
 	right: 10px;
 	top: 10px;
-	z-index: 100;
+	z-index: 100;*/
 	width: 260px;
 }
 #loginform #s {
 	width: 140px;
-	float: right;
+	/*float: right;*/
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
