@@ -14,19 +14,19 @@
 	echo "<br />";
 	//echo "<br />";
 	
-	echo "<ul id=\"players_short\">";
-	echo "<li><a href=\"#\">Fiona2</a></li>";
-	echo "</ul>";
-
-	//$result = mysql_query($sql);
-  	
-	//echo "<ul id='players_short'>"
-	/*while($row = mysql_fetch_array($result))
-	{
-		echo "<li> <img src=\"images/" . $row['photourl'] . "\" ". .$row['name'] . "></li>";
-		//echo "<li>" .$row['name'] . "</li>";
-	}*/
+	//echo "<ul id=\"players_short\">";
+	//echo "<li><a href=\"#\">Fiona2</a></li>";
 	//echo "</ul>";
+
+	$result = mysql_query($sql);
+  	
+	echo "<ul id=\"players_short\">";
+	while($row = mysql_fetch_array($result))
+	{
+		//echo "<li> <img src=\"images/" . $row['photourl'] . "\" ". .$row['name'] . "></li>";
+		echo "<li>" .$row['name'] . "</li>";
+	}
+	echo "</ul>";
 
 	mysql_close($con);
 
