@@ -9,25 +9,9 @@
 	mysql_select_db("areyouin", $con);
 
 	$sql="SELECT name, photourl FROM players";
-	
-	//echo $sql;
-	//echo "<br />";
-	//echo "<br />";
-	
-	//echo "<ul id=\"players_short\">";
-	//echo "<li><a href=\"#\">Fiona2</a></li>";
-	//echo "</ul>";
 
 	$result = mysql_query($sql);
   	
-	/*echo "<ul id=\"players_short\">";
-	while($row = mysql_fetch_array($result))
-	{
-		echo "<li> <img width=\"50\" height=\"50\" src=\"images/" . $row['photourl'] . "\"" . $row['name'] . "></li>";
-		//echo "<li>" .$row['name'] . "</li>";
-	}
-	echo "</ul>";*/
-
 	echo "<table border='0' id='players_short'>"; 
 	while($row = mysql_fetch_array($result))
 	{
