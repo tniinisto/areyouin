@@ -66,8 +66,7 @@
 				<h1> Test header...</h1>				
 					<p>
 						<form action=""> 
-							<!--- <select name="users" onchange=("showUser(this.value)"> -->
-							<select name="users" onchange=("getPlayers()">
+							<select name="users" onchange="showUser(this.value)">							
 								<option value="">Select a person:</option>
 								<option value="1">Person1</option>
 								<option value="2">Person2</option>
@@ -128,7 +127,7 @@
 	
 	<aside id="sidebar">
 
-		<section class="widget" onclick="(getPlayers())">
+		<section class="widget" onclick="getPlayers()">
 			<h4 class="widgettitle">Players</h4>
 			<ul id="players_short">
 				<li><a href="#">Fiona</a></li>
