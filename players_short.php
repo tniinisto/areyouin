@@ -11,18 +11,19 @@
 	$sql="SELECT name, photourl FROM players";
 	
 	echo $sql;
-	//echo "<br />";
+	echo "<br />";
 	//echo "<br />";
 
 	//$result = mysql_query($sql);
   	
-	//echo "<ul id='players_short'>"
+	echo "<ul id='players_short'>"
 	/*while($row = mysql_fetch_array($result))
 	{
 		echo "<li> <img src=\"images/" . $row['photourl'] . "\" ". .$row['name'] . "></li>";
 		//echo "<li>" .$row['name'] . "</li>";
 	}*/
-	//echo "</ul>";
+	echo "<li> test </li>";
+	echo "</ul>";
 
 	mysql_close($con);
 
