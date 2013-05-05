@@ -32,7 +32,7 @@
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
-		echo "<td> <img src=\"images/" . $row['photourl'] . "\"></td>";
+		echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "</tr>";
 	}
