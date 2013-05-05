@@ -23,8 +23,8 @@
 	echo "<ul id=\"players_short\">";
 	while($row = mysql_fetch_array($result))
 	{
-		echo "<li> <img width=\"50\" height=\"50\" src=\"images/" . $row['photourl'] . "\"&nbsp&nbsp&nbsp&nbsp&nbsp" . $row['name'] . "></li>";
-		//echo "<li>" .$row['name'] . "</li>";
+		echo "<li> <img width=\"50\" height=\"50\" src=\"images/" . $row['photourl'] . "\"" . $row['name'] . "></li>";
+		echo "<li>" .$row['name'] . "</li>";
 	}
 	echo "</ul>";
 
