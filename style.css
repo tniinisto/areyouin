@@ -128,32 +128,35 @@ HEADER
 }
 
 /* loginform */
-#loginform {
-	/*position: absolute;
+/*
+loginform {
+	position: absolute;
 	right: 10px;
 	top: 10px;
-	z-index: 100;*/
+	z-index: 100;
 	width: 260px;
-}
+}*/
+
+/*
 #loginform #s {
 	width: 140px;
-	/*float: right;*/
+	float: right;
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
 	/* border radius */
-	-webkit-border-radius: 5px;
+	/*-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	/* box shadow */
-	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+	/*-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
 	/* transition */
-	-webkit-transition: width .7s;
+	/*-webkit-transition: width .7s;
 	-moz-transition: width .7s;
 	transition: width .7s;
-}
+}*/
 
 /************************************************************************************
 MAIN NAVIGATION

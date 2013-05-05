@@ -46,7 +46,7 @@ smaller than 650
 	}
 
 	/* login form */
-	#loginform {
+	/*#loginform {
 		position: absolute;
 		top: 5px;
 		right: 0;
@@ -58,7 +58,7 @@ smaller than 650
 	}
 	#loginform #s:focus {
 		width: 150px;
-	}
+	}*/
 
 	/* main nav */
 	#main-nav {
