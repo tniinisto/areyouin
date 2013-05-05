@@ -57,7 +57,12 @@ smaller than 650
 
 	#login, #password {
 		width: 60px;
-	}	
+	}
+
+	#loginlink {
+		position: absolute;
+		right: 20px;
+	}		
 	
 	/*#loginform #s {
 		width: 50px;
