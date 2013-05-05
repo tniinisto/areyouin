@@ -14,9 +14,9 @@
 	echo "<br />";
 	//echo "<br />";
 	
-	echo "<ul id=\"players_short\">"
-	echo	"<li><a href=\"#\">Fiona2</a></li>"
-	echo "</ul>"
+	echo "<ul id=\"players_short\">";
+	echo "<li><a href=\"#\">Fiona2</a></li>";
+	echo "</ul>";
 
 	//$result = mysql_query($sql);
   	
