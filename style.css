@@ -128,13 +128,13 @@ HEADER
 }
 
 /* loginform */
-/*#loginform {
+#loginform {
 	position: absolute;
-	right: 5px;
+	right: 20px;
 	top: 5px;
 	z-index: 100;
 	width: 100px;
-}*/
+}
 
 #loginform #s {
 	width: 100px;
