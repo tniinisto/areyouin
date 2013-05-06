@@ -141,7 +141,7 @@ smaller than 480
 	/* login form */
 	#loginform {
 		position: absolute;
-		top: 100px;
+		top: 70px;
 		left: 100px;
 		z-index: 100;
 		height: 10px;
@@ -155,7 +155,7 @@ smaller than 480
 	#loginbutton {
 		position: absolute;
 		left: 20px;
-		top: 110px;
+		top: 100px;
 	}
 
 }
