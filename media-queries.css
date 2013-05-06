@@ -120,9 +120,9 @@ smaller than 480
 		-webkit-text-size-adjust: none;
 	}
 
-	#site-logo font{
-		font-size: 110%;
-	}
+	/*#site-logo font{
+		font-size: 90%;
+	}*/
 	
 	/* main nav */
 	#main-nav a {
@@ -130,11 +130,20 @@ smaller than 480
 		padding: 10px 8px;
 	}
 	
+	#loginsite-logo font {
+		font-size: 25px;
+	}
+	
+	#loginsite-logo {
+		position: absolute;
+		left: 50px;
+	}
+	
 	/* login form */
 	#loginform {
 		position: absolute;
 		top: 100px;
-		left: 60px;
+		left: 70px;
 		z-index: 100;
 		height: 10px;
 		width: 150px;
@@ -147,7 +156,7 @@ smaller than 480
 	#loginbutton {
 		position: absolute;
 		left: 20px;
-		top: 140px;
+		top: 110px;
 	}		
 
 }

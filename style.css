@@ -119,6 +119,11 @@ HEADER
 	text-decoration: none;
 }
 
+#loginsite-logo a{
+	color: #fff;
+	text-decoration: none;	
+}
+
 /* site description */
 #site-description {
 	font: italic 100%/130% "Times New Roman", Times, serif;
