@@ -135,8 +135,7 @@ smaller than 480
 	}
 	
 	#loginsite-logo {
-		position: absolute;
-		left: 60px;
+		text-align: center;
 	}
 	
 	/* login form */
@@ -157,7 +156,7 @@ smaller than 480
 		position: absolute;
 		left: 20px;
 		top: 110px;
-	}		
+	}
 
 }
 
