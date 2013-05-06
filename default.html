@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<!-- disable iPhone inital scale -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A'YouIN</title>
+
+<!-- main css -->
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<!-- media queries css -->
+<link href="media-queries.css" rel="stylesheet" type="text/css">
+
+<!-- Scripts -->
+<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+<script type="text/javascript" src="main.js"> </script>
+
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- css3-mediaqueries.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+</head>
+
+<body onload="getPlayers()">
+
+<div id="pagewrap">
+
+	<header id="header">
+
+		<hgroup>
+			<h1 id="site-logo"><a href="#"><font size="30">A'YouIN Login</font></a></h1>			
+			<!-- <h2 id="site-description">Welcome to set your games!</h2> -->
+		</hgroup>
+
+		<!--
+		<nav>
+			<ul id="main-nav" class="clearfix">
+				<li id="linkgames" class="current"><a href="#">Games</a></li>
+				<li id="linkteam"><a href="#">Team</a></li>
+				<li id="linkmap"><a href="#">Map</a> </li>
+				<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>
+			</ul>
+		</nav>
+		-->
+
+		
+		<form id="loginform">
+			<font color="white">Login id:</font><input type="text" id="login" placeholder="">
+			<font color="white">Password:</font><input type="password" id="password" placeholder="">
+			<p id="loginlink" align="right"><a href="#"><font color="white"><u>login</u></font></p>
+		</form>		
+
+	</header>
+	<!-- /#header -->
+				
+</body>
+</html>
