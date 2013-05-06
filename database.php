@@ -34,7 +34,7 @@
 		echo "<td>" . $row['playerID'] . "</td>";
 		echo "<td>" . $row['name'] . "</td>";
 		echo "<td>" . $row['mobile'] . "</td>";
-		echo "<td>" . $row['email'] . "</td>";
+		echo "<td>" . $row['mail'] . "</td>";
 		echo "<td> <img src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "</tr>";
 	}
