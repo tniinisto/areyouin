@@ -163,7 +163,7 @@ HEADER
 }
 
 #login, #password{
-	/*width: 150px;*/
+	width: 150px;
 }
 
 #teamradio {
