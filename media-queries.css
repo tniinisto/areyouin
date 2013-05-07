@@ -157,7 +157,11 @@ smaller than 480
 	#loginbutton {
 		position: absolute;
 		left: 25px;
-		top: 100px;
+	}
+	
+	#teamradio {
+		position: absolute;
+		width: 150px;
 	}
 
 }
