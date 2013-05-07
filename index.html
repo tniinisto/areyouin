@@ -5,8 +5,6 @@
 
 <!-- disable iPhone inital scale -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- iPhone full screen -->
-<meta name="apple-mobile-web-app-capable" content="yes" />
 
 <title>A'YouIN</title>
 
@@ -32,7 +30,7 @@
 
 </head>
 
-<body onload="getPlayers()">
+<body onload="getPlayers(), links()">
 
 <div id="pagewrap">
 
@@ -164,7 +162,7 @@
 <!-- scripts -->
 <script>
 
-	jQuery(document).ready(function(){
+	jQuery(document).ready(function link() {
 
 		<!-- set links background -->	
 		$("#linkgames").click(function(event){
