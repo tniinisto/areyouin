@@ -167,6 +167,10 @@ smaller than 480
 		position: absolute;
 		width: 150px;
 	}
-
+	
+	.radioclass {
+		width: 20px;
+		height: 20px;
+	}
 }
 
