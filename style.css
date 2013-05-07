@@ -167,14 +167,13 @@ HEADER
 }
 
 #teamradio {
-	position: absolute;
+	/*position: absolute;*/
 	width: 150px;
-	left: 100px;
 }
 
 #loginbutton {
-	position: absolute;
-	left: 50px;
+	/*position: absolute;
+	left: 50px;*/
 }
 
 /************************************************************************************
