@@ -16,7 +16,7 @@
 	//Table for event basic information
 	$result1 = mysql_query($sql);
 	
-	echo "<table border='1' id='atable'> 
+	echo "<table border='0' id='atable'> 
 	<tr>
 	<th>Location</th>
 	<th>Start time</th>
@@ -36,7 +36,7 @@
 	//Table for event participants
 	$result2 = mysql_query($sql);
 	
-	echo "<table border='1' id='atable'> 
+	echo "<table border='0' id='atable'> 
 		<tr>
 		<th>Player</th>
 		<th>A'youIN</th>
