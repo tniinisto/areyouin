@@ -278,10 +278,17 @@ CONTENT
 }
 
 /* Test for table width */
-#atable {
+#atable th {
+	font-size: 100%;
+	width: 100%;
+	text-align: left;
+	font-weight: bold;
+}
+
+#atable tr {
 	font-size: 90%;
 	width: 100%;
-	text-align:left;
+	text-align: left;
 }
 
 /************************************************************************************
