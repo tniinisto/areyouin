@@ -35,7 +35,7 @@
 	}
 
 	//Table for event participants
-	mysqli_data_seek($result , 0);
+	mysql_data_seek($result , 0);
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
