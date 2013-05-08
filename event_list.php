@@ -43,7 +43,7 @@
 		}
 
 		//Echo players for the event
-		echo "<table border='1' id='atable3'>"
+		echo "<table border='1' id='atable3'>";
 		echo "<tr>";
 		echo "<td>" . $row['name'] . "</td>";
 		if($row['areyouin'] == 0)
