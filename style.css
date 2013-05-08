@@ -279,9 +279,9 @@ CONTENT
 
 /* Test for table width */
 #atable {
-	font-size: 75%;
-	width: 90%;
-	table-layout:fixed;
+	font-size: 90%;
+	width: 100%;
+	text-align:left;
 }
 
 /************************************************************************************
