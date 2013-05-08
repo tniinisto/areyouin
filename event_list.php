@@ -28,8 +28,9 @@
 	$event_check = 0;
 	while($row = mysql_fetch_array($result))
 	{
+		echo "Test";
 		//Check when the event changes, then echo the event basic information
-		if($row['Events_eventID'] != $event_check)
+		/*if($row['Events_eventID'] != $event_check)
 		{
 			$event_check = $row['Events_eventID'];
 			
@@ -40,7 +41,7 @@
 			echo "<td>" . $row['endTime'] . "</td>";
 			echo "</tr>";
 			echo "</table>";
-		}
+		}*/
 
 		//Echo players for the event
 		/*echo "<table border='1' id='atable3'>"
