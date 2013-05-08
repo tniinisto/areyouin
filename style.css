@@ -283,7 +283,6 @@ CONTENT
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
-	padding: 15px;
 }
 
 #atable th {
@@ -293,6 +292,7 @@ CONTENT
 	text-align: left;
 	font-weight: bold;
 	height:30px;
+	padding: 10px;
 }
 
 #atable tr {
@@ -300,6 +300,7 @@ CONTENT
 	width: 100%;
 	text-align: left;
 	height:20px;
+	padding: 10px;
 }
 
 /************************************************************************************
