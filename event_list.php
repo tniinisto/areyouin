@@ -37,11 +37,12 @@
 	//Table for event participants
 	$result2 = mysql_query($sql);
 	
-	echo "<table border='0' id='atable'> 
-			<tr>
-			<th>Player</th>
-			<th>A'youIN</th>
-			</tr>";	
+	//echo "<table border='0' id='atable'> 
+	echo "
+		<tr>
+		<th>Player</th>
+		<th>A'youIN</th>
+		</tr>";	
 		while($row = mysql_fetch_array($result2))
 		{
 			echo "<tr>";
@@ -49,7 +50,7 @@
 			echo "<td>" . $row['areyouin'] . "</td>";
 			echo "</tr>";
 		}
-	echo "</table>";
+	//echo "</table>";
 	
 	mysql_close($con);
 
