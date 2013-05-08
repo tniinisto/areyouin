@@ -11,7 +11,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT * FROM players";
-	$sql = "select l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID";
+	$sql = "select v.Events_eventID, l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID order by e.startTime asc, v.Events_eventID asc";
 	 	
 	$result = mysql_query($sql);
 
