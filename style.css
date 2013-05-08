@@ -278,13 +278,16 @@ CONTENT
 }
 
 /* events table*/
-#atable th{
-	table-layout: fixed;
+#atable th {
 	background-color: #EAF2D3;
 	font-size: 100%;
 	width: 100%;
 	text-align: left;
 	font-weight: bold;
+}
+
+#atable th.location {
+  width: 30%;
 }
 
 #atable tr {
