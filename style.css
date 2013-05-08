@@ -286,16 +286,18 @@ CONTENT
 }
 
 #atable th {
-	background-color: #EAF2D3;
-	font-size: 2em;
+	background-color: #A8ADAC;
+	font-size: 1.5em;
 	text-align: left;
 	font-weight: bold;
+	height:40px;
 }
 
 #atable tr {
 	font-size: 1em;
 	width: 100%;
 	text-align: left;
+	height:30px;
 }
 
 /************************************************************************************
