@@ -10,12 +10,12 @@
 
 	mysql_select_db("areyouin", $con);
 
-	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
-	$sql = "select l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v
+	$sql="SELECT * FROM players";
+	/*$sql = "select l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v
 			where t.eventTypeID = e.EventType_eventTypeID and
 			l.locationID = e.Location_locationID and
 			p.playerID = v.Players_playerID and v.Events_eventID = e.eventID;"
-	
+	*/
 	echo $sql;
 	//echo "<br />";
 	//echo "<br />";

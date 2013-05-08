@@ -64,3 +64,4 @@ function getEvents() {
 	xmlhttp.open("GET", "event_list.php", true);
 	xmlhttp.send();
 }
+
