@@ -47,7 +47,10 @@
 		{
 			echo "<tr>";
 			echo "<td>" . $row['name'] . "</td>";
-			echo "<td>" . $row['areyouin'] . "</td>";
+			if($row['areyouin'] == 0)
+				echo "<td>I'm OUT</td>";
+			else
+				echo "<td>I'm IN</td>";
 			echo "</tr>";
 		}
 	//echo "</table>";
