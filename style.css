@@ -277,8 +277,10 @@ CONTENT
 	margin: 0 0 15px;
 }
 
-/* Test for table width */
-#atable th {
+/* events table*/
+#atable th{
+	table-layout: fixed;
+	background-color: #EAF2D3;
 	font-size: 100%;
 	width: 100%;
 	text-align: left;
