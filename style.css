@@ -279,7 +279,7 @@ CONTENT
 
 /* events table*/
 #atable {
-	/*width: 100%;*/
+	width: 100%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
@@ -287,13 +287,13 @@ CONTENT
 
 #atable th {
 	background-color: #EAF2D3;
-	font-size: 100%;
+	font-size: 2em;
 	text-align: left;
 	font-weight: bold;
 }
 
 #atable tr {
-	font-size: 90%;
+	font-size: 1em;
 	width: 100%;
 	text-align: left;
 }
