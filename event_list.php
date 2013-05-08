@@ -38,11 +38,11 @@
 	$result2 = mysql_query($sql);
 	
 	//echo "<table border='0' id='atable'> 
-	echo "
+	/*echo "
 		<tr>
 		<th>Player</th>
 		<th>A'youIN</th>
-		</tr>";	
+		</tr>";*/
 		while($row = mysql_fetch_array($result2))
 		{
 			echo "<tr>";

@@ -286,7 +286,7 @@ CONTENT
 }
 
 #atable th {
-	background-color: #A8ADAC;
+	/*background-color: #A8ADAC;*/
 	font-size: 1.5em;
 	text-align: left;
 	font-weight: bold;
