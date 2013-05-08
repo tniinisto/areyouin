@@ -31,16 +31,15 @@
 		//Check when the event changes, then echo the event basic information
 		if($row['Events_eventID'] != $event_check)
 		{
-			echo "test if";
-			/*$event_check = $row['Events_eventID'];
+			$event_check = $row['Events_eventID'];
 			
-			echo "<table border='1' id='atable2'>"
+			echo "<table border='1' id='atable2'>";
 			echo "<tr>";
 			echo "<td>" . $row['location'] . "</td>";
 			echo "<td>" . $row['startTime'] . "</td>";
 			echo "<td>" . $row['endTime'] . "</td>";
 			echo "</tr>";
-			echo "</table>";*/
+			echo "</table>";
 		}
 
 		//Echo players for the event
