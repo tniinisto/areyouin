@@ -291,13 +291,14 @@ CONTENT
 	color: white;
 	text-align: left;
 	padding: 10px;
+	height: auto;
 }
 
 #atable td {
 	font-size: 1em;
 	text-align: left;
 	padding: 10px;
-	height: 50px;
+	height: auto;
 }
 
 /************************************************************************************
