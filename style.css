@@ -281,12 +281,12 @@ CONTENT
 #atable th {
 	background-color: #EAF2D3;
 	font-size: 100%;
-	width: 100%;
+	/*width: 100%;*/
 	text-align: left;
 	font-weight: bold;
 }
 
-#atable th.location {
+#atable th.Location {
   width: 30%;
 }
 
