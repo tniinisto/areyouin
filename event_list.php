@@ -21,23 +21,29 @@
 	<th>Location</th>
 	<th>Start time</th>
 	<th>End time</th>
-	</tr>";
+	</tr>
+	</table>";
 	
-	//Table for event basic information
+	//Go through the first event & players
+	$event_check = 0;
 	while($row = mysql_fetch_array($result))
 	{
-		echo "<tr>";
-		echo "<td>" . $row['location'] . "</td>";
-		echo "<td>" . $row['startTime'] . "</td>";
-		echo "<td>" . $row['endTime'] . "</td>";
-		echo "</tr>";
-		break;
-	}
+		//Check when the event changes, then echo the event basic information
+		if($row['Events_eventID'] != $event_check)
+		{
+			$event_check = $row['Events_eventID'];
+			
+			echo "<table border='1' id='atable2'>"
+			echo "<tr>";
+			echo "<td>" . $row['location'] . "</td>";
+			echo "<td>" . $row['startTime'] . "</td>";
+			echo "<td>" . $row['endTime'] . "</td>";
+			echo "</tr>";
+			echo "</table>";
+		}
 
-	//Table for event participants
-	mysql_data_seek($result , 0);
-	while($row = mysql_fetch_array($result))
-	{
+		//Echo players for the event
+		echo "<table border='1' id='atable3'>"
 		echo "<tr>";
 		echo "<td>" . $row['name'] . "</td>";
 		if($row['areyouin'] == 0)
@@ -45,11 +51,13 @@
 		else
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
+		echo "</table>";			
 	}
-	
-	echo "</table>";
+
+	//sql cursor move function
+	//mysql_data_seek($result , 0);
 	
 	mysql_close($con);
-
+	
   ?>
   
