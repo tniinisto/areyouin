@@ -16,38 +16,39 @@
 	//Table for event basic information
 	$result1 = mysql_query($sql);
 	
-	echo "<table border='0' id='atable'> 
-	<tr>
-	<th>Location</th>
-	<th>Start time</th>
-	<th>End time</th>
-	</tr>";
-	while($row = mysql_fetch_array($result1))
-	{
-		echo "<tr>";
-		echo "<td>" . $row['location'] . "</td>";
-		echo "<td>" . $row['startTime'] . "</td>";
-		echo "<td>" . $row['endTime'] . "</td>";
-		echo "</tr>";
-		break;
-	}
-	echo "</table>";
+	//echo "<table border='0' id='atable'> 
+	echo "
+		<tr>
+		<th>Location</th>
+		<th>Start time</th>
+		<th>End time</th>
+		</tr>";
+		while($row = mysql_fetch_array($result1))
+		{
+			echo "<tr>";
+			echo "<td>" . $row['location'] . "</td>";
+			echo "<td>" . $row['startTime'] . "</td>";
+			echo "<td>" . $row['endTime'] . "</td>";
+			echo "</tr>";
+			break;
+		}
+	//echo "</table>";
 
 	//Table for event participants
 	$result2 = mysql_query($sql);
 	
 	echo "<table border='0' id='atable'> 
-		<tr>
-		<th>Player</th>
-		<th>A'youIN</th>
-		</tr>";	
-	while($row = mysql_fetch_array($result2))
-	{
-		echo "<tr>";
-		echo "<td>" . $row['name'] . "</td>";
-		echo "<td>" . $row['areyouin'] . "</td>";
-		echo "</tr>";
-	}
+			<tr>
+			<th>Player</th>
+			<th>A'youIN</th>
+			</tr>";	
+		while($row = mysql_fetch_array($result2))
+		{
+			echo "<tr>";
+			echo "<td>" . $row['name'] . "</td>";
+			echo "<td>" . $row['areyouin'] . "</td>";
+			echo "</tr>";
+		}
 	echo "</table>";
 	
 	mysql_close($con);
