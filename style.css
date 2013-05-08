@@ -286,23 +286,18 @@ CONTENT
 }
 
 #atable th {
-	table-layout: auto;
 	background-color: #0d1424;
 	font-size: 1.5em;
 	color: white;
 	text-align: left;
 	font-weight: bold;
 	height:30px;
-	padding: 5px;
 }
 
 #atable td {
-	table-layout: auto;
 	font-size: 1em;
-	width: 100%;
 	text-align: left;
 	height:20px;
-	padding: 5px;
 }
 
 /************************************************************************************
