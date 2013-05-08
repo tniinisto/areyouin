@@ -30,8 +30,8 @@
 	{
 		//Check when the event changes, then echo the event basic information
 		if($row['Events_eventID'] != $event_check)
-		{
-			$event_check = $row['Events_eventID'];
+		{		
+			$event_check = $row['Events_eventID'];		
 			
 			echo "<table border='1' id='atable2'>";
 			echo "<tr>";
@@ -43,7 +43,7 @@
 		}
 
 		//Echo players for the event
-		/*echo "<table border='1' id='atable3'>"
+		echo "<table border='1' id='atable3'>"
 		echo "<tr>";
 		echo "<td>" . $row['name'] . "</td>";
 		if($row['areyouin'] == 0)
@@ -51,7 +51,7 @@
 		else
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
-		echo "</table>";*/
+		echo "</table>";		
 	}
 
 	//sql cursor move function
