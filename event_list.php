@@ -14,10 +14,8 @@
 	$sql = "select v.Events_eventID, l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID order by e.startTime asc, v.Events_eventID asc";
 	 	
 	$result = mysql_query($sql);
-
-	echo "Test";
 	
-	/*//Table header
+	//Table header
 	echo "<table border='1' id='atable'>
 	<tr>
 	<th>Location</th>
@@ -30,9 +28,9 @@
 	$event_check = 0;
 	while($row = mysql_fetch_array($result))
 	{
-		/*echo "Test";
+		echo "Test loop";
 		//Check when the event changes, then echo the event basic information
-		if($row['Events_eventID'] != $event_check)
+		/*if($row['Events_eventID'] != $event_check)
 		{
 			$event_check = $row['Events_eventID'];
 			
@@ -55,7 +53,7 @@
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
 		echo "</table>";*/
-	//}
+	}
 
 	//sql cursor move function
 	//mysql_data_seek($result , 0);
