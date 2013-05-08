@@ -292,12 +292,14 @@ CONTENT
 	text-align: left;
 	font-weight: bold;
 	height:30px;
+	padding: 10px;	
 }
 
 #atable td {
 	font-size: 1em;
 	text-align: left;
 	height:20px;
+	padding: 10px;
 }
 
 /************************************************************************************
