@@ -278,16 +278,18 @@ CONTENT
 }
 
 /* events table*/
-#atable th {
-	background-color: #EAF2D3;
-	font-size: 100%;
+#atable {
 	/*width: 100%;*/
+	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
 }
 
-#atable th.Location {
-  width: 30%;
+#atable th {
+	background-color: #EAF2D3;
+	font-size: 100%;
+	text-align: left;
+	font-weight: bold;
 }
 
 #atable tr {
