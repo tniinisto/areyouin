@@ -12,10 +12,10 @@
 
 	//$sql="SELECT * FROM players";
 	$sql = "select l.name as location, e.startTime, e.endTime, p.name, v.areyouin from events e, eventtype t, location l, players p,  eventplayer v where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID";
-	 
-	//Table for event basic information
-	$result1 = mysql_query($sql);	
+	 	
+	$result1, $result2 = mysql_query($sql);	
 
+	//Table header
 	echo "<table border='1' id='atable'>
 	<tr>
 	<th>Location</th>
@@ -23,6 +23,7 @@
 	<th>End time</th>
 	</tr>";
 	
+	//Table for event basic information
 	while($row = mysql_fetch_array($result1))
 	{
 		echo "<tr>";
@@ -34,8 +35,6 @@
 	}
 
 	//Table for event participants
-	$result2 = mysql_query($sql);
-
 	while($row = mysql_fetch_array($result2))
 	{
 		echo "<tr>";
