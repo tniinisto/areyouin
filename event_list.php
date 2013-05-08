@@ -15,7 +15,9 @@
 	 	
 	$result = mysql_query($sql);
 
-	//Table header
+	echo "Test";
+	
+	/*//Table header
 	echo "<table border='1' id='atable'>
 	<tr>
 	<th>Location</th>
@@ -28,9 +30,9 @@
 	$event_check = 0;
 	while($row = mysql_fetch_array($result))
 	{
-		echo "Test";
+		/*echo "Test";
 		//Check when the event changes, then echo the event basic information
-		/*if($row['Events_eventID'] != $event_check)
+		if($row['Events_eventID'] != $event_check)
 		{
 			$event_check = $row['Events_eventID'];
 			
@@ -53,7 +55,7 @@
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
 		echo "</table>";*/
-	}
+	//}
 
 	//sql cursor move function
 	//mysql_data_seek($result , 0);
