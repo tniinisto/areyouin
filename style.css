@@ -292,7 +292,7 @@ CONTENT
 	text-align: left;
 	font-weight: bold;
 	height:30px;
-	padding: 5px;
+	/*padding: 5px;*/
 }
 
 #atable td {
@@ -300,7 +300,7 @@ CONTENT
 	width: 100%;
 	text-align: left;
 	height:20px;
-	padding: 5px;
+	/*padding: 5px;*/
 }
 
 /************************************************************************************
