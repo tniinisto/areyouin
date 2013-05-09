@@ -16,8 +16,8 @@
 	$result = mysql_query($sql);
 	
 	//Content header
-	$team = mysql_fetch_array($result)
-	echo "<h1 onClick=\"getEvents()\">Games for team " . $team['teamName'] . "</h1>"
+	$team = mysql_fetch_array($result);
+	echo "<h1 onClick=\"getEvents()\">Games for team " . $team['teamName'] . "</h1>";
 	
 	//Table header
 	echo "<table border='1' id='atable'>
