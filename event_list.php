@@ -20,7 +20,7 @@
 	echo "<h1 onClick=\"getEvents()\">Games set for " . $team['teamName'] . "</h1>";
 	
 	//Table header
-	echo "<table border='1' id='atable'>
+	echo "<table border='0' id='atable'>
 	<tr>
 	<th>Location</th>
 	<th>Start time</th>
