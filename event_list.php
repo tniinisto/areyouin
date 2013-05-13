@@ -22,14 +22,53 @@
 	//sql cursor move function, to index 0
 	mysql_data_seek($result , 0);	
 
+	//Go through events & players
+	$event_check = 0;
+	while($row = mysql_fetch_array($result))
+	{
+		//Check when the event changes, then echo the event basic information
+		if($row['Events_eventID'] != $event_check)
+		{		
+			$event_check = $row['Events_eventID'];	
+			
+			echo "<table border='0' id='atable'>";
+			echo "<tr>";
+			echo "<td> Location: " . $row['location'] . "</td>";
+			echo "</tr>";
+			echo "<tr>";
+			echo "<td> Start time: " . $row['startTime'] . "</td>";
+			echo "</tr>";
+			echo "<tr>";			
+			echo "<td> End time: " . $row['endTime'] . "</td>";
+			echo "</tr>";
+			echo "</table>";
+		}
+
+		//Echo players for the event
+		echo "<table border='1' id='atable3'>";
+		echo "<tr>";
+		echo "<td> <img width=\"20\" height=\"20\" src=\"images/" . $row['photourl'] . "\"></td>";
+		echo "<td>" . $row['name'] . "</td>";
+		if($row['areyouin'] == 0)
+			echo "<td>I'm OUT</td>";
+		else
+			echo "<td>I'm IN</td>";
+		echo "</tr>";
+		echo "</table>";		
+	}*/	
+	
+	
 	//Table header
-	echo "<table border='0' id='atable'>
+	/*echo "<table border='0' id='atable'>
 	<tr>
 	<th>Location</th>
 	<th>Start time</th>
 	<th>End time</th>
 	</tr>
 	</table>";
+
+	//sql cursor move function, to index 0
+	mysql_data_seek($result , 0);	
 	
 	//Go through events & players
 	$event_check = 0;
@@ -60,7 +99,7 @@
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
 		echo "</table>";		
-	}
+	}*/
 	
 	mysql_close($con);
 	
