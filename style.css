@@ -302,6 +302,30 @@ CONTENT
 	height: auto;
 }
 
+/* Event & Player data */
+#atable2, #atable3 {
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	font-weight: bold;
+}
+
+#atable2 th, #atable3 th {
+	/*background-color: #6a6a6a;*/
+	font-size: 1em;
+	color: black;
+	text-align: left;
+	padding: 10px;
+	height: auto;
+}
+
+#atable2 td, #atable3 td {
+	font-size: 1em;
+	text-align: left;
+	padding: 10px;
+	height: auto;
+}
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
