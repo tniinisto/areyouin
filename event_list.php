@@ -32,11 +32,11 @@
 			$event_check = $row['Events_eventID'];	
 			
 			echo "<table border='0' id='atable'>";
-				echo "<tr>";
+				echo "<th>";
 					echo "<td> Games at:" . $row['location'] . " </td>";
 					echo "<td> Starting:" . $row['startTime'] . " </td>";
 					echo "<td> Ending:" . $row['endTime'] . " </td>";
-				echo "</tr>";
+				echo "</th>";
 			echo "</table>";
 		}
 
