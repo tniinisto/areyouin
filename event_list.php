@@ -42,14 +42,14 @@
 
 		//Echo players for the event
 		echo "<table border='1' id='atable2'>";
-		echo "<tr>";
-		echo "<td> <img width=\"20\" height=\"20\" src=\"images/" . $row['photourl'] . "\"></td>";
-		echo "<td>" . $row['name'] . "</td>";
-		if($row['areyouin'] == 0)
-			echo "<td>I'm OUT</td>";
-		else
-			echo "<td>I'm IN</td>";
-		echo "</tr>";
+			echo "<tr>";
+				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+				echo "<td>" . $row['name'] . "</td>";
+				if($row['areyouin'] == 0)
+					echo "<td>I'm OUT</td>";
+				else
+					echo "<td>I'm IN</td>";
+			echo "</tr>";
 		echo "</table>";		
 	}
 	
