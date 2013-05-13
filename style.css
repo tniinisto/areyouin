@@ -303,7 +303,7 @@ CONTENT
 }
 
 /* Event & Player data */
-#atable2 {
+/*#atable2 {
 	width: 100%;
 	table-layout: auto;
 	text-align: left;
@@ -325,7 +325,7 @@ CONTENT
 	text-align: left;
 	padding: 10px;
 	height: auto;
-}
+}*/
 
 /************************************************************************************
 SIDEBAR
