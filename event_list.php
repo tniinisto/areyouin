@@ -16,8 +16,8 @@
 	$result = mysql_query($sql);
 	
 	//Content header
-	$team = mysql_fetch_array($result);
-	echo "<h1 onClick=\"getEvents()\">Games set for " . $team['teamName'] . "</h1>";
+	//$team = mysql_fetch_array($result);
+	//echo "<h1 onClick=\"getEvents()\">Games set for " . $team['teamName'] . "</h1>";
 	
 	//Table header
 	echo "<table border='0' id='atable'>
@@ -28,14 +28,14 @@
 	</tr>
 	</table>";
 	
-	//Go through the first event & players
+	//Go through events & players
 	$event_check = 0;
 	while($row = mysql_fetch_array($result))
 	{
 		//Check when the event changes, then echo the event basic information
 		if($row['Events_eventID'] != $event_check)
 		{		
-			$event_check = $row['Events_eventID'];		
+			$event_check = $row['Events_eventID'];	
 			
 			echo "<table border='1' id='atable2'>";
 			echo "<tr>";
