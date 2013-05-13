@@ -286,7 +286,7 @@ CONTENT
 	font-weight: bold;
 }
 
-#atable th {
+#atable td th {
 	background-color: #6a6a6a;
 	font-size: 1.2em;
 	color: white;
@@ -295,12 +295,12 @@ CONTENT
 	height: auto;
 }
 
-#atable td {
+/*#atable td {
 	font-size: 1em;
 	text-align: left;
 	padding: 10px;
 	height: auto;
-}
+}*/
 
 /* Event & Player data */
 #atable2, #atable3 {
