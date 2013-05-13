@@ -55,7 +55,7 @@
 			echo "<td>I'm IN</td>";
 		echo "</tr>";
 		echo "</table>";		
-	}*/	
+	}
 	
 	
 	//Table header
