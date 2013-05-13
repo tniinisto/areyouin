@@ -16,9 +16,12 @@
 	$result = mysql_query($sql);
 	
 	//Content header
-	//$team = mysql_fetch_array($result);
-	//echo "<h1 onClick=\"getEvents()\">Games set for " . $team['teamName'] . "</h1>";
-	
+	$row = mysql_fetch_array($result);
+	echo "<h1 onClick=\"getEvents()\">Games set for " . $row['teamName'] . "</h1>";
+
+	//sql cursor move function, to index 0
+	mysql_data_seek($result , 0);	
+
 	//Table header
 	echo "<table border='0' id='atable'>
 	<tr>
@@ -58,9 +61,6 @@
 		echo "</tr>";
 		echo "</table>";		
 	}
-
-	//sql cursor move function
-	//mysql_data_seek($result , 0);
 	
 	mysql_close($con);
 	
