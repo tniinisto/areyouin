@@ -311,7 +311,7 @@ CONTENT
 }
 
 #atable2 th {
-	/*background-color: #6a6a6a;*/
+	background-color: #fff;
 	font-size: 1em;
 	color: black;
 	text-align: left;
@@ -320,6 +320,7 @@ CONTENT
 }
 
 #atable2 td {
+	background-color: #fff;
 	font-size: 1em;
 	text-align: left;
 	padding: 10px;
