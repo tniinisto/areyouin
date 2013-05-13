@@ -41,7 +41,7 @@
 		}
 
 		//Echo players for the event
-		echo "<table border='1' id='atable2'>";
+		echo "<table border='0' id='atable2'>";
 			echo "<tr>";
 				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td>" . $row['name'] . "</td>";
