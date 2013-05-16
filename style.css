@@ -240,7 +240,7 @@ MAIN NAVIGATION
 CONTENT
 *************************************************************************************/
 .content {
-	background: #fff;
+	/*background: #fff;*/
 	margin: 30px 0 30px;
 	padding: 20px 35px;
 	width: 600px;
@@ -257,6 +257,8 @@ CONTENT
 
 article
 {
+	width: 100%;
+	background: #fff;
 	border-style: solid;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
