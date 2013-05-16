@@ -56,7 +56,7 @@ function getEvents() {
 
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("atable").innerHTML = xmlhttp.responseText;
+			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
 		}
 	}
 
