@@ -257,9 +257,9 @@ CONTENT
 
 article
 {
-	width: 100%;
+	width: 90%;
 	background: #fff;
-	margin: 5px 20px 5px;
+	/*margin: 5px 20px 5px;*/
 	padding: 20px 35px;
 	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
