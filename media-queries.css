@@ -9,7 +9,7 @@ smaller than 980
 	}
 
 	/* content */
-	#content {
+	.content {
 		width: 60%;
 		padding: 3% 4%;
 	}
@@ -87,7 +87,7 @@ smaller than 650
 	}
 
 	/* content */
-	#content {
+	.content {
 		width: auto;
 		float: none;
 		margin: 20px 0;
