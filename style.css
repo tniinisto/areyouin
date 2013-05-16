@@ -257,6 +257,7 @@ CONTENT
 
 article
 {
+	width: 90%;
 	border-style: solid;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
