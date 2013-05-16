@@ -259,7 +259,8 @@ article
 {
 	width: 100%;
 	background: #fff;
-	border-style: solid;
+	padding: 5px;
+	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;	
