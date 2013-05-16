@@ -332,7 +332,7 @@ SIDEBAR
 *************************************************************************************/
 #sidebar {
 	width: 280px;
-	float: right;
+	float: top right;
 	margin: 30px 0 30px;
 }
 .widget {
