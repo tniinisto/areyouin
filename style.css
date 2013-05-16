@@ -260,7 +260,6 @@ CONTENT
 #content > div
 {
 	display: table-cell;
-	border: 1px;
 }
 
 /* post */
