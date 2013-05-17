@@ -328,6 +328,8 @@ article
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
+	position: relative;
+	top:20px;
 }
 
 .atable2 th {
