@@ -28,7 +28,7 @@
 			$event_check = $row['Events_eventID'];	
 			
 			echo "<article class=\"clearfix\">";
-			echo "<table border='0'";
+			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
 					echo "<th> Games at:" . $row['location'] . " </th>";
 					echo "<th> Starting:" . $row['startTime'] . " </th>";
@@ -38,7 +38,7 @@
 		}
 
 		//Echo players for the event
-		echo "<table border='0'>";
+		echo "<table border='0' class=\"atable\">";
 			echo "<tr>";
 				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td>" . $row['name'] . "</td>";

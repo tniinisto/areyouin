@@ -292,14 +292,14 @@ article
 }
 
 /* events table*/
-#atable {
+.atable {
 	width: 90%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
 }
 
-#atable th {
+.atable th {
 	background-color: #6a6a6a;
 	font-size: 1.2em;
 	color: white;
@@ -308,7 +308,7 @@ article
 	height: auto;
 }
 
-#atable td {
+.atable td {
 	font-size: 1em;
 	text-align: left;
 	padding: 10px;
@@ -316,14 +316,14 @@ article
 }
 
 /* Event & Player data */
-#atable2 {
+.atable2 {
 	width: 70%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
 }
 
-#atable2 th {
+.atable2 th {
 	background-color: #fff;
 	font-size: 1em;
 	color: black;
@@ -332,7 +332,7 @@ article
 	height: auto;
 }
 
-#atable2 td {
+.atable2 td {
 	background-color: #fff;
 	font-size: 1em;
 	text-align: left;
