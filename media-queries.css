@@ -88,10 +88,10 @@ smaller than 650
 
 	/* content */
 	.content {
-		width: 100%; /* why this works with the right align ??? */
+		width: 97%; /* why this works with the right align ??? */
 		float: none;
 		margin: 20px 0 0 0;
-		padding: 20px 10px 20px 0;
+		padding: 20px 0 20px 0;
 	}
 	
 	article {
