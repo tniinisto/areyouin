@@ -306,6 +306,11 @@ article
 	text-align: left;
 	padding: 10px;
 	height: auto;
+	
+}
+
+.atable th > a:link {
+	color: white;
 }
 
 .atable td {
