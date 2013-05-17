@@ -11,7 +11,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT * FROM players";
-	$sql = "select v.Events_eventID, l.name as location, e.startTime, e.endTime, p.name, p.photourl, v.areyouin, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID order by e.startTime asc, v.Events_eventID asc";
+	$sql = "select v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.name, p.photourl, v.areyouin, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID order by e.startTime asc, v.Events_eventID asc";
 	 	
 	$result = mysql_query($sql);
 	
@@ -30,12 +30,12 @@
 			echo "<article class=\"clearfix\">";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th> Games at:&nbsp" . $row['location'] . " </th>";
+					echo "<th> Games at:&nbsp" . "<a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "target=\"_blank\">" . $row['location'] . "<\a></th>";
 				echo "</tr>";
 			echo "</table>";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th> Time:&nbsp" . $row['startTime'] . "&nbsp-&nbsp " . $row['endTime'] . "/th>";
+					echo "<th> Time:&nbsp" . $row['startTime'] . "&nbsp-&nbsp" . $row['endTime'] . "</th>";
 				echo "</tr>";
 			echo "</table>";
 			
