@@ -135,16 +135,5 @@
 	
 	mysql_close($con);
 	
-	echo 	"<aside id=\"sidebar\">
-
-			<section class=\"widget\">
-				<h4 class=\"widgettitle\" onClick=\"getPlayers()\">Puonti Beach</h4>
-				<ul id=\"players_short\">
-				</ul>
-			</section>
-			<!-- /.widget -->
-					
-			</aside>";
-	
-  ?>
+?>
   
