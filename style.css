@@ -293,7 +293,7 @@ article
 
 /* events table*/
 .atable {
-	width: 95%;
+	width: 100%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
@@ -305,7 +305,7 @@ article
 	font-size: 1.2em;
 	color: white;
 	text-align: left;
-	padding: 10px 5px;
+	padding: 10px 10px;
 	height: auto;
 	
 }
