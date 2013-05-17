@@ -309,7 +309,7 @@ article
 	
 }
 
-.atable th > a:link {
+.atable a:link {
 	color: white;
 }
 
