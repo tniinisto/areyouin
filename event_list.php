@@ -30,11 +30,15 @@
 			echo "<article class=\"clearfix\">";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th> Games at:" . $row['location'] . " </th>";
-					echo "<th> Starting:" . $row['startTime'] . " </th>";
-					echo "<th> Ending:" . $row['endTime'] . " </th>";
+					echo "<th> Games at:&nbsp" . $row['location'] . " </th>";
 				echo "</tr>";
 			echo "</table>";
+			echo "<table border='0' class=\"atable\">";
+				echo "<tr>";
+					echo "<th> Time:&nbsp" . $row['startTime'] . "&nbsp-&nbsp " . $row['endTime'] . "/th>";
+				echo "</tr>";
+			echo "</table>";
+			
 		}
 
 		//Echo players for the event
