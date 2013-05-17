@@ -133,6 +133,10 @@ smaller than 480
 	/*#site-logo font{
 		font-size: 90%;
 	}*/
+
+	.content {
+		padding: 20px 0 20px 0;
+	}
 	
 	/* main nav */
 	#main-nav a {
