@@ -30,7 +30,7 @@
 			echo "<article class=\"clearfix\">";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th> Games at:&nbsp" . "<a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "<\a></th>";
+					echo "<th> Games at:&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
 				echo "</tr>";
 			echo "</table>";
 			echo "<table border='0' class=\"atable\">";
