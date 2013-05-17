@@ -43,14 +43,14 @@
 			echo "</table>";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th>From: " . $res1 . " to " . $res2 . "</th>";
+					echo "<th>From " . $res1 . " to " . $res2 . "</th>";
 				echo "</tr>";
 			echo "</table>";
 			
 		}
 
 		//Echo players for the event
-		echo "<table border='0' class=\"atable\">";
+		echo "<table border='0' class=\"atable2\">";
 			echo "<tr>";
 				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td>" . $row['name'] . "</td>";
