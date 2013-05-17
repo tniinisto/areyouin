@@ -35,7 +35,7 @@
 			echo "</table>";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-				    $day = date("l", $row['startTime']);		
+				    $day = date("l", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));		
 					$res1 = substr($row['startTime'], 0, -3);
 					$res2 = substr($row['endTime'], 11, 5);
 					echo "<th> Time:&nbsp" . $res1 . "&nbsp-&nbsp" . $res2 . "&nbsp" . $day . "</th>";
