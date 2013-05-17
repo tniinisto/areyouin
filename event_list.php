@@ -44,6 +44,9 @@
 			
 			//Empty table as divider between event data & players
 			echo "<table border='0' class=\"atable2\" visibility=\"hidden\">";
+				echo "<tr>";
+					echo "<th>test</th>";
+				echo "</tr>";
 			echo "</table>";
 			
 			echo "<table border='0' class=\"atable\">";
