@@ -298,10 +298,6 @@ article
 	text-align: left;
 	font-weight: bold;
 	margin: -10px 0;
-	/* rounded corner */
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;	
 }
 
 .atable th {
@@ -311,7 +307,10 @@ article
 	text-align: left;
 	padding: 10px 10px;
 	height: auto;
-	
+	/* rounded corner */
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;		
 }
 
 .atable  a {
