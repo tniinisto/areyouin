@@ -68,7 +68,7 @@ function getEvents() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "event_list.php", false);
+	xmlhttp.open("GET", "event_list.php", true);
 	xmlhttp.send();
 }
 
