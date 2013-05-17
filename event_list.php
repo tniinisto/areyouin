@@ -38,7 +38,7 @@
 				    $day = date("l", $row['startTime']);		
 					$res1 = substr($row['startTime'], 0, -3);
 					$res2 = substr($row['endTime'], 11, 5);
-					echo "<th> Time:&nbsp" . $res1 . "&nbsp-&nbsp" . $res2 . $day "</th>";
+					echo "<th> Time:&nbsp" . $res1 . "&nbsp-&nbsp" . $res2 . "&nbsp" . $day . "</th>";
 				echo "</tr>";
 			echo "</table>";			
 		}
