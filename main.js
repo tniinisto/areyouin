@@ -1,3 +1,10 @@
+//Init function for the startup
+function init() {
+	getPlayers();
+	getEvents();
+}
+
+
 //Get full player table data
 function showUser(str) {
 	//alert("showUser() gets called.");
