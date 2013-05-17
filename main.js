@@ -1,7 +1,7 @@
 //Init function for the startup
 function init() {
-	getPlayers();
 	getEvents();
+	getPlayers();
 }
 
 
