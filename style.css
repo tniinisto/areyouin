@@ -310,7 +310,8 @@ article
 }
 
 .atable  a {
-	color: white;
+	color: #666;
+	text-decoration: underline;	
 }
 
 .atable td {
