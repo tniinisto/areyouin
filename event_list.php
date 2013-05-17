@@ -38,9 +38,15 @@
 				    $day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));		
 					$res1 = substr($row['startTime'], 11, 5);
 					$res2 = substr($row['endTime'], 11, 5);
-					echo "<th>On&nbsp" . $day . ", at&nbsp" . $res1 . "&nbsp-&nbsp" . $res2 . "</th>";
+					echo "<th>On " . $day . "</th>";
 				echo "</tr>";
-			echo "</table>";			
+			echo "</table>";
+			echo "<table border='0' class=\"atable\">";
+				echo "<tr>";
+					echo "<th>From: " . $res1 . " to " . $res2 . "</th>";
+				echo "</tr>";
+			echo "</table>";
+			
 		}
 
 		//Echo players for the event
