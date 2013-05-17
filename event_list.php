@@ -41,6 +41,11 @@
 					echo "<th>On " . $day . "</th>";
 				echo "</tr>";
 			echo "</table>";
+			
+			//Empty table as divider between event data & players
+			echo "<table border='0' class=\"atable2\" visibility=\"hidden\">";
+			echo "</table>";
+			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
 					echo "<th>From " . $res1 . " to " . $res2 . "</th>";
