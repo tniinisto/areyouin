@@ -15,6 +15,42 @@
 	 	
 	$result = mysql_query($sql);
 	
+	//Go through events & players
+	$event_check = 0;
+	while($row = mysql_fetch_array($result))
+	{
+		//Check when the event changes, then echo the event basic information
+		if($row['Events_eventID'] != $event_check)
+		{		
+			if($event_check != 0)
+				echo "</article>";
+				
+			$event_check = $row['Events_eventID'];	
+			
+			echo "<article class=\"clearfix\">";
+			echo "<table border='0'";
+				echo "<tr>";
+					echo "<th> Games at:" . $row['location'] . " </th>";
+					echo "<th> Starting:" . $row['startTime'] . " </th>";
+					echo "<th> Ending:" . $row['endTime'] . " </th>";
+				echo "</tr>";
+			echo "</table>";
+		}
+
+		//Echo players for the event
+		echo "<table border='0'>";
+			echo "<tr>";
+				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+				echo "<td>" . $row['name'] . "</td>";
+				if($row['areyouin'] == 0)
+					echo "<td>I'm OUT</td>";
+				else
+					echo "<td>I'm IN</td>";
+			echo "</tr>";
+		echo "</table>";		
+	}	
+	
+	/*
 	//Content header
 	$row = mysql_fetch_array($result);
 	echo "<h1 onClick=\"getEvents()\">Games set for " . $row['teamName'] . "</h1>";
@@ -51,7 +87,7 @@
 					echo "<td>I'm IN</td>";
 			echo "</tr>";
 		echo "</table>";		
-	}
+	}*/
 	
 	
 	//Table header
