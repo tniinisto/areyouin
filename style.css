@@ -241,9 +241,9 @@ CONTENT
 *************************************************************************************/
 .content {
 	/*background: #fff;*/
-	margin: 20px 0 10px;
+	margin: 20px 0 0;
 	/*padding: 10px 0;*/
-	width: 600px;
+	width: 620px;
 	float: left;
 	/* rounded corner */
 	-webkit-border-radius: 8px;
