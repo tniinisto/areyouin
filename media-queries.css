@@ -9,10 +9,10 @@ smaller than 980
 	}
 
 	/* content */
-	/*.content {
+	.content {
 		width: 60%;
-		padding: 3% 4%;
-	}*/
+		/*padding: 3% 4%;*/
+	}
 
 	/* sidebar */
 	#sidebar {
