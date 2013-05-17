@@ -35,7 +35,9 @@
 			echo "</table>";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th> Time:&nbsp" . $row['startTime'] . "&nbsp-&nbsp" . $row['endTime'] . "</th>";
+					$res1 = substr($row('startTime'], 16);
+					$res2 = substr($row['endTime'], -8);
+					echo "<th> Time:&nbsp" . $res1 . "&nbsp-&nbsp" . $res . "</th>";
 				echo "</tr>";
 			echo "</table>";
 			
