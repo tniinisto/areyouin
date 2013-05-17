@@ -261,7 +261,7 @@ article
 	width: 100%;
 	background: #fff;
 	margin: 0 0 20px;
-	padding: 10px 10px;
+	padding: 20px 10px;
 	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -297,7 +297,7 @@ article
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
-	margin: 5px 0 0;
+	margin: -5px 0 0 0;
 }
 
 .atable th {
