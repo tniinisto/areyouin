@@ -9,10 +9,10 @@ smaller than 980
 	}
 
 	/* content */
-	.content {
+	/*.content {
 		width: 60%;
 		padding: 3% 4%;
-	}
+	}*/
 
 	/* sidebar */
 	#sidebar {
@@ -90,7 +90,7 @@ smaller than 650
 	.content {
 		width: auto;
 		float: none;
-		margin: 20px 0;
+		/*margin: 20px 0;*/
 	}
 
 	/* sidebar */
