@@ -47,7 +47,7 @@ function getPlayers() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "players_short.php", true);
+	xmlhttp.open("GET", "players_short.php", false);
 	xmlhttp.send();
 }
 
@@ -68,7 +68,7 @@ function getEvents() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "event_list.php", true);
+	xmlhttp.open("GET", "event_list.php", false);
 	xmlhttp.send();
 }
 
