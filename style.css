@@ -293,11 +293,11 @@ article
 
 /* events table*/
 .atable {
-	width: 90%;
+	width: 95%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
-	margin: -5px 0 0 0;
+	margin: -5px 0;
 }
 
 .atable th {
