@@ -364,6 +364,13 @@ td.col3 {
 	text-align: right;		
 }
 
+td.out {
+	background-color: red;
+}
+
+td.in {
+	background-color: green;
+}
 
 /************************************************************************************
 SIDEBAR
