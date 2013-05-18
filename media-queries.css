@@ -13,6 +13,12 @@ smaller than 980
 		width: 65%;
 		/*padding: 3% 4%;*/
 	}
+	
+	article {
+		/*padding: 3% 4%;*/
+		padding: 5% 2%;
+		/*margin: 0 30px 10px 0;*/
+	}	
 
 	/* sidebar */
 	#sidebar {
