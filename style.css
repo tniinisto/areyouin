@@ -364,11 +364,11 @@ td.col3 {
 	text-align: right;		
 }
 
-td.col3.out {
+td.out {
 	background-color: red;
 }
 
-td.col3.in {
+td.in {
 	background-color: green;
 }
 
