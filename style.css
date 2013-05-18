@@ -329,6 +329,7 @@ article
 .atable2 {
 	width: 260px;
 	table-layout: fixed;
+	text-align: left;	
 	font-weight: bold;
 	position: relative;
 	top:10px;
@@ -348,7 +349,6 @@ article
 	font-size: 1em;
 	padding: 10px 3px;
 	height: auto;
-	text-align: left;
 }
 
 /************************************************************************************
