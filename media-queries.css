@@ -90,7 +90,7 @@ smaller than 650
 	.content {
 		width: 97%; /* why this works with the right align ??? */
 		float: none;
-		margin: 20px 0 0 0;
+		margin: 10px 0 0 0;
 		padding: 20px 0 20px 0;
 	}
 	
