@@ -63,9 +63,9 @@
 				echo "<td class=\"col1\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td class=\"col2\">" . $row['name'] . "</td>";
 				if($row['areyouin'] == 0)
-					echo "<td class=\"col3\">OUT</td>";
+					echo "<td class=\"col3\"><font color=\"red\">OUT</font></td>";
 				else
-					echo "<td class=\"col3\">IN</td>";
+					echo "<td class=\"col3\"><font color=\"green\">IN</font></td>";
 			echo "</tr>";
 		echo "</table>";		
 	}	
