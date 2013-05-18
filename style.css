@@ -327,9 +327,9 @@ article
 
 /* Event & Player data */
 .atable2 {
-	width: 70%;
-	table-layout: auto;
-	text-align: left;
+	width: 60%;
+	table-layout: fixed;
+	text-align: left;	
 	font-weight: bold;
 	position: relative;
 	top:10px;
@@ -340,17 +340,17 @@ article
 	background-color: #fff;
 	font-size: 1em;
 	color: black;
-	text-align: left;
 	padding: 10px;
 	height: auto;
+	width: 20%;	
 }
 
 .atable2 td {
 	background-color: #fff;
 	font-size: 1em;
-	text-align: left;
 	padding: 10px;
 	height: auto;
+	width: 20%;
 }
 
 /************************************************************************************
