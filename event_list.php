@@ -60,12 +60,12 @@
 		//Echo players for the event
 		echo "<table border='1' class=\"atable2\">";
 			echo "<tr>";
-				echo "<td><div style=\"width: 40px\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></div></td>";
-				echo "<td><div style=\"width: 200px\">" . $row['name'] . "</div></td>";
+				echo "<td><div style=\"width: 10%\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></div></td>";
+				echo "<td><div style=\"width: 40%\">" . $row['name'] . "</div></td>";
 				if($row['areyouin'] == 0)
-					echo "<td><div style=\"width: 20px\">OUT</div></td>";
+					echo "<td><div style=\"width: 10%\">OUT</div></td>";
 				else
-					echo "<td><div style=\"width: 20px\">IN</div></td>";
+					echo "<td><div style=\"width: 10%\">IN</div></td>";
 			echo "</tr>";
 		echo "</table>";		
 	}	
