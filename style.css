@@ -327,13 +327,13 @@ article
 
 /* Event & Player data */
 .atable2 {
-	width: 60%;
+	width: 50%;
 	table-layout: fixed;
 	text-align: left;	
 	font-weight: bold;
 	position: relative;
 	top:10px;
-	margin: -12px 0;		
+	margin: -14px 0;		
 }
 
 .atable2 th {
@@ -342,7 +342,6 @@ article
 	color: black;
 	padding: 10px;
 	height: auto;
-	width: 20%;	
 }
 
 .atable2 td {
@@ -350,7 +349,6 @@ article
 	font-size: 1em;
 	padding: 10px;
 	height: auto;
-	width: 20%;
 }
 
 /************************************************************************************
