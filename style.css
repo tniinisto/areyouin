@@ -351,16 +351,17 @@ article
 	height: auto;
 }
 
-.col1 {
-	width: 8%
+td.col1 {
+	width: 8%;
 }
 
-.col2 {
-	width: 72%
+td.col2 {
+	width: 72%;
 }
 
-.col3 {
-	width: 20%
+td.col3 {
+	width: 20%;
+	text-align: right;		
 }
 
 
