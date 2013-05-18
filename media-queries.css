@@ -91,7 +91,7 @@ smaller than 650
 		width: 97%; /* why this works with the right align ??? */
 		float: none;
 		margin: 10px 0 0 0;
-		padding: 20px 0 20px 0;
+		padding: 10px 0 20px 0;
 	}
 	
 	article {
