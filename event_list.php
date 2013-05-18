@@ -65,7 +65,7 @@
 				if($row['areyouin'] == 0)
 					echo "<td class=\"col3\" bgcolor=\"red\">OUT</td>";
 				else
-					echo "<td class=\"col3\"  bgcolor=\"green\">IN</td>";
+					echo "<td class=\"col3\" bgcolor=\"green\">IN</td>";
 			echo "</tr>";
 		echo "</table>";		
 	}	
