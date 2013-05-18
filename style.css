@@ -351,15 +351,15 @@ article
 	height: auto;
 }
 
-.atable2 td  .col1 {
+td .col1 {
 	width: 10%
 }
 
-.atable2 td  .col2 {
+td .col2 {
 	width: 40%
 }
 
-.atable2 td  .col3 {
+td .col3 {
 	width: 10%
 }
 
