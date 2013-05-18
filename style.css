@@ -327,7 +327,7 @@ article
 
 /* Event & Player data */
 .atable2 {
-	width: 60%;
+	width: 100%;
 	table-layout: fixed;
 	text-align: left;	
 	font-weight: bold;
@@ -352,15 +352,15 @@ article
 }
 
 .col1 {
-	width: 10%
+	width: 8%
 }
 
 .col2 {
-	width: 40%
+	width: 72%
 }
 
 .col3 {
-	width: 10%
+	width: 20%
 }
 
 
