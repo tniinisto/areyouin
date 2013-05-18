@@ -351,15 +351,15 @@ article
 	height: auto;
 }
 
-td .col1 {
+.col1 {
 	width: 10%
 }
 
-td .col2 {
+.col2 {
 	width: 40%
 }
 
-td .col3 {
+.col3 {
 	width: 10%
 }
 
