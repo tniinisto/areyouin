@@ -143,6 +143,19 @@ smaller than 480
 		/*margin: 0 30px 10px 0;*/
 	}
 	
+	td.col1 {
+		width: 15%;
+	}
+
+	td.col2 {
+		width: 65%;
+	}
+
+	td.col3 {
+		width: 15%;
+		text-align: right;		
+	}	
+	
 	/*#site-logo font{
 		font-size: 90%;
 	}*/
