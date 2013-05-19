@@ -44,8 +44,9 @@
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li>
-				<li id="linkteam"><a href="#">Team</a></li>
-				<li id="linkmap"><a href="#">Map</a> </li>
+				<li id="linkplayers"><a href="#">Players</a></li>
+				<li id="linkstats"><a href="#">Statistics</a> </li>
+				<li id="linksettings"><a href="#">Settings</a> </li>				
 				<!--<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>-->
 			</ul>
 		</nav>
@@ -56,21 +57,9 @@
 	<!-- #content --> 
 	
 	<div id="event_content_id" class="content" onClick="getEvents()">
-
 		<article class="clearfix">
 			<h2 onClick="getEvents()">Games</h2>
 		</article>
-
-		<!--	
-		<article class="clearfix">
-			<h2>Game 2</h2>
-		</article>
-		
-		<article class="clearfix">
-			<h2>Game 3</h2>
-		</article>
-		-->
-
 	</div>
 	
 	<!-- /#content --> 
@@ -117,19 +106,19 @@
 			$("#linkgames").addClass("current");
 		});
 		
-		$("#linkteam").click(function(event){
+		$("#linkplayers").click(function(event){
 			$("#main-nav").children().removeClass("current");
-			$("#linkteam").addClass("current");
+			$("#linkplayers").addClass("current");
 		});
 		
-		$("#linkmap").click(function(event){
+		$("#linkstats").click(function(event){
 			$("#main-nav").children().removeClass("current");
-			$("#linkmap").addClass("current");
+			$("#linkstats").addClass("current");
 		});
 
-		$("#linkhistory").click(function(event){
+		$("#linksettings").click(function(event){
 			$("#main-nav").children().removeClass("current");
-			$("#linkhistory").addClass("current");
+			$("#linksettings").addClass("current");
 		});		
 		<!-- /set links background -->
 
