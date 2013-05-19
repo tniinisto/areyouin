@@ -43,14 +43,14 @@
 
 		<form id="loginform" <!--action="http://areyouin.azurewebsites.net/index.html#"-->
 			<p> <font color="white" size="3">
-				<font color="white">Login id:</font><input type="text" id="login" placeholder="">
+				<font color="white">Login id:</font><input type="text" id="login" name="loginname" placeholder="">
 				<font color="white">Password:</font><input type="password" id="password" placeholder="">
 				<form id="teamradio">
 					<p>
 						<!--<input class="radioclass" type="radio" name="team" value="1" checked><b> Puonti Beach</b><br>
 						<input class="radioclass" type="radio" name="team" value="2"><b> Sekapelit</b><br>
 						<input class="radioclass" type="radio" name="team" value="3"><b> Junnut</b><br><br>-->
-						<input type="button" value="Login" id="loginbutton" onclick = "OnSubmit()">
+						<input type="submit" value="Login" name="loginbutton" onclick = "OnSubmit()">
 						<input type="button" value="Recall" onclick="show_alert()">						
 					</p>
 				</form>
@@ -67,8 +67,7 @@
 	//This function is triggered when the user clicks the Submit button
 
 	function OnSubmit() {
-
-		var username = document.loginform.login.value; //captures the name the user enters
+		var username = document.loginform.loginname.value; //captures the name the user enters
 		localStorage.username = usermame; //passes the value to the local storage object
 
 	}
