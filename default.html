@@ -41,7 +41,7 @@
 			<!-- <h2 id="site-description">Welcome to set your games!</h2> -->
 		</hgroup>
 
-		<form id="loginform" <!--action="http://areyouin.azurewebsites.net/index.html#"-->
+		<form id="loginform" name="loginfor" <!--action="http://areyouin.azurewebsites.net/index.html#"-->
 			<p> <font color="white" size="3">
 				<font color="white">Login id:</font><input type="text" id="login" name="loginName" placeholder="">
 				<font color="white">Password:</font><input type="password" id="password" placeholder="">
@@ -67,7 +67,7 @@
 	//This function is triggered when the user clicks the Submit button
 
 	function OnSubmit() {
-		var user = document.loginform.loginName.value; //captures the name the user enters
+		var user = document.loginfor.loginName.value; //captures the name the user enters
 		localStorage.username = user; //passes the value to the local storage object
 
 	}
