@@ -50,7 +50,7 @@
 						<!--<input class="radioclass" type="radio" name="team" value="1" checked><b> Puonti Beach</b><br>
 						<input class="radioclass" type="radio" name="team" value="2"><b> Sekapelit</b><br>
 						<input class="radioclass" type="radio" name="team" value="3"><b> Junnut</b><br><br>-->
-						<input type="submit" value="Login" name="loginbutton" onclick = "OnSubmit()">
+						<input type="button" value="Login" name="loginbutton" onclick = "OnSubmit()">
 						<input type="button" value="Recall" onclick="show_alert()">						
 					</p>
 				</form>
@@ -67,8 +67,8 @@
 	//This function is triggered when the user clicks the Submit button
 
 	function OnSubmit() {
-		var username = document.loginform.loginname.value; //captures the name the user enters
-		localStorage.username = usermame; //passes the value to the local storage object
+		var user = document.loginform.loginName.value; //captures the name the user enters
+		localStorage.username = user; //passes the value to the local storage object
 
 	}
 
