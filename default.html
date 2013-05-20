@@ -41,9 +41,9 @@
 			<!-- <h2 id="site-description">Welcome to set your games!</h2> -->
 		</hgroup>
 
-		<form id="loginform" name="loginfor" <!--action="http://areyouin.azurewebsites.net/index.html#"-->
+		<form id="loginform" name="loginform" <!--action="http://areyouin.azurewebsites.net/index.html#"-->
 			<p> <font color="white" size="3">
-				<font color="white">Login id:</font><input type="text" id="login" name="loginName" placeholder="">
+				<font color="white">Login id:</font><input type="text" id="login" name="ayiloginName" placeholder="">
 				<font color="white">Password:</font><input type="password" id="password" placeholder="">
 				<form id="teamradio">
 					<p>
@@ -61,22 +61,18 @@
 	</header>
 	<!-- /#header -->
 		
-
 	<script>
 
-	//This function is triggered when the user clicks the Submit button
+		//This function is triggered when the user clicks the Submit button
+		function OnSubmit() {
+			var user = document.loginform.ayiloginName.value; //captures the name the user enters
+			localStorage.ayiusername = user; //passes the value to the local storage object
+		}
 
-	function OnSubmit() {
-		var user = document.loginfor.loginName.value; //captures the name the user enters
-		localStorage.username = user; //passes the value to the local storage object
-
-	}
-
-	//This function is triggered when the user clicks the Recall button
-
-	function show_alert() {
-		alert(localStorage.username); //returns the value stored in the local storage
-	}
+		//This function is triggered when the user clicks the Recall button
+		function show_alert() {
+			alert(localStorage.ayiusername); //returns the value stored in the local storage
+		}
 
 	</script>
 		
