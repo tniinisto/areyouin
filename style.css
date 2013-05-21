@@ -83,6 +83,7 @@ h5 {
 }
 h6 {
 	font-size: 1em;
+	color: white;
 }
 
 /* reset webkit search input styles */
@@ -108,7 +109,7 @@ HEADER
 *************************************************************************************/
 #header {
 	position: relative;
-	height: 160px;
+	height: 100px;
 }
 
 /* site logo */
