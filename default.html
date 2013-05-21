@@ -43,7 +43,7 @@
 			<!-- <h2 id="site-description">Welcome to set your games!</h2> -->
 		</hgroup>
 
-		<form id="loginform" name="loginform" action="login(login.ayiloginName.value)"
+		<form id="loginform" name="loginform" <!--action="login(login.ayiloginName.value)-->"
 			<p> <font color="white" size="3">
 				<font color="white">Login id:</font> <input type="text" id="login" name="ayiloginName" placeholder="" required>
 				<font color="white">Password:</font> <input type="password" id="password" placeholder="" required>
@@ -68,6 +68,9 @@
 		//This function is triggered when the user clicks the Submit button
 		function OnSubmit() {
 			var user = document.loginform.ayiloginName.value; //captures the name the user enters
+			
+			login(user, "passu"); //Calls main.js for PHP&DB check
+			
 			localStorage.ayiusername = user; //passes the value to the local storage object
 		}
 
