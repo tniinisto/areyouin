@@ -204,5 +204,12 @@ smaller than 480
 		width: 30px;
 		height: 30px;
 	}
+	
+	h6 {
+		font-size: 1em;
+		color: white;
+		line-height: 1em;
+		margin: 0 0 .4em;	
+	}	
 }
 
