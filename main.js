@@ -1,4 +1,10 @@
-//Init function for the startup
+
+//login function
+function login(lname, pass) {
+	alert("login called with name: " + lname);
+}
+
+//Init function for the #1 screen startup
 function init() {
 	getEvents();
 	getPlayers();
