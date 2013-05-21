@@ -16,11 +16,6 @@ $tbl_name="members"; // Table name*/
 
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
-// Connect to server and select databse.
-/*mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
-*/
-
 	// username and password sent from form
 	$myusername=$_POST['ayiloginName'];
 	$mypassword=$_POST['ayipassword'];
@@ -48,4 +43,6 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	else {
 		echo "<h1> Wrong Username or Password </h1>";
 	}
+	
+	mysql_close($con);	
 ?>
