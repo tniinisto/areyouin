@@ -40,12 +40,12 @@
 	<header id="header">
 
 		<hgroup>
-			<!--<h1 id="site-logo"><a href="">A'YouIN</a></h1>-->
+			<h1 id="site-logo"><a href="">A'YouIN</a></h1>
 			<!--<h2 id="site-description">Welcome</h2>-->
 			<script> 
-				var user = gup('username');
-				document.write("<h1 id='site-logo'>A'YouIN</h1>");
-				//document.write("<h2> Welcome: " + user + "</h2>");
+				//document.write("<h1 id='site-logo'>A'YouIN</h1>");
+				var user = gup('username');			
+				document.write("<h4> Welcome: " + user + "</h4>");
 			</script>
 		</hgroup>
 
@@ -53,8 +53,8 @@
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li>
 				<li id="linkprofile"><a href="#">Profile</a></li>
-				<li id="linkstats"><a href="#">Statistics</a> </li>
-				<li id="linksettings" onClick="alert(localStorage.ayiusername)"><a href="#">Settings</a> </li>				
+				<!--<li id="linkstats"><a href="#">Statistics</a> </li>-->
+				<!--<li id="linksettings" onClick="alert(localStorage.ayiusername)"><a href="#">Settings</a> </li>-->
 				<!--<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>-->
 			</ul>
 		</nav>
