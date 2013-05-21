@@ -40,12 +40,17 @@
 	<header id="header">
 
 		<hgroup>
-			<h1 id="site-logo"><a href="">A'YouIN</a></h1>
+			<!--<h1 id="site-logo"><a href="">A'YouIN</a></h1>-->
 			<!--<h2 id="site-description">Welcome</h2>-->
+			<h1 id="site-logo"></h1>
+			<h2 id="user-login"></h2>
 			<script> 
 				//document.write("<h1 id='site-logo'>A'YouIN</h1>");
 				var user = gup('username');			
-				document.write("<h4> Welcome: " + user + "</h4>");
+				document.getElementById("site-logo").innerHTML="A'YouIN";
+				document.getElementById("user-login").innerHTML="Welcome: " + user;
+				
+				//document.write("<h4> Welcome: " + user + "</h4>");
 			</script>
 		</hgroup>
 
