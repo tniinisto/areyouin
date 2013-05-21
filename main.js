@@ -4,7 +4,7 @@ function login(lname, pass) {
 	alert("login called with name&pass: " + lname + " & " + pass);
 }
 
-//Init function for the #1 screen startup
+//Init function for the screen startup
 function init() {
 	getEvents();
 	getPlayers();

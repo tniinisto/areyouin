@@ -40,10 +40,10 @@ mysql_select_db("$db_name")or die("cannot select DB");
 	// If result matched $myusername and $mypassword, table row must be 1 row
 
 	if($count==1){
-		// Register $myusername, $mypassword and redirect to file "login_success.php"
+		// Register $myusername, $mypassword and redirect to file "index.html"
 		session_register("myusername");
 		session_register("mypassword");
-		header("location:index.html");
+		header("location:index.html?username=$myusername");
 	}
 	else {
 		echo "<h1> Wrong Username or Password </h1>";
