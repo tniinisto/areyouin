@@ -47,7 +47,7 @@
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li>
-				<!--<li id="linkplayers"><a href="#">Players</a></li>-->
+				<li id="linkprofile"><a href="#">Profile</a></li>
 				<li id="linkstats"><a href="#">Statistics</a> </li>
 				<li id="linksettings" onClick="alert(localStorage.username)"><a href="#">Settings</a> </li>				
 				<!--<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>-->
@@ -109,10 +109,10 @@
 			$("#linkgames").addClass("current");
 		});
 		
-		/*$("#linkplayers").click(function(event){
+		$("#linkprofile").click(function(event){
 			$("#main-nav").children().removeClass("current");
-			$("#linkplayers").addClass("current");
-		});*/
+			$("#linkprofile").addClass("current");
+		});
 		
 		$("#linkstats").click(function(event){
 			$("#main-nav").children().removeClass("current");
