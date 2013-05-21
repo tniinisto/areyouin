@@ -46,6 +46,6 @@ mysql_select_db("$db_name")or die("cannot select DB");
 		header("location:index.html");
 	}
 	else {
-		echo "Wrong Username or Password";
+		echo "<h1> Wrong Username or Password </h1>";
 	}
 ?>
