@@ -113,8 +113,9 @@ HEADER
 
 /* site logo */
 #site-logo {
-	position: absolute;
-	top: 10px;
+	/*position: absolute;
+	top: 10px;*/
+	color: white;
 }
 #site-logo a {
 	font: bold 30px/100% Arial, Helvetica, sans-serif;
