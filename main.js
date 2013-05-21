@@ -1,7 +1,7 @@
 
 //login function
 function login(lname, pass) {
-	alert("login called with name: " + lname);
+	alert("login called with name&pass: " + lname + "," + pass);
 }
 
 //Init function for the #1 screen startup
