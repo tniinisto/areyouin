@@ -61,7 +61,7 @@ li {
 /* headings */
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.4em;
-	margin: 20px 0 .4em;
+	margin: 20px 0 .2em;
 	color: #000;
 }
 h1 {
@@ -83,7 +83,6 @@ h5 {
 }
 h6 {
 	font-size: 1em;
-	float: top;
 	color: white;
 }
 
@@ -110,7 +109,7 @@ HEADER
 *************************************************************************************/
 #header {
 	position: relative;
-	height: 100px;
+	height: 120px;
 }
 
 /* site logo */
