@@ -77,7 +77,7 @@ function getEvents(str) {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "event_list.php?teamid=" + str, true);
+	xmlhttp.open("GET", "event_list.php?teamid=" + str, false);
 	xmlhttp.send();
 }
 
