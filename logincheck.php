@@ -39,7 +39,7 @@ $tbl_name="members"; // Table name*/
 		//session_register("myusername");
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
-		header("location:index.html?userid=" . $row[playerID] . "&username=$myusername");
+		header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
 	}
 	else {
 		echo "<h1> Wrong Username or Password </h1>";
