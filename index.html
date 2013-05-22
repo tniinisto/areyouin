@@ -67,6 +67,13 @@
 		</article>
 	</div>
 	
+	<div id="team_content_id" class="content noshow">
+		<article class="clearfix">
+			<h2 onClick="getPlayers()">Games</h2>
+		    <div id="players_short" </div>
+		</article>
+	</div>
+	
 	<!-- /#content --> 
 
 	<!-- #sidebar -->
@@ -144,12 +151,12 @@
 		if($("#linkgames").hasClass('current')) {
 			//alert("games current");		
 			//$("#playerwidget").addClass("noshow");
-			$("#event_content_id").removeClass("noshow");
+			$("#team_content_id").removeClass("noshow");
 		}
 		if($("#linkteam").hasClass('current')) {
 			//alert("team current");
 			$("#playerwidget").removeClass("noshow");
-			$("#event_content_id").addClass("noshow");
+			$("#team_content_id").addClass("noshow");
 		}	
 	});
 	
