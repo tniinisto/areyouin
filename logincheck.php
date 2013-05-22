@@ -1,12 +1,6 @@
 <?php
 
-/*$host="localhost"; // Host name
-$username=""; // Mysql username
-$password=""; // Mysql password
-$db_name="test"; // Database name
-$tbl_name="members"; // Table name*/
-
-	$q=$_GET["q"];
+	//$q=$_GET["q"];
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
