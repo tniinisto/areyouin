@@ -36,8 +36,8 @@ $tbl_name="members"; // Table name*/
 
 	if($count==1){
 		// Register $myusername, $mypassword and redirect to file "index.html"
-		session_register("myusername");
-		session_register("mypassword");
+		//session_register("myusername");
+		//session_register("mypassword");
 		header("location:index.html?username=$myusername");
 	}
 	else {
