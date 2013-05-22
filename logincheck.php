@@ -26,19 +26,20 @@ $tbl_name="members"; // Table name*/
 	$myusername = mysql_real_escape_string($myusername);
 	$mypassword = mysql_real_escape_string($mypassword);
 
-	$sql="SELECT * FROM players WHERE name='$myusername' and password='$mypassword'";
+	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mypassword'";
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName FROM areyouin.players p, playerteam m, team t where name = '$myusername' and password = '$mypassword' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid";
+
 	$result=mysql_query($sql);
 
 	// Mysql_num_row is counting table row
 	$count=mysql_num_rows($result);
 
-	// If result matched $myusername and $mypassword, table row must be 1 row
-
-	if($count==1){
+	if($count>1){
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
-		header("location:index.html?username=$myusername");
+		$row = mysql_fetch_array($result);
+		header("location:index.html?userid=" . $row[playerID] . "&username=$myusername");
 	}
 	else {
 		echo "<h1> Wrong Username or Password </h1>";
