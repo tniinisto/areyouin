@@ -78,7 +78,7 @@
 		
 	<aside id="sidebar">
 
-		<section class="widget">
+		<section id="playerwidget" class="widget" visibility="hidden">
 			<h2 class="widgettitle" onClick="getPlayers()">Players</h2>
 			<ul id="players_short">
 			</ul>
@@ -133,12 +133,24 @@
 			$("#linksettings").addClass("current");
 		});*/		
 		<!-- /set navi links background -->
-
-		getPlayers();			
+			
 		getEvents(gup('teamid'));
-		
-		//$("#linkgames").trigger('click'); //Hide the address bar from view
+		//getPlayers();	
 	});
+	
+	$("main-nav").onClick() {
+		if($("#linkgames").hasClass('current') {
+			getEvents(gup('teamid'));
+			$("playerwidget").attr("visibility", "hidden");
+			$("event_widget_id").attr("visibility", "visible");
+
+		}
+		if($("#linkgames").hasClass('current') {
+			getPlayers();
+			$("playerwidget").attr("visibility", "visible");
+			$("event_widget_id").attr("visibility", "hidden");
+		}	
+	}
 	
 </script>
 <!-- /scripts -->
