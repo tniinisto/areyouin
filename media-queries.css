@@ -23,6 +23,7 @@ smaller than 980
 	/* sidebar */
 	#sidebar {
 		width: 30%;
+		float: right;
 	}
 	#sidebar .widget {
 		padding: 8% 7%;
