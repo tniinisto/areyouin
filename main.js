@@ -1,8 +1,8 @@
 
 //login function
-function login(lname, pass) {
+/*function login(lname, pass) {
 	alert("login called with name&pass: " + lname + " & " + pass);
-}
+}*/
 
 //Init function for the screen startup
 function init() {
@@ -57,9 +57,12 @@ function getPlayers() {
 	xmlhttp.send();
 }
 
-//Get events with players
-function getEvents() {
-	
+//Get events with players for the team
+function getEvents(str) {
+	if (str == "") {
+		document.getElementById("txtHint").innerHTML = "";
+		return;
+	}	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -74,7 +77,7 @@ function getEvents() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "event_list.php", true);
+	xmlhttp.open("GET", "event_list.php?teamid=" + str, true);
 	xmlhttp.send();
 }
 
