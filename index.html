@@ -78,7 +78,7 @@
 		
 	<aside id="sidebar">
 
-		<section id="playerwidget" class="widget" visibility="hidden">
+		<section id="playerwidget" class="widget noshow">
 			<h2 class="widgettitle" onClick="getPlayers()">Players</h2>
 			<ul id="players_short">
 			</ul>
@@ -141,16 +141,16 @@
 	$("#main-nav").click(function() {
 		//alert("Handler for .click() called.");
 		if($("#linkgames").hasClass('current')) {
-			alert("games current");
-			$("#playerwidget").attr("visibility", "hidden");
-			$("#event_widget_id").attr("visibility", "visible");
-			getEvents(gup('teamid'));
+			//alert("games current");
+			getEvents(gup('teamid'));			
+			$("#playerwidget").addClass("noshow");
+			$("#event_widget_id").removeClass("noshow");
 		}
 		if($("#linkteam").hasClass('current')) {
-			alert("team current");
-			$("#playerwidget").attr("visibility", "visible");
-			$("#event_widget_id").attr("visibility", "hidden");
+			//alert("team current");
 			getPlayers();
+			$("#playerwidget").removeClass("noshow");
+			$("#event_widget_id").addClass("noshow");
 		}	
 	});
 	
