@@ -139,16 +139,16 @@
 	});
 	
 	$("#main-nav").click(function() {
-		alert("Handler for .click() called.");
+		//alert("Handler for .click() called.");
 		if($("#linkgames").hasClass('current')) {
+			$("#playerwidget").attr("visibility", "hidden");
+			$("#event_widget_id").attr("visibility", "visible");
 			getEvents(gup('teamid'));
-			$("playerwidget").attr("visibility", "hidden");
-			$("event_widget_id").attr("visibility", "visible");
 		}
 		if($("#linkgames").hasClass('current')) {
+			$("#playerwidget").attr("visibility", "visible");
+			$("#event_widget_id").attr("visibility", "hidden");
 			getPlayers();
-			$("playerwidget").attr("visibility", "visible");
-			$("event_widget_id").attr("visibility", "hidden");
 		}	
 	});
 	
