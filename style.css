@@ -241,10 +241,6 @@ MAIN NAVIGATION
 	background: #474747;		
 }
 
-.noshow
-{
-	visibility: hidden;
-}
 
 /************************************************************************************
 CONTENT
@@ -263,6 +259,11 @@ CONTENT
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4);
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.4);
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
+.noshow
+{
+	display: none;
 }
 
 article

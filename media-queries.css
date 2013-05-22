@@ -109,9 +109,9 @@ smaller than 650
 
 	/* sidebar */
 	#sidebar {
-		width: 100%;
+		/*width: 100%;
 		margin: 0;
-		float: none;
+		float: none;*/
 		display: none;
 	}
 	
