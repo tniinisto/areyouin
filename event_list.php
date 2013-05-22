@@ -11,7 +11,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT * FROM players";
-	$sql = "select v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.name, p.photourl, v.areyouin, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = '" . $teamid  . "' order by e.startTime asc, v.Events_eventID asc";
+	$sql = "select v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.name, p.photourl, v.areyouin, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' order by e.startTime asc, v.Events_eventID asc";
 	 	
 	$result = mysql_query($sql);
 	
