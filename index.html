@@ -44,11 +44,17 @@
 			<!--<h2 id="site-description">Welcome</h2>-->
 			<!--<h1 id="site-logo"></h1>-->
 			<h6 id="user-login">Welcome</h6>
+			<h6 id="team-login">Team</h6>
 			<script> 
 				//document.write("<h1 id='site-logo'>A'YouIN</h1>");
 				//var user = gup('username');			
 				//document.getElementById("site-logo").innerHTML="A'YouIN";
-				document.getElementById("user-login").innerHTML="Welcome: " + gup('username') + "member of " + gup('teamname');				
+				document.getElementById("user-login").innerHTML="Welcome: " + gup('username');
+				
+				var team = gup('teamname');
+				team = decodeURIComponent(team);
+				document.getElementById("team-login").innerHTML=team;
+				
 				//document.write("<h4> Welcome: " + user + "</h4>");
 			</script>
 		</hgroup>
