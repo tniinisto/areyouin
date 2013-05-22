@@ -113,6 +113,7 @@ smaller than 650
 		float: none;
 		display: none;
 	}
+	
 	#sidebar .widget {
 		padding: 3% 4%;
 		margin: 0 0 10px;
@@ -142,6 +143,10 @@ smaller than 480
 		padding: 6% 2% 10% 2%;
 		/*margin: 0 30px 10px 0;*/
 	}
+	
+	#sidebar {
+		display: none;
+	}	
 	
 	td.col1 {
 		width: 15%;
