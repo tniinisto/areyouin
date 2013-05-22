@@ -55,8 +55,9 @@
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
-				<li id="linkgames" class="current"><a href="#">Games</a></li>
-				<li id="linkprofile"><a href="#">Profile</a></li>
+				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
+				<li id="linkteam"><a href="#">Team</a></li> <!--Team members & games schedule in gantt/calendar view -->
+				<li id="linkprofile"><a href="#">Profile</a></li> <!-- Players info & games where participates -->
 				<!--<li id="linkstats"><a href="#">Statistics</a> </li>-->
 				<!--<li id="linksettings" onClick="alert(localStorage.ayiusername)"><a href="#">Settings</a> </li>-->
 				<!--<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>-->
@@ -112,27 +113,27 @@
 
 	jQuery(document).ready(function () {
 
-		<!-- set links background -->	
+		<!-- set navi links background -->	
 		$("#linkgames").click(function(event){
 			$("#main-nav").children().removeClass("current");
 			$("#linkgames").addClass("current");
+		});
+		
+		$("#linkteam").click(function(event){
+			$("#main-nav").children().removeClass("current");
+			$("#linkteam").addClass("current");
 		});
 		
 		$("#linkprofile").click(function(event){
 			$("#main-nav").children().removeClass("current");
 			$("#linkprofile").addClass("current");
 		});
-		
-		$("#linkstats").click(function(event){
-			$("#main-nav").children().removeClass("current");
-			$("#linkstats").addClass("current");
-		});
 
-		$("#linksettings").click(function(event){
+		/*$("#linksettings").click(function(event){
 			$("#main-nav").children().removeClass("current");
 			$("#linksettings").addClass("current");
-		});		
-		<!-- /set links background -->
+		});*/		
+		<!-- /set navi links background -->
 
 		getPlayers();			
 		getEvents();

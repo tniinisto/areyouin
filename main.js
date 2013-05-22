@@ -78,7 +78,7 @@ function getEvents() {
 	xmlhttp.send();
 }
 
-//Parse URL parameters
+//Parse URL parameters by name
 function gup( name )
 {
   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -90,5 +90,3 @@ function gup( name )
   else
     return results[1];
 }
-
-
