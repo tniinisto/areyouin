@@ -137,6 +137,11 @@ smaller than 480
 		-webkit-text-size-adjust: none;
 	}
 	
+	/* sidebar */
+	#sidebar {
+		display: none;
+	}	
+	
 	article {
 		/*padding: 3% 4%;*/
 		padding: 6% 2% 10% 2%;

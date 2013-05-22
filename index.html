@@ -42,13 +42,10 @@
 		<hgroup>
 			<h1 id="site-logo"><a href="">A'YouIN</a></h1>
 			<h6 id="user-login">Welcome</h6>
-			<!--<h6 id="team-login">Team</h6>-->
 			<script> 
 				var team = gup('teamname');
 				team = decodeURIComponent(team);
 				document.getElementById("user-login").innerHTML= "<font color=\"#ccc\">Welcome: </font>" + gup('username') + " <font color=\"#ccc\">Team: </font>" + team;
-				//document.getElementById("team-login").innerHTML= "Team: " + team;
-				//document.write("<h4> Welcome: " + user + "</h4>");
 			</script>
 		</hgroup>
 
@@ -57,14 +54,10 @@
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
 				<li id="linkteam"><a href="#">Team</a></li> <!--Team members & games schedule in gantt/calendar view -->
 				<li id="linkprofile"><a href="#">Profile</a></li> <!-- Players info & games where participates -->
-				<!--<li id="linkstats"><a href="#">Statistics</a> </li>-->
-				<!--<li id="linksettings" onClick="alert(localStorage.ayiusername)"><a href="#">Settings</a> </li>-->
-				<!--<li id="linkhistory"><a href="http://areyouin.azurewebsites.net/registration/index.php" target="_blank">History</a></li>-->
 			</ul>
 		</nav>
 
 	</header>
-	<!-- /#header -->
 		
 	<!-- #content --> 
 	
@@ -143,7 +136,7 @@
 		if($("#linkgames").hasClass('current')) {
 			//alert("games current");
 			getEvents(gup('teamid'));			
-			$("#playerwidget").addClass("noshow");
+			//$("#playerwidget").addClass("noshow");
 			$("#event_content_id").removeClass("noshow");
 		}
 		if($("#linkteam").hasClass('current')) {
