@@ -141,11 +141,13 @@
 	$("#main-nav").click(function() {
 		//alert("Handler for .click() called.");
 		if($("#linkgames").hasClass('current')) {
+			alert("games current");
 			$("#playerwidget").attr("visibility", "hidden");
 			$("#event_widget_id").attr("visibility", "visible");
 			getEvents(gup('teamid'));
 		}
-		if($("#linkgames").hasClass('current')) {
+		if($("#linkteam").hasClass('current')) {
+			alert("team current");
 			$("#playerwidget").attr("visibility", "visible");
 			$("#event_widget_id").attr("visibility", "hidden");
 			getPlayers();
