@@ -111,7 +111,7 @@ smaller than 650
 		width: 100%;
 		margin: 0;
 		float: none;
-		/*display: none;*/
+		display: none;
 	}
 	#sidebar .widget {
 		padding: 3% 4%;
@@ -136,11 +136,6 @@ smaller than 480
 	html {
 		-webkit-text-size-adjust: none;
 	}
-	
-	/* sidebar */
-	#sidebar {
-		display: none;
-	}	
 	
 	article {
 		/*padding: 3% 4%;*/
