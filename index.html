@@ -139,11 +139,11 @@
 	});
 	
 	$("main-nav").click(function() {
+		alert("Handler for .click() called.");
 		if($("#linkgames").hasClass('current')) {
 			getEvents(gup('teamid'));
 			$("playerwidget").attr("visibility", "hidden");
 			$("event_widget_id").attr("visibility", "visible");
-
 		}
 		if($("#linkgames").hasClass('current')) {
 			getPlayers();
