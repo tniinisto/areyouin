@@ -68,7 +68,9 @@
 	</div>
 	
 	<!-- /#content --> 
-		
+
+	<!-- #sidebar -->
+	
 	<aside id="sidebar">
 
 		<section id="playerwidget" class="widget">
@@ -88,13 +90,17 @@
 		<!-- /.widget -->
 						
 	</aside>
+
 	<!-- /#sidebar -->
 
+	<!-- #footer --> 
+	
 	<footer id="footer">
 	
 		<p>Made by TN &copy <a href="https://maps.google.fi/maps?q=60.413778,+23.155468&hl=en&sll=60.413778,23.155468&sspn=0.002108,0.004367&t=h&z=16" target="_blank">Puonti </a></p>
 
 	</footer>
+
 	<!-- /#footer --> 
 	
 </div>
@@ -106,6 +112,7 @@
 	jQuery(document).ready(function () {
 
 		<!-- set navi links background -->	
+
 		$("#linkgames").click(function(event){
 			$("#main-nav").children().removeClass("current");
 			$("#linkgames").addClass("current");
@@ -125,10 +132,11 @@
 			$("#main-nav").children().removeClass("current");
 			$("#linksettings").addClass("current");
 		});*/		
+
 		<!-- /set navi links background -->
 			
 		getEvents(gup('teamid'));
-		//getPlayers();	
+		getPlayers();	
 	});
 	
 	$("#main-nav").click(function() {
