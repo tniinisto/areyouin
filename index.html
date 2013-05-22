@@ -67,12 +67,12 @@
 		</article>
 	</div>
 	
-	<!--<div id="team_content_id" class="content noshow">
+	<div id="team_content_id" class="content noshow">
 		<article class="clearfix">
 			<h2 onClick="getPlayers()">Games</h2>
-		    <div id="players_short" </div>
+		    <div id="players_short2" </div>
 		</article>
-	</div>-->
+	</div>
 	
 	<!-- /#content --> 
 
@@ -146,17 +146,20 @@
 		getPlayers();	
 	});
 	
+	//Content for selected page
 	$("#main-nav").click(function() {
 		//alert("Handler for .click() called.");
 		if($("#linkgames").hasClass('current')) {
 			//alert("games current");		
 			//$("#playerwidget").addClass("noshow");
-			$("#evemt_content_id").removeClass("noshow");
+			$("#event_content_id").removeClass("noshow");
+			$("#team_content_id").addClass("noshow");
 		}
 		if($("#linkteam").hasClass('current')) {
 			//alert("team current");
-			$("#playerwidget").removeClass("noshow");
-			$("#evemt_content_id").addClass("noshow");
+			//$("#playerwidget").removeClass("noshow");
+			$("#event_content_id").addClass("noshow");
+			$("#team_content_id").removeClass("noshow");
 		}	
 	});
 	
