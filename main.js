@@ -1,4 +1,3 @@
-
 //login function
 /*function login(lname, pass) {
 	alert("login called with name&pass: " + lname + " & " + pass);
