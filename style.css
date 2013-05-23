@@ -486,8 +486,9 @@ font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-w
 }
 .onoffswitch-inner:before {
 content: "OUT";
-padding-left: 0px;
+padding-left: 10px;
 background-color: #DB1F41; color: #FFFFFF;
+text-align: left;
 }
 .onoffswitch-inner:after {
 content: "IN ";
