@@ -16,8 +16,8 @@
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
   
-	echo $sql;
-    //echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
+	//echo $sql;
+    echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
 
 	mysql_close($con);
 
