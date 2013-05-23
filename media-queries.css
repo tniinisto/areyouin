@@ -126,6 +126,13 @@ smaller than 650
 	.video iframe {
 		min-height: 250px;
 	}
+	
+	h6 {
+		font-size: 1em;
+		color: white;
+		line-height: 1em;
+		margin: 0 0 1.2em;	
+	}	
 
 }
 
