@@ -85,8 +85,8 @@ function getPlayers() {
 }
 
 //Get events with players for the team
-function getEvents(str) {
-	if (str == "") {
+function getEvents(str, str2) {
+	if (str == "" || str2 == "") {
 		document.getElementById("txtHint").innerHTML = "";
 		return;
 	}	
@@ -104,7 +104,7 @@ function getEvents(str) {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "event_list.php?teamid=" + str, false);
+	xmlhttp.open("GET", "event_list.php?teamid=" + str + "&playerid=" + str2 , false);
 	xmlhttp.send();
 }
 

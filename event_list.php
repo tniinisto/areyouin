@@ -1,6 +1,7 @@
 <?php
 
 	$teamid=$_GET["teamid"];
+	$playerid=$_GET["playerid"];
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
@@ -65,35 +66,39 @@
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				echo "<td class=\"col3\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td class=\"col4\">" . $row['name'] . "</td>";
-				/*if($row['areyouin'] == 0)
-					echo "<td class=\"col5\">OUT</td>";
-				else
-					echo "<td class=\"col5\">IN</td>";
-				*/
-
-				if($row['areyouin'] == 0) {
-					echo "<td class=\"col5\">";
-						echo "<div class=\"onoffswitch\">";
-							//echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" .$row_index . "\" checked>";
-							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
-							echo "<div class=\"onoffswitch-inner\"></div>";
-							echo "<div class=\"onoffswitch-switch\"></div>";
-							echo "</label>";
-						echo "</div>";
-					echo "</td>";
+				
+				//Show on/off switch only for the user
+				if($playerid != $row['playerid'] {
+					if($row['areyouin'] == 0)
+						echo "<td class=\"col5\">OUT</td>";
+					else
+						echo "<td class=\"col5\">IN</td>";					
 				}
 				else {
-					echo "<td class=\"col5\">";
-						echo "<div class=\"onoffswitch\">";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
-							echo "<div class=\"onoffswitch-inner\"></div>";
-							echo "<div class=\"onoffswitch-switch\"></div>";
-							echo "</label>";
-						echo "</div>";
-					echo "</td>";
-				}	
+					if($row['areyouin'] == 0) {
+						echo "<td class=\"col5\">";
+							echo "<div class=\"onoffswitch\">";
+								//echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" .$row_index . "\" checked>";
+								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
+								echo "<div class=\"onoffswitch-inner\"></div>";
+								echo "<div class=\"onoffswitch-switch\"></div>";
+								echo "</label>";
+							echo "</div>";
+						echo "</td>";
+					}
+					else {
+						echo "<td class=\"col5\">";
+							echo "<div class=\"onoffswitch\">";
+								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
+								echo "<div class=\"onoffswitch-inner\"></div>";
+								echo "<div class=\"onoffswitch-switch\"></div>";
+								echo "</label>";
+							echo "</div>";
+						echo "</td>";
+					}	
+				}
 			echo "</tr>";
 		echo "</table>";
 		
