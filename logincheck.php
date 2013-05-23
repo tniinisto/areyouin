@@ -1,7 +1,5 @@
 <?php
 
-	//$q=$_GET["q"];
-
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	  {
@@ -33,11 +31,14 @@
 		//session_register("myusername");
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
-		header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
+		
+		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
+		header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 	}
 	else {
 		echo "<h1> Wrong Username or Password </h1>";
 	}
 	
 	mysql_close($con);	
+	
 ?>
