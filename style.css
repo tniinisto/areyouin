@@ -363,12 +363,12 @@ article
 
 td.col1 {
 	display: none;
-	width: 10%;
+	/*width: 10%;*/
 }
 
 td.col2{
 	display: none;
-	width: 10%;	
+	/*width: 10%;*/	
 }
 
 td.col3 {
@@ -376,11 +376,11 @@ td.col3 {
 }
 
 td.col4 {
-	width: 72%;
+	width: 77%;
 }
 
 td.col5 {
-	width: 15%;
+	width: 10%;
 	text-align: right;		
 }
 
