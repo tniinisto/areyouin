@@ -106,7 +106,6 @@ function getEvents(str, str2) {
 	//alert("GET gets called.");
 	var variables = "teamid=" + str + "&playerid=" + str2;
 	xmlhttp.open("GET", "event_list.php?" + variables, false);
-	
 	xmlhttp.send();
 }
 
