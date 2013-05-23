@@ -16,7 +16,8 @@
 	$result = mysql_query($sql);
 	
 	//Go through events & players
-	$event_check = 0;
+	$event_check = 0; //Check when the event changes
+	$row_index = 1; //Unique naming for swithces
 	while($row = mysql_fetch_array($result))
 	{
 		//Check when the event changes, then echo the event basic information
@@ -73,7 +74,7 @@
 				if($row['areyouin'] == 0) {
 					echo "<td class=\"col5\">";
 						echo "<div class=\"onoffswitch\">";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\ checked>";
+							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
 							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
 							echo "<div class=\"onoffswitch-inner\"></div>";
 							echo "<div class=\"onoffswitch-switch\"></div>";
@@ -84,7 +85,7 @@
 				else {
 					echo "<td class=\"col5\">";
 						echo "<div class=\"onoffswitch\">";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\" >";
+							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
 							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
 							echo "<div class=\"onoffswitch-inner\"></div>";
 							echo "<div class=\"onoffswitch-switch\"></div>";
@@ -93,7 +94,9 @@
 					echo "</td>";
 				}					
 			echo "</tr>";
-		echo "</table>";		
+		echo "</table>";
+		
+		$row_index = $row_index + 1;
 	}	
 	
 	/*
