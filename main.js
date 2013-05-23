@@ -30,8 +30,8 @@ function getLoginInformation(playerID, teamID) {
 	}
 
 	//alert("GET ge7ts called.");
-	//var variables = "p=" + playerID + "&t=" + teamID;
-	var variables = "p=1&t=1";
+	var variables = "p=" + playerID + "&t=" + teamID;
+	//var variables = "p=1&t=1";
 	//alert(variables);
 	xmlhttp.open("GET", "logininfo.php?" + variables, false);
 	xmlhttp.send();
