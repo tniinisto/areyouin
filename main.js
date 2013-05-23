@@ -5,10 +5,10 @@
 }*/
 
 //Init function for the screen startup
-function init() {
+/*function init() {
 	getEvents();
 	getPlayers();
-}
+}*/
 
 //Get users name & team name
 function getLoginInformation(playerID, teamID) {
