@@ -14,7 +14,7 @@
 	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = '" . $p . "' and t.teamID = '" . $t . "'";
 
 	$result = mysql_query($sql);
-	$row = mysql_fetch_array($result);*/
+	$row = mysql_fetch_array($result);
   
     echo $sql;
 	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
