@@ -19,8 +19,8 @@
 	$mypassword = mysql_real_escape_string($mypassword);
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mypassword'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName FROM areyouin.players p, playerteam m, team t where name = '$myusername' and password = '$mypassword' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid";
-
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName FROM areyouin.players p, playerteam m, team t where name = '$myusername' and password = '$mypassword' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid";	
+	
 	$result=mysql_query($sql);
 
 	// Mysql_num_row is counting table row
@@ -36,6 +36,7 @@
 		header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 	}
 	else {
+		echo $sql;
 		echo "<h1> Wrong Username or Password </h1>";
 	}
 	
