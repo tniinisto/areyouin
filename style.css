@@ -362,14 +362,18 @@ article
 }
 
 td.col1 {
-	width: 8%;
+	display: none;
 }
 
 td.col2 {
-	width: 72%;
+	width: 8%;
 }
 
 td.col3 {
+	width: 72%;
+}
+
+td.col4 {
 	width: 15%;
 	text-align: right;		
 }
