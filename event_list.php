@@ -74,7 +74,8 @@
 				if($row['areyouin'] == 0) {
 					echo "<td class=\"col5\">";
 						echo "<div class=\"onoffswitch\">";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+							//echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\" checked>";
 							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
 							echo "<div class=\"onoffswitch-inner\"></div>";
 							echo "<div class=\"onoffswitch-switch\"></div>";
@@ -85,7 +86,7 @@
 				else {
 					echo "<td class=\"col5\">";
 						echo "<div class=\"onoffswitch\">";
-							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+							echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\">";
 							echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
 							echo "<div class=\"onoffswitch-inner\"></div>";
 							echo "<div class=\"onoffswitch-switch\"></div>";
