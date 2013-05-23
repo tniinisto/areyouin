@@ -64,10 +64,30 @@
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				echo "<td class=\"col3\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td class=\"col4\">" . $row['name'] . "</td>";
-				if($row['areyouin'] == 0)
+				/*if($row['areyouin'] == 0)
 					echo "<td class=\"col5\">OUT</td>";
 				else
 					echo "<td class=\"col5\">IN</td>";
+				*/
+
+				if($row['areyouin'] == 0) {
+					echo "<td class=\"onoffswitch col5\">";
+					echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\" checked>";
+					echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
+					echo "<div class=\"onoffswitch-inner\"></div>";
+					echo "<div class=\"onoffswitch-switch\"></div>";
+					echo "</label>";
+					echo "</td>";
+				}
+				else {
+					echo "<td class=\"onoffswitch col5\">";
+					echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch\">";
+					echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch\">";
+					echo "<div class=\"onoffswitch-inner\"></div>";
+					echo "<div class=\"onoffswitch-switch\"></div>";
+					echo "</label>";
+					echo "</td>";
+				}					
 			echo "</tr>";
 		echo "</table>";		
 	}	
