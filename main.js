@@ -30,8 +30,9 @@ function getLoginInformation(playerID, teamID) {
 		}
 	}
 
-	//alert("GET gets called.");
-	xmlhttp.open("GET", "logininfo.php?playerID=" + playerID + "&teamID=" + teamID, true);
+	//alert("GET ge7ts called.");
+	var variables = "playerID=" + playerID + "&teamID=" + teamID;
+	xmlhttp.open("GET", "logininfo.php?, variables, true);
 	xmlhttp.send();
 }
 
