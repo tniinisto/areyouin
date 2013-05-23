@@ -26,7 +26,7 @@
 	// Mysql_num_row is counting table row
 	$count=mysql_num_rows($result);
 
-	if($count>1){
+	if($count>=1){
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
@@ -36,7 +36,7 @@
 		header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 	}
 	else {
-		echo $sql;
+		//echo $sql;
 		echo "<h1> Wrong Username or Password </h1>";
 	}
 	
