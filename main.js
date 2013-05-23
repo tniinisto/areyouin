@@ -13,7 +13,7 @@ function init() {
 //Get users name & team name
 function getLoginInformation(playerID, teamID) {
 	//alert("showUser() gets called.");
-	if (str == "") {
+	if (playerID == "" or teamID == "") {
 		document.getElementById("txtHint").innerHTML = "";
 		return;
 	}
