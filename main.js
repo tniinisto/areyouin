@@ -33,7 +33,7 @@ function getLoginInformation(playerID, teamID) {
 	//var variables = "p=" + playerID + "&t=" + teamID;
 	var variables = "p=1&t=1";
 	//alert(variables);
-	xmlhttp.open("GET", "logininfo.php?", variables, false);
+	xmlhttp.open("GET", "logininfo.php?" + variables, false);
 	xmlhttp.send();
 }
 
