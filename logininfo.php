@@ -9,15 +9,14 @@
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	/*mysql_select_db("areyouin", $con);
+	mysql_select_db("areyouin", $con);
 
 	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = " . $p . " and t.teamID = " . $t;
 
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);*/
   
-	echo "moro";
-    //echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
+    echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
 
 	mysql_close($con);
 
