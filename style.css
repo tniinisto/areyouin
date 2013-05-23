@@ -362,12 +362,12 @@ article
 }
 
 td.col1 {
-	/*display: none;*/
+	display: none;
 	width: 10%;
 }
 
 td.col2{
-	/*display: none;*/
+	display: none;
 	width: 10%;	
 }
 
