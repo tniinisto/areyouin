@@ -472,7 +472,7 @@ display: none;
 }
 .onoffswitch-label {
 display: block; overflow: hidden; cursor: pointer;
-border: 2px solid #474747; border-radius: 14px;
+border: 2px solid #FFFFFF; border-radius: 14px;
 }
 .onoffswitch-inner {
 width: 200%; margin-left: -100%;
@@ -487,18 +487,18 @@ font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-w
 .onoffswitch-inner:before {
 content: "OUT";
 padding-left: 10px;
-background-color: #B80E2E; color: #FFFFFF;
+background-color: #DB1F41; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
 content: "IN ";
 padding-right: 10px;
-background-color: #106916; color: #FFFFFF;
+background-color: #447D47; color: #FFFFFF;
 text-align: right;
 }
 .onoffswitch-switch {
 width: 30px; margin: -1.5px;
-background: #474747;
-border: 2px solid #474747; border-radius: 14px;
+background: #6A6A6A;
+border: 2px solid #FFFFFF; border-radius: 14px;
 position: absolute; top: 0; bottom: 0; right: 43px;
 -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
 -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
