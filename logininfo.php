@@ -11,7 +11,7 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = '" . $p . "' and t.teamID = '" . $t . "'";
+	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = ".$p." and t.teamID = ".$t;
 
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
