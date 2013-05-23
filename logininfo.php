@@ -12,11 +12,12 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = ".$p." and t.teamID = ".$t;
-	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = ". $p;
+	$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = '".$p."'";
 	
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
   
+	echo $p;
     echo $sql;
 	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]);
 
