@@ -365,15 +365,19 @@ td.col1 {
 	/*display: none;*/
 }
 
-td.col2 {
-	width: 8%;
+td.col2{
+	/*display: none;*/
 }
 
 td.col3 {
-	width: 72%;
+	width: 8%;
 }
 
 td.col4 {
+	width: 72%;
+}
+
+td.col5 {
 	width: 15%;
 	text-align: right;		
 }
