@@ -487,13 +487,12 @@ font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-w
 .onoffswitch-inner:before {
 content: "OUT";
 padding-left: 10px;
-background-color: #DB1F41; color: #FFFFFF;
-text-align: left;
+background-color: #CCCCCC; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
 content: "IN ";
 padding-right: 10px;
-background-color: #447D47; color: #FFFFFF;
+background-color: #CCCCCC; color: #FFFFFF;
 text-align: right;
 }
 .onoffswitch-switch {
