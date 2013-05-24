@@ -21,7 +21,7 @@
 	$result = mysql_query($sql);
 	
 	//Call SSE
-	notify();
+	//notify();
 	
 	echo $result;
 	
