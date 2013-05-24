@@ -241,7 +241,7 @@ smaller than 480
 }
 
 /* landscape mode */
-@media only screen and (orientation:landscape) {
+@media only screen and (orientation:landscape) (and max-width: 767px) {
 
 	/*html {
 		-webkit-text-size-adjust: none;
