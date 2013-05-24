@@ -12,7 +12,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
-	$sql= "UPDATE eventplayer SET areyouin = '" . $ayi . "' WHERE EventPlayerID = '".$eventplayerid."'";
+	$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
 	
 	//echo $sql;
 
