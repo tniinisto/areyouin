@@ -171,12 +171,12 @@
 		
 		source.addEventListener("ayi", function(event) {
 			var data = event.data;
-			var origin = event.origin;
-			var lastEventId = event.lastEventId;
+			//var origin = event.origin;
+			//var lastEventId = event.lastEventId;
 			
 			// handle message
 			alert("ayi event received:" + data);
-			getEvents(gup('t'), gup('p'));			
+			//getEvents(gup('t'), gup('p'));			
 		}, false);
 		
 		/*source.onmessage=function(event)

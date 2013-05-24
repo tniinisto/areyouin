@@ -5,7 +5,7 @@
 	//$time = date('r');
 	//echo "data: The server time is: {$time}\n\n";
 	
-	function sendMsg($str)
+	function sendMsg1($str)
 	{
 		echo "event: " . $str . "\n";
 		echo "data: " . $str . "event data changed\n\n";
