@@ -12,10 +12,10 @@
 	}*/
 
 	function sendMsg() {
-	  echo "<h1>test</h1>";
-	  echo "data: event data changed\n\n";
-	  ob_flush();
-	  flush();
+	  //echo "<h1>test</h1>";
+	  echo "data: Event data changed\n\n";
+	  //ob_flush();
+	  //flush();
 	}
 
 ?> 
