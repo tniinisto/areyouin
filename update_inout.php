@@ -1,6 +1,6 @@
 <?php
 	//include 'events_sse.php';
-	require_once('events_sse.php');
+	//require_once('events_sse.php');
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -21,7 +21,7 @@
 	$result = mysql_query($sql);
 	
 	//Call SSE
-	notifyEventUpdate();
+	//notifyEventUpdate();
 	
 	echo $result;
 	
