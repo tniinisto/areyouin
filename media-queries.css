@@ -241,9 +241,9 @@ smaller than 480
 }
 
 /* landscape mode */
-/*@media only screen and (min-width: 480px and (max-width: 790px)) {
+@media only screen and (min-width: 480px and (max-width: 790px)) {
 
-	html {
+	/*html {
 		-webkit-text-size-adjust: none;
 	}
 	
@@ -253,22 +253,22 @@ smaller than 480
 	
 	#sidebar {
 		display: none;
-	}		
+	}*/
 
 	td.col3 {
-		width: 16%;
+		width: 20%;
 	}
 
 	td.col4 {
-		width: 60%;
+		width: 55%;
 	}
 
 	td.col5 {
-		width: 19%;
+		width: 20%;
 		text-align: center;
-	}	
+	}
 	
-	#main-nav a {
+	/*#main-nav a {
 		font-size: 90%;
 		padding: 10px 8px;
 	}
