@@ -1,4 +1,6 @@
 <?php
+	header('Content-Type: text/event-stream');
+	header('Cache-Control: no-cache');
 	
 	/*include 'events_sse.php';
 
@@ -23,7 +25,7 @@
 
 	$result = mysql_query($sql);
 	
-	echo $result;
+	echo "event: ayi\n";$result;
 	
 	mysql_close($con);
 			

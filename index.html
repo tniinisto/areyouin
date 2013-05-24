@@ -165,9 +165,9 @@
 	});
 	
 	//SSE
-	/*if(typeof(EventSource)!=="undefined")
+	if(typeof(EventSource)!=="undefined")
 	{
-		var source=new EventSource("events_sse.php");
+		var source=new EventSource("update_inout.php");
 		
 		source.addEventListener("ayi", function(event) {
 			var data = event.data;
@@ -175,21 +175,21 @@
 			//var lastEventId = event.lastEventId;
 			
 			// handle message
-			console.log("ayi event received:" + data);
+			console.log("ayi event received:" + event.data);
 			//getEvents(gup('t'), gup('p'));			
 		}, false);
 		
-		source.onmessage=function(event)
+		/*source.onmessage=function(event)
 		{
 			//document.getElementById("result").innerHTML+=event.data + "<br>";
 			console.log(event.data);
 			//source.close();
-		};
+		};*/
 	}
 	else
 	{
 		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-	}*/	
+	}	
 	
 </script>
 <!-- /scripts -->
