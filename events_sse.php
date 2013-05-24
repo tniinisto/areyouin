@@ -7,7 +7,7 @@ header('Cache-Control: no-cache');
 
 function notify()
 {
-	echo "data: event data changed";
+	echo "data: event data changed\n\n";
 	flush();
 }
 
