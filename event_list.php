@@ -78,7 +78,6 @@
 					if($row['areyouin'] == 0) {
 						echo "<td class=\"col5\">";
 							echo "<div class=\"onoffswitch\">";
-								//echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
 								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
 								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", 1)\">";
 								echo "<div class=\"onoffswitch-inner\"></div>";
@@ -90,8 +89,9 @@
 					else {
 						echo "<td class=\"col5\">";
 							echo "<div class=\"onoffswitch\">";
-								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
 								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", 0)\">";
+								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";	
 								echo "<div class=\"onoffswitch-inner\"></div>";
 								echo "<div class=\"onoffswitch-switch\"></div>";
 								echo "</label>";
