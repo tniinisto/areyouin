@@ -175,9 +175,8 @@
 			var lastEventId = event.lastEventId;
 			
 			// handle message
-			alert("ayi event received");
-			getEvents(gup('t'), gup('p'));
-			
+			alert("ayi event received:" + data);
+			getEvents(gup('t'), gup('p'));			
 		}, false);
 		
 		/*source.onmessage=function(event)
