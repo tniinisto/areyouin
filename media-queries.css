@@ -171,16 +171,16 @@ smaller than 480
 	}*/
 
 	td.col3 {
-		width: 16%;
+		width: 18%;
 	}
 
 	td.col4 {
-		width: 56%;
+		width: 51%;
 	}
 
 	td.col5 {
-		width: 23%;
-		text-align: left;
+		width: 26%;
+		text-align: center;
 	}	
 	
 	/*#site-logo font{
