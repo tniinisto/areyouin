@@ -1,9 +1,5 @@
 <?php
-	header('Content-Type: text/event-stream');
-	header('Cache-Control: no-cache');
-	
-	//include './events_sse.php';
-	//require_once('events_sse.php');
+	include './events_sse.php';
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -29,13 +25,6 @@
 	echo $result;
 	
 	mysql_close($con);
-	
-	
-	function notifyEventUpdate() {
-	  echo "data: event data changed\n\n" . PHP_EOL;
-	  ob_flush();
-	  flush();
-	}
-	
+		
   ?>
   

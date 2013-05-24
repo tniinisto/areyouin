@@ -11,10 +11,13 @@
 		flush();
 	}*/
 
-	/*function notifyEventUpdate() {
-	  echo "data: event data changed\n\n" . PHP_EOL;
+	function notifyEventUpdate() {
+	  /*echo "data: event data changed\n\n" . PHP_EOL;
 	  ob_flush();
+	  flush();*/
+	  $time = date('r');
+	  echo "data: The server time is: {$time}\n\n";
 	  flush();
-	}*/
+	}
 
 ?> 
