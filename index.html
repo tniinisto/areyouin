@@ -163,22 +163,6 @@
 			//$("#team_content_id").removeClass("noshow");
 		}	
 	});
-	
-	//SSE
-	if(typeof(EventSource)!=="undefined")
-	  {
-	  var source=new EventSource("events_sse.php");
-	  source.onmessage=function(event)
-		{
-			//document.getElementById("result").innerHTML+=event.data + "<br>";
-			console.log("event received: " + event.data);
-			source.close();
-		};
-	  }
-	else
-	  {
-		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-	  }	
 		
 </script>
 <!-- /scripts -->

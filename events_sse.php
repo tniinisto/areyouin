@@ -7,7 +7,7 @@
 	
 	//function sendMsg()
 	//{
-		echo "data: Event data changed\n\n";
+		echo "data: AYI event data changed\n\n";
 		ob_flush();
 		flush();
 	//}
