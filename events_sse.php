@@ -7,7 +7,7 @@
 	function sendMsg()
 	{
 	
-		header('Content-Type: text/event-stream');
+		header('Content-Type: text/event-html');
 		header('Cache-Control: no-cache');
 	
 		echo "event: ayi\n";
