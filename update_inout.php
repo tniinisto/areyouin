@@ -21,7 +21,7 @@
 	$result = mysql_query($sql);
 	
 	//Call the SSE function
-	sendMsg('ayi');
+	sendMsg("ayi");
 		
 	echo $result;
 	

@@ -5,10 +5,10 @@
 	//$time = date('r');
 	//echo "data: The server time is: {$time}\n\n";
 	
-	function sendMsg(str)
+	function sendMsg($str)
 	{
-		echo "event: " . str . "\n";
-		echo "data: AYI event data changed\n\n";
+		echo "event: " . $str . "\n";
+		echo "data: " . $str . "event data changed\n\n";
 		ob_flush();
 		flush();
 	}
