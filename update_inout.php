@@ -1,6 +1,6 @@
 <?php
-	header('Content-Type: text/event-stream');
-	header('Cache-Control: no-cache');
+	//header('Content-Type: text/event-stream');
+	//header('Cache-Control: no-cache');
 	
 	include './events_sse.php';
 
@@ -24,11 +24,7 @@
 	
 	//Call the SSE function
 	sendMsg();
-	
-	//echo "data: event data changed\n\n" . PHP_EOL;
-	//ob_flush();
-	//flush();	
-	
+		
 	echo $result;
 	
 	mysql_close($con);
