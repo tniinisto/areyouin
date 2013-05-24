@@ -122,6 +122,25 @@ function gup( name )
     return results[1];
 }
 
+function notifyOnDataChange()
+{
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+		}
+	}
+	
+	xmlhttp.open("GET", "events_sse.php", true);
+	xmlhttp.send();
+}
+
 //Update AYI status
 function updateAYI(eventplayerid, ayi)
 {
@@ -141,6 +160,7 @@ function updateAYI(eventplayerid, ayi)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			//alert(xmlhttp.responseText);
 			//getEvents(gup('t'), gup('p')); //Update events to be sure...
+			notifyOnDataChange();
 		}
 	}
 
