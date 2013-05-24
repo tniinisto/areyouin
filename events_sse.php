@@ -5,10 +5,10 @@
 //$time = date('r');
 //echo "data: The server time is: {$time}\n\n";
 
-//function notify()
-//{
+function notify()
+{
 	echo "data: event data changed\n\n";
 	flush();
-//}
+}
 
 ?> 
