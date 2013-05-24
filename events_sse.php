@@ -12,10 +12,18 @@
 	}*/
 
 	function sendMsg() {
-	  //echo "<h1>test</h1>";
-	  echo "data: Event data changed\n\n";
-	  //ob_flush();
-	  //flush();
+		//echo "<h1>test</h1>";
+		// Set data line
+	
+		print "data: AYI update" . PHP_EOL;
+		print PHP_EOL;
+
+		ob_flush();     // Strange behaviour, will not work
+		flush();  
+		
+		//echo "data: Event data changed\n\n";
+	  	//ob_flush();
+		//flush();
 	}
 
 ?> 
