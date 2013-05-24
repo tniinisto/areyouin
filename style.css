@@ -376,11 +376,11 @@ td.col3 {
 }
 
 td.col4 {
-	width: 80%;
+	width: 78%;
 }
 
 td.col5 {
-	width: 7%;
+	width: 9%;
 	text-align: right;		
 }
 
@@ -486,13 +486,13 @@ font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-w
 }
 .onoffswitch-inner:before {
 content: "OUT";
-padding-left: 5px;
+padding-left: 4px;
 background-color: #CCCCCC; color: #FFFFFF;
 text-align: left;
 }
 .onoffswitch-inner:after {
 content: "IN ";
-padding-right: 10px;
+padding-right: 15px;
 background-color: #CCCCCC; color: #FFFFFF;
 text-align: right;
 }
