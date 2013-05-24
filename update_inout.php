@@ -1,5 +1,8 @@
 <?php
-	include './events_sse.php';
+	header('Content-Type: text/event-stream');
+	header('Cache-Control: no-cache');
+	
+	//include './events_sse.php';
 	//require_once('events_sse.php');
 
 	$eventplayerid=$_GET["event"];
@@ -20,11 +23,19 @@
 
 	$result = mysql_query($sql);
 	
-	//Call SSE
+	//Call the SSE function
 	notifyEventUpdate();
 	
 	echo $result;
 	
 	mysql_close($con);
+	
+	
+	function notifyEventUpdate() {
+	  echo "data: event data changed\n\n" . PHP_EOL;
+	  ob_flush();
+	  flush();
+	}
+	
   ?>
   

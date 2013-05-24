@@ -11,10 +11,10 @@
 		flush();
 	}*/
 
-	function notifyEventUpdate() {
+	/*function notifyEventUpdate() {
 	  echo "data: event data changed\n\n" . PHP_EOL;
 	  ob_flush();
 	  flush();
-	}
+	}*/
 
 ?> 
