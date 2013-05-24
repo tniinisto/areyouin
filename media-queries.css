@@ -241,7 +241,7 @@ smaller than 480
 }
 
 /* landscape mode */
-@media only screen and (min-width: 480px and (max-width: 790px)) {
+@media only screen and (min-width: 481px and (max-width: 790px)) {
 
 	/*html {
 		-webkit-text-size-adjust: none;
@@ -257,6 +257,7 @@ smaller than 480
 
 	td.col3 {
 		width: 20%;
+		display: none;
 	}
 
 	td.col4 {
