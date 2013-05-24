@@ -140,7 +140,7 @@ function updateAYI(eventplayerid, ayi)
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			//alert(xmlhttp.responseText);
-			getEvents(gup('t'), gup('p')); //Update events to be sure...
+			//getEvents(gup('t'), gup('p')); //Update events to be sure...
 		}
 	}
 
