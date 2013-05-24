@@ -1,6 +1,8 @@
 <?php
 	
 	include './events_sse.php';
+	//Call the SSE function
+	sendMsg();
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -20,11 +22,8 @@
 
 	$result = mysql_query($sql);
 	
-	//Call the SSE function
-	//sendMsg1('ayi');
-		
 	echo $result;
 	
 	mysql_close($con);
-		
+			
 ?>

@@ -5,13 +5,13 @@
 	//$time = date('r');
 	//echo "data: The server time is: {$time}\n\n";
 	
-	//function sendMsg($str)
-	//{
+	function sendMsg()
+	{
 		echo "event: ayi\n";
 		echo "data: event data changed\n\n";
 		ob_flush();
 		flush();
-	//}
+	}
 	
 	/*while (1) {
 	  // Every second, sent a "ping" event.
