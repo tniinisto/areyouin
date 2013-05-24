@@ -1,4 +1,5 @@
 <?php
+	include events_sse.php;
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -19,7 +20,10 @@
 	$result = mysql_query($sql);
 
 	echo $result;
-
+	
+	//Call SSE
+	notify();
+	
 	mysql_close($con);
 
   ?>
