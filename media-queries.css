@@ -139,7 +139,8 @@ smaller than 650
 /************************************************************************************
 smaller than 480
 *************************************************************************************/
-@media screen and (max-width: 480px) {
+ /* portrait mode */
+@media screen and (max-width: 479px) {
 
 	/* disable webkit text size adjust (for iPhone) */
 	html {
@@ -239,3 +240,102 @@ smaller than 480
 	}	
 }
 
+/* landscape mode */
+@media only screen and (min-width: 480px) {
+ 	/* disable webkit text size adjust (for iPhone) */
+	html {
+		-webkit-text-size-adjust: none;
+	}
+	
+	article {
+		/*padding: 3% 4%;*/
+		padding: 6% 2% 10% 2%;
+		/*margin: 0 30px 10px 0;*/
+	}
+	
+	#sidebar {
+		display: none;
+	}	
+	
+	/*td.col1 {
+		width: 15%;
+	}
+
+	td.col2 {
+		width: 65%;
+	}
+
+	td.col3 {
+		width: 15%;
+		text-align: right;		
+	}*/
+
+	td.col3 {
+		width: 16%;
+	}
+
+	td.col4 {
+		width: 62%;
+	}
+
+	td.col5 {
+		width: 17%;
+		text-align: center;
+	}	
+	
+	/*#site-logo font{
+		font-size: 90%;
+	}*/
+	
+	/* main nav */
+	#main-nav a {
+		font-size: 90%;
+		padding: 10px 8px;
+	}
+	
+	#loginsite-logo font {
+		font-size: 30px;
+	}
+	
+	#loginsite-logo {
+		/*text-align: center;*/
+		position: absolute;
+		left: 50px;
+	}
+	
+	/* login form */
+	#loginform {
+		position: absolute;
+		top: 70px;
+		left: 100px;
+		z-index: 100;
+		height: 10px;
+		width: 150px;
+	}
+
+	#login, #password {
+		width: 100px;
+	}
+
+	#loginbutton {
+		position: absolute;
+		left: 25px;
+	}
+	
+	#teamradio {
+		position: absolute;
+		width: 150px;
+	}
+	
+	.radioclass {
+		width: 30px;
+		height: 30px;
+	}
+	
+	h6 {
+		font-size: 1em;
+		color: white;
+		line-height: 1em;
+		margin: 0 0 1.2em;	
+	}	
+}
