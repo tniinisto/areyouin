@@ -140,7 +140,7 @@ smaller than 650
 smaller than 480
 *************************************************************************************/
  /* portrait mode */
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 480px) {
 
 	/* disable webkit text size adjust (for iPhone) */
 	html {
