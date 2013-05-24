@@ -25,7 +25,12 @@
 
 	$result = mysql_query($sql);
 	
-	echo "event: ayi\n";$result;
+	echo "event: ayi";
+	echo "data: ayi changed\n\n";
+	ob_flush();
+	flush();
+	
+	//echo $result;
 	
 	mysql_close($con);
 			
