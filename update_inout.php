@@ -20,7 +20,7 @@
 	$result = mysql_query($sql);
 	
 	//Call the SSE function
-	sendMsg();
+	echo sendMsg();
 	
 	echo $result;
 	
