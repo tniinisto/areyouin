@@ -70,9 +70,9 @@
 				//Show on/off switch only for the user
 				if($playerid != $row['playerid']) {
 					if($row['areyouin'] == 0)
-						echo "<td class=\"col5\">OUT</td>";
+						echo "<td class=\"col5\"> OUT</td>";
 					else
-						echo "<td class=\"col5\">IN</td>";					
+						echo "<td class=\"col5\"> IN</td>";					
 				}
 				else {
 					if($row['areyouin'] == 0) {
