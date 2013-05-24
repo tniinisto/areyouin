@@ -20,11 +20,10 @@
 	$result = mysql_query($sql);
 	
 	//Call the SSE function
-	notifyEventUpdate();
+	sendMsg();
 	
 	echo $result;
 	
 	mysql_close($con);
 		
-  ?>
-  
+?>
