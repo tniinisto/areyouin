@@ -169,7 +169,7 @@
 	{
 		var source=new EventSource("update_inout.php");
 		
-		source.addEventListener("ayi", function(event) {
+		/*source.addEventListener("ayi", function(event) {
 			var data = event.data;
 			//var origin = event.origin;
 			//var lastEventId = event.lastEventId;
@@ -177,14 +177,14 @@
 			// handle message
 			console.log("ayi event received:" + event.data);
 			//getEvents(gup('t'), gup('p'));			
-		}, false);
+		}, false);*/
 		
-		/*source.onmessage=function(event)
+		source.onmessage=function(event)
 		{
 			//document.getElementById("result").innerHTML+=event.data + "<br>";
 			console.log(event.data);
 			//source.close();
-		};*/
+		}
 	}
 	else
 	{
