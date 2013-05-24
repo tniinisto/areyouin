@@ -145,7 +145,7 @@ function updateAYI(eventplayerid, ayi)
 	}
 
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
-	alert(variables);
+	//alert(variables);
 	xmlhttp.open("GET", "update_inout.php?" + variables, true);
 	xmlhttp.send();
 }

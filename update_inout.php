@@ -18,7 +18,7 @@
 
 	$result = mysql_query($sql);
 
-	echo $result;
+	echo $eventplayerid + " " + $ayi;
 
 	mysql_close($con);
 
