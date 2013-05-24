@@ -1,7 +1,4 @@
 <?php
-	header('Content-Type: text/event-stream');
-	header('Cache-Control: no-cache');
-	
 	/*include 'events_sse.php';
 
 	//Call the SSE function
@@ -25,10 +22,8 @@
 
 	$result = mysql_query($sql);
 	
-	echo "data: ayi changed\n";
-	
-	//echo $result;
+	echo $result;
 	
 	mysql_close($con);
-			
+
 ?>

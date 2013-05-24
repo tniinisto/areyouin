@@ -165,11 +165,11 @@
 	});
 	
 	//SSE
-	if(typeof(EventSource)!=="undefined")
+	/*if(typeof(EventSource)!=="undefined")
 	{
-		var source=new EventSource("update_inout.php");
+		var source=new EventSource("events_sse.php");
 		
-		/*source.addEventListener("ayi", function(event) {
+		source.addEventListener("ayi", function(event) {
 			var data = event.data;
 			//var origin = event.origin;
 			//var lastEventId = event.lastEventId;
@@ -177,7 +177,7 @@
 			// handle message
 			console.log("ayi event received:" + event.data);
 			//getEvents(gup('t'), gup('p'));			
-		}, false);*/
+		}, false);
 		
 		source.onmessage=function(event)
 		{
@@ -189,7 +189,7 @@
 	else
 	{
 		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-	}	
+	}*/	
 	
 </script>
 <!-- /scripts -->
