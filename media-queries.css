@@ -241,8 +241,8 @@ smaller than 480
 }
 
 /* landscape mode */
-@media only screen and (orientation:landscape) (and max-width: 767px) {
-
+/*@media only screen and (orientation:landscape) (and max-width: 767px) {
+@media only screen and (min-width: 480px) {*/
 	/*html {
 		-webkit-text-size-adjust: none;
 	}
@@ -253,7 +253,7 @@ smaller than 480
 	
 	#sidebar {
 		display: none;
-	}*/
+	}
 
 	td.col3 {
 		width: 20%;
@@ -269,7 +269,7 @@ smaller than 480
 		text-align: center;
 	}
 	
-	/*#main-nav a {
+	#main-nav a {
 		font-size: 90%;
 		padding: 10px 8px;
 	}
