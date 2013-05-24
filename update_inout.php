@@ -18,12 +18,12 @@
 	//echo $sql;
 
 	$result = mysql_query($sql);
-
-	echo $result;
 	
 	//Call SSE
 	notify();
 	
+	echo $result;
+	
 	mysql_close($con);
-
   ?>
+  

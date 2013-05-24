@@ -13,7 +13,8 @@
 
 function notify() {
   echo "data: event data changed\n\n". PHP_EOL;
-
+  echo PHP_EOL;
+  ob_flush();
   flush();
 }
 
