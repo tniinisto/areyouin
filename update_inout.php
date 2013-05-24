@@ -2,7 +2,7 @@
 	header('Content-Type: text/event-stream');
 	header('Cache-Control: no-cache');
 	
-	//include './events_sse.php';
+	include './events_sse.php';
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -23,10 +23,11 @@
 	$result = mysql_query($sql);
 	
 	//Call the SSE function
-	//echo sendMsg();
-	echo "data: event data changed\n\n" . PHP_EOL;
-	ob_flush();
-	flush();	
+	sendMsg();
+	
+	//echo "data: event data changed\n\n" . PHP_EOL;
+	//ob_flush();
+	//flush();	
 	
 	echo $result;
 	

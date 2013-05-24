@@ -12,8 +12,8 @@
 	}*/
 
 	function sendMsg() {
-	  echo "data: event data changed\n\n" . PHP_EOL;
-	  ob_flush();
+	  echo "data: event data changed\n\n";
+	  //ob_flush();
 	  flush();
 	}
 
