@@ -1,9 +1,9 @@
 <?php
 	
-	include 'events_sse.php';
+	/*include 'events_sse.php';
 
 	//Call the SSE function
-	sendMsg();
+	sendMsg();*/
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
