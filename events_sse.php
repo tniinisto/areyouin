@@ -7,8 +7,8 @@
 	
 	//function sendMsg($str)
 	//{
-		echo "event: " . $str . "\n";
-		echo "data: " . $str . "event data changed\n\n";
+		echo "event: ayi\n";
+		echo "data: event data changed\n\n";
 		ob_flush();
 		flush();
 	//}
