@@ -376,11 +376,11 @@ td.col3 {
 }
 
 td.col4 {
-	width: 77%;
+	width: 80%;
 }
 
 td.col5 {
-	width: 10%;
+	width: 7%;
 	text-align: right;		
 }
 
@@ -492,7 +492,7 @@ text-align: left;
 }
 .onoffswitch-inner:after {
 content: "IN ";
-padding-right: 5px;
+padding-right: 10px;
 background-color: #CCCCCC; color: #FFFFFF;
 text-align: right;
 }
