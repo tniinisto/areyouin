@@ -79,7 +79,7 @@
 						echo "<td class=\"col5\">";
 							echo "<div class=\"onoffswitch\">";
 								//echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" .$row_index . "\" checked>";
+								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", 1) checked>";
 								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
 								echo "<div class=\"onoffswitch-inner\"></div>";
 								echo "<div class=\"onoffswitch-switch\"></div>";
@@ -91,7 +91,7 @@
 						echo "<td class=\"col5\">";
 							echo "<div class=\"onoffswitch\">";
 								echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
+								echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", 0)\">";
 								echo "<div class=\"onoffswitch-inner\"></div>";
 								echo "<div class=\"onoffswitch-switch\"></div>";
 								echo "</label>";
@@ -104,89 +104,6 @@
 		
 		$row_index = $row_index + 1;
 	}	
-	
-	/*
-	//Content header
-	$row = mysql_fetch_array($result);
-	echo "<h1 onClick=\"getEvents()\">Games set for " . $row['teamName'] . "</h1>";
-
-	//sql cursor move function, to index 0
-	mysql_data_seek($result , 0);	
-
-	//Go through events & players
-	$event_check = 0;
-	while($row = mysql_fetch_array($result))
-	{
-		//Check when the event changes, then echo the event basic information
-		if($row['Events_eventID'] != $event_check)
-		{		
-			$event_check = $row['Events_eventID'];	
-			
-			echo "<table border='0' id='atable'>";
-				echo "<tr>";
-					echo "<th> Games at:" . $row['location'] . " </th>";
-					echo "<th> Starting:" . $row['startTime'] . " </th>";
-					echo "<th> Ending:" . $row['endTime'] . " </th>";
-				echo "</tr>";
-			echo "</table>";
-		}
-
-		//Echo players for the event
-		echo "<table border='0' id='atable2'>";
-			echo "<tr>";
-				echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-				echo "<td>" . $row['name'] . "</td>";
-				if($row['areyouin'] == 0)
-					echo "<td>I'm OUT</td>";
-				else
-					echo "<td>I'm IN</td>";
-			echo "</tr>";
-		echo "</table>";		
-	}*/
-	
-	
-	//Table header
-	/*echo "<table border='0' id='atable'>
-	<tr>
-	<th>Location</th>
-	<th>Start time</th>
-	<th>End time</th>
-	</tr>
-	</table>";
-
-	//sql cursor move function, to index 0
-	mysql_data_seek($result , 0);	
-	
-	//Go through events & players
-	$event_check = 0;
-	while($row = mysql_fetch_array($result))
-	{
-		//Check when the event changes, then echo the event basic information
-		if($row['Events_eventID'] != $event_check)
-		{		
-			$event_check = $row['Events_eventID'];	
-			
-			echo "<table border='1' id='atable2'>";
-			echo "<tr>";
-			echo "<td>" . $row['location'] . "</td>";
-			echo "<td>" . $row['startTime'] . "</td>";
-			echo "<td>" . $row['endTime'] . "</td>";
-			echo "</tr>";
-			echo "</table>";
-		}
-
-		//Echo players for the event
-		echo "<table border='1' id='atable3'>";
-		echo "<tr>";
-		echo "<td> <img width=\"20\" height=\"20\" src=\"images/" . $row['photourl'] . "\"></td>";
-		echo "<td>" . $row['name'] . "</td>";
-		if($row['areyouin'] == 0)
-			echo "<td>I'm OUT</td>";
-		else
-			echo "<td>I'm IN</td>";
-		echo "</tr>";
-		echo "</table>";		
-	}*/
 	
 	mysql_close($con);
 	
