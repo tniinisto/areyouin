@@ -1,5 +1,5 @@
 <?php
-	//include 'events_sse.php';
+	include './events_sse.php';
 	//require_once('events_sse.php');
 
 	$eventplayerid=$_GET["event"];
@@ -21,7 +21,7 @@
 	$result = mysql_query($sql);
 	
 	//Call SSE
-	//notifyEventUpdate();
+	notifyEventUpdate();
 	
 	echo $result;
 	
