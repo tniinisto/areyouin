@@ -122,25 +122,6 @@ function gup( name )
     return results[1];
 }
 
-function notifyOnDataChange(str)
-{
-	//SSE
-	if(typeof(EventSource)!=="undefined")
-	{
-		var source=new EventSource("events_sse.php");
-		source.onmessage=function(event)
-		{
-			//document.getElementById("result").innerHTML+=event.data + "<br>";
-			alert("event received: " + event.data);
-			source.close();
-		};
-	}
-	else
-	{
-		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-	}	
-}
-
 //Update AYI status
 function updateAYI(eventplayerid, ayi)
 {
@@ -160,7 +141,6 @@ function updateAYI(eventplayerid, ayi)
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			//alert(xmlhttp.responseText);
 			//getEvents(gup('t'), gup('p')); //Update events to be sure...
-			notifyOnDataChange("ayi");
 		}
 	}
 

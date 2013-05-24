@@ -2,7 +2,7 @@
 	//header('Content-Type: text/event-stream');
 	//header('Cache-Control: no-cache');
 	
-	//include './events_sse.php';
+	include './events_sse.php';
 
 	$eventplayerid=$_GET["event"];
 	$areyouin=$_GET["ayi"];	
@@ -23,7 +23,7 @@
 	$result = mysql_query($sql);
 	
 	//Call the SSE function
-	//sendMsg();
+	sendMsg("ayi");
 		
 	echo $result;
 	
