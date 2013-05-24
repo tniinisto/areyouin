@@ -464,7 +464,7 @@ CLEARFIX
 ON/OFF
 *************************************************************************************/
 .onoffswitch {
-position: relative; width: 74px;
+position: relative; width: 75px;
 -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -481,17 +481,18 @@ width: 200%; margin-left: -100%;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
 float: left; width: 50%; height: 27px; padding: 0; line-height: 27px;
-font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 .onoffswitch-inner:before {
 content: "OUT";
-padding-left: 10px;
+padding-left: 5px;
 background-color: #CCCCCC; color: #FFFFFF;
+text-align: left;
 }
 .onoffswitch-inner:after {
 content: "IN ";
-padding-right: 10px;
+padding-right: 5px;
 background-color: #CCCCCC; color: #FFFFFF;
 text-align: right;
 }
@@ -499,7 +500,7 @@ text-align: right;
 width: 30px; margin: -1.5px;
 background: #6A6A6A;
 border: 2px solid #FFFFFF; border-radius: 14px;
-position: absolute; top: 0; bottom: 0; right: 43px;
+position: absolute; top: 0; bottom: 0; right: 44px;
 -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
 -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
 }
