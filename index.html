@@ -130,6 +130,12 @@
 
 	jQuery(document).ready(function () {
 
+		//Hide New Game from other than team admins
+		if(!$("#userlogin").charAt($("userlogin").length - 1))
+		{
+			$("#linknewgame").addClass("noshow");
+		}
+		
 		<!-- set navi links background -->	
 		$("#linkgames").click(function(event){
 			$("#main-nav").children().removeClass("current");
