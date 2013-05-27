@@ -18,7 +18,7 @@
 	$row = mysql_fetch_array($result);
   
     //echo $sql;
-	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . " " . $row[teamAdmin]; //"<font color=\"#0d1424\">admin" . $row[teamadmin] . " </font>";
+	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . ""<font color=\"#0d1424\">" . $row[teamAdmin] . " </font>";
 	
 	mysql_close($con);
 
