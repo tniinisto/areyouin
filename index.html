@@ -165,7 +165,7 @@
 		//console.log(pos);
 		//console.log(admin);
 		if(admin == 0)
-			$("#admin_content_id").addClass("noshow");
+			$("#linknewgame").addClass("noshow");
 		
 		//Check SSE usage, disable on mobile...
 		//if ($(window).width() > 480) {
@@ -182,32 +182,28 @@
 			$("#event_content_id").removeClass("noshow");
 			$("#team_content_id").addClass("noshow");
 			$("#profile_content_id").addClass("noshow");
-			if(admin==1)
-				$("#admin_content_id").addClass("noshow");			
+			$("#admin_content_id").addClass("noshow");			
 		}
 		//Team
 		if($("#linkteam").hasClass('current')) {
 			$("#event_content_id").addClass("noshow");
 			$("#team_content_id").removeClass("noshow");
 			$("#profile_content_id").addClass("noshow");
-			if(admin==1)
-				$("#admin_content_id").addClass("noshow");			
+			$("#admin_content_id").addClass("noshow");			
 		}
 		//Profile
 		if($("#linkprofile").hasClass('current')) {
 			$("#event_content_id").addClass("noshow");
 			$("#team_content_id").addClass("noshow");
 			$("#profile_content_id").removeClass("noshow");
-			if(admin==1)
-				$("#admin_content_id").addClass("noshow");			
+			$("#admin_content_id").addClass("noshow");			
 		}
 		//New Game
 		if($("#linknewgame").hasClass('current')) {
 			$("#event_content_id").addClass("noshow");
 			$("#team_content_id").addClass("noshow");
 			$("#profile_content_id").addClass("noshow");
-			if(admin==1)
-				$("#admin_content_id").removeClass("noshow");			
+			$("#admin_content_id").removeClass("noshow");			
 		}
 		
 	});
