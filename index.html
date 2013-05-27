@@ -54,7 +54,7 @@
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
 				<li id="linkteam"><a href="#">Team</a></li> <!--Team members & games schedule in gantt/calendar view -->
 				<li id="linkprofile"><a href="#">Profile</a></li> <!-- Players info & games where participates -->
-				<li id="linknewgame"><a href="#">New Game</a></li> <!-- New game-->
+				<li id="linkadmin"><a href="#">Admin</a></li> <!-- Admin-->
 			</ul>
 		</nav>
 
@@ -82,7 +82,7 @@
 	
 	<div id="admin_content_id" class="content noshow">
 		<article class="clearfix">
-			<h2>New Game</h2>
+			<h2>Admin</h2>
 		</article>
 	</div>		
 	
@@ -148,24 +148,24 @@
 		});
 		<!-- /set navi links background -->
 		
-		<!-- New Game only for admins -->
-			$("#linknewgame").click(function(event){
+		<!-- admin -->
+			$("#linkadmin").click(function(event){
 				$("#main-nav").children().removeClass("current");
-				$("#linknewgame").addClass("current");
+				$("#linkadmin").addClass("current");
 			});		
-		<!-- /New Game only for admins -->
+		<!-- admin -->
 		
 		getLoginInformation(gup('p'), gup('t'));			
 		getEvents(gup('t'), gup('p'));
 		getPlayers();
 
-		//Hide New Game from other than team admins
+		//Hide admin
 		var pos = $("#userlogin").text().length;
 		admin = $("#userlogin").text().charAt(pos-1);
 		//console.log(pos);
 		//console.log(admin);
 		if(admin == 0)
-			$("#linknewgame").addClass("noshow");
+			$("#linkadmin").addClass("noshow");
 		
 		//Check SSE usage, disable on mobile...
 		//if ($(window).width() > 480) {
@@ -198,8 +198,8 @@
 			$("#profile_content_id").removeClass("noshow");
 			$("#admin_content_id").addClass("noshow");			
 		}
-		//New Game
-		if($("#linknewgame").hasClass('current')) {
+		//Admin
+		if($("#linkadmin").hasClass('current')) {
 			$("#event_content_id").addClass("noshow");
 			$("#team_content_id").addClass("noshow");
 			$("#profile_content_id").addClass("noshow");
