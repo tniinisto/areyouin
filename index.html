@@ -165,36 +165,42 @@
 	});
 	
 	//SSE
-	if(typeof(EventSource)!=="undefined")
+	function setSSE()
 	{
-		var source=new EventSource("events_sse.php");
-		
-		source.addEventListener("ayi", function(event) {
-			var data = event.data;
-			//var origin = event.origin;
-			//var lastEventId = event.lastEventId;
-			
-			// handle message
-			//console.log("AYI:" + event.data);
-			getEvents(gup('t'), gup('p'));			
-			//getEvents(gup('t'), gup('p'));			
-		}, false);
-		
-		/*source.onmessage=function(event)
+		if(typeof(EventSource)!=="undefined")
 		{
-			//document.getElementById("result").innerHTML+=event.data + "<br>";
-			//console.log("\nsse message: " + event.data);
-			//source.close();
-		}*/
-	}
-	else
-	{
-		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-		console.log("No SSE");
-	}
+			var source=new EventSource("events_sse.php");
+			
+			source.addEventListener("ayi", function(event) {
+				var data = event.data;
+				//var origin = event.origin;
+				//var lastEventId = event.lastEventId;
+				
+				// handle message
+				//console.log("AYI:" + event.data);
+				getEvents(gup('t'), gup('p'));			
+				//getEvents(gup('t'), gup('p'));			
+			}, false);
+			
+			/*source.onmessage=function(event)
+			{
+				//document.getElementById("result").innerHTML+=event.data + "<br>";
+				//console.log("\nsse message: " + event.data);
+				//source.close();
+			}*/
+		}
+		else
+		{
+			//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
+			console.log("No SSE");
+		}
+	};
 	
 </script>
 <!-- /scripts -->
+
+<!-- Check and don't set SSE for mobile-->
+<div class="SSEsupport" onLoad="setSSE()" style="display:none;"></div>
 			
 </body>
 </html>
