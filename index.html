@@ -68,12 +68,23 @@
 		</article>
 	</div>
 	
-	<!--<div id="team_content_id" class="content noshow">
+	<div id="team_content_id" class="content noshow">
 		<article class="clearfix">
-			<h2 onClick="getPlayers()">Games</h2>
-		    <div id="players_short2" </div>
+			<h2>Players</h2>
 		</article>
-	</div>-->
+	</div>
+	
+	<div id="profile_content_id" class="content noshow">
+		<article class="clearfix">
+			<h2>Profile</h2>
+		</article>
+	</div>	
+	
+	<div id="admin_content_id" class="content noshow">
+		<article class="clearfix">
+			<h2>New Game</h2>
+		</article>
+	</div>		
 	
 	<!-- /#content --> 
 
@@ -154,21 +165,38 @@
 		
 	});
 	
-	//Content for selected page
+	//Content for the selected page
 	$("#main-nav").click(function() {
 		//alert("Handler for .click() called.");
+		//Games
 		if($("#linkgames").hasClass('current')) {
-			//alert("games current");		
-			//$("#playerwidget").addClass("noshow");
 			$("#event_content_id").removeClass("noshow");
-			//$("#team_content_id").addClass("noshow");
+			$("#team_content_id").addClass("noshow");
+			$("#profile_content_id").addClass("noshow");
+			$("#admin_content_id").addClass("noshow");			
 		}
+		//Team
 		if($("#linkteam").hasClass('current')) {
-			//alert("team current");
-			//$("#playerwidget").removeClass("noshow");
 			$("#event_content_id").addClass("noshow");
-			//$("#team_content_id").removeClass("noshow");
-		}	
+			$("#team_content_id").removeClass("noshow");
+			$("#profile_content_id").addClass("noshow");
+			$("#admin_content_id").addClass("noshow");			
+		}
+		//Profile
+		if($("#linkprofile").hasClass('current')) {
+			$("#event_content_id").addClass("noshow");
+			$("#team_content_id").addClass("noshow");
+			$("#profile_content_id").removeClass("noshow");
+			$("#admin_content_id").addClass("noshow");			
+		}
+		//New Game
+		if($("#linkprofile").hasClass('current')) {
+			$("#event_content_id").addClass("noshow");
+			$("#team_content_id").addClass("noshow");
+			$("#profile_content_id").addClass("noshow");
+			$("#admin_content_id").removeClass("noshow");			
+		}
+		
 	});
 		
 </script>
