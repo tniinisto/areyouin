@@ -18,8 +18,8 @@
 	$row = mysql_fetch_array($result);
   
     //echo $sql;
-	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]; //. "<style display=\"visible\">" . $row[teamadmin] . "</style>";
-	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . " " . $row[teamAdmin]";
+	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName]; //. "<style display=\"visible\">" . $row[teamadmin] . "</style>";
+	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . " " . $row[teamAdmin];
 	//echo "Welcome: " . $row[name] . " Team: </font>" . $row[teamname];
 	
 	mysql_close($con);
