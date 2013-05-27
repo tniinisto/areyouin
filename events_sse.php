@@ -2,9 +2,10 @@
 	header('Content-Type: text/event-stream');
 	header('Cache-Control: no-cache');
 
-	$time = date('r');
+	//$time = date('r');
 	echo "event: ayi\n";
-	echo "data: The server time is: {$time}\n\n";
+	//echo "data: The server time is: {$time}\n\n";
+	echo "data: Update events date\n\n";
 	sleep(10);
 	
 	/*function sendMsg()
