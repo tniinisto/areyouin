@@ -145,7 +145,12 @@
 		getLoginInformation(gup('p'), gup('t'));			
 		getEvents(gup('t'), gup('p'));
 		getPlayers();
-		//setSSE();
+
+		//Check SSE usage, disable on mobile
+		if ($(window).width() > 480) {
+			setSSE();
+		};
+		
 	});
 	
 	//Content for selected page
@@ -167,9 +172,6 @@
 		
 </script>
 <!-- /scripts -->
-
-<!-- Check and don't set SSE for mobile-->
-<!--<div class="SSEsupport" onLoad="setSSE()" style="display:none;"></div>-->
 			
 </body>
 </html>

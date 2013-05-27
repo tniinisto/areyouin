@@ -178,6 +178,6 @@ function setSSE()
 	else
 	{
 		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
-		console.log("No SSE");
+		//console.log("No SSE");
 	}
-};
+}
