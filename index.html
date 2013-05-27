@@ -175,14 +175,14 @@
 			//var lastEventId = event.lastEventId;
 			
 			// handle message
-			console.log("event listener: ayi event received:" + event.data);
+			console.log("\nevent listener: ayi event received:" + event.data);
 			//getEvents(gup('t'), gup('p'));			
 		}, false);
 		
 		source.onmessage=function(event)
 		{
 			//document.getElementById("result").innerHTML+=event.data + "<br>";
-			console.log("sse message: " + event.data);
+			console.log("\nsse message: " + event.data);
 			//source.close();
 		}
 	}

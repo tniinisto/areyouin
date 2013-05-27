@@ -3,7 +3,7 @@
 	header('Cache-Control: no-cache');
 
 	$time = date('r');
-	echo "event: ayi\n\n";
+	echo "event: ayi\n";
 	echo "data: The server time is: {$time}\n\n";
 	sleep(10);
 	
