@@ -149,3 +149,35 @@ function updateAYI(eventplayerid, ayi)
 	xmlhttp.open("GET", "update_inout.php?" + variables, true);
 	xmlhttp.send();
 }
+
+//SSE
+function setSSE()
+{
+	if(typeof(EventSource)!=="undefined")
+	{
+		var source=new EventSource("events_sse.php");
+		
+		source.addEventListener("ayi", function(event) {
+			var data = event.data;
+			//var origin = event.origin;
+			//var lastEventId = event.lastEventId;
+			
+			// handle message
+			//console.log("AYI:" + event.data);
+			getEvents(gup('t'), gup('p'));			
+			//getEvents(gup('t'), gup('p'));			
+		}, false);
+		
+		/*source.onmessage=function(event)
+		{
+			//document.getElementById("result").innerHTML+=event.data + "<br>";
+			//console.log("\nsse message: " + event.data);
+			//source.close();
+		}*/
+	}
+	else
+	{
+		//document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
+		console.log("No SSE");
+	}
+};

@@ -141,9 +141,9 @@ smaller than 480
 *************************************************************************************/
  /* portrait mode */
 @media screen and (max-width: 480px) {
-	.SSEsupport {
+	/*.SSEsupport {
 		HTMLElementObject.disabled: true;
-	}
+	}*/
 	
 	/* disable webkit text size adjust (for iPhone) */
 	html {
