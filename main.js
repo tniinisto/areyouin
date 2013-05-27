@@ -163,7 +163,7 @@ function setSSE()
 			//var lastEventId = event.lastEventId;
 			
 			// handle message
-			//console.log("AYI:" + event.data);
+			console.log("AYI:" + event.data);
 			getEvents(gup('t'), gup('p'));			
 			//getEvents(gup('t'), gup('p'));			
 		}, false);
