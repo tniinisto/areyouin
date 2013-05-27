@@ -54,6 +54,7 @@
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
 				<li id="linkteam"><a href="#">Team</a></li> <!--Team members & games schedule in gantt/calendar view -->
 				<li id="linkprofile"><a href="#">Profile</a></li> <!-- Players info & games where participates -->
+				<li id="linknewgame"><a href="#">New Game</a></li> <!-- New game-->
 			</ul>
 		</nav>
 
@@ -119,7 +120,6 @@
 	jQuery(document).ready(function () {
 
 		<!-- set navi links background -->	
-
 		$("#linkgames").click(function(event){
 			$("#main-nav").children().removeClass("current");
 			$("#linkgames").addClass("current");
@@ -134,13 +134,14 @@
 			$("#main-nav").children().removeClass("current");
 			$("#linkprofile").addClass("current");
 		});
-
-		/*$("#linksettings").click(function(event){
-			$("#main-nav").children().removeClass("current");
-			$("#linksettings").addClass("current");
-		});*/		
-
 		<!-- /set navi links background -->
+		
+		<!-- New Game only for admins -->
+			$("#linknewgame").click(function(event){
+				$("#main-nav").children().removeClass("current");
+				$("#linknewgame").addClass("current");
+			});		
+		<!-- /New Game only for admins -->
 		
 		getLoginInformation(gup('p'), gup('t'));			
 		getEvents(gup('t'), gup('p'));
