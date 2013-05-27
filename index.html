@@ -130,16 +130,6 @@
 
 	jQuery(document).ready(function () {
 
-		//Hide New Game from other than team admins
-		/*if($("#userlogin").charAt(("userlogin").length - 1) = 0)
-		{
-			$("#linknewgame").addClass("noshow");
-		}*/
-		var pos = $("#userlogin").text().length;
-		var admin = $("#userlogin").text().charAt(pos-1);
-		console.log(pos);
-		console.log(admin);
-		
 		<!-- set navi links background -->	
 		$("#linkgames").click(function(event){
 			$("#main-nav").children().removeClass("current");
@@ -168,6 +158,12 @@
 		getEvents(gup('t'), gup('p'));
 		getPlayers();
 
+		//Hide New Game from other than team admins
+		var pos = $("#userlogin").text().length;
+		var admin = $("#userlogin").text().charAt(pos-1);
+		console.log(pos);
+		console.log(admin);
+		
 		//Check SSE usage, disable on mobile...
 		//if ($(window).width() > 480) {
 			setSSE();
