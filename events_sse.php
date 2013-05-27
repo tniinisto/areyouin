@@ -14,14 +14,14 @@
 		flush();
 	}*/
 	
-	while(1) {
+	//while(1) {
 		echo "event: ayi\n";
 		echo "data: fetch events";
 		//echo PHP_EOL;
 		ob_flush();
 		flush();	
-		sleep(60);
-	}	 
+		//sleep(60);
+	//}	 
 	
 	/*while (1) {
 	  // Every second, sent a "ping" event.

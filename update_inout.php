@@ -1,6 +1,5 @@
 <?php
 	/*include 'events_sse.php';
-
 	//Call the SSE function
 	sendMsg();*/
 
