@@ -4,6 +4,7 @@
 
 	$time = date('r');
 	echo "data: The server time is: {$time}\n\n";
+	sleep(10);
 	
 	/*function sendMsg()
 	{
