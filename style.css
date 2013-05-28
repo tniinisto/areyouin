@@ -548,7 +548,7 @@ Event form
   /*margin: 20px auto;*/
 }
 
-#eventform input {
+/*#eventform input {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
@@ -564,7 +564,7 @@ Event form
   -o-border-radius:5px;
   -ms-border-radius:5px;
   border-radius:5px;
-}
+}*/
 
 #eventform submit[type=submit] {
   background:none;
