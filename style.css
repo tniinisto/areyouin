@@ -407,6 +407,14 @@ td.col5 {
 	padding: -30px 0 0 0;
 }
 
+#gamestart_id {
+	width: 70%;
+}
+
+#gamesend_id {
+	width: 70%;
+}
+
 #insertplayers {
 	table-layout: fixed;
 	width: 30%;
