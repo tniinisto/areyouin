@@ -430,19 +430,19 @@ td.col5 {
 }
 
 .icol2 {
-	width: 20%;
-}
-
-.icol3 {
-	width: 60%;
-}
-
-.icol3 {
 	width: 10%;
 }
 
+.icol3 {
+	width: 50%;
+}
+
+.icol3 {
+	width: 20%;
+}
+
 .cb {
-	width: 5px;
+	width: 10px;
 }
 
 
