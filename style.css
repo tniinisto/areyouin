@@ -416,10 +416,13 @@ td.col5 {
 }
 
 #insertplayers {
+	width: 95%;
 	table-layout: fixed;
-	width: 80%;
-	height: auto;
-	font-size: 1.2em;
+	text-align: left;	
+	font-weight: bold;
+	position: relative;
+	top:10px;
+	margin: -14px 0;
 }
 
 .icol1 {
@@ -432,11 +435,11 @@ td.col5 {
 }
 
 .icol3 {
-	width: 40%;
+	width: 60%;
 }
 
 .icol3 {
-	width: 10%;
+	width: 15%;
 }
 
 .cb {
