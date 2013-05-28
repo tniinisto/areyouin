@@ -408,30 +408,30 @@ td.col5 {
 }
 
 #gamestart_id {
-	width: 70%;
+	width: 100px;
 }
 
 #gamesend_id {
-	width: 70%;
+	width: 100px;
 }
 
 #insertplayers {
 	table-layout: fixed;
-	width: 30%;
+	width: 200px;
 	height: auto;
 	font-size: 1.2em;
 }
 
 .icol1 {
-	width: 20%;
+	width: 50px;
 }
 
 .icol2 {
-	width: 10%;
+	width: 100px;
 }
 
 .icol3 {
-	width: 0;
+	width: 30px;
 }
 
 .cb {
