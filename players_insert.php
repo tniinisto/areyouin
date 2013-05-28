@@ -29,7 +29,15 @@
 		echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
 		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
-		echo "<td class=\"col5\"><div><input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"></div></td>";
+		echo "<td class=\"col5\">";
+			echo "<div class=\"onoffswitch\">";
+				echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+				echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
+				echo "<div class=\"onoffswitch-inner\"></div>";
+				echo "<div class=\"onoffswitch-switch\"></div>";
+				echo "</label>";
+			echo "</div>";
+		echo "</td>";
 		echo "</tr>";
 		
 		$row_index = $row_index + 1;
