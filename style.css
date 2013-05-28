@@ -525,7 +525,7 @@ right: 0px;
 /************************************************************************************
 Event form
 *************************************************************************************/
-:invalid { 
+/*:invalid { 
   border-color: #e88;
   -webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
   -moz-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
@@ -541,7 +541,7 @@ Event form
   -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
   -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
   box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-}
+}*/
 
 #eventform {
   width:100%;
