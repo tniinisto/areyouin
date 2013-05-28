@@ -424,6 +424,7 @@ td.col5 {
 
 .icol1 {
 	width: 0;
+	display: none;
 }
 
 .icol2 {
