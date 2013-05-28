@@ -547,7 +547,7 @@ input {
   border-radius:5px;
 }
 
-input[type=submit] {
+#submitgame[type=submit] {
   background:none;
   width: 100px;
   padding:10px;
