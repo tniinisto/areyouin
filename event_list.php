@@ -55,8 +55,7 @@
 				echo "<tr>";
 					echo "<th>From " . $res1 . " to " . $res2 . "</th>";
 				echo "</tr>";
-			echo "</table>"
-			
+			echo "</table>";
 		}
 
 		//Echo players for the event
