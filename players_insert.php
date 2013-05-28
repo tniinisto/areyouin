@@ -11,9 +11,9 @@
 	$sql="SELECT playerID, name, photourl FROM players";
 
 	$result = mysql_query($sql);
-
-	echo "<form id=\"eventform\">";
+	echo "<article id=\"admin_content_article\" class=\"clearfix\">";
 	echo "<h1>Enter new game</h1>";
+	echo "<form id=\"eventform\">";
 	echo "<h2>Set Time</h2>";
 	echo "<label>Game start:</label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
@@ -37,6 +37,7 @@
 	
 	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
 	echo "</form>";
+	echo "</article>";
 	
 	mysql_close($con);
 ?>
