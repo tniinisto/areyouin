@@ -525,12 +525,12 @@ Event form
   box-shadow: 0 0 5px rgba(0, 0, 255, .5);
 }
 
-form {
+#eventform {
   width:300px;
   margin: 20px auto;
 }
 
-input {
+#eventform input {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
@@ -548,8 +548,7 @@ input {
   border-radius:5px;
 }
 
-#submitgame[type=submit] {
+#eventform submit[type=submit] {
   background:none;
-  width: 100px;
   padding:10px;
 }
