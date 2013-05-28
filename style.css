@@ -417,7 +417,7 @@ td.col5 {
 
 #insertplayers {
 	table-layout: fixed;
-	width: 200px;
+	width: 150px;
 	height: auto;
 	font-size: 1.2em;
 }
@@ -427,11 +427,11 @@ td.col5 {
 }
 
 .icol2 {
-	width: 100px;
+	width: 80px;
 }
 
 .icol3 {
-	width: 30px;
+	width: 20px;
 }
 
 .cb {
