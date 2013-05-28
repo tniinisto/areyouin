@@ -548,7 +548,7 @@ Event form
   /*margin: 20px auto;*/
 }
 
-/*#gamestart_id, #gamesend_id, #submitgame {
+#gamestart_id, #gamesend_id, #submitgame {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
@@ -564,9 +564,9 @@ Event form
   -o-border-radius:5px;
   -ms-border-radius:5px;
   border-radius:5px;
-}*/
+}
 
-/*#eventform submit[type=submit] {
+#eventform submit[type=submit] {
   background:none;
   padding:10px;
-}*/
+}
