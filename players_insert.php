@@ -18,9 +18,9 @@
 	{
 		echo "<tr>";
 		echo "<td class=\"col1\">" . $row['playerID'] . "</td>";
-		echo "<td> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-		echo "<td>" . $row['name'] . "</td>";
-		echo "<td><input type=\"checkbox\" id=\"row" . $row_index . "\"</td>";
+		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+		echo "<td class=\"col4\">" . $row['name'] . "</td>";
+		echo "<td class=\"col5\"> <input type=\"checkbox\" id=\"row" . $row_index . "\"</td>";
 		echo "</tr>";
 		
 		$row_index = $row_index + 1;
