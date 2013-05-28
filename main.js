@@ -83,6 +83,27 @@ function getPlayers() {
 	xmlhttp.send();
 }
 
+//Getting player list for inserting new event
+function getPlayersInsert() {
+	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("insertplayers").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	xmlhttp.open("GET", "players_insert.php", false);
+	xmlhttp.send();
+}
+
 //Get events with players for the team
 function getEvents(str, str2) {
 	if (str == "" || str2 == "") {
