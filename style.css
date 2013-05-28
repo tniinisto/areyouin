@@ -405,7 +405,9 @@ td.col5 {
 
 #insertplayers {
 	table-layout: fixed;
-	width: 40%;
+	width: 30%;
+	height: auto;
+	font-size: 1.2em;
 }
 
 .icol1 {
