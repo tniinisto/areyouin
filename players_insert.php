@@ -13,7 +13,7 @@
 	$result = mysql_query($sql);
   	
 	$row_index = 1; 
-	echo "<table border='0' id='insertplayers'>"; 
+	echo "<table border='1' id='insertplayers'>"; 
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
