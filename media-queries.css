@@ -223,8 +223,8 @@ smaller than 480
 
 	#loginbutton {
 		position: absolute;
-		//left: 50px;
-		padding: 30 0 0 30
+		/*left: 50px; */
+		padding: 50px 0 0 50px;
 		
 	}
 	
