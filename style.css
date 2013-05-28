@@ -413,11 +413,15 @@ td.col5 {
 }
 
 .icol2 {
-	width: 60%;
+	width: 50%;
 }
 
 .icol3 {
-	width: 0;
+	width: 10%;
+}
+
+.cb {
+	width: 20px;
 }
 
 
