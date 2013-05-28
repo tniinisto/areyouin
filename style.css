@@ -403,10 +403,6 @@ td.col5 {
 	text-align: right;		
 }
 
-.cb {
-	width: 10px;
-}
-
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
@@ -548,7 +544,7 @@ Event form
 }
 
 #eventform {
-  width:300px;
+  width:100%;
   margin: 20px auto;
 }
 
@@ -556,7 +552,7 @@ Event form
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
-  width:250px;
+  width:80%;
   min-height:30px;
   display:block;
   margin-bottom:15px;
