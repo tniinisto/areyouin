@@ -1,4 +1,4 @@
- <?php
+<?php
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	  {
@@ -7,7 +7,7 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT name, photourl FROM players";
+	$sql="SELECT playerID, name, photourl FROM players";
 
 	$result = mysql_query($sql);
   	
@@ -22,4 +22,4 @@
 	echo "</table>";	
 	
 	mysql_close($con);
-  ?>
+?>
