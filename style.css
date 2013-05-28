@@ -423,15 +423,19 @@ td.col5 {
 }
 
 .icol1 {
-	width: 40px;
+	width: 0;
 }
 
 .icol2 {
-	width: 50px;
+	width: 40px;
 }
 
 .icol3 {
-	width: 10px;
+	width: 80px;
+}
+
+.icol3 {
+	width: 30px;
 }
 
 .cb {
