@@ -211,7 +211,7 @@ smaller than 480
 	#loginform {
 		position: absolute;
 		top: 70px;
-		left: 50px;
+		left: 40px;
 		z-index: 100;
 		height: 10px;
 		width: 150px;
@@ -223,7 +223,7 @@ smaller than 480
 
 	#loginbutton {
 		position: absolute;
-		left: 30px;
+		left: 50px;
 	}
 	
 	#teamradio {
