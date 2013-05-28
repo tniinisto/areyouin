@@ -401,7 +401,6 @@ td.col4 {
 td.col5 {
 	width: 9%;
 	text-align: right;
-	height: auto;
 }
 
 /************************************************************************************
@@ -549,7 +548,7 @@ Event form
   /*margin: 20px auto;*/
 }
 
-#gamestart_id, #gamesend_id {
+#gamestart_id, #gamesend_id, #submitgame {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
