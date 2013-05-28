@@ -404,9 +404,22 @@ td.col5 {
 }
 
 #insertplayers {
-	table-layout: auto;
-	width: 95%;
+	table-layout: fixed;
+	width: 90%;
 }
+
+.icol1 {
+	width: 10%;
+}
+
+.icol2 {
+	width: 60%;
+}
+
+.icol3 {
+	width: 20%;
+}
+
 
 /************************************************************************************
 SIDEBAR
