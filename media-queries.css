@@ -161,19 +161,6 @@ smaller than 480
 		display: none;
 	}	
 	
-	/*td.col1 {
-		width: 15%;
-	}
-
-	td.col2 {
-		width: 65%;
-	}
-
-	td.col3 {
-		width: 15%;
-		text-align: right;		
-	}*/
-
 	td.col3 {
 		width: 18%;
 	}
@@ -190,18 +177,6 @@ smaller than 480
 	/*#site-logo font{
 		font-size: 90%;
 	}*/
-	
-	.icol2 {
-		width: 10%;
-	}
-
-	.icol3 {
-		width: 30%;
-	}
-
-	.icol3 {
-		width: 10%;
-	}	
 	
 	/* main nav */
 	#main-nav a {

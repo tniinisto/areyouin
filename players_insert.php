@@ -11,21 +11,32 @@
 	$sql="SELECT playerID, name, photourl FROM players";
 
 	$result = mysql_query($sql);
-  	
+
+	echo "<form id=\"eventform\">";
+	echo "<h1>Enter new game</h1>";
+	echo "<h2>Set Time</h2>";
+	echo "<label>Game start:</label>";
+	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
+	echo "<label>Game end:</label>";
+	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required></input>";
+
 	$row_index = 1; 
-	echo "<table border='1' id='insertplayers'>"; //class=\"atable2\">"; 
+	echo "<table border='1' id='insertplayers' class=\"atable2\">"; 
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
-		echo "<td class=\"icol1\">playerID " . $row['playerID'] . "</td>";
-		echo "<td class=\"icol2\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-		echo "<td class=\"icol3\">" . $row['name'] . "</td>";
-		echo "<td class=\"icol4\"> <input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"<\input></td>";
+		echo "<td class=\"icol1\">" . $row['playerID'] . "</td>";
+		echo "<td class=\"icol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+		echo "<td class=\"icol4\">" . $row['name'] . "</td>";
+		echo "<td class=\"icol5\"> <input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"<\input></td>";
 		echo "</tr>";
 		
 		$row_index = $row_index + 1;
 	}
-	echo "</table>";	
+	echo "</table>";
+	
+	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
+	echo "</form>";
 	
 	mysql_close($con);
 ?>
