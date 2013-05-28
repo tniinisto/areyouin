@@ -28,7 +28,7 @@
 		echo "<td class=\"icol1\">" . $row['playerID'] . "</td>";
 		echo "<td class=\"icol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"icol4\">" . $row['name'] . "</td>";
-		echo "<td class=\"icol5\"> <input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"<\input></td>";
+		echo "<input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"><\input>";
 		echo "</tr>";
 		
 		$row_index = $row_index + 1;
