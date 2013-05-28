@@ -75,7 +75,6 @@ function getPlayers() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("players_short").innerHTML = xmlhttp.responseText;
-			//document.getElementById("players_short2").innerHTML = xmlhttp.responseText;
 		}
 	}
 

@@ -7,7 +7,7 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT playerID, name, photourl FROM players";
+	$sql="SELECT name, photourl FROM players";
 
 	$result = mysql_query($sql);
   	
