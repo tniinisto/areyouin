@@ -26,7 +26,7 @@
 	{
 		echo "<tr>";
 		echo "<td class=\"col1\">" . $row['playerID'] . "</td>";
-		echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
+		//echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
 		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
 		echo "<td class=\"col5\"><input class=\"cb\" type=\"checkbox\" id=\"row" . $row_index . "\"></td>";
