@@ -19,6 +19,8 @@
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
 	echo "<label>Game end:</label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required></input>";
+	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
+	echo "</form>";
 	echo "</br>";
 	echo "</br>";
 
@@ -47,8 +49,7 @@
 	echo "</table>";
 	echo "</br>";
 	echo "</br>";
-	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
-	echo "</form>";
+
 	echo "</article>";
 	
 	mysql_close($con);
