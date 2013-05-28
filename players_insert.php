@@ -19,6 +19,7 @@
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
 	echo "<label>Game end:</label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required></input>";
+	echo "</br>";
 
 	$row_index = 1; 
 	echo "<table border='1' id='insertplayers' class=\"atable2\">"; 
@@ -43,7 +44,8 @@
 		$row_index = $row_index + 1;
 	}
 	echo "</table>";
-	
+	echo "</br>";
+	echo "</br>";
 	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
 	echo "</form>";
 	echo "</article>";
