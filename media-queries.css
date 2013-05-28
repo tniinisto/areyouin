@@ -191,6 +191,18 @@ smaller than 480
 		font-size: 90%;
 	}*/
 	
+	.icol2 {
+		width: 20%;
+	}
+
+	.icol3 {
+		width: 40%;
+	}
+
+	.icol3 {
+		width: 10%;
+	}	
+	
 	/* main nav */
 	#main-nav a {
 		font-size: 90%;
