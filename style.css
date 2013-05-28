@@ -426,7 +426,6 @@ td.col5 {
 }
 
 .icol1 {
-	width: 0;
 	display: none;
 }
 
@@ -439,11 +438,11 @@ td.col5 {
 }
 
 .icol3 {
-	width: 15%;
+	width: 10%;
 }
 
 .cb {
-	width: 0;
+	width: 5%;
 }
 
 
