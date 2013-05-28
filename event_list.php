@@ -60,7 +60,7 @@
 		}
 
 		//Echo players for the event
-		echo "<table border='0' class=\"atable2\">";
+		echo "<table border='1' class=\"atable2\">";
 			echo "<tr>";
 				echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
