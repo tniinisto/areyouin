@@ -549,5 +549,6 @@ input {
 
 input[type=submit] {
   background:none;
+  width: 100px;
   padding:10px;
 }
