@@ -13,7 +13,7 @@
 function getLoginInformation(playerID, teamID) {
 	//alert("showUser() gets called.");
 	if (playerID == "" || teamID == "") {
-		document.getElementById("txtHint").innerHTML = "";
+		document.getElementById("userlogin").innerHTML = "getLoginInformation";
 		return;
 	}
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -41,7 +41,7 @@ function getLoginInformation(playerID, teamID) {
 function showUser(str) {
 	//alert("showUser() gets called.");
 	if (str == "") {
-		document.getElementById("txtHint").innerHTML = "";
+		document.getElementById("userlogin").innerHTML = "showUser()";
 		return;
 	}
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -87,7 +87,7 @@ function getPlayers() {
 //Get events with players for the team
 function getEvents(str, str2) {
 	if (str == "" || str2 == "") {
-		document.getElementById("txtHint").innerHTML = "";
+		document.getElementById("userlogin").innerHTML = "getEvents()";
 		return;
 	}	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -127,7 +127,7 @@ function updateAYI(eventplayerid, ayi)
 {
 	//alert("updateAYI() gets called.");
 	if (eventplayerid == "" || ayi == "") {
-		document.getElementById("txtHint").innerHTML = "";
+		document.getElementById("userlogin").innerHTML = "updateAYI()";
 		return;
 	}
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari

@@ -84,7 +84,7 @@
 	<div id="admin_content_id" class="content noshow">
 		<article class="clearfix">
 			<h2>Admin</h2>
-			<form>
+			<form action="getPlayers()"> <!-- TEMPORARY -->
 				<label>Games start (YYYY-MM-DD HH:MM):</label>
 				<input type="datetime" id="gamestart_id" name="gamestart" value="2013-06-01 17:00" required></input> <!--placeholder="YYYY-MM-DD HH:MM"-->
 
@@ -116,14 +116,14 @@
 			</form>
 
 			<script>
-			/*{
-			  if (input.value != document.getElementById('email_addr').value) {
-				input.setCustomValidity('The two email addresses must match.');
-			  } else {
-				// input is valid -- reset the error message
-				input.setCustomValidity('');
-			  }
-			}*/
+				/*{
+				  if (input.value != document.getElementById('email_addr').value) {
+					input.setCustomValidity('The two email addresses must match.');
+				  } else {
+					// input is valid -- reset the error message
+					input.setCustomValidity('');
+				  }
+				}*/
 			</script>			
 		</article>
 	</div>		
