@@ -38,7 +38,9 @@
 	
 	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
 	$gamestart = str_replace("T", " ", $gamestart);
+	$gamestart = $gamestart . ":00";
 	$gamesend = str_replace("T", " ", $gamesend);
+	$gamesend = $gamesend . ":00";
 	
 	echo $gamestart;
 	
