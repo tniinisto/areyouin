@@ -47,9 +47,9 @@
 	if(stripos($gamestart,"."))
 	{
 		$gamestart = DateTime::createFromFormat('d.m.Y H.i',$gamestart)->format('Y-m-d H:i');	
-		$gamestart = $gamestart . ":00";
+		//$gamestart = $gamestart . ":00";
 		$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');	
-		$gamesend = $gamesend . ":00";
+		//$gamesend = $gamesend . ":00";
 	}
 	//echo $gamestart;
 	
