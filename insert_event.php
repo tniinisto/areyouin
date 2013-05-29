@@ -16,14 +16,16 @@
 	$p2layers1=$_POST['playerid1']; 
 	$p2layers2=$_POST['ooswitch1']; 
 	
-	$players = array(array()); //(playerID, checkbox)
+	//[playerID, checkbox]
+	$players = array(); 
+
 	//$idpost = '';
 	//$oopost = '';
 	for ($i=1; $i<=$playeramount; $i++)
 	{
 		//$idpost = "'playerid" . $i . "'";
 		//$oopost = "'ooswitch" . $i . "'";
-	
+		$players[i] = array();
 		$players[i][1] = $i; //$_POST[$idpost];
 		$players[i][2] = $i; //$_POST[$oopost];
 
