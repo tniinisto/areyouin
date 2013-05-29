@@ -203,12 +203,12 @@ function setSSE()
 }
 
 //Insert new event
-function insertEvent()
+/*function insertEvent()
 {
-	/*if (eventplayerid == "" || ayi == "") {
+	if (eventplayerid == "" || ayi == "") {
 		document.getElementById("userlogin").innerHTML = "updateAYI()";
 		return;
-	}*/
+	}
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -226,4 +226,4 @@ function insertEvent()
 	alert("insertEvent()");
 	xmlhttp.open("GET", "insert_event.php", true);
 	xmlhttp.send();
-}
+}*/

@@ -8,7 +8,7 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT playerID, name, photourl FROM players";
+	$sql="SELECT playerID, name, photourl, count(playerID) as playeramount FROM players";
 
 	$result = mysql_query($sql);
 	echo "<article id=\"admin_content_article\" class=\"clearfix\">";
@@ -25,7 +25,7 @@
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
-		echo "<td class=\"col1\">" . $row['playerID'] . "</td>";
+		echo "<td class=\"col1\"><input type=\"text\" name=\"playeramount" . $row['playeramount'] . "\"</input></td>";
 		echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
 		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
