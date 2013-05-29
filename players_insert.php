@@ -22,6 +22,7 @@
 	echo "<label><h2>Game end:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required></input>";
 
+	
 	$row_index = 1; 
 	echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
 	
