@@ -81,7 +81,7 @@
 		echo "</br>";
 	}*/
 	
-	echo "<a href=\"http://areyouin.azurewebsites.net/\">Your game was inserted!</a>";
+	echo "<h1>Your game was inserted!</h1>";
 	
 	mysql_close($con);
 
