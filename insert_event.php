@@ -45,7 +45,7 @@
 		$gamesend = $gamesend . ":00";
 	}
 	//iPhone  -> 2013-07-27 17:30:00
-	if(strlen($gamestart) > 17)
+	if(stripos($gamestart,"T") && strlen($gamestart) > 17)
 	{
 		$gamestart = str_replace("T", " ", $gamestart);
 		$gamesend = str_replace("T", " ", $gamesend);
