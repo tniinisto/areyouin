@@ -84,7 +84,7 @@
 	//echo "<h1>Your game was inserted, click the browser back button...</h1>";
 
 	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-	echo "<a href='$url'><h1>Your game was inserted, click here.</h1></a>"; 	
+	echo "<a href='$url'><h1>Your game was inserted succesfully, click here for A'YouIN!</h1></a>";
 	
 	mysql_close($con);
 
