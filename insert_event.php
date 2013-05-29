@@ -30,6 +30,7 @@
 	$playeramount = stripslashes($playeramount);
 	$gamestart = stripslashes($gamestart);
 	$gamesend = stripslashes($gamesend);
+	$players1 = stripslashes($players1);
 
 	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
 	//$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
@@ -38,6 +39,7 @@
 	//$result = mysql_query($sql);
 	
 	echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
+	echo "</br>";
 	echo "</br>";
 	echo "playerID: " . $players1 . " checkbox value: " . $players2;
 	

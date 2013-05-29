@@ -18,9 +18,9 @@
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
 	echo "<h2>Set Time</h2>";
 	echo "<label><h2>Game start:</h2></label>";
-	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" value=\"2013-05-30T00:59\" required></input>";
+	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\"></input>";
 	echo "<label><h2>Game end:</h2></label>";
-	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" value=\"2013-05-30T00:59\" required></input>";
+	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\"></input>";
 
 	$row_index = 1; 
 	echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
