@@ -16,19 +16,19 @@
 	$p2layers1=$_POST['playerid1']; 
 	$p2layers2=$_POST['ooswitch1']; 
 	
-	$players = array(); //(playerID, checkbox)
-	$idpost = '';
-	$oopost = '';
+	$players = array(array(), array()); //(playerID, checkbox)
+	//$idpost = '';
+	//$oopost = '';
 	for ($i=1; $i<=$playeramount; $i++)
 	{
-		$idpost = "'playerid" . $i . "'";
-		$oopost = "'ooswitch" . $i . "'";
+		//$idpost = "'playerid" . $i . "'";
+		//$oopost = "'ooswitch" . $i . "'";
 	
-		$players[i][1] = "test" . $i; //$_POST[$idpost];
-		$players[i][2] = "2test" . $i; //$_POST[$oopost];
+		$players[i][1] = $i; //$_POST[$idpost];
+		$players[i][2] = $i; //$_POST[$oopost];
 
-		$players[i][1] = stripslashes($players[i][1]);
-		$players[i][2] = stripslashes($players[i][2]);
+		//$players[i][1] = stripslashes($players[i][1]);
+		//$players[i][2] = stripslashes($players[i][2]);
 	}
 
 	// To protect MySQL injection
