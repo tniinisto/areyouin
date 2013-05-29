@@ -13,10 +13,7 @@
 	$gamestart=$_POST['gamestart'];
 	$gamesend=$_POST['gamesend'];
 
-	$p2layers1=$_POST['playerid1']; 
-	$p2layers2=$_POST['ooswitch1']; 
-	
-	//[playerID, checkbox]
+	//Array containing [playerID, checkbox]
 	$players = array(); 
 	$idpost = '';
 	$oopost = '';
@@ -38,26 +35,28 @@
 	$gamestart = stripslashes($gamestart);
 	$gamesend = stripslashes($gamesend);
 
-	$p2layers1 = stripslashes($p2layers1);
-	$p2layers2 = stripslashes($p2layers2);
-
-	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
-	//$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
+	
+	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
+	$gamestart = str_replace("T", " ", $gamestart);
+	$gamesend = str_replace("T", " ", $gamesend);
+	
+	echo $gamestart;
+	
+	//$sql = INSERT INTO `areyouin`.`events` (`Location_locationID`, `EventType_eventTypeID`, `startTime`, `endTime`) VALUES ('1', '1', '2013-07-27 17:30:00', '2013-07-27 19:30:00');
 	
 	//echo $sql;
 	//$result = mysql_query($sql);
 	
-	echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
-	echo "</br>";
-	echo "</br>";
-	echo "playerID: " . $p2layers1 . " checkbox value: " . $p2layers2;
+	/*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
 	
 	for ($j=1; $j<=$playeramount; $j++)
 	{
 		echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
 		echo "</br>";
-	}
+	}*/
+	
+	
 	
 	mysql_close($con);
 
