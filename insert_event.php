@@ -49,6 +49,8 @@
 	//echo "</br>";
 	$result = mysql_query($sql);
 
+	sleep(2);
+	
 	//Get the id for the inserted event
 	$sql2 = "SELECT MAX(eventID) as eventID FROM events";
 	//echo $sql2;
