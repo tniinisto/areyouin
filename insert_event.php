@@ -14,7 +14,7 @@
 	$gamesend=$_POST['gamesend'];
 
 	$p2layers1=$_POST['playerid1']; 
-	$players2=$_POST['ooswitch1']; 
+	$p2layers2=$_POST['ooswitch1']; 
 	
 	$players = array(); //(playerID, checkbox)
 
@@ -36,6 +36,7 @@
 	$gamesend = stripslashes($gamesend);
 
 	$p2layers1 = stripslashes($p2layers1);
+	$p2layers2 = stripslashes($p2layers2);
 
 	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
 	//$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
@@ -46,7 +47,7 @@
 	echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
 	echo "</br>";
-	echo "playerID: " . $p2layers1 . " checkbox value: " . $players2;
+	echo "playerID: " . $p2layers1 . " checkbox value: " . $p2layers2;
 	echo "</br>";
 	
 	for ($j=1; $j<=$playeramount; $j++)
