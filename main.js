@@ -203,7 +203,7 @@ function setSSE()
 }
 
 //Insert new event
-function insertEvent(p, p, p)
+function insertEvent()
 {
 	/*if (eventplayerid == "" || ayi == "") {
 		document.getElementById("userlogin").innerHTML = "updateAYI()";

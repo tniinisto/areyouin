@@ -13,7 +13,7 @@
 	$result = mysql_query($sql);
 	echo "<article id=\"admin_content_article\" class=\"clearfix\">";
 	echo "<h1>Enter new game</h1>";
-	echo "<form id=\"eventform\" method=\"get\" action=\"insert_event.php\">";
+	echo "<form id=\"eventform\" method=\"get\" action=\"insertEvent()\">";
 	echo "<h2>Set Time</h2>";
 	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
