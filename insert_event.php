@@ -40,14 +40,14 @@
 	$gamestart = str_replace("T", " ", $gamestart);
 	$gamestart = $gamestart . ":00";
 	$gamesend = str_replace("T", " ", $gamesend);
-	$gamesend = $gamesend . ":00";
+	$gamesend = $gamesend . ":00";	
+	//echo $gamestart;
 	
-	echo $gamestart;
-	
-	//$sql = INSERT INTO `areyouin`.`events` (`Location_locationID`, `EventType_eventTypeID`, `startTime`, `endTime`) VALUES ('1', '1', '2013-07-27 17:30:00', '2013-07-27 19:30:00');
-	
+	$sql = "INSERT INTO events (`Location_locationID`, `EventType_eventTypeID`, `startTime`, `endTime`) VALUES ('1', '1', " . $gamestart. ", " . $gamesend . ")";
 	//echo $sql;
-	//$result = mysql_query($sql);
+	
+	$result = mysql_query($sql);
+	
 	
 	/*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
@@ -57,8 +57,6 @@
 		echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
 		echo "</br>";
 	}*/
-	
-	
 	
 	mysql_close($con);
 
