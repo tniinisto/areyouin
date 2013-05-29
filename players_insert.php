@@ -25,7 +25,7 @@
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<tr>";
-		echo "<td class=\"col1\"><input type=\"text\" name=\"playeramount" . $row['playeramount'] . "\"</input></td>";
+		echo "<td class=\"col1\"><input type=\"number\" name=\"playeramount\ value=\"" . $row['playeramount'] . "\"</input></td>";
 		echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
 		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
