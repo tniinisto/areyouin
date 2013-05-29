@@ -43,13 +43,24 @@
 	$gamesend = $gamesend . ":00";	
 	//echo $gamestart;
 	
+	//Insert event to events
 	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-	      //INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '2013-08-01 15:00:00', '2013-07-08 17:00:00', '1')
 	echo $sql;
-	
 	$result = mysql_query($sql);
-	echo $result;
+
+	//Get the id for the inserted event
+	$sql2 = "SELECT MAX(eventID) FROM events";
+	echo $sql2;
+	$result2 = mysql_query($sql2);
+	$row = mysql_fetch_array($result2);	
 	
+	//Insert players which are selected into the event
+	$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$i][1] . "', '" . $row[eventID] . "', '0');";
+	echo $sql3;
+	$result3 = mysql_query($sql3);
+	
+
+	//echo $result;	
 	/*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
 	
