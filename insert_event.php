@@ -33,6 +33,7 @@
 	// To protect MySQL injection
 	$playeramount = stripslashes($playeramount);
 	$gamestart = stripslashes($gamestart);
+	echo $gamestart;
 	$gamesend = stripslashes($gamesend);
 
 	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
