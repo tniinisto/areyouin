@@ -59,7 +59,7 @@
 	//Insert players which are selected into the event
 	for ($k=1; $k<=$playeramount; $k++)
 	{
-		if($players[$k][2] == "off")
+		if($players[$k][2] == '')
 		{
 			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" . $row[eventID] . "', '0');";
 			$result3 = mysql_query($sql3);
