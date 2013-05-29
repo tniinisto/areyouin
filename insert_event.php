@@ -43,8 +43,8 @@
 	$gamesend = $gamesend . ":00";	
 	//echo $gamestart;
 	
-	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID') VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-	//INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '2013-08-01 15:00:00', '2013-07-08 17:00:00', '1')
+	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
+	      //INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '2013-08-01 15:00:00', '2013-07-08 17:00:00', '1')
 	echo $sql;
 	
 	$result = mysql_query($sql);
