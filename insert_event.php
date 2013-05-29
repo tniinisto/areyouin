@@ -24,8 +24,8 @@
 		$idpost = "'playerid" . $i . "'";
 		$oopost = "'ooswitch" . $i . "'";
 	
-		$players[i][1] = $_POST[$idpost];
-		$players[i][2] = $_POST[$oopost];
+		$players[i][1] = "test" . $i; //$_POST[$idpost];
+		$players[i][2] = "2test" . $i; //$_POST[$oopost];
 
 		$players[i][1] = stripslashes($players[i][1]);
 		$players[i][2] = stripslashes($players[i][2]);
