@@ -13,7 +13,7 @@
 	$result = mysql_query($sql);
 	echo "<article id=\"admin_content_article\" class=\"clearfix\">";
 	echo "<h1>Enter new game</h1>";
-	echo "<form id=\"eventform\" method=\"get\" action=\"insertEvent()\">";
+	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
 	echo "<h2>Set Time</h2>";
 	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
@@ -31,7 +31,7 @@
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
 		echo "<td class=\"col5\">";
 			echo "<div class=\"onoffswitch\">";
-				echo "<input type=\"checkbox\" name=\"onoffswitch" . $row['playerID'] . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+				echo "<input type=\"checkbox\" name=\"onoffswitch" . $row['playerID'] . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\">";
 				echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
 				echo "<div class=\"onoffswitch-inner\"></div>";
 				echo "<div class=\"onoffswitch-switch\"></div>";
