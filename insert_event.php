@@ -17,11 +17,12 @@
 	$p2layers2=$_POST['ooswitch1']; 
 	
 	$players = array(); //(playerID, checkbox)
-
+	$idpost = 0;
+	$oopost = 0;
 	for ($i=1; $i<=$playeramount; $i++)
 	{
-		$idpost = "'playerid" . $i . "'";
-		$oopost = "'ooswitch" . $i . "'";
+		$idpost = "playerid" . $i;
+		$oopost = "ooswitch" . $i;
 	
 		$players[i][1] = $_POST[$idpost];
 		$players[i][2] = $_POST[$oopost];
