@@ -17,8 +17,10 @@
 	for ($i=1; $i<=$playeramount; $i++)
 	{
 		//echo "The number is " . $i . "<br>";
-		$players[i][1] = $_POST["'playerid" . $i ."'"];
-		$players[i][2] = $_POST["'onoffswitch" . $i ."'"];
+		//$players[i][1] = $_POST["'playerid" . $i ."'"];
+		//$players[i][2] = $_POST["'onoffswitch" . $i ."'"];
+		$players[i][1] = $_POST['playerid1'];
+		$players[i][2] = $_POST['ooswitch1'];
 	}
 
 	// To protect MySQL injection
@@ -33,7 +35,7 @@
 
 	//$result = mysql_query($sql);
 	
-	echo "insert_event.php, playeamount: " . $playeramount . "start: " . $gamestart . "end: " . $gamesend;
+	echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
 	for ($j=1; $j<=$playeramount; $j++)
 	{
