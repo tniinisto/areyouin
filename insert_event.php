@@ -19,18 +19,19 @@
 	//[playerID, checkbox]
 	$players = array(); 
 
-	//$idpost = '';
-	//$oopost = '';
+	$idpost = '';
+	$oopost = '';
 	for ($i=1; $i<=$playeramount; $i++)
 	{
-		//$idpost = "'playerid" . $i . "'";
-		//$oopost = "'ooswitch" . $i . "'";
 		$players[$i] = array();
-		$players[$i][1] = $i; //$_POST[$idpost];
-		$players[$i][2] = $i; //$_POST[$oopost];
+		$idpost = "'playerid" . $i . "'";
+		$oopost = "'ooswitch" . $i . "'";
+		
+		//$players[$i][1] = $i; //$_POST[$idpost];
+		//$players[$i][2] = $i; //$_POST[$oopost];
 
-		//$players[i][1] = stripslashes($players[i][1]);
-		//$players[i][2] = stripslashes($players[i][2]);
+		$players[$i][1] = stripslashes($players[$i][1]);
+		$players[$i][2] = stripslashes($players[$i][2]);
 	}
 
 	// To protect MySQL injection
