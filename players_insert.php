@@ -15,9 +15,9 @@
 	echo "<h1>Enter new game</h1>";
 	echo "<form id=\"eventform\">";
 	echo "<h2>Set Time</h2>";
-	echo "<label>Game start:</label>";
+	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required></input>";
-	echo "<label>Game end:</label>";
+	echo "<label><h2>Game end:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required></input>";
 
 	$row_index = 1; 
@@ -31,7 +31,7 @@
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
 		echo "<td class=\"col5\">";
 			echo "<div class=\"onoffswitch\">";
-				echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+				echo "<input type=\"checkbox\" name=\"onoffswitch" . $row['playerID'] . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
 				echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
 				echo "<div class=\"onoffswitch-inner\"></div>";
 				echo "<div class=\"onoffswitch-switch\"></div>";
