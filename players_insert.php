@@ -31,8 +31,8 @@
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
 		echo "<td class=\"col5\">";
 			echo "<div class=\"onoffswitch\">";
-				echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-				echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\">";
+				echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+				echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
 				echo "<div class=\"onoffswitch-inner\"></div>";
 				echo "<div class=\"onoffswitch-switch\"></div>";
 				echo "</label>";
