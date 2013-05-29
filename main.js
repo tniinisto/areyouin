@@ -222,8 +222,8 @@ function insertEvent()
 		}
 	}
 
-	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
-	//alert(variables);
-	xmlhttp.open("GET", "update_inout.php?" + variables, true);
+	//var variables = "event=" + eventplayerid + "&ayi=" + ayi;
+	alert("insertEvent()");
+	xmlhttp.open("GET", "insert_event.php", true);
 	xmlhttp.send();
 }
