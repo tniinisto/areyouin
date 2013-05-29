@@ -48,22 +48,20 @@
 	//echo $sql;
 	//echo "</br>";
 	$result = mysql_query($sql);
-
-	sleep(2);
 	
 	//Get the id for the inserted event
-	$sql2 = "SELECT MAX(eventID) as eventID FROM events";
+	//$sql2 = "SELECT MAX(eventID) as eventID FROM events";
 	//echo $sql2;
 	//echo "</br>";
-	$result2 = mysql_query($sql2);
-	$row = mysql_fetch_array($result2);	
+	//$result2 = mysql_query($sql2);
+	//$row = mysql_fetch_array($result2);	
 	
 	//Insert players which are selected into the event
 	for ($k=1; $k<=$playeramount; $k++)
 	{
 		if($players[$k][2] == '')
 		{
-			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" . $row[eventID] . "', '0');";
+			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  mysql_insert_id() . "', '0');";
 			$result3 = mysql_query($sql3);
 		}
 	}	
