@@ -45,33 +45,41 @@
 	
 	//Insert event to events
 	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-	echo $sql;
-	echo "</br>";
+	//echo $sql;
+	//echo "</br>";
 	$result = mysql_query($sql);
 
 	//Get the id for the inserted event
 	$sql2 = "SELECT MAX(eventID) as eventID FROM events";
-	echo $sql2;
-	echo "</br>";
+	//echo $sql2;
+	//echo "</br>";
 	$result2 = mysql_query($sql2);
 	$row = mysql_fetch_array($result2);	
 	
 	//Insert players which are selected into the event
-	$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
-	echo $sql3;
-	echo "</br>";
-	$result3 = mysql_query($sql3);
+	for ($k=1; $k<=$playeramount; $k++)
+	{
+		if($players[$k][2] == "off")
+		{
+			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" . $row[eventID] . "', '0');";
+			$result3 = mysql_query($sql3);
+		}
+	}	
 	
-
+	//$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
+	//echo $sql3;
+	//echo "</br>";
+	//$result3 = mysql_query($sql3);
+	
 	//echo $result;	
 	/*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
-	echo "</br>";
+	echo "</br>";*/
 	
 	for ($j=1; $j<=$playeramount; $j++)
 	{
 		echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
 		echo "</br>";
-	}*/
+	}
 	
 	mysql_close($con);
 
