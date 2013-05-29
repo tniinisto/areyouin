@@ -35,13 +35,23 @@
 	$gamestart = stripslashes($gamestart);
 	$gamesend = stripslashes($gamesend);
 
-	
 	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
-	$gamestart = str_replace("T", " ", $gamestart);
-	$gamestart = $gamestart . ":00";
-	$gamesend = str_replace("T", " ", $gamesend);
-	$gamesend = $gamesend . ":00";	
-	//echo $gamestart;
+	if(stripos($gamestart,"T"))
+	{
+		$gamestart = str_replace("T", " ", $gamestart);
+		$gamestart = $gamestart . ":00";
+		$gamesend = str_replace("T", " ", $gamesend);
+		$gamesend = $gamesend . ":00";
+	}
+	//iPhone has format 29.5.2013 14.27 -> 2013-07-27 17:30:00
+	if(stripos($gamestart,"."))
+	{
+		$gamestart = DateTime::createFromFormat('d.m.Y H.i',$gamestart)->format('Y-m-d H:i');	
+		$gamestart = $gamestart . ":00";
+		$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');	
+		$gamesend = $gamesend . ":00";
+	}
+	echo $gamestart;
 	
 	//Insert event to events
 	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
