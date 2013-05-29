@@ -15,9 +15,9 @@
 	
 	//echo $sql;
 
-	$result = mysql_query($sql);
+	//$result = mysql_query($sql);
 	
-	echo $result;
+	echo $sql;
 	
 	mysql_close($con);
 
