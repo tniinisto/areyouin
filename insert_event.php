@@ -75,11 +75,13 @@
 	/*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";*/
 	
-	for ($j=1; $j<=$playeramount; $j++)
+	/*for ($j=1; $j<=$playeramount; $j++)
 	{
 		echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
 		echo "</br>";
-	}
+	}*/
+	
+	echo "<a href=\"http://areyouin.azurewebsites.net/\">Your game was inserted!</a>";
 	
 	mysql_close($con);
 
