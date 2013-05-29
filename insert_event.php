@@ -33,7 +33,7 @@
 	// To protect MySQL injection
 	$playeramount = stripslashes($playeramount);
 	$gamestart = stripslashes($gamestart);
-	echo $gamestart;
+	//echo $gamestart;
 	$gamesend = stripslashes($gamesend);
 
 	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
@@ -58,7 +58,7 @@
 	
 	//Insert event to events
 	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-	echo $sql;
+	//echo $sql;
 	//echo "</br>";
 	$result = mysql_query($sql);
 	
