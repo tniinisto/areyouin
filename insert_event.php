@@ -25,9 +25,9 @@
 	{
 		//$idpost = "'playerid" . $i . "'";
 		//$oopost = "'ooswitch" . $i . "'";
-		$players[i] = array();
-		$players[i][1] = $i; //$_POST[$idpost];
-		$players[i][2] = $i; //$_POST[$oopost];
+		$players[$i] = array();
+		$players[$i][1] = $i; //$_POST[$idpost];
+		$players[$i][2] = $i; //$_POST[$oopost];
 
 		//$players[i][1] = stripslashes($players[i][1]);
 		//$players[i][2] = stripslashes($players[i][2]);
@@ -55,7 +55,7 @@
 	
 	for ($j=1; $j<=$playeramount; $j++)
 	{
-		echo "playerID: " . $players[j][1] . " checkbox value: " . $players[j][2] . "";
+		echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
 		echo "</br>";
 	}
 	
