@@ -81,8 +81,7 @@
 		echo "</br>";
 	}*/
 	
-	echo "<h1>Your game was inserted!</h1>";
-	
+	echo "<h1><a href=<" . $_SERVER['HTTP_REFERER'] . ">Your game was inserted!</a></h1>";
 	mysql_close($con);
 
 ?>
