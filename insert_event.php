@@ -51,11 +51,11 @@
 		$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');	
 		$gamesend = $gamesend . ":00";
 	}
-	echo $gamestart;
+	//echo $gamestart;
 	
 	//Insert event to events
 	$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-	//echo $sql;
+	echo $sql;
 	//echo "</br>";
 	$result = mysql_query($sql);
 	
