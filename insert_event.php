@@ -81,7 +81,8 @@
 		echo "</br>";
 	}*/
 	
-	echo "<h1><a href=<" . $_SERVER['HTTP_REFERER'] . ">Your game was inserted!</a></h1>";
+	//echo "<h1><a href=<" . $_SERVER['HTTP_REFERER'] . ">Your game was inserted!</a></h1>";
+	echo "<a href=\"\" onclick=\"history.back(1);\">Your game was inserted! - Click to go back</a>";
 	mysql_close($con);
 
 ?>
