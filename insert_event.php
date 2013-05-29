@@ -8,10 +8,23 @@
 
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 	
-	$playeramount=$_POST['playeramount'];	  
-	  
+	//Post variables
+	$playeramount=$_POST['playeramount'];
+	$gamestart=$_POST['gamestart'];
+	$gamesend=$_POST['gamesend'];
+
+	$players = array(); //(playerID, checkbox) values
+	for ($i=1; $i<=$playeramount; $i++)
+	{
+		//echo "The number is " . $i . "<br>";
+		$players[i][1] = $_POST["'playerid" . $i ."'"];
+		$players[i][2] = $_POST["'onoffswitch" . $i ."'"];
+	}
+
 	// To protect MySQL injection
 	$playeramount = stripslashes($playeramount);
+	$gamestart = stripslashes($gamestart);
+	$gamesend = stripslashes($gamesend);
 
 	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
 	//$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
@@ -20,7 +33,13 @@
 
 	//$result = mysql_query($sql);
 	
-	echo "insert_event.php, playeamount: " . $playeramount;
+	echo "insert_event.php, playeamount: " . $playeramount . "start: " . $gamestart . "end: " . $gamesend;
+	echo "</br>";
+	for ($j=1; $j<=$playeramount; $j++)
+	{
+		echo "playerID: " . $players[j][1] . " checkbox value: " . $players[j][2] . "";
+		echo "</br>";
+	}
 	
 	mysql_close($con);
 

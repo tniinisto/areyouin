@@ -29,12 +29,12 @@
 	{
 		echo "<tr>";
 		echo "<td class=\"col1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"</input></td>";
-		echo "<td class=\"col2\">" . $row['playerID'] . "</td>";
+		echo "<td class=\"col2\"><input type=\"number\" name=\"playerid\"" . $row_index . "\" value=\"" . $row['playerID'] . "\"</input></td>";
 		echo "<td class=\"col3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 		echo "<td class=\"col4\">" . $row['name'] . "</td>";
 		echo "<td class=\"col5\">";
 			echo "<div class=\"onoffswitch\">";
-				echo "<input type=\"checkbox\" name=\"onoffswitch" . $row['playerID'] . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+				echo "<input type=\"checkbox\" name=\"onoffswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
 				echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
 				echo "<div class=\"onoffswitch-inner\"></div>";
 				echo "<div class=\"onoffswitch-switch\"></div>";
