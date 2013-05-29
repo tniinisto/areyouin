@@ -37,19 +37,21 @@
 	$gamesend = stripslashes($gamesend);
 
 	//Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
-	if(stripos($gamestart,"T"))
+	if(stripos($gamestart,"T") && strlen($gamestart) < 17)
 	{
 		$gamestart = str_replace("T", " ", $gamestart);
 		$gamestart = $gamestart . ":00";
 		$gamesend = str_replace("T", " ", $gamesend);
 		$gamesend = $gamesend . ":00";
 	}
-	//iPhone has format 29.5.2013 14.27 -> 2013-07-27 17:30:00
-	if(stripos($gamestart,"."))
+	//iPhone  -> 2013-07-27 17:30:00
+	if(strlen($gamestart) > 17)
 	{
-		$gamestart = DateTime::createFromFormat('d.m.Y H.i',$gamestart)->format('Y-m-d H:i');	
+		$gamestart = str_replace("T", " ", $gamestart);
+		$gamesend = str_replace("T", " ", $gamesend);
+		//$gamestart = DateTime::createFromFormat('Y-m-d H:i:s',$gamestart)->format('Y-m-d H:i');	
 		//$gamestart = $gamestart . ":00";
-		$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');	
+		//$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');	
 		//$gamesend = $gamesend . ":00";
 	}
 	//echo $gamestart;
