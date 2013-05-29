@@ -13,24 +13,29 @@
 	$gamestart=$_POST['gamestart'];
 	$gamesend=$_POST['gamesend'];
 
-	$players1=$_POST['playerid1']; 
+	$p2layers1=$_POST['playerid1']; 
 	$players2=$_POST['ooswitch1']; 
 	
-	/*$players = array(); //(playerID, checkbox)
+	$players = array(); //(playerID, checkbox)
+
 	for ($i=1; $i<=$playeramount; $i++)
 	{
-		//echo "The number is " . $i . "<br>";
-		//$players[i][1] = $_POST["'playerid" . $i ."'"];
-		//$players[i][2] = $_POST["'onoffswitch" . $i ."'"];
-		$players[i][1] = $_POST['playerid1'];
-		$players[i][2] = $_POST['ooswitch1'];
-	}*/
+		$idpost = "'playerid" . $i . "'";
+		$oopost = "'ooswitch" . $i . "'";
+	
+		$players[i][1] = $_POST[$idpost];
+		$players[i][2] = $_POST[$oopost];
+
+		$players[i][1] = stripslashes($players[i][1]);
+		$players[i][2] = stripslashes($players[i][2]);
+	}
 
 	// To protect MySQL injection
 	$playeramount = stripslashes($playeramount);
 	$gamestart = stripslashes($gamestart);
 	$gamesend = stripslashes($gamesend);
-	$players1 = stripslashes($players1);
+
+	$p2layers1 = stripslashes($p2layers1);
 
 	//$sql="SELECT * FROM players WHERE playerID = '".$q."'";
 	//$sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";
@@ -41,13 +46,14 @@
 	echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
 	echo "</br>";
 	echo "</br>";
-	echo "playerID: " . $players1 . " checkbox value: " . $players2;
+	echo "playerID: " . $p2layers1 . " checkbox value: " . $players2;
+	echo "</br>";
 	
-	/*for ($j=1; $j<=$playeramount; $j++)
+	for ($j=1; $j<=$playeramount; $j++)
 	{
 		echo "playerID: " . $players[j][1] . " checkbox value: " . $players[j][2] . "";
 		echo "</br>";
-	}*/
+	}
 	
 	mysql_close($con);
 
