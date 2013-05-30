@@ -70,11 +70,12 @@
 	$row = mysql_fetch_array($result2);	
 	
 	//Insert players which are selected into the event
+	$eid = mysql_insert_id(); //Get the just created event id
 	for ($k=1; $k<=$playeramount; $k++)
 	{
 		if($players[$k][2] == '')
 		{
-			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $row[eventID] . "', '0');";
+			$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
 			$result3 = mysql_query($sql3);
 		}
 	}	
