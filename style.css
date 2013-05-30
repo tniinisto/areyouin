@@ -548,7 +548,7 @@ Event form
   width:90%;
 }
 
-#gamestart_id, #gamesend_id {
+#gamestart_id, #gameend_id {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
