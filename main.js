@@ -207,6 +207,6 @@ function copyStart()
 {
 	var d = new Date();
 	d = document.getElementById("gamestart_id").valueAsDate;
-	console.log(d);
+	console.log(d.value);
 	//document.getElementById("gameend_id").setAttribute("date", d.getDate());	
 }
