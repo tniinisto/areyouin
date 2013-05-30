@@ -272,7 +272,7 @@ CONTENT
 	float: left;
 
 	border: 1;
-	border-color: #0d1424;
+	border-color: none;
 	
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
