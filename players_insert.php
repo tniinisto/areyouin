@@ -13,7 +13,7 @@
 	$result = mysql_query($sql);
 	$row_count = mysql_num_rows($result);
 
-	echo "<div id=\"admin_content_id\" class=\"content noshow\">";
+	echo "<div id=\"admin_content_id\" class=\"content\">";
 	echo "<article id=\"admin_content_article\" class=\"clearfix \">";
 	echo "<h1>Enter new game</h1>";
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
