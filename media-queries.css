@@ -10,7 +10,7 @@ smaller than 980
 
 	/* content */
 	.content {
-		width: 63%;
+		width: 65%;
 		/*padding: 3% 4%;*/
 	}
 	
@@ -149,6 +149,10 @@ smaller than 480
 	/* disable webkit text size adjust (for iPhone) */
 	html {
 		-webkit-text-size-adjust: none;
+	}
+
+	#pagewrap {
+		padding: 0 4px 0 4px;
 	}
 	
 	article {
