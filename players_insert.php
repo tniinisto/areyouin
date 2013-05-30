@@ -21,7 +21,7 @@
 	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
 	echo "<label><h2>Game end:</h2></label>";
-	echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" onclick=\"copyStart()\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
+	echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
 	echo "<h2>Pick players:</h2>";
 	$row_index = 1; 
