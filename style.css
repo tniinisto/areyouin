@@ -545,7 +545,7 @@ Event form
 
 #eventform {
   width:90%;
-  //padding: 0 10px 0 0;
+  padding: 0 10px 0 0;
 }
 
 #gamestart_id, #gamesend_id, #submitgame {
