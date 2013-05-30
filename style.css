@@ -547,7 +547,7 @@ Event form
   width:90%;
 }
 
-#gamestart_id, #gamesend_id, #submitgame {
+#gamestart_id, #gamesend_id {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
@@ -557,6 +557,25 @@ Event form
   margin-bottom:5px;
   margin-top:5px;
   margin-left:20px;
+  outline: none;
+
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;
+}
+
+#submitgame {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border:1px solid #ccc;
+  font-size:20px;
+  width:50%;
+  min-height:30px;
+  display:block;
+  margin-bottom:5px;
+  margin-top:5px;
+  margin-left:50px;
   outline: none;
 
   -webkit-border-radius:5px;
