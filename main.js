@@ -202,8 +202,11 @@ function setSSE()
 	}
 }
 
+//Event input form, copy start datetime to end
 function copyStart()
 {
-	var start = new Date(document.getElementById("gamesstart_id").value);
-	document.getElementById("gamesend_id").setAttribute("value", start);
+	var d = new Date();
+	d = document.getElementById('gamesstart_id').value;
+
+	document.getElementById("gamesend_id").innerHTML = d.toDateString();
 }
