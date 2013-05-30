@@ -228,6 +228,25 @@ smaller than 480
 		color: white;
 		line-height: 1em;
 		margin: 0 0 1.2em;	
+	}
+	
+	#submitgame {
+	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	  border:1px solid #ccc;
+	  font-size:20px;
+	  width:200px;
+	  min-height:30px;
+	  display:block;
+	  margin-bottom:5px;
+	  margin-top:5px;
+	  margin-left:50px;
+	  outline: none;
+
+	  -webkit-border-radius:5px;
+	  -moz-border-radius:5px;
+	  -o-border-radius:5px;
+	  -ms-border-radius:5px;
+	  border-radius:5px;
 	}	
 }
 
