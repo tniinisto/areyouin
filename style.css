@@ -544,8 +544,8 @@ Event form
 }*/
 
 #eventform {
-  width:100%;
-  padding: 0 20px 0 30px;
+  width:90%;
+  //padding: 0 10px 0 0;
 }
 
 #gamestart_id, #gamesend_id, #submitgame {
