@@ -205,7 +205,6 @@ function setSSE()
 //Event input form, copy start datetime to end
 function copyStart()
 {
-	var d = new Date();
-	d = document.getElementById("gamestart_id").getAttribute('datetime');
-	document.getElementById("gameend_id").setAttribute('datetime', d.toISOString());	
+	var d = new Date(document.getElementById("gamestart_id").getAttribute('datetime'));
+	document.getElementById("gameend_id").setAttribute('datetime', d.getDate());	
 }
