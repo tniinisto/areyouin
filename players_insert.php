@@ -17,9 +17,9 @@
 	echo "<h1>Enter new game</h1>";
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
 	//echo "<h2>Set Time</h2>";
-	echo "<label><h2>Game start:</h2></label>";
+	echo "<label id=\"startlabel\"><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
-	echo "<label><h2>Game end:</h2></label>";
+	echo "<label id=\"endlabel\"><h2>Game end:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
 	echo "<h2>Pick players:</h2>";
