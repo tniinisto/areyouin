@@ -13,7 +13,7 @@
 	$result = mysql_query($sql);
 	$row_count = mysql_num_rows($result);
 
-	echo "<div id=\"admin_content_id\" class=\"content\">";
+	//echo "<div id=\"admin_content_id\" class=\"content\">";
 	echo "<article id=\"admin_content_article\" class=\"clearfix \">";
 	echo "<h1>Enter new game</h1>";
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
@@ -53,7 +53,7 @@
 	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
 	echo "</form>";
 	echo "</article>";
-	echo "</div>;
+	//echo "</div>;
 	
 	mysql_close($con);
 ?>
