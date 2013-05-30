@@ -62,6 +62,14 @@
 	//echo "</br>";
 	$result = mysql_query($sql);
 	
+	if(!$result)
+	{
+		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);	
+		echo "<a href='$url'><h1>Something went wrong, check the start&end dates format!</h1></a>";
+		mysql_close($con);
+		exit;
+	}
+	
 	//Get the id for the inserted event
 	//$sql2 = "SELECT MAX(eventID) as eventID FROM events";
 	//echo $sql2;
