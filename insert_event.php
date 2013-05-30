@@ -63,11 +63,11 @@
 	$result = mysql_query($sql);
 	
 	//Get the id for the inserted event
-	$sql2 = "SELECT MAX(eventID) as eventID FROM events";
+	//$sql2 = "SELECT MAX(eventID) as eventID FROM events";
 	//echo $sql2;
 	//echo "</br>";
-	$result2 = mysql_query($sql2);
-	$row = mysql_fetch_array($result2);	
+	//$result2 = mysql_query($sql2);
+	//$row = mysql_fetch_array($result2);	
 	
 	//Insert players which are selected into the event
 	$eid = mysql_insert_id(); //Get the just created event id
