@@ -84,55 +84,9 @@
 	<div id="admin_content_id" class="content noshow">
 		<article class="clearfix">
 			<h2>Admin</h2>
-			<!--<form id="eventform" action="">
-				<h1>Enter new game</h1>
-				<h2>Set Time</h2>
-				<label>Game start:</label>
-				<input type="datetime-local" id="gamestart_id" name="gamestart" value="2013-06-01 17:00" required></input>
-
-				<label>Game	end:</label>
-				<input type="datetime-local" id="gamesend_id" name="gamesend" value="2013-06-01 19:00" required></input>
-			  
-				<table border="1" id="insertplayers"></table>
-			  
-				<fieldset>
-					<legend><h2>Select players</h2></legend>
-					</br>
-					<p>
-						<label>Select player 1</label>
-						<select id="PlayerList1">
-							<option value = "1">one</option>
-							<option value = "2">two</option>
-							<option value = "3">three</option>
-							<option value = "4">four</option>
-						</select>
-						</br>
-						</br>
-						<label>Select player 2</label>
-						<select id="PlayerList2">
-							<option value = "1">one</option>
-							<option value = "2">two</option>
-							<option value = "3">three</option>
-							<option value = "4">four</option>
-						</select>
-					</p>
-				</fieldset>		
-			  
-				<input type="submit" value="Create Game" id="submitgame"></input> 
-			</form>-->		
-
-			<script>
-				/*{
-				  if (input.value != document.getElementById('email_addr').value) {
-					input.setCustomValidity('The two email addresses must match.');
-				  } else {
-					// input is valid -- reset the error message
-					input.setCustomValidity('');
-				  }
-				}*/
-			</script>			
 		</article>
 	</div>		
+	
 	<!-- /Admin -->
 	
 	<!-- /#content --> 
@@ -209,11 +163,9 @@
 		getEvents(gup('t'), gup('p'));
 		getPlayers();
 
-		//Hide admin
+		//Hide admin from non-admins
 		var pos = $("#userlogin").text().length;
 		admin = $("#userlogin").text().charAt(pos-1);
-		//console.log(pos);
-		//console.log(admin);
 		if(admin == 0)
 			$("#linkadmin").addClass("noshow");
 		else

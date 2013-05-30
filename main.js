@@ -202,28 +202,3 @@ function setSSE()
 	}
 }
 
-//Insert new event
-/*function insertEvent()
-{
-	if (eventplayerid == "" || ayi == "") {
-		document.getElementById("userlogin").innerHTML = "updateAYI()";
-		return;
-	}
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			//alert(xmlhttp.responseText);
-		}
-	}
-
-	//var variables = "event=" + eventplayerid + "&ayi=" + ayi;
-	alert("insertEvent()");
-	xmlhttp.open("GET", "insert_event.php", true);
-	xmlhttp.send();
-}*/

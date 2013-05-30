@@ -566,8 +566,8 @@ Event form
   border-radius:5px;
 }
 
-#startlabel, #endlabel {
-  margin-left:20px;
+.eventlabel {
+  margin-left: 50px;
 }
 
 #eventform submit[type=submit] {

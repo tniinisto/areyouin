@@ -13,13 +13,14 @@
 	$result = mysql_query($sql);
 	$row_count = mysql_num_rows($result);
 
-	echo "<article id=\"admin_content_article\" class=\"clearfix\">";
+	echo "<div id=\"admin_content_id\" class=\"content noshow\">";
+	echo "<article id=\"admin_content_article\" class=\"clearfix \">";
 	echo "<h1>Enter new game</h1>";
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
 	//echo "<h2>Set Time</h2>";
-	echo "<label id=\"startlabel\"><h2>Game start:</h2></label>";
+	echo "<label class=\"eventlabel\"><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
-	echo "<label id=\"endlabel\"><h2>Game end:</h2></label>";
+	echo "<label class=\"eventlabel\"><h2>Game end:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
 	echo "<h2>Pick players:</h2>";
@@ -52,6 +53,7 @@
 	echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
 	echo "</form>";
 	echo "</article>";
+	echo "</div>;
 	
 	mysql_close($con);
 ?>
