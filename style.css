@@ -568,5 +568,5 @@ Event form
 
 #eventform submit[type=submit] {
   background:none;
-  padding:10px;
+  padding: 0 0 0 30px;
 }
