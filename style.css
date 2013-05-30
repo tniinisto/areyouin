@@ -571,6 +571,6 @@ Event form
 }
 
 #submitgame {
-  /*position: float;*/
+  position: float;
   left: 60px;
 }
