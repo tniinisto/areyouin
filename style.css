@@ -556,6 +556,7 @@ Event form
   display:block;
   margin-bottom:15px;
   margin-top:5px;
+  margin-left:5px;
   outline: none;
 
   -webkit-border-radius:5px;
