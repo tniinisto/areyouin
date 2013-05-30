@@ -204,5 +204,6 @@ function setSSE()
 
 function copyStart()
 {
-	document.getElementById("gamesend_id").setAttribute("value", document.getElementById("gamesstart_id").value));
+	var start = document.getElementById("gamesstart_id").value;
+	document.getElementById("gamesend_id").setAttribute("value", start);
 }
