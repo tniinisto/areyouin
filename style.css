@@ -567,7 +567,10 @@ Event form
 }
 
 #eventform submit[type=submit] {
-  position: float;
   background:none;
+}
+
+#submitgame {
+  /*position: float;*/
   left: 60px;
 }
