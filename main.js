@@ -202,3 +202,7 @@ function setSSE()
 	}
 }
 
+function copyStartdateValue {
+	var d = new Date($("#gamestart_id").val());
+	$("#gamesend_id").val() = d;
+}
