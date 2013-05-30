@@ -570,12 +570,12 @@ Event form
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
-  width:100px;
+  width:200px;
   min-height:30px;
   display:block;
   margin-bottom:5px;
   margin-top:5px;
-  margin-left:100px;
+  margin-left:150px;
   outline: none;
 
   -webkit-border-radius:5px;
