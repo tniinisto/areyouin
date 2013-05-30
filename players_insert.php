@@ -18,11 +18,10 @@
 	echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
 	echo "<h2>Set Time</h2>";
 	echo "<label><h2>Game start:</h2></label>";
-	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+11 hours')) . "\"></input>";
+	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
 	echo "<label><h2>Game end:</h2></label>";
-	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+13 hours')) . "\"></input>";
+	echo "<input type=\"datetime-local\" id=\"gamesend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
-	
 	$row_index = 1; 
 	echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
 	
