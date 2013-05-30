@@ -270,6 +270,7 @@ CONTENT
 	/*padding: 10px 0;*/
 	width: 640px;
 	float: left;
+	border: 0;
 	/* rounded corner */
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
