@@ -554,7 +554,7 @@ Event form
   width:75%;
   min-height:30px;
   display:block;
-  margin-bottom:15px;
+  margin-bottom:5px;
   margin-top:5px;
   margin-left:20px;
   outline: none;
@@ -564,10 +564,6 @@ Event form
   -o-border-radius:5px;
   -ms-border-radius:5px;
   border-radius:5px;
-}
-
-.eventlabel {
-  margin-left: 50px;
 }
 
 #eventform submit[type=submit] {
