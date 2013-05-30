@@ -567,6 +567,7 @@ Event form
 }
 
 #eventform submit[type=submit] {
+  position: float;
   background:none;
   margin: 0 0 0 30px;
 }
