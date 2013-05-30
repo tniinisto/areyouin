@@ -552,7 +552,7 @@ Event form
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
-  width:80%;
+  width:60%;
   min-height:30px;
   display:block;
   margin-bottom:15px;
@@ -567,6 +567,6 @@ Event form
 }
 
 #eventform submit[type=submit] {
-  background:#ccc;
+  background: none;
 }
 
