@@ -111,12 +111,12 @@
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
-	$to      = 'tniinisto@gmail.com';
-	$subject = 'R\'YouIN';
-	$message = 'New game set';
-	$headers = 'From: webmaster@areyouin.net' . "\r\n" .
-		'Reply-To: webmaster@areyouin.net' . "\r\n" .
-		'X-Mailer: PHP/' . phpversion();
+	$to      = "tniinisto@gmail.com";
+	$subject = "RYouIN";
+	$message = "New game set";
+	$headers = "From: webmaster@areyouin.net" . "\r\n" .
+		"Reply-To: webmaster@areyouin.net" . "\r\n" .
+		"X-Mailer: PHP/" . phpversion();
 
 	mail($to, $subject, $message, $headers);
 
