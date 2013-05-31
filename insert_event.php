@@ -118,7 +118,7 @@
       
 		$emailbody = "<p>New R'YouIN event...</p>"; 
 		  
-		echo "mail(\"tniinisto@gmail.com\",\"R'YouIN, new game\"," . $emailbody . "," . $headers . ")";        
+		mail("tniinisto@gmail.com", "R'YouIN, new game", $emailbody , $headers);        
 	} 
 	
 	mysql_close($con);
