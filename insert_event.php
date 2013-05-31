@@ -111,11 +111,15 @@
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
-	/*echo "<form action=\"mailto:tniinsto@gmail.com\" method=\"post\">";
-    echo "First name: <input type=\"text\" name=\"Tuomas\"/>";
-    echo "Surname: <input type=\"text\" name=\"Niinistö\"/>";
-    echo "<input type=\"submit\" value=\"Send mail\"/>";
-	echo "</form>";*/
+	if(true)
+	{  
+		$headers = "From: R'YouIN@areyouin.net\" \\r\\n";
+		$headers .= "'Content-type: text/html; charset=iso-8859-1' \\r\\n";  
+      
+		$emailbody = "<p>New R'YouIN event...</p>"; 
+		  
+		echo "mail(\"tniinisto@gmail.com\",\"R'YouIN, new game\"," . $emailbody . "," . $headers . ")";        
+	} 
 	
 	mysql_close($con);
 
