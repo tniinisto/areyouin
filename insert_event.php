@@ -111,16 +111,15 @@
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
-	if(true)
-	{  
-		$headers = "From: R'YouIN@areyouin.net\" \\r\\n";
-		$headers .= "'Content-type: text/html; charset=iso-8859-1' \\r\\n";  
-      
-		$emailbody = "<p>New R'YouIN event...</p>"; 
-		  
-		mail("tniinisto@gmail.com", "R'YouIN, new game", $emailbody , $headers);        
-	} 
+	$to      = 'tniinsto@gmail.com';
+	$subject = 'R\'YouIN';
+	$message = 'New game set';
+	$headers = 'From: webmaster@areyouin.net' . "\r\n" .
+		'Reply-To: webmaster@areyouin.net' . "\r\n" .
+		'X-Mailer: PHP/' . phpversion();
+
+	mail($to, $subject, $message, $headers);
+
 	
 	mysql_close($con);
-
 ?>
