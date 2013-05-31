@@ -111,7 +111,7 @@
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
-	$to      = 'tniinsto@gmail.com';
+	$to      = 'tniinisto@gmail.com';
 	$subject = 'R\'YouIN';
 	$message = 'New game set';
 	$headers = 'From: webmaster@areyouin.net' . "\r\n" .
