@@ -111,11 +111,11 @@
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
-	echo "<form action=\"mailto:tniinsto@gmail.com\" method=\"post\">";
+	/*echo "<form action=\"mailto:tniinsto@gmail.com\" method=\"post\">";
     echo "First name: <input type=\"text\" name=\"Tuomas\"/>";
     echo "Surname: <input type=\"text\" name=\"Niinistö\"/>";
     echo "<input type=\"submit\" value=\"Send mail\"/>";
-	echo "</form>";
+	echo "</form>";*/
 	
 	mysql_close($con);
 
