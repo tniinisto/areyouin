@@ -108,7 +108,7 @@
 	//Success
 	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 	echo "<a href='$url'><h1>Your game was inserted succesfully, click here for A'YouIN!</h1></a>";
-	echo </br>;
+	echo "</br>";
 	
 	//Sending email notification for the plyaers
 	echo "<form action=\"mailto:tniinsto@gmail.com\" method=\"post\">";
