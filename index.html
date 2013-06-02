@@ -164,9 +164,9 @@
 
 		//Hide admin from non-admins
 		//var pos = $("#userlogin").text().length;
-		var n = str.indexOf("#");
-		var pos  = str.charAt(n+1);
-		admin = $("#userlogin").text().charAt(pos);
+		var pos  = $("#userlogin").text().indexOf("#");
+		//var pos  = $("#userlogin").text().charAt(n+1);
+		admin = $("#userlogin").text().charAt(pos+1);
 		if(admin == 0)
 			$("#linkadmin").addClass("noshow");
 		else
