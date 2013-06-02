@@ -163,8 +163,10 @@
 		getPlayers();
 
 		//Hide admin from non-admins
-		var pos = $("#userlogin").text().length;
-		admin = $("#userlogin").text().charAt(pos-1);
+		//var pos = $("#userlogin").text().length;
+		var n = str.indexOf("#");
+		var pos  = str.charAt(n+1);
+		admin = $("#userlogin").text().charAt(pos);
 		if(admin == 0)
 			$("#linkadmin").addClass("noshow");
 		else
