@@ -107,7 +107,7 @@
 
 	//Success
 	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-	echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!!</h1></a>";
+	echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!!!</h1></a>";
 	echo "</br>";
 	
 	//Sending email notification for the plyaers
