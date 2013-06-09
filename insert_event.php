@@ -120,5 +120,6 @@
 
 	mail($to, $subject, $message, $headers);*/
 
+	
 	mysql_close($con);
 ?>
