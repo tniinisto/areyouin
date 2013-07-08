@@ -109,6 +109,7 @@
 						}					
 					}	
 				}
+				echo "<td class=\"col6\">" . $row['seen'] . "</td>";
 			echo "</tr>";
 		echo "</table>";
 		
