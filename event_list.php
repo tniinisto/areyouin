@@ -61,10 +61,10 @@
 		//Echo players for the event
 		echo "<table border='0' class=\"atable2\">";
 			//Change row background color depenging on the seen value
-			if($row['seen'] == 0)
+			//if($row['seen'] == 0)
 				echo "<tr>";
-			else
-				echo "<tr class=\"seen\">";
+			//else
+				//echo "<tr class=\"seen\">";
 				
 				echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";

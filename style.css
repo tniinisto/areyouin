@@ -377,15 +377,15 @@ article
 }
 
 .atable2 td {
-	background-color: #fff;
+	background-color: #ccc;
 	font-size: 1.2em;
 	padding: 10px 3px;
 	height: auto;
 }
 
-.atable2 .seen {
+/*.atable2 .seen {
 	background-color: #ccc;
-}
+}*/
 
 td.col1 {
 	display: none;
