@@ -64,7 +64,7 @@
 			if($row['seen'] == 0)
 				echo "<tr>";
 			else
-				echo "<tr>"
+				echo "<tr>";
 				
 				echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
