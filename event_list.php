@@ -12,7 +12,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT * FROM players";
-	$sql = "select v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
+	$sql = "select v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin from events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a where t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
 	 	
 	$result = mysql_query($sql);
 	
@@ -84,6 +84,16 @@
 								echo "</label>";
 							echo "</div>";
 						echo "</td>";
+						
+						//Update the seen status
+						if($row['seen'] == 0) {
+							$con2 = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+							mysql_select_db("areyouin", $con2);							
+							$sql= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
+							$result = mysql_query($sql);
+							//echo $result;
+							mysql_close($con)
+						}
 					}
 					else {
 						echo "<td class=\"col5\">";
@@ -95,6 +105,16 @@
 								echo "</label>";
 							echo "</div>";
 						echo "</td>";
+					
+						//Update the seen status
+						if($row['seen'] == 0) {
+							$con2 = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+							mysql_select_db("areyouin", $con2);							
+							$sql= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
+							$result = mysql_query($sql);
+							//echo $result;
+							mysql_close($con)
+						}					
 					}	
 				}
 			echo "</tr>";
