@@ -176,6 +176,10 @@ smaller than 480
 	td.col5 {
 		width: 26%;
 		text-align: center;
+	}
+
+	td.col6 {
+		display: none;
 	}	
 	
 	/*#site-logo font{
