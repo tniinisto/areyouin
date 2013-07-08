@@ -63,7 +63,7 @@
 				echo "<tr>";				
 				echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
-				echo "<td class=\"col3 imgRounded\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+				echo "<td class=\"col3\"><img class=\"imgRounded\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				echo "<td class=\"col4\">" . $row['name'] . "</td>";
 				
 				//Show on/off switch only for the user
