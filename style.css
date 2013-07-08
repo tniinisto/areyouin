@@ -383,6 +383,10 @@ article
 	height: auto;
 }
 
+tr.seen {
+	background-color: #ccc;
+}
+
 td.col1 {
 	display: none;
 	/*width: 10%;*/
