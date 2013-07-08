@@ -383,7 +383,7 @@ article
 	height: auto;
 }
 
-tr.seen {
+.atable2 .seen {
 	background-color: #ccc;
 }
 
