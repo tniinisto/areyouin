@@ -60,7 +60,12 @@
 
 		//Echo players for the event
 		echo "<table border='0' class=\"atable2\">";
-			echo "<tr>";
+			//Change row background color depenging on the seen value
+			if($row['seen'] == 0)
+				echo "<tr>";
+			else
+				echo "<tr background-color:#f0f8ff;>"
+				
 				echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				echo "<td class=\"col3\"><img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
@@ -109,7 +114,7 @@
 						}					
 					}	
 				}
-				echo "<td class=\"col6\">" . $row['seen'] . "</td>";
+				//echo "<td class=\"col6\">" . $row['seen'] . "</td>";
 			echo "</tr>";
 		echo "</table>";
 		
