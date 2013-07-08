@@ -89,10 +89,10 @@
 						if($row['seen'] == 0) {
 							$con2 = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 							mysql_select_db("areyouin", $con2);							
-							$sql= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
-							$result = mysql_query($sql);
+							$sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
+							$result2 = mysql_query($sql2);
 							//echo $result;
-							mysql_close($con)
+							mysql_close($con2)
 						}
 					}
 					else {
@@ -110,10 +110,10 @@
 						if($row['seen'] == 0) {
 							$con2 = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 							mysql_select_db("areyouin", $con2);							
-							$sql= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
-							$result = mysql_query($sql);
+							$sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = '".$row['eventplayerid']."'";
+							$result2 = mysql_query($sql2);
 							//echo $result;
-							mysql_close($con)
+							mysql_close($con2)
 						}					
 					}	
 				}
