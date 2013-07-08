@@ -6,7 +6,7 @@
 	echo "event: ayi\n";
 	//echo "data: The server time is: {$time}\n\n";
 	echo "data: e\n\n";
-	sleep(60);
+	sleep(120);
 	
 	/*function sendMsg()
 	{
