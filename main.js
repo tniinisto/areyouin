@@ -84,7 +84,7 @@ function getPlayers() {
 }
 
 //Getting player list for inserting new event
-function getPlayersInsert() {
+function getPlayersInsert(teamid) {
 	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -100,7 +100,8 @@ function getPlayersInsert() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "players_insert.php", false);
+	var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "players_insert.php?" + variables, false);
 	xmlhttp.send();
 }
 

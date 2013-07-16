@@ -1,4 +1,6 @@
 <?php
+	$teamid=$_GET["teamid"];
+
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 
 	if (!$con)
@@ -8,7 +10,8 @@
 
 	mysql_select_db("areyouin", $con);
 
-	$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
+	//$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
+	$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '" . $teamid . "'";
 	
 	$result = mysql_query($sql);
 	$row_count = mysql_num_rows($result);
