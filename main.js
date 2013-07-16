@@ -63,7 +63,7 @@ function showUser(str) {
 }
 
 //Getting player image & name
-function getPlayers() {
+function getPlayers(teamid) {
 	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -79,7 +79,8 @@ function getPlayers() {
 	}
 
 	//alert("GET gets called.");
-	xmlhttp.open("GET", "players_short.php", false);
+    var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "players_short.php?" + variables, false);
 	xmlhttp.send();
 }
 
