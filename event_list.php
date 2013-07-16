@@ -44,8 +44,7 @@
 				    $day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));		
 					$res1 = substr($row['startTime'], 11, 5);
 					$res2 = substr($row['endTime'], 11, 5);
-					echo "<th>On " . $day . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"20\" height=\"20\" src=\"images\edit.png\"></th>";
-					//echo "<th><img id=\"update_event\"> width=\"40\" height=\"40\" src=\"images\edit.png\"></img></th>";
+					echo "<th>On " . $day . "</th>";
 				echo "</tr>";
 			echo "</table>";
 			
@@ -58,7 +57,7 @@
 			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th>From " . $res1 . " to " . $res2 . "</th>";
+					echo "<th>From " . $res1 . " to " . $res2 . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"20\" height=\"20\" src=\"images\edit.png\"></th>";
 				echo "</tr>";
 			echo "</table>";
 		}
