@@ -57,7 +57,7 @@
 			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th>From " . $res1 . " to " . $res2 . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"20\" height=\"20\" src=\"images\edit.png\"></th>";
+					echo "<th>From " . $res1 . " to " . $res2 . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"30\" height=\"30\" src=\"images\edit.png\"></th>";
 				echo "</tr>";
 			echo "</table>";
 		}
