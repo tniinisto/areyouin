@@ -64,7 +64,10 @@ function showUser(str) {
 
 //Getting player image & name
 function getPlayers(teamid) {
-	
+	if (teamid == "") {
+		document.getElementById("userlogin").innerHTML = "getPlayers()";
+		return;
+	}		
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -86,7 +89,10 @@ function getPlayers(teamid) {
 
 //Getting player list for inserting new event
 function getPlayersInsert(teamid) {
-	
+	if (teamid == "") {
+		document.getElementById("userlogin").innerHTML = "getPlayersInsertents()";
+		return;
+	}	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
