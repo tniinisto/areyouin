@@ -35,7 +35,8 @@
 					echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
 				echo "</tr>";
 			echo "</table>";
-			echo "<img id=\"update_event\" style=\"float: right;\"> width=\"40\" height=\"40\" src=\"images\edit.png\" ></img>";
+			//echo "<img id=\"update_event\" style=\"float: right;\"> width=\"40\" height=\"40\" src=\"images\edit.png\" ></img>";
+			echo "<img id=\"update_event\"> width=\"40\" height=\"40\" src=\"images\edit.png\" ></img>";
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
 				    $day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));		
