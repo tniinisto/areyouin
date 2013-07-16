@@ -29,10 +29,7 @@
 				
 			$event_check = $row['Events_eventID'];	
 			
-			echo "<article class=\"clearfix\">";
-			
-			//echo "<img id=\"update_event\" style=\"float: right;z-index: 1;\"> width=\"40\" height=\"40\" src=\"images\edit.png\" ></img>";
-						
+			echo "<article class=\"clearfix\">";			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
 					echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
@@ -57,7 +54,7 @@
 			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th>From " . $res1 . " to " . $res2 . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"20\" height=\"20\" src=\"images\edit.png\"></img></th>";
+					echo "<th>From " . $res1 . " to " . $res2 . "&nbsp &nbsp &nbsp<img id=\"update_event\" width=\"20\" height=\"20\" src=\"images\edit.png\" style=\"float: right;z-index: 1;\"></img></th>";
 				echo "</tr>";
 			echo "</table>";
 		}
