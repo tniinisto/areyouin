@@ -202,7 +202,7 @@ function setSSE()
 //Update selected event's content
 function updateEvent(eventID)
 {
-	alert("updateEvent(eventID) gets called: eventID=" + eventID);
+	//alert("updateEvent(eventID) gets called: eventID=" + eventID);
 	if (eventID == "") {
 		document.getElementById("userlogin").innerHTML = "updateEvent(eventID)";
 		return;
