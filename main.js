@@ -222,6 +222,6 @@ function updateEvent(eventID)
 
 	//alert("GET gets called.");
 	var variables = "eventid=" + eventID;
-	//xmlhttp.open("GET", "update_event.php?" + variables, false);
-	//xmlhttp.send();	
+	xmlhttp.open("GET", "update_event.php?" + variables, false);
+	xmlhttp.send();	
 }
