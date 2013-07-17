@@ -54,7 +54,8 @@
 			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th>From " . $res1 . " to " . $res2 . "<img id=\"update_event\" width=\"30\" height=\"30\" src=\"images\edit.png\" style=\"float: right;z-index: 1;\" onClick=\"update_event($event_check)\"></img></th>";
+					echo "<th>From " . $res1 . " to " . $res2 . "<img id=\"update_event\" onClick=\"update_event(" . $event_check. ")\" width=\"30\" height=\"30\" src=\"images\edit.png\" style=\"float: right;z-index: 1;\"></img></th>";
+					//<a href="javascript:update_event()"></a>)
 				echo "</tr>";
 			echo "</table>";
 		}
