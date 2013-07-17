@@ -13,16 +13,15 @@
 
 	echo "<article id=\"event_content_article\" class=\"clearfix \">";
 	echo "<h1>Update game</h1>";
-	echo "<form id=\"eventform\" method=\"post\" action=\"\">";
-	//echo "<h2>Set Time</h2>";
+	echo "<form id=\"eventupdateform\" method=\"post\" action=\"update_event_db()\">";
 	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
 	echo "<label><h2>Game end:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
-	/*echo "<h2>Pick players:</h2>";
+	echo "<h2>Pick players:</h2>";
 	$row_index = 1; 
-	echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
+	/*echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
 	
 	while($row = mysql_fetch_array($result))
 	{
