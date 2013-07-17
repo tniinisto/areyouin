@@ -13,7 +13,7 @@
 
 	echo "<article id=\"event_content_article\" class=\"clearfix \">";
 	echo "<h1>Update game</h1>";
-	echo "<form id=\"eventupdateform\" method=\"post\" action=\"\">"; //action=\"update_event_db.php\">";
+	echo "<form id=\"eventupdateform\" method=\"post\" action=\"update_event_db.php\">";
 	echo "<label><h2>Game start:</h2></label>";
 	echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
 	echo "<label><h2>Game end:</h2></label>";
@@ -46,7 +46,7 @@
 	echo "</table>";*/
 	echo "</br>";
 	echo "</br>";
-	echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
+	//echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
 	echo "</form>";
 	echo "</article>";
 
