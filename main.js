@@ -1,14 +1,3 @@
-//login function
-/*function login(lname, pass) {
-	alert("login called with name&pass: " + lname + " & " + pass);
-}*/
-
-//Init function for the screen startup
-/*function init() {
-	getEvents();
-	getPlayers();
-}*/
-
 //Get users name & team name
 function getLoginInformation(playerID, teamID) {
 	//alert("showUser() gets called.");
@@ -210,10 +199,29 @@ function setSSE()
 	}
 }
 
-//Event input form, copy start datetime to end
-/*function copyStart()
+//Update selected event's content
+function updateEvent(eventID)
 {
-	var d = new Date(document.getElementById("gamestart_id").valueAsDate);
-	console.log(d);
-	//document.getElementById("gameend_id").setAttribute("date", d.getDate());	
-}*/
+	alert("updateEvent(eventID) gets called: eventID=" + eventID);
+	if (eventID == "") {
+		document.getElementById("userlogin").innerHTML = "updateEvent(eventID)";
+		return;
+	}	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	var variables = "eventid=" + eventID;
+	//xmlhttp.open("GET", "update_event.php?" + variables, false);
+	//xmlhttp.send();	
+}
