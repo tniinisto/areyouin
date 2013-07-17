@@ -51,14 +51,12 @@
 	echo "</article>";
 
 
-
-
-
-
-
-
-
-
+	//Update the database
+	function update_event_db()
+	{
+		echo "update_event.php called eventid=" . $eventid;
+	}
+	
 
 
 
