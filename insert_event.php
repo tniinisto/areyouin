@@ -120,7 +120,7 @@
 	//else
 	//{
 		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-		echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
+		echo "<a href=''><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
 		echo "</br>";
 	//}
 
