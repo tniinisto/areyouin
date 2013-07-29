@@ -110,19 +110,19 @@
 	//echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
 	//echo "</br>";
 	
-	if(isset($_SERVER['HTTP_REFERER'])) {
-		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+	//if(isset($_SERVER['HTTP_REFERER'])) {
+		//$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 		//$url = htmlentities($_SERVER['HTTP_REFERER']);
 		//echo $_SERVER['HTTP_REFERER'];
 		//header("Location: " . $url);
-		header("Location:" . $url);
-	}
-	else
-	{
+		//header("Location:" . $url);
+	//}
+	//else
+	//{
 		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 		echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
 		echo "</br>";
-	}
+	//}
 
 	//Sending email notification for the plyaers
 	/*$to      = "tniinisto@gmail.com";
