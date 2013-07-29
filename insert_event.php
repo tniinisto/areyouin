@@ -106,10 +106,20 @@
 	//echo "<h1>Your game was inserted, click the browser back button...</h1>";
 
 	//Success
-	$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-	echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-	echo "</br>";
+	//$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+	//echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
+	//echo "</br>";
 	
+	if(isset($_SERVER['HTTP_REFERER'])) {
+		echo $_SERVER['HTTP_REFERER'];
+	}
+	else
+	{
+		$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+		echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
+		echo "</br>";
+	}
+
 	//Sending email notification for the plyaers
 	/*$to      = "tniinisto@gmail.com";
 	$subject = "RYouIN";
@@ -120,6 +130,5 @@
 
 	mail($to, $subject, $message, $headers);*/
 
-	
 	mysql_close($con);
 ?>
