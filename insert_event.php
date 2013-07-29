@@ -115,7 +115,7 @@
 		//$url = htmlentities($_SERVER['HTTP_REFERER']);
 		//echo $_SERVER['HTTP_REFERER'];
 		//header("Location: " . $url);
-		echo "header(Location: " . $url . ")";
+		header("Location:" . $url);
 	}
 	else
 	{
