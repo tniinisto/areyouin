@@ -36,12 +36,10 @@
 	<header id="header">
 
 		<hgroup>
-			<!--<h1 id="loginsite-logo"><a href="http://areyouin.azurewebsites.net/index.html#"><font size="30">A'YouIN login</font></a></h1>-->
 			<h1 id="loginsite-logo"><a href="#"><font size="30">R'YouIN login - v1.0</font></a></h1>			
-			<!-- <h2 id="site-description">Welcome to set your games!</h2> -->
 		</hgroup>
 
-		<form id="loginform" name="loginform" method="post" action="logincheck.php"
+		<form id="loginform" name="loginform" method="post" action="logincheck.php">
 			<p> <font color="white" size="3">
 				<font color="white">Login id:</font> <input type="text" id="login" name="ayiloginName" placeholder="" required>
 				<font color="white">Password:</font> <input type="password" id="password" name="ayipassword" placeholder="" required>
@@ -59,27 +57,6 @@
 		</form>
 		
 	</header>
-	<!-- /#header -->
-		
-	<script>
-
-		//This function is triggered when the user clicks the Submit button
-		//function OnSubmit() {
-		//	var user = document.loginform.ayiloginName.value; //captures the name the user enters
-		//	var pass = document.loginform.ayipassword.value; //captures the name the user enters
-		//	
-		//	//login(user, pass); //Calls main.js for PHP&DB check
-		//	
-		//	localStorage.ayiusername = user; //passes the value to the local storage object
-		//	localStorage.ayipassword = pass; //passes the value to the local storage object
-		//}
-
-		//This function is triggered when the user clicks the Recall button
-		/*function show_alert() {
-			alert(localStorage.ayiusername); //returns the value stored in the local storage
-		}*/
-
-	</script>
 		
 </body>
 </html>
