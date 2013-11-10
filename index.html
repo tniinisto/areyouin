@@ -42,19 +42,11 @@
 		<hgroup>
 			<h1 id="site-logo"><a href="">R'YouIN</a></h1>
 			<h6 id="userlogin">Welcome</h6>
-			<script> 
-				//var team = gup('t');
-				//team = decodeURIComponent(team);
-				//document.getElementById("userlogin").innerHTML= "<font color=\"#ccc\">Welcome: </font>" + gup('p') + " <font color=\"#ccc\">Team: </font>" + gup('t');
-			</script>
 		</hgroup>
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
-				<!--<li id="linkteam"><a href="#">Team</a></li> <!--Team members & games schedule in gantt/calendar view -->
-				<!--<li id="linkprofile"><a href="#">Profile</a></li> <!-- Players info & games where participates -->
-				<!--<li id="linkadmin"><a href="#">Admin</a></li> <!-- Admin-->
 			</ul>
 		</nav>
 
@@ -84,85 +76,11 @@
 	var admin = 0;
 
 	jQuery(document).ready(function () {
-
-		<!-- set navi links background -->	
-		$("#linkgames").click(function(event){
-			$("#main-nav").children().removeClass("current");
-			$("#linkgames").addClass("current");
-		});
-		
-		$("#linkteam").click(function(event){
-			$("#main-nav").children().removeClass("current");
-			$("#linkteam").addClass("current");
-		});
-		
-		$("#linkprofile").click(function(event){
-			$("#main-nav").children().removeClass("current");
-			$("#linkprofile").addClass("current");
-		});
-		<!-- /set navi links background -->
-		
-		<!-- admin -->
-			$("#linkadmin").click(function(event){
-				$("#main-nav").children().removeClass("current");
-				$("#linkadmin").addClass("current");
-			});		
-		<!-- admin -->
 		
 		//Init functions
-		getLoginInformation(gup('p'), gup('t'));			
-		getEvents(gup('t'), gup('p'));
-		getPlayers(gup('t'));
+		getLoginInformation(gup('p'), gup('t'));					
 
-		//Hide admin from non-admins
-		//var pos = $("#userlogin").text().length;
-		var pos  = $("#userlogin").text().indexOf("#");
-		//var pos  = $("#userlogin").text().charAt(n+1);
-		admin = $("#userlogin").text().charAt(pos+1);
-		if(admin == 0) {
-			$("#linkadmin").addClass("noshow");
-			$("#update_event").addClass("noshow");
-		}
-		else
-			getPlayersInsert(gup('t')); //Get players for the new event form
-			
-		//SSE init
-		setSSE();
-	});
-	
-	//Content for the selected page
-	$("#main-nav").click(function() {
-		//alert("Handler for .click() called.");
-		//Games
-		if($("#linkgames").hasClass('current')) {
-			$("#event_content_id").removeClass("noshow");
-			$("#team_content_id").addClass("noshow");
-			$("#profile_content_id").addClass("noshow");
-			$("#admin_content_id").addClass("noshow");			
-		}
-		//Team
-		if($("#linkteam").hasClass('current')) {
-			$("#event_content_id").addClass("noshow");
-			$("#team_content_id").removeClass("noshow");
-			$("#profile_content_id").addClass("noshow");
-			$("#admin_content_id").addClass("noshow");			
-		}
-		//Profile
-		if($("#linkprofile").hasClass('current')) {
-			$("#event_content_id").addClass("noshow");
-			$("#team_content_id").addClass("noshow");
-			$("#profile_content_id").removeClass("noshow");
-			$("#admin_content_id").addClass("noshow");			
-		}
-		//Admin
-		if($("#linkadmin").hasClass('current')) {
-			$("#event_content_id").addClass("noshow");
-			$("#team_content_id").addClass("noshow");
-			$("#profile_content_id").addClass("noshow");
-			$("#admin_content_id").removeClass("noshow");			
-		}
-		
-	});
+	});   	
 		
 </script>
 <!-- /scripts -->
