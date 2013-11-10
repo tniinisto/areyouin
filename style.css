@@ -17,7 +17,6 @@ img, fieldset {
 img {
 	max-width: 100%;
 	height: auto;
-	width: auto\9; /* ie8 */
 }
 
 /* set html5 elements to block */
