@@ -1,4 +1,4 @@
 areyouin
 ========
 
-A'YouIN repository
+R'YouIN repository
