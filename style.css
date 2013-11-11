@@ -480,9 +480,9 @@ FOOTER
 /************************************************************************************
 CLEARFIX
 *************************************************************************************/
-/*.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 .clearfix { display: inline-block; }
-.clearfix { display: block; zoom: 1; }*/
+.clearfix { display: block; zoom: 1; }
 
 /************************************************************************************
 ON/OFF
