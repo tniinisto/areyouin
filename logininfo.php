@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
 
 	//$pl=$_GET["p"];
 	//$te=$_GET["t"];
@@ -19,6 +19,8 @@
 	//$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = " . $pl . " and t.teamID = " . $te;
 	$sql="SELECT p.name, t.teamName, r.teamAdmin FROM players p, team t, playerteam r where p.playerID = " . $pl . " and t.teamID = " . $te . " and r.Players_playerID = " . $pl;
 	
+    echo $sql;
+
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
   
