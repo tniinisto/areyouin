@@ -33,7 +33,11 @@
 		$row = mysql_fetch_array($result);
 		
 		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
-		header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
+		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
+
+        session_register("myusername");
+        session_register("mypassword"); 
+        header("location:login_success.php");
 	}
 	else {
 		//echo $sql;
