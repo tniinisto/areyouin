@@ -53,8 +53,11 @@
 	</header>
 		
 	<!-- #content -->
-    <br>
-    <br>
+	<div id="event_content_id" class="content">
+		<article class="clearfix" onClick="getEvents()">
+			<h2>Games</h2>
+		</article>
+	</div>
    	<!-- /#content --> 
 
 	<!-- #sidebar -->
@@ -80,7 +83,8 @@
 	jQuery(document).ready(function () {
 		
 		//Init functions
-		getLoginInformation();					
+		getLoginInformation();
+        getEvents();			
 
 	});   	
 		

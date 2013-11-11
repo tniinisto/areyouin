@@ -104,11 +104,11 @@ function getPlayersInsert(teamid) {
 }
 
 //Get events with players for the team
-function getEvents(str, str2) {
-	if (str == "" || str2 == "") {
-		document.getElementById("userlogin").innerHTML = "getEvents()";
-		return;
-	}	
+function getEvents() {
+	//if (str == "" || str2 == "") {
+	//	document.getElementById("userlogin").innerHTML = "getEvents()";
+	//	return;
+	//}	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -123,8 +123,9 @@ function getEvents(str, str2) {
 	}
 
 	//alert("GET gets called.");
-	var variables = "teamid=" + str + "&playerid=" + str2;
-	xmlhttp.open("GET", "event_list.php?" + variables, false);
+	//var variables = "teamid=" + str + "&playerid=" + str2;
+	//xmlhttp.open("GET", "event_list.php?" + variables, false);
+    xmlhttp.open("GET", "event_list.php", false);
 	xmlhttp.send();
 }
 
