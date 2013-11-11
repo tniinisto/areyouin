@@ -37,7 +37,8 @@
         session_register("myusername");
         $_SESSION['myusername'] = $myusername;
         session_register("mypassword");
- 
+        $_SESSION['mypassword'] = $mypassword;
+
         header("location:login_success.php");
 	}
 	else {
