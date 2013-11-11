@@ -17,8 +17,10 @@
 	$myusername = mysql_real_escape_string($myusername);
 	$mypassword = mysql_real_escape_string($mypassword);
 
+    $mymd5 = md5($mypassword);
+
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mypassword'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName FROM areyouin.players p, playerteam m, team t where name = '$myusername' and password = '$mypassword' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid";	
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName FROM areyouin.players p, playerteam m, team t where name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid";	
 	
 	$result=mysql_query($sql);
 
