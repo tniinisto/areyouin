@@ -1,5 +1,5 @@
 <?php
-    //session_start();
+    session_start();
 
 	//$pl=$_GET["p"];
 	//$te=$_GET["t"];
@@ -18,14 +18,12 @@
 
 	//$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = " . $pl . " and t.teamID = " . $te;
 	$sql="SELECT p.name, t.teamName, r.teamAdmin FROM players p, team t, playerteam r where p.playerID = " . $pl . " and t.teamID = " . $te . " and r.Players_playerID = " . $pl;
-	
-    echo $sql;
 
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
   
-    //echo $sql;
-	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . "<font color=\"#0d1424\">#" . $row[teamAdmin] . "</font><a href='http://localhost:18502/' onclick=\"logout.php\">logout</a>";
+    echo $sql;
+	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . "<font color=\"#0d1424\">#" . $row[teamAdmin] . "</font><a href='http://localhost:18502/' onclick=\"logout.php\">logout</a>";
 		
 	mysql_close($con);
 	
