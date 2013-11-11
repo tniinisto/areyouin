@@ -7,10 +7,14 @@ session_start();
 if(!session_is_registered(myusername)){
 header("location:default.html");
 }
+else {
+    header("location:index.html");
+}
+
 ?>
 
-<html>
+<!--<html>
 <body>
 Login Successful
 </body>
-</html>
+</html>-->
