@@ -8,13 +8,15 @@ if(!session_is_registered(myusername)){
 header("location:default.html");
 }
 else {
-    header("location:index.html");
+    //header("location:index.html");
+    //header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
+    echo "logged in with username: " + session_decode();
 }
 
 ?>
 
-<!--<html>
+<html>
 <body>
 Login Successful
 </body>
-</html>-->
+</html>

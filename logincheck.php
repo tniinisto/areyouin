@@ -36,7 +36,8 @@
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
         session_register("myusername");
-        session_register("mypassword"); 
+        session_register("mypassword");
+ 
         header("location:login_success.php");
 	}
 	else {
