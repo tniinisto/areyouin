@@ -3,7 +3,8 @@
 // Check if session is not registered, redirect back to main page. 
 // Put this code in first line of web page. 
 
-session_start();
+//session_start();
+
 if(!session_is_registered(myusername)){
 header("location:default.html");
 }
@@ -13,10 +14,12 @@ else {
     echo "logged in with username";
     echo "<br>";
     echo "<h3> PHP List All Session Variables</h3>";
+    
     foreach ($_SESSION as $key=>$val)
         echo $key." ".$val."<br/>";
+    
     echo "<br>";
-    echo "user=". $_SESSION['myusername'];
+    //echo "user=". $_SESSION['myusername'];
 }
 
 ?>
