@@ -37,7 +37,7 @@
         session_register("myusername");
         $_SESSION['myusername'] = $myusername;
         session_register("mypassword");
-        $_SESSION['mypassword'] = $mypassword;
+        $_SESSION['mypassword'] = md5($mypassword);
 
         header("location:login_success.php");
 	}

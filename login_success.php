@@ -11,7 +11,7 @@ header("location:default.html");
 else {
     //header("location:index.html");
     //header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
-    echo "logged in with username:".$_SESSION['myusername'];
+    //echo "logged in with username:".$_SESSION['myusername'];
     echo "<br>";
     echo "<h3> PHP List All Session Variables</h3>";
     
