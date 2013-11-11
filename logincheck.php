@@ -41,7 +41,7 @@
 	}
 	else {
 		//echo $sql;
-		alert("wrong username or password")
+		alert("wrong username or password");
         //echo "<h1> Wrong Username or Password </h1>";
         header("location:default.html");
 	}
