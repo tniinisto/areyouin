@@ -14,8 +14,9 @@ else {
     echo "<br>";
     echo "<h3> PHP List All Session Variables</h3>";
     foreach ($_SESSION as $key=>$val)
-        echo $key." ".$_SESSION ['myusername']."<br/>";
+        echo $key." ".$val."<br/>";
     echo "<br>";
+    echo "user=". $_SESSION['myusername'];
 }
 
 ?>
