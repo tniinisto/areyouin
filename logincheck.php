@@ -42,6 +42,7 @@
 	else {
 		//echo $sql;
 		echo "<h1> Wrong Username or Password </h1>";
+        header("location:default.html");
 	}
 	
 	mysql_close($con);	
