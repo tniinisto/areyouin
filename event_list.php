@@ -22,7 +22,7 @@
 	
 	//Go through events & players
 	$event_check = 0; //Check when the event changes
-	$row_index = 1; //Unique naming for swithces
+	$row_index = 1; //Unique naming for switches
 	while($row = mysql_fetch_array($result))
 	{
 		//Check when the event changes, then echo the event basic information
