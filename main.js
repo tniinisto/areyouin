@@ -1,10 +1,10 @@
 //Get users name & team name
 function getLoginInformation(playerID, teamID) {
 	//alert("showUser() gets called.");
-	if (playerID == "" || teamID == "") {
-		document.getElementById("userlogin").innerHTML = "getLoginInformation";
-		return;
-	}
+	//if (playerID == "" || teamID == "") {
+	//	document.getElementById("userlogin").innerHTML = "getLoginInformation";
+	//	return;
+	//}
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -23,6 +23,7 @@ function getLoginInformation(playerID, teamID) {
 	//var variables = "p=1&t=1";
 	//alert(variables);
 	//xmlhttp.open("GET", "logininfo.php?" + variables, false);
+	alert("jou");
     xmlhttp.open("GET", "logininfo.php", false);
 	xmlhttp.send();
 }

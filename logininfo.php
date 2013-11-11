@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
 
 	//$pl=$_GET["p"];
 	//$te=$_GET["t"];
