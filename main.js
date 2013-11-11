@@ -23,7 +23,7 @@ function getLoginInformation() {
 	//var variables = "p=1&t=1";
 	//alert(variables);
 	//xmlhttp.open("GET", "logininfo.php?" + variables, false);
-	alert("jou");
+	//alert("jou");
     xmlhttp.open("GET", "logininfo.php", false);
 	xmlhttp.send();
 }
