@@ -1,5 +1,5 @@
 //Get users name & team name
-function getLoginInformation(playerID, teamID) {
+function getLoginInformation() {
 	//alert("showUser() gets called.");
 	//if (playerID == "" || teamID == "") {
 	//	document.getElementById("userlogin").innerHTML = "getLoginInformation";
