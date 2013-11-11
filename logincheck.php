@@ -1,6 +1,4 @@
 <?php
-    session_start();    
-
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	  {
@@ -37,6 +35,7 @@
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
         session_register("myusername");
+        $_SESSION['myusername'] = $myusername;
         session_register("mypassword");
  
         header("location:login_success.php");
