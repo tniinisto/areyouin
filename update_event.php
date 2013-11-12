@@ -50,17 +50,24 @@
         echo "</form>";
         echo "</article>";
 
+        echo "<form id=\"back\" method=\"post\" action=\"back()\">";
+            echo "<input type=\"submit\" value=\"Back\" id=\"back\"></input>";
+        echo "</form>";    
+
+
+
+
+        function back()
+        {
+            header("location:index.html");
+        }
+        
 
         //Update the database
         function update_event_db()
         {
                 echo "update_event.php called eventid=" . $eventid;
         }
-        
-
-
-
-
 
         
         //Post variables
