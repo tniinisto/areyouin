@@ -49,14 +49,14 @@
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<input type=\"button\" value=\"Back\" onclick=\"back()\"></input>";
+        echo "<input type=\"button\" value=\"Back\" onclick=\"" . back() . "\"></input>";
 
         echo "</article>";
 
 
         function back()
         {
-            //header("location:index.html");
+            header("location:index.html");
         }
         
 
