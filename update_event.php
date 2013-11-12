@@ -48,23 +48,20 @@
         echo "</br>";
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
-
-        echo "<input type=\"button\" value=\"Back\" onclick=\"" . back() . "\"></input>";
-
         echo "</article>";
 
 
-        function back()
-        {
-            header("location:index.html");
-        }
-        
+        //function back()
+        //{
+        //    header("location:index.html");
+        //}
+        //
 
         //Update the database
-        function update_event_db()
-        {
-                echo "update_event.php called eventid=" . $eventid;
-        }
+        //function update_event_db()
+        //{
+        //        echo "update_event.php called eventid=" . $eventid;
+        //}
 
         
         //Post variables
