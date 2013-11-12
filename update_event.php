@@ -49,7 +49,7 @@
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<a href=\"javascript:getEvents();\">Click back</a>";
+        echo "<a href=\"javascript:getEvents();\">Back to events</a>";
 
         echo "</article>";
 
