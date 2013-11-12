@@ -7,6 +7,8 @@
 
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
+    session_start();
+
 	// username and password sent from form
 	$myusername=$_POST['ayiloginName'];
 	$mypassword=$_POST['ayipassword'];
