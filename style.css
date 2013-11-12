@@ -376,7 +376,7 @@ article
 }
 
 .atable2 td {
-	background-color: #026acb;
+	background-color: #fff;
 	font-size: 1.2em;
 	padding: 6px 3px;
 	height: auto;
@@ -401,7 +401,7 @@ td.col3 {
 }
 
 td.col4 {
-	width: 58%;
+	width: 78%;
 }
 
 td.col5 {
