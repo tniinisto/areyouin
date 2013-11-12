@@ -49,9 +49,13 @@
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<form id=\"back\" method=\"post\" action=\"getEvents()\">";
-            echo "<input type=\"submit\" value=\"Back\" id=\"button1\"></input>";
-        echo "</form>";  
+        //echo "<form id=\"back\" method=\"post\" action=\"getEvents()\">";
+        //    echo "<input type=\"submit\" value=\"Back\" id=\"button1\"></input>";
+        //echo "</form>";  
+
+        //echo "<script language=javascript>getEvents()</script>";
+
+        echo "<a href = \"javascript:getEvents();\">Click back</a>";
 
         echo "</article>";
 
