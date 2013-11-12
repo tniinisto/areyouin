@@ -49,7 +49,7 @@
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<form id=\"back\" method=\"post\" action=\"event_list.php\">";
+        echo "<form id=\"back\" method=\"post\" action=\"index.html\">";
             echo "<input type=\"submit\" value=\"Back\" id=\"button1\"></input>";
         echo "</form>";  
 
