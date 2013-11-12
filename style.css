@@ -329,13 +329,12 @@ article
 	text-align: left;
 	font-weight: bold;
 	margin: -12px 0;
-    color: blue;
 }
 
 .atable th {
 	background-color: #6a6a6a;
 	font-size: 1.1em;
-	color: white;
+	color: #026acb;
 	text-align: left;
 	padding: 6px 10px;
 	height: auto;
