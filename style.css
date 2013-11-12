@@ -373,15 +373,13 @@ article
 	color: black;
 	padding: 10px 3px;
 	height: auto;
-    border: 2px;
 }
 
 .atable2 td {
-	background-color: #fff;
+	background-color: #026acb;
 	font-size: 1.2em;
 	padding: 6px 3px;
 	height: auto;
-    border: 2px;
 }
 
 /*.atable2 .seen {
