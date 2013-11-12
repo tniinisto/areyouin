@@ -48,13 +48,10 @@
         echo "</br>";
         //echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
+
+        echo "<input type=\"button\" value=\"Back\" onclick=\"back()\">></input>";
+
         echo "</article>";
-
-        echo "<form id=\"back\" method=\"post\" action=\"back()\">";
-            echo "<input type=\"submit\" value=\"Back\" id=\"back\"></input>";
-        echo "</form>";    
-
-
 
 
         function back()
