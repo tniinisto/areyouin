@@ -413,7 +413,7 @@ td.col6 {
 	display: none;
 }
 
-img.seen {padding:3px; background-color: #6a6a6a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
+img.seen {padding:1px; background-color: #6a6a6a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
 img.unseen {padding:3px; background-color: #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;} 
 
 /************************************************************************************
