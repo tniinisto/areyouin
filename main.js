@@ -79,11 +79,11 @@ function getPlayers(teamid) {
 }
 
 //Getting player list for inserting new event
-function getPlayersInsert(teamid) {
-	if (teamid == "") {
-		document.getElementById("userlogin").innerHTML = "getPlayersInsertents()";
-		return;
-	}	
+function getPlayersInsert() {
+	//if (teamid == "") {
+	//	document.getElementById("userlogin").innerHTML = "getPlayersInsertents()";
+	//	return;
+	//}	
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -98,8 +98,8 @@ function getPlayersInsert(teamid) {
 	}
 
 	//alert("GET gets called.");
-	var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "players_insert.php?" + variables, false);
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "players_insert.php", false);
 	xmlhttp.send();
 }
 

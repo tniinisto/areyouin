@@ -45,7 +45,7 @@ smaller than 980
 /************************************************************************************
 smaller than 650
 *************************************************************************************/
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
 
 	/* header */
 	#header {
@@ -132,6 +132,14 @@ smaller than 650
 		color: white;
 		line-height: 1em;
 		margin: 0 0 1.2em;	
+	}
+
+	td.col3 {
+		width: 18%;
+	}
+
+	td.col4 {
+		width: 51%;
 	}	
 
 }
