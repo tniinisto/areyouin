@@ -1,5 +1,8 @@
 <?php
-        $teamid=1;
+        session_start();
+        
+        //$teamid=1;
+        $teamid=$_SESSION['myteamid'];
 
         $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 
