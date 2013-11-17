@@ -26,7 +26,18 @@
         echo "<label><h2>Game end:</h2></label>";
         echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
 
-        echo "<h2>Pick players:</h2>";
+        echo "<div>";
+        echo "<h2>Pick players: <span style=\"float: right;\">Select all: ";
+      
+            echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
+                echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
+                echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
+                echo "<div class=\"onoffswitch-inner\"></div>";
+                echo "<div class=\"onoffswitch-switch\"></div>";
+                echo "</label>";
+            echo "</div></span></h2>";
+
+        echo "</br>";
         echo "</br>";
 
         $row_index = 1; 
