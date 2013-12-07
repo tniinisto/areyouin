@@ -6,6 +6,7 @@
 
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
+    $ad=$_SESSION['myAdmin'];
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
@@ -56,12 +57,22 @@
 				echo "</tr>";
 			echo "</table>";*/
 			
-			echo "<table border='0' class=\"atable\">";
-				echo "<tr>";
-					echo "<th>From " . $res1 . " to " . $res2 . "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"25\" height=\"25\" src=\"images\edit.png\" style=\"float: right;z-index: 1; cursor: pointer;\"></img></th>";
-					//<a href="javascript:update_event()"></a>)
-				echo "</tr>";
+            //Echo event update if admin rights
+            if($ad==1) {
+			    echo "<table border='0' class=\"atable\">";
+				    echo "<tr>";
+					    echo "<th>From " . $res1 . " to " . $res2 . "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"25\" height=\"25\" src=\"images\edit.png\" style=\"float: right;z-index: 1; cursor: pointer;\"></img></th>";
+					    //<a href="javascript:update_event()"></a>)
+				    echo "</tr>";
 			echo "</table>";
+            }
+            else {
+                echo "<table border='0' class=\"atable\">";
+				    echo "<tr>";
+					    echo "<th>From " . $res1 . " to " . $res2 . "</th>";
+				    echo "</tr>";
+			echo "</table>";
+            }
 		}
 
 		//Echo players for the event
