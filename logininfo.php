@@ -6,6 +6,7 @@
     
     $pl=$_SESSION['myplayerid'];
 	$te=$_SESSION['myteamid'];
+    //$ad=$_SESSION['myAdmin'];
     
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
@@ -23,8 +24,9 @@
 	$row = mysql_fetch_array($result);
   
     //echo $sql;
-	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . "<font color=\"#0d1424\">#" . $row[teamAdmin] . "</font><a href='http://localhost:18502/' onclick=\"logout.php\">logout</a>";
-		
+	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . "<font color=\"#0d1424\">#" . $row[teamAdmin] . "</font><a href='http://localhost:18502/' onclick=\"logout.php\">logout</a>";
+	echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . " <a href='http://localhost:18502/' onclick=\"logout.php\"><span  style=\"color:red\">logout</span></a>";
+    		
 	mysql_close($con);
 	
 ?>

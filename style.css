@@ -28,7 +28,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #0d1424 /*url(images/BV-background.jpg)*/ no-repeat center top;
+	background: #0d1424 url(images/BV-background.jpg) no-repeat center top;
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
 }
@@ -469,7 +469,9 @@ td.pcol5 {
 }
 
 #admin_content_article {
-    padding:  10px 0 10px 30px;
+    /*padding:  10px 0 10px 30px;*/
+	margin: 0 0 20px;
+	padding: 20px 10px 30px;    
 }
 
 

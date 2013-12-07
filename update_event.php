@@ -1,6 +1,14 @@
 <?php
         $eventid=$_GET["eventid"];
         
+        //session_start();
+	
+        //$teamid=$_GET["teamid"];
+	    //$playerid=$_GET["playerid"];
+
+        //$playerid=$_SESSION['myplayerid'];
+	    //$teamid=$_SESSION['myteamid'];
+
         //echo "update_event.php called eventid=" . $eventid;
 
         $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
