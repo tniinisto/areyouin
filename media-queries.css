@@ -177,6 +177,15 @@ smaller than 480
 		width: 18%;
 	}
 
+    td.pcol3 {
+	    width: 10px;
+        display: none;
+    }
+
+    #pickall {
+        font-size: small;
+    }
+
 	td.col4 {
 		width: 51%;
 	}

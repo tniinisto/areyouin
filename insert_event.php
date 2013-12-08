@@ -13,6 +13,9 @@
         $gamestart=$_POST['gamestart'];
         $gamesend=$_POST['gamesend'];
 
+        //Select all players switch
+        $ooswitch_all = $_POST['ooswitch_all'];
+
         //Array containing [playerID, checkbox]
         $players = array(); 
         $idpost = '';
@@ -81,12 +84,20 @@
         $eid = mysql_insert_id(); //Get the just created event id
         for ($k=1; $k<=$playeramount; $k++)
         {
-                if($players[$k][2] == '')
+            if($ooswitch_all == '') //If all players switch is on -> add all players to event
+            {
+                    $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
+                    $result3 = mysql_query($sql3);                    
+            }
+            else
+            {
+                if($players[$k][2] == '') //Chech if single player is selected
                 {
-                        $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
-                        $result3 = mysql_query($sql3);
+                    $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
+                    $result3 = mysql_query($sql3);
                 }
-        }        
+            }
+        }           
         
         //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
         //echo $sql3;
