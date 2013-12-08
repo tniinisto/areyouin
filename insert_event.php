@@ -97,7 +97,12 @@
                     $result3 = mysql_query($sql3);
                 }
             }
-        }           
+        }
+        
+        if($result3)
+        {
+            header("location:index.html");    
+        }    
         
         //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
         //echo $sql3;
@@ -130,9 +135,9 @@
         //}
         //else
         //{
-                $url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-                echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-                echo "</br>";
+                //$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+                //echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
+                //echo "</br>";
         //}
 
         //Sending email notification for the plyaers

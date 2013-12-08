@@ -16,7 +16,7 @@ smaller than 980
 	
 	article {
 		/*padding: 3% 4%;*/
-		padding: 7% 2%;
+		padding: 5% 2%;
 		/*margin: 0 30px 10px 0;*/
 	}	
 
@@ -177,9 +177,18 @@ smaller than 480
 		width: 18%;
 	}
 
+    /*pcol - Admin screen*/
     td.pcol3 {
 	    width: 10px;
         display: none;
+    }
+
+    td.pcol4 {
+	    font-size: small
+    }
+
+    td.pcol5 {
+	    width: 10px;
     }
 
     #pickall {
