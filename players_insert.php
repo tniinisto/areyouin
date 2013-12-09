@@ -25,9 +25,9 @@
         echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
         //echo "<h2>Set Time</h2>";
         echo "<label><h2>Game start:</h2></label>";
-        echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
+        echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"></input>";
         echo "<label><h2>Game end:</h2></label>";
-        echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
+        echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
 
         //OnOff switch to selecte all
         echo "<div>";
@@ -102,3 +102,19 @@
         
         mysql_close($con);
 ?>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <script>
+            document.getElementById("gamestart_id").onchange = function () {
+                alert("jeps");
+            }
+            //echo "var input2 = document.getElementById(\"gameend_id\");";
+            //echo "input2.setAttribute(\"min\", this.value); }";
+            //echo 
+        </script>
+
+    </head>
+</html>-->

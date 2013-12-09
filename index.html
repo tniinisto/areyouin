@@ -157,7 +157,28 @@
             //$("#profile_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
         }
-    });         
+    });
+
+    //Set game end time from after start time is set
+    function game_start() {
+        //alert("test start");
+        var start = document.getElementById("gamestart_id");
+        var end = document.getElementById("gameend_id");
+        //end.setAttribute("value", start.value);
+        //end.setAttribute("min", start.value);
+        end.value = start.value;
+    }
+
+    //Check game end time validity
+    function game_end() {
+        //alert("test end");
+        var start = document.getElementById("gamestart_id");
+        var end = document.getElementById("gameend_id");
+        if (start.value > end.value) {
+            end.value = start.value;
+            //alert("Game's end time must be after start time...");
+        }
+    }     
 
 </script>
 <!-- /scripts -->
