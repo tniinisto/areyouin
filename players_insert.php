@@ -102,19 +102,3 @@
         
         mysql_close($con);
 ?>
-
-<!--<!DOCTYPE html>
-<html lang="en">
-    <head>
-        
-        <script>
-            document.getElementById("gamestart_id").onchange = function () {
-                alert("jeps");
-            }
-            //echo "var input2 = document.getElementById(\"gameend_id\");";
-            //echo "input2.setAttribute(\"min\", this.value); }";
-            //echo 
-        </script>
-
-    </head>
-</html>-->
