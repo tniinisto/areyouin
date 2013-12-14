@@ -47,6 +47,12 @@
 					$res1 = substr($row['startTime'], 11, 5);
 					$res2 = substr($row['endTime'], 11, 5);
 					echo "<th>On " . $day . "</th>";
+
+                    //Day2 used when event lasts multiple days
+                    $day2 = "";
+                    if(!(substr($row['startTime'], 8, 2) == substr($row['endTime'], 8, 2)))
+                        $day2 = date("l jS", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
+
 				echo "</tr>";
 			echo "</table>";
 			
@@ -61,7 +67,7 @@
             if($ad==1) {
 			    echo "<table border='0' class=\"atable\">";
 				    echo "<tr>";
-					    echo "<th>From " . $res1 . " to " . $res2 . "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"25\" height=\"25\" src=\"images\edit.png\" style=\"float: right;z-index: 1; cursor: pointer;\"></img></th>";
+					    echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"25\" height=\"25\" src=\"images\edit.png\" style=\"float: right;z-index: 1; cursor: pointer;\"></img></th>";
 					    //<a href="javascript:update_event()"></a>)
 				    echo "</tr>";
 			    echo "</table>";
@@ -69,7 +75,7 @@
             else {
                 echo "<table border='0' class=\"atable\">";
 				    echo "<tr>";
-					    echo "<th>From " . $res1 . " to " . $res2 . "</th>";
+					    echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "</th>";
 				    echo "</tr>";
 			    echo "</table>";
             }
