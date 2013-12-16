@@ -1,5 +1,10 @@
 <?php
     session_start();
+
+    include 'ChromePhp.php';
+    ChromePhp::log('Hello console!');
+    $password = $_SESSION['mypassword'];        
+    ChromePhp::log("MD5:", $password);
 	
     //$teamid=$_GET["teamid"];
 	//$playerid=$_GET["playerid"];

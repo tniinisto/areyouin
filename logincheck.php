@@ -1,7 +1,8 @@
 <?php
     
-    include 'ChromePhp.php';
-    ChromePhp::log('Hello console!');
+    //For some reason logincheck does not print to console???
+    //include 'ChromePhp.php';
+    //ChromePhp::log('Hello console!');
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
@@ -12,6 +13,7 @@
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
     session_start();
+
 
 	// username and password sent from form
 	$myusername=$_POST['ayiloginName'];
