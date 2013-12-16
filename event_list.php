@@ -1,11 +1,11 @@
 <?php
     session_start();
 
-    include 'ChromePhp.php';
-    ChromePhp::log('Hello console!');
-    $password = $_SESSION['mypassword'];        
-    ChromePhp::log("MD5:", $password);
+    //include 'ChromePhp.php';
+    //$password = $_SESSION['mypassword'];        
+    //ChromePhp::log("MD5:", $password);
 	
+    //Old implementation with URL paramaters
     //$teamid=$_GET["teamid"];
 	//$playerid=$_GET["playerid"];
 

@@ -3,75 +3,63 @@
         
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
+        $ad=$_SESSION['myAdmin'];
 
-        $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+        //include 'ChromePhp.php';        
+        //ChromePhp::log("players_insert, admin:", $ad);
 
-        if (!$con)
-          {
-          die('Could not connect: ' . mysql_error());
-          }
-
-        mysql_select_db("areyouin", $con);
-
-        //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-        $sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '" . $teamid . "'";
-        
-        $result = mysql_query($sql);
-        $row_count = mysql_num_rows($result);
-
-        //echo "<div id=\"admin_content_id\" class=\"content\">";
-        echo "<article id=\"admin_content_article\" class=\"clearfix \">";
-        echo "<h1>Enter new game</h1>";
-        echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
-        //echo "<h2>Set Time</h2>";
-        echo "<label><h2>Game start:</h2></label>";
-        echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"></input>";
-        echo "<label><h2>Game end:</h2></label>";
-        echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
-
-        //OnOff switch to selecte all
-        echo "<div>";
-        echo "<h2 id=\"pickall\">Pick players: <span style=\"float: right;\">Select all: ";
-      
-        echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
-            echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
-            echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
-            echo "<div class=\"onoffswitch-inner\"></div>";
-            echo "<div class=\"onoffswitch-switch\"></div>";
-            echo "</label>";
-        echo "</div></span></h2>";
-
-        echo "</br>";
-        echo "</br>";
-
-        $row_index = 1; 
-        echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
-        
-        $second = 0;
-        
-        while($row = mysql_fetch_array($result))
+        if($ad==1) //Execute only for admin status
         {
-                //echo "<div style=\"display: inline-block;\">";
+            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+
+            if (!$con)
+              {
+              die('Could not connect: ' . mysql_error());
+              }
+
+            mysql_select_db("areyouin", $con);
+
+            //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
+            $sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '" . $teamid . "'";
+        
+            $result = mysql_query($sql);
+            $row_count = mysql_num_rows($result);
+
+            //echo "<div id=\"admin_content_id\" class=\"content\">";
+            echo "<article id=\"admin_content_article\" class=\"clearfix \">";
+            echo "<h1>Enter new game</h1>";
+            echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
+            //echo "<h2>Set Time</h2>";
+            echo "<label><h2>Game start:</h2></label>";
+            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"></input>";
+            echo "<label><h2>Game end:</h2></label>";
+            echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
+
+            //OnOff switch to selecte all
+            echo "<div>";
+            echo "<h2 id=\"pickall\">Pick players: <span style=\"float: right;\">Select all: ";
+      
+            echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
+                echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
+                echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
+                echo "<div class=\"onoffswitch-inner\"></div>";
+                echo "<div class=\"onoffswitch-switch\"></div>";
+                echo "</label>";
+            echo "</div></span></h2>";
+
+            echo "</br>";
+            echo "</br>";
+
+            $row_index = 1; 
+            echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
+        
+            $second = 0;
+        
+            while($row = mysql_fetch_array($result))
+            {
+                    //echo "<div style=\"display: inline-block;\">";
                     
-                    echo "<tr>";
-                    echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
-                    echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-                    echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
-                    echo "<td class=\"pcol5\">";
-                            echo "<div class=\"onoffswitch\">";
-                                    echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
-                                    echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
-                                    echo "<div class=\"onoffswitch-inner\"></div>";
-                                    echo "<div class=\"onoffswitch-switch\"></div>";
-                                    echo "</label>";
-                            echo "</div>";
-                    echo "</td>";
-                    
-                    if($row = mysql_fetch_array($result))
-                    {
-                        $row_index = $row_index + 1;
-                        echo "<td style=\"width: 20px;\"></td>";
+                        echo "<tr>";
                         echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                         echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
                         echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
@@ -85,20 +73,39 @@
                                         echo "</label>";
                                 echo "</div>";
                         echo "</td>";
-                    }                                      
-                    echo "</tr>";
+                    
+                        if($row = mysql_fetch_array($result))
+                        {
+                            $row_index = $row_index + 1;
+                            echo "<td style=\"width: 20px;\"></td>";
+                            echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
+                            echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
+                            echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                            echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
+                            echo "<td class=\"pcol5\">";
+                                    echo "<div class=\"onoffswitch\">";
+                                            echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+                                            echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
+                                            echo "<div class=\"onoffswitch-inner\"></div>";
+                                            echo "<div class=\"onoffswitch-switch\"></div>";
+                                            echo "</label>";
+                                    echo "</div>";
+                            echo "</td>";
+                        }                                      
+                        echo "</tr>";
                 
-                //echo "</div>";
+                    //echo "</div>";
 
-                $row_index = $row_index + 1;
-        }
-        echo "</table>";
-        echo "</br>";
-        echo "</br>";
-        echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
-        echo "</form>";
-        echo "</article>";
-        //echo "</div>;
+                    $row_index = $row_index + 1;
+            }
+            echo "</table>";
+            echo "</br>";
+            echo "</br>";
+            echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
+            echo "</form>";
+            echo "</article>";
+            //echo "</div>;
         
-        mysql_close($con);
+            mysql_close($con);
+        }
 ?>
