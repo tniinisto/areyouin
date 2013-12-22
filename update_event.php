@@ -1,6 +1,6 @@
 <?php
-        include 'ChromePhp.php';
-        ChromePhp::log('Hello console!');
+        //include 'ChromePhp.php';
+        //ChromePhp::log('Hello console!');
 
         $eventid=$_GET["eventid"];
         
@@ -64,9 +64,10 @@
         //$result2 = mysql_query($sql2);
 
         //Form - Start & End time/////////////////////
-        echo "<article id=\"event_content_article\" class=\"clearfix \">";
+
+        echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update game</h1>";
-        echo "<form id=\"eventupdateform\" method=\"post\" action=\"update_event_db.php\">";
+        echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
         echo "<label><h2>Game start:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
@@ -108,7 +109,7 @@
         $row_count = mysql_num_rows($result2);
 
         $row_index = 1; 
-        echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
+        echo "<table border='0' id='updateplayers' class=\"atable2\">"; 
         
         while($row2 = mysql_fetch_array($result2))
         {

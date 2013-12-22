@@ -36,7 +36,7 @@
             echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
 
             //OnOff switch to selecte all
-            echo "<div>";
+            //echo "<div>";
             echo "<h2 id=\"pickall\">Pick players: <span style=\"float: right;\">Select all: ";
       
             echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
