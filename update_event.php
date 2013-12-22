@@ -89,12 +89,13 @@
         }
 
         echo "<input id=\"update_eventid\" name=\"update_eventid\" type=\"number\" value=\"" . $eventid .  "\" style=\"display:none;\"></label>";
+        echo "<input id=\"update_teamid\" name=\"update_teamid\" type=\"number\" value=\"" . $teamid .  "\" style=\"display:none;\"></label>";
         
         //Form - Players////////////////////////////////////
         echo "<h2>Pick players:</h2>";
-
+        echo "</br>";
         mysql_data_seek($result, 0); //Reset $result index position (earlier query)
-        $eventplayers = array();
+        $eventplayers = array(); //Players who are already in the game
         $index = 0;
         while($row = mysql_fetch_array($result))
         {
@@ -180,6 +181,7 @@
         echo "</br>";
         echo "</br>";
         echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
+        echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
         echo "<a href=\"javascript:getEvents();\">Back to events</a>";
