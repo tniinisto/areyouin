@@ -1,5 +1,15 @@
 <?php
-    
+    include 'ChromePhp.php';
+    //ChromePhp::log('Hello console!');
+
+    $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+    if (!$con)
+        {
+        die('Could not connect: ' . mysql_error());
+        }
+
+    mysql_select_db("areyouin", $con)or die("cannot select DB");
+            
     $eventid=$_POST['update_eventid'];
     $teamid=$_POST['update_teamid'];
     
@@ -52,22 +62,62 @@
             //$gamesend = $gamesend . ":00";
     }
     //echo $gamestart;
-        
-    //Update game's basic information//////////////////////////////////////////////////////////////
 
+    /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
+    $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.name location from areyouin.eventplayer ep
+    inner join areyouin.events e on e.eventID = ep.Events_eventID
+    inner join areyouin.team t on teamID = e.Team_teamID
+    inner join areyouin.players p on playerID = ep.Players_playerID
+    inner join areyouin.location l on l.locationID = e.Location_locationID
+    where e.eventID = " . $eventid . " and t.teamID = " . $teamid . "";
+        
+    $result = mysql_query($sql);
+
+    //Update game's basic information//////////////////////////////////////////////////////////////
+    $row = mysql_fetch_array($result);
+    //$sql3 = "UPDATE events SET startTime = ". $row['startTime'] .", endTime = " . $row['endTime'] . " WHERE eventID = " . $eventid . "";
+    $sql3 = "UPDATE events SET startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . "";
+    ChromePhp::log('Update: ' . $sql3);
+    $result3 = mysql_query($sql3);
 
     //Update players, deed to check whether EventPlayer row should be inserted or deleted//////////
     for ($k=1; $k<=$playeramount; $k++)
     {
-            if($players[$k][2] == '') { //Player is selected for the event, check if insert is needed
+        mysql_data_seek($result, 0);
+        $found = 0;
 
-
+        if($players[$k][2] == '') { //Player is selected for the event. Check if insert is needed, if player was not in the event before
+            while($row = mysql_fetch_array($result)) {
+                if($players[$k][1] == $row['playerID']) {
+                    $found = 1;    
+                }
+            }                   
+            
+            if($found == 0) {
+            //Player not found, insert new row to EventPlayer
+                $sql2 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eventid . "', '0');";
+                ChromePhp::log('Insert: ' . $sql2);
+                $result2 = mysql_query($sql2);                    
             }
-            else { //Player is not selected for the event, check if delete is needed
+
+        }
+        else { //Player is not selected for the event, check if delete is needed -> player was already in the event
+            while($row = mysql_fetch_array($result)) {
+                if($players[$k][1] == $row['playerID']) {
+                    $found = 1;    
+                }
+            }                   
+
+            if($found == 1) {
+            //Player was selected earlier, delete record
+                $sql2 = "DELETE FROM eventplayer WHERE Players_playerID = " . $players[$k][1] . " AND Events_eventID = " . $eventid . ";";
+                ChromePhp::log('Delete: ' . $sql2);
+                $result2 = mysql_query($sql2);                    
+            }
                 
-            }
+        }
     }
-
+    
 
     //Get the id for the inserted event
     //$sql2 = "SELECT MAX(eventID) as eventID FROM events";
@@ -118,6 +168,13 @@
             "X-Mailer: PHP/" . phpversion();
 
     mail($to, $subject, $message, $headers);*/
+
+    mysql_close($con);
+
+    //if($result2 && $result3)
+    {
+        header("location:index.html");    
+    }  
 
 ?>
 

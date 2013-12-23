@@ -1,5 +1,5 @@
 <?php
-        //include 'ChromePhp.php';
+        include 'ChromePhp.php';
         //ChromePhp::log('Hello console!');
 
         $eventid=$_GET["eventid"];
@@ -72,20 +72,20 @@
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
         if (preg_match('/chrome/i', $user_agent)) {
-            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $gamestart . "\"></input>";
+            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $gamestart . "\" onchange=\"game_start()\"></input>";
         }
         else {
-            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
+            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\" onchange=\"game_start()\"></input>";
         }
 
         echo "<label><h2>Game end:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['endTime'])) . "\"></input>";
         if (preg_match('/chrome/i', $user_agent)) {
-            echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $gameend . "\"></input>";
+            echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $gameend . "\" onchange=\"game_end()\"></input>";
         }
         else {
-            echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['endTime'])) . "\"></input>";
+            echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['endTime'])) . "\" onchange=\"game_end()\"></input>";
         }
 
         echo "<input id=\"update_eventid\" name=\"update_eventid\" type=\"number\" value=\"" . $eventid .  "\" style=\"display:none;\"></label>";
@@ -100,7 +100,7 @@
         while($row = mysql_fetch_array($result))
         {
             $eventplayers[$index] = $row['playerID'];
-            //ChromePhp::log("Array: " . $index . ": " . $eventplayers[$index]);
+            ChromePhp::log("Array: " . $index . ": " . $eventplayers[$index]);
             $index++;
         }
 
