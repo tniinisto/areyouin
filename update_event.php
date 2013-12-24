@@ -1,5 +1,5 @@
 <?php
-        include 'ChromePhp.php';
+        //include 'ChromePhp.php';
         //ChromePhp::log('Hello console!');
 
         $eventid=$_GET["eventid"];
@@ -100,7 +100,7 @@
         while($row = mysql_fetch_array($result))
         {
             $eventplayers[$index] = $row['playerID'];
-            ChromePhp::log("Array: " . $index . ": " . $eventplayers[$index]);
+            //ChromePhp::log("Array: " . $index . ": " . $eventplayers[$index]);
             $index++;
         }
 
