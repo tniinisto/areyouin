@@ -37,9 +37,9 @@
         //ChromePhp::log($user_agent);
         
         //Datetime format for Chrome (Add "T")
-        $gamestart = date(('Y-m-d H:i'), strtotime($row['startTime']));
+        $gamestart = date(('Y-m-d H:i:00'), strtotime($row['startTime']));
         $gamestart[10] = "T";
-        $gameend = date(('Y-m-d H:i'), strtotime($row['endTime']));
+        $gameend = date(('Y-m-d H:i:00'), strtotime($row['endTime']));
         $gameend[10] = "T";
 
          //Debug
@@ -71,12 +71,16 @@
         echo "<label><h2>Game start:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
-        if (preg_match('/chrome/i', $user_agent)) {
+        //if (preg_match('/chrome/i', $user_agent)) {
             echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $gamestart . "\" onchange=\"game_start()\"></input>";
-        }
-        else {
-            echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\" onchange=\"game_start()\"></input>";
-        }
+            echo "<p>chrome " . $gamestart . "</p>";
+            //ChromePhp::log('chrome in use: ' . $gamestart);
+        //}
+        //else {
+        //    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i:00'), strtotime($row['startTime'])) . "\" onchange=\"game_start()\"></input>";
+        //    //ChromePhp::log('other browser in use: ' . $gamestart);
+        //    echo "<p>other " . date(('Y-m-d H:i:00'), strtotime($row['startTime'])) . "</p>";
+        //}
 
         echo "<label><h2>Game end:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
