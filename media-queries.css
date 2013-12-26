@@ -281,7 +281,12 @@ smaller than 480
 	  -o-border-radius:5px;
 	  -ms-border-radius:5px;
 	  border-radius:5px;
-	}	
+	}
+
+    #update_event {
+        height: 35px;
+        width: 35px;
+    }	
 }
 
 /* landscape mode */
