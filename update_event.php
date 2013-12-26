@@ -73,13 +73,13 @@
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
         if ((preg_match('/safari/i', $user_agent)) || (preg_match('/chrome/i', $user_agent))) {
             echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $gamestart . "\" onchange=\"game_start()\"></input>";
-            echo "<p>chrome or safari " . $gamestart . "</p>";
+            //echo "<p>chrome or safari " . $gamestart . "</p>";
             //ChromePhp::log('safari in use: ' . $gamestart);
         }
         else {
             echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\" onchange=\"game_start()\"></input>";
             //ChromePhp::log('other browser in use: ' . $gamestart);
-            echo "<p>other " . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "</p>";
+            //echo "<p>other " . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "</p>";
         }
 
         echo "<label><h2>Game end:</h2></label>";
