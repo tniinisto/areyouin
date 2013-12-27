@@ -34,9 +34,10 @@
 		//Check when the event changes, then echo the event basic information
 		if($row['Events_eventID'] != $event_check)
 		{		
-			if($event_check != 0)
+			if($event_check != 0) {
 				echo "</article>";
-				
+		    }
+
 			$event_check = $row['Events_eventID'];	
 			
 			echo "<article id=\"event_article_id\" class=\"clearfix\">";
@@ -71,21 +72,22 @@
 			echo "</table>";*/
 			
             //Echo event update if admin rights
-            if($ad==1) {
-			    echo "<table border='0' class=\"atable\">";
-				    echo "<tr>";
-					    echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "</th>";
-					    //<a href="javascript:update_event()"></a>)
-				    echo "</tr>";
-			    echo "</table>";
-            }
-            else {
+       //     if($ad==1) {
+			    //echo "<table border='0' class=\"atable\">";
+				   // echo "<tr>";
+					  //  echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "</th>";
+					  //  //<a href="javascript:update_event()"></a>)
+				   // echo "</tr>";
+			    //echo "</table>";
+       //     }
+       //     else {
                 echo "<table border='0' class=\"atable\">";
 				    echo "<tr>";
 					    echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "</th>";
 				    echo "</tr>";
 			    echo "</table>";
-            }
+                echo "<img id=\"update_event2\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images\sort_down.png\" style=\"cursor: pointer;\"></img>";
+       //     }
 		}
 
 		//Echo players for the event

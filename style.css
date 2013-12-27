@@ -383,13 +383,20 @@ article
 }
 
 #event_article_id {
-    padding: 0px 10px 30px 10px;
+    padding: 4px 10px 23px 10px;
 }
 
 #update_event {
     position: relative;
     right: -96%;
     top: 15px;
+    z-index: 1;    margin-top: -70%;
+}
+
+#update_event2 {
+    position: relative;
+    right: -93%;
+    top: -4px;
     z-index: 1;    margin-top: -70%;
 }
 
