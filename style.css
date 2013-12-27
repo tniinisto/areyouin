@@ -292,7 +292,7 @@ article
 	width: 100%;
 	background: #fff;
 	margin: 0 0 20px;
-	padding: 20px 10px 30px;
+	padding:  20px 10px 30px;
 	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -333,7 +333,7 @@ article
 
 .atable th {
 	background-color: #6a6a6a;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	color: white;
 	text-align: left;
 	padding: 6px 10px;
@@ -380,6 +380,17 @@ article
 	font-size: 1.2em;
 	padding: 6px 3px;
 	height: auto;
+}
+
+#event_article_id {
+    padding: 0px 10px 30px 10px;
+}
+
+#update_event {
+    position: relative;
+    right: -96%;
+    top: 15px;
+    z-index: 1;    margin-top: -70%;
 }
 
 /*.atable2 .seen {

@@ -18,7 +18,7 @@ smaller than 980
 		/*padding: 3% 4%;*/
 		padding: 5% 2%;
 		/*margin: 0 30px 10px 0;*/
-	}	
+	}
 
 	/* sidebar */
 	#sidebar {
@@ -168,6 +168,17 @@ smaller than 480
 		padding: 6% 2% 10% 2%;
 		/*margin: 0 30px 10px 0;*/
 	}
+
+    #event_article_id {
+        padding: 0px 5px 30px 5px;
+    }
+
+    #update_event {
+        position: relative;
+        right: -90%;
+        /*top: 15px;*/
+        z-index: 1;        margin-top: -70%;
+    }
 	
 	#sidebar {
 		display: none;
@@ -284,8 +295,8 @@ smaller than 480
 	}
 
     #update_event {
-        height: 35px;
-        width: 35px;
+        height: 40px;
+        width: 40px;
     }	
 }
 
