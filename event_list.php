@@ -48,7 +48,8 @@
 			
 			echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-				    $day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));		
+				    //$day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
+                    $day = date("j.n.Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
 					$res1 = substr($row['startTime'], 11, 5);
 					$res2 = substr($row['endTime'], 11, 5);
 					echo "<th>On " . $day . "</th>";
