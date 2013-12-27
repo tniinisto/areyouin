@@ -179,6 +179,13 @@ smaller than 480
         /*top: 15px;*/
         z-index: 1;        margin-top: -70%;
     }
+    
+    #update_event2 {
+        position: relative;
+        right: -86%;
+        /*top: 15px;*/
+        z-index: 1;        margin-top: -70%;
+    }
 	
 	#sidebar {
 		display: none;
