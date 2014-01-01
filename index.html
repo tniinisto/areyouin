@@ -197,7 +197,17 @@
             end.value = start.value;
             //alert("Game's end time must be after start time...");
         }
-    }     
+    }
+
+    function showPlayers(eventid) {
+        //alert(eventid);
+        var id = "#id_playersfull_" + eventid;
+        //alert(id);
+        if ($(id).hasClass('noshow'))
+            $(id).removeClass("noshow");
+        else
+            $(id).addClass("noshow");
+    }
 
 </script>
 <!-- /scripts -->

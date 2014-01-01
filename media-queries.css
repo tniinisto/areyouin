@@ -182,9 +182,10 @@ smaller than 480
     
     #update_event2 {
         position: relative;
-        right: -86%;
-        /*top: 15px;*/
-        z-index: 1;        margin-top: -70%;
+        right: -60%;
+        top: 38px;
+        z-index: 1;        margin-top: -10%;
+        visibility: hidden;
     }
 	
 	#sidebar {
