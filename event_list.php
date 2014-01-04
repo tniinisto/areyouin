@@ -157,7 +157,7 @@
 
             echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th style=\"text-align:center;\" onClick=\"showPlayers(" . $event_check . ")\">Current status: 3 out of 6</th>";
+					echo "<th style=\"text-align:center;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
 				echo "</tr>";
 			echo "</table>";
             
