@@ -225,7 +225,50 @@ smaller than 480
 
 	td.col6 {
 		display: none;
-	}	
+	}
+
+th.col11 {
+	display: none;
+	/*width: 10%;*/
+}
+
+th.col21{
+	display: none;
+	/*width: 10%;*/	
+}
+
+th.col31 {
+	width: 20%;
+    /*height: 30px;*/
+    /* rounded corner */
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;		
+}
+
+th.col41 {
+	width: 45%;
+    border-collapse: collapse;
+    /*background-color: blue;*/
+        /* rounded corner */
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;	
+}
+
+th.col51 {
+	width: 9%;
+	text-align: right;
+        /* rounded corner */
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;	
+}
+
+th.col61 {
+	display: none;
+}
+	
 	
 	/*#site-logo font{
 		font-size: 90%;
