@@ -161,7 +161,11 @@
 				echo "</tr>";
 			echo "</table>";
             
-            echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
+            //Open first event in full
+            if($row_index == 1)
+                echo "<div id=\"id_playersfull_" . $event_check . "\">";
+            else
+                echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
 		}
 
 		//Echo players for the event
