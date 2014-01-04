@@ -56,18 +56,17 @@
 			echo "</table>";
 			
 			echo "<table border='0' class=\"atable\">";
-				echo "<tr>";
-				    //$day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
-                    $day = date("j.n.Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
-					$res1 = substr($row['startTime'], 11, 5);
-					$res2 = substr($row['endTime'], 11, 5);
-					echo "<th>On " . $day . "</th>";
-
                     //$day2 used when event lasts multiple days
                     $day2 = "";
                     if(!(substr($row['startTime'], 8, 2) == substr($row['endTime'], 8, 2)))
-                        $day2 = date("l jS", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
+                        $day2 = date("l j.", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
 
+				echo "<tr>";
+				    //$day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
+                    $day = date("l j.n.Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
+					$res1 = substr($row['startTime'], 11, 5);
+					$res2 = substr($row['endTime'], 11, 5);
+					echo "<th>On " . $day . "</th>";
 				echo "</tr>";
 			echo "</table>";
 			
@@ -158,11 +157,15 @@
 
             echo "<table border='0' class=\"atable\">";
 				echo "<tr>";
-					echo "<th style=\"text-align:center;\" onClick=\"showPlayers(" . $event_check . ")\">Current status: 3 out of 6</th>";
+					echo "<th style=\"text-align:center;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
 				echo "</tr>";
 			echo "</table>";
             
-            echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
+            //Open first event in full
+            if($row_index == 1)
+                echo "<div id=\"id_playersfull_" . $event_check . "\">";
+            else
+                echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
 		}
 
 		//Echo players for the event
