@@ -155,12 +155,22 @@
 			    echo "</tr>";
 		    echo "</table>";
 
+            //Invited players
+            $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $event_check . "";
+            $result4 = mysql_query($sql4);
+            $row4 = mysql_fetch_array($result4);
+
+            //Players IN
+            $sql5 = "SELECT count(*) as players_in FROM eventplayer WHERE Events_eventID = " . $event_check . " and areyouin = 1";
+            $result5 = mysql_query($sql5);
+            $row5 = mysql_fetch_array($result5);
+
             //Summary row & expand
             echo "<table border='0' class=\"lastrow\">";
 				echo "<tr style=\"cursor: pointer;\">";
 					//echo "<th>&nbsp</th>";
                     echo "<th>&nbsp&nbsp&nbsp</th>";
-                    echo "<th style=\"text-align: center;\" onClick=\"showPlayers(" . $event_check . ")\">Players 3 / 5</th>";
+                    echo "<th id=\"id_summary\" style=\"text-align: center;\" onClick=\"showPlayers(" . $event_check . ")\">Players " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                     echo "<th>&nbsp&nbsp&nbsp</th>";
                     //echo "<th style=\"text-align: right;\" onClick=\"showPlayers(" . $event_check . ")\"&nbsp&nbsp&nbsp</th>";
                     //echo "<th style=\"text-align:center;\"><img width=\"40\" height=\"10\" src=\"images\edit.png\"  onClick=\"showPlayers(" . $event_check . ")\"></th>";
