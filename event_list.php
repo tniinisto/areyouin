@@ -59,7 +59,7 @@
                     //$day2 used when event lasts multiple days
                     $day2 = "";
                     if(!(substr($row['startTime'], 8, 2) == substr($row['endTime'], 8, 2)))
-                        $day2 = date("l j.", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
+                        $day2 = date("j. \of l", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
 
 				echo "<tr>";
 				    //$day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
@@ -155,11 +155,27 @@
 			    echo "</tr>";
 		    echo "</table>";
 
-            echo "<table border='0' class=\"atable\">";
-				echo "<tr>";
-					echo "<th style=\"text-align:center;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
+            //Summary row & expand
+            echo "<table border='0' class=\"lastrow\">";
+				echo "<tr style=\"cursor: pointer;\">";
+					//echo "<th>&nbsp</th>";
+                    echo "<th>&nbsp&nbsp&nbsp</th>";
+                    echo "<th style=\"text-align: center;\" onClick=\"showPlayers(" . $event_check . ")\">Players 3 / 5</th>";
+                    echo "<th>&nbsp&nbsp&nbsp</th>";
+                    //echo "<th style=\"text-align: right;\" onClick=\"showPlayers(" . $event_check . ")\"&nbsp&nbsp&nbsp</th>";
+                    //echo "<th style=\"text-align:center;\"><img width=\"40\" height=\"10\" src=\"images\edit.png\"  onClick=\"showPlayers(" . $event_check . ")\"></th>";
+                    //echo "<th>Col2</th>";
 				echo "</tr>";
 			echo "</table>";
+
+            //Bottom table
+            echo "<table border='0' class=\"lastrow\">";
+				echo "<tr style=\"cursor: pointer;\">";
+					//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
+                    echo "<th>&nbsp</th>";
+				echo "</tr>";
+			echo "</table>";
+            
             
             //Open first event in full
             if($row_index == 1)
