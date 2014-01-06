@@ -470,6 +470,11 @@ td.col6 {
    /*display: none;*/
 }
 
+#id_summary {
+    color: #ffd800;
+    text-decoration: underline;
+}
+
 th.col11 {
 	display: none;
 	/*width: 10%;*/
