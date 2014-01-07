@@ -25,10 +25,10 @@
 	 	
 	$result = mysql_query($sql);
 
-	$sql3 = "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() and p.playerid = '" . $playerid . "'order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
-	 	
-	$result3 = mysql_query($sql3);
-    $row3 = mysql_fetch_array($result3);
+	//$sql3 = "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() and p.playerid = '" . $playerid . "'order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
+	// 	
+	//$result3 = mysql_query($sql3);
+ //   $row3 = mysql_fetch_array($result3);
 	
 	//Go through events & players
 	$event_check = 0; //Check when the event changes
@@ -45,7 +45,11 @@
                 echo "</article>";
 		    }
 
-			$event_check = $row['Events_eventID'];	
+			$event_check = $row['Events_eventID'];
+
+            $sql3 = "SELECT eventplayerid, areyouin, seen, photourl, name FROM eventplayer, players WHERE Players_playerID = playerID and Players_playerID = " . $playerid . " and Events_eventID = " . $event_check . "";
+	        $result3 = mysql_query($sql3);
+            $row3 = mysql_fetch_array($result3);
 			
 			echo "<article id=\"event_article_id\" class=\"clearfix\">";
             echo "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"cursor: pointer;\"></img>";
@@ -60,12 +64,12 @@
 			echo "</table>";
 			
             //Invited players
-            $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $event_check . "";
+            $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . "";
             $result4 = mysql_query($sql4);
             $row4 = mysql_fetch_array($result4);
 
             //Players IN
-            $sql5 = "SELECT count(*) as players_in FROM eventplayer WHERE Events_eventID = " . $event_check . " and areyouin = 1";
+            $sql5 = "SELECT count(*) as players_in FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " and areyouin = 1";
             $result5 = mysql_query($sql5);
             $row5 = mysql_fetch_array($result5);
 
@@ -148,11 +152,11 @@
 						  //  echo "<td class=\"col5\">IN</td>";					
 				    //}
 				    {
-					    if($row['areyouin'] == 0) {
+					    if($row3['areyouin'] == 0) {
 						    echo "<th class=\"col51\">";
 							    echo "<div class=\"onoffswitch\">";
 								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '1')\">";
+								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
                                     echo "<div class=\"onoffswitch-inner\"></div>";
 								    echo "<div class=\"onoffswitch-switch\"></div>";
 								    echo "</label>";
@@ -161,7 +165,7 @@
 						
 						    //Update the seen status
 						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
+							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
 							    $result2 = mysql_query($sql2);
 						    }	
 					    }
@@ -169,7 +173,7 @@
 						    echo "<th class=\"col51\">";
 							    echo "<div class=\"onoffswitch\">";
 								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '0')\">";
+								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
                                     echo "<div class=\"onoffswitch-inner\"></div>";
 								    echo "<div class=\"onoffswitch-switch\"></div>";
 								    echo "</label>";
@@ -178,7 +182,7 @@
 					
 						    //Update the seen status
 						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
+							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
 							    $result2 = mysql_query($sql2);
 						    }					
 					    }	
