@@ -212,7 +212,7 @@
 			//echo "</table>";
 
             //Bottom table
-            echo "<table border='0' class=\"lastrow\">";
+            echo "<table border='0' class=\"lastrow2\">";
 				echo "<tr style=\"cursor: pointer;\">";
 					//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
                     echo "<th>&nbsp</th>";

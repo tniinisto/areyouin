@@ -388,6 +388,29 @@ article
 	border-radius: 6px;		
 }
 
+.lastrow2 {
+	line-height: 0.4;
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	font-weight: bold;
+	margin: -12px 0;
+    border-collapse: collapse;
+}
+
+.lastrow2 th {
+	background-color: #6a6a6a;
+	/*font-size: 1.6em;*/
+	color: white;
+	text-align: left;
+	padding: 6px 10px 5px 6px;
+	height: auto;
+	/* rounded corner */
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;		
+}
+
 /* Event & Player data */
 .atable2 {
 	width: 95%;
@@ -495,9 +518,9 @@ th.col31 {
     /*height: 20px;*/
     padding: 5px 0px 0px 6px;
     /* rounded corner */
-	/*-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;*/		
+	/*-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;*/		
 }
 
 th.col41 {
