@@ -21,12 +21,10 @@
 
 	mysql_select_db("areyouin", $con);
 
-	//get other players
 	$sql = "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
 	 	
 	$result = mysql_query($sql);
 
-    //get logged in player
 	$sql3 = "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() and p.playerid = '" . $playerid . "'order by e.startTime asc, v.Events_eventID asc, v.areyouin desc";
 	 	
 	$result3 = mysql_query($sql3);
@@ -37,7 +35,9 @@
 	$row_index = 1; //Unique naming for switches
 	while($row = mysql_fetch_array($result))
 	{
-		//Check when the event changes, then echo the event basic information
+		
+        
+        //Check when the event changes, then echo the event basic information
 		if($row['Events_eventID'] != $event_check)
 		{		
 			if($event_check != 0) {
@@ -152,8 +152,8 @@
 						    echo "<th class=\"col51\">";
 							    echo "<div class=\"onoffswitch\">";
 								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
-								    echo "<div class=\"onoffswitch-inner\"></div>";
+								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '1')\">";
+                                    echo "<div class=\"onoffswitch-inner\"></div>";
 								    echo "<div class=\"onoffswitch-switch\"></div>";
 								    echo "</label>";
 							    echo "</div>";
@@ -161,7 +161,7 @@
 						
 						    //Update the seen status
 						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
+							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
 							    $result2 = mysql_query($sql2);
 						    }	
 					    }
@@ -169,8 +169,8 @@
 						    echo "<th class=\"col51\">";
 							    echo "<div class=\"onoffswitch\">";
 								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
-								    echo "<div class=\"onoffswitch-inner\"></div>";
+								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '0')\">";
+                                    echo "<div class=\"onoffswitch-inner\"></div>";
 								    echo "<div class=\"onoffswitch-switch\"></div>";
 								    echo "</label>";
 							    echo "</div>";
@@ -178,7 +178,7 @@
 					
 						    //Update the seen status
 						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
+							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
 							    $result2 = mysql_query($sql2);
 						    }					
 					    }	
@@ -246,42 +246,42 @@
 					    else
 						    echo "<td class=\"col5\">IN</td>";					
 				    }
-				    else {
-					    if($row['areyouin'] == 0) {
-						    echo "<td class=\"col5\">";
-							    echo "<div class=\"onoffswitch\">";
-								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '1')\">";
-								    echo "<div class=\"onoffswitch-inner\"></div>";
-								    echo "<div class=\"onoffswitch-switch\"></div>";
-								    echo "</label>";
-							    echo "</div>";
-						    echo "</td>";
+				    //else {
+					   // if($row['areyouin'] == 0) {
+						  //  echo "<td class=\"col5\">";
+							 //   echo "<div class=\"onoffswitch\">";
+								//    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+								//    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '1')\">";
+								//    echo "<div class=\"onoffswitch-inner\"></div>";
+								//    echo "<div class=\"onoffswitch-switch\"></div>";
+								//    echo "</label>";
+							 //   echo "</div>";
+						  //  echo "</td>";
 						
-						    //Update the seen status
-						    if($row['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
-							    $result2 = mysql_query($sql2);
-						    }	
-					    }
-					    else {
-						    echo "<td class=\"col5\">";
-							    echo "<div class=\"onoffswitch\">";
-								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-								    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '0')\">";
-								    echo "<div class=\"onoffswitch-inner\"></div>";
-								    echo "<div class=\"onoffswitch-switch\"></div>";
-								    echo "</label>";
-							    echo "</div>";
-						    echo "</td>";
+//						  //  //Update the seen status
+						  //  if($row['seen'] == 0) {
+							 //   $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
+							 //   $result2 = mysql_query($sql2);
+						  //  }	
+					   // }
+					   // else {
+						  //  echo "<td class=\"col5\">";
+							 //   echo "<div class=\"onoffswitch\">";
+								//    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								//    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row['eventplayerid'] . ", '0')\">";
+								//    echo "<div class=\"onoffswitch-inner\"></div>";
+								//    echo "<div class=\"onoffswitch-switch\"></div>";
+								//    echo "</label>";
+							 //   echo "</div>";
+						  //  echo "</td>";
 					
-						    //Update the seen status
-						    if($row['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
-							    $result2 = mysql_query($sql2);
-						    }					
-					    }	
-				    }
+	//					  //  //Update the seen status
+						  //  if($row['seen'] == 0) {
+							 //   $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row['eventplayerid'] . "";
+							 //   $result2 = mysql_query($sql2);
+						  //  }					
+					   // }	
+				    //}
 				    //echo "<td class=\"col6\">" . $row['seen'] . "</td>";
 			    echo "</tr>";
 		    echo "</table>";
