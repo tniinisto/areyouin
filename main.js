@@ -173,7 +173,7 @@ function gup( name )
 }
 
 //Update AYI status
-function updateAYI(eventplayerid, ayi)
+function updateAYI(eventplayerid, ayi, eventid)
 {
 	//alert("updateAYI() gets called.");
 	if (eventplayerid == "" || ayi == "") {
@@ -188,10 +188,36 @@ function updateAYI(eventplayerid, ayi)
 	}
 
 	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			//alert(xmlhttp.responseText);
-			//getEvents(gup('t'), gup('p')); //Update events to be sure...
-		}
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        //alert(xmlhttp.responseText);
+
+	        //Update the summary count to client when in/out switch is clicked
+	        var summary_id = "id_summary" + eventid;
+	        var th = document.getElementById(summary_id).innerHTML;
+	        //alert(th);
+
+	        var start = th.indexOf(":")
+	        var end = th.indexOf("/")
+	        var value = th.substring(start + 1, end);
+	        value = value.trim();
+	        //alert(value);
+
+	        //alert(ayi);
+	        if (ayi == 0)
+	            value--;
+	        else
+	            value++;
+
+	        //alert(value);
+
+	        var start2 = th.indexOf("/")
+	        var value2 = th.substr(start2 + 1);
+	        value2 = value2.trim();
+
+	        document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
+
+	        getEvents();
+	    }
 	}
 
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;

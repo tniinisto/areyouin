@@ -328,7 +328,7 @@ article
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
-	margin: -12px 0;
+	margin: 0 0;
     border-collapse: collapse;
 }
 
@@ -341,12 +341,12 @@ article
 	font-size: 1.2em;
 	color: white;
 	text-align: left;
-	padding: 6px 10px;
+	padding: 0px 10px;
 	height: auto;
 	/* rounded corner */
-	-webkit-border-radius: 6px;
+	/*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
-	border-radius: 6px;		
+	border-radius: 6px;*/		
 }
 
 .atable a {
@@ -366,21 +366,44 @@ article
 }
 
 .lastrow {
-	line-height: 0.6;
+	line-height: 0.4;
 	width: 100%;
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
 	margin: -12px 0;
-    border-collapse: collapse;    
+    border-collapse: collapse;
 }
 
 .lastrow th {
 	background-color: #6a6a6a;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	color: white;
 	text-align: left;
-	padding: 6px 10px 2px 6px;
+	padding: 6px 10px 4px 6px;
+	height: auto;
+	/* rounded corner */
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;		
+}
+
+.lastrow2 {
+	line-height: 0.4;
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	font-weight: bold;
+	margin: -12px 0;
+    border-collapse: collapse;
+}
+
+.lastrow2 th {
+	background-color: #6a6a6a;
+	/*font-size: 1.6em;*/
+	color: white;
+	text-align: left;
+	padding: 6px 10px 5px 6px;
 	height: auto;
 	/* rounded corner */
 	-webkit-border-radius: 6px;
@@ -395,15 +418,16 @@ article
 	text-align: left;	
 	font-weight: bold;
 	position: relative;
-	top:10px;
-	margin: -10px 0;		
+	/*top:10px;*/
+    /*padding: 10px 0px 5px 0px;*/
+	margin: 15px 0px -15px;		
 }
 
 .atable2 th {
 	background-color: #fff;
 	font-size: 1em;
 	color: black;
-	padding: 10px 3px;
+	padding: 0px 3px;
 	height: auto;
     border: none;
 }
@@ -411,12 +435,12 @@ article
 .atable2 td {
 	background-color: #fff;
 	font-size: 1.2em;
-	padding: 6px 3px;
+	padding: 2px 3px;
 	height: auto;
 }
 
 #event_article_id {
-    padding: 4px 10px 23px 10px;
+    padding: 2px 10px 20px 10px;
 }
 
 #update_event {
@@ -465,15 +489,46 @@ td.col6 {
 	display: none;
 }
 
-.row_player {
+.row_player { 
    /*line-height: 10px;*/
    /*display: none;*/
+   /*padding: 10px 0px 0px;*/
 }
 
-#id_summary {
+.atable_summary {
+	width: 100%;
+	table-layout: auto;
+	text-align: left;
+	font-weight: bold;
+	margin: 0 0;
+    border-collapse: collapse;	
+}
+
+.atable_summary th {
+	text-align: left;
+	height: auto;
     color: #ffd800;
     text-decoration: underline;
+    padding: 0px 0px;
+    font-size: large;
+    background-color: #474747;    
+	/* rounded corner */
+	/*-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;*/		
 }
+
+.atable_summary tr {
+	line-height: 1.8;
+}
+
+/*.id_summary {
+    color: #ffd800;
+    text-decoration: underline;
+    padding: 0px 0px;
+    font-size: large;
+    background-color: #474747;
+}*/
 
 th.col11 {
 	display: none;
@@ -487,11 +542,12 @@ th.col21{
 
 th.col31 {
 	width: 10%;
-    height: 30px;
+    /*height: 20px;*/
+    padding: 5px 0px 0px 6px;
     /* rounded corner */
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
-	border-radius: 0px;		
+	/*-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;*/		
 }
 
 th.col41 {
@@ -499,18 +555,18 @@ th.col41 {
     border-collapse: collapse;
     /*background-color: blue;*/
         /* rounded corner */
-	-webkit-border-radius: 0px;
+	/*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
-	border-radius: 0px;	
+	border-radius: 0px;*/	
 }
 
 th.col51 {
 	width: 9%;
 	text-align: right;
         /* rounded corner */
-	-webkit-border-radius: 0px;
+	/*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
-	border-radius: 0px;	
+	border-radius: 0px;*/	
 }
 
 th.col61 {
@@ -580,7 +636,7 @@ td.pcol5 {
 
 
 img.seen {padding:2px; background-color:#1adae1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
-img.unseen {padding:3px; background-color: #fff; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;} 
+img.unseen {padding:3px; background-color: #6a6a6a; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;} 
 
 /************************************************************************************
 SIDEBAR
