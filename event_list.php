@@ -47,7 +47,7 @@
 
 			$event_check = $row['Events_eventID'];
 
-            $sql3 = "SELECT eventplayerid, areyouin, seen, photourl, name FROM eventplayer, players WHERE Players_playerID = playerID and Players_playerID = " . $playerid . " and Events_eventID = " . $event_check . "";
+            $sql3 = "SELECT eventplayerid, players_playerid, areyouin, seen, photourl, name FROM eventplayer, players WHERE Players_playerID = playerID and Players_playerID = " . $playerid . " and Events_eventID = " . $event_check . "";
 	        $result3 = mysql_query($sql3);
             $row3 = mysql_fetch_array($result3);
 			
@@ -135,68 +135,70 @@
                 //echo "<img id=\"update_event2\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images\sort_down.png\" style=\"cursor: pointer;\"></img>";
        //     }
 
-            //Current player's row
-            echo "<table border='0' class=\"atable\">";
-		        //echo "<th>";
-                    echo "<tr class=\"row_player\">";				
-				    echo "<th class=\"col11\">" . $row3['eventplayerid'] . "</th>";
-				    echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
-				    if($row3['seen'] == 1)
-					    echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
-				    else
-					    echo "<th class=\"col31\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
-				    echo "<th class=\"col41\">" . $row3['name'] . "</th>";
+            //Current player's row, if the player is selected to the event
+            if($row3['players_playerid'] == $playerid) {
+                echo "<table border='0' class=\"atable\">";
+		            //echo "<th>";
+                        echo "<tr class=\"row_player\">";				
+				        echo "<th class=\"col11\">" . $row3['eventplayerid'] . "</th>";
+				        echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
+				        if($row3['seen'] == 1)
+					        echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+				        else
+					        echo "<th class=\"col31\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+				        echo "<th class=\"col41\">" . $row3['name'] . "</th>";
 				
-				    //Show on/off switch only for the user
-				    //if($playerid != $row3['playerid']) {
-					   // if($row3['areyouin'] == 0)
-						  //  echo "<td class=\"col5\">OUT</td>";
-					   // else
-						  //  echo "<td class=\"col5\">IN</td>";					
-				    //}
-				    {
-					    if($row3['areyouin'] == 0) {
-						    echo "<th class=\"col51\">";
-							    echo "<div class=\"onoffswitch\">";
-								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
-								    //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
-                                    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1', '". $event_check . "')\">";
-                                    echo "<div class=\"onoffswitch-inner\"></div>";
-								    echo "<div class=\"onoffswitch-switch\"></div>";
-								    echo "</label>";
-							    echo "</div>";
-						    echo "</th>";
+				        //Show on/off switch only for the user
+				        //if($playerid != $row3['playerid']) {
+					       // if($row3['areyouin'] == 0)
+						      //  echo "<td class=\"col5\">OUT</td>";
+					       // else
+						      //  echo "<td class=\"col5\">IN</td>";					
+				        //}
+				        {
+					        if($row3['areyouin'] == 0) {
+						        echo "<th class=\"col51\">";
+							        echo "<div class=\"onoffswitch\">";
+								        echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+								        //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
+                                        echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1', '". $event_check . "')\">";
+                                        echo "<div class=\"onoffswitch-inner\"></div>";
+								        echo "<div class=\"onoffswitch-switch\"></div>";
+								        echo "</label>";
+							        echo "</div>";
+						        echo "</th>";
 						
-						    //Update the seen status
-						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
-							    $result2 = mysql_query($sql2);
-						    }	
-					    }
-					    else {
-						    echo "<th class=\"col51\">";
-							    echo "<div class=\"onoffswitch\">";
-								    echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
-								    //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
-                                    echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0', '". $event_check . "')\">";
-                                    echo "<div class=\"onoffswitch-inner\"></div>";
-								    echo "<div class=\"onoffswitch-switch\"></div>";
-								    echo "</label>";
-							    echo "</div>";
-						    echo "</th>";
+						        //Update the seen status
+						        if($row3['seen'] == 0) {
+							        $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
+							        $result2 = mysql_query($sql2);
+						        }	
+					        }
+					        else {
+						        echo "<th class=\"col51\">";
+							        echo "<div class=\"onoffswitch\">";
+								        echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								        //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
+                                        echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0', '". $event_check . "')\">";
+                                        echo "<div class=\"onoffswitch-inner\"></div>";
+								        echo "<div class=\"onoffswitch-switch\"></div>";
+								        echo "</label>";
+							        echo "</div>";
+						        echo "</th>";
 					
-						    //Update the seen status
-						    if($row3['seen'] == 0) {
-							    $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
-							    $result2 = mysql_query($sql2);
-						    }					
-					    }	
-				    }
-				    //echo "<td class=\"col6\">" . $row['seen'] . "</td>";
-                    //echo "</th>";
-			    echo "</tr>";
-		    echo "</table>";
-
+						        //Update the seen status
+						        if($row3['seen'] == 0) {
+							        $sql2= "UPDATE eventplayer SET seen = '1' WHERE EventPlayerID = " . $row3['eventplayerid'] . "";
+							        $result2 = mysql_query($sql2);
+						        }					
+					        }	
+				        }
+				        //echo "<td class=\"col6\">" . $row['seen'] . "</td>";
+                        //echo "</th>";
+			        echo "</tr>";
+		        echo "</table>";
+            }
+            
    //         //Invited players
    //         $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $event_check . "";
    //         $result4 = mysql_query($sql4);
