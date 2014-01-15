@@ -243,8 +243,8 @@ function setSSE()
 			
 			// handle message
 			//console.log("AYI:" + event.data);
-			getEvents(gup('t'), gup('p'));			
-			//getEvents(gup('t'), gup('p'));			
+			//getEvents(gup('t'), gup('p'));
+            getEvents();					
 		}, false);
 		
 		/*source.onmessage=function(event)
