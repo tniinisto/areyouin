@@ -173,7 +173,7 @@ function gup( name )
 }
 
 //Update AYI status
-function updateAYI(eventplayerid, ayi, eventid, switchid)
+function updateAYI(eventplayerid, ayi, eventid)
 {
 	//alert("updateAYI() gets called.");
     //alert(switchid);
