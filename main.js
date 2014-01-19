@@ -173,7 +173,7 @@ function gup( name )
 }
 
 //Update AYI status
-function updateAYI(eventplayerid, ayi, eventid)
+function updateAYI(eventplayerid, ayi, eventid, switchid)
 {
 	//alert("updateAYI() gets called.");
     //alert(switchid);
@@ -193,7 +193,7 @@ function updateAYI(eventplayerid, ayi, eventid)
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
 
-	        getEvents(); //Update events
+	        //getEvents(); //Update events
 	    }
 	}
 
@@ -209,10 +209,22 @@ function updateAYI(eventplayerid, ayi, eventid)
 	//alert(value);
 
 	//alert(ayi);
-	if (ayi == 0)
-	    value--;
-	else
-	    value++;
+    var switch_id = "myonoffswitch" + switchid;
+	//var sw = document.getElementById(switch_id).innerHTML;
+	//if (ayi == 0) {
+    if(document.getElementById(switch_id).checked == false) {
+	    //alert("ayi 0");
+        //document.getElementById(switch_id).checked = false;
+        ayi = 0;
+        value--;
+	}
+	else {
+        //alert("ayi 1");
+	    //document.getElementById(switch_id).checked = true;
+        ayi = 1;
+        value++;
+	}
+	    
 
 	//alert(value);
 
