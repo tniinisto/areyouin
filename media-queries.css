@@ -449,11 +449,12 @@ smaller than 650
 	/* main nav */
 	#main-nav {
 		position: static;
+        width: 31%;
 	}
 
 	/* site logo */
 	#site-logo {
-		margin: 15px 100px 5px 0;
+		margin: 5px 100px 5px 0;
 		position: static;
 	}
 
@@ -532,6 +533,11 @@ smaller than 480
 	html {
 		-webkit-text-size-adjust: none;
 	}
+
+	/*/* main nav */
+	/*#main-nav {
+		width:30%;
+	}*/
 
 	body {
 		padding: 0 5px 0 2px;
@@ -725,9 +731,15 @@ th.col61 {
     }	
 }
 
+@media only screen and (orientation:landscape) and (max-width: 767px) {
+	#main-nav {
+		position: static;
+        width: 46%;
+	}    
+}    
 /* landscape mode */
 /*@media only screen and (orientation:landscape) (and max-width: 767px) {
-@media only screen and (min-width: 480px) {*/
+@media only screen and (min-width: 480px) {
 	/*html {
 		-webkit-text-size-adjust: none;
 	}
