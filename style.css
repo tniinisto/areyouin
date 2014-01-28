@@ -109,20 +109,8 @@ STRUCTURE
 HEADER
 *************************************************************************************/
 #header {
-	position: fixed;
-    width: 980px;
+	position: relative;
 	height: 120px;
-    background: #0d1424;
-    z-index: 10;
-    padding-bottom: 5px;
-}
-
-/*hgroup {
-    position:  fixed;
-}*/
-
-#content_wrapper {
-    padding-top: 120px;    
 }
 
 /* site logo */
