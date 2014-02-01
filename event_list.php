@@ -72,7 +72,7 @@
             $row5 = mysql_fetch_array($result5);
 
             //Get needed participant count
-            //$minimum = minParticipantsCount($event_check);
+            $minimum = minParticipantsCount($event_check);
 
             //Event summary row & expand
             echo "<table border='0' class=\"atable_summary\">";
@@ -80,20 +80,20 @@
                     //Set the summary text color depending on checked players//////////////////////////
 
                     //Still more than 1 player needed, yellow
-                    if($row4['player_amount'] - $row5['players_in'] > 1) {
-                        echo "<th id=\"id_summary" . $event_check . "\" class=\"yellow\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">Players IN: "
-                        . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                    if($minimum - $row5['players_in'] > 1) {
+                        echo "<th id=\"id_summary" . $event_check . "\" class=\"yellow\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
+                        Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                     }
                     else {
                         //Only one player missing, pink
-                        if($row4['player_amount'] - $row5['players_in'] == 1) {
-                            echo "<th id=\"id_summary" . $event_check . "\" class=\"orange\" style=\"text-align: center; color: #ff006e;\" onClick=\"showPlayers(" . $event_check . ")\">Players IN: "
-                            . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                        if($minimum - $row5['players_in'] == 1) {
+                            echo "<th id=\"id_summary" . $event_check . "\" class=\"orange\" style=\"text-align: center; color: #ff006e;\" onClick=\"showPlayers(" . $event_check . ")\">
+                            Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                         }
                         //Enough players, green
                         else { 
-                            echo "<th id=\"id_summary" . $event_check . "\" class=\"green\" style=\"text-align: center; color: #00ff21;\" onClick=\"showPlayers(" . $event_check . ")\">Players IN: "
-                            . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";                            
+                            echo "<th id=\"id_summary" . $event_check . "\" class=\"green\" style=\"text-align: center; color: #00ff21;\" onClick=\"showPlayers(" . $event_check . ")\">
+                            Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";                            
                         }
                     }
 
