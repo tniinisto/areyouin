@@ -503,7 +503,7 @@ td.col6 {
 .atable_summary th {
 	text-align: left;
 	height: auto;
-    color: #ffd800;
+    color: #00ff21;
     text-decoration: underline;
     padding: 0px 0px;
     font-size: large;
@@ -513,6 +513,18 @@ td.col6 {
 	-moz-border-radius: 6px;
 	border-radius: 6px;*/		
 }
+
+/*.yellow th {
+    color: #00ff21;
+}
+
+.orange th {
+    color: #ff6a00;
+}
+
+.green th {
+    color: #00ff21;
+}*/
 
 .atable_summary tr {
 	line-height: 1.8;
