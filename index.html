@@ -125,14 +125,14 @@
         //Main navigation///////////////////////////////////////
 
         //Admin navigation///////////////////////////////////////
-        $("#linkadmingame").click(function (event) {
+        $("#link_admingame").click(function (event) {
             $("#admin-nav").children().removeClass("current");
-            $("#linkadmingame").addClass("current");
+            $("#link_admingame").addClass("current");
         });
 
-        $("#linkadminteam").click(function (event) {
+        $("#link_adminteam").click(function (event) {
             $("#admin-nav").children().removeClass("current");
-            $("#linkadminteam").addClass("current");
+            $("#link_adminteam").addClass("current");
         });
         //Admin navigation///////////////////////////////////////
 
@@ -173,6 +173,22 @@
     });
     //Main navigation - Content for the selected page///////////
 
+    //Admin navigation - Content for the selected page///////////
+    //$("#admin-nav").click(function () { // <- Does not work for some reason, function did the trick?
+    function adminClick() {
+        //alert("Handler for admin navigation .click() called.");
+        //Games
+        if ($("#link_admingame").hasClass('current')) {
+            $("#newgame_id").removeClass("noshow");
+            //$("#team_content_id").addClass("noshow");
+        }
+        
+        if ($("#link_adminteam").hasClass('current')) {
+            $("#newgame_id").addClass("noshow");
+            //$("#team_content_id").addClass("noshow");
+        }
+    };
+    //Admin navigation - Content for the selected page///////////
 
     //Set game end time from after start time is set
     function game_start() {
