@@ -71,10 +71,31 @@
             $result5 = mysql_query($sql5);
             $row5 = mysql_fetch_array($result5);
 
+            //Get needed participant count
+            //$minimum = minParticipantsCount($event_check);
+
             //Event summary row & expand
             echo "<table border='0' class=\"atable_summary\">";
 				echo "<tr style=\"cursor: pointer;\">";
-                    echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center;\" onClick=\"showPlayers(" . $event_check . ")\">Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                    //Set the summary text color depending on checked players//////////////////////////
+
+                    //Still more than 1 player needed, yellow
+                    //if($minimum - $row5['players_in'] > 1) {
+                        echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
+                        Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                    //}
+                    //else {
+                    //    //Only one player missing, pink
+                    //    if($minimum - $row5['players_in'] == 1) {
+                    //        echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ff006e;\" onClick=\"showPlayers(" . $event_check . ")\">
+                    //        Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                    //    }
+                    //    //Enough players, green
+                    //    else { 
+                    //        echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #00ff21;\" onClick=\"showPlayers(" . $event_check . ")\">
+                    //        Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";                            
+                    //    }
+                    //}
 				echo "</tr>";
 			echo "</table>";            
             
@@ -204,6 +225,21 @@
 	}	
 	
 	mysql_close($con);
+
+
+    //Returns the minParticipants count for the event (Depends on the sport)
+    function minParticipantsCount($ev) {
+
+        	$sql10 =
+            "select * from areyouin.events e
+            inner join areyouin.eventtype t on t.eventTypeID = e.EventType_eventTypeID
+            where eventID = ". $ev . ";";	 	
+
+	        $result10 = mysql_query($sql10);
+            $row10 = mysql_fetch_array($result10);
+
+            return $row10['minParticipants'];
+    }
 	
 ?>
   

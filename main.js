@@ -197,7 +197,7 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	    }
 	}
 
-	//Update the summary count to client when in/out switch is clicked
+	//Update the summary count to client when in/out switch is clicked///////////////////////////
 	var summary_id = "id_summary" + eventid;
 	var th = document.getElementById(summary_id).innerHTML;
 	//alert(th);
@@ -224,16 +224,13 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
         ayi = 1;
         value++;
 	}
-	    
-
-	//alert(value);
 
 	var start2 = th.indexOf("/")
 	var value2 = th.substr(start2 + 1);
 	value2 = value2.trim();
 
 	document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
 	//alert(variables);

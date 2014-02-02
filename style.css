@@ -259,6 +259,59 @@ MAIN NAVIGATION
 	background: #474747;		
 }
 
+/************************************************************************************
+ADMIN NAVIGATION
+*************************************************************************************/
+#admin-nav {
+	width: 100%;
+	background: #ccc;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+	/* gradient */
+	background: #6a6a6a url(images/nav-bar-bg.png) repeat-x;
+	background: -webkit-gradient(linear, left top, left bottom, from(#b9b9b9), to(#6a6a6a));
+	background: -moz-linear-gradient(top,  #b9b9b9,  #6a6a6a);
+	background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);
+	/* rounded corner */
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	/* box shadow */
+	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
+}
+#admin-nav li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	position: relative;
+}
+#admin-nav li:first-child {
+	margin-left: 10px;
+}
+#admin-nav a {
+	line-height: 50%;
+	font-weight: bold;
+	color: #fff;
+	display: block;
+	padding: 14px 15px;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+#admin-nav a:hover {
+	color: #fff;
+	background: #474747;
+	/* gradient */
+	background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#4f4f4f));
+	background: -moz-linear-gradient(top,  #282828,  #4f4f4f);
+	background: linear-gradient(-90deg, #282828, #4f4f4f);
+}
 
 /************************************************************************************
 CONTENT
@@ -503,16 +556,32 @@ td.col6 {
 .atable_summary th {
 	text-align: left;
 	height: auto;
-    color: #ffd800;
+    color: #00ff21;
     text-decoration: underline;
     padding: 0px 0px;
     font-size: large;
-    background-color: #474747;    
+    background-color: #474747;  
+	/* gradient */	
+	background: -webkit-gradient(linear, left top, left bottom, from(#121111), to(#474747));
+	background: -moz-linear-gradient(top,  #121111,  #474747);
+	background: linear-gradient(-90deg, #121111, #474747);      
 	/* rounded corner */
 	/*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;*/		
 }
+
+/*.yellow th {
+    color: #00ff21;
+}
+
+.orange th {
+    color: #ff6a00;
+}
+
+.green th {
+    color: #00ff21;
+}*/
 
 .atable_summary tr {
 	line-height: 1.8;
@@ -627,7 +696,7 @@ td.pcol5 {
 #admin_content_article {
     /*padding:  10px 0 10px 30px;*/
 	margin: 0 0 20px;
-	padding: 20px 10px 30px;    
+	padding: 15px 10px 30px;    
 }
 
 
