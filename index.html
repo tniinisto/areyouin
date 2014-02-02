@@ -103,7 +103,16 @@
 
     //Document ready
     jQuery(document).ready(function () {
+        //Init functions
+        getLoginInformation();
+        getEvents();
+        getPlayersInsert();
+        getAdminStatus();
+        
+        //SSE init
+        setSSE();
 
+        //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
             $("#main-nav").children().removeClass("current");
             $("#linkgames").addClass("current");
@@ -113,21 +122,24 @@
             $("#main-nav").children().removeClass("current");
             $("#linkadmin").addClass("current");
         });
+        //Main navigation///////////////////////////////////////
 
-        //Init functions
-        getLoginInformation();
-        getEvents();
-        getPlayersInsert();
-        getAdminStatus();
+        //Admin navigation///////////////////////////////////////
+        $("#linkadmingame").click(function (event) {
+            $("#admin-nav").children().removeClass("current");
+            $("#linkadmingame").addClass("current");
+        });
 
-        //SSE init
-        setSSE();
-
+        $("#linkadminteam").click(function (event) {
+            $("#admin-nav").children().removeClass("current");
+            $("#linkadminteam").addClass("current");
+        });
+        //Admin navigation///////////////////////////////////////
 
     });
 
 
-    //Content for the selected page
+    //Main navigation - Content for the selected page///////////
     $("#main-nav").click(function () {
         //alert("Handler for .click() called.");
         //Games
@@ -159,6 +171,8 @@
             $("#admin_content_id").removeClass("noshow");
         }
     });
+    //Main navigation - Content for the selected page///////////
+
 
     //Set game end time from after start time is set
     function game_start() {

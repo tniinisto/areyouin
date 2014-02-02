@@ -27,6 +27,16 @@
 
             //echo "<div id=\"admin_content_id\" class=\"content\">";
             echo "<article id=\"admin_content_article\" class=\"clearfix \">";
+            
+            //Navigation///////////////////////////////////////////////////////////////////////////
+            echo "<nav>";
+			echo "<ul id=\"admin-nav\" class=\"clearfix\">";
+				echo "<li id=\"linkadmingame\" class=\"current\"><a href=\"#\">Add new game</a></li>";
+                echo "<li id=\"linkadminteam\"><a href=\"#\">Team...</a></li>";
+			echo "</ul>";
+		    echo "</nav>";
+            //Navigation///////////////////////////////////////////////////////////////////////////
+
             echo "<h1>Enter new game</h1>";
             echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
             //echo "<h2>Set Time</h2>";
