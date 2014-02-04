@@ -43,9 +43,12 @@
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Game start:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"></input>";
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
+                    required></input>";
+                    
                     echo "<label><h2>Game end:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
+                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
+                    required></input>";
 
                     //OnOff switch to selecte all
                     //echo "<div>";
