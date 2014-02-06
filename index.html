@@ -63,6 +63,12 @@
 		</article>
 	</div>
 
+    <div id="profile_content_id" class="content noshow">
+        <article class="clearfix">
+            <h2>Profile</h2>
+        </article>
+    </div>   
+
     <div id="admin_content_id" class="content noshow">
         <article class="clearfix">
             <h2>Admin</h2>
@@ -122,6 +128,11 @@
             $("#main-nav").children().removeClass("current");
             $("#linkadmin").addClass("current");
         });
+
+        $("#linkprofile").click(function (event) {
+            $("#main-nav").children().removeClass("current");
+            $("#linkprofile").addClass("current");
+        });
         //Main navigation///////////////////////////////////////
 
         //Admin navigation///////////////////////////////////////
@@ -138,7 +149,6 @@
 
     });
 
-
     //Main navigation - Content for the selected page///////////
     $("#main-nav").click(function () {
         //alert("Handler for .click() called.");
@@ -146,7 +156,7 @@
         if ($("#linkgames").hasClass('current')) {
             $("#event_content_id").removeClass("noshow");
             //$("#team_content_id").addClass("noshow");
-            //$("#profile_content_id").addClass("noshow");
+            $("#profile_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
         }
         //////Team
@@ -156,18 +166,18 @@
         ////        $("#profile_content_id").addClass("noshow");
         ////        $("#admin_content_id").addClass("noshow");                        
         ////}
-        //////Profile
-        ////if($("#linkprofile").hasClass('current')) {
-        ////        $("#event_content_id").addClass("noshow");
-        ////        $("#team_content_id").addClass("noshow");
-        ////        $("#profile_content_id").removeClass("noshow");
-        ////        $("#admin_content_id").addClass("noshow");                        
-        ////}
+        //Profile
+        if($("#linkprofile").hasClass('current')) {
+                $("#event_content_id").addClass("noshow");
+                //$("#team_content_id").addClass("noshow");
+                $("#profile_content_id").removeClass("noshow");
+                $("#admin_content_id").addClass("noshow");                        
+        }
         ////Admin
         if ($("#linkadmin").hasClass('current')) {
             $("#event_content_id").addClass("noshow");
             //$("#team_content_id").addClass("noshow");
-            //$("#profile_content_id").addClass("noshow");
+            $("#profile_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
         }
     });
