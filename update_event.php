@@ -186,7 +186,7 @@
         echo "</br>";
         echo "</br>";
         echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
-        echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
+        //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
         echo "<a href=\"javascript:getEvents();\">Back to events</a>";
