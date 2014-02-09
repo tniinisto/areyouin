@@ -43,12 +43,18 @@
                     
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
                     
-                    //Location
+                    //Location///////////////////////////////////////////
                     echo "<label><h2>Game location:</h2></label>";
-                    echo "<select form=\"eventform\">";
-                        echo "<option value=\"1\">Puonti</option>";
-                        echo "<option value=\"2\">Stavanger</option>";
+                    $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
+                    $result2 = mysql_query($sql2);
+
+                    echo "<select id=\"location_select\" form=\"eventform\">";
+                    while($row2 = mysql_fetch_array($result2))
+	                {  
+                        echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
+                    }
                     echo "</select>";
+                    //Location///////////////////////////////////////////
 
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Game start:</h2></label>";
