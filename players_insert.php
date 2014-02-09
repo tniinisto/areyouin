@@ -40,7 +40,16 @@
                 //New game///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"newgame_id\">";
                     echo "<h1>Enter new game</h1>";
+                    
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
+                    
+                    //Location
+                    echo "<label><h2>Game location:</h2></label>";
+                    echo "<select form=\"eventform\">";
+                        echo "<option value=\"1\">Puonti</option>";
+                        echo "<option value=\"2\">Stavanger</option>";
+                    echo "</select>";
+
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Game start:</h2></label>";
                     echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
