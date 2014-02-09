@@ -48,7 +48,7 @@
                     $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
                     $result2 = mysql_query($sql2);
 
-                    echo "<select id=\"location_select\" form=\"eventform\">";
+                    echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
                     while($row2 = mysql_fetch_array($result2))
 	                {  
                         echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";

@@ -24,7 +24,7 @@
         mysql_select_db("areyouin", $con)or die("cannot select DB");
 
         /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
-        $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.name location from areyouin.eventplayer ep
+        $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
         inner join areyouin.events e on e.eventID = ep.Events_eventID
         inner join areyouin.team t on teamID = e.Team_teamID
         inner join areyouin.players p on playerID = ep.Players_playerID
@@ -69,6 +69,24 @@
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update game</h1>";
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
+
+        //Location///////////////////////////////////////////
+        echo "<label><h2>Game location:</h2></label>";
+        $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
+        $result2 = mysql_query($sql2);
+
+        echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
+        while($row2 = mysql_fetch_array($result2))
+	    {  
+            //<option selected="selected">3</option>
+            if($row['location'] == $row2['locationID'])
+                echo "<option value=\"" . $row2['locationID'] . "\" selected=\"selected\">" . $row2['name'] . "</option>";
+            else
+                echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
+        }
+        echo "</select>";
+        //Location///////////////////////////////////////////
+
         echo "<label><h2>Game start:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
