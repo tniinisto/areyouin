@@ -31,8 +31,8 @@
             //Navigation///////////////////////////////////////////////////////////////////////////
             echo "<nav>";
 			    echo "<ul id=\"admin-nav\" class=\"clearfix\" onClick=\"adminClick()\">";
-				    echo "<li id=\"link_admingame\" class=\"current\"><a href=\"#\">Add new game</a></li>";
-                    echo "<li id=\"link_adminteam\"><a href=\"#\">Team...</a></li>";
+				    echo "<li id=\"link_admingame\" class=\"current\"><a href=\"#\">New game</a></li>";
+                    echo "<li id=\"link_adminteam\"><a href=\"#\">Team</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
@@ -40,12 +40,30 @@
                 //New game///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"newgame_id\">";
                     echo "<h1>Enter new game</h1>";
+                    
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
+                    
+                    //Location///////////////////////////////////////////
+                    echo "<label><h2>Game location:</h2></label>";
+                    $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
+                    $result2 = mysql_query($sql2);
+
+                    echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
+                    while($row2 = mysql_fetch_array($result2))
+	                {  
+                        echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
+                    }
+                    echo "</select>";
+                    //Location///////////////////////////////////////////
+
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Game start:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"></input>";
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
+                    required></input>";
+                    
                     echo "<label><h2>Game end:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"></input>";
+                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
+                    required></input>";
 
                     //OnOff switch to selecte all
                     //echo "<div>";
