@@ -547,6 +547,12 @@ smaller than 480
         padding: 0px 5px 20px 5px;
     }
 
+    #admin_content_article {
+        padding: 5px 5px 20px 5px;
+	    /*margin: 0 0 20px;
+	    padding: 15px 10px 30px;*/    
+    }
+
     #update_event {
         position: relative;
         right: -90%;
