@@ -111,7 +111,7 @@
                     //$day2 used when event lasts multiple days
                     $day2 = "";
                     if(!(substr($row['startTime'], 8, 2) == substr($row['endTime'], 8, 2)))
-                        $day2 = date("j. \of l", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
+                        $day2 = date("l j.", mktime(0, 0, 0, substr($row['endTime'], 5, 2), substr($row['endTime'], 8, 2), substr($row['endTime'], 0, 4)));
 
 				echo "<tr>";
 				    //$day = date("l jS \of F Y", mktime(0, 0, 0, substr($row['startTime'], 5, 2), substr($row['startTime'], 8, 2), substr($row['startTime'], 0, 4)));
