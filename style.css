@@ -427,6 +427,7 @@ article
 	text-align: left;
 	padding: 0px 10px;
 	height: auto;
+    border-collapse: collapse;
 	/* rounded corner */
 	/*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
