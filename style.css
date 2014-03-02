@@ -428,6 +428,7 @@ article
 	padding: 0px 10px;
 	height: auto;
     border-collapse: collapse;
+    border: none;
 	/* rounded corner */
 	/*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -643,6 +644,8 @@ th.col31 {
 	width: 10%;
     /*height: 20px;*/
     padding: 5px 0px 0px 6px;
+    border-collapse: collapse;
+    border: none;
     /* rounded corner */
 	/*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -652,6 +655,7 @@ th.col31 {
 th.col41 {
 	width: 78%;
     border-collapse: collapse;
+    border: none;
     /*background-color: blue;*/
         /* rounded corner */
 	/*-webkit-border-radius: 0px;
@@ -662,6 +666,8 @@ th.col41 {
 th.col51 {
 	width: 9%;
 	text-align: right;
+    border-collapse: collapse;
+    border: none;
         /* rounded corner */
 	/*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
