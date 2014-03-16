@@ -59,17 +59,13 @@
 	<!-- #content -->
 	<div id="event_content_id" class="content">
 		<article class="clearfix" onClick="getEvents()">
-			<h2>Games</h2>
+			<!--<h2>Games</h2>-->
 		</article>
 	</div>
 
     <div id="profile_content_id" class="content noshow">
         <article class="clearfix">
-            <!--<ul id="profile-nav" class="clearfix">				
-                <li id="linkprofile"><a href="#">Profile</a></li>
-                <li id="linkteam"><a href="#">Team</a></li>
-			</ul>-->
-            <h2>Profile</h2>
+            <!--<h2>Profile</h2>-->
         </article>
     </div>   
 
@@ -118,7 +114,8 @@
         getEvents();
         getPlayersInsert();
         getAdminStatus();
-        
+        getPlayerProfile();
+
         //SSE init
         setSSE();
 
@@ -151,6 +148,18 @@
         });
         //Admin navigation///////////////////////////////////////
 
+        //Profile navigation///////////////////////////////////////
+        $("#link_profile_profile").click(function (event) {
+            $("#profile-nav").children().removeClass("current");
+            $("#link_profile_profile").addClass("current");
+        });
+
+        $("#link_profile_team").click(function (event) {
+            $("#profile-nav").children().removeClass("current");
+            $("#link_profile_team").addClass("current");
+        });
+        //Profile navigation///////////////////////////////////////
+
     });
 
     //Main navigation - Content for the selected page///////////
@@ -163,24 +172,15 @@
             $("#profile_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
         }
-        //////Team
-        ////if($("#linkteam").hasClass('current')) {
-        ////        $("#event_content_id").addClass("noshow");
-        ////        $("#team_content_id").removeClass("noshow");
-        ////        $("#profile_content_id").addClass("noshow");
-        ////        $("#admin_content_id").addClass("noshow");                        
-        ////}
         //Profile
-        if($("#linkprofile").hasClass('current')) {
-                $("#event_content_id").addClass("noshow");
-                //$("#team_content_id").addClass("noshow");
-                $("#profile_content_id").removeClass("noshow");
-                $("#admin_content_id").addClass("noshow");                        
+        if ($("#linkprofile").hasClass('current')) {
+            $("#event_content_id").addClass("noshow");
+            $("#profile_content_id").removeClass("noshow");
+            $("#admin_content_id").addClass("noshow");
         }
         ////Admin
         if ($("#linkadmin").hasClass('current')) {
             $("#event_content_id").addClass("noshow");
-            //$("#team_content_id").addClass("noshow");
             $("#profile_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
         }
@@ -196,13 +196,29 @@
             $("#newgame_id").removeClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
-        
+
         if ($("#link_adminteam").hasClass('current')) {
             $("#newgame_id").addClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
     };
     //Admin navigation - Content for the selected page///////////
+
+    //Profile navigation - Content for the selected page///////////
+    function profileClick() {
+        //alert("Handler for admin navigation .click() called.");
+        //Games
+        if ($("#link_profile_profile").hasClass('current')) {
+            $("#profile_profile_content_id").removeClass("noshow");
+            $("#profile_team_content_id").addClass("noshow");
+        }
+
+        if ($("#link_profile_team").hasClass('current')) {
+            $("#profile_profile_content_id").addClass("noshow");
+            $("#profile_team_content_id").removeClass("noshow");
+        }
+    };
+    //Profile navigation - Content for the selected page///////////
 
 </script>
 <!-- /scripts -->
