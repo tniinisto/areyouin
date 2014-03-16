@@ -329,7 +329,7 @@ ADMIN NAVIGATION
 	text-decoration: none;
 	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
 }
-#admin-nav a:hover, #profile-na a:hover {
+#admin-nav a:hover, #profile-nav a:hover {
 	color: #fff;
 	background: #474747;
 	/* gradient */
@@ -738,7 +738,7 @@ td.pcol5 {
 	/*text-align: right;*/
 }
 
-#admin_content_article, #profile_content_article {
+#admin_content_article, # {
     /*padding:  10px 0 10px 30px;*/
 	margin: 0 0 20px;
 	padding: 15px 10px 30px;    
