@@ -54,7 +54,7 @@
                 echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"visibility:hidden;\"></img>"; 
 
             //Top table for rounded corners
-            echo "<table border='0' class=\"lastrow\">";
+            echo "<table class=\"lastrow\">";
 				echo "<tr style=\"cursor: pointer;\">";
 					//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
                     echo "<th>&nbsp</th>";
@@ -75,7 +75,7 @@
             //$minimum = minParticipantsCount($event_check);
 
             //Event summary row & expand
-            echo "<table border='0' class=\"atable_summary\">";
+            echo "<table class=\"atable_summary\">";
 				echo "<tr style=\"cursor: pointer;\">";
                     //Set the summary text color depending on checked players//////////////////////////
 
@@ -100,14 +100,14 @@
 			echo "</table>";            
             
             //Event location information
-            echo "<table border='0' class=\"atable\">";			    
+            echo "<table class=\"atable\">";			    
             	echo "<tr>";
 					echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
 				echo "</tr>";
 			echo "</table>";
 			
             //Event date&time information
-			echo "<table border='0' class=\"atable\">";
+			echo "<table class=\"atable\">";
                     //$day2 used when event lasts multiple days
                     $day2 = "";
                     if(!(substr($row['startTime'], 8, 2) == substr($row['endTime'], 8, 2)))
@@ -122,7 +122,7 @@
 				echo "</tr>";
 			echo "</table>";
 			
-            echo "<table border='0' class=\"atable\">";
+            echo "<table class=\"atable\">";
 				echo "<tr>";
 					echo "<th>From " . $res1 . " to " . $day2 . " " . $res2 . "</th>";
 				echo "</tr>";
@@ -130,7 +130,7 @@
 
             //Current player's row, if the player is selected to the event
             if($row3['players_playerid'] == $playerid) {
-                echo "<table border='0' class=\"atable\">";
+                echo "<table class=\"atable\">";
 		            //echo "<th>";
                         echo "<tr class=\"row_player\">";				
 				        echo "<th class=\"col11\">" . $row3['eventplayerid'] . "</th>";
@@ -183,7 +183,7 @@
             }
             
             //Bottom table for rounded corners
-            echo "<table border='0' class=\"lastrow2\">";
+            echo "<table class=\"lastrow2\">";
 				echo "<tr style=\"cursor: pointer;\">";
 					//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
                     echo "<th>&nbsp</th>";
@@ -199,7 +199,7 @@
 
 		//Echo players for the event////////////////////////////////////////////////////
 		if($playerid != $row['playerid']) {
-            echo "<table border='0' class=\"atable2\">";
+            echo "<table class=\"atable2\">";
 				    echo "<tr>";				
 				    echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				    echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
