@@ -346,3 +346,28 @@ function game_end() {
         //alert("Game's end time must be after start time...");
     }
 }
+
+//Player profile
+function getPlayerProfile() {
+	//if (teamid == "") {
+	//	document.getElementById("userlogin").innerHTML = "getPlayersInsertents()";
+	//	return;
+	//}	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("profile_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "player_profile.php", false);
+	xmlhttp.send();
+}
