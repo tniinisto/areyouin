@@ -29,7 +29,7 @@
         //Article///////////////////////////////////////////////////////////////////////////
 
 
-    
+        //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
 
             $playerid=$_SESSION['myplayerid'];
@@ -47,19 +47,31 @@
             $row = mysql_fetch_array($result);
 
 
-            $player = new Player($row[playerID], $row[photourl]);
+            $player = new Player($row[playerID], $row[name], $row[photourl]);
 
 
             echo "<div id=\"profile_profile_content_id\">";
-                echo "<h1>Player</h1>";
-                echo "</br>";
-                echo "PlayerID: " . $player->playerID . "</br>";
-                echo "Photourl: " . $player->photourl . "</br>";
+                //echo "<h1>Player</h1>";
+                //echo "</br>";
+                //echo "PlayerID: " . $player->playerID . "</br>";
+                echo "<h2>Name: " . $player->name . "</h2>";
+                echo "<h2>Picture: <img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\"></h2>";
+
+                echo "<form enctype=\"multipart/form-data\" method=\"post\" action=\"upload.php\">";
+                    echo "<div class=\"row\">";
+                        echo "<label for=\"fileToUpload\">Select a File to Upload</label><br />";
+                        echo "<input type=\"file\" name=\"fileToUpload\" id=\"fileToUpload\" />";
+                    echo "</div>";
+                    echo "<div class=\"row\">";
+                        echo "<input type=\"submit\" value=\"Upload\" />";
+                    echo "</div>";
+                echo "</form>";
 
             echo "</div>";
         }
 
 
+        //Team content////////////////////////////////////////////////////////////////////
         function echoTeam() {
             echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
                 echo "<h1>Team</h1>";
@@ -72,9 +84,11 @@
         class Player {
             var $playerID;
             var $photourl;
+            var $name;
 
-            function Player($playerID, $photourl) {
+            function Player($playerID, $name, $photourl) {
                 $this->playerID = $playerID;
+                $this->name = $name;
                 $this->photourl = $photourl;
             }
 
