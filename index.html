@@ -50,7 +50,8 @@
                 <li id="linkprofile"><a href="#">Profile</a></li>
                 <li id="linkadmin"></li>
                 <!--<li id="nav_logout" style="float: right;"><a href="http://localhost:18502/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
-                <li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>
+                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
+                <li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php">Logout</a></li>
 			</ul>
 		</nav>
 
@@ -106,6 +107,14 @@
 
 <!-- scripts -->
 <script>
+    //var avatar = 0;
+
+    //jQuery(window).load(function () {
+    //    if (avatar != 0) {
+    //        avatar = 0;
+    //        document.getElementById('linkprofile').click();
+    //    }
+    //});
 
     //Document ready
     jQuery(document).ready(function () {
@@ -159,6 +168,28 @@
             $("#link_profile_team").addClass("current");
         });
         //Profile navigation///////////////////////////////////////
+
+        //Check avatar upload & redirect to profile page//////////
+        //avatar = getQueryVariable("uploadAvatar");
+        //if (avatar != 0) {
+        //    //alert("uploadAvatar value: " + avatar);
+        //    //avatar = 0;
+        //    if (window.location.href.indexOf("localhost")) {
+        //        window.location.href = "http://localhost:18502/index.html";
+        //    }
+        //    else {
+        //        window.location.href = "http://areyouin.azurewebsites.net/index.html";
+        //    }
+
+        //    //document.getElementById('linkprofile').click();            
+        //}
+
+        //if (avatar != 0) {
+        //    alert("avatar");
+        //    avatar = 0;
+        //    //setTimeout(function(){document.getElementById('linkprofile').click();},3000)
+        //    document.getElementById('linkprofile').click();
+        //}
 
     });
 
@@ -218,10 +249,10 @@
             $("#profile_team_content_id").removeClass("noshow");
         }
     };
-    //Profile navigation - Content for the selected page///////////
+    //Profile navigation - Content for the selected page///////////         
 
 </script>
 <!-- /scripts -->
-			
+    			
 </body>
 </html>

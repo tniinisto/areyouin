@@ -33,7 +33,7 @@ table {
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #0d1424 /*url(images/BV-background.jpg) no-repeat center top*/;
+	background: #0d1424;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
 }
