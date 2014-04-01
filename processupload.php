@@ -1,4 +1,5 @@
 <?php
+    require_once('ImageManipulator.php');
 
     include 'ChromePhp.php';        
     //ChromePhp::log("players_insert, admin:", $ad);
@@ -27,7 +28,7 @@
 	
 	    //Is file size is less than allowed size.
 	    if ($_FILES["FileInput"]["size"] > 5242880) {
-		     ChromePhp::log("processupload too big...");
+		    ChromePhp::log("processupload too big...");
             die("File size is too big!");
 	    }
 	
@@ -56,21 +57,34 @@
 	    $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
 	    $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
 	    $NewFileName 		= $Random_Number.$File_Ext; //new file name
-	
-	    if(move_uploaded_file($_FILES['FileInput']['tmp_name'], $UploadDirectory.$NewFileName ))
-	    {
-            ChromePhp::log("processupload move file...");
 
-            //header('Location: ' . $_SERVER['HTTP_REFERER']);
-		    die('Success! File Uploaded.');
-                        
-	    }else{
-            ChromePhp::log("processupload error uploading...");
+	    //if(move_uploaded_file($_FILES['FileInput']['tmp_name'], $UploadDirectory.$NewFileName ))
+	    //{
+        //       ChromePhp::log("processupload move file...");
 
-		    die('error uploading File!');
-	    }
-	
-    }
+		   // die('Success! File Uploaded.');
+        //                   
+	    //}else{
+        //       ChromePhp::log("processupload error uploading...");
+
+		   // die('error uploading File!');
+	    //}
+
+        if(1) {
+
+            $newNamePrefix = time() . '_';
+            $manipulator = new ImageManipulator($_FILES['FileInput']['tmp_name']);
+            // resizing to 60x60
+            $newImage = $manipulator->resample(60, 60);
+            // saving file to uploads folder
+            $manipulator->save('images/' . $newNamePrefix . $_FILES['FileInput']['name']);
+            echo 'Done ...';
+
+        } 
+        else {
+            echo 'You must upload an image...';
+        }
+        }
     else
     {
 	    ChromePhp::log("processupload die...");
