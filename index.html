@@ -149,25 +149,25 @@
 
         //Admin navigation///////////////////////////////////////
         $("#link_admingame").click(function (event) {
-            $("#admin-nav").children().removeClass("current");
-            $("#link_admingame").addClass("current");
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_admingame").addClass("current2");
         });
 
         $("#link_adminteam").click(function (event) {
-            $("#admin-nav").children().removeClass("current");
-            $("#link_adminteam").addClass("current");
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminteam").addClass("current2");
         });
         //Admin navigation///////////////////////////////////////
 
         //Profile navigation///////////////////////////////////////
         $("#link_profile_profile").click(function (event) {
-            $("#profile-nav").children().removeClass("current");
-            $("#link_profile_profile").addClass("current");
+            $("#profile-nav").children().removeClass("current2");
+            $("#link_profile_profile").addClass("current2");
         });
 
         $("#link_profile_team").click(function (event) {
-            $("#profile-nav").children().removeClass("current");
-            $("#link_profile_team").addClass("current");
+            $("#profile-nav").children().removeClass("current2");
+            $("#link_profile_team").addClass("current2");
         });
         //Profile navigation///////////////////////////////////////
 
@@ -225,12 +225,12 @@
     function adminClick() {
         //alert("Handler for admin navigation .click() called.");
         //Games
-        if ($("#link_admingame").hasClass('current')) {
+        if ($("#link_admingame").hasClass('current2')) {
             $("#newgame_id").removeClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
 
-        if ($("#link_adminteam").hasClass('current')) {
+        if ($("#link_adminteam").hasClass('current2')) {
             $("#newgame_id").addClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
@@ -241,12 +241,12 @@
     function profileClick() {
         //alert("Handler for admin navigation .click() called.");
         //Games
-        if ($("#link_profile_profile").hasClass('current')) {
+        if ($("#link_profile_profile").hasClass('current2')) {
             $("#profile_profile_content_id").removeClass("noshow");
             $("#profile_team_content_id").addClass("noshow");
         }
 
-        if ($("#link_profile_team").hasClass('current')) {
+        if ($("#link_profile_team").hasClass('current2')) {
             $("#profile_profile_content_id").addClass("noshow");
             $("#profile_team_content_id").removeClass("noshow");
         }
