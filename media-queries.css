@@ -156,7 +156,7 @@ smaller than 480
 #admin-nav, #profile-nav {
 	/*width: 100%;*/
 	background: #ccc;
-	margin: 0px -5px 0px -5px ;
+	margin: 0px 0px 0px 0px ;
 	padding: 0;
 	position: relative;
 	/*left: 0;*/
