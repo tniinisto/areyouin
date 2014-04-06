@@ -27,8 +27,13 @@
 	
 	
 	    //Is file size is less than allowed size.
-	    if ($_FILES["FileInput"]["size"] > 5242880) {
+	    if ($_FILES["FileInput"]["size"] > 1242880) {
 		    ChromePhp::log("processupload too big...");
+
+            echo "<script type=\"text/javascript\">";
+            echo "alert(\"It's too big :)\"";
+            echo "</script>";
+
             die("File size is too big!");
 	    }
 	

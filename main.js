@@ -1,3 +1,4 @@
+
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -349,10 +350,7 @@ function game_end() {
 
 //Player profile
 function getPlayerProfile() {
-	//if (teamid == "") {
-	//	document.getElementById("userlogin").innerHTML = "getPlayersInsertents()";
-	//	return;
-	//}	
+
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -372,16 +370,39 @@ function getPlayerProfile() {
 	xmlhttp.send();
 }
 
-//Check queryString, if avatar has been uploaded
-//function getQueryVariable(variable) {
-//    var query = window.location.search.substring(1);
-//    var vars = query.split("&");
-//    for (var i = 0; i < vars.length; i++) {
-//        var pair = vars[i].split("=");
-//        if (pair[0] == variable) {
-//            return pair[1];
-//        }
-//    }
-//    return 0;
-//    //alert('Query Variable ' + variable + ' not found');
+////Player profile
+//function updatePlayerPhoto(photourl) {
+//    alert("updatePlayerPhoto: " + photourl);
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
+
+//	xmlhttp.onreadystatechange = function () {
+//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//			document.getElementById("profile_profile_content_id").innerHTML = xmlhttp.responseText;
+//		}
+//	}
+
+//	var variables = "photo=" + photourl;
+//	xmlhttp.open("GET", "player_photo_update.php?" + variables, false);
+
+//	xmlhttp.send();
+//}
+
+//function testJS() {
+//     alert("It's too big :)");
+//     
+//     //var x=document.getElementById("notification_content_id");
+//     //alert(x.innerHTML);
+//     
+//     //var e;
+//     //e = document.getElementById("notification_content_id").;
+//     //document.getElementById("notification_content_id").innerHTML = "test";
+
+//     //var e = document.getElementById("notification_content_id");
+//     //e.className=e.className.replace(" noshow","");
+
 //}
