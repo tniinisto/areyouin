@@ -93,7 +93,7 @@
                 //echo "PlayerID: " . $player->playerID . "</br>";
                 echo "<h4>Name: " . $player->name . "</h4>";
                 echo "<h4>Picture</h4>";
-                echo "<img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\">";
+                echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
 
                 echo "</br>";
                 echo "</br>";
