@@ -102,7 +102,9 @@
             ChromePhp::log('Update: ' . $sql);
             $result = mysql_query($sql);
 
-            die ("<img width=\"40\" heigh=\"40\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
+            die ("<img width=\"50\" heigh=\"50\" class=\"seen\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
+            
+            //<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">
             //die ("<h4><span style=\"color: white;\">Testing this shit...</span></h4>");
             //die ('mother fucker!');
         } 
