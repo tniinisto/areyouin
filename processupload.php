@@ -3,13 +3,13 @@
 
     session_start();
 
-    include 'ChromePhp.php';        
+    //include 'ChromePhp.php';        
     //ChromePhp::log("players_insert, admin:", $ad);
-    ChromePhp::log("processupload starts...");
+    //ChromePhp::log("processupload starts...");
 
     if(isset($_FILES["FileInput"]) && $_FILES["FileInput"]["error"]== UPLOAD_ERR_OK)
     {
-	    ChromePhp::log("processupload 1...");
+	    //ChromePhp::log("processupload 1...");
 
         ############ Edit settings ##############
 	    $UploadDirectory	= 'images/'; //specify upload directory ends with / (slash)
@@ -30,7 +30,7 @@
 	
 	    //Is file size is less than allowed size.
 	    if ($_FILES["FileInput"]["size"] > 2042880) {
-		    ChromePhp::log("processupload too big...");
+		    //ChromePhp::log("processupload too big...");
 
             echo "<script type=\"text/javascript\">";
             echo "alert(\"It's too big :)\"";
@@ -99,7 +99,7 @@
 
 
             $sql = "UPDATE players SET photourl = \"" . $newNamePrefix . $_FILES['FileInput']['name'] . "\" WHERE playerID = " . $playerid . "";
-            ChromePhp::log('Update: ' . $sql);
+            //ChromePhp::log('Update: ' . $sql);
             $result = mysql_query($sql);
 
             die ("<img width=\"50\" heigh=\"50\" class=\"seen\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
@@ -114,7 +114,7 @@
         }
     else
     {
-	    ChromePhp::log("processupload die...");
+	    //ChromePhp::log("processupload die...");
         die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
     }
 

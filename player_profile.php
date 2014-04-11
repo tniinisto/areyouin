@@ -98,19 +98,21 @@
                 echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
                 echo "</div>";
                 
-                echo "</br>";
-                echo "</br>";
-                echo "</br>";
+                echo "<div id=\"output\"  class=\"nomobile\">";
+                    echo "</br>";
+                    echo "</br>";
+                    echo "</br>";
 
-                //FORM/////////////////////////////////////////
-                echo "<h4>Upload new photo (Max size 2MB)</h4>";
-                echo "</br>";
-                //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
-                echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
-                echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\" />";
-                echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
-                echo "</form>";
+                    //FORM/////////////////////////////////////////
+                    echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                    echo "</br>";
+                    //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
+                    echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
+                    echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\" />";
+                    echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
+                    echo "</form>";
                 
+                echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
 
                 //echo "<div id=\"output\"></div>";

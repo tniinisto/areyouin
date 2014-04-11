@@ -154,7 +154,12 @@ smaller than 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
 
-	/*.SSEsupport {
+	
+    .nomobile {
+        display: none;    
+    }
+
+    /*.SSEsupport {
 		HTMLElementObject.disabled: true;
 	}*/
 	
