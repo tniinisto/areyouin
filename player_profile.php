@@ -5,21 +5,21 @@
         session_start();
 
         //$call = 0;
-	    if ($_POST['Uploader']) // form has been submitted
-	    { 
-            uploadPhoto();
+	    //if ($_POST['Uploader']) // form has been submitted
+	    //{ 
+     //       uploadPhoto();
 
-    	    //if(uploadPhoto() == -5) {
-         //       ChromePhp::log("Upload -5");
-         //       $call = -5;
-    	    //}
-        } 
+    	//    //if(uploadPhoto() == -5) {
+     //    //       ChromePhp::log("Upload -5");
+     //    //       $call = -5;
+    	//    //}
+     //   } 
 
         //include 'ChromePhp.php';        
         //ChromePhp::log("players_insert, admin:", $ad);
         
-        echo "<html>";
-        echo "<body>";
+        //echo "<html>";
+        //echo "<body>";
         
         //Article///////////////////////////////////////////////////////////////////////////
         echo "<article id=\"profile_content_article\" class=\"clearfix \">";
@@ -102,12 +102,15 @@
                 //FORM/////////////////////////////////////////
                 echo "<h4>Upload new photo (Max size 2MB)</h4>";
                 echo "</br>";
-                echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
+                //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
+                echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                 echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\" />";
                 echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                 echo "</form>";
                 
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
+
+                echo "<div id=\"output\"></div>";
 
             echo "</div>";
         }
@@ -133,113 +136,113 @@
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        function uploadPhoto() {
-            
-            //require_once('ImageManipulator.php');
+   //     function uploadPhoto() {
+   //         
+   //         //require_once('ImageManipulator.php');
 
-            include 'ChromePhp.php';        
-            //ChromePhp::log("players_insert, admin:", $ad);
-            ChromePhp::log("processupload starts...");
+   //         include 'ChromePhp.php';        
+   //         //ChromePhp::log("players_insert, admin:", $ad);
+   //         ChromePhp::log("processupload starts...");
 
-            if(isset($_FILES["FileInput"]) && $_FILES["FileInput"]["error"]== UPLOAD_ERR_OK)
-            {
-	            ChromePhp::log("processupload 1...");
+   //         if(isset($_FILES["FileInput"]) && $_FILES["FileInput"]["error"]== UPLOAD_ERR_OK)
+   //         {
+	  //          ChromePhp::log("processupload 1...");
 
-                ############ Edit settings ##############
-	            $UploadDirectory	= 'images/'; //specify upload directory ends with / (slash)
-	            ##########################################
+   //             ############ Edit settings ##############
+	  //          $UploadDirectory	= 'images/'; //specify upload directory ends with / (slash)
+	  //          ##########################################
 	
-	            /*
-	            Note : You will run into errors or blank page if "memory_limit" or "upload_max_filesize" is set to low in "php.ini". 
-	            Open "php.ini" file, and search for "memory_limit" or "upload_max_filesize" limit 
-	            and set them adequately, also check "post_max_size".
-	            */
+//	  //          /*
+	  //          Note : You will run into errors or blank page if "memory_limit" or "upload_max_filesize" is set to low in "php.ini". 
+	  //          Open "php.ini" file, and search for "memory_limit" or "upload_max_filesize" limit 
+	  //          and set them adequately, also check "post_max_size".
+	  //          */
 	
-	            //check if this is an ajax request
-	            //if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
-		           // ChromePhp::log("processupload ajax...");
-             //       die();
-	            //}
+//	  //          //check if this is an ajax request
+	  //          //if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
+		 //          // ChromePhp::log("processupload ajax...");
+   //          //       die();
+	  //          //}
 	
+//	
+//	  //          //Is file size is less than allowed size.
+	  //          if ($_FILES["FileInput"]["size"] > 2000000) {
+		 //           ChromePhp::log("processupload too big...");
+   //                 //return -5;                    
+   //                 die("File size is too big!");
+	  //          }
 	
-	            //Is file size is less than allowed size.
-	            if ($_FILES["FileInput"]["size"] > 2000000) {
-		            ChromePhp::log("processupload too big...");
-                    //return -5;                    
-                    die("File size is too big!");
-	            }
+//	  //          //allowed file type Server side check
+	  //          switch(strtolower($_FILES['FileInput']['type']))
+		 //           {
+			//            //allowed file types
+   //                     case 'image/png': 
+			//            case 'image/gif': 
+			//            case 'image/jpeg': 
+			//            case 'image/pjpeg':
+			//            case 'text/plain':
+			//            case 'text/html': //html file
+			//            case 'application/x-zip-compressed':
+			//            case 'application/pdf':
+			//            case 'application/msword':
+			//            case 'application/vnd.ms-excel':
+			//            case 'video/mp4':
+   //                     case 'image/JPG': 
+			//	            break;
+			//            default:
+			//	            die('Unsupported File!'); //output error
+	  //          }
 	
-	            //allowed file type Server side check
-	            switch(strtolower($_FILES['FileInput']['type']))
-		            {
-			            //allowed file types
-                        case 'image/png': 
-			            case 'image/gif': 
-			            case 'image/jpeg': 
-			            case 'image/pjpeg':
-			            case 'text/plain':
-			            case 'text/html': //html file
-			            case 'application/x-zip-compressed':
-			            case 'application/pdf':
-			            case 'application/msword':
-			            case 'application/vnd.ms-excel':
-			            case 'video/mp4':
-                        case 'image/JPG': 
-				            break;
-			            default:
-				            die('Unsupported File!'); //output error
-	            }
-	
-	            $File_Name          = strtolower($_FILES['FileInput']['name']);
-	            $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
-	            $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
-	            $NewFileName 		= $Random_Number.$File_Ext; //new file name
+//	  //          $File_Name          = strtolower($_FILES['FileInput']['name']);
+	  //          $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
+	  //          $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
+	  //          $NewFileName 		= $Random_Number.$File_Ext; //new file name
 
-                //Save file to folder///////////////////////////////////////////////
-                if(1) {
+   //             //Save file to folder///////////////////////////////////////////////
+   //             if(1) {
 
-                    $newNamePrefix = time() . '_';
-                    $manipulator = new ImageManipulator($_FILES['FileInput']['tmp_name']);
-                    // resizing to 60x60
-                    $newImage = $manipulator->resample(50, 50);
-                    // saving file to uploads folder
-                    $manipulator->save('images/' . $newNamePrefix . $_FILES['FileInput']['name']);
-                    echo 'Done ...';
+   //                 $newNamePrefix = time() . '_';
+   //                 $manipulator = new ImageManipulator($_FILES['FileInput']['tmp_name']);
+   //                 // resizing to 60x60
+   //                 $newImage = $manipulator->resample(50, 50);
+   //                 // saving file to uploads folder
+   //                 $manipulator->save('images/' . $newNamePrefix . $_FILES['FileInput']['name']);
+   //                 echo 'Done ...';
 
-                    //Update database////////////////////////////////////////////////////////////////////////
-                    //echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-                    //echo "<script type=\"text/javascript\">";
-                    //echo "alert(\"jepase\");";
-                    //echo "updatePlayerPhoto(" . $newNamePrefix . $_FILES['FileInput']['name'] . ");";
-                    //echo "</script>";
-          
-   $playerid=$_SESSION['myplayerid'];
+   //                 //Update database////////////////////////////////////////////////////////////////////////
+   //                 //echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
+   //                 //echo "<script type=\"text/javascript\">";
+   //                 //echo "alert(\"jepase\");";
+   //                 //echo "updatePlayerPhoto(" . $newNamePrefix . $_FILES['FileInput']['name'] . ");";
+   //                 //echo "</script>";
+   //       
+   //$playerid=$_SESSION['myplayerid'];
 
-   $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
-    if (!$con)
-        {
-        die('Could not connect: ' . mysql_error());
-        }
+   //$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+   // if (!$con)
+   //     {
+   //     die('Could not connect: ' . mysql_error());
+   //     }
 
-    mysql_select_db("areyouin", $con)or die("cannot select DB");
+   // mysql_select_db("areyouin", $con)or die("cannot select DB");
 
 
-    $sql = "UPDATE players SET photourl = \"" . $newNamePrefix . $_FILES['FileInput']['name'] . "\" WHERE playerID = " . $playerid . "";
-    //ChromePhp::log('Update: ' . $sql3);
-    $result = mysql_query($sql);
+   // $sql = "UPDATE players SET photourl = \"" . $newNamePrefix . $_FILES['FileInput']['name'] . "\" WHERE playerID = " . $playerid . "";
+   // //ChromePhp::log('Update: ' . $sql3);
+   // $result = mysql_query($sql);
 
-                } 
-                else {
-                    echo 'You must upload an image...';
-                }
-                }
-            else
-            {
-	            ChromePhp::log("processupload die...");
-                die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
-            }
+   //             } 
+   //             else {
+   //                 echo 'You must upload an image...';
+   //             }
+   //             }
+   //         else
+   //         {
+	  //          ChromePhp::log("processupload die...");
+   //             die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
+   //         }
 
-        }
+   //     }
 
 ?>
 

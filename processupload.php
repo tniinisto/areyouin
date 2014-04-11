@@ -1,6 +1,8 @@
 <?php
     require_once('ImageManipulator.php');
 
+    session_start();
+
     include 'ChromePhp.php';        
     //ChromePhp::log("players_insert, admin:", $ad);
     ChromePhp::log("processupload starts...");
@@ -27,7 +29,7 @@
 	
 	
 	    //Is file size is less than allowed size.
-	    if ($_FILES["FileInput"]["size"] > 1242880) {
+	    if ($_FILES["FileInput"]["size"] > 2042880) {
 		    ChromePhp::log("processupload too big...");
 
             echo "<script type=\"text/javascript\">";
@@ -83,11 +85,29 @@
             $newImage = $manipulator->resample(60, 60);
             // saving file to uploads folder
             $manipulator->save('images/' . $newNamePrefix . $_FILES['FileInput']['name']);
-            echo 'Done ...';
+            //echo 'Done ...';
 
+            $playerid=$_SESSION['myplayerid'];
+
+            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+            if (!$con)
+                {
+                die('Could not connect: ' . mysql_error());
+                }
+
+            mysql_select_db("areyouin", $con)or die("cannot select DB");
+
+
+            $sql = "UPDATE players SET photourl = \"" . $newNamePrefix . $_FILES['FileInput']['name'] . "\" WHERE playerID = " . $playerid . "";
+            ChromePhp::log('Update: ' . $sql);
+            $result = mysql_query($sql);
+
+            die ("<img width=\"40\" heigh=\"40\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
+            //die ("<h4><span style=\"color: white;\">Testing this shit...</span></h4>");
+            //die ('mother fucker!');
         } 
         else {
-            echo 'You must upload an image...';
+            die ('You must upload an image...');
         }
         }
     else
