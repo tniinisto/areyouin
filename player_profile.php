@@ -112,7 +112,10 @@
                     echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
                     echo "</br>";
-                    echo "<div id=\"progressbox\"><div id=\"progressbar\"></div ><div id=\"statustxt\">0%</div></div>";
+                    echo "<div id=\"progressbox\">";
+                        echo "<div id=\"progressbar\"></div >";
+                        echo "<div id=\"statustxt\">0%</div>";
+                    echo "</div>";
                 echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
 
