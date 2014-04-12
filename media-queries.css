@@ -47,9 +47,9 @@ smaller than 650
 *************************************************************************************/
 @media screen and (max-width: 750px) {
 
-    .nomobile {
+    /*.nomobile {
         display: none;    
-    }
+    }*/
 
 	/* header */
 	#header {
@@ -159,9 +159,9 @@ smaller than 480
 @media screen and (max-width: 480px) {
 
 	
-    .nomobile {
+    /*.nomobile {
         display: none;    
-    }
+    }*/
 
     /*.SSEsupport {
 		HTMLElementObject.disabled: true;
