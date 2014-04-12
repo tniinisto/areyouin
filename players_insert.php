@@ -31,7 +31,7 @@
             //Navigation///////////////////////////////////////////////////////////////////////////
             echo "<nav>";
 			    echo "<ul id=\"admin-nav\" class=\"clearfix\" onClick=\"adminClick()\">";
-				    echo "<li id=\"link_admingame\" class=\"current\"><a href=\"#\">New game</a></li>";
+				    echo "<li id=\"link_admingame\" class=\"current2\"><a href=\"#\">New game</a></li>";
                     echo "<li id=\"link_adminteam\"><a href=\"#\">Team</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";

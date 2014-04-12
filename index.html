@@ -20,6 +20,8 @@
 
 <!--JQuery -->
 <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
 
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
@@ -50,13 +52,20 @@
                 <li id="linkprofile"><a href="#">Profile</a></li>
                 <li id="linkadmin"></li>
                 <!--<li id="nav_logout" style="float: right;"><a href="http://localhost:18502/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
-                <li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>
+                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
+                <li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php">Logout</a></li>
 			</ul>
 		</nav>
 
 	</header>
 		
 	<!-- #content -->
+    <!--<div id="notification_content_id" class="content">
+		<article class="clearfix">
+			<h4>Notifications here...</h4>
+		</article>
+	</div>-->
+
 	<div id="event_content_id" class="content">
 		<article class="clearfix" onClick="getEvents()">
 			<!--<h2>Games</h2>-->
@@ -138,27 +147,131 @@
 
         //Admin navigation///////////////////////////////////////
         $("#link_admingame").click(function (event) {
-            $("#admin-nav").children().removeClass("current");
-            $("#link_admingame").addClass("current");
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_admingame").addClass("current2");
         });
 
         $("#link_adminteam").click(function (event) {
-            $("#admin-nav").children().removeClass("current");
-            $("#link_adminteam").addClass("current");
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminteam").addClass("current2");
         });
         //Admin navigation///////////////////////////////////////
 
         //Profile navigation///////////////////////////////////////
         $("#link_profile_profile").click(function (event) {
-            $("#profile-nav").children().removeClass("current");
-            $("#link_profile_profile").addClass("current");
+            $("#profile-nav").children().removeClass("current2");
+            $("#link_profile_profile").addClass("current2");
         });
 
         $("#link_profile_team").click(function (event) {
-            $("#profile-nav").children().removeClass("current");
-            $("#link_profile_team").addClass("current");
+            $("#profile-nav").children().removeClass("current2");
+            $("#link_profile_team").addClass("current2");
         });
         //Profile navigation///////////////////////////////////////
+
+
+        //Image upload/////////////////////////////////////////////
+
+        var options = {
+            target: '#output',   // target element(s) to be updated with server response 
+            beforeSubmit: beforeSubmit,  // pre-submit callback 
+            success: afterSuccess,  // post-submit callback 
+            uploadProgress: OnProgress, //upload progress callback 
+            resetForm: true        // reset the form after successful submit 
+        };
+
+        $('#MyUploadForm').submit(function () {
+            //alert("ajax");
+            $(this).ajaxSubmit(options);
+            // always return false to prevent standard browser submit and page navigation 
+            return false;
+        });
+
+
+        //function after succesful file upload (when server response)
+        function afterSuccess() {
+            $('#submit-btn').show(); //hide submit button
+            $('#loading-img').hide(); //hide submit button
+            $('#progressbox').delay(1000).fadeOut(); //hide progress bar
+            
+            //Update event list with new picture
+            getEvents();
+        }
+
+        //function to check file size before uploading.
+        function beforeSubmit() {
+            //check whether browser fully supports all File API
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+                if (!$('#FileInput').val()) //check empty input filed
+                {
+                    $("#output").html("You must select a file for upload");
+                    return false
+                }
+
+                var fsize = $('#FileInput')[0].files[0].size; //get file size
+                var ftype = $('#FileInput')[0].files[0].type; // get file type
+
+
+                //allow file types 
+                switch (ftype) {
+                    case 'image/png':
+                    case 'image/gif':
+                    case 'image/jpeg':
+                    case 'image/JPG':
+                    case 'image/pjpeg':
+                    case 'text/plain':
+                    case 'text/html':
+                    case 'application/x-zip-compressed':
+                    case 'application/pdf':
+                    case 'application/msword':
+                    case 'application/vnd.ms-excel':
+                    case 'video/mp4':
+                        break;
+                    default:
+                        $("#output").html("<b>" + ftype + "</b> Unsupported file type!");
+                        return false
+                }
+
+                //Allowed file size is less than 5 MB (1048576)
+                if (fsize > 5242880) {
+                    $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 2 MB.");
+                    return false
+                }
+
+                $('#submit-btn').hide(); //hide submit button
+                $('#loading-img').show(); //hide submit button
+                $("#output").html("");
+            }
+            else {
+                //Output error to older unsupported browsers that doesn't support HTML5 File API
+                $("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+                return false;
+            }
+        }
+
+        //progress bar function
+        function OnProgress(event, position, total, percentComplete) {
+            //Progress bar
+            $('#progressbox').show();
+            $('#progressbar').width(percentComplete + '%') //update progressbar percent complete
+            $('#statustxt').html(percentComplete + '%'); //update status text
+            if (percentComplete > 50) {
+                $('#statustxt').css('color', '#000'); //change status text to white after 50%
+            }
+        }
+
+        //function to format bites bit.ly/19yoIPO
+        function bytesToSize(bytes) {
+            var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            if (bytes == 0) return '0 Bytes';
+            var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+            return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+        }
+
+
+
+
 
     });
 
@@ -192,12 +305,12 @@
     function adminClick() {
         //alert("Handler for admin navigation .click() called.");
         //Games
-        if ($("#link_admingame").hasClass('current')) {
+        if ($("#link_admingame").hasClass('current2')) {
             $("#newgame_id").removeClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
 
-        if ($("#link_adminteam").hasClass('current')) {
+        if ($("#link_adminteam").hasClass('current2')) {
             $("#newgame_id").addClass("noshow");
             //$("#team_content_id").addClass("noshow");
         }
@@ -208,20 +321,20 @@
     function profileClick() {
         //alert("Handler for admin navigation .click() called.");
         //Games
-        if ($("#link_profile_profile").hasClass('current')) {
+        if ($("#link_profile_profile").hasClass('current2')) {
             $("#profile_profile_content_id").removeClass("noshow");
             $("#profile_team_content_id").addClass("noshow");
         }
 
-        if ($("#link_profile_team").hasClass('current')) {
+        if ($("#link_profile_team").hasClass('current2')) {
             $("#profile_profile_content_id").addClass("noshow");
             $("#profile_team_content_id").removeClass("noshow");
         }
     };
-    //Profile navigation - Content for the selected page///////////
+    //Profile navigation - Content for the selected page///////////         
 
 </script>
 <!-- /scripts -->
-			
+    			
 </body>
 </html>

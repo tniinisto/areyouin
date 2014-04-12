@@ -33,7 +33,7 @@ table {
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #0d1424 /*url(images/BV-background.jpg) no-repeat center top*/;
+	background: #0d1424;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
 }
@@ -274,9 +274,9 @@ MAIN NAVIGATION
 	color: #fff;
 	background: #474747;
 	/* gradient */
-	background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#4f4f4f));
+	/*background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#4f4f4f));
 	background: -moz-linear-gradient(top,  #282828,  #4f4f4f);
-	background: linear-gradient(-90deg, #282828, #4f4f4f);
+	background: linear-gradient(-90deg, #282828, #4f4f4f);*/
 }
 
 .current
@@ -285,26 +285,29 @@ MAIN NAVIGATION
 }
 
 /************************************************************************************
-ADMIN NAVIGATION
+ADMIN & PROFILR NAVIGATION
 *************************************************************************************/
 #admin-nav, #profile-nav {
-	width: 100%;
+	/*width: 100%;*/
 	background: #ccc;
-	margin: 0;
-	padding: 0;
+	margin: 0px -10px 0px -10px ;
+	/*padding: 0;*/
 	position: relative;
-	left: 0;
+	/*left: 0;*/
 	bottom: 0;
 	z-index: 100;
 	/* gradient */
-	background: #6a6a6a url(images/nav-bar-bg.png) repeat-x;
+	background: -webkit-gradient(linear, left top, left bottom, from(#121111), to(#474747));
+	background: -moz-linear-gradient(top,  #121111,  #474747);
+	background: linear-gradient(-90deg, #121111, #474747);      
+	/*background: #6a6a6a url(images/nav-bar-bg.png) repeat-x;
 	background: -webkit-gradient(linear, left top, left bottom, from(#b9b9b9), to(#6a6a6a));
 	background: -moz-linear-gradient(top,  #b9b9b9,  #6a6a6a);
-	background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);
+	background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);*/
 	/* rounded corner */
-	-webkit-border-radius: 8px;
+	/*-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
-	border-radius: 8px;
+	border-radius: 8px;*/
 	/* box shadow */
 	-webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
 	-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 1px rgba(0,0,0,.4);
@@ -323,19 +326,27 @@ ADMIN NAVIGATION
 #admin-nav a, #profile-nav a {
 	line-height: 50%;
 	font-weight: bold;
-	color: #fff;
+	color: #FFD800;
 	display: block;
 	padding: 14px 15px;
 	text-decoration: none;
 	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
 }
 #admin-nav a:hover, #profile-nav a:hover {
-	color: #fff;
-	background: #474747;
-	/* gradient */
-	background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#4f4f4f));
-	background: -moz-linear-gradient(top,  #282828,  #4f4f4f);
-	background: linear-gradient(-90deg, #282828, #4f4f4f);
+	color: #FFD800;
+	background: #6A6A6A;
+	/* gradient */  
+	/*background: -webkit-gradient(linear, left top, left bottom, from(#B9B9B9), to(#6A6A6A));
+	background: -moz-linear-gradient(top,  #B9B9B9,  #6A6A6A);
+	background: linear-gradient(-90deg, #B9B9B9, #6A6A6A);*/
+}
+
+.current2
+{
+	background: #6A6A6A;
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#B9B9B9), to(#6A6A6A));
+	background: -moz-linear-gradient(top,  #B9B9B9,  #6A6A6A);
+	background: linear-gradient(-90deg, #B9B9B9, #6A6A6A);*/    	
 }
 
 /************************************************************************************
@@ -381,7 +392,7 @@ article
 	width: 100%;
 	background: #fff;
 	margin: 0 0 20px;
-	padding:  20px 10px 30px;
+	padding:  15px 10px 30px;
 	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -738,14 +749,13 @@ td.pcol5 {
 	/*text-align: right;*/
 }
 
-#admin_content_article, # {
-    /*padding:  10px 0 10px 30px;*/
+#admin_content_article, #profile_content_article {
 	margin: 0 0 20px;
 	padding: 15px 10px 30px;    
 }
 
 
-img.seen {padding:2px; background-color:#FFD800; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
+img.seen {padding:3px; background-color:#FFD800; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
 img.unseen {padding:3px; background-color: rgba(255,255,255,.3); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;} 
 img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;} 
 
