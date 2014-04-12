@@ -104,7 +104,7 @@
                     echo "</br>";
 
                     //FORM/////////////////////////////////////////
-                    echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                    echo "<h4>Upload new photo (Max size 5MB)</h4>";
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
