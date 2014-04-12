@@ -102,6 +102,10 @@
             //ChromePhp::log('Update: ' . $sql);
             $result = mysql_query($sql);
 
+            //<script type="text/javascript">
+            //getEvents();
+            //</script>
+
             die ("<img width=\"50\" heigh=\"50\" class=\"seen\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
             
             //<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">

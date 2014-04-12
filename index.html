@@ -169,32 +169,9 @@
         });
         //Profile navigation///////////////////////////////////////
 
-        //Check avatar upload & redirect to profile page//////////
-        //avatar = getQueryVariable("uploadAvatar");
-        //if (avatar != 0) {
-        //    //alert("uploadAvatar value: " + avatar);
-        //    //avatar = 0;
-        //    if (window.location.href.indexOf("localhost")) {
-        //        window.location.href = "http://localhost:18502/index.html";
-        //    }
-        //    else {
-        //        window.location.href = "http://areyouin.azurewebsites.net/index.html";
-        //    }
 
-        //    //document.getElementById('linkprofile').click();            
-        //}
+        //Image upload/////////////////////////////////////////////
 
-        //if (avatar != 0) {
-        //    alert("avatar");
-        //    avatar = 0;
-        //    //setTimeout(function(){document.getElementById('linkprofile').click();},3000)
-        //    document.getElementById('linkprofile').click();
-        //}
-
-
-
-
-        //alert("jes");
         var options = {
             target: '#output',   // target element(s) to be updated with server response 
             beforeSubmit: beforeSubmit,  // pre-submit callback 
@@ -216,7 +193,9 @@
             $('#submit-btn').show(); //hide submit button
             $('#loading-img').hide(); //hide submit button
             $('#progressbox').delay(1000).fadeOut(); //hide progress bar
-
+            
+            //Update event list with new picture
+            getEvents();
         }
 
         //function to check file size before uploading.
@@ -226,7 +205,7 @@
 
                 if (!$('#FileInput').val()) //check empty input filed
                 {
-                    $("#output").html("Are you kidding me?");
+                    $("#output").html("You must select a file for upload");
                     return false
                 }
 
@@ -256,7 +235,7 @@
 
                 //Allowed file size is less than 5 MB (1048576)
                 if (fsize > 5242880) {
-                    $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 5 MB.");
+                    $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 2 MB.");
                     return false
                 }
 

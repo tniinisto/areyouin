@@ -191,9 +191,9 @@
 			echo "</table>";
                         
             //Open first event in full
-            if($row_index == 1)
-                echo "<div id=\"id_playersfull_" . $event_check . "\">";
-            else
+            //if($row_index == 1)
+            //    echo "<div id=\"id_playersfull_" . $event_check . "\">";
+            //else
                 echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
 		}
 
