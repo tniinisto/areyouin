@@ -47,6 +47,10 @@ smaller than 650
 *************************************************************************************/
 @media screen and (max-width: 750px) {
 
+    .nomobile {
+        display: none;    
+    }
+
 	/* header */
 	#header {
 		height: auto;
