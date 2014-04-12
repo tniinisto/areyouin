@@ -194,8 +194,9 @@
             $('#loading-img').hide(); //hide submit button
             $('#progressbox').delay(1000).fadeOut(); //hide progress bar
             
-            //Update event list with new picture
+            //Update event list & admin content with the new picture
             getEvents();
+            getPlayersInsert();
         }
 
         //function to check file size before uploading.
@@ -234,7 +235,7 @@
                 }
 
                 //Allowed file size is less than 5 MB (1048576)
-                if (fsize > 5242880) {
+                if (fsize > 2042880) {
                     $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 2 MB.");
                     return false
                 }
