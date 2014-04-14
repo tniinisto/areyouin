@@ -80,21 +80,6 @@
 
         if(1) {
 
-            //DB settings////////////////////////////////////////////////////////////////////////////
-            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
-            if (!$con)
-                {
-                die('Could not connect: ' . mysql_error());
-                }
-
-            mysql_select_db("areyouin", $con)or die("cannot select DB");
-
-            
-            //Haetaan playerID sessiosta
-            $playerid=$_SESSION['myplayerid'];
-
-
-            //Save the file to server//////////////////////////////////////////////////////////////
             $newNamePrefix = time() . '_';
             $manipulator = new ImageManipulator($_FILES['FileInput']['tmp_name']);
             // resizing to 60x60
@@ -103,27 +88,30 @@
             $manipulator->save('images/' . $newNamePrefix . $_FILES['FileInput']['name']);
             //echo 'Done ...';
 
+            $playerid=$_SESSION['myplayerid'];
 
-            //Remove the old file from the server///////////////////////////////////////////////////          
-            $sql2 = "SELECT photourl FROM players WHERE playerID = " . $playerid . "";
-            //ChromePhp::log('Update: ' . $sql);
-            $result2 = mysql_query($sql2);
-            $row = mysql_fetch_array($result2);
-            
-            if (file_exists("images/" . $row['photourl'] . ""))
-             { 
-                unlink("images/" . $row['photourl'] . "");                
-                //move_uploaded_file($fileTmpLoc, "documenti/$fileName");
-             } 
+            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+            if (!$con)
+                {
+                die('Could not connect: ' . mysql_error());
+                }
+
+            mysql_select_db("areyouin", $con)or die("cannot select DB");
 
 
-            //Database update for the new file//////////////////////////////////////////////////////
             $sql = "UPDATE players SET photourl = \"" . $newNamePrefix . $_FILES['FileInput']['name'] . "\" WHERE playerID = " . $playerid . "";
             //ChromePhp::log('Update: ' . $sql);
             $result = mysql_query($sql);
 
+            //<script type="text/javascript">
+            //getEvents();
+            //</script>
+
             die ("<img width=\"50\" heigh=\"50\" class=\"seen\" src=\"images/" . $newNamePrefix . $_FILES['FileInput']['name'] .  "\">");
             
+            //<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">
+            //die ("<h4><span style=\"color: white;\">Testing this shit...</span></h4>");
+            //die ('mother fucker!');
         } 
         else {
             die ('You must upload an image...');
