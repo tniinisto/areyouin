@@ -142,6 +142,15 @@ smaller than 750
 		width: 51%;
 	}	
 
+    #update_event {
+        /*height: 35px;
+        width: 35px;*/
+        position: relative;
+        right: -73%;
+        top: 8px;
+        z-index: 1;        margin-top: -70%;        
+    }
+
 }
 
 /************************************************************************************
