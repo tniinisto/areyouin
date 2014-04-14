@@ -422,6 +422,17 @@ article
 	margin: 0 0 15px;
 }
 
+
+.divtable {
+	background-color: #6a6a6a;
+	font-size: 1.2em;
+    z-index: -10;
+    margin-top: 5px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;		        
+}
+
 /* events table*/
 .atable {
 	width: 100%;

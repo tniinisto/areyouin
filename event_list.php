@@ -34,7 +34,7 @@
 		if($row['Events_eventID'] != $event_check)
 		{		
 			if($event_check != 0) {
-				echo "</div>";
+                echo "</div>";
                 echo "</article>";
 		    }
 
@@ -47,6 +47,8 @@
 			
 			echo "<article id=\"event_article_id\" class=\"clearfix\">";
             
+            echo "<div class=\"divtable\">%nbsp"; //Background for the header part
+            
             //Admin's event update button
             if($ad==1)
                 echo "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"cursor: pointer;\"></img>";
@@ -54,12 +56,12 @@
                 echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"visibility:hidden;\"></img>"; 
 
             //Top table for rounded corners
-            echo "<table class=\"lastrow\">";
-				echo "<tr style=\"cursor: pointer;\">";
-					//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
-                    echo "<th>&nbsp</th>";
-				echo "</tr>";
-			echo "</table>";
+   //         echo "<table class=\"lastrow\">";
+			//	echo "<tr style=\"cursor: pointer;\">";
+			//		//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
+   //                 echo "<th>&nbsp</th>";
+			//	echo "</tr>";
+			//echo "</table>";
 			
             //Event summary info, Invited players
             $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . "";
@@ -189,6 +191,8 @@
                     echo "<th>&nbsp</th>";
 				echo "</tr>";
 			echo "</table>";
+
+            echo "</div>"; //divtable (background for the header part)
                         
             //Open first event in full
             //if($row_index == 1)
