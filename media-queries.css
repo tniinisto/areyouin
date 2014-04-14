@@ -378,6 +378,7 @@ smaller than 980
 		width: 95%;
 	}
 
+
 	/* content */
 	.content {
 		width: 65%;
@@ -420,6 +421,13 @@ smaller than 650
     /*.nomobile {
         display: none;    
     }*/
+
+    #update_event {
+        position: relative;
+        right: -87%;
+        /*top: 15px;*/
+        z-index: 1;        margin-top: -70%;
+    }
 
 	/* header */
 	#header {
@@ -553,7 +561,7 @@ smaller than 480
 	}
 
     #event_article_id {
-        padding: 0px 5px 20px 5px;
+        padding: 1px 5px 20px 5px;
     }
 
     #admin_content_article, #profile_content_article {
@@ -566,7 +574,7 @@ smaller than 480
 
     #update_event {
         position: relative;
-        right: -90%;
+        right: -75%;
         /*top: 15px;*/
         z-index: 1;        margin-top: -70%;
     }
