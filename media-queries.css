@@ -561,7 +561,7 @@ smaller than 480
 	}
 
     #event_article_id {
-        padding: 1px 5px 20px 5px;
+        padding: 3px 5px 20px 5px;
     }
 
     #admin_content_article, #profile_content_article {
@@ -574,18 +574,18 @@ smaller than 480
 
     #update_event {
         position: relative;
-        right: -75%;
+        right: -70%;
         /*top: 15px;*/
         z-index: 1;        margin-top: -70%;
     }
     
-    #update_event2 {
+    /*#update_event2 {
         position: relative;
         right: -60%;
         top: 38px;
         z-index: 1;        margin-top: -10%;
         visibility: hidden;
-    }
+    }*/
 	
 	#sidebar {
 		display: none;
@@ -744,10 +744,10 @@ th.col61 {
 	  border-radius:5px;
 	}
 
-    #update_event {
+    /*#update_event {
         height: 40px;
         width: 40px;
-    }	
+    }*/	
 }
 
 /* landscape mode */
