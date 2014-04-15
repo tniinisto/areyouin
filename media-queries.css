@@ -296,8 +296,8 @@ smaller than 480
         /*height: 35px;
         width: 35px;*/
         position: relative;
-        right: -73%;
-        top: 8px;
+        left: -14px;
+        /*top: 4px;*/
         z-index: 1;        margin-top: -70%;        
     }
 
