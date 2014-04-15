@@ -610,7 +610,7 @@ td.col6 {
 	table-layout: auto;
 	text-align: left;
 	font-weight: bold;
-	margin: 0 0;
+	margin: -10px 0px 0px 0px;
     /*border-collapse: collapse;*/	
 }
 
