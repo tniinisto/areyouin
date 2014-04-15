@@ -559,7 +559,7 @@ article
 
 #update_event {
     position: relative;
-    right: -90%;
+    left: -14px;
     top: 8px;
     z-index: 1;    margin-top: -70%;
 }
