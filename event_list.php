@@ -47,7 +47,7 @@
 			
 			echo "<article id=\"event_article_id\" class=\"clearfix\">";
             
-            echo "<div class=\"divtable\">%nbsp"; //Background for the header part
+            echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
             //Admin's event update button
             if($ad==1)
