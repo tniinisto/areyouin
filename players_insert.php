@@ -20,7 +20,7 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '" . $teamid . "'";
+            $sql="SELECT p.playerID, p.name, p.photourl FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
