@@ -54,26 +54,26 @@ screens smaller or equal to 750
 
 	/* login form */
 	#loginform {
-		position: absolute;
+		/*position: absolute;
 		top: 100px;
 		left: 100px;
 		z-index: 100;
 		height: 10px;
-		width: 150px;
+		width: 150px;*/
 	}
 
 	#login, #password {
 		width: 150px;
 	}
 	
-	#teamradio {
+	/*#teamradio {
 		position: absolute;
 		width: 150px;
-	}
+	}*/
 	
 	#loginbutton {
-		position: absolute;
-		left: 20px;
+		/*position: absolute;
+		left: 20px;*/
 	}	
 	
 	/* main nav */
@@ -230,12 +230,12 @@ screens smaller or equal to 480
 	
 	/* login form */
 	#loginform {
-		position: absolute;
+		/*position: absolute;
 		top: 70px;
 		left: 40px;
 		z-index: 100;
 		height: 10px;
-		width: 150px;
+		width: 150px;*/
 	}
 
 	#login, #password {
@@ -243,14 +243,14 @@ screens smaller or equal to 480
 	}
 
 	#loginbutton {
-		position: absolute;
-		left: 10px;
+		/*position: absolute;
+		left: 10px;*/
 	}
 	
-	#teamradio {
+	/*#teamradio {
 		position: absolute;
 		width: 150px;
-	}
+	}*/
 	
 	.radioclass {
 		width: 30px;
