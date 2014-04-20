@@ -50,6 +50,7 @@
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
                 <li id="linkprofile"><a href="#">Profile</a></li>
+                <li id="linkchat"><a href="#">Chat</a></li>
                 <li id="linkadmin"></li>
                 <!--<li id="nav_logout" style="float: right;"><a href="http://localhost:18502/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
                 <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
@@ -75,6 +76,12 @@
     <div id="profile_content_id" class="content noshow">
         <article class="clearfix">
             <!--<h2>Profile</h2>-->
+        </article>
+    </div>
+
+    <div id="chat_content_id" class="content noshow">
+        <article class="clearfix">
+            <!--<h2>Chat</h2>-->
         </article>
     </div>   
 
@@ -124,6 +131,7 @@
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
+        getChat();
 
         //SSE init
         setSSE();
@@ -134,16 +142,22 @@
             $("#linkgames").addClass("current");
         });
 
-        $("#linkadmin").click(function (event) {
-            $("#main-nav").children().removeClass("current");
-            $("#linkadmin").addClass("current");
-        });
-
         $("#linkprofile").click(function (event) {
             $("#main-nav").children().removeClass("current");
             $("#linkprofile").addClass("current");
         });
+
+        $("#linkchat").click(function (event) {
+            $("#main-nav").children().removeClass("current");
+            $("#linkchat").addClass("current");
+        });
+
+        $("#linkadmin").click(function (event) {
+            $("#main-nav").children().removeClass("current");
+            $("#linkadmin").addClass("current");
+        });
         //Main navigation///////////////////////////////////////
+
 
         //Admin navigation///////////////////////////////////////
         $("#link_admingame").click(function (event) {
@@ -194,7 +208,7 @@
             $('#submit-btn').show(); //hide submit button
             $('#loading-img').hide(); //hide submit button
             $('#progressbox').delay(1000).fadeOut(); //hide progress bar
-            
+
             //Update event list & admin content with the new picture
             getEvents();
             getPlayersInsert();
@@ -270,12 +284,8 @@
             var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
             return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
         }
-
-
-
-
-
     });
+
 
     //Main navigation - Content for the selected page///////////
     $("#main-nav").click(function () {
@@ -283,27 +293,37 @@
         //Games
         if ($("#linkgames").hasClass('current')) {
             $("#event_content_id").removeClass("noshow");
-            //$("#team_content_id").addClass("noshow");
             $("#profile_content_id").addClass("noshow");
+            $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
         }
         //Profile
         if ($("#linkprofile").hasClass('current')) {
             $("#event_content_id").addClass("noshow");
             $("#profile_content_id").removeClass("noshow");
+            $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
         }
-        ////Admin
+
+        //Chat
+        if ($("#linkchat").hasClass('current')) {
+            $("#event_content_id").addClass("noshow");
+            $("#profile_content_id").addClass("noshow");
+            $("#chat_content_id").removeClass("noshow");
+            $("#admin_content_id").addClass("noshow");
+        }
+
+        //Admin
         if ($("#linkadmin").hasClass('current')) {
             $("#event_content_id").addClass("noshow");
             $("#profile_content_id").addClass("noshow");
+            $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
         }
     });
     //Main navigation - Content for the selected page///////////
 
     //Admin navigation - Content for the selected page///////////
-    //$("#admin-nav").click(function () { // <- Does not work for some reason, function did the trick?
     function adminClick() {
         //alert("Handler for admin navigation .click() called.");
         //Games
@@ -333,7 +353,8 @@
             $("#profile_team_content_id").removeClass("noshow");
         }
     };
-    //Profile navigation - Content for the selected page///////////         
+    //Profile navigation - Content for the selected page///////////
+
 
 </script>
 <!-- /scripts -->

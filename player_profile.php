@@ -98,7 +98,8 @@
                 echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
                 echo "</div>";
                 
-                echo "<div id=\"output\"  class=\"nomobile\">";
+                //echo "<div id=\"output\"  class=\"nomobile\">";
+                echo "<div class=\"nomobile\">";
                     echo "</br>";
                     echo "</br>";
                     echo "</br>";

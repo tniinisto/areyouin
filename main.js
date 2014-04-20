@@ -370,6 +370,28 @@ function getPlayerProfile() {
 	xmlhttp.send();
 }
 
+//Chat
+function getChat() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "chat.php", false);
+	xmlhttp.send();
+}
+
 ////Player profile
 //function updatePlayerPhoto(photourl) {
 //    alert("updatePlayerPhoto: " + photourl);
