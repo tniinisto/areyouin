@@ -2,37 +2,53 @@
 
     session_start();
     
-    //include 'ChromePhp.php';        
-    //ChromePhp::log("starting chat...");
+    include 'ChromePhp.php';        
+    ChromePhp::log("starting chat...");
+
+    //$playerid=$_SESSION['myplayerid'];
+	$teamid=$_SESSION['myteamid'];
+
+    $GLOBALS['row'] = 'initial';
+    //$row = "initial";
+
+	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+	if (!$con)
+	    {
+	    die('Could not connect: ' . mysql_error());
+	    }
+
+	mysql_select_db("areyouin", $con);
+
 
     if(isset($_POST['sendbutton'])) {
        sendComment();
     } 
     else {
+        getComments($teamid);
 
-        //$playerid=$_SESSION['myplayerid'];
-	    $teamid=$_SESSION['myteamid'];
+        //$sql = "SELECT * FROM comments WHERE team_teamID = " . $teamid . "";
 
-	    $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
-	    if (!$con)
-	      {
-	      die('Could not connect: ' . mysql_error());
-	      }
+        //$result = mysql_query($sql);
+        //$row = mysql_fetch_array($result);
+    }
 
-	    mysql_select_db("areyouin", $con);
 
-        $sql = "SELECT * FROM comments WHERE team_teamID = " . $teamid . "";
+    function getComments($p_teamid) {
+                                
+        $sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
+        ChromePhp::log("sql: ", $sql);
 
         $result = mysql_query($sql);
-        $row = mysql_fetch_array($result);
-
+        $GLOBALS['row'] = mysql_fetch_array($result);
+        ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
     }
 
 
     function sendComment() {
-        //ChromePhp::log("send comment...");
-    }
 
+        ChromePhp::log($_POST['comment']);
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +68,7 @@
             <!--</div>-->
 
             <?php
-                echo "<h4>PHP Comment: " .  $row['comment'] . "</h4>";
+                echo "<h4>PHP Comment: " .  $row['comment'] . " - " . Date("j.n.Y H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment\">Text: </label>";
