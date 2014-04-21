@@ -85,29 +85,29 @@ function showUser(str) {
 }
 
 //Getting player image & name
-function getPlayers(teamid) {
-	if (teamid == "") {
-		document.getElementById("userlogin").innerHTML = "getPlayers()";
-		return;
-	}		
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+//function getPlayers(teamid) {
+//	if (teamid == "") {
+//		document.getElementById("userlogin").innerHTML = "getPlayers()";
+//		return;
+//	}		
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
 
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("players_short").innerHTML = xmlhttp.responseText;
-		}
-	}
+//	xmlhttp.onreadystatechange = function () {
+//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//			document.getElementById("players_short").innerHTML = xmlhttp.responseText;
+//		}
+//	}
 
-	//alert("GET gets called.");
-    var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "players_short.php?" + variables, false);
-	xmlhttp.send();
-}
+//	//alert("GET gets called.");
+//    var variables = "teamid=" + teamid;
+//	xmlhttp.open("GET", "players_short.php?" + variables, false);
+//	xmlhttp.send();
+//}
 
 //Getting player list for inserting new event
 function getPlayersInsert() {
@@ -161,17 +161,17 @@ function getEvents() {
 }
 
 //Parse URL parameters by name
-function gup( name )
-{
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
-  var regex = new RegExp( regexS );
-  var results = regex.exec( window.location.href );
-  if( results == null )
-    return "";
-  else
-    return results[1];
-}
+//function gup( name )
+//{
+//  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+//  var regexS = "[\\?&]"+name+"=([^&#]*)";
+//  var regex = new RegExp( regexS );
+//  var results = regex.exec( window.location.href );
+//  if( results == null )
+//    return "";
+//  else
+//    return results[1];
+//}
 
 //Update AYI status
 function updateAYI(eventplayerid, ayi, eventid, switchid)
