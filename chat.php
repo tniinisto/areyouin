@@ -3,9 +3,9 @@
     session_start();
     
     include 'ChromePhp.php';        
-    ChromePhp::log("starting chat...");
+    //ChromePhp::log("starting chat...");
 
-    //$playerid=$_SESSION['myplayerid'];
+    $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
     $GLOBALS['row'] = 'initial';
@@ -21,7 +21,7 @@
 
 
     if(isset($_POST['sendbutton'])) {
-       sendComment();
+       sendComment($playerid, $teamid);
     } 
     else {
         getComments($teamid);
@@ -36,17 +36,24 @@
     function getComments($p_teamid) {
                                 
         $sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
-        ChromePhp::log("sql: ", $sql);
+        //ChromePhp::log("sql: ", $sql);
 
         $result = mysql_query($sql);
         $GLOBALS['row'] = mysql_fetch_array($result);
-        ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
+        //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
     }
 
 
-    function sendComment() {
+    function sendComment($playerid, $teamid) {
 
         ChromePhp::log($_POST['comment']);
+        
+        $date = new DateTime();
+        $date->modify("-1 hour");
+
+        $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
+        ChromePhp::log('Update: ' . $sql3);
+        $result3 = mysql_query($sql3);
 
     }
 ?>
@@ -68,7 +75,9 @@
             <!--</div>-->
 
             <?php
-                echo "<h4>PHP Comment: " .  $row['comment'] . " - " . Date("j.n.Y H:i:s") . " </h4>";
+                $date = new DateTime();
+                $date->modify("-1 hour");
+                echo "<h4>PHP Comment: " .  $row['comment'] . " - " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment\">Text: </label>";

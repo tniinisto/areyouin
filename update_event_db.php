@@ -1,5 +1,5 @@
 <?php
-    include 'ChromePhp.php';
+    //include 'ChromePhp.php';
     //ChromePhp::log('Hello console!');
 
     $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
@@ -78,7 +78,7 @@
     $row = mysql_fetch_array($result);
     //$sql3 = "UPDATE events SET startTime = ". $row['startTime'] .", endTime = " . $row['endTime'] . " WHERE eventID = " . $eventid . "";
     $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . "";
-    ChromePhp::log('Update: ' . $sql3);
+    //ChromePhp::log('Update: ' . $sql3);
     $result3 = mysql_query($sql3);
 
     //Update players, deed to check whether EventPlayer row should be inserted or deleted//////////
@@ -97,7 +97,7 @@
             if($found == 0) {
             //Player not found, insert new row to EventPlayer
                 $sql2 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eventid . "', '0');";
-                ChromePhp::log('Insert: ' . $sql2);
+                //ChromePhp::log('Insert: ' . $sql2);
                 $result2 = mysql_query($sql2);                    
             }
 
@@ -112,7 +112,7 @@
             if($found == 1) {
             //Player was selected earlier, delete record
                 $sql2 = "DELETE FROM eventplayer WHERE Players_playerID = " . $players[$k][1] . " AND Events_eventID = " . $eventid . ";";
-                ChromePhp::log('Delete: ' . $sql2);
+                //ChromePhp::log('Delete: ' . $sql2);
                 $result2 = mysql_query($sql2);                    
             }
                 
