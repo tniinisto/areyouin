@@ -25,11 +25,6 @@
     } 
     else {
         getComments($teamid);
-
-        //$sql = "SELECT * FROM comments WHERE team_teamID = " . $teamid . "";
-
-        //$result = mysql_query($sql);
-        //$row = mysql_fetch_array($result);
     }
 
 
@@ -77,7 +72,7 @@
             <?php
                 $date = new DateTime();
                 $date->modify("-1 hour");
-                echo "<h4>PHP Comment: " .  $row['comment'] . " - " . $date->format("Y-n-j H:i:s") . " </h4>";
+                echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment\">Text: </label>";
