@@ -70,44 +70,29 @@
             <!--</div>-->
 
 <table border="1">
-    <thead>
+    <!--<thead>
         <tr>
-            <th width="200">Month</th>
-            <th>Savings</th>
+            <th width="200">Title1</th>
+            <th>Title2</th>
         </tr>
     </thead>
     <tfoot>
         <tr>
-            <td>Sum</td>
-            <td>$180</td>
+            <td>Footer1</td>
+            <td>Footer2</td>
         </tr>
-    </tfoot>
+    </tfoot>-->
     <tbody>
         <tr>
             <td colspan="2">
         <div class="scrollit">
             <table border="1">
                 <tr>
-                    <td width="500" height="50"><textarea class="commentArea">Comment...</textarea></td>
-                    <td width="200">$100</td>
+                    <td width="150px" height="50px"><textarea class="commentArea1"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>
+                    <td width="500px" height="50px"><textarea class="commentArea2"> Comment...</textarea></td>
                 </tr>
-                <tr>
-                    <td>February</td>
-                    <td>$80</td>
-                </tr>
-                <tr>
-                    <td>January</td>
-                    <td>$100</td>
-                </tr>
-                <tr>
-                    <td>February</td>
-                    <td>$80</td>
-                </tr>
-                <tr>
-                    <td>January</td>
-                    <td>$100</td>
-                </tr>
-            </table>
+
+           </table>
         </div>
                 </td>
         </tr>

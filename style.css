@@ -785,12 +785,17 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     overflow-y: scroll;
     height:100px;
 }
-
-.commentArea {
+.commentArea1 {
+    resize: none;
+    width: 95%;
+    height: 100%;    
+}
+.commentArea2 {
     resize: none;
     width: 98%;
-    height: 100%;
+    height: 100%;    
 }
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
