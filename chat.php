@@ -69,6 +69,51 @@
                 <a id="chattest" href="#">Chat</a>-->
             <!--</div>-->
 
+<table border="1">
+    <thead>
+        <tr>
+            <th width="200">Month</th>
+            <th>Savings</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td>Sum</td>
+            <td>$180</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td colspan="2">
+        <div class="scrollit">
+            <table border="1">
+                <tr>
+                    <td width="500" height="50"><textarea class="commentArea">Comment...</textarea></td>
+                    <td width="200">$100</td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td>$80</td>
+                </tr>
+                <tr>
+                    <td>January</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td>$80</td>
+                </tr>
+                <tr>
+                    <td>January</td>
+                    <td>$100</td>
+                </tr>
+            </table>
+        </div>
+                </td>
+        </tr>
+    </tbody>
+</table>
+
             <?php
                 $date = new DateTime();
                 $date->modify("-1 hour");
