@@ -30,11 +30,14 @@
 
     function getComments($p_teamid) {
                                 
-        $sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
+        //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
+        $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . "";
+        
+        
         //ChromePhp::log("sql: ", $sql);
 
-        $result = mysql_query($sql);
-        $GLOBALS['row'] = mysql_fetch_array($result);
+        $GLOBALS['chatresult'] = mysql_query($sql);
+        //$GLOBALS['row'] = mysql_fetch_array($result);
         //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
     }
 
@@ -62,47 +65,34 @@
     <body>
 
         <article id="chat_content_article" class="clearfix">
-            
-            <!--<div id="chat_content_id">-->        
-                <!--<h4>Testing chat document...</h4>
-                <h4>Comment:</h4>
-                <a id="chattest" href="#">Chat</a>-->
-            <!--</div>-->
+        
+            <!--<table border="1">
+                <tbody>
+                    <tr>
+                        <td colspan="2">-->
+                    <div class="scrollit">
+                        <table border="1">
+                            <?php
+                            while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
+                                echo "<tr>";
+                                    //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
+                                    echo "<td width=\"80px\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><text>" . $row['name'] . "</text></td>";
+                                    echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $row['publishTime'] . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                       </table>
+                    </div>
+                            <!--</td>
+                    </tr>
+                </tbody>
+            </table>-->
 
-<table border="1">
-    <!--<thead>
-        <tr>
-            <th width="200">Title1</th>
-            <th>Title2</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td>Footer1</td>
-            <td>Footer2</td>
-        </tr>
-    </tfoot>-->
-    <tbody>
-        <tr>
-            <td colspan="2">
-        <div class="scrollit">
-            <table border="1">
-                <tr>
-                    <td width="150px" height="50px"><textarea class="commentArea1"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>
-                    <td width="500px" height="50px"><textarea class="commentArea2"> Comment...</textarea></td>
-                </tr>
-
-           </table>
-        </div>
-                </td>
-        </tr>
-    </tbody>
-</table>
 
             <?php
-                $date = new DateTime();
-                $date->modify("-1 hour");
-                echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
+                //$date = new DateTime();
+                //$date->modify("-1 hour");
+                //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment\">Text: </label>";

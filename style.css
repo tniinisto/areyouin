@@ -783,12 +783,11 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 .scrollit {
     /*overflow:scroll;*/
     overflow-y: scroll;
-    height:100px;
+    height:300px;
 }
 .commentArea1 {
     resize: none;
-    width: 95%;
-    height: 100%;    
+    height: 15px;    
 }
 .commentArea2 {
     resize: none;
