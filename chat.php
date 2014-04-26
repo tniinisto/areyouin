@@ -8,7 +8,7 @@
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
-    $GLOBALS['row'] = 'initial';
+    //$GLOBALS['row'] = 'initial';
     //$row = "initial";
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
@@ -52,7 +52,6 @@
         $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
         ChromePhp::log('Update: ' . $sql3);
         $result3 = mysql_query($sql3);
-
     }
 ?>
 
@@ -71,13 +70,15 @@
                     <tr>
                         <td colspan="2">-->
                     <div class="scrollit">
-                        <table border="1">
+                        <table border="0">
                             <?php
                             while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
-                                echo "<tr>";
+                                $published = new DateTime($row['publishTime']);
+
+                                echo "<tr class=\"chatrow\">";
                                     //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
-                                    echo "<td width=\"80px\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><text>" . $row['name'] . "</text></td>";
-                                    echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $row['publishTime'] . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
+                                    echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><text style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                    echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
                                 echo "</tr>";
                             }
                             ?>
