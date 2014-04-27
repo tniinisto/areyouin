@@ -85,7 +85,6 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-
             $player = new Player($row[playerID], $row[name], $row[photourl]);
 
 

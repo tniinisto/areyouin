@@ -392,9 +392,9 @@ function getChat() {
 	xmlhttp.send();
 }
 
-////Player profile
-//function updatePlayerPhoto(photourl) {
-//    alert("updatePlayerPhoto: " + photourl);
+//Update comments
+//function updateComments() {
+//    alert("updateComments");
 //	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 //		xmlhttp = new XMLHttpRequest();
 //	}
@@ -404,39 +404,23 @@ function getChat() {
 
 //	xmlhttp.onreadystatechange = function () {
 //		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//			document.getElementById("profile_profile_content_id").innerHTML = xmlhttp.responseText;
+//			document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
 //		}
 //	}
 
-//	var variables = "photo=" + photourl;
-//	xmlhttp.open("GET", "player_photo_update.php?" + variables, false);
+//	xmlhttp.open("GET", "updateComments.php", false);
 
 //	xmlhttp.send();
 //}
 
-//function testJS() {
-//     alert("It's too big :)");
-//     
-//     //var x=document.getElementById("notification_content_id");
-//     //alert(x.innerHTML);
-//     
-//     //var e;
-//     //e = document.getElementById("notification_content_id").;
-//     //document.getElementById("notification_content_id").innerHTML = "test";
-
-//     //var e = document.getElementById("notification_content_id");
-//     //e.className=e.className.replace(" noshow","");
-
-//}
-
-//Chat 
-function addRow() {
-    alert("addRow()");
+//Chat dynamic
+function addRow(comment) {
+    alert("addRow(): " + comment);
     var table = document.getElementById("comments_table");
     var row = table.insertRow(0);
     row.className = "chatrow";
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    cell1.innerHTML = "NEW CELL1";
+    cell1.innerHTML = comment;
     cell2.innerHTML = "NEW CELL2";
 }

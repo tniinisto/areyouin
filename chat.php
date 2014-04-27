@@ -16,6 +16,10 @@
 
 	mysql_select_db("areyouin", $con);
 
+    //Get current users info
+    $sql5 = "SELECT name, photourl FROM players WHERE playerID = " . $playerid . "";
+	$result5 = mysql_query($sql5);
+    $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
     if(isset($_POST['sendbutton'])) {
        sendComment($playerid, $teamid);
@@ -92,7 +96,7 @@
                 //$date->modify("-1 hour");
                 //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
-                echo "<form onsubmit=\"addRow()\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
+                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\">Comment: </label>";
                     echo "</br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
