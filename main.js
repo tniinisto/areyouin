@@ -414,13 +414,25 @@ function getChat() {
 //}
 
 //Chat dynamic
-function addRow(comment) {
-    alert("addRow(): " + comment);
+function addRow(photourl, name) {
+
+    var comment = document.getElementById("comment_input").value;
+
+    alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
+
     var table = document.getElementById("comments_table");
+
     var row = table.insertRow(0);
     row.className = "chatrow";
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = comment;
-    cell2.innerHTML = "NEW CELL2";
+    row.innerHTML = "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
+                    "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">Now</textarea><textarea class=\"commentArea2\">" + comment + "</textarea></td>";
+                            //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
+                            
+                            //echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
+                        
+
+    //var cell1 = row.insertCell(0);
+    //var cell2 = row.insertCell(1);
+    //cell1.innerHTML = comment;
+    //cell2.innerHTML = "NEW CELL2";
 }
