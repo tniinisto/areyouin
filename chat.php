@@ -76,14 +76,25 @@
             <div class="scrollit">
                 <table id="comments_table" border="0" width="100%">
                     <?php
-                    while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
-                        $published = new DateTime($row['publishTime']);
+                        
+                    $limit=30;
+                    $i=0;
 
-                        echo "<tr class=\"chatrow\">";
-                            //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
-                            echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><br><text style=\"color: white;\">" . $row['name'] . "</text></td>";
-                            echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
-                        echo "</tr>";
+                    while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
+                        if($i < $limit) {                        
+                            $published = new DateTime($row['publishTime']);
+
+                            echo "<tr class=\"chatrow\">";
+                                //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
+                                echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><br><text style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
+                            echo "</tr>";
+                            $i++;
+                        }
+                        else {
+                            break;
+                        }
+
                     }
                     ?>
                 </table>
