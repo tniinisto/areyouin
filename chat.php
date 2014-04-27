@@ -79,7 +79,7 @@
                     <tr>
                         <td colspan="2">-->
                     <div class="scrollit">
-                        <table border="0" width="100%">
+                        <table id="comments_table" border="0" width="100%">
                             <?php
                             while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
                                 $published = new DateTime($row['publishTime']);
@@ -105,7 +105,7 @@
                 //$date->modify("-1 hour");
                 //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
-                echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
+                echo "<form onsubmit=\"addRow()\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\">Comment: </label>";
                     echo "</br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
@@ -118,6 +118,6 @@
         </article>
 
         <iframe name="frame_chat" style="display: none;"></iframe>
-        
+                
     </body>
 </html>
