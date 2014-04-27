@@ -31,7 +31,7 @@
     function getComments($p_teamid) {
                                 
         //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
-        $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . "";
+        $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
         
         
         //ChromePhp::log("sql: ", $sql);
@@ -44,12 +44,12 @@
 
     function sendComment($playerid, $teamid) {
 
-        ChromePhp::log($_POST['comment']);
+        //ChromePhp::log($_POST['comment_input']);
         
         $date = new DateTime();
         $date->modify("-1 hour");
 
-        $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
+        $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment_input'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
         ChromePhp::log('Update: ' . $sql3);
         $result3 = mysql_query($sql3);
     }
@@ -70,14 +70,14 @@
                     <tr>
                         <td colspan="2">-->
                     <div class="scrollit">
-                        <table border="0">
+                        <table border="0" width="100%">
                             <?php
                             while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
                                 $published = new DateTime($row['publishTime']);
 
                                 echo "<tr class=\"chatrow\">";
                                     //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
-                                    echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><text style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                    echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><br><text style=\"color: white;\">" . $row['name'] . "</text></td>";
                                     echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
                                 echo "</tr>";
                             }
@@ -89,6 +89,7 @@
                 </tbody>
             </table>-->
 
+            </br>
 
             <?php
                 //$date = new DateTime();
@@ -96,8 +97,11 @@
                 //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
-                    echo "<label for=\"comment\">Text: </label>";
-			        echo "<input type=\"text\" id=\"login\" name=\"comment\" placeholder=\"\" required>";
+                    echo "<label for=\"comment_input\">Comment here: </label>";
+                    echo "</br>";
+			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                    echo "</br>";
                     echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\">";
 		        echo "</form>";
             ?>
