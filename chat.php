@@ -64,7 +64,16 @@
     <body>
 
         <article id="chat_content_article" class="clearfix">
-        
+<nav>
+
+    <ul id="chat-nav" class="clearfix">
+        <li id="chat_link">
+            <a href="#"></a>
+        </li>
+    </ul>
+    </br>
+
+</nav>        
             <!--<table border="1">
                 <tbody>
                     <tr>
@@ -97,7 +106,7 @@
                 //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
                 
                 echo "<form id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
-                    echo "<label for=\"comment_input\">Comment here: </label>";
+                    echo "<label for=\"comment_input\">Comment: </label>";
                     echo "</br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
                     echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
