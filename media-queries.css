@@ -149,6 +149,48 @@ screens smaller or equal to 480
 *************************************************************************************/
  /* portrait mode */
 @media screen and (max-width: 480px) {
+    
+/*chat*/
+.scrollit {
+    height:420px;
+    overflow:auto;    
+}
+
+.commentArea1 {
+    resize: none;
+    height: 15px;
+    background-color: transparent;
+    border: 0;
+    color: white;
+    padding: 10px 0 0 0;
+}
+
+.commentArea2 {
+    resize: none;
+    width: 98%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+
+.chatrow:nth-of-type(odd) {
+    background-color:rgba(0,0,0,.5);
+}
+
+.chatrow:nth-of-type(even) {
+    background-color:#474747;
+}
+
+#comment_input {
+    width: 98%;
+    resize: none;
+}
+
+#comments_table {
+    margin: 10px 0 0 0;
+}
+
 
 	/*.SSEsupport {
 		HTMLElementObject.disabled: true;
