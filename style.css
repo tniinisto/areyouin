@@ -817,6 +817,10 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     resize: none;
 }
 
+#comments_table td:first-child {
+    text-align: center;
+}
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
