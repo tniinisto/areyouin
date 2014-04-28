@@ -77,7 +77,7 @@
             </nav>        
 
             <div class="scrollit">
-                <table id="comments_table" class="atable" border="0" width="100%">
+                <table id="comments_table" class="atable" border="0">
                     <?php
                         
                     $limit=30;
