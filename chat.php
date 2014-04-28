@@ -1,8 +1,10 @@
 <?php
 
     session_start();
+
+    date_default_timezone_set('UTC');
     
-    //include 'ChromePhp.php';        
+    include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
     $playerid=$_SESSION['myplayerid'];
@@ -46,7 +48,7 @@
         
         $date = new DateTime();
         //$date->modify("-1 hour");
-        $date->modify("+11 hour"); //Todo, timezones must be checked
+        $date->modify("+3 hour"); //Todo, timezones must be checked
 
         $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment_input'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
         //ChromePhp::log('Update: ' . $sql3);
