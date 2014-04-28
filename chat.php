@@ -4,7 +4,7 @@
 
     date_default_timezone_set('UTC');
     
-    include 'ChromePhp.php';        
+    //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
     $playerid=$_SESSION['myplayerid'];
