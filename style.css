@@ -788,7 +788,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 .commentArea1 {
-    /*resize: none;*/
+    resize: none;
     /*height: 15px;*/
     background-color: transparent;
     border: 0;
