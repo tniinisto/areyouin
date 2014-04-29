@@ -196,7 +196,7 @@ screens smaller or equal to 480
 }
 
 #comments_table td:nth-child(2) {
-    padding: 0px 0px 0px 10px;
+    padding: 5px 0px 0px 15px;
 }
 
 #comments_table td {
