@@ -815,6 +815,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 #comment_input {
     width: 98%;
     resize: none;
+    height: 60px;
 }
 
 #comments_table td:first-child {
