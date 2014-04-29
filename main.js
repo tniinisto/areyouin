@@ -428,8 +428,8 @@ function addRow(photourl, name) {
 
     var row = table.insertRow(0);
     row.className = "chatrow";
-    row.innerHTML = "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
-                    "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">Just now...</textarea><textarea class=\"commentArea2\">" + comment + "</textarea></td>";
+    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
+                    "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
 
     //var cell1 = row.insertCell(0);
     //cell1.innerHTML = comment;
