@@ -91,9 +91,9 @@
                                 echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
                             echo "</tr>";
 
-                            //echo "<script>";
-                            //echo "$(\"#area" . $i . "\").elastic();";
-                            //echo "</script>";
+                            echo "<script>";
+                            echo "$(\"#area" . $i . "\").elastic();";
+                            echo "</script>";
 
                             $i++;
                         }
