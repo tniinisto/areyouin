@@ -821,6 +821,10 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     text-align: center;
 }
 
+#comments_table td:nth-child(2) {
+    /*padding: 0px 0px 0px 5px;*/
+}
+
 #comments_table td {
     padding: 8px 0px 0px 0px;
 }
