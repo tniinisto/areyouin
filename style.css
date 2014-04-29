@@ -784,11 +784,11 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 *************************************************************************************/
 .scrollit {
     height:420px;
-    overflow:auto;    
+    overflow:auto;
 }
 
-.commentArea1 {
-    /*resize: none;*/
+.commentArea1 {    
+    resize: none;
     /*height: 15px;*/
     background-color: transparent;
     border: 0;
@@ -796,7 +796,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 .commentArea2 {
-    /*resize: none;*/
+    resize: none;
     width: 98%;
     /*height: 100%;*/
     background-color: transparent;
@@ -819,6 +819,10 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 
 #comments_table td:first-child {
     text-align: center;
+}
+
+#comments_table td {
+    padding: 8px 0px 0px 0px;
 }
 
 /************************************************************************************
