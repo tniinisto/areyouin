@@ -150,58 +150,59 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
-/*chat*/
-.scrollit {
-    height:280px;
-    overflow:auto;    
-}
+    /*chat*/
+    .scrollit {
+        height:280px;
+        overflow:auto;    
+    }
 
-.commentArea1 {
-    resize: none;
-    height: 15px;
-    background-color: transparent;
-    border: 0;
-    color: white;
-    padding: 10px 0 5px 0;
-}
+    .commentArea1 {
+        resize: none;
+        height: 15px;
+        background-color: transparent;
+        border: 0;
+        color: white;
+        padding: 10px 0 5px 0;
+    }
 
-.commentArea2 {
-    resize: none;
-    width: 98%;
-    height: 60px;
-    background-color: transparent;
-    border: 0;
-    color: white;
-}
+    .commentArea2 {
+        resize: none;
+        width: 98%;
+        height: 60px;
+        background-color: transparent;
+        border: 0;
+        color: white;
+    }
 
-.chatrow:nth-of-type(odd) {
-    background-color:rgba(0,0,0,.5);
-}
+    .chatrow:nth-of-type(odd) {
+        background-color:rgba(0,0,0,.5);
+    }
 
-.chatrow:nth-of-type(even) {
-    background-color:#474747;
-}
+    .chatrow:nth-of-type(even) {
+        background-color:#474747;
+    }
 
-#comment_input {
-    width: 98%;
-    resize: none;
-}
+    #comment_input {
+        width: 98%;
+        resize: none;
+        height: 60px;    
+    }
 
-#comments_table {
-    margin: 5px 0 0 0;
-}
+    #comments_table {
+        margin: 5px 0 0 0;
+    }
 
-#comments_table td:first-child {
-    padding: 10px 0px 0px 5px;
-}
+    #comments_table td:first-child {
+        padding: 10px 0px 0px 5px;
+    }
 
-#comments_table td:nth-child(2) {
-    padding: 5px 0px 0px 15px;
-}
+    #comments_table td:nth-child(2) {
+        padding: 5px 0px 0px 15px;
+    }
 
-#comments_table td {
-    padding: 0px 0px 0px 10px;
-}
+    #comments_table td {
+        padding: 0px 0px 0px 10px;
+    }
 
 
 	/*.SSEsupport {
