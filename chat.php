@@ -65,8 +65,7 @@
     <body>
 
         <article id="chat_content_article" class="clearfix">
-            <nav>
-
+            <!--<nav>
                 <ul id="chat-nav" class="clearfix">
                     <li id="chat_link">
                         <a href="#"></a>
@@ -74,7 +73,7 @@
                 </ul>
                 </br>
 
-            </nav>        
+            </nav>-->        
 
             <div class="scrollit">
                 <table id="comments_table" class="atable" border="0">
@@ -88,9 +87,8 @@
                             $published = new DateTime($row['publishTime']);
 
                             echo "<tr class=\"chatrow\">";
-                                //echo "<td width=\"150px\" height=\"50px\"><textarea class=\"commentArea1\"> Tupu &#10 24.4.2014 &#10 20:20 </textarea></td>";
-                                echo "<td width=\"80px\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><br><text style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                echo "<td width=\"500px\" height=\"60px\"><textarea class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</textarea><textarea class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
+                                echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $row['photourl'] . "\"><br><text style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea readonly class=\"commentArea2\">" . $row['comment'] . "</textarea></td>";
                             echo "</tr>";
                             $i++;
                         }
