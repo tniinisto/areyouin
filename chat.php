@@ -92,7 +92,7 @@
                             echo "</tr>";
 
                             echo "<script>";
-                            echo "$(area" . $i . ").elastic();";
+                            echo "$(\"#area" . $i . "\").elastic();";
                             echo "</script>";
 
                             $i++;
