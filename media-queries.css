@@ -191,9 +191,13 @@ screens smaller or equal to 480
     margin: 5px 0 0 0;
 }
 
-/*#comments_table td {
-    padding: 8px 0px 0px 0px;
-}*/
+#comments_table td:first-child {
+    padding: 10px 0px 0px 5px;
+}
+
+#comments_table td {
+    padding: 0px 0px 0px 10px;
+}
 
 
 	/*.SSEsupport {
