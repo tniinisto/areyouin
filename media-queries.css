@@ -152,7 +152,7 @@ screens smaller or equal to 480
     
 /*chat*/
 .scrollit {
-    height:420px;
+    height:280px;
     overflow:auto;    
 }
 
