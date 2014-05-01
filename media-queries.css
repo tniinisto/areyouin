@@ -173,7 +173,7 @@ screens smaller or equal to 480
     .commentArea2 {
         resize: none;
         width: 98%;
-        height: 50px;
+        height: 40px;
         background-color: transparent;
         border: 0;
         color: white;
