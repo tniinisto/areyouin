@@ -152,8 +152,13 @@ screens smaller or equal to 480
     
     /*chat*/
     .scrollit {
-        height:280px;
+        height:200px;
         overflow:auto;    
+    }
+
+    .seenchat {
+        width: 40px;
+        height: 40px;
     }
 
     .commentArea1 {
@@ -168,7 +173,7 @@ screens smaller or equal to 480
     .commentArea2 {
         resize: none;
         width: 98%;
-        height: 60px;
+        height: 50px;
         background-color: transparent;
         border: 0;
         color: white;
@@ -193,7 +198,8 @@ screens smaller or equal to 480
     }
 
     #comments_table td:first-child {
-        padding: 10px 0px 0px 5px;
+        padding: 5px 0px 0px 5px;
+        line-height: 15px;  
     }
 
     #comments_table td:nth-child(2) {
