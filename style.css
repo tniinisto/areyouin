@@ -787,6 +787,15 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     overflow:auto;
 }
 
+.seenchat {
+    width: 50px;
+    height: 50px;
+}
+
+.chatname {
+    
+}
+
 .commentArea1 {    
     resize: none;
     /*height: 15px;*/
@@ -820,6 +829,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 
 #comments_table td:first-child {
     text-align: center;
+    line-height: 15px;    
 }
 
 #comments_table td:nth-child(2) {
@@ -827,7 +837,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 #comments_table td {
-    padding: 8px 0px 0px 0px;
+    padding: 4px 0px 0px 0px;
 }
 
 /************************************************************************************
