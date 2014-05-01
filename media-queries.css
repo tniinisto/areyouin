@@ -152,7 +152,7 @@ screens smaller or equal to 480
     
     /*chat*/
     .scrollit {
-        height:170px;
+        height:180px;
         overflow:auto;    
     }
 
@@ -190,7 +190,7 @@ screens smaller or equal to 480
     #comment_input {
         width: 98%;
         resize: none;
-        height: 60px;    
+        height: 40px;    
     }
 
     #comments_table {
