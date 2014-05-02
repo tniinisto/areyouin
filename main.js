@@ -431,6 +431,10 @@ function addRow(photourl, name) {
     row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
                     "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
 
+
+    //Clear input
+    document.getElementById("comment_input").value = "";
+
     //var cell1 = row.insertCell(0);
     //cell1.innerHTML = comment;
 }
