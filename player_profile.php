@@ -100,8 +100,6 @@
                 //echo "<div id=\"output\"  class=\"nomobile\">";
                 echo "<div class=\"nomobile\">";
                     echo "</br>";
-                    echo "</br>";
-                    echo "</br>";
 
                     //FORM/////////////////////////////////////////
                     echo "<h4>Upload new photo (Max size 2MB)</h4>";
