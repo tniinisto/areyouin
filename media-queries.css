@@ -145,6 +145,7 @@ screens smaller or equal to 750
 	}*/
 	
 	#loginbutton {
+        width: 200px;
 		/*position: absolute;
 		left: 20px;*/
 	}	
