@@ -432,6 +432,7 @@ function addRow(photourl, name) {
                     "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
 }
 
+//Clear chat input
 function clearComment() {
     document.getElementById("comment_input").value = "";
 }
