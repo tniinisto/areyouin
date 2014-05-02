@@ -229,7 +229,11 @@ select {
 }
 
 #loginbutton {
+<<<<<<< HEAD
     width:200px;
+=======
+    width: 200px;
+>>>>>>> origin/v2.0
     /*position: absolute;
 	left: 0px;
 	width: 100px;*/
