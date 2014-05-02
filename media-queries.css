@@ -150,6 +150,18 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    #site-logo {
+        display: none;
+    }
+    
+    #userlogin {
+        display: none;
+    }
+
+    #main-nav {
+        margin-top: 10px;
+    }
+
     /*chat*/
     .scrollit {
         height:180px;
