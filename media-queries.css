@@ -143,13 +143,7 @@ screens smaller or equal to 750
 		position: absolute;
 		width: 150px;
 	}*/
-	
-	#loginbutton {
-        width: 200px;
-		/*position: absolute;
-		left: 20px;*/
-	}	
-	
+		
 	/* main nav */
 	#main-nav {
 		position: static;
@@ -389,11 +383,6 @@ screens smaller or equal to 480
 
 	#login, #password {
 		width: 100px;
-	}
-
-	#loginbutton {
-		/*position: absolute;
-		left: 10px;*/
 	}
 	
 	/*#teamradio {
