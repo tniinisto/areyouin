@@ -288,10 +288,16 @@
 
         //Chat functionality, clear the comment input field after comment in database.
         $('#chatform').submit(function (e) {
-            //alert("come on...");
+            alert("come on...1");
             e.preventDefault(); // don't submit multiple times
             this.submit(); // use the native submit method of the form element
-            //$('#comment_input').val(''); // blank the input
+            $('#comment_input').val(''); // blank the input
+        });
+
+         $("#chatform").bind('complete', function() {
+             // tasks to do
+             alert("come on...2");
+             $('#comment_input').val(''); // blank the input
         });
 
     });
