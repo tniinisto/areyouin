@@ -53,6 +53,11 @@
         $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $_POST['comment_input'] . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
         //ChromePhp::log('Update: ' . $sql3);
         $result3 = mysql_query($sql3);
+
+        //echo '<script type="text/javascript">';
+        //    echo 'clearComment();';
+        //echo '</script>';
+
     }
 ?>
 
@@ -109,7 +114,8 @@
                 //$date->modify("-1 hour");
                 //echo "<h4>PHP Comment: " .  $row['comment'] . " :: " . $date->format("Y-n-j H:i:s") . " </h4>";
 
-                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
+                //echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"". $_SERVER[PHP_SELF] ."\" target=\"frame_chat\">";
+                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" action=\"insertComment.php\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\">Comment: </label>";
                     echo "</br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
@@ -122,6 +128,21 @@
         </article>
 
         <iframe name="frame_chat" style="display: none;"></iframe>
-                
+
+
+        <script type="text/javascript">
+            //Clear chat input
+            //function clearComment() {
+            //    alert("jepa");
+            //    //document.getElementById("comment_input").value = "";
+            //}
+
+            //$('#chatform').submit(function (e) {
+            //    alert("come on...");
+            //    e.preventDefault(); // don't submit multiple times
+            //    this.submit(); // use the native submit method of the form element
+            //    $('#comment_input').val(''); // blank the input
+            //});
+        </script>                
     </body>
 </html>

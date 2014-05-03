@@ -46,6 +46,10 @@ screens smaller or equal to 980
 screens smaller or equal to 750
 *************************************************************************************/
 @media screen and (max-width: 750px) {
+    #footer {
+        display: none;
+    }
+
     #site-logo {
         display: none;
     }
@@ -218,6 +222,10 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    #footer {
+        display: none;
+    }
+
     #site-logo {
         display: none;
     }
