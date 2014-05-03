@@ -433,6 +433,6 @@ function addRow(photourl, name) {
 }
 
 //Clear chat input
-function clearComment() {
-    document.getElementById("comment_input").value = "";
-}
+//function clearComment() {
+//    document.getElementById("comment_input").value = "";
+//}
