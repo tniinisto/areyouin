@@ -21,7 +21,7 @@
 
 <!--JQuery -->
 <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 
 <!-- html5.js for IE less than 9 -->
@@ -285,6 +285,14 @@
             var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
             return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
         }
+
+        $('#chatform').submit(function (e) {
+            //alert("come on...");
+            e.preventDefault(); // don't submit multiple times
+            this.submit(); // use the native submit method of the form element
+            $('#comment_input').val(''); // blank the input
+        });
+
     });
 
 

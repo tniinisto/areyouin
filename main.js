@@ -396,26 +396,26 @@ function getChat() {
 	xmlhttp.send();
 }
 
-//Update comments
-//function updateComments() {
-//    alert("updateComments");
-//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-//		xmlhttp = new XMLHttpRequest();
-//	}
-//	else {// code for IE6, IE5
-//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//	}
+//Insert comment
+function insertComment() {
+    alert("insertComment");
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 
-//	xmlhttp.onreadystatechange = function () {
-//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//			document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-//		}
-//	}
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
+		}
+	}
 
-//	xmlhttp.open("GET", "updateComments.php", false);
+	xmlhttp.open("GET", "insertComment.php", false);
 
-//	xmlhttp.send();
-//}
+	xmlhttp.send();
+}
 
 //Chat dynamic
 function addRow(photourl, name) {
