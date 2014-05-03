@@ -397,8 +397,8 @@ function getChat() {
 }
 
 //Insert comment
-function insertComment() {
-    alert("insertComment");
+function insertComment(comment) {
+    //alert("insertComment");
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -412,7 +412,12 @@ function insertComment() {
 		}
 	}
 
-	xmlhttp.open("GET", "insertComment.php", false);
+
+	var variables = "comment=" + comment;
+	//alert(variables);
+	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
+
+	xmlhttp.open("GET", "insertComment.php?" + variables, false);
 
 	xmlhttp.send();
 }
@@ -430,6 +435,9 @@ function addRow(photourl, name) {
     row.className = "chatrow";
     row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
                     "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
+
+    insertComment(comment);
+    document.getElementById("comment_input").value = "";
 }
 
 //Clear chat input
