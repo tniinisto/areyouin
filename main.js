@@ -438,6 +438,8 @@ function addRow(photourl, name) {
 
     insertComment(comment);
     document.getElementById("comment_input").value = "";
+
+    $("#chatdiv").scrollTop(0);
 }
 
 //Clear chat input
