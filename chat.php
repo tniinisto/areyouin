@@ -80,7 +80,7 @@
 
             </nav>-->        
 
-            <div class="scrollit">
+            <div id="chatdiv" class="scrollit">
                 <table id="comments_table" class="atable" border="0">
                     <?php
                         
