@@ -123,6 +123,9 @@ screens smaller or equal to 750
         padding: 0px 0px 0px 10px;
     }
 
+    #chat_content_article {
+    	padding: 5px 10px 30px;
+    }
 
 	/* header */
 	#header {
