@@ -127,7 +127,8 @@
             $index++;
         }
 
-        $sql2="SELECT p.playerID, p.name, p.photourl FROM players p, team t WHERE t.teamID = '" . $teamid . "'";
+        //$sql2="SELECT p.playerID, p.name, p.photourl FROM players p, team t WHERE t.teamID = '" . $teamid . "'";
+        $sql2 = "SELECT distinct p.playerID, p.name, p.photourl FROM playerteam pt, players p WHERE pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
         $result2 = mysql_query($sql2);
         $row_count = mysql_num_rows($result2);
