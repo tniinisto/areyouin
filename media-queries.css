@@ -392,8 +392,12 @@ screens smaller or equal to 480
 		width: 150px;
 	}
 
-	#login, #password, #loginbutton  {
+	#login, #password {
 		width: 100px;
+	}
+
+	#loginbutton  {
+		width: 150px;
 	}
 	
 	/*#teamradio {
