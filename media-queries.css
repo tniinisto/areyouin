@@ -142,7 +142,7 @@ screens smaller or equal to 750
 		width: 150px;*/
 	}
 
-	#login, #password {
+	#login, #password, #loginbutton  {
 		width: 150px;
 	}
 	
@@ -392,7 +392,7 @@ screens smaller or equal to 480
 		width: 150px;
 	}
 
-	#login, #password {
+	#login, #password, #loginbutton  {
 		width: 100px;
 	}
 	
