@@ -167,7 +167,8 @@ screens smaller or equal to 750
       display:block;
       margin-bottom:15px;
       margin-top:5px;
-
+    }
+		
 	/* main nav */
 	#main-nav {
 		position: static;
@@ -469,7 +470,8 @@ screens smaller or equal to 480
         position: relative;
         left: -14px;
         /*top: 4px;*/
-        z-index: 1;        margin-top: -70%;        
+        z-index: 1;
+        margin-top: -70%;        
     }
 
 th.col31 {
