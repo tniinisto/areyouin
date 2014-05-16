@@ -167,22 +167,7 @@ screens smaller or equal to 750
       display:block;
       margin-bottom:15px;
       margin-top:5px;
-<<<<<<< HEAD
-    }*/
 
-	/*#login, #password, #loginbutton  {
-		width: 150px;
-	}*/
-	
-	/*#teamradio {
-		position: absolute;
-		width: 150px;
-	}*/
-
-=======
-    }
-		
->>>>>>> origin/v2.0
 	/* main nav */
 	#main-nav {
 		position: static;
