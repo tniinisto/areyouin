@@ -142,13 +142,33 @@ screens smaller or equal to 750
 		width: 200px;
 	}
 
-    /*#loginform input {
+	#loginsite-logo {
+        height: 20px;
+        width: 195px;
+        margin-left:auto;
+        margin-right:auto;
+	}
+	
+	/* login form */
+	#loginform {
+		/*position: absolute;
+        margin-left:auto;
+        margin-right:auto;         
+		top: 70px;
+		left: 40px;
+		z-index: 100;*/
+		height: 10px;
+		width: 200px;
+	}
+
+    #loginform input {
       font-size:20px;
-      width:200px;
-      min-height:20px;
+      width:150px;
+      min-height:30px;
       display:block;
       margin-bottom:15px;
       margin-top:5px;
+<<<<<<< HEAD
     }*/
 
 	/*#login, #password, #loginbutton  {
@@ -160,6 +180,10 @@ screens smaller or equal to 750
 		width: 150px;
 	}*/
 
+=======
+    }
+		
+>>>>>>> origin/v2.0
 	/* main nav */
 	#main-nav {
 		position: static;

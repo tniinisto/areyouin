@@ -151,7 +151,7 @@ HEADER
     margin-left:auto;
     margin-right:auto;
     width: 310px;
-    height: 80px;
+    height: 75px;
 }
 
 #loginsite-logo a {
@@ -184,7 +184,7 @@ HEADER
 #loginform input {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border:1px solid #ccc;
-    font-size:20px;
+    font-size:22px;
     width:200px;
     min-height:30px;
     display:block;
@@ -194,6 +194,7 @@ HEADER
     /*text-align: center;*/
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
