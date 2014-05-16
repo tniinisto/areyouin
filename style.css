@@ -136,6 +136,7 @@ HEADER
     /*margin-left:auto;
     margin-right:auto;*/      
 }
+
 #site-logo a {
 	font: bold 30px/100% Arial, Helvetica, sans-serif;
 	color: #fff;
@@ -181,24 +182,24 @@ HEADER
 }
 
 #loginform input {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border:1px solid #ccc;
-  font-size:20px;
-  width:200px;
-  min-height:30px;
-  display:block;
-  margin-bottom:15px;
-  margin-top:5px;
-  outline: none;
-  /*text-align: center;*/
-  margin-left: auto;
-  margin-right: auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:1px solid #ccc;
+    font-size:20px;
+    width:200px;
+    min-height:30px;
+    display:block;
+    margin-bottom:15px;
+    margin-top:5px;
+    outline: none;
+    /*text-align: center;*/
+    margin-left: auto;
+    margin-right: auto;
 
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  -o-border-radius:5px;
-  -ms-border-radius:5px;
-  border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -o-border-radius:5px;
+    -ms-border-radius:5px;
+    border-radius:5px;
 }
 
 select {
