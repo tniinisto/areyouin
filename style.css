@@ -119,28 +119,45 @@ HEADER
 	height: 120px;
 }
 
+#header_login {
+	height: 60px;
+}
+
+#loginwrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
 /* site logo */
 #site-logo {
 	/*position: absolute;
 	top: 10px;*/
 	color: white;
-    margin-left:auto;
-    margin-right:auto;      
+    /*margin-left:auto;
+    margin-right:auto;*/      
 }
 #site-logo a {
 	font: bold 30px/100% Arial, Helvetica, sans-serif;
 	color: #fff;
 	text-decoration: none;
-        margin-left:auto;
-    margin-right:auto;      
-
+    /*margin-left:auto;
+    margin-right:auto;*/      
 }
 
-#loginsite-logo a{
+#loginsite-logo {
 	color: #fff;
 	text-decoration: none;
     margin-left:auto;
-    margin-right:auto;    	
+    margin-right:auto;
+    width: 310px;
+    height: 80px;
+}
+
+#loginsite-logo a {
+	color: #fff;
+	text-decoration: none;
+    margin-left:auto;
+    margin-right:auto; 
 }
 
 /* site description */
@@ -153,14 +170,14 @@ HEADER
 
 /* loginform */
 #loginform {
-	position: absolute;
+	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
     margin-left:auto;
     margin-right:auto;      
-	z-index: 100;
-	width: 200px;
-    
+	/*z-index: 100;*/
+	width: 310px;
+    text-align: center;
 }
 
 #loginform input {
@@ -173,7 +190,9 @@ HEADER
   margin-bottom:15px;
   margin-top:5px;
   outline: none;
-  text-align: center;
+  /*text-align: center;*/
+  margin-left: auto;
+  margin-right: auto;
 
   -webkit-border-radius:5px;
   -moz-border-radius:5px;
