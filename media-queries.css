@@ -137,13 +137,12 @@ screens smaller or equal to 750
         margin: 0 auto;
     }
 
-	#loginform {
-		/*height: 10px;*/
-		width: 200px;
+	#loginsite-logo font {
+		font-size: 30px;
 	}
 
 	#loginsite-logo {
-        height: 20px;
+        height: 60px;
         width: 195px;
         margin-left:auto;
         margin-right:auto;
@@ -151,7 +150,7 @@ screens smaller or equal to 750
 	
 	/* login form */
 	#loginform {
-		/*position: absolute;
+		/*position: absolute
         margin-left:auto;
         margin-right:auto;         
 		top: 70px;
