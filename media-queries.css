@@ -132,19 +132,28 @@ screens smaller or equal to 750
 		height: auto;
 	}
 
-	/* login form */
+    #loginwrapper {
+        width: 75%;
+        margin: 0 auto;
+    }
+
 	#loginform {
-		/*position: absolute;
-		top: 100px;
-		left: 100px;
-		z-index: 100;
-		height: 10px;
-		width: 150px;*/
+		/*height: 10px;*/
+		width: 200px;
 	}
 
-	#login, #password, #loginbutton  {
+    /*#loginform input {
+      font-size:20px;
+      width:200px;
+      min-height:20px;
+      display:block;
+      margin-bottom:15px;
+      margin-top:5px;
+    }*/
+
+	/*#login, #password, #loginbutton  {
 		width: 150px;
-	}
+	}*/
 	
 	/*#teamradio {
 		position: absolute;
@@ -395,7 +404,7 @@ screens smaller or equal to 480
 
     #loginform input {
       font-size:20px;
-      width:200px;
+      width:150px;
       min-height:30px;
       display:block;
       margin-bottom:15px;
