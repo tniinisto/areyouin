@@ -475,7 +475,8 @@ screens smaller or equal to 480
         position: relative;
         left: -14px;
         /*top: 4px;*/
-        z-index: 1;        margin-top: -70%;        
+        z-index: 1;
+        margin-top: -70%;        
     }
 
 th.col31 {
