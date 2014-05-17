@@ -56,7 +56,7 @@ screens smaller or equal to 750
     
     #userlogin {
         /*display: none;*/
-        padding-top: 5px;
+        padding-top: 10px;
     }
 
     #main-nav {
@@ -257,7 +257,7 @@ screens smaller or equal to 480
     
     #userlogin {
         /*display: none;*/
-        padding-top: 5px;                
+        padding-top: 10px;                
     }
 
     #main-nav {
