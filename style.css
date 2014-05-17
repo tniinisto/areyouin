@@ -9,7 +9,7 @@ strong, sub, sup, tt, var, legend, fieldset {
 	padding: 0;
 }
 
-img, fieldset {
+img {
 	border: 0;
 }
 
@@ -152,6 +152,7 @@ HEADER
     margin-right:auto;
     width: 310px;
     height: 75px;
+    text-align: center;
 }
 
 #loginsite-logo a {
@@ -246,9 +247,17 @@ select {
 	width: 150px;
 }
 
-#teamradio {
+/*#teamradio {
 	position: absolute;
 	width: 150px;
+}*/
+
+#loginfs {
+    display: normal;
+    border: 1px solid;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:18px;
 }
 
 /************************************************************************************

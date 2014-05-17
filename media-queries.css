@@ -55,7 +55,8 @@ screens smaller or equal to 750
     }
     
     #userlogin {
-        display: none;
+        /*display: none;*/
+        padding-top: 5px;
     }
 
     #main-nav {
@@ -143,10 +144,11 @@ screens smaller or equal to 750
 	}
 
 	#loginsite-logo {
-        height: 60px;
+        height: 40px;
         width: 195px;
         margin-left:auto;
         margin-right:auto;
+        margin-top: 5px;
 	}
 	
 	/* login form */
@@ -164,7 +166,7 @@ screens smaller or equal to 750
     #loginform input {
       font-size:20px;
       width:150px;
-      min-height:30px;
+      min-height:20px;
       display:block;
       margin-bottom:15px;
       margin-top:5px;
@@ -253,7 +255,8 @@ screens smaller or equal to 480
     }
     
     #userlogin {
-        display: none;
+        /*display: none;*/
+        padding-top: 5px;                
     }
 
     #main-nav {
@@ -389,7 +392,7 @@ screens smaller or equal to 480
 		padding: 10px 8px;
 	}
 	
-	#loginsite-logo font {
+	/*#loginsite-logo font {
 		font-size: 30px;
 	}
 	
@@ -398,7 +401,7 @@ screens smaller or equal to 480
         width: 195px;
         margin-left:auto;
         margin-right:auto;
-	}
+	}*/
 	
 	/* login form */
 	#loginform {
@@ -415,7 +418,7 @@ screens smaller or equal to 480
     #loginform input {
       font-size:20px;
       width:150px;
-      min-height:30px;
+      min-height:20px;
       display:block;
       margin-bottom:15px;
       margin-top:5px;
