@@ -253,6 +253,10 @@ screens smaller or equal to 480
     #site-logo {
         display: none;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/v2.0
     
     #userlogin {
         /*display: none;*/
@@ -514,6 +518,7 @@ th.col51 {
 
 
 }
+<<<<<<< HEAD
 =======
 /************************************************************************************
 screens smaller or equal to 980
@@ -1032,3 +1037,5 @@ th.col51 {
 
 }
 
+=======
+>>>>>>> origin/v2.0
