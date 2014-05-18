@@ -116,9 +116,7 @@
                     echo "</div>";
                 echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
-
                 //echo "<div id=\"output\"></div>";
-
             echo "</div>";
         }
 
