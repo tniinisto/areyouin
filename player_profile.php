@@ -99,7 +99,7 @@
                 
                 //echo "<div id=\"output\"  class=\"nomobile\">";
                 echo "<div class=\"nomobile\">";
-                    echo "</br>";
+                    //echo "</br>";
 
                     //FORM/////////////////////////////////////////
                     echo "<h4>Upload new photo (Max size 2MB)</h4>";
@@ -109,16 +109,14 @@
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\" />";
                     echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
-                    echo "</br>";
+                    //echo "</br>";
                     echo "<div id=\"progressbox\">";
                         echo "<div id=\"progressbar\"></div >";
                         echo "<div id=\"statustxt\">0%</div>";
                     echo "</div>";
                 echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
-
                 //echo "<div id=\"output\"></div>";
-
             echo "</div>";
         }
 
