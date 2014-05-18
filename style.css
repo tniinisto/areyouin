@@ -153,6 +153,7 @@ HEADER
     width: 310px;
     height: 75px;
     text-align: center;
+    font-size: 50px;    
 }
 
 #loginsite-logo a {
