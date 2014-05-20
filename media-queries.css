@@ -67,7 +67,8 @@ screens smaller or equal to 750
    /*chat*/
     .scrollit {
         height: 200px;
-        /*overflow: scroll;*/    
+        overflow: scroll;
+        webkit-overflow-scrolling: touch;
     }
 
     .seenchat {
@@ -266,10 +267,11 @@ screens smaller or equal to 480
     }
 
     /*chat*/
-    /*.scrollit {
+    .scrollit {
         height: 200px;
-        overflow: auto;    
-    }*/
+        overflow: scroll;
+        webkit-overflow-scrolling: touch;    
+    }
 
     .seenchat {
         width: 40px;
