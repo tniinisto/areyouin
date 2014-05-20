@@ -136,6 +136,55 @@
                 echo "</div>";
                 //New game///////////////////////////////////////////////////////////////////////////
 
+
+                //Team page///////////////////////////////////////////////////////////////////////////
+                echo "<div id=\"#team_content_id\">";
+                    
+                    echo "<h1>Testing team info</h1>";
+
+
+                    echo "<div id=\"testdiv\" class=\"scrollit\"\">";
+                      
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+
+                    echo "</div>";
+
+                echo "</div>";
+                //New game///////////////////////////////////////////////////////////////////////////
+
+
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
