@@ -855,6 +855,10 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     height: 60px;
 }
 
+#comments_table {
+    display: inline-table;
+}
+
 #comments_table td:first-child {
     text-align: center;
     line-height: 15px;    
