@@ -143,46 +143,69 @@
                     echo "<h1>Testing team info</h1>";
 
 
-                    echo "<div id=\"testdiv\" class=\"scrollit\"\">";
+                    echo "<div id=\"testdiv\" class=\"scrollit\">";
                       
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
                         echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
-                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
-                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
-                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
-                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
-                        echo "<a href=\"\" style=\"display: inline;\">item 2</a>";
+                        echo "</br>";
 
                     echo "</div>";
 
                 echo "</div>";
-                //New game///////////////////////////////////////////////////////////////////////////
+                //Team page///////////////////////////////////////////////////////////////////////////
 
 
             echo "</article>";
