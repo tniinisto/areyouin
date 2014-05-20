@@ -110,7 +110,7 @@ screens smaller or equal to 750
 
     #comments_table {
         margin: 5px 0 0 0;
-        display: inline-table;
+        /*display: inline-table;*/
     }
 
     #comments_table td:first-child {
