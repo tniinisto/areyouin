@@ -812,6 +812,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 .scrollit {
     height:420px;
     overflow:auto;
+    webkit-overflow-scrolling: touch;
 }
 
 .seenchat {
