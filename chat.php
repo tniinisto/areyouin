@@ -81,6 +81,7 @@
             </nav>-->        
 
             <div id="chatdiv" class="scrollit">
+                <p style="display:none;">Just to enable webkit-overflow-scrolling: touch</p>
                 <table id="comments_table" class="atable" border="0">
                     <?php
                         
