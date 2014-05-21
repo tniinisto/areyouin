@@ -144,7 +144,7 @@
 
 
                     //echo "<div id=\"testdiv\" class=\"scrollit\">";
-                    echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
+                    echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
                       
                         echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
                         echo "</br>";
