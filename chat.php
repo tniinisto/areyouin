@@ -82,7 +82,7 @@
 
             <div id="chatdiv" class="scrollit" style="webkit-overflow-scrolling: touch;">
                 <!--<p style="display:none;">Just to enable webkit-overflow-scrolling: touch</p>-->
-                <table id="comments_table" class="atable" border="0" style="display: inline;">
+                <table id="comments_table" class="atable" border="0" style="display: inline-table;">
                     <?php
                         
                     $limit=30;
