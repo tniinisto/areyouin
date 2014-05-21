@@ -143,7 +143,8 @@
                     echo "<h1>Testing team info</h1>";
 
 
-                    echo "<div id=\"testdiv\" class=\"scrollit\">";
+                    //echo "<div id=\"testdiv\" class=\"scrollit\">";
+                    echo "<div id=\"testdiv\" style=\"height: 200px; overflow-y: scroll;\">";
                       
                         echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
                         echo "</br>";
