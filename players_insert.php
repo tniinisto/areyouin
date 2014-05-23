@@ -138,7 +138,7 @@
 
 
                 //Team page///////////////////////////////////////////////////////////////////////////
-                echo "<div id=\"#team_content_id\">";
+                echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
                     echo "<h1>Testing team info</h1>";
 
