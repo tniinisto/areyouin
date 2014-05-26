@@ -230,6 +230,17 @@
 	
 	mysql_close($con);
 
+    //Display no event scheduled info if there are no games
+    if($event_check == 0) {
+        echo "<article id=\"event_article_id\" class=\"clearfix\">";
+            echo "<div>";
+
+                echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+
+            echo "</div>";
+        echo "</article>";
+
+    }
 
     //Returns the minParticipants count for the event (Depends on the sport)
     function minParticipantsCount($ev) {
