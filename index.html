@@ -17,7 +17,6 @@
 
 <!-- Scripts -->
 <script type="text/javascript" src="main.js"> </script>
-<script type="text/javascript" src="js/jquery.elastic.source.js"> </script>
 
 <!--JQuery -->
 <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
@@ -147,6 +146,13 @@
 
         //SSE init
         setSSE();
+
+        //Session refresh
+        setInterval(
+            function(){
+                $.post('refresh_session.php');
+            },600000
+        ); //refreshes the session every 10 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
