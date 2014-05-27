@@ -257,7 +257,7 @@ function setSSE()
 		    getEvents();
 
 		    //Update chat
-		    getChat();
+		    //getChat();
 
 		}, false);
 		
@@ -407,9 +407,10 @@ function insertComment(comment) {
 	}
 
 	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			//document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-		}
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
+	        getChat();
+	    }
 	}
 
 
