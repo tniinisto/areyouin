@@ -147,14 +147,14 @@
         //SSE init
         setSSE();
 
-        //Session refresh
-        setInterval(
-            function () {
-                //$.post("ping.html");
-                $.get("ping.html");
-                //alert("still alive triggered");
-            }, 540000
-        ); //refreshes the session every 9 minutes
+        //Session refresh, NOT ALLOWED
+        //setInterval(
+        //    function () {
+        //        //$.post("ping.html");
+        //        $.get("ping.html");
+        //        //alert("still alive triggered");
+        //    }, 540000
+        //); //refreshes the session every 9 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
