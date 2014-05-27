@@ -150,10 +150,10 @@
         //Session refresh
         setInterval(
             function () {
-                //$.post('refresh_session.php');
-                $.post("ping.html");
+                //$.post("ping.html");
+                $.get("ping.html");
                 //alert("still alive triggered");
-            }, 540000
+            }, 40000
         ); //refreshes the session every 9 minutes
 
         //Main navigation///////////////////////////////////////
