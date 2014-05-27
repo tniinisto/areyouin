@@ -245,20 +245,20 @@ function setSSE()
 	if(typeof(EventSource)!=="undefined")
 	{
 		var source=new EventSource("events_sse.php");
-		
-		source.addEventListener("ayi", function(event) {
-			var data = event.data;
-			//var origin = event.origin;
-			//var lastEventId = event.lastEventId;
-            			
-			// handle message
-			//console.log("AYI:" + event.data);
-			//getEvents(gup('t'), gup('p'));
-            getEvents();
 
-            //Update chat
-            //getChat();
-            					
+		source.addEventListener("ayi", function (event) {
+		    var data = event.data;
+		    //var origin = event.origin;
+		    //var lastEventId = event.lastEventId;
+
+		    // handle message
+		    //console.log("AYI:" + event.data);
+		    //getEvents(gup('t'), gup('p'));
+		    getEvents();
+
+		    //Update chat
+		    getChat();
+
 		}, false);
 		
 		/*source.onmessage=function(event)
