@@ -25,9 +25,11 @@
 
     if(isset($_POST['sendbutton'])) {
        sendComment($playerid, $teamid);
+       mysql_close($con);
     } 
     else {
         getComments($teamid);
+        mysql_close($con);
     }
 
 
