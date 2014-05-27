@@ -257,7 +257,7 @@ function setSSE()
             getEvents();
 
             //Update chat
-            //getChat();
+            getChat();
             					
 		}, false);
 		
