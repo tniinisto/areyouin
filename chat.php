@@ -84,7 +84,6 @@
                 <!--<p style="display:none;">Just to enable webkit-overflow-scrolling: touch</p>-->
                 <table id="comments_table" class="atable" border="0" style="display: inline-table;">
                     <?php
-                    echo "<div id=\"chat_content_id\">";
                         $limit=30;
                         $i=0;
 
@@ -104,7 +103,6 @@
                             }
 
                         }
-                    echo "</div>";
                     ?>
                 </table>
             </div>
