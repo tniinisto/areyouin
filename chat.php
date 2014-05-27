@@ -84,26 +84,27 @@
                 <!--<p style="display:none;">Just to enable webkit-overflow-scrolling: touch</p>-->
                 <table id="comments_table" class="atable" border="0" style="display: inline-table;">
                     <?php
-                        
-                    $limit=30;
-                    $i=0;
+                    echo "<div id=\"chat_content_id\">";
+                        $limit=30;
+                        $i=0;
 
-                    while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
-                        if($i < $limit) {                        
-                            $published = new DateTime($row['publishTime']);
+                        while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
+                            if($i < $limit) {                        
+                                $published = new DateTime($row['publishTime']);
 
-                            echo "<tr class=\"chatrow\">";
-                                echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-                            echo "</tr>";
+                                echo "<tr class=\"chatrow\">";
+                                    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+                                echo "</tr>";
 
-                            $i++;
+                                $i++;
+                            }
+                            else {
+                                break;
+                            }
+
                         }
-                        else {
-                            break;
-                        }
-
-                    }
+                    echo "</div>";
                     ?>
                 </table>
             </div>
