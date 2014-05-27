@@ -149,10 +149,12 @@
 
         //Session refresh
         setInterval(
-            function(){
-                $.post('refresh_session.php');
-            },600000
-        ); //refreshes the session every 10 minutes
+            function () {
+                //$.post('refresh_session.php');
+                $.post("ping.html");
+                //alert("still alive triggered");
+            }, 540000
+        ); //refreshes the session every 9 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
