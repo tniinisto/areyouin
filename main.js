@@ -250,14 +250,14 @@ function setSSE()
 			var data = event.data;
 			//var origin = event.origin;
 			//var lastEventId = event.lastEventId;
-
-            //Update chat
-            getChat();
             			
 			// handle message
 			//console.log("AYI:" + event.data);
 			//getEvents(gup('t'), gup('p'));
-            getEvents();          
+            getEvents();
+
+            //Update chat
+            //getChat();
             					
 		}, false);
 		
