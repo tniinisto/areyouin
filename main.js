@@ -252,7 +252,7 @@ function setSSE()
 		    //var lastEventId = event.lastEventId;
 
 		    //Update chat
-		    getChat();
+		    //getChat();
 
 		    // handle message
 		    //console.log("AYI:" + event.data);
@@ -409,7 +409,7 @@ function insertComment(comment) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-	        //getChat();
+	        getChat();
 	    }
 	}
 
@@ -430,12 +430,12 @@ function addRow(photourl, name) {
 
     //alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
 
-    var table = document.getElementById("comments_table");
+    //var table = document.getElementById("comments_table");
 
-    var row = table.insertRow(0);
-    row.className = "chatrow";
-    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
-                    "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
+    //var row = table.insertRow(0);
+    //row.className = "chatrow";
+    //row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
+    //                "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
 
     insertComment(comment);
     document.getElementById("comment_input").value = "";
