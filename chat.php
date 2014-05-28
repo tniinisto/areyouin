@@ -23,14 +23,15 @@
 	$result5 = mysql_query($sql5);
     $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
-    if(isset($_POST['sendbutton'])) {
-       //sendComment($playerid, $teamid);
-       //mysql_close($con);
-    } 
-    else {
-        getComments($teamid);
-    }
+    //if(isset($_POST['sendbutton'])) {
+    //   sendComment($playerid, $teamid);
+    //   mysql_close($con);
+    //} 
+    //else {
+    //    getComments($teamid);
+    //}
 
+    getComments($teamid);
 
     function getComments($p_teamid) {                                
         //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
