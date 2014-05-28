@@ -252,7 +252,7 @@ function setSSE()
 		    //var lastEventId = event.lastEventId;
 
 		    //Update chat
-		    getChat();
+		    //getChat();
 
 		    // handle message
 		    //console.log("AYI:" + event.data);
