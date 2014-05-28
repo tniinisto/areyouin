@@ -147,14 +147,12 @@
         //SSE init
         setSSE();
 
-        //Session refresh, NOT ALLOWED
-        //setInterval(
-        //    function () {
-        //        //$.post("ping.html");
-        //        $.get("ping.html");
-        //        //alert("still alive triggered");
-        //    }, 540000
-        //); //refreshes the session every 9 minutes
+        //Chat update
+        setInterval(
+            function () {
+                getChat();
+            }, 180000
+        ); //refreshes every 3 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
