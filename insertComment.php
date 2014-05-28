@@ -27,15 +27,6 @@
     //ChromePhp::log('Update: ' . $sql3);
     $result3 = mysql_query($sql3);
 
+    mysql_close($con);  
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body>
-        
-    </body>
-</html>
