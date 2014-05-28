@@ -24,12 +24,11 @@
     $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
     if(isset($_POST['sendbutton'])) {
-       sendComment($playerid, $teamid);
-       mysql_close($con);
+       //sendComment($playerid, $teamid);
+       //mysql_close($con);
     } 
     else {
         getComments($teamid);
-        mysql_close($con);
     }
 
 
@@ -59,7 +58,6 @@
         //echo '<script type="text/javascript">';
         //    echo 'clearComment();';
         //echo '</script>';
-
     }
 ?>
 
@@ -105,6 +103,8 @@
                             }
 
                         }
+
+                        mysql_close($con);
                     ?>
                 </table>
             </div>
