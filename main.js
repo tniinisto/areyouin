@@ -321,7 +321,12 @@ function game_start() {
     //alert(start.value);
 
     //Create date object & add 2 hours
-    var dt = start.value.split(" "); //Split date&time
+    var dt; //Check chrome, iphone & firefox date differences
+    if(start.value.indexOf("T")){
+        dt = start.value.split("T"); //Split date&time        
+    }
+    else {        dt = start.value.split(" "); //Split date&time            }
+
     var d = dt[0].split("-"); //Spilit year, month, day
     var t = dt[1].split(":"); //Split hour,minute
     var datetime = new Date(d[0], d[1] - 1, d[2], t[0], t[1], 0); //Create date object
