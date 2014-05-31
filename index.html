@@ -145,7 +145,7 @@
         getChat();
 
         //SSE init
-        setSSE();
+        //setSSE();
 
         //Chat update
         setInterval(
@@ -153,6 +153,13 @@
                 getChat();
             }, 180000
         ); //refreshes every 3 minutes
+
+        //Events update
+        setInterval(
+            function () {
+                getEvents();                
+            }, 240000
+        ); //refreshes every 4 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
