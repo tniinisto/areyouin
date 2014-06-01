@@ -104,7 +104,7 @@
             //Event location information
             echo "<table class=\"atable\">";			    
             	echo "<tr>";
-					echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row[pos] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
+					echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
 				echo "</tr>";
 			echo "</table>";
 			
@@ -136,7 +136,8 @@
 		            //echo "<th>";
                         echo "<tr class=\"row_player\">";				
 				        echo "<th class=\"col11\">" . $row3['eventplayerid'] . "</th>";
-				        echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
+				        //echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
+                        echo "<th class=\"col21\">" . $playerid . "</th>";
 				        if($row3['seen'] == 1)
 					        echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
 				        else

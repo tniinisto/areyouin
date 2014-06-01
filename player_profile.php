@@ -85,7 +85,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row[playerID], $row[name], $row[photourl]);
+            $player = new Player($row['playerID'], $row['name'], $row['photourl']);
 
 
             echo "<div id=\"profile_profile_content_id\">";

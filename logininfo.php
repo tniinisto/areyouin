@@ -26,7 +26,7 @@
     //echo $sql;
 	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . "<font color=\"#0d1424\">#" . $row[teamAdmin] . "</font><a href='http://localhost:18502/' onclick=\"logout.php\">logout</a>";
 	//echo "<font color=\"#ccc\">Welcome: </font>" . $row[name] . " <font color=\"#ccc\">Team: </font>" . $row[teamName] . " <a href='http://localhost:18502/' onclick=\"logout.php\"><span  style=\"color:red\">logout</span></a>";
-    echo "<span style=\"color:#ccc\">Welcome: </span>" . $row[name] . "<span style=\"color:#ccc\"> Team: </span>" . $row[teamName] . "</p>";
+    echo "<span style=\"color:#ccc\">Welcome: </span>" . $row['name'] . "<span style=\"color:#ccc\"> Team: </span>" . $row['teamName'] . "</p>";
     		
 	mysql_close($con);
 	
