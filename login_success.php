@@ -5,7 +5,7 @@
 
     session_start();
 
-    if(!session_is_registered(myusername)){
+    if(!session_is_registered('myusername')){
     
         header("location:default.html");
     }

@@ -53,11 +53,11 @@
         $_SESSION['mypassword'] = md5($mypassword);
 
         session_register("myplayerid");
-        $_SESSION['myplayerid'] = $row[playerID];
+        $_SESSION['myplayerid'] = $row['playerID'];
         session_register("myteamid");
-        $_SESSION['myteamid'] = $row[teamID];
+        $_SESSION['myteamid'] = $row['teamID'];
 
-        $_SESSION['myAdmin'] = $row[teamAdmin];
+        $_SESSION['myAdmin'] = $row['teamAdmin'];
 
         header("location:login_success.php");
 	}
