@@ -1,4 +1,5 @@
 <?php
+        session_start();
 
         $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
         if (!$con)
@@ -7,6 +8,8 @@
           }
 
         mysql_select_db("areyouin", $con)or die("cannot select DB");
+
+        $teamid=$_SESSION['myteamid'];
         
         //Post variables
         $playeramount=$_POST['playeramount'];
@@ -62,7 +65,9 @@
         
         //Insert event to events
         //$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-        $sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
+        //$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
+        $sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '" . $teamid . ")";
+        
         //echo $sql;
         //echo "</br>";
         $result = mysql_query($sql);
