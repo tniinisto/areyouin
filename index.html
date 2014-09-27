@@ -23,6 +23,9 @@
 <!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 
+<!--Snowing-->
+<script type="text/javascript" src="js/jquery.snow.js"></script>
+
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -136,6 +139,9 @@
 
     //Document ready
     jQuery(document).ready(function () {
+        //Winter season :)
+        $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
+
         //Init functions
         getLoginInformation();
         getEvents();
