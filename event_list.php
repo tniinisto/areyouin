@@ -236,8 +236,8 @@
         echo "<article id=\"event_article_id\" class=\"clearfix\">";
             echo "<div>";
 
-                //echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
-                echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+                echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+                //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
             echo "</div>";
         echo "</article>";

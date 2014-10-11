@@ -13,7 +13,9 @@
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
     session_start();
-
+    
+    //For LOGGING enable/disable
+    $_SESSION['ChromeLog'] = TRUE;
 
 	// username and password sent from form
 	$myusername=$_POST['ayiloginName'];
@@ -27,7 +29,7 @@
 
     $mymd5 = md5($mypassword);
 
-	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mypassword'";
+	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin
     FROM areyouin.players p, playerteam m, team t
     WHERE name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
@@ -39,6 +41,10 @@
 	$count=mysql_num_rows($result);
 
 	if($count>=1){
+
+        //For session expiration checking
+        $_SESSION['logged_in'] = true;
+
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
@@ -64,6 +70,7 @@
 	else {
 		//echo $sql;		
         echo "<h1> Wrong Username or Password </h1>";
+        echo "<h1> Count: " . $count . "</h1>";
         //header("location:default.html");
 	}
 	
