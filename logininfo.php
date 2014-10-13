@@ -4,7 +4,7 @@
     session_start();
 
     if($_SESSION['ChromeLog']) {
-        ChromePhp::log("MD5 password from login:", $_SESSION['mypassword']);
+        ChromePhp::log('logininfo.php, start');
     }
         
 	//$pl=$_GET["p"];

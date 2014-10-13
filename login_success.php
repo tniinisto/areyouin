@@ -1,9 +1,14 @@
 <?php
-    
+    include 'ChromePhp.php';
+     
+    session_start();
+
+    if($_SESSION['ChromeLog']) {
+        ChromePhp::log('login_success.php, start');
+    }
+
     // Check if session is not registered, redirect back to main page. 
     // Put this code in first line of web page. 
-
-    session_start();
 
     if(!session_is_registered('myusername')){
     

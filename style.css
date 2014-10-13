@@ -172,7 +172,7 @@ HEADER
 }
 
 /* loginform */
-#loginform {
+#loginform, #loginfailfs {
 	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
@@ -259,6 +259,15 @@ select {
     color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:18px;
+}
+
+#loginfailfs h1,h2 {
+    color: white;
+}
+
+#loginfailfs a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:28px; 
 }
 
 /************************************************************************************
