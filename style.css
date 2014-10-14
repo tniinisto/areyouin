@@ -265,9 +265,12 @@ select {
     color: white;
 }
 
+
 #loginfailfs a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:28px; 
+    color: #FFD800;
+    text-decoration: underline;
 }
 
 /************************************************************************************
