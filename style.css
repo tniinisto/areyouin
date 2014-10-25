@@ -261,7 +261,7 @@ select {
     font-size:18px;
 }
 
-#loginfailfs h1,h2 {
+#loginfailfs h1, #loginfailfs h2 {
     color: white;
 }
 
@@ -1048,7 +1048,7 @@ Event form
   border-radius:5px;
 }
 
-#submitgame {
+#submitgame, .button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
