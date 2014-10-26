@@ -106,7 +106,7 @@
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
-                    echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\" />";
+                    echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
                     echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
                     //echo "</br>";

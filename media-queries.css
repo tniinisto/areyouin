@@ -156,14 +156,14 @@ screens smaller or equal to 750
 	}
 	
 	/* login form */
-	#loginform {
+	#loginform, #loginfailfs {
 		/*position: absolute
         margin-left:auto;
         margin-right:auto;         
 		top: 70px;
 		left: 40px;
 		z-index: 100;*/
-		height: 10px;
+		height: auto;
 		width: 200px;
 	}
 
@@ -414,14 +414,14 @@ screens smaller or equal to 480
 	}*/
 	
 	/* login form */
-	#loginform {
+	#loginform, #loginfailfs {
 		/*position: absolute;
         margin-left:auto;
         margin-right:auto;         
 		top: 70px;
 		left: 40px;
 		z-index: 100;*/
-		height: 10px;
+		height: auto;
 		width: 200px;
 	}
 

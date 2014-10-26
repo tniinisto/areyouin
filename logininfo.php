@@ -1,6 +1,12 @@
 <?php
+    include 'ChromePhp.php';
+
     session_start();
 
+    if($_SESSION['ChromeLog']) {
+        ChromePhp::log('logininfo.php, start');
+    }
+        
 	//$pl=$_GET["p"];
 	//$te=$_GET["t"];
     
