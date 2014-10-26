@@ -456,7 +456,7 @@ screens smaller or equal to 480
 		margin: 0 0 1.2em;	
 	}
 	
-	#submitgame {
+	#submitgame, .button {
 	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	  border:1px solid #ccc;
 	  font-size:20px;
