@@ -28,8 +28,24 @@
 
 	    mysql_select_db("areyouin", $con);
 
-	    $sql = "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc, v.seen desc";
+	    //$sql = 
+     //   "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin
+     //   FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a
+     //   WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID        and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc, v.seen desc";
 	 	
+        $sql = 
+        "SELECT ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+        p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
+        FROM events e
+        inner join location l on l.locationID = e.Location_locationID
+        inner join eventplayer ep on ep.Events_eventID = e.eventID
+        inner join players p on ep.Players_playerID = p.playerID
+        inner join playerteam pt on pt.Players_playerID = p.playerID
+        inner join team t on t.teamID = pt.Team_teamID
+        where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
+        and e.endTime > now()
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
+
 	    $result = mysql_query($sql);
 	
 	    //Go through events & players
@@ -243,8 +259,8 @@
             echo "<article id=\"event_article_id\" class=\"clearfix\">";
                 echo "<div>";
 
-                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
-                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+                    //echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+                    echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
                 echo "</div>";
             echo "</article>";
