@@ -1,4 +1,3 @@
-
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -453,3 +452,37 @@ function addRow(photourl, name) {
 //function clearComment() {
 //    document.getElementById("comment_input").value = "";
 //}
+
+
+//Chat LongPolling////////////////
+var timestamp = null;
+
+function waitForChat(){
+    //alert("1: timestamp: " + timestamp);
+
+    $.ajax({
+        type: "GET",
+        url: "getChat.php?timestamp=" + timestamp,
+        async: true,
+        cache: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+
+            //Testing
+            //if (json['timestamp'] != "") {
+            //    //alert("jep: " + json['msg']);
+            //    //alert("timestamp: " + json['timestamp']);
+            //}
+
+            getChat();
+            timestamp = json['timestamp'];
+            setTimeout('waitForChat()', 1000);
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForChat()', 15000);
+        }
+    });
+            
+}

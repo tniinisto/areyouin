@@ -16,11 +16,10 @@
 <link href="media-queries.css" rel="stylesheet" type="text/css">
 
 <!-- Scripts -->
-<script type="text/javascript" src="main.js"> </script>
+<script type="text/javascript" charset="utf-8" src="main.js"> </script>
 
 <!--JQuery -->
 <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-<!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 
 <!--Snowing-->
@@ -139,6 +138,7 @@
 
 <!-- scripts -->
 <script>
+
     //Logout
     function logout() {
         $.get("logout.php");
@@ -146,6 +146,7 @@
 
     //Document ready
     jQuery(document).ready(function () {
+    
         //Winter season :)
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
@@ -157,20 +158,22 @@
         getPlayerProfile();
         getChat();
 
+        waitForChat();
+
         //SSE init
         //setSSE();
 
         //Chat update
-        setInterval(
-            function () {
-                getChat();
-            }, 180000
-        ); //refreshes every 3 minutes
+        //setInterval(
+        //    function () {
+        //        getChat();
+        //    }, 180000
+        //); //refreshes every 3 minutes
 
         //Events update
         setInterval(
             function () {
-                getEvents();                
+                getEvents();
             }, 240000
         ); //refreshes every 4 minutes
 
