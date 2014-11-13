@@ -413,7 +413,7 @@ function insertComment(comment) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-	        getChat();
+	        //getChat();
 	    }
 	}
 
@@ -432,7 +432,7 @@ function addRow(photourl, name) {
 
     var comment = document.getElementById("comment_input").value;
 
-    //alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
+    ////alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
 
     var table = document.getElementById("comments_table");
 
@@ -459,11 +459,11 @@ var timestamp = null;
 
 function waitForChat(){
     //alert("1: timestamp: " + timestamp);
-
+    
     $.ajax({
         type: "GET",
         url: "getChat.php?timestamp=" + timestamp,
-        async: true,
+        async: false,
         cache: false,
         success: function (data) {
             var json = eval('(' + data + ')');
@@ -474,15 +474,36 @@ function waitForChat(){
             //    //alert("timestamp: " + json['timestamp']);
             //}
 
-            getChat();
+            getChatComments();
             timestamp = json['timestamp'];
             setTimeout('waitForChat()', 1000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error: " + textStatus + " (" + errorThrown + ")");
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
             setTimeout('waitForChat()', 15000);
         }
     });
             
+}
+
+function getChatComments() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "comments.php", false);
+	xmlhttp.send();
 }

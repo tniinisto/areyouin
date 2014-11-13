@@ -30,16 +30,17 @@
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    //if($_SESSION['ChromeLog']) {
-    //    ChromePhp::log('after sql, time: ', $row['time']);
-    //}
+    if($_SESSION['ChromeLog']) {
+        ChromePhp::log('after sql, time: ', $row['time']);
+    }
 
     $currentmodif = $row['time'];
 
     while($currentmodif <= $lastmodif && $lastmodif != 0) {
-        usleep(10000);
+        usleep(9000);
         clearstatcache();
 
+        mysql_free_result($result);
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
         $currentmodif = $row['time'];
