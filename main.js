@@ -422,7 +422,7 @@ function insertComment(comment) {
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
-	xmlhttp.open("GET", "insertComment.php?" + variables, false);
+	xmlhttp.open("GET", "insertComment.php?" + variables, true);
 
 	xmlhttp.send();
 }
@@ -459,7 +459,7 @@ var timestamp = null;
 
 function waitForChat(){
     //alert("1: timestamp: " + timestamp);
-    //alert("waitForChat()");
+    alert("waitForChat()");
 
     $.ajax({
         type: "GET",
@@ -476,16 +476,16 @@ function waitForChat(){
             //    //alert("timestamp: " + json['timestamp']);
             //}
 
-            //alert("success...");
+            alert("success...");
             getChatComments();
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 15000);
+            setTimeout('waitForChat()', 1000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            //alert("error...");
-            setTimeout('waitForChat()', 15000);
+            alert("error...");
+            setTimeout('waitForChat()', 30000);
         }
     });
             
