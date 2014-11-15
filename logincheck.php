@@ -5,7 +5,7 @@
     session_start();
 
     //For LOGGING enable/disable//
-    $_SESSION['ChromeLog'] = TRUE;
+    $_SESSION['ChromeLog'] = FALSE;
     //////////////////////////////
 
 
