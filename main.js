@@ -422,7 +422,7 @@ function insertComment(comment) {
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
-	xmlhttp.open("GET", "insertComment.php?" + variables, true);
+	xmlhttp.open("GET", "insertComment.php?" + variables, false);
 
 	xmlhttp.send();
 }
@@ -445,7 +445,7 @@ function addRow(photourl, name) {
 
     $("#chatdiv").scrollTop(0);
 
-    insertComment(comment);
+    setTimeout(insertComment(comment), 1000);
 }
 
 //Clear chat input
@@ -466,7 +466,7 @@ function waitForChat(){
         url: "getChat.php?timestamp=" + timestamp,
         async: true,
         cache: false,
-        timeout:30000,
+        timeout: 30000,
         success: function (data) {
             var json = eval('(' + data + ')');
 
@@ -477,9 +477,9 @@ function waitForChat(){
             //}
 
             //alert("success...");
-            getChatComments();
+            setTimeout(getChatComments(), 1000);
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 1000);
+            setTimeout('waitForChat()', 15000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
