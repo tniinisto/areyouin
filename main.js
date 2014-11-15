@@ -459,7 +459,7 @@ var timestamp = null;
 
 function waitForChat(){
     //alert("1: timestamp: " + timestamp);
-    alert("waitForChat()");
+    //alert("waitForChat()");
 
     $.ajax({
         type: "GET",
@@ -476,7 +476,7 @@ function waitForChat(){
             //    //alert("timestamp: " + json['timestamp']);
             //}
 
-            alert("success...");
+            //alert("success...");
             getChatComments();
             timestamp = json['timestamp'];
             setTimeout('waitForChat()', 15000);
@@ -484,7 +484,7 @@ function waitForChat(){
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            alert("error...");
+            //alert("error...");
             setTimeout('waitForChat()', 15000);
         }
     });
