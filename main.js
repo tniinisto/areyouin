@@ -508,6 +508,6 @@ function getChatComments() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "comments.php", false);
+	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
 }
