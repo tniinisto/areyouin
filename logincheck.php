@@ -1,6 +1,6 @@
 <?php
     //For some reason logincheck does not print to console???
-    include 'ChromePhp.php';
+    //include 'ChromePhp.php';
 
     session_start();
 
@@ -73,7 +73,7 @@
 
         $_SESSION['myAdmin'] = $row['teamAdmin'];
 
-        ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
+        //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
         mysql_close($con);
 

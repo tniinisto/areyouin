@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include 'ChromePhp.php';
+    //include 'ChromePhp.php';
 	
     if($_SESSION['ChromeLog']) {
         ChromePhp::log('getChat.php, start');
@@ -38,7 +38,7 @@
 
     while($currentmodif <= $lastmodif && $lastmodif != 0) {
         usleep(20000);
-        clearstatcache();
+        clearstatChcache();
 
         mysql_free_result($result);
         $result = mysql_query($sql);

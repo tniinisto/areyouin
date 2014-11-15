@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include 'ChromePhp.php';
+    //include 'ChromePhp.php';
     //$password = $_SESSION['mypassword'];        
     //ChromePhp::log("MD5:", $password);
 	
@@ -11,7 +11,7 @@
 
     //Check session expiration & logged_in status
     if(!isset($_SESSION['logged_in'])) {
-        ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
+        //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
         header("location:default.html");
     }
     else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
