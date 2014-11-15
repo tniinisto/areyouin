@@ -304,12 +304,33 @@ function updateEvent(eventID)
 //Show&hide events players in event list
 function showPlayers(eventid) {
     //alert(eventid);
+    //var id = "#id_playersfull_" + eventid;
+    ////alert(id);
+    //if ($(id).hasClass('noshow'))
+    //    $(id).removeClass("noshow");
+    //else
+    //    $(id).addClass("noshow");
+    
     var id = "#id_playersfull_" + eventid;
-    //alert(id);
-    if ($(id).hasClass('noshow'))
-        $(id).removeClass("noshow");
-    else
-        $(id).addClass("noshow");
+    var box = $(id);
+
+    if (box.hasClass('noshow')) {
+    
+        box.removeClass('noshow');
+        setTimeout(function () {
+            box.removeClass('visuallynoshow');
+        }, 20);
+
+    } else {
+    
+        box.addClass('visuallynoshow');
+    
+        box.one('transitionend', function(e) {
+
+            box.addClass('noshow');
+
+        });
+    }
 }
 
 //New game insert - Set game end time from after start time is set
@@ -511,3 +532,27 @@ function getChatComments() {
 	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
 }
+
+
+function showHidePlayers(box) {
+  
+  if (box.hasClass('noshow')) {
+    
+    box.removeClass('noshow');
+    setTimeout(function () {
+      box.removeClass('visuallynoshow');
+    }, 20);
+
+  } else {
+    
+    box.addClass('visuallynoshow');
+    
+    box.one('transitionend', function(e) {
+
+      box.addClass('noshow');
+
+    });
+    
+  }
+
+};

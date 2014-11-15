@@ -222,7 +222,7 @@
                 //if($row_index == 1)
                 //    echo "<div id=\"id_playersfull_" . $event_check . "\">";
                 //else
-                    echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
+                    echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"box visuallynoshow noshow\">";
 		    }
 
 		    //Echo players for the event////////////////////////////////////////////////////
