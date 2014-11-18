@@ -532,27 +532,3 @@ function getChatComments() {
 	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
 }
-
-
-function showHidePlayers(box) {
-  
-  if (box.hasClass('noshow')) {
-    
-    box.removeClass('noshow');
-    setTimeout(function () {
-      box.removeClass('visuallynoshow');
-    }, 20);
-
-  } else {
-    
-    box.addClass('visuallynoshow');
-    
-    box.one('transitionend', function(e) {
-
-      box.addClass('noshow');
-
-    });
-    
-  }
-
-};

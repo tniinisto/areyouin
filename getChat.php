@@ -47,7 +47,7 @@
     }
 
     $response = array();
-    $response['msg'] = "test response...";
+    //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     echo json_encode($response);
 
