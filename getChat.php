@@ -32,7 +32,7 @@
     $currentmodif = $row['time'];
 
     while($currentmodif <= $lastmodif && $lastmodif != 0) {
-        usleep(20000);
+        usleep(30000);
         clearstatChcache();
 
         mysql_free_result($result);

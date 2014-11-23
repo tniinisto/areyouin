@@ -487,7 +487,7 @@ function waitForChat(){
         url: "getChat.php?timestamp=" + timestamp,
         async: true,
         cache: false,
-        timeout: 30000,
+        timeout: 60000,
         success: function (data) {
             var json = eval('(' + data + ')');
 
