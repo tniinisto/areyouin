@@ -1,20 +1,23 @@
 <?php
-    //For some reason logincheck does not print to console???
+    ////////////////////////////////////////////////////////
+    //Uncomment to enable ChromePhp-logging
     include 'ChromePhp.php';
+    ////////////////////////////////////////////////////////
 
     //ini_set('default_charset', 'UTF-8');
 
     session_start();
 
-    //For LOGGING enable/disable//
-    //$_SESSION['ChromeLog'] = FALSE;
-    //if(!@include("ChromePhp.php"))
-        $_SESSION['ChromeLog'] = TRUE;
-    //////////////////////////////
-
-    if($_SESSION['ChromeLog']) {
-        ChromePhp::log('logincheck.php, start');
+    //For PHP LOGGING enable/disable////////////////////////
+    $_SESSION['ChromeLog'] = FALSE;
+    $included_files = get_included_files();
+    foreach ($included_files as $filename) {
+        if(strpos($filename,'ChromePhp') !== false)
+            $_SESSION['ChromeLog'] = TRUE;
     }
+    ////////////////////////////////////////////////////
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
@@ -51,9 +54,7 @@
 	// Mysql_num_row is counting table row
 	$count=mysql_num_rows($result);
 
-    if($_SESSION['ChromeLog']) {
-        ChromePhp::log('logincheck.php, $count: ', $count);
-    }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
 	if($count>=1){
 
@@ -65,31 +66,19 @@
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
 		
-        if($_SESSION['ChromeLog']) {
-            ChromePhp::log('logincheck.php, mysql_fetch_array()');
-        }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
 		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
-        //session_register("myusername");
-        if($_SESSION['ChromeLog']) {
-            ChromePhp::log('logincheck.php, session_register()');
-        }
-
-        $_SESSION['myusername'] = $myusername;
-        if($_SESSION['ChromeLog']) {
-            ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']);
-        }
-
+        $_SESSION['myusername'] = $myusername;        
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
         $_SESSION['myAdmin'] = $row['teamAdmin'];
 
-        if($_SESSION['ChromeLog']) {
-            ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']);
-        }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 

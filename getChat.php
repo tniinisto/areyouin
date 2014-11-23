@@ -1,9 +1,8 @@
 <?php
     session_start();
 
-    //include 'ChromePhp.php';
-	
     if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
         ChromePhp::log('getChat.php, start');
     }
         
@@ -15,9 +14,7 @@
 
     $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
 
-    if($_SESSION['ChromeLog']) {
-        ChromePhp::log('$lastmodif: ', $lastmodif);
-    }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif: ', $lastmodif); }
 
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
@@ -30,9 +27,7 @@
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    if($_SESSION['ChromeLog']) {
-        ChromePhp::log('after sql, time: ', $row['time']);
-    }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, after sql, time: ', $row['time']); }
 
     $currentmodif = $row['time'];
 

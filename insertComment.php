@@ -1,13 +1,14 @@
-<?php
-    include 'ChromePhp.php';        
+<?php      
     session_start();
-   
+    
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('insertComment.php, start');
+    }
+        
     $comment=$_GET["comment"];
     
     date_default_timezone_set('Europe/Helsinki');
-
-    //include 'ChromePhp.php';        
-    //ChromePhp::log("starting chat...");
 
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
@@ -20,17 +21,11 @@
 
 	mysql_select_db("areyouin", $con);
 
-    //$date = new DateTime();
-    //$date->modify("-1 hour");
-    //$date->modify("+3 hour"); //Todo, timezones must be checked
-    //$sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $comment . "','" . $playerid . "','" . $teamid . "','" . $date->format("Y-n-j H:i:s") . "')";
-
     $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES ('" . $comment . "','" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";
         
-    ChromePhp::log('Insert comment: ' . $sql3);
+    if($_SESSION['ChromeLog']) { ChromePhp::log('Insert comment: ' . $sql3); }
     
     $result3 = mysql_query($sql3);
 
     mysql_close($con);  
 ?>
-

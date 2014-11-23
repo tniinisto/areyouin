@@ -1,9 +1,8 @@
 <?php
-    include 'ChromePhp.php';
-
     session_start();
 
     if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
         ChromePhp::log('logininfo.php, start');
     }
         
