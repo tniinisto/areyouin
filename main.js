@@ -543,7 +543,6 @@ function getChatComments() {
 }
 
 function refreshScroll() {
-    alert("je");
     setTimeout(function(){
 	    scroll.refresh();
     });    
