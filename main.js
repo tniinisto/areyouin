@@ -1,3 +1,6 @@
+//Globals
+var scroll; //Chat comments scrolling
+
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -401,7 +404,6 @@ function getPlayerProfile() {
 
 //Chat
 function getChat() {
-
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -413,6 +415,7 @@ function getChat() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
 		}
+
 	}
 
 	//alert("GET gets called.");
@@ -513,7 +516,7 @@ function waitForChat(){
 }
 
 function getChatComments() {
-
+    
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -524,6 +527,10 @@ function getChatComments() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+            scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
+		    setTimeout(function(){
+			    scroll.refresh();
+		    });
 		}
 	}
 
