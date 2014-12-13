@@ -1,6 +1,3 @@
-//Globals
-var scroll; //Chat comments scrolling
-
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -414,6 +411,11 @@ function getChat() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
+
+      //      scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
+      //      setTimeout(function(){
+			   // scroll.refresh();
+		    //});
 		}
 
 	}
@@ -528,7 +530,7 @@ function getChatComments() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
             scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
-		    setTimeout(function(){
+            setTimeout(function(){
 			    scroll.refresh();
 		    });
 		}
@@ -538,4 +540,11 @@ function getChatComments() {
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
+}
+
+function refreshScroll() {
+    alert("je");
+    setTimeout(function(){
+	    scroll.refresh();
+    });    
 }

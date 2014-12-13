@@ -26,13 +26,13 @@
 <!--Snowing-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
 
-<!--<script>
+<script>
     var scroll;
-    $("#chatdiv").on("show", function () {
-        alert("#chatdiv is now shown");
-        scroll.refresh();
-    });
-</script>-->
+    //$("#chatdiv").on("show", function () {
+    //    alert("#chatdiv is now shown");
+    //    scroll.refresh();
+    //});
+</script>
 
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
@@ -72,7 +72,7 @@
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
                 <li id="linkprofile"><a href="#">Profile</a></li>
-                <li id="linkchat"><a href="#">Chat</a></li>
+                <li id="linkchat" onclick="refreshScroll()"><a href="#">Chat</a></li>
                 <li id="linkadmin"></li>
                 
                 <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
