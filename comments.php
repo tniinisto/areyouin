@@ -40,7 +40,7 @@
 
                 echo "<tr class=\"chatrow\">";
 
-                    echo "<td><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\">
+                    echo "<td valign=\"top\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\">
                     <div class=\"chatname\">" . $row['name'] . "</div>
                     </td>";
                     
