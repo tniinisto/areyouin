@@ -93,7 +93,7 @@ screens smaller or equal to 750
         color: white;
         display: inline-block;
         word-wrap: break-word;
-        width: 60%;
+        width: 50%;
         padding-left: 10px;
         padding-bottom: 10px;    
     }
