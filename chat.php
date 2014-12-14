@@ -65,9 +65,21 @@
                         if($i < $limit) {                        
                             $published = new DateTime($row['publishTime']);
 
+                            //echo "<tr class=\"chatrow\">";
+                            //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
+                            //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+                            //echo "</tr>";
+
                             echo "<tr class=\"chatrow\">";
-                                echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+
+                                echo "<td valign=\"top\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\">
+                                <div class=\"chatname\">" . $row['name'] . "</div>
+                                </td>";
+                    
+                                echo "<td height=\"auto\">
+                                <div class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</div>
+                                <div class=\"commentArea2\">" . $row['comment'] . "</div></td>";
+                    
                             echo "</tr>";
 
                             $i++;
