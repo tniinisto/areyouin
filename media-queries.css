@@ -77,22 +77,25 @@ screens smaller or equal to 750
         height: 40px;
     }
 
-    .commentArea1 {
-        resize: none;
-        height: 15px;
+    .commentArea1 {    
         background-color: transparent;
         border: 0;
         color: white;
-        padding: 10px 0 5px 0;
+        display: inline-block;
+        word-wrap: break-word;
+        width: 85%;
+        padding-left: 10px;
     }
 
     .commentArea2 {
-        resize: none;
-        width: 98%;
-        height: 40px;
         background-color: transparent;
         border: 0;
         color: white;
+        display: inline-block;
+        word-wrap: break-word;
+        width: 85%;
+        padding-left: 10px;
+        padding-bottom: 10px;    
     }
 
     .chatrow:nth-of-type(odd) {
@@ -281,22 +284,25 @@ screens smaller or equal to 480
         height: 40px;
     }
 
-    .commentArea1 {
-        resize: none;
-        height: 15px;
+    .commentArea1 {    
         background-color: transparent;
         border: 0;
         color: white;
-        padding: 10px 0 5px 0;
+        display: inline-block;
+        word-wrap: break-word;
+        width: 85%;
+        padding-left: 10px;
     }
 
     .commentArea2 {
-        resize: none;
-        width: 98%;
-        height: 40px;
         background-color: transparent;
         border: 0;
         color: white;
+        display: inline-block;
+        word-wrap: break-word;
+        width: 35%;
+        padding-left: 10px;
+        padding-bottom: 10px;    
     }
 
     .chatrow:nth-of-type(odd) {
