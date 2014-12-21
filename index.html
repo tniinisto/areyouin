@@ -9,6 +9,11 @@
 
 <title>R'YouIN</title>
 
+<!--Jquery mobile 1.4.5-->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
 
@@ -20,8 +25,8 @@
 <script src="js/iscroll.js"></script>
 
 <!--JQuery -->
-<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>-->
 
 <!--Snowing-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
@@ -32,6 +37,11 @@
     //    alert("#chatdiv is now shown");
     //    scroll.refresh();
     //});
+
+	$(document).on("pageshow","#areyouin-chat-page",function(){
+  		//alert("pageshow event fired - Players is now shown");
+  		scroll.refresh();
+	});
 </script>
 
 <!-- html5.js for IE less than 9 -->
@@ -59,92 +69,46 @@
 
 <body>
 
-<div id="pagewrap">
+	<!-- Events -->
+	 <div data-role="page" id="areyouin-events-page" data-theme="b" data-url="areyouin-events-page">
+	    <div data-role="header" data-theme="b"  data-position="fixed" data-tap-toggle="false">	        
+            <h1><span style="color:yellow; font-size: 1.5em;">AreYouIN</span></h1>
+            <h1 id="userlogin1"> </h1>
+	        <a href="#left-panel-events" data-theme="b" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc" >Open left panel</a>
+	    </div>
+	    
+	    <div data-role="content">
+    		<div id="event_content_id"> </div>
+	    </div>
+	    
+	    <div data-role="panel" id="left-panel-events" data-display="overlay" data-theme="b">
+	        <p>Menu</p>
+	        <p><a href="#areyouin-events-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Events</a></p>
+	        <p><a href="#areyouin-chat-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Chat</a></p>
+	    </div>
+    </div> 
+    <!-- /Events -->   
 
-	<header id="header">
-
-		<hgroup>
-			<h1 id="site-logo"><a href="">R'YouIN</a></h1>
-			<h6 id="userlogin">Welcome</h6>
-		</hgroup>
-
-		<nav>
-			<ul id="main-nav" class="clearfix">
-				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
-                <li id="linkprofile"><a href="#">Profile</a></li>
-                <li id="linkchat" onclick="refreshScroll()"><a href="#">Chat</a></li>
-                <li id="linkadmin"></li>
-                
-                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
-                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php">Logout</a></li>-->
-                
-                <!--<li id="nav_logout" style="float: right;"><a href="http://localhost:18502/" onclick="logout();">Logout</a></li>-->
-                <li id="nav_logout" style="float: right;"><a href="http://dev-areyouin.azurewebsites.net" onclick="logout();">Logout</a></li>
-			</ul>
-		</nav>
-
-	</header>
-		
-	<!-- #content -->
-    <!--<div id="notification_content_id" class="content">
-		<article class="clearfix">
-			<h4>Notifications here...</h4>
-		</article>
-	</div>-->
-
-	<div id="event_content_id" class="content">
-		<article class="clearfix" onClick="getEvents()">
-			<!--<h2>Games</h2>-->
-		</article>
-	</div>
-
-    <div id="profile_content_id" class="content noshow">
-        <article class="clearfix">
-            <!--<h2>Profile</h2>-->
-        </article>
-    </div>
-
-    <div id="chat_content_id" class="content noshow">
-        <article class="clearfix">
-            <!--<h3 style="text-align: center;">Chat closed...</h3>-->
-        </article>
-    </div>   
-
-    <div id="admin_content_id" class="content noshow">
-        <article class="clearfix">
-            <h2>Admin</h2>
-        </article>
-    </div>                    
-   	<!-- /#content --> 
-
-	<!-- #sidebar -->
-    <aside id="sidebar">
-
-        <section id="playerwidget" class="widget">
-                <h2 class="widgettitle" onClick="">Coming events</h2>
-                <ul>
-                    <li>Item1</li>
-                    <li>Item2</li>
-                    <li>Item3</li>
-                    <li>Item4</li>
-                </ul>
-        </section>
-    </aside>
-    <!-- /#sidebar -->
-
-	<!-- #footer --> 
+    <!-- Chat -->
+	 <div data-role="page" id="areyouin-chat-page" data-theme="b" data-url="areyouin-chat-page">
+	    <div data-role="header" data-theme="b"  data-position="fixed" data-tap-toggle="false">	        
+            <h1><span style="color:yellow; font-size: 1.5em;">AreYouIN</span></h1>
+            <h1 id="userlogin2"> </h1>
+	        <a href="#left-panel-chat" data-theme="b" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc" >Open left panel</a>
+	    </div>
+	    
+	    <div data-role="content">
+    		<div id="chat_content_id"> </div>
+	    </div>
+	    
+	    <div data-role="panel" id="left-panel-chat" data-display="overlay" data-theme="b">
+	        <p>Menu</p>
+	        <p><a href="#areyouin-events-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Events</a></p>
+	        <p><a href="#areyouin-chat-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Chat</a></p>
+	    </div>
+    </div> 
+    <!-- /Chat -->  
 	
-	<footer id="footer">
-	
-		<p>Made by TN &copy <a href="https://maps.google.fi/maps?q=60.413778,+23.155468&hl=en&sll=60.413778,23.155468&sspn=0.002108,0.004367&t=h&z=16" target="_blank">Puonti </a></p>
-
-	</footer>
-
-	<!-- /#footer --> 
-	
-</div>
-<!-- /#pagewrap -->
-
 <!-- scripts -->
 <script>
 
@@ -162,9 +126,9 @@
         //Init functions
         getLoginInformation();
         getEvents();
-        getPlayersInsert();
-        getAdminStatus();
-        getPlayerProfile();
+        //getPlayersInsert();
+        //getAdminStatus();
+        //getPlayerProfile();
         getChat();
 
         waitForChat();

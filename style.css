@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
 	font-size: 2em;
-	color: #474747;
+	color: #fff;
 }
 h2 {
 	font-size: 1.6em;
@@ -450,14 +450,14 @@ CONTENT
 
 article
 {
-	width: 100%;
+	width: 97%;
 	background: #fff;
-	margin: 0 0 20px;
+    margin: 5px 0 20px;
 	padding:  15px 10px 30px;
 	/*border-style: solid;*/
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
-	border-radius: 8px;	
+	border-radius: 8px;	 
 }
 
 /* post */
@@ -1105,3 +1105,39 @@ Upload form
 	background-color: #CAF2FF;
 	width:1%;
 }
+
+
+/************************************************************************************
+Jquery mobile override
+*************************************************************************************/
+
+.ui-overlay-b, .ui-page-theme-b, .ui-page-theme-b .ui-panel-wrapper {
+    color: #6a6a6a;
+    text-shadow: none;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    display: block;
+    font-size: 1em;
+    margin: 0 0 -1em 5em;
+    min-height: 1.1em;
+    outline: 0 none !important;
+    overflow: hidden;
+    padding: 0.7em 0;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {
+    width: 45px;
+    height: 45px;
+}
+.ui-header .ui-btn-inner .ui-icon{
+    margin: 0px;
+    border-radius: 0;
+}
+.ui-header {
+    height: 60px;
+}
+
