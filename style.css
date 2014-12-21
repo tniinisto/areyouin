@@ -1141,3 +1141,6 @@ Jquery mobile override
     height: 60px;
 }
 
+.ui-header-fixed, .ui-footer-fixed {
+    opacity: 0.8;
+}
