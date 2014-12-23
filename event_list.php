@@ -1,5 +1,6 @@
 <?php
     session_start();
+    ob_start();
 
     //include 'ChromePhp.php';
     //$password = $_SESSION['mypassword'];        
@@ -268,6 +269,8 @@
             echo "</article>";
 
         }
+
+        ob_end_flush;
 
     } //END OF event_list
 
