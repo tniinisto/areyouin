@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
+	<title>Chat</title> 
+	<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.css" />  
+	<!--<link rel="stylesheet" href="../_assets/css/jqm-docs.css"/>-->
+	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.js"></script>--> 
+
+    <!--Jquery mobile 1.4.5-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="main.js"> </script>
+
+</head>
+    
+    <body>
+
+        <!--<div data-role="page">-->
+	    <div data-role="page" id="areyouin-modal-page" data-theme="b" data-url="areyouin-modal-page">
+		    <div data-role="header" data-theme="b" data-position="inline">
+			    <h1>New comment</h1>
+		    </div>
+
+		    <div data-role="content" data-theme="c">
+			    <!--<h1>Write new comment</h1>
+			    <p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
+
+                <form onsubmit=addRow('player11.png','Ricardo') id="chatform" name="chatform" method="put" target="frame_chat">
+                <!--<form onsubmit=addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id="chatform" name="chatform" method="put" target="frame_chat">-->
+                <!--<form id="chatform" name="chatform" method="put" target="frame_chat">-->
+                    <label for="comment_input">Comment: </label>
+                    <!--<input type="text" id="comment_input" name="comment_input" placeholder="" required>-->
+                    <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" required></textarea>
+                    <input type="submit" value="Send" name="sendbutton" id="sendbutton"  class="button">
+                </form>
+                      
+			    <a href="index.html" data-role="button" data-rel="back" data-theme="c">Cancel</a>
+		    </div>
+	    </div>
+
+    </body>
+
+</html>

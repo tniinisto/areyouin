@@ -62,8 +62,38 @@
 
         echo "<article id=\"chat_content_article\" class=\"clearfix\">";
 
-                echo "<div id=\"chatdiv\" class=\"scrollit\">";
-                    echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
+            //echo "<a href=\"#openModal\" data-rel=\"dialog\" data-transition=\"pop\">Open Modal</a>";
+
+            //echo "<div id=\"openModal\" class=\"modalDialog\">";
+	           // echo "<div>";
+		          //  echo "<a href=\"#close\" title=\"Close\" class=\"close\">X</a>";
+		          //  
+            //        echo "<h2>Modal Box</h2>";
+		          //  echo "<p>This is a sample modal box that can be created using the powers of CSS3.</p>";
+		          //  echo "<p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>";
+
+            //        //echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"put\" target=\"frame_chat\">";
+            //     //       //echo "<label for=\"comment_input\">Comment: </label>";
+            //     //       //echo "</br>";
+		          //     // //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+            //     //       echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+            //     //       echo "</br>";
+            //     //       echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+	           //     //echo "</form>";
+	           // echo "</div>";
+            //echo "</div>";
+
+            //echo "<div id=\"dialog\" title=\"Basic dialog\">";
+            //echo "<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>";
+            //echo "</div>";
+
+            //echo "<a href=\"modal.html\" data-role=\"button\" data-inline=\"true\" data-rel=\"dialog\" data-transition=\"pop\" data-theme=\"b\">Open dialog</a>";
+            //echo "<a href=\"modal.html\" data-role=\"button\" data-inline=\"true\" data-rel=\"dialog\" data-transition=\"pop\" data-theme=\"b\">Open dialog</a>";
+
+            //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
+
+            echo "<div id=\"chatdiv\" class=\"scrollit\">";
+                echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
                         $limit=30;
                         $i=0;
@@ -97,17 +127,6 @@
                         }
                     echo "</table>";
                 echo "</div>";
-
-                echo "</br>";
-
-                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"put\" target=\"frame_chat\">";
-                    echo "<label for=\"comment_input\">Comment: </label>";
-                    echo "</br>";
-			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                    echo "</br>";
-                    echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-		        echo "</form>";
 
         echo "</article>";
 
