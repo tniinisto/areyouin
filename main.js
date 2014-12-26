@@ -1,3 +1,6 @@
+//Global
+var playerinfo;
+
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
