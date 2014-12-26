@@ -532,6 +532,7 @@ article
 	text-align: left;
 	padding: 10px;
 	height: auto;
+    width: auto;
 }
 
 .atable tr {
