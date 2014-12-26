@@ -485,15 +485,25 @@ function addRow(photourl, name) {
 
 
 //Chat LongPolling////////////////
-var timestamp = null;
+var timestamp, php_datetime = null;
 
 function waitForChat(){
-    //alert("1: timestamp: " + timestamp);
+    // Split timestamp into [ Y, M, D, h, m, s ]
+    if(timestamp != null) {
+        var t = timestamp.split(/[- :]/);
+    
+        // Apply each element to the Date function
+        php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+
+        //alert("1: timestamp: " + php_datetime);        
+    }
     //alert("waitForChat()");
 
     $.ajax({
         type: "GET",
-        url: "getChat.php?timestamp=" + timestamp,
+        //url: "getChat.php?timestamp=" + timestamp,
+        url: "getChat.php",
+        data: { timestamp: php_datetime },
         async: true,
         cache: false,
         timeout: 60000,
