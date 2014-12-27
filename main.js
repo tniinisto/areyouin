@@ -487,22 +487,25 @@ function addRow() {
 var timestamp, php_datetime = null;
 
 function waitForChat(){
-    // Split timestamp into [ Y, M, D, h, m, s ]
-    if(timestamp != null) {
-        var t = timestamp.split(/[- :]/);
-    
-        // Apply each element to the Date function
-        php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
 
-        //alert("1: timestamp: " + php_datetime);        
+    //// Split timestamp into [ Y, M, D, h, m, s ]
+    if(timestamp != null) {
+    //    var t = timestamp.split(/[- :]/);
+    //
+    //    // Apply each element to the Date function
+    //    php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    alert("1: timestamp: " + timestamp + ", formatted: "+ php_datetime);
+        //timestamp.toString();
+        //timestamp.replace('%20', "T");
+        //timestamp = timestamp.split(' ').join('T');
+        //alert("1: timestamp: " + timestamp);
     }
-    //alert("waitForChat()");
 
     $.ajax({
         type: "GET",
         //url: "getChat.php?timestamp=" + timestamp,
         url: "getChat.php",
-        data: { timestamp: php_datetime },
+        data: { timestamp: timestamp },
         async: true,
         cache: false,
         timeout: 60000,
@@ -516,9 +519,9 @@ function waitForChat(){
             //}
 
             //alert("success...");
-            setTimeout(getChatComments(), 1000);
+            setTimeout('getChatComments()', 1000);
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 15000);
+            setTimeout('waitForChat()', 20000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {

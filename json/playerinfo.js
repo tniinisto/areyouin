@@ -18,7 +18,7 @@ $(window).load(function() {
 
 $(document).ajaxError(function(event, request, settings) {
 	//$('#busy').hide();
-	alert("Error accessing the server");
+	//alert("Error accessing the server");
 });
 
 function getPlayerInfo() {
