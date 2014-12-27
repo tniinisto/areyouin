@@ -10,7 +10,7 @@ var serviceURL = localStorage['serviceURL'];
 
 //scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 
-//var playerinfo; -> global main.js
+var playerinfo;
 
 $(window).load(function() {
 	setTimeout(getPlayerInfo, 100);
@@ -18,7 +18,7 @@ $(window).load(function() {
 
 $(document).ajaxError(function(event, request, settings) {
 	//$('#busy').hide();
-	//alert("Error accessing the server");
+	alert("Error accessing the server");
 });
 
 function getPlayerInfo() {
@@ -27,11 +27,17 @@ function getPlayerInfo() {
     $.getJSON(serviceURL + 'getplayerinfo.php', function (data) {
 
         playerinfo = data.items;
-        
-        $.each(playerinfo, function(index, player) {
-            alert("playerinfo, name: " + player.name);
-        });
 
+        //alert("playerinfo, name: " + playerinfo[0].name);
+
+        sessionStorage['playerID'] = playerinfo[0].playerID;
+        sessionStorage['playerName'] = playerinfo[0].name;
+        sessionStorage['photoURL'] = playerinfo[0].photourl;
+
+
+        //$.each(playerinfo, function(index, player) {
+        //    alert("playerinfo, name: " + player.name);
+        //});
 
         //$('#busy').hide();
         //      $('#playerList li').remove();

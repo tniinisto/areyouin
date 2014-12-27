@@ -1,10 +1,18 @@
 <?php
 include 'config.php';
 
+session_start();
+
+if($_SESSION['ChromeLog']) {
+    require_once 'ChromePhp.php';
+    ChromePhp::log('getplayerinfo.php, start');
+}
+        
+$pl=$_SESSION['myplayerid'];
+
 $sql =	"SELECT playerID, name, photourl
     	FROM areyouin.players
-        where playerID = 1";
-		
+        WHERE playerID = '" . $pl . "'";	
 	
 try {
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	

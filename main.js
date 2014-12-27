@@ -1,6 +1,3 @@
-//Global
-var playerinfo;
-
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -452,30 +449,32 @@ function insertComment(comment) {
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
-	xmlhttp.open("GET", "insertComment.php?" + variables, false);
+	xmlhttp.open("GET", "insertComment.php?" + variables, true);
 
 	xmlhttp.send();
 }
 
 //Chat dynamic
-function addRow(photourl, name) {
+function addRow() {
 
     var comment = document.getElementById("comment_input").value;
 
-    ////alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
+    //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
 
     var table = document.getElementById("comments_table");
 
     var row = table.insertRow(0);
     row.className = "chatrow";
-    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
-                    "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
+    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
+    sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
+    sessionStorage['playerName'] + "</text></td>" +
+    "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
 
-    document.getElementById("comment_input").value = "";
+    //document.getElementById("comment_input").value = "";
 
     $("#chatdiv").scrollTop(0);
 
-    setTimeout(insertComment(comment), 1000);
+    setTimeout(insertComment(comment), 5000);
 }
 
 //Clear chat input
@@ -552,7 +551,7 @@ function getChatComments() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "comments.php", true);
+	xmlhttp.open("GET", "comments.php", false);
 	xmlhttp.send();
 }
 

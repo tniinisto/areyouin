@@ -23,7 +23,7 @@
 	mysql_select_db("areyouin", $con);
 
 	//$sql="SELECT p.name, t.teamName FROM players p, team t where p.playerID = " . $pl . " and t.teamID = " . $te;
-	$sql="SELECT p.name, t.teamName, r.teamAdmin FROM players p, team t, playerteam r where p.playerID = " . $pl . " and t.teamID = " . $te . " and r.Players_playerID = " . $pl;
+	$sql="SELECT p.name, p.photourl, t.teamName, r.teamAdmin FROM players p, team t, playerteam r where p.playerID = " . $pl . " and t.teamID = " . $te . " and r.Players_playerID = " . $pl;
 
 	$result = mysql_query($sql);
 	$row = mysql_fetch_array($result);
