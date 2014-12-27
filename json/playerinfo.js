@@ -2,7 +2,9 @@
  * @author tniinis
  */
 
-localStorage['serviceURL'] = "http://localhost:18502/json/";
+//localStorage['serviceURL'] = "http://localhost:18502/json/";
+localStorage['serviceURL'] = "http://dev-areyouin.azurewebsites.net/json/";
+
 var serviceURL = localStorage['serviceURL'];
 
 //localStorage['azureserviceURL'] = "http://dev-areyouin.azurewebsites.net/json/";
