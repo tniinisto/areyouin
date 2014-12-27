@@ -565,6 +565,6 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    window.location.assign("http://dev-areyouin.azurewebsites.net/default.html")
+    window.location.assign("http://dev-areyouin.azurewebsites.net/default.html");
     //window.location.assign("http://localhost:18502/default.html")    
 }
