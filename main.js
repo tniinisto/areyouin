@@ -485,16 +485,16 @@ function addRow() {
 
 
 //Chat LongPolling////////////////
-var timestamp, php_datetime = null;
+var timestamp = null;
 
 function waitForChat(){
 
     
     if(timestamp != null) {
         // Split timestamp into [ Y, M, D, h, m, s ]
-        var t = timestamp.split(/[- :]/);
+        //var t = timestamp.split(/[- :]/);
         // Apply each element to the Date function
-        php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+        //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
         //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
         
         //timestamp.toString();
@@ -510,7 +510,7 @@ function waitForChat(){
         data: { timestamp: timestamp },
         async: true,
         cache: false,
-        //timeout: 60000,
+        timeout: 60000,
         success: function (data) {
             var json = eval('(' + data + ')');
 
