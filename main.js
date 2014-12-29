@@ -470,11 +470,12 @@ function addRow() {
     sessionStorage['playerName'] + "</text></td>" +
     "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
 
-    //document.getElementById("comment_input").value = "";
+    //document.getElementById("comment_input").value = "";    
 
     $("#chatdiv").scrollTop(0);
 
-    setTimeout(insertComment(comment), 5000);
+    setTimeout(insertComment(comment), 1000);
+
 }
 
 //Clear chat input
@@ -488,13 +489,14 @@ var timestamp, php_datetime = null;
 
 function waitForChat(){
 
-    //// Split timestamp into [ Y, M, D, h, m, s ]
+    
     if(timestamp != null) {
-    //    var t = timestamp.split(/[- :]/);
-    //
-    //    // Apply each element to the Date function
-    //    php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
-    //    alert("1: timestamp: " + timestamp + ", formatted: "+ php_datetime);
+        // Split timestamp into [ Y, M, D, h, m, s ]
+        var t = timestamp.split(/[- :]/);
+        // Apply each element to the Date function
+        php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+        //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+        
         //timestamp.toString();
         //timestamp.replace('%20', "T");
         //timestamp = timestamp.split(' ').join('T');
@@ -508,25 +510,24 @@ function waitForChat(){
         data: { timestamp: timestamp },
         async: true,
         cache: false,
-        timeout: 60000,
+        //timeout: 60000,
         success: function (data) {
             var json = eval('(' + data + ')');
 
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
-            //    //alert("timestamp: " + json['timestamp']);
+            //alert("timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
             setTimeout('getChatComments()', 1000);
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 20000);
+            setTimeout('waitForChat()', 30000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            //alert("error...");
             setTimeout('waitForChat()', 30000);
         }
     });
