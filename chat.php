@@ -130,7 +130,7 @@
 
         echo "</article>";
 
-        echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
+        //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
  
         mysql_close($con);
         
