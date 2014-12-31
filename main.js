@@ -513,13 +513,14 @@ function waitForChat(){
         async: true,
         cache: false,
         timeout: 60000,
-        processData: false,
+        //processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
 
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
+            //alert("success param timestamp: " + timestamp);
             //alert("success timestamp: " + json['timestamp']);
             //}
 

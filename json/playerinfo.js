@@ -2,10 +2,17 @@
  * @author tniinis
  */
 
+//LOCAL site, localhost
 //localStorage['serviceURL'] = "http://localhost:18502/json/";
 //var serviceURL = localStorage['serviceURL'];
+
+//MOBILE site, m-areyouin
 localStorage['azureserviceURL'] = "http://m-areyouin.azurewebsites.net/json/";
 var serviceURL = localStorage['azureserviceURL'];
+
+//DEV site, dev-areyouin
+//localStorage['azureserviceURL'] = "http://dev-areyouin.azurewebsites.net/json/";
+//var serviceURL = localStorage['azureserviceURL'];
 
 //scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
 

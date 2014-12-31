@@ -14,6 +14,8 @@
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $timestamp time: ', $_GET['timestamp']); }
+
     //$time = strtotime($lastmodif);
     //$lastmodif = date("m/d/y g:i A", $time);
     //if($lastmodif != 0) {
@@ -45,6 +47,7 @@
     $row = mysql_fetch_array($result);
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif time: ', $lastmodif); }
 
     $currentmodif = $row['time'];
     
