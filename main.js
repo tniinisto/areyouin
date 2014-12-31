@@ -14,9 +14,8 @@ function getLoginInformation() {
 
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("userlogin").innerHTML = xmlhttp.responseText;
-			//document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
-            //document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
+			document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
+            document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
 		}
 	}
 
