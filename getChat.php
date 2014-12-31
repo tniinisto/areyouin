@@ -14,6 +14,7 @@
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
+    //$lastmodif =  trim($lastmodif, "'");
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $timestamp time: ', $_GET['timestamp']); }
 
     //$time = strtotime($lastmodif);
@@ -81,7 +82,7 @@
 
     $response = array();
     //$response['msg'] = "test response...";
-    $response['timestamp'] = $currentmodif;
+    $response['timestamp'] = "'" . $currentmodif . "'";
     echo json_encode($response);
 
     mysql_close($con);
