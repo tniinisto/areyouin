@@ -1,6 +1,6 @@
 <?php
     session_start();
-    date_default_timezone_set('Europe/Helsinki');
+    date_default_timezone_set('UTC');
         
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';

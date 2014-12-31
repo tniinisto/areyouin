@@ -503,6 +503,8 @@ function waitForChat(){
         //alert("1: timestamp: " + timestamp);
     }
 
+    //var param = 'timestamp=' + timestamp;
+    
     $.ajax({
         type: "GET",
         //url: "getChat.php?timestamp=" + timestamp,
@@ -511,19 +513,20 @@ function waitForChat(){
         async: true,
         cache: false,
         timeout: 60000,
+        processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
 
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
-            //alert("timestamp: " + json['timestamp']);
+            //alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
             setTimeout('getChatComments()', 1000);
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 60000);
+            setTimeout('waitForChat()', 30000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {

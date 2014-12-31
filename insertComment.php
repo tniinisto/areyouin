@@ -8,7 +8,7 @@
         
     $comment=$_GET["comment"];
     
-    date_default_timezone_set('Europe/Helsinki');
+    date_default_timezone_set('UTC');
 
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
