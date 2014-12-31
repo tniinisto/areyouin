@@ -4,7 +4,7 @@
 
 //localStorage['serviceURL'] = "http://localhost:18502/json/";
 //var serviceURL = localStorage['serviceURL'];
-localStorage['azureserviceURL'] = "http://dev-areyouin.azurewebsites.net/json/";
+localStorage['azureserviceURL'] = "http://m-areyouin.azurewebsites.net/json/";
 var serviceURL = localStorage['azureserviceURL'];
 
 //scroll = new iScroll('wrapper', { vScrollbar: false, hScrollbar:false, hScroll: false });
