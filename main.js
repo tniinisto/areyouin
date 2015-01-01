@@ -485,7 +485,7 @@ function addRow() {
 
 
 //Chat LongPolling////////////////
-var timestamp = null;
+var parameter = null;
 
 function waitForChat(){
 
@@ -507,12 +507,13 @@ function waitForChat(){
     
     $.ajax({
         type: "GET",
-        //url: "getChat.php?timestamp=" + timestamp,
+        //url: "getChat.php?timestamp=" + parameter,
         url: "getChat.php",
-        data: { timestamp: timestamp },
+        data: { timestamp:  JSON.stringify(parameter) },
         async: true,
         cache: false,
         timeout: 60000,
+        //dataType: 'json',
         //processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
@@ -526,7 +527,7 @@ function waitForChat(){
 
             //alert("success...");
             setTimeout('getChatComments()', 1000);
-            timestamp = json['timestamp'];
+            parameter = json['timestamp'];
             setTimeout('waitForChat()', 30000);
         },
 

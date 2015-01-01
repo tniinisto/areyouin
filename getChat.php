@@ -14,7 +14,12 @@
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
-    //$lastmodif =  trim($lastmodif, "'");
+    //$lastmodif =  stripslashes($lastmodif);
+
+    //$param = json_decode($lastmodif);
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $param: ', $param->{'timestamp'}); }
+    
+
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $timestamp time: ', $_GET['timestamp']); }
 
     //$time = strtotime($lastmodif);
@@ -51,16 +56,19 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif commentID: ', $lastmodif); }
 
     $currentmodif = $row['commentID'];
-    
-     while($currentmodif <= $lastmodif && $lastmodif != 0) {
-            usleep(30000);
-            clearstatChcache();
+    $str_currentmodif = "\"" . $currentmodif . "\"";
 
-            //mysql_free_result($result);
-            $result = mysql_query($sql);
-            $row = mysql_fetch_array($result);
-            $currentmodif = $row['commentID'];
-     }
+    while($str_currentmodif == $lastmodif) {
+        if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, while loop'); }
+        usleep(30000);
+        clearstatChcache();
+
+        //mysql_free_result($result);
+        $result = mysql_query($sql);
+        $row = mysql_fetch_array($result);
+        $currentmodif = $row['commentID'];
+        $str_currentmodif = "\"" . $currentmodif . "\"";
+    }
 
     //while((date_format($currentmodif, 'Y-m-d H:i:s') <= date_format($lastmodif, 'Y-m-d H:i:s')) && $lastmodif != 0) {
     //if($lastmodif != 0) {
