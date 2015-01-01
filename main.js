@@ -490,18 +490,18 @@ var timestamp = null;
 function waitForChat(){
 
     
-    if(timestamp != null) {
-        // Split timestamp into [ Y, M, D, h, m, s ]
-        //var t = timestamp.split(/[- :]/);
-        // Apply each element to the Date function
-        //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
-        //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
-        
-        //timestamp.toString();
-        //timestamp.replace('%20', "T");
-        //timestamp = timestamp.split(' ').join('T');
-        //alert("1: timestamp: " + timestamp);
-    }
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
 
     //var param = 'timestamp=' + timestamp;
     
@@ -521,18 +521,18 @@ function waitForChat(){
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
-            //alert("success timestamp: " + json['timestamp']);
+            alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
             setTimeout('getChatComments()', 1000);
             timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 60000);
+            setTimeout('waitForChat()', 30000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForChat()', 60000);
+            alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForChat()', 30000);
         }
     });
             
