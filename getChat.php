@@ -82,7 +82,7 @@
 
     $response = array();
     //$response['msg'] = "test response...";
-    $response['timestamp'] = "'" . $currentmodif . "'";
+    $response['timestamp'] = $currentmodif;
     echo json_encode($response);
 
     mysql_close($con);
