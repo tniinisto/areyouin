@@ -2,13 +2,16 @@
  * @author tniinis
  */
 
+//LocalStorage
+var serviceURL;
+
 //LOCAL site, localhost
 //localStorage['serviceURL'] = "http://localhost:18502/json/";
 //var serviceURL = localStorage['serviceURL'];
 
 //MOBILE site, m-areyouin
-localStorage['azureserviceURL'] = "http://m-areyouin.azurewebsites.net/json/";
-var serviceURL = localStorage['azureserviceURL'];
+//localStorage['azureserviceURL'] = "http://m-areyouin.azurewebsites.net/json/";
+//var serviceURL = localStorage['azureserviceURL'];
 
 //DEV site, dev-areyouin
 //localStorage['azureserviceURL'] = "http://dev-areyouin.azurewebsites.net/json/";
@@ -18,8 +21,13 @@ var serviceURL = localStorage['azureserviceURL'];
 
 var playerinfo;
 
-$(window).load(function() {
-	setTimeout(getPlayerInfo, 100);
+$(window).load(function () {
+    serviceURL = window.location.href;
+    serviceURL = serviceURL.replace("index.html", "json/");
+    localStorage['serviceURL'] = "http://localhost:18502/json/";
+    //alert(serviceURL);
+
+    setTimeout(getPlayerInfo, 100);
 });
 
 $(document).ajaxError(function(event, request, settings) {

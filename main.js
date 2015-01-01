@@ -472,7 +472,7 @@ function addRow() {
 
     //document.getElementById("comment_input").value = "";    
 
-    $("#chatdiv").scrollTop(0);
+    //$("#chatdiv").scrollTop(0);
 
     setTimeout(insertComment(comment), 1000);
 
@@ -532,7 +532,7 @@ function waitForChat(){
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForChat()', 30000);
+            setTimeout('waitForChat()', 60000);
         }
     });
             
