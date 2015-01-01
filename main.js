@@ -521,7 +521,7 @@ function waitForChat(){
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
-            alert("success timestamp: " + json['timestamp']);
+            //alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
@@ -531,7 +531,7 @@ function waitForChat(){
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("error: " + textStatus + " (" + errorThrown + ")");
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
             setTimeout('waitForChat()', 30000);
         }
     });
