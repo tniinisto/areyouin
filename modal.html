@@ -34,32 +34,33 @@
 			    <!--<h1>Write new comment</h1>
 			    <p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
 
-                <form onsubmit=addRow() id="chatform" name="chatform" method="GET">
+                <form id="chatform" name="chatform" method="GET" onsubmit="addRow()">
                 <!--<form onsubmit=addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id="chatform" name="chatform" method="put" target="frame_chat">-->
                 <!--<form id="chatform" name="chatform" method="put" target="frame_chat">-->
                     <label for="comment_input">Comment: </label>
                     <!--<input type="text" id="comment_input" name="comment_input" placeholder="" required>-->
                     <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" required></textarea>
-                    <div style="visibility: hidden;">
-                        <input type="submit" value="" name="sendbutton" id="sendbutton"/>
-                    </div>
+                    <!--<div style="visibility: hidden;">-->
+                        <input type="submit" value="Send" name="sendbutton" id="sendbutton"/>
+                    <!--</div>-->
                     <!--<input type="submit" value="Send" name="sendbutton" id="sendbutton" onclick="history.go(-1)"  class="button">-->
                     <!--<button id="comment_submit" type="submit" name="send">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" onclick="$('#backpacker').trigger('click');">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" data-rel="back" onclick="$('.ui-dialog').dialog('close');">Send</button>-->
-                    <a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>
+                    <a id="backpacker2" href="#" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>
                 </form>
                       
-			    <!--<a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>-->
+			    <a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>
 
 		    </div>
 	    </div>
     
         <script>
 
-            //jQuery(document).showModalDialog(function () {
-            //    alert("test");
-            //});
+            $(document).on("click", "#sendbutton", function () {
+                alert("test");
+                //$("#chatform").submit();
+            });
 
             //$("#comment_submit").click(function (event) {
             //    //alert("test");
