@@ -24,7 +24,7 @@
     <body>
 
         <!--<div data-role="page">-->
-	    <div data-role="page" id="areyouin-modal-page" data-theme="b" data-url="areyouin-modal-page" data-rel="dialog">
+	    <div data-role="page" id="areyouin-modal-page" data-theme="b" data-url="areyouin-modal-page" data-rel="dialog" data-close-btn="none">
         <!--</div> data-close-btn="none">-->
 		    <div data-role="header" data-theme="b" data-position="inline">
 			    <h1>New comment</h1>
@@ -40,17 +40,17 @@
                     <label for="comment_input">Comment: </label>
                     <!--<input type="text" id="comment_input" name="comment_input" placeholder="" required>-->
                     <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" required></textarea>
-                    <!--<div style="visibility: hidden;">-->
+                    <div style="visibility: hidden;">
                         <input type="submit" value="Send" name="sendbutton" id="sendbutton"/>
-                    <!--</div>-->
+                    </div>
                     <!--<input type="submit" value="Send" name="sendbutton" id="sendbutton" onclick="history.go(-1)"  class="button">-->
                     <!--<button id="comment_submit" type="submit" name="send">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" onclick="$('#backpacker').trigger('click');">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" data-rel="back" onclick="$('.ui-dialog').dialog('close');">Send</button>-->
-                    <a id="backpacker2" href="#" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>
+                    <a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>
                 </form>
                       
-			    <a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>
+			    <!--<a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>-->
 
 		    </div>
 	    </div>
