@@ -40,27 +40,27 @@
                     <label for="comment_input">Comment: </label>
                     <!--<input type="text" id="comment_input" name="comment_input" placeholder="" required>-->
                     <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" required></textarea>
-                    <div style="visibility: hidden;">
+                    <!--<div style="visibility: hidden;">-->
                         <input type="submit" value="Send" name="sendbutton" id="sendbutton"/>
-                    </div>
+                    <!--</div>-->
                     <!--<input type="submit" value="Send" name="sendbutton" id="sendbutton" onclick="history.go(-1)"  class="button">-->
                     <!--<button id="comment_submit" type="submit" name="send">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" onclick="$('#backpacker').trigger('click');">Send</button>-->
                     <!--<button id="comment_submit" type="submit" name="send" value="send" data-rel="back" onclick="$('.ui-dialog').dialog('close');">Send</button>-->
-                    <a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>
+                    <!--<a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>-->
                 </form>
                       
-			    <!--<a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>-->
+			    <a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>
 
 		    </div>
 	    </div>
     
         <script>
 
-            $(document).on("click", "#sendbutton", function () {
-                alert("test");
-                //$("#chatform").submit();
-            });
+            //$(document).on("click", "#sendbutton", function () {
+            //    alert("test");
+            //    //$("#chatform").submit();
+            //});
 
             //$("#comment_submit").click(function (event) {
             //    //alert("test");
