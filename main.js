@@ -461,6 +461,7 @@ function addRow() {
 
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
 
+
     var table = document.getElementById("comments_table");
 
     var row = table.insertRow(0);

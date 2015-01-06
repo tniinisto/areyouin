@@ -59,12 +59,12 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d2: ', $d2); }
 
         while($d1 <= $d2) {
-            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
+            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
             
             usleep(30000);
             clearstatcache();
             
-            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
+            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
             mysql_free_result($result);
             $result = mysql_query($sql);
