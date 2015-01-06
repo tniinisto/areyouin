@@ -1,6 +1,6 @@
 <?php
     session_start();
-    date_default_timezone_set('UTC');
+    date_default_timezone_set('Europe/Helsinki');
         
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
@@ -61,9 +61,9 @@
         while($d1 <= $d2) {
             //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
             
-            usleep(30000);
             clearstatcache();
-            
+            usleep(30000);
+                        
             //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
             mysql_free_result($result);

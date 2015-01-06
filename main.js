@@ -513,7 +513,7 @@ function waitForChat(){
         data: { timestamp:  JSON.stringify(parameter) },
         async: true,
         cache: false,
-        timeout: 60000,
+        //timeout: 45000,
         //dataType: 'json',
         //processData: false,
         success: function (data) {
@@ -529,12 +529,12 @@ function waitForChat(){
             //alert("success...");
             setTimeout('getChatComments()', 1000);
             parameter = json['timestamp'];
-            setTimeout('waitForChat()', 30000);
+            setTimeout('waitForChat()', 5000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForChat()', 30000);
+            setTimeout('waitForChat()', 15000);
         }
     });
             
