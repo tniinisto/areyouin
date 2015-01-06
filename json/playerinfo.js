@@ -24,8 +24,10 @@ var playerinfo;
 $(window).load(function () {
     serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "json/");
-    localStorage['serviceURL'] = "http://localhost:18502/json/";
-    //alert(serviceURL);
+    localStorage['serviceURL'] = serviceURL;
+
+    //localStorage['serviceURL'] = "http://localhost:18502/json/";
+    alert(serviceURL);
 
     setTimeout(getPlayerInfo, 100);
 });
