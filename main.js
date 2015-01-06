@@ -522,10 +522,10 @@ function waitForChat(){
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
-            //alert("success timestamp: " + json['timestamp']);
+            alert("success timestamp: " + json['timestamp']);
             //}
 
-            alert("success...");
+            //alert("success...");
             setTimeout('getChatComments()', 1000);
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 30000);

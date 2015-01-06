@@ -13,7 +13,7 @@
     //    ChromePhp::log('timestamp: ', $_GET['timestamp']);
     //}
 
-    $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
+    $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
     //$time = strtotime($lastmodif);
     //$lastmodif = date("m/d/y g:i A", $time);
     //if($lastmodif != 0) {
@@ -46,10 +46,12 @@
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
 
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, lastmodif: ', $lastmodif); }
+
     $currentmodif = $row['time'];
     
     //while((date_format($currentmodif, 'Y-m-d H:i:s') <= date_format($lastmodif, 'Y-m-d H:i:s')) && $lastmodif != 0) {
-    if($lastmodif != 0) {
+    if($lastmodif != NULL) {
         $d1 = new DateTime($currentmodif);
         $d2 = new DateTime($lastmodif);        
 
@@ -57,12 +59,14 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d2: ', $d2); }
 
         while($d1 <= $d2) {
-            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
+            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
+            
             usleep(30000);
-            clearstatChcache();
-            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
+            clearstatcache();
+            
+            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
-            //mysql_free_result($result);
+            mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['time'];
