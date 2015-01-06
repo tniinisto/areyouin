@@ -14,15 +14,12 @@
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
-<<<<<<< HEAD
+
     //$lastmodif =  stripslashes($lastmodif);
 
     //$param = json_decode($lastmodif);
     //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $param: ', $param->{'timestamp'}); }
-    
 
-=======
->>>>>>> parent of 3365c4f... finally, working in azure not local
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $timestamp time: ', $_GET['timestamp']); }
 
     //$time = strtotime($lastmodif);
