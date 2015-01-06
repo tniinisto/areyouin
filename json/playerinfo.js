@@ -27,7 +27,7 @@ $(window).load(function () {
     localStorage['serviceURL'] = serviceURL;
 
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
-    alert(serviceURL);
+    //alert(serviceURL);
 
     setTimeout(getPlayerInfo, 100);
 });
