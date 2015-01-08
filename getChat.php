@@ -14,6 +14,7 @@
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
+    //$lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
     //$time = strtotime($lastmodif);
     //$lastmodif = date("m/d/y g:i A", $time);
     //if($lastmodif != 0) {
@@ -60,12 +61,12 @@
 
         while($d1 <= $d2) {
             //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
-            
-            clearstatcache();
-            usleep(30000);
                         
-            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
+            sleep(15);
+                        
+            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
+            clearstatcache();
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);

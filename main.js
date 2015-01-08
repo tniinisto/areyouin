@@ -446,7 +446,7 @@ function insertComment(comment) {
 
 
 	var variables = "comment=" + comment;
-	//alert(variables);
+	alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
 	xmlhttp.open("GET", "insertComment.php?" + variables, true);
@@ -513,7 +513,7 @@ function waitForChat(){
         data: { timestamp:  JSON.stringify(parameter) },
         async: true,
         cache: false,
-        timeout: 35000,
+        timeout: 40000,
         //dataType: 'json',
         //processData: false,
         success: function (data) {
@@ -523,13 +523,13 @@ function waitForChat(){
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
-            //alert("success timestamp: " + json['timestamp']);
+            alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
-            setTimeout('getChatComments()', 1000);
+            setTimeout('getChatComments()', 2000);
             parameter = json['timestamp'];
-            setTimeout('waitForChat()', 5000);
+            setTimeout('waitForChat()', 15000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {

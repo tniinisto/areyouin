@@ -34,7 +34,7 @@
 			    <!--<h1>Write new comment</h1>
 			    <p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
 
-                <form id="chatform" name="chatform" method="GET" onsubmit="addRow()">
+                <form id="chatform" onsubmit="addRow()" name="chatform" method="PUT">
                 <!--<form onsubmit=addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id="chatform" name="chatform" method="put" target="frame_chat">-->
                 <!--<form id="chatform" name="chatform" method="put" target="frame_chat">-->
                     <label for="comment_input">Comment: </label>
