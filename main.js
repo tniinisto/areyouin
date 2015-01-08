@@ -446,7 +446,7 @@ function insertComment(comment) {
 
 
 	var variables = "comment=" + comment;
-	alert(variables);
+	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
 	xmlhttp.open("GET", "insertComment.php?" + variables, true);
@@ -523,7 +523,7 @@ function waitForChat(){
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
-            alert("success timestamp: " + json['timestamp']);
+            //alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
