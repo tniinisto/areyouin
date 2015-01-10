@@ -527,7 +527,12 @@ function waitForChat(){
             //}
 
             //alert("success...");
-            setTimeout('getChatComments()', 1000);
+            
+            //Get comments only if php not timed out...
+            if(json['timeout'] == 0) {
+                setTimeout('getChatComments()', 1000);
+            }
+
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
         },

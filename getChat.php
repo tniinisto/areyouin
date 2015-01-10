@@ -67,6 +67,8 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
     $currentmodif = $row['time'];
     
+    $timeout = 1;
+
     //while((date_format($currentmodif, 'Y-m-d H:i:s') <= date_format($lastmodif, 'Y-m-d H:i:s')) && $lastmodif != 0) {
     if($lastmodif != NULL) {
         $d1 = new DateTime($currentmodif);
@@ -93,6 +95,10 @@ usleep(MESSAGE_POLL_MICROSECONDS);
             $currentmodif = $row['time'];
             $d1 = new DateTime($currentmodif);
 
+            if($d1 > $d2) {
+                $timeout = 0;
+            }
+
 // Decrement seconds from counter (the interval was set in μs, see above)
 $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
         }
@@ -101,12 +107,15 @@ $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
         mysql_free_result($result);
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
-        $currentmodif = $row['time'];        
+        $currentmodif = $row['time'];
+        $timeout = 0;     
     }
 
     $response = array();
     //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
+    $response['timeout'] = $timeout;
+
     echo json_encode($response);
 
     mysql_close($con);
