@@ -530,6 +530,7 @@ function waitForChat(){
             
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
+                //alert("success timeout: " + json['timeout']);
                 setTimeout('getChatComments()', 1000);
             }
 
