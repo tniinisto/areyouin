@@ -513,7 +513,7 @@ function waitForChat(){
         data: { timestamp:  JSON.stringify(parameter) },
         async: true,
         cache: false,
-        timeout: 40000,
+        //timeout: 40000,
         //dataType: 'json',
         //processData: false,
         success: function (data) {
