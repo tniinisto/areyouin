@@ -6,8 +6,23 @@
         require_once 'ChromePhp.php';
         ChromePhp::log('getChat.php, start');
     }
+
+// How often to poll, in microseconds (1,000,000 μs equals 1 s)
+define('MESSAGE_POLL_MICROSECONDS', 5000000);
+
+// How long to keep the Long Poll open, in seconds
+define('MESSAGE_TIMEOUT_SECONDS', 30);
+
+// Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
+define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
     $teamid=$_SESSION['myteamid'];
+
+// Close the session prematurely to avoid usleep() from locking other requests
+session_write_close();
+
+// Automatically die after timeout (plus buffer)
+set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
     //if($_SESSION['ChromeLog']) {
     //    ChromePhp::log('timestamp: ', $_GET['timestamp']);
@@ -34,6 +49,7 @@
     //    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif format: ', date_format($lastmodif, 'Y-m-d H:i:s')); }
     //}    
 
+
 	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	{
@@ -59,10 +75,14 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d1: ', $d1); }
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d2: ', $d2); }
 
-        while($d1 <= $d2) {
+// Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
+$counter = MESSAGE_TIMEOUT_SECONDS;
+
+        while($d1 <= $d2 && $counter > 0) {
             //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
                         
-            sleep(15);
+            //sleep(15);
+usleep(MESSAGE_POLL_MICROSECONDS);
                         
             if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
@@ -72,6 +92,9 @@
             $row = mysql_fetch_array($result);
             $currentmodif = $row['time'];
             $d1 = new DateTime($currentmodif);
+
+// Decrement seconds from counter (the interval was set in μs, see above)
+$counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
         }
     }
     else {
