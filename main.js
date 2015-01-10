@@ -527,7 +527,7 @@ function waitForChat(){
             //}
 
             //alert("success...");
-            setTimeout('getChatComments()', 2000);
+            setTimeout('getChatComments()', 1000);
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
         },
