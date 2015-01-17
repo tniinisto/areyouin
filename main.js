@@ -15,7 +15,7 @@ function getLoginInformation() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
-            document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
+            //document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
 		}
 	}
 
@@ -461,6 +461,7 @@ function addRow() {
 
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
 
+
     var table = document.getElementById("comments_table");
 
     var row = table.insertRow(0);
@@ -472,7 +473,7 @@ function addRow() {
 
     //document.getElementById("comment_input").value = "";    
 
-    $("#chatdiv").scrollTop(0);
+    //$("#chatdiv").scrollTop(0);
 
     setTimeout(insertComment(comment), 1000);
 
@@ -485,50 +486,61 @@ function addRow() {
 
 
 //Chat LongPolling////////////////
-var timestamp = null;
+var parameter = null;
 
 function waitForChat(){
 
     
-    if(timestamp != null) {
-        // Split timestamp into [ Y, M, D, h, m, s ]
-        //var t = timestamp.split(/[- :]/);
-        // Apply each element to the Date function
-        //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
-        //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
-        
-        //timestamp.toString();
-        //timestamp.replace('%20', "T");
-        //timestamp = timestamp.split(' ').join('T');
-        //alert("1: timestamp: " + timestamp);
-    }
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
 
+    //var param = 'timestamp=' + timestamp;
+    
     $.ajax({
         type: "GET",
-        //url: "getChat.php?timestamp=" + timestamp,
+        //url: "getChat.php?timestamp=" + parameter,
         url: "getChat.php",
-        data: { timestamp: timestamp },
+        data: { timestamp:  JSON.stringify(parameter) },
         async: true,
         cache: false,
-        timeout: 60000,
+        //timeout: 40000,
+        //dataType: 'json',
+        //processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
 
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
-            //alert("timestamp: " + json['timestamp']);
+            //alert("success param timestamp: " + timestamp);
+            //alert("success timestamp: " + json['timestamp']);
             //}
 
             //alert("success...");
-            setTimeout('getChatComments()', 1000);
-            timestamp = json['timestamp'];
-            setTimeout('waitForChat()', 60000);
+            
+            //Get comments only if php not timed out...
+            if(json['timeout'] == 0) {
+                //alert("success timeout: " + json['timeout']);
+                setTimeout('getChatComments()', 1000);
+            }
+
+            parameter = json['timestamp'];
+            setTimeout('waitForChat()', 15000);
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForChat()', 30000);
+            setTimeout('waitForChat()', 15000);
         }
     });
             
@@ -566,6 +578,12 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    window.location.assign("http://dev-areyouin.azurewebsites.net/default.html");
+    var loginURL = window.location.href;
+    loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+    loginURL = loginURL + "default.html";
+    //alert(loginURL);
+    window.location.assign(loginURL);
+    
+    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
     //window.location.assign("http://localhost:18502/default.html")    
 }
