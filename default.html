@@ -18,6 +18,38 @@
 <script type="text/javascript" charset="utf-8" src="main.js"> </script>
 <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
 
+
+<script type="text/javascript">
+
+    //alert("here we are 1");
+
+    if (screen.width < 574) {
+        var ref = document.referrer;
+        var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+        //var urls = new Array("http://localhost:18502/default.html", "http://m-areyouin.azurewebsites.net/"); //LOCAL testing
+        var n = ref.match(urls[0]);
+        var m = ref.match(urls[1]);
+        if ((m !== null) || (n !== null)) {
+            //alert("stop");
+            stop;
+        }
+        else if (ref == '') {
+            var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for the mobile site.");
+            if (r == true) {
+                //alert("here we are mobile direct referrer");
+                window.location = "http://m-areyouin.azurewebsites.net/";
+            }
+            else {
+                stop;
+            }
+        }
+        else {
+            //alert("here we are mobile redirect referrer");
+            window.location = "http://m-areyouin.azurewebsites.net/";
+        }
+    }
+</script>
+
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
