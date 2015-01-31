@@ -458,9 +458,9 @@ function insertComment(comment) {
 function addRow() {
 
     var comment = document.getElementById("comment_input").value;
+    document.getElementById("comment_input").value = "";
 
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
-
 
     var table = document.getElementById("comments_table");
 
@@ -476,6 +476,8 @@ function addRow() {
     //$("#chatdiv").scrollTop(0);
 
     setTimeout(insertComment(comment), 100);
+
+
 
 }
 
