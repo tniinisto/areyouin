@@ -11,7 +11,7 @@
 define('MESSAGE_POLL_MICROSECONDS', 15000000);
 
 // How long to keep the Long Poll open, in seconds
-define('MESSAGE_TIMEOUT_SECONDS', 30);
+define('MESSAGE_TIMEOUT_SECONDS', 60);
 
 // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
 define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
@@ -69,22 +69,24 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     
     $timeout = 1;
 
-    //while((date_format($currentmodif, 'Y-m-d H:i:s') <= date_format($lastmodif, 'Y-m-d H:i:s')) && $lastmodif != 0) {
-    if($lastmodif != NULL) {
-        $d1 = new DateTime($currentmodif);
-        $d2 = new DateTime($lastmodif);        
+    $d1 = new DateTime($currentmodif);
+    $d2 = new DateTime($lastmodif); 
+
+    if($d1 <= $d2) {
+        //$d1 = new DateTime($currentmodif);
+        //$d2 = new DateTime($lastmodif);        
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d1: ', $d1); }
         if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d2: ', $d2); }
 
-// Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
-$counter = MESSAGE_TIMEOUT_SECONDS;
+        // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
+        $counter = MESSAGE_TIMEOUT_SECONDS;
 
         while($d1 <= $d2 && $counter > 0) {
             //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
                         
             //sleep(15);
-usleep(MESSAGE_POLL_MICROSECONDS);
+            usleep(MESSAGE_POLL_MICROSECONDS);
                         
             if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
 
@@ -99,8 +101,8 @@ usleep(MESSAGE_POLL_MICROSECONDS);
                 $timeout = 0;
             }
 
-// Decrement seconds from counter (the interval was set in μs, see above)
-$counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
+            // Decrement seconds from counter (the interval was set in μs, see above)
+            $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
         }
     }
     else {

@@ -487,6 +487,7 @@ function addRow() {
 
 //Chat LongPolling////////////////
 var parameter = null;
+parameter = "1900-01-01 10:10:10";
 
 function waitForChat(){
 
@@ -525,14 +526,15 @@ function waitForChat(){
             //alert("success param timestamp: " + timestamp);
             //alert("success timestamp: " + json['timestamp']);
             //}
-
-            //alert("success...");
             
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
-                //alert("success timeout: " + json['timeout']);
-                setTimeout('getChatComments()', 1000);
-            }
+                //alert("success timeout false: " + json['timeout']);
+                setTimeout('getChatComments()', 100);
+            } 
+            //else {
+            //    alert("success timeout true: " + json['timeout']);
+            //}
 
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
