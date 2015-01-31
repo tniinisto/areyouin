@@ -128,6 +128,21 @@
                     echo "</table>";
                 echo "</div>";
 
+                echo "</br>";
+
+                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                    echo "<label for=\"comment_input\">Comment: </label>";
+                    echo "</br>";
+			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                    echo "</br>";
+                    echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+		        echo "</form>";
+
+    echo "</article>";
+
+    echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
+
         echo "</article>";
 
         //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
