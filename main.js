@@ -591,3 +591,28 @@ function toLoginPage() {
     //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
     //window.location.assign("http://localhost:18502/default.html")    
 }
+
+//function sendMail() {
+//    alert("sendMail()");
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
+
+//	xmlhttp.onreadystatechange = function () {
+//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
+//	        //getChat();
+//	    }
+//	}
+
+//	//var variables = "comment=" + comment;
+//	//alert(variables);
+//	
+//	xmlhttp.open("POST", "mailer.php", false);
+
+//	xmlhttp.send();
+//}
+

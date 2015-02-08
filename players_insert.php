@@ -142,7 +142,8 @@
                     
                     echo "<h1>Testing mailer</h1>";
 
-                    echo "<form id=\"mailform\" method=\"post\" action=\"mailer.php\" target=\"frame_chat\">";
+                    echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
+                    //echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
                         echo "username: ";
                         echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
                         echo "</br>";
