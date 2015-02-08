@@ -11,7 +11,7 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $user: ', $user, ' @pass: ', $pass); }
 
     //SendGrid, Web API//////////////////////////////////////////////////////////    
-    $url = 'http://api.sendgrid.com/';
+    $url = 'https://api.sendgrid.com/';
 
     $params = array(
         'api_user' => $user,
