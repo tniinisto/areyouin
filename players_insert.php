@@ -143,11 +143,11 @@
                     echo "<h1>Testing mailer</h1>";
 
                     echo "<form id=\"mailform\" method=\"post\" action=\"mailer.php\" target=\"frame_chat\">";
-                        echo "Name: ";
+                        echo "username: ";
                         echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
                         echo "</br>";
                         echo "</br>";
-                        echo "Password: ";
+                        echo "password: ";
                         echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
                         echo "</br>";
                         echo "</br>";
