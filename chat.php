@@ -143,7 +143,7 @@
 
     echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
 
-        echo "</article>";
+        //echo "</article>";
 
         //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
  
