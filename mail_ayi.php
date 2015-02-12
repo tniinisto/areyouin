@@ -10,10 +10,12 @@
     $pass=$_POST['mail_pass'];
     if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $user: ', $user, ' @pass: ', $pass); }
 
-    //SendGrid, Web API//////////////////////////////////////////////////////////    
+    ////SendGrid, Web API//////////////////////////////////////////////////////////    
     $url = 'https://api.sendgrid.com/';
 
     $params = array(
+        //'api_user' => 'azure_0d3507e7b5b2d3634624f1bcaba9b3fe@azure.com',
+        //'api_key' => '1Vin5cDJQ4RK5y7',
         'api_user' => $user,
         'api_key' => $pass,
         'to' => 'tniinisto@gmail.com',
@@ -40,14 +42,81 @@
     curl_setopt($session, CURLOPT_HEADER, false);
     curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 
+    // Set curl to avoid certificate errors
+    curl_setopt($session, CURLOPT_SSL_VERIFYPEER, FALSE);
+
     // obtain response
     $response = curl_exec($session);
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $response, ' ,cURL errno: ', curl_errno($session), ' ,error: ', curl_error($session) ); }
+    //$log = 'mail_ayi.php, $response: ' . $response . ' ,cURL errno: ' . curl_errno($session) . ' ,error: ' . curl_error($session);
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $log ); }
+
     curl_close($session);
 
     // print everything out
-    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $response); }
-
     print_r($response);
+
+
+
+
+
+//$apiUrl = "https://sendgrid.com/api/mail.send.json";///////////////////////////////////////////////
+// 
+//$dateTime = date('Y/m/d h:i:s');
+// 
+//$sendGridParams = array(
+//	'api_user' => $user
+//	,'api_key' => $pass
+//	,'to' => 'CustomerEmail@gmail.com'
+//	,'toname' => 'Customer Name'
+//	,'subject' => 'Test - ' . $dateTime 
+//	,'html' => 'This is a <B>test!</B> <BR> Sent: '. $dateTime
+//	,'from' => 'DoNotRepl@YourCompanyWebsite.com'
+//	,'fromname' => 'Your Company'
+////optional add'l email headers
+//	//,'headers' => json_encode(array('X-Accept-Language'=>'en')) 
+//);
+// 
+//$query = http_build_query($sendGridParams);
+// 
+//$curl = curl_init();
+// 
+//curl_setopt_array($curl, array(
+//	CURLOPT_URL => $apiUrl . '?' . $query
+//	,CURLOPT_RETURNTRANSFER => true
+//	,CURLOPT_SSL_VERIFYPEER => true
+//	,CURLOPT_SSL_VERIFYHOST => 2
+////download latest CA bundle from http://curl.haxx.se/docs/caextract.html
+//	,CURLOPT_CAINFO => dirname(__FILE__) . '\cacert.pem' 
+//));
+// 
+//if(FALSE === $curlResponse = curl_exec($curl)){
+//    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php FALSE, $response: ', $curlResponse); }
+//	die("API call failed! cURL error " . curl_errno($curl) . " " . curl_error($curl));
+//}
+//curl_close($curl);
+// 
+//if(NULL === $decodedResponse = json_decode($curlResponse,true)){
+//    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php NULL, $response: ', $curlResponse); }
+//	die("Error decoding API response, raw text: " . $curlResponse);
+//}
+// 
+//if( $decodedResponse['message'] === "success"){
+//    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php SUCCESS, $response: ', $curlResponse); }
+//	echo "E-Mail Sent!";
+//}else{
+//	if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php ERRORS, $response: ', $curlResponse); }
+//    echo "API Returned errors! <BR>";
+//	if(is_array($decodedResponse['errors'])){
+//		foreach($decodedResponse['errors'] as $error){
+//			echo $error , "<BR>";
+//		}
+//	}
+//}
+
+
+
 
 
 
