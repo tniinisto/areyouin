@@ -14,15 +14,15 @@
     $url = 'https://api.sendgrid.com/';
 
     $params = array(
-        //'api_user' => 'azure_0d3507e7b5b2d3634624f1bcaba9b3fe@azure.com',
-        //'api_key' => '1Vin5cDJQ4RK5y7',
-        'api_user' => $user,
-        'api_key' => $pass,
+        'api_user' => 'azure_0d3507e7b5b2d3634624f1bcaba9b3fe@azure.com',
+        'api_key' => '1Vin5cDJQ4RK5y7',
+        //'api_user' => $user,
+        //'api_key' => $pass,
         'to' => 'tniinisto@gmail.com',
         'subject' => 'testing from AreYouIN',
-        'html' => '<html><p>testing html <b>body</b> html</p></html>',
-        'text' => 'testing text body txt',
-        'from' => 'AreYouIN Beachvolley',
+        'html' => '<html><p>Testing html <b>body</b> html</p></html>',
+        'text' => 'Testing text body txt',
+        'from' => 'AreYouIN@puonti',
     );
 
     $request = $url.'api/mail.send.json';
