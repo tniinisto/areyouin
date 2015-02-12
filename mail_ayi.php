@@ -20,9 +20,9 @@
         'api_key' => $pass,
         'to' => 'tniinisto@gmail.com',
         'subject' => 'testing from AreYouIN',
-        'html' => 'testing html body html',
+        'html' => '<p>testing html <b>body</b> html</p>',
         'text' => 'testing text body txt',
-        'from' => 'tniinisto@gmail.com',
+        'from' => 'AreYouIN',
     );
 
     $request = $url.'api/mail.send.json';
