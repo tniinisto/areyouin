@@ -20,6 +20,10 @@ $sql = "SELECT p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin
         inner join areyouin.team t on m.Team_teamID = t.teamid
 	    where p.playerID = '" . $pl . "'";
 try {
+    //PDO means "PHP Data Objects"
+    //dbh meand "Database handle"
+    //STH means "Statement Handle"
+
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
