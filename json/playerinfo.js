@@ -23,7 +23,7 @@ var playerinfo;
 
 $(window).load(function () {
     serviceURL = window.location.href;
-    serviceURL = serviceURL.replace("index.html", "json/");
+    serviceURL = serviceURL.replace("index.html#", "json/");
     localStorage['serviceURL'] = serviceURL;
 
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
@@ -49,7 +49,9 @@ function getPlayerInfo() {
         sessionStorage['playerID'] = playerinfo[0].playerID;
         sessionStorage['playerName'] = playerinfo[0].name;
         sessionStorage['photoURL'] = playerinfo[0].photourl;
-
+        sessionStorage['teamName'] = playerinfo[0].teamName;
+        
+        document.getElementById("userlogin1").innerHTML = "Welcome " + sessionStorage['playerName'] + " team " + sessionStorage['teamName'];
 
         //$.each(playerinfo, function(index, player) {
         //    alert("playerinfo, name: " + player.name);
