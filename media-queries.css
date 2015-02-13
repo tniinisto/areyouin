@@ -54,7 +54,7 @@ screens smaller or equal to 750
         display: none;
     }
     
-    #userlogin {
+    #userlogin1 {
         /*display: none;*/
         padding-top: 10px;
     }
@@ -262,7 +262,7 @@ screens smaller or equal to 480
     }
 
     
-    #userlogin {
+    #userlogin1 {
         /*display: none;*/
         padding-top: 10px;                
     }
