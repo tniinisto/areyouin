@@ -20,7 +20,7 @@
         //'api_key' => $pass,
         'to' => 'tniinisto@gmail.com',
         'subject' => 'testing from AreYouIN',
-        'html' => '<html><p>Testing html <b>body</b> html</p></html>',
+        'html' => '<html><p>Testing html <b>body</b></p></html>',
         'text' => 'Testing text body txt',
         'from' => 'AreYouIN@puonti',
     );
