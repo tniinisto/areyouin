@@ -27,7 +27,7 @@ $(window).load(function () {
     localStorage['serviceURL'] = serviceURL;
 
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
-    //alert(serviceURL);
+    alert(serviceURL);
 
     setTimeout(getPlayerInfo, 100);
 });
@@ -44,7 +44,7 @@ function getPlayerInfo() {
 
         playerinfo = data.items;
 
-        //alert("playerinfo, name: " + playerinfo[0].name);
+        alert("playerinfo, name: " + playerinfo[0].name);
 
         sessionStorage['playerID'] = playerinfo[0].playerID;
         sessionStorage['playerName'] = playerinfo[0].name;
