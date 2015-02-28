@@ -589,3 +589,15 @@ function toLoginPage() {
     //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
     //window.location.assign("http://localhost:18502/default.html")    
 }
+
+function toEvents() {
+    //window.location.assign("<a href=\"#areyouin-events-page\"></>");
+    //$("#main-nav").children().removeClass("current");
+    //$("#linkgames").addClass("current");
+    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
+
+    //window.location.assign("<a getEvents();\"></a>");
+    $.mobile.changePage(getEvents());
+
+    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
+}
