@@ -140,64 +140,28 @@
                 //Team page///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<h1>Testing team info</h1>";
+                    echo "<h1>Testing mailer</h1>";
 
+                    echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
+                    //echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
+                        echo "username: ";
+                        echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
+                        echo "</br>";
+                        echo "</br>";
+                        echo "password: ";
+                        echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
+                        echo "</br>";
+                        echo "</br>";
+                        echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
+                    echo "</form>";
 
                     //echo "<div id=\"testdiv\" class=\"scrollit\">";
-                    echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
-                      
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 2</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 3</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 4</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 5</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 6</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 7</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 8</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 9</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 21</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 22</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 23</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 24</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 25</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 26</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 27</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 28</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 29</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 291</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 292</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 293</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 294</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 295</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 296</a>";
-                        echo "</br>";
-                        echo "<a href=\"\" style=\"display: inline;\">item .......................................... 297</a>";
-                        echo "</br>";
+                    //echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
+                    //  
+                    //    echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
+                    //    echo "</br>";
 
-                    echo "</div>";
+                    //echo "</div>";
 
                 echo "</div>";
                 //Team page///////////////////////////////////////////////////////////////////////////
@@ -206,6 +170,8 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
+            echo "<iframe name=\"frame_mailer\" style=\"display: none;\"></iframe>";
+
             mysql_close($con);
         }
 ?>

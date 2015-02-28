@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include 'ChromePhp.php';
+    //include 'ChromePhp.php';
     //$password = $_SESSION['mypassword'];        
     //ChromePhp::log("MD5:", $password);
 	
@@ -11,7 +11,7 @@
 
     //Check session expiration & logged_in status
     if(!isset($_SESSION['logged_in'])) {
-        ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
+        //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
         header("location:default.html");
     }
     else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
@@ -76,9 +76,9 @@
             
                 //Admin's event update button
                 if($ad==1)
-                    echo "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"cursor: pointer;\"></img>";
+                    echo "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
                 else
-                    echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images\edit.png\" style=\"visibility:hidden;\"></img>"; 
+                    echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
 
                 //Top table for rounded corners
        //         echo "<table class=\"lastrow\">";
@@ -224,7 +224,7 @@
                 //if($row_index == 1)
                 //    echo "<div id=\"id_playersfull_" . $event_check . "\">";
                 //else
-                    echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"noshow\">";
+                    echo "<div id=\"id_playersfull_" . $event_check . "\" class=\"box visuallynoshow noshow\">";
 		    }
 
 		    //Echo players for the event////////////////////////////////////////////////////
@@ -261,8 +261,14 @@
             echo "<article id=\"event_article_id\" class=\"clearfix\">";
                 echo "<div>";
 
+<<<<<<< HEAD
                     //echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
                     echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+=======
+                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+
+                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+>>>>>>> origin/v3.0
 
                 echo "</div>";
             echo "</article>";

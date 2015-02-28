@@ -1,4 +1,3 @@
-
 //Get users name & team name
 function getLoginInformation() {
 	//alert("showUser() gets called.");
@@ -15,7 +14,8 @@ function getLoginInformation() {
 
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("userlogin").innerHTML = xmlhttp.responseText;
+			document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
+            //document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
 		}
 	}
 
@@ -305,12 +305,33 @@ function updateEvent(eventID)
 //Show&hide events players in event list
 function showPlayers(eventid) {
     //alert(eventid);
+    //var id = "#id_playersfull_" + eventid;
+    ////alert(id);
+    //if ($(id).hasClass('noshow'))
+    //    $(id).removeClass("noshow");
+    //else
+    //    $(id).addClass("noshow");
+    
     var id = "#id_playersfull_" + eventid;
-    //alert(id);
-    if ($(id).hasClass('noshow'))
-        $(id).removeClass("noshow");
-    else
-        $(id).addClass("noshow");
+    var box = $(id);
+
+    if (box.hasClass('noshow')) {
+    
+        box.removeClass('noshow');
+        setTimeout(function () {
+            box.removeClass('visuallynoshow');
+        }, 20);
+
+    } else {
+    
+        box.addClass('visuallynoshow');
+    
+        box.one('transitionend', function(e) {
+
+            box.addClass('noshow');
+
+        });
+    }
 }
 
 //New game insert - Set game end time from after start time is set
@@ -381,7 +402,6 @@ function getPlayerProfile() {
 
 //Chat
 function getChat() {
-
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -392,7 +412,13 @@ function getChat() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
+
+      //      scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
+      //      setTimeout(function(){
+			   // scroll.refresh();
+		    //});
 		}
+
 	}
 
 	//alert("GET gets called.");
@@ -414,7 +440,7 @@ function insertComment(comment) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-	        getChat();
+	        //getChat();
 	    }
 	}
 
@@ -423,33 +449,170 @@ function insertComment(comment) {
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
-	xmlhttp.open("GET", "insertComment.php?" + variables, false);
+	xmlhttp.open("GET", "insertComment.php?" + variables, true);
 
 	xmlhttp.send();
 }
 
 //Chat dynamic
-function addRow(photourl, name) {
+function addRow() {
 
     var comment = document.getElementById("comment_input").value;
+    document.getElementById("comment_input").value = "";
 
-    //alert("addRow(): " + photourl + ", " + name + ", " + comment + ", NOW");
+    //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
 
     var table = document.getElementById("comments_table");
 
     var row = table.insertRow(0);
     row.className = "chatrow";
-    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" + photourl + "\"><br><text style=\"color: white;\">" + name + "</text></td>" +
-                    "<td width=\"500px\" height=\"auto\"><textarea class=\"commentArea1\">Just now...</textarea><textarea  maxlength=\"500\" class=\"commentArea2\">" + comment + "</textarea></td>";
+    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
+    sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
+    sessionStorage['playerName'] + "</text></td>" +
+    "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
 
-    document.getElementById("comment_input").value = "";
+    //document.getElementById("comment_input").value = "";    
 
-    $("#chatdiv").scrollTop(0);
+    //$("#chatdiv").scrollTop(0);
 
-    insertComment(comment);
+    setTimeout(insertComment(comment), 100);
+
+
+
 }
 
 //Clear chat input
 //function clearComment() {
 //    document.getElementById("comment_input").value = "";
 //}
+
+
+//Chat LongPolling////////////////
+var parameter = null;
+parameter = "1900-01-01 10:10:10";
+
+function waitForChat(){
+
+    
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
+
+    //var param = 'timestamp=' + timestamp;
+    
+    $.ajax({
+        type: "GET",
+        //url: "getChat.php?timestamp=" + parameter,
+        url: "getChat.php",
+        data: { timestamp:  JSON.stringify(parameter) },
+        async: true,
+        cache: false,
+        //timeout: 40000,
+        //dataType: 'json',
+        //processData: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+
+            //Testing
+            //if (json['timestamp'] != "") {
+            //    //alert("jep: " + json['msg']);
+            //alert("success param timestamp: " + timestamp);
+            //alert("success timestamp: " + json['timestamp']);
+            //}
+            
+            //Get comments only if php not timed out...
+            if(json['timeout'] == 0) {
+                //alert("success timeout false: " + json['timeout']);
+                setTimeout('getChatComments()', 100);
+            } 
+            //else {
+            //    alert("success timeout true: " + json['timeout']);
+            //}
+
+            parameter = json['timestamp'];
+            setTimeout('waitForChat()', 15000);
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForChat()', 15000);
+        }
+    });
+            
+}
+
+function getChatComments() {
+    
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+            scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
+            setTimeout(function(){
+			    scroll.refresh();
+		    });
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "comments.php", false);
+	xmlhttp.send();
+}
+
+function refreshScroll() {
+    setTimeout(function(){
+	    scroll.refresh();
+    });    
+}
+
+function toLoginPage() {
+    var loginURL = window.location.href;
+    loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+    loginURL = loginURL + "default.html";
+    //alert(loginURL);
+    window.location.assign(loginURL);
+    
+    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
+    //window.location.assign("http://localhost:18502/default.html")    
+}
+
+//function sendMail() {
+//    alert("sendMail()");
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
+
+//	xmlhttp.onreadystatechange = function () {
+//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
+//	        //getChat();
+//	    }
+//	}
+
+//	//var variables = "comment=" + comment;
+//	//alert(variables);
+//	
+//	xmlhttp.open("POST", "mailer.php", false);
+
+//	xmlhttp.send();
+//}
+
