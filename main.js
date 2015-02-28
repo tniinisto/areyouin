@@ -592,6 +592,7 @@ function toLoginPage() {
     //window.location.assign("http://localhost:18502/default.html")    
 }
 
+
 //function sendMail() {
 //    alert("sendMail()");
 //	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
