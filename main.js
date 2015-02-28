@@ -597,7 +597,9 @@ function toEvents() {
     //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
 
     //window.location.assign("<a getEvents();\"></a>");
-    $.mobile.changePage(getEvents());
+    //$.mobile.changePage(index.html#areyouin-events-page);
+    getEvents();
+    window.location.assign("index.html");
 
     //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
 }

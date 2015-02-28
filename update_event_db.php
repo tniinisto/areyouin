@@ -174,7 +174,8 @@
 
     //if($result2 && $result3)
     {
-        header("location:index.html");
+        //header("location:index.html#areyouin-events-page");
+        //echo "<a href=\"javascript:getEvents();\">Back to events</a>";
         //href="#areyouin-events-page" 
     }  
 
