@@ -346,7 +346,9 @@ function game_start() {
     if(start.value.indexOf("T")){
         dt = start.value.split("T"); //Split date&time        
     }
-    else {        dt = start.value.split(" "); //Split date&time            }
+    else {
+        dt = start.value.split(" "); //Split date&time        
+    }
 
     var d = dt[0].split("-"); //Spilit year, month, day
     var t = dt[1].split(":"); //Split hour,minute
@@ -591,7 +593,6 @@ function toLoginPage() {
     //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
     //window.location.assign("http://localhost:18502/default.html")    
 }
-
 
 //function sendMail() {
 //    alert("sendMail()");
