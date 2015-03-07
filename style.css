@@ -1203,3 +1203,28 @@ Jquery mobile override
 .ui-header-fixed, .ui-footer-fixed {
     opacity: 0.8;
 }
+
+/************************************************************************************
+    JQueryMobile menu
+*************************************************************************************/
+.ui-icon-events {
+    /*background-image: url(/images/player17.png);*/    
+    /*background-size: 210px 160px;*/
+    /*background-position:-32px -128px;*/
+    
+    display: block;
+    background: url(/images/edit.png) 50% 50% no-repeat;
+    background-size: 30px 30px;
+    /*text-align: right;*/    
+    width: auto;
+    height: 20px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    
+margin: -2px !important;
+margin-left: -165px!important;
+padding-left: 115px;
+vertical-align: middle;
+
+}    
+
