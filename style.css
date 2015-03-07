@@ -1209,8 +1209,8 @@ Jquery mobile override
 *************************************************************************************/
 .ui-icon-events {
     display: block;
-    background: url(/images/player4.png) 50% 50% no-repeat;
-    background-size: 30px 30px;
+    background: url(/images/events-icon.png) 50% 50% no-repeat;
+    background-size: 40px 40px;
     height: 20px;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -1223,8 +1223,8 @@ vertical-align: middle;
 
 .ui-icon-chat {
     display: block;
-    background: url(/images/player1.png) 50% 50% no-repeat;        
-    background-size: 30px 30px;
+    background: url(/images/chat-icon.png) 50% 50% no-repeat;        
+    background-size: 40px 40px;
     height: 20px;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -1237,8 +1237,8 @@ vertical-align: middle;
 
 .ui-icon-logout {
     display: block;
-    background: url(/images/player2.png) 50% 50% no-repeat;
-    background-size: 30px 30px;
+    background: url(/images/logout-icon.png) 50% 50% no-repeat;
+    background-size: 40px 40px;
     /*text-align: right;*/    
     /*width: auto;*/
     height: 20px;

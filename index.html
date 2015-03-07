@@ -115,13 +115,24 @@
             <div id="chat_content_id"> </div>
             <a id="modal_comment" href="modal.html" data-role="button" data-inline="true" data-rel="dialog" data-transition="flip" data-theme="b">New comment</a>
 	    </div>
-	    
+
 	    <div data-role="panel" id="left-panel-chat" data-display="overlay" data-theme="b">
-	        <p>Menu</p>
-	        <p><a href="#areyouin-events-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Events</a></p>
-	        <p><a href="#areyouin-chat-page" data-theme="b" data-icon="" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Chat</a></p>
-            <p><a href="#" onclick="logout.php; toLoginPage();">Logout</a></p>
-            <!--<p><a href="http://http://localhost:18502/default.html" onclick="logout.php; toLoginPage();">Logout</a></p>-->       
+	        <p style="font-size: 22px; font-weight: 700; color:#ffd800;">Menu</p>
+
+	        <a href="#areyouin-events-page" data-role="button" data-theme="b" data-icon="events" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-events menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Events</div>
+            </a>
+
+	        <a href="#areyouin-chat-page" data-role="button" data-theme="b" data-icon="chat" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-chat menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Chat</div>
+            </a>
+
+            <a href="#" data-role="button" data-theme="b" data-icon="logout" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-logout menu-layout" onclick="logout.php; toLoginPage();"
+                style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Logout</div>
+            </a>
 	    </div>
     </div> 
     <!-- /Chat -->  
