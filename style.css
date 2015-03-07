@@ -1208,15 +1208,23 @@ Jquery mobile override
     JQueryMobile menu
 *************************************************************************************/
 .ui-icon-events {
-    /*background-image: url(/images/player17.png);*/    
-    /*background-size: 210px 160px;*/
-    /*background-position:-32px -128px;*/
-    
     display: block;
-    background: url(/images/edit.png) 50% 50% no-repeat;
+    background: url(/images/player4.png) 50% 50% no-repeat;
     background-size: 30px 30px;
-    /*text-align: right;*/    
-    /*width: auto;*/
+    height: 20px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    
+margin: -2px !important;
+margin-left: -165px!important;
+padding-left: 130px;
+vertical-align: middle;
+}    
+
+.ui-icon-chat {
+    display: block;
+    background: url(/images/player1.png) 50% 50% no-repeat;
+    background-size: 30px 30px;
     height: 20px;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -1225,16 +1233,11 @@ margin: -2px !important;
 margin-left: -165px!important;
 padding-left: 115px;
 vertical-align: middle;
-
 }    
 
-.ui-icon-chat {
-    /*background-image: url(/images/player17.png);*/    
-    /*background-size: 210px 160px;*/
-    /*background-position:-32px -128px;*/
-    
+.ui-icon-logout {
     display: block;
-    background: url(/images/edit.png) 50% 50% no-repeat;
+    background: url(/images/player2.png) 50% 50% no-repeat;
     background-size: 30px 30px;
     /*text-align: right;*/    
     /*width: auto;*/
@@ -1244,7 +1247,12 @@ vertical-align: middle;
     
 margin: -2px !important;
 margin-left: -165px!important;
-padding-left: 100px;
+padding-left: 135px;
 vertical-align: middle;
+}   
 
-}    
+.menu-layout {
+    border-width: 0px;
+    width: auto;
+    background-color: #333;     
+}
