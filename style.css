@@ -1216,7 +1216,7 @@ Jquery mobile override
     background: url(/images/edit.png) 50% 50% no-repeat;
     background-size: 30px 30px;
     /*text-align: right;*/    
-    width: auto;
+    /*width: auto;*/
     height: 20px;
     box-shadow: none;
     -webkit-box-shadow: none;
