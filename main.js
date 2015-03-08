@@ -599,7 +599,7 @@ function toEvents() {
     //window.location.assign("<a getEvents();\"></a>");
     //$.mobile.changePage(index.html#areyouin-events-page);
 
-    setTimeout(getEvents(), 200);
+    getEvents();
     window.location.assign("index.html");
 
     //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});

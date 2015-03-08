@@ -141,41 +141,30 @@
    
     mysql_close($con);
 
-        echo "<html lang=\"en()\">";
+        echo "<html>";
         echo "<head>";
-        echo "<meta charset=\"utf-8\">";
-
-        echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
-
-        echo "<title>R'YouIN</title>";
-
-        echo "<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">";
-        echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
-
-        echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-        echo "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>";
-        echo "<script src=\"http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>";
-
-        echo "<style>";
-        echo "body {";
-            echo "background-color: #252525;";
-        echo "}";
-        echo "</style>";
+            //echo "<meta charset=\"utf-8\">";
+            //echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+            echo "<title>R'YouIN</title>";
+            echo "<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">";
+            echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
+            echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
         echo "</head>";
 
         echo "<body>";
             echo "<div id=\"pagewrap\">";
+                echo "<div data-role=\"page\" id=\"areyouin-update-page\" data-theme=\"b\" data-url=\"areyouin-update-page\">";
+                    echo "<div id=\"loginwrapper\">";
 
-                echo "<div id=\"loginwrapper\">";
+			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
 
-			        echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
-
-                    echo "<fieldset id=\"loginfailfs\">";
-                        echo "<h1>Game Updated</h1>";
-                        echo "<br />";
-                        echo "<a href=\"javascript:toEvents();\">Back to home</a>";
-                        echo "<h1></h1>";
-                    echo "</fieldset>";
+                        echo "<fieldset id=\"loginfailfs\">";
+                            echo "<h1>Game Updated</h1>";
+                            echo "<br />";
+                            echo "<a href=\"javascript:toEvents();\">Back to home</a>";
+                            echo "<h1></h1>";
+                        echo "</fieldset>";
+                    echo "</div>";
                 echo "</div>";
             echo "</div>";
 
