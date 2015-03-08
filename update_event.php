@@ -1,11 +1,12 @@
 <?php
-        //include 'ChromePhp.php';
+        session_start();
 
-        //ChromePhp::log('Hello console!');
+        if($_SESSION['ChromeLog']) {
+            require_once 'ChromePhp.php';
+            ChromePhp::log('update_event.php, start');
+        }
 
         $eventid=$_GET["eventid"];
-        
-        session_start();
 	
         //$teamid=$_GET["teamid"];
 	    //$playerid=$_GET["playerid"];
@@ -54,6 +55,8 @@
         //ChromePhp::log(date(('Y-m-d H:i'), strtotime($row['startTime'])));
         ////ChromePhp::log(date(('Y-m-d H:i'), strtotime(strtotime('+10 hours'))));
         //ChromePhp::log(date(('Y-m-d H:i'), strtotime(strtotime($gamestart))));
+        if($_SESSION['ChromeLog']) { ChromePhp::log('update_event.php, gamestart: ', $gamestart); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('update_event.php, gameend: ', $gameend); }
 
         //Get team's players
         //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t WHERE t.teamID = '" . $teamid . "'";);
@@ -68,8 +71,8 @@
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update game</h1>";
-        echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";
-        //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
+        //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";        
+        echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
         //Location///////////////////////////////////////////
         echo "<label><h2>Game location:</h2></label>";

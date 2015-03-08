@@ -598,6 +598,7 @@ function toEvents() {
 
     //window.location.assign("<a getEvents();\"></a>");
     //$.mobile.changePage(index.html#areyouin-events-page);
+
     getEvents();
     window.location.assign("index.html");
 

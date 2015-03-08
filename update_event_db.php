@@ -1,6 +1,10 @@
 <?php
-    //include 'ChromePhp.php';
-    //ChromePhp::log('Hello console!');
+    session_start();
+
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('update_event_db.php, start');
+    }
 
     $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
     if (!$con)
@@ -70,15 +74,16 @@
     inner join areyouin.team t on teamID = e.Team_teamID
     inner join areyouin.players p on playerID = ep.Players_playerID
     inner join areyouin.location l on l.locationID = e.Location_locationID
-    where e.eventID = " . $eventid . " and t.teamID = " . $teamid . "";
+    where e.eventID = " . $eventid . " and t.teamID = " . $teamid . ";";
         
     $result = mysql_query($sql);
 
     //Update game's basic information//////////////////////////////////////////////////////////////
     $row = mysql_fetch_array($result);
     //$sql3 = "UPDATE events SET startTime = ". $row['startTime'] .", endTime = " . $row['endTime'] . " WHERE eventID = " . $eventid . "";
-    $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . "";
+    $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . ";";
     //ChromePhp::log('Update: ' . $sql3);
+    if($_SESSION['ChromeLog']) { ChromePhp::log('update_event_db.php, sql: ', $sql3); }
     $result3 = mysql_query($sql3);
 
     //Update players, deed to check whether EventPlayer row should be inserted or deleted//////////
@@ -173,11 +178,17 @@
     mysql_close($con);
 
     //if($result2 && $result3)
-    {
-        //header("location:index.html#areyouin-events-page");
-        //echo "<a href=\"javascript:getEvents();\">Back to events</a>";
-        //href="#areyouin-events-page" 
-    }  
+    //{
+    //    header("location:index.html");
+    //header("location:http://localhost:18502/index.html#areyouin-events-page");
+    //    //echo "<a href=\"javascript:toEvents();\"></a>";
+    //    //href="#areyouin-events-page" 
+    //}  
+    echo "<!doctype html>";
+    echo "<body>";
+    echo "<a href=\"javascript:toEvents();\">Game updated, tap here to get back.</a>";
+    echo "</body>";
+    echo "</html>";
 
 ?>
 
