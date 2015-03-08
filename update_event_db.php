@@ -138,77 +138,47 @@
                 
         }
     }
-    
-
-    //Get the id for the inserted event
-    //$sql2 = "SELECT MAX(eventID) as eventID FROM events";
-    //echo $sql2;
-    //echo "</br>";
-    //$result2 = mysql_query($sql2);
-    //$row = mysql_fetch_array($result2);        
-        
-    //Insert players which are selected into the event
-    /*$eid = mysql_insert_id(); //Get the just created event id
-    for ($k=1; $k<=$playeramount; $k++)
-    {
-            if($players[$k][2] == '')
-            {
-                    $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
-                    $result3 = mysql_query($sql3);
-            }
-    }*/        
-        
-    //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
-    //echo $sql3;
-    //echo "</br>";
-    //$result3 = mysql_query($sql3);
-        
-    //echo $result;        
-    /*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
-    echo "</br>";*/
-        
-    /*for ($j=1; $j<=$playeramount; $j++)
-    {
-            echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
-            echo "</br>";
-    }*/
-        
-    //echo "<h1>Your game was inserted, click the browser back button...</h1>";
-
-    //Success
-    /*$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-    echo "</br>";*/
-        
-    //Sending email notification for the players
-    /*$to      = "tniinisto@gmail.com";
-    $subject = "RYouIN";
-    $message = "New game set";
-    $headers = "From: webmaster@areyouin.net" . "\r\n" .
-            "Reply-To: webmaster@areyouin.net" . "\r\n" .
-            "X-Mailer: PHP/" . phpversion();
-
-    mail($to, $subject, $message, $headers);*/
-
+   
     mysql_close($con);
 
-    //if($result2 && $result3)
-    //{
-    //    header("location:index.html");
-    //header("location:http://localhost:18502/index.html#areyouin-events-page");
-    //    //echo "<a href=\"javascript:toEvents();\"></a>";
-    //    //href="#areyouin-events-page" 
-    //}  
-    //echo "<!doctype html>";
-    //echo "<body>";
-    //echo "<a href=\"javascript:toEvents();\">Game updated, tap here to get back.</a>";
-    //echo "</body>";
-    //echo "</html>";
+        echo "<html lang=\"en()\">";
+        echo "<head>";
+        echo "<meta charset=\"utf-8\">";
 
-        echo "<!doctype html>";
+        echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+
+        echo "<title>R'YouIN</title>";
+
+        echo "<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">";
+        echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
+
+        echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
+        echo "<script src=\"http://code.jquery.com/jquery-1.11.1.min.js\"></script>";
+        echo "<script src=\"http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js\"></script>";
+
+        echo "<style>";
+        echo "body {";
+            echo "background-color: #252525;";
+        echo "}";
+        echo "</style>";
+        echo "</head>";
+
         echo "<body>";
-            //echo "</br>";
-            echo "<a href=\"javascript:toEvents();\"><h2>Game updated, tap here to get back.</h2></a>";
+            echo "<div id=\"pagewrap\">";
+
+                echo "<div id=\"loginwrapper\">";
+
+			        echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
+
+                    echo "<fieldset id=\"loginfailfs\">";
+                        echo "<h1>Game Updated</h1>";
+                        echo "<br />";
+                        echo "<a href=\"javascript:toEvents();\">Back to home</a>";
+                        echo "<h1></h1>";
+                    echo "</fieldset>";
+                echo "</div>";
+            echo "</div>";
+
         echo "</body>";
         echo "</html>";
 
