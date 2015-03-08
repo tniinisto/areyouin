@@ -199,11 +199,18 @@
     //    //echo "<a href=\"javascript:toEvents();\"></a>";
     //    //href="#areyouin-events-page" 
     //}  
-    echo "<!doctype html>";
-    echo "<body>";
-    echo "<a href=\"javascript:toEvents();\">Game updated, tap here to get back.</a>";
-    echo "</body>";
-    echo "</html>";
+    //echo "<!doctype html>";
+    //echo "<body>";
+    //echo "<a href=\"javascript:toEvents();\">Game updated, tap here to get back.</a>";
+    //echo "</body>";
+    //echo "</html>";
+
+        echo "<!doctype html>";
+        echo "<body>";
+            //echo "</br>";
+            echo "<a href=\"javascript:toEvents();\"><h2>Game updated, tap here to get back.</h2></a>";
+        echo "</body>";
+        echo "</html>";
 
 ?>
 
