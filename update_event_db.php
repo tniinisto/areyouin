@@ -53,20 +53,35 @@
     {
             $gamestart = str_replace("T", " ", $gamestart);
             $gamestart = $gamestart . ":00";
+    }
+    if(stripos($gamesend,"T") && strlen($gamesend) < 17)
+    {
             $gamesend = str_replace("T", " ", $gamesend);
             $gamesend = $gamesend . ":00";
     }
-    //iPhone  -> 2013-07-27 17:30:00
+
+    //iPhone has seconds -> 2013-07-27 17:30:00
     if(stripos($gamestart,"T") && strlen($gamestart) > 17)
     {
             $gamestart = str_replace("T", " ", $gamestart);
+            //$gamestart = DateTime::createFromFormat('Y-m-d H:i:s',$gamestart)->format('Y-m-d H:i');        
+            //$gamestart = $gamestart . ":00";
+            //$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');        
+            //$gamesend = $gamesend . ":00";
+    }
+    if(stripos($gamesend,"T") && strlen($gamesend) > 17)
+    {
             $gamesend = str_replace("T", " ", $gamesend);
             //$gamestart = DateTime::createFromFormat('Y-m-d H:i:s',$gamestart)->format('Y-m-d H:i');        
             //$gamestart = $gamestart . ":00";
             //$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');        
             //$gamesend = $gamesend . ":00";
     }
+
     //echo $gamestart;
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('update_event_db.php, gamestart: ', $gamestart); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('update_event_db.php, gamesend: ', $gamesend); }
 
     /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
     $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.name location from areyouin.eventplayer ep
