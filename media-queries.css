@@ -41,12 +41,18 @@ screens smaller or equal to 980
 		min-height: 300px;
 	}
 
+    .list-right {
+        display: inline-block;
+        width: 115px;
+    }
 }
+
 
 /************************************************************************************
 screens smaller or equal to 750
 *************************************************************************************/
 @media screen and (max-width: 750px) {
+
     #footer {
         display: none;
     }
@@ -62,6 +68,7 @@ screens smaller or equal to 750
 
     #main-nav {
         margin-top: 10px;
+        /*padding-right: 5px;*/
     }
 
 
@@ -528,3 +535,4 @@ th.col51 {
 
 
 }
+

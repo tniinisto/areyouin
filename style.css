@@ -488,6 +488,7 @@ article
 	font-size: 1.2em;
     z-index: -10;
     margin-top: 5px;
+    margin-right: -9px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;		        
@@ -613,7 +614,7 @@ article
 }
 
 #event_article_id {
-    padding: 1px 5px 18px 5px;
+    padding: 1px 15px 18px 5px;
     /*height: auto;
     -moz-transition: height 1s ease-out;*/
 }
@@ -1107,3 +1108,40 @@ Upload form
 	background-color: #CAF2FF;
 	width:1%;
 }
+
+
+
+/************************************************************************************
+DIV instead of tables
+*************************************************************************************/
+
+.list-row {
+    background:#f4f4f4;
+    display:inline-block;
+    border:2px solid red;
+}
+
+.list-left {
+    width:auto;
+    padding:10px;
+    float:left;
+    border: 2px solid blue;}
+
+.list-right {
+    display: inline-block;
+    width: 170px;
+    padding-top:20px;
+    /*float:right;*/
+    border:2px solid green;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;    
+}
+
+
+.list-title {
+    font-size:18px;
+    padding:8px;
+}
+
+.list-filters { padding:8px; }
