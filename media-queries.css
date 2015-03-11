@@ -261,6 +261,14 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    #event_article_id {
+        padding: 1px 5px 18px 5px;
+    }
+ 
+   .divtable {
+        margin-right: 0px;
+    }
+
     #footer {
         display: none;
     }
