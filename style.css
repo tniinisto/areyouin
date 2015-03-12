@@ -1131,18 +1131,32 @@ DIV instead of tables
 .list-right {
     display: inline-block;
     width: 170px;
-    padding-top:20px;
+    padding-top:5px;
     /*float:right;*/
     border:2px solid green;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
 }
 
 
 .list-title {
     font-size:18px;
-    padding:8px;
+    padding:4px;
 }
 
 .list-filters { padding:8px; }
+
+.gamemeter {
+    width: 160px;
+    margin-left: 5px;
+}
+
+.gameamountheader {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    padding-left: 20%;
+    font-weight: 700;
+    padding-top: 5px;
+}
