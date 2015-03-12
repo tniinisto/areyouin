@@ -9,12 +9,16 @@ if($_SESSION['ChromeLog']) {
 }
         
 $team = $_SESSION['myteamid'];
+$team = 3;
 
 $sql = "select p.name name, p.photourl photourl, count(ep.Events_eventID) games from players p
 inner join eventplayer ep on p.playerID = ep.Players_playerID
-inner join playerteam pm on p.playerID = pm.Players_playerID
-where ep.areyouin = 1 and pm.Team_teamID = '" . $team . "'
-group by p.name order by games desc;";
+inner join events e on ep.Events_eventID = e.eventID
+inner join team t on e.Team_teamID = t.teamID
+where t.teamID = '" . $team . "'
+group by p.name
+order by games desc;";
+
 
 try {
     //PDO means "PHP Data Objects"
