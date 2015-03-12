@@ -618,3 +618,70 @@ function toLoginPage() {
 //	xmlhttp.send();
 //}
 
+
+function getPlayerStats() {
+    var playerstats;
+
+    var serviceURL = window.location.href;
+    serviceURL = serviceURL.replace("index.html", "/json/");
+
+    //alert("getPlayerStats called...url: " + serviceURL);
+
+    $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
+
+        playerstats = data.items;
+
+        //alert("player name: " + playerstats[0].name
+        //+ " ,photo url: " + playerstats[0].photourl
+        //+ " ,games#: " + playerstats[0].games
+        //);      
+
+        //$.each(playerstats, function(index, player) {
+        //    alert("playerinfo, name: " + player.name);
+        //});
+
+        //$('#busy').hide();
+        //      $('#playerList li').remove();
+        //players = data.items;
+        //$.each(players, function(index, player) {
+
+        //	$('#playerList').append(
+        //			'<li>' +
+        //			'<img src="pics/' + player.photourl + '" class="list-icon"/>' +
+        //			// '<p class="line1">' + player.playerID + '</p>' +
+        //			'<p class="line1">' + player.name + '</p>' +
+        //			'</li>');
+        //});
+
+        $.each(playerstats, function (index, player) {
+            $('#playerwidget').append(
+                "<div class='list-row'>" +
+                    "<div class='list-left'>Row1" +
+                        "<br />" +
+                        "Row2" +
+                    "</div>" +
+                    "<div class='list-right'>" +
+                        "<span class='list-title'>" + player.name + "</span>" +
+                        "<br />" +
+                        "<span class='gameamountheader'>"+ player.games + " games played</span>" +
+                        "<br />" +
+                        "<meter class='gamemeter' value='"+ player.games + "' min='0' max='200'></meter>" +
+                        "<br>" +
+                    "</div>" +
+                "</div>"
+            );
+        });
+
+        //    $.each(players, function (index, player) {
+        //        $('#playerList').append(
+        //    			'<li>' +
+        //    			'<img src="pics/' + player.photourl + '" class="list-icon"/>' +
+        //        // '<p class="line1">' + player.playerID + '</p>' +
+        //    			'<p class="line1">' + player.name + '</p>' +
+        //    			'</li>');
+        //    });
+        //});
+
+    });
+
+}
