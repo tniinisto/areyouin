@@ -3,10 +3,10 @@ include 'config.php';
 
 session_start();
 
-if($_SESSION['ChromeLog']) {
-    require_once 'ChromePhp.php';
-    ChromePhp::log('getPlayerStatistics.php, start');
-}
+//if($_SESSION['ChromeLog']) {
+//    require_once 'ChromePhp.php';
+//    ChromePhp::log('getPlayerStatistics.php, start');
+//}
         
 $team = $_SESSION['myteamid'];
 

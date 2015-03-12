@@ -624,6 +624,7 @@ function getPlayerStats() {
 
     var serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "/json/");
+    serviceURL = serviceURL.replace("#", '');
 
     //alert("getPlayerStats called...url: " + serviceURL);
 
