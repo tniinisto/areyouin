@@ -619,6 +619,31 @@ function toLoginPage() {
 //}
 
 
+var playedGamesForTeam = 0;
+
+function getAllPlayerGames() {
+    var playerstats;
+
+    var serviceURL = window.location.href;
+    serviceURL = serviceURL.replace("index.html", "/json/");
+    serviceURL = serviceURL.replace("#", '');
+
+    //alert("getPlayerStats called...url: " + serviceURL);
+
+    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
+
+        playedgames = data.items;
+
+        //alert("Played games: " + playedgames[0].gamecount);
+        playedGamesForTeam = playedgames[0].gamecount;
+      
+        //document.getElementById("GamesAmount").innerHTML = "<div id='GamesAmount' class='list-row'>" + playedGamesForTeam + "</div>";
+         $('#GamesAmount').text('Team has ' + playedGamesForTeam + ' played games');
+    });
+
+}
+
+
 function getPlayerStats() {
     var playerstats;
 
@@ -665,22 +690,12 @@ function getPlayerStats() {
                         "<br />" +
                         "<span class='gameamountheader'>"+ player.games + " played games</span>" +
                         "<br />" +
-                        "<meter class='gamemeter' value='"+ player.games + "' min='0' max='200'></meter>" +
+                        "<meter class='gamemeter' value='"+ player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                         "<br>" +
                     "</div>" +
                 "</div>"
             );
         });
-
-        //    $.each(players, function (index, player) {
-        //        $('#playerList').append(
-        //    			'<li>' +
-        //    			'<img src="pics/' + player.photourl + '" class="list-icon"/>' +
-        //        // '<p class="line1">' + player.playerID + '</p>' +
-        //    			'<p class="line1">' + player.name + '</p>' +
-        //    			'</li>');
-        //    });
-        //});
 
     });
 

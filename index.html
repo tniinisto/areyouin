@@ -124,6 +124,9 @@
 
         <section id="playerwidget" class="widget">
                 <h2 class="widgettitle" onClick="">Player statistics</h2>
+                
+                <div id="GamesAmount" class="widgettitle"></div>
+                
                 <!--<ul>
                     <li>Item1</li>
                     <li>Item2</li>
@@ -198,6 +201,7 @@
 
         waitForChat();
 
+        getAllPlayerGames();
         getPlayerStats();
 
         //SSE init
