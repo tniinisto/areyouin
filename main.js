@@ -657,14 +657,13 @@ function getPlayerStats() {
         $.each(playerstats, function (index, player) {
             $('#playerwidget').append(
                 "<div class='list-row'>" +
-                    "<div class='list-left'>Row1" +
-                        "<br />" +
-                        "Row2" +
+                    "<div class='list-left'>" +
+                        "<img width='40' height='40' src='images/player11.png'>" +
                     "</div>" +
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +
                         "<br />" +
-                        "<span class='gameamountheader'>"+ player.games + " games played</span>" +
+                        "<span class='gameamountheader'>"+ player.games + " played games</span>" +
                         "<br />" +
                         "<meter class='gamemeter' value='"+ player.games + "' min='0' max='200'></meter>" +
                         "<br>" +
