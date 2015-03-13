@@ -14,7 +14,7 @@ $sql = "select p.name name, p.photourl photourl, count(ep.Events_eventID) games 
 inner join eventplayer ep on p.playerID = ep.Players_playerID
 inner join events e on ep.Events_eventID = e.eventID
 inner join team t on e.Team_teamID = t.teamID
-where t.teamID = '" . $team . "' and ep.areyouin = 1
+where t.teamID = '" . $team . "' and ep.areyouin = 1 and e.endTime < now()
 group by p.name
 order by games desc;";
 
