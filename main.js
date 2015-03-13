@@ -588,6 +588,7 @@ function toLoginPage() {
     loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
     loginURL = loginURL + "default.html";
     //alert(loginURL);
+
     window.location.assign(loginURL);
     
     //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
