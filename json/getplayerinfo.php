@@ -14,7 +14,7 @@ $pl=$_SESSION['myplayerid'];
 //    	FROM areyouin.players
 //        WHERE playerID = '" . $pl . "'";
 
-$sql = "SELECT p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin
+$sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
         from areyouin.players p
         inner join areyouin.playerteam m on p.playerID = m.Players_playerID
         inner join areyouin.team t on m.Team_teamID = t.teamid

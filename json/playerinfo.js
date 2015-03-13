@@ -24,6 +24,7 @@ var playerinfo;
 $(window).load(function () {
     serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "json/");
+    serviceURL = serviceURL.replace("#", '');
     localStorage['serviceURL'] = serviceURL;
 
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
@@ -44,7 +45,7 @@ function getPlayerInfo() {
 
         playerinfo = data.items;
 
-        //alert("playerinfo, name: " + playerinfo[0].name);
+        //alert("playerinfo, photoURL: " + playerinfo[0].photourl);
 
         sessionStorage['playerID'] = playerinfo[0].playerID;
         sessionStorage['playerName'] = playerinfo[0].name;
