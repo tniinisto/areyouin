@@ -658,7 +658,7 @@ function getPlayerStats() {
             $('#playerwidget').append(
                 "<div class='list-row'>" +
                     "<div class='list-left'>" +
-                        "<img width='40' height='40' src='images/player11.png'>" +
+                        "<img width='50' height='50' src='images/" + player.photourl + "'>" +
                     "</div>" +
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +

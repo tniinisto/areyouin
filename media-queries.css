@@ -43,8 +43,14 @@ screens smaller or equal to 980
 
     .list-right {
         display: inline-block;
-        width: 115px;
+        width: 65%;
     }
+
+    /*.gamemeter {
+        display: inline-block;
+        width: 80px;
+        overflow: hidden;
+    }*/
 }
 
 
