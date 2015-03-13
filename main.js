@@ -639,7 +639,7 @@ function getAllPlayerGames() {
         playedGamesForTeam = playedgames[0].gamecount;
       
         //document.getElementById("GamesAmount").innerHTML = "<div id='GamesAmount' class='list-row'>" + playedGamesForTeam + "</div>";
-         $('#GamesAmount').text('Team has played ' + playedGamesForTeam + ' games');
+         $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
     });
 
 }
@@ -681,7 +681,8 @@ function getPlayerStats() {
         //});
 
         $.each(playerstats, function (index, player) {
-            $('#playerwidget').append(
+            if (player.games > 1) {
+                $('#playerwidget').append(
                 "<div class='list-row'>" +
                     "<div class='list-left'>" +
                         "<img width='50' height='50' src='images/" + player.photourl + "'>" +
@@ -689,13 +690,30 @@ function getPlayerStats() {
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +
                         "<br />" +
-                        "<span class='gameamountheader'>"+ player.games + " played games</span>" +
+                        "<span class='gameamountheader'>" + player.games + " played games</span>" +
                         "<br />" +
-                        "<meter class='gamemeter' value='"+ player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
+                        "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                         "<br>" +
                     "</div>" +
                 "</div>"
-            );
+                );
+            } else {
+                    $('#playerwidget').append(
+                    "<div class='list-row'>" +
+                        "<div class='list-left'>" +
+                            "<img width='50' height='50' src='images/" + player.photourl + "'>" +
+                        "</div>" +
+                        "<div class='list-right'>" +
+                            "<span class='list-title'>" + player.name + "</span>" +
+                            "<br />" +
+                            "<span class='gameamountheader'>" + player.games + " played game</span>" +
+                            "<br />" +
+                            "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
+                            "<br>" +
+                        "</div>" +
+                    "</div>"
+                );    
+            }
         });
 
     });
