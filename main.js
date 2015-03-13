@@ -479,6 +479,21 @@ function addRow() {
 
 }
 
+function clickBack() {
+    //alert("jou");
+
+    //document.getElementById('backpacker').click();
+    
+    $('.ui-dialog').dialog('close')
+    
+    //$("#modal_comment").dialog('destroy').remove()    
+    //$( "#modal_comment" ).dialog( "close" );
+    //$(":mobile-pagecontainer").pagecontainer("change", "#areyouin-chat-page", { options });
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: true});
+    //$.mobile.changePage("#areyouin-chat-page");
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: false});
+}
+
 //Clear chat input
 //function clearComment() {
 //    document.getElementById("comment_input").value = "";
