@@ -638,7 +638,7 @@ function getAllPlayerGames() {
         playedGamesForTeam = playedgames[0].gamecount;
       
         //document.getElementById("GamesAmount").innerHTML = "<div id='GamesAmount' class='list-row'>" + playedGamesForTeam + "</div>";
-         $('#GamesAmount').text('Team has ' + playedGamesForTeam + ' played games');
+         $('#GamesAmount').text('Team has played ' + playedGamesForTeam + ' games');
     });
 
 }

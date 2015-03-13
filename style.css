@@ -1185,5 +1185,7 @@ DIV instead of tables
     margin-left: -30px;*/
     background: transparent;
     color: #666;
-    
+    /*white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/        
 }
