@@ -483,10 +483,12 @@ function clickBack() {
     //alert("jou");
 
     //document.getElementById('backpacker').click();
-    
-    $('.ui-dialog').dialog('close')
-    
-    //$("#modal_comment").dialog('destroy').remove()    
+
+    //$("#backpacker").trigger("click");
+
+    $('#areyouin-modal-page').dialog('close');
+    //$("#areyouin-modal-page").dialog('destroy').remove();
+
     //$( "#modal_comment" ).dialog( "close" );
     //$(":mobile-pagecontainer").pagecontainer("change", "#areyouin-chat-page", { options });
     //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: true});
