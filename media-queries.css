@@ -27,7 +27,7 @@ screens smaller or equal to 980
 		float: right;
 	}
 	#sidebar .widget {
-		padding: 8% 7%;
+		/*padding: 8% 7%;*/
 		margin-bottom: 10px;
 		/*display: none;*/
 	}
@@ -45,6 +45,10 @@ screens smaller or equal to 980
         display: inline-block;
         width: 65%;
     }
+
+.list-row {
+    padding-left: 20px;
+}
 
     /*.gamemeter {
         display: inline-block;

@@ -922,7 +922,7 @@ SIDEBAR
 .widget {
 	background: #fff;
 	margin: 0 0 30px;
-	padding: 10px 20px;
+	padding: 10px 0px;
 	/* rounded corner */
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
@@ -933,8 +933,18 @@ SIDEBAR
 	box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
 .widgettitle {
-	margin: 0 0 5px;
-	padding: 0;	
+	margin: 5px 15px 5px;
+    padding-right: 10px;
+    text-align: center;
+    /*background-color: #474747;*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#121111), to(#474747));
+	background: -moz-linear-gradient(top,  #121111,  #474747);
+	background: linear-gradient(-90deg, #121111, #474747);         
+    color: #ffd800;;   
+    padding: 0px 0px;
+    font-size: large;
+    height: 30px;
+    padding-top: 6px;    
 }
 .widget ul {
 	margin: 0;
@@ -1119,14 +1129,16 @@ DIV instead of tables
 .list-row {
     display:inline-block;
     /*border:2px solid red;*/
+    /*border-top: 2px solid black;*/
     padding-top: 10px;
+    padding-left: 30px;
 }
 
 .list-left {
     width:auto;
     padding-top:8px;
     float:left;
-    /*border: 2px solid blue;*/        
+    /*border: 2px solid blue;*/         
 }
     
 
