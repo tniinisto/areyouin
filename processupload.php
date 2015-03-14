@@ -29,7 +29,7 @@
 	
 	
 
-	    //Is file size is less than allowed size.
+	    //Is file size is more than allowed size.
 	    if ($_FILES["FileInput"]["size"] > 2042880) {
 		    //ChromePhp::log("processupload too big...");
 
@@ -62,7 +62,7 @@
 	    }
 	
 	    $File_Name          = strtolower($_FILES['FileInput']['name']);
-	    $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
+	    $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extension
 	    $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
 	    $NewFileName 		= $Random_Number.$File_Ext; //new file name
 
