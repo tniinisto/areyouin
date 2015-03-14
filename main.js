@@ -634,12 +634,9 @@ function getAllPlayerGames() {
     $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
 
         playedgames = data.items;
+        playedGamesForTeam = playedgames[0].gamecount;      
+        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
 
-        //alert("Played games: " + playedgames[0].gamecount);
-        playedGamesForTeam = playedgames[0].gamecount;
-      
-        //document.getElementById("GamesAmount").innerHTML = "<div id='GamesAmount' class='list-row'>" + playedGamesForTeam + "</div>";
-         $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
     });
 
 }
@@ -652,33 +649,9 @@ function getPlayerStats() {
     serviceURL = serviceURL.replace("index.html", "/json/");
     serviceURL = serviceURL.replace("#", '');
 
-    //alert("getPlayerStats called...url: " + serviceURL);
-
     $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
 
         playerstats = data.items;
-
-        //alert("player name: " + playerstats[0].name
-        //+ " ,photo url: " + playerstats[0].photourl
-        //+ " ,games#: " + playerstats[0].games
-        //);      
-
-        //$.each(playerstats, function(index, player) {
-        //    alert("playerinfo, name: " + player.name);
-        //});
-
-        //$('#busy').hide();
-        //      $('#playerList li').remove();
-        //players = data.items;
-        //$.each(players, function(index, player) {
-
-        //	$('#playerList').append(
-        //			'<li>' +
-        //			'<img src="pics/' + player.photourl + '" class="list-icon"/>' +
-        //			// '<p class="line1">' + player.playerID + '</p>' +
-        //			'<p class="line1">' + player.name + '</p>' +
-        //			'</li>');
-        //});
 
         $.each(playerstats, function (index, player) {
             if (player.games > 1) {
