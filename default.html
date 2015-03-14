@@ -25,9 +25,9 @@
 
     if (screen.width < 574) {
         var ref = document.referrer;
-        alert(ref);
-        //var urls = new Array("areyouin.azurewebsites.net/", "m-areyouin.azurewebsites.net/");
-        var urls = new Array("dev-areyouin.azurewebsites.net/", "m-areyouin.azurewebsites.net/");
+        //alert(ref);
+        //var urls = new Array("http://areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+        var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
         //var urls = new Array("http://localhost:18502/", "http://m-areyouin.azurewebsites.net/"); //LOCAL testing
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
@@ -47,7 +47,7 @@
         }
         else {
             //alert("here we are mobile redirect referrer");
-            window.location = "http://dev-areyouin.azurewebsites.net/";
+            window.location = "http://m-areyouin.azurewebsites.net/";
         }
     }
 </script>
