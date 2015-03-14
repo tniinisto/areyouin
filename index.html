@@ -55,8 +55,6 @@
 
 </script>-->
 
-<script src="json/playerinfo.js"></script> 
-
 </head>
 
 <body>
@@ -158,6 +156,10 @@
 
         //Init functions
         getLoginInformation();
+
+        getAllPlayerGames();
+        getPlayerStats();
+
         getEvents();
         getPlayersInsert();
         getAdminStatus();
@@ -166,8 +168,7 @@
 
         waitForChat();
 
-        getAllPlayerGames();
-        getPlayerStats();
+
 
         //SSE init
         //setSSE();
@@ -409,6 +410,9 @@
 
 </script>
 <!-- /scripts -->
+
+<!--Get player info and save to session storage-->
+<script src="json/playerinfo.js"></script> 
 
 </body>
 </html>
