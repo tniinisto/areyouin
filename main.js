@@ -590,9 +590,6 @@ function toLoginPage() {
     //alert(loginURL);
 
     window.location.assign(loginURL);
-    
-    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
-    //window.location.assign("http://localhost:18502/default.html")    
 }
 
 //function sendMail() {
