@@ -60,8 +60,6 @@
                                         echo "<div class='comment-text'>" . $row['comment'] . "</div>";
                                     echo "</div>";
                                 echo "</div>";
-                            
-                                //<div class=\"chatname\">" . $row['name'] . "</div>
                         echo "</td>";
                     
                     echo "</tr>";
