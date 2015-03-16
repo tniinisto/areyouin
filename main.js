@@ -468,10 +468,21 @@ function addRow() {
 
     var row = table.insertRow(0);
     row.className = "chatrow";
-    row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
-    sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
-    sessionStorage['playerName'] + "</text></td>" +
-    "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
+
+    row.innerHTML = "<td valign=\"top\">" +
+        "<div>" +
+            "<div class='chat-list-left'>" +
+                "<img width='50' height='50' src='images/" + sessionStorage['photoURL'] + "'>" +
+                "<br />" +
+                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
+            "</div>" +
+            "<br />" +
+            "<div class='chat-list-right'>" +
+                "<div class='comment-time'>Just now...</div>" +
+                "<div class='comment-text'>" + comment + "</div>" +
+            "</div>" +
+        "</div>" +
+    "</td>";
 
     //document.getElementById("comment_input").value = "";    
 
