@@ -134,6 +134,7 @@ var m = Math,
 		if (that.options.useTransform) that.scroller.style[vendor + 'Transform'] = trnOpen + that.x + 'px,' + that.y + 'px' + trnClose;
 		else that.scroller.style.cssText += ';position:relative;top:' + that.y + 'px;left:' + that.x + 'px';
 
+
 		if (that.options.useTransition) that.options.fixedScrollbar = true;
 
 		that.refresh();
