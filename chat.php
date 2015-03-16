@@ -109,13 +109,22 @@
 
                                 echo "<tr class=\"chatrow\">";
 
-                                    echo "<td valign=\"top\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\">
-                                    <div class=\"chatname\">" . $row['name'] . "</div>
-                                    </td>";
-                    
-                                    echo "<td height=\"auto\">
-                                    <div class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</div>
-                                    <div class=\"commentArea2\">" . $row['comment'] . "</div></td>";
+                                echo "<td valign=\"top\">";
+                                  echo "<div>";
+                                    echo "<div class='chat-list-left'>";
+                                        echo "<img width='50' height='50' src='images/" . $row['photourl'] . "'>";
+                                        echo "<br />";
+                                        echo "<span style='color: white;'>" . $row['name'] . "</span>";
+                                    echo "</div>";
+                                    echo "<br />";
+                                    echo "<div class='chat-list-right'>";
+                                        echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                        echo "<div class='comment-text'>" . $row['comment'] . "</div>";
+                                    echo "</div>";
+                                echo "</div>";
+                            
+                                //<div class=\"chatname\">" . $row['name'] . "</div>
+                        echo "</td>";
                     
                                 echo "</tr>";
 

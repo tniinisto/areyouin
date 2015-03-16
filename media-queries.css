@@ -9,6 +9,10 @@ screens smaller or equal to 980
 		width: 95%;
 	}
 
+    .comment-text {
+        width: 320px;
+    }
+
 	/* content */
 	.content {
 		width: 65%;
@@ -303,6 +307,10 @@ screens smaller or equal to 480
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;    
+    }
+
+    .comment-text {
+        width: 150px;
     }
 
     .seenchat {
