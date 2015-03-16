@@ -841,6 +841,56 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     overflow-y: scroll;
     webkit-overflow-scrolling: touch;
 }
+.chat-list-left {
+    display: inline-block;
+    width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    float: left;
+    padding-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /* border: 2px solid blue; */
+}
+
+.chat-list-right {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 10px;
+  float: left; 
+  color: white;
+  /* border: 2px solid green; */
+}
+
+.comment-name {
+    display: inline-block;
+    width: 75px;
+    text-align: center;
+    margin-top: -15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+    padding-top: 20px;
+}
+
+.comment-time {
+    width: 100px;
+    text-align: left;
+    margin-top: -15px;
+}
+
+.comment-text {
+    display: inline-block;  
+    width: 460px;
+    float: left;
+    padding-top: 6px;
+    text-align: left;
+    word-wrap: break-word;
+    padding-bottom: 8px;
+}					
 
 .seenchat {
     width: 50px;

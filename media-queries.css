@@ -40,6 +40,10 @@ screens smaller or equal to 980
 		min-height: 300px;
 	}
 
+    .comment-text {
+        width: 320px;
+    }
+
 }
 
 /************************************************************************************
@@ -244,6 +248,10 @@ screens smaller or equal to 750
 	td.col4 {
 		width: 51%;
 	}	
+
+    .comment-text {
+        width: 310px;
+    }
 
 }
 
@@ -523,6 +531,10 @@ th.col51 {
 	/*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;*/	
+}
+
+.comment-text {
+    width: 150px;
 }
 
 
