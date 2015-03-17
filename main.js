@@ -628,10 +628,29 @@ function toLoginPage() {
 //}
 
 
-var playedGamesForTeam = 0;
+//Combined into getPlayerStats() function
+//var playedGamesForTeam = 0;
+//function getAllPlayerGames() {
 
-function getAllPlayerGames() {
-    var playerstats;
+//    var serviceURL = window.location.href;
+//    serviceURL = serviceURL.replace("index.html", "/json/");
+//    serviceURL = serviceURL.replace("#", '');
+
+//    //alert("getPlayerStats called...url: " + serviceURL);
+
+//    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
+
+//        playedgames = data.items;
+//        playedGamesForTeam = playedgames[0].gamecount;      
+//        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
+
+//    });
+
+//}
+
+
+function getPlayerStats() {
+    var playedGamesForTeam;
 
     var serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "/json/");
@@ -647,10 +666,6 @@ function getAllPlayerGames() {
 
     });
 
-}
-
-
-function getPlayerStats() {
     var playerstats;
 
     var serviceURL = window.location.href;
