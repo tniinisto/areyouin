@@ -180,7 +180,7 @@ HEADER
     margin-right:auto;      
 	/*z-index: 100;*/
 	width: 310px;
-    text-align: center;
+    text-align: center;        padding: 5px;
 }
 
 #loginform input {
@@ -1316,4 +1316,49 @@ vertical-align: middle;
     border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
+}
+
+/************************************************************************************
+Team select
+*************************************************************************************/
+
+#team_select {
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#submit_team {
+    font-size: large;
+}
+
+.linkButton { 
+    /*background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:28px; 
+    color: #FFD800;
+    text-decoration: underline;*/
+    
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border:1px solid #ccc;
+    font-size:22px;
+    width:200px;
+    min-height:30px;
+    display:block;
+    margin-bottom:15px;
+    margin-top:5px;
+    outline: none;
+    /*text-align: center;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -o-border-radius:5px;
+    -ms-border-radius:5px;
+    border-radius:5px;         
 }

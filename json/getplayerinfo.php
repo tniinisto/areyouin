@@ -9,10 +9,13 @@ if($_SESSION['ChromeLog']) {
 }
         
 $pl=$_SESSION['myplayerid'];
+$team=$_SESSION['myteamid'];
 
-$sql =	"SELECT playerID, name, photourl
-    	FROM areyouin.players
-        WHERE playerID = '" . $pl . "'";	
+$sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
+        from areyouin.players p
+        inner join areyouin.playerteam m on p.playerID = m.Players_playerID
+        inner join areyouin.team t on m.Team_teamID = t.teamid
+	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";
 	
 try {
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	

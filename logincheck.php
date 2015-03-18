@@ -82,9 +82,73 @@
 
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
+        //User belogns to multiple teams
+        if($count > 1) {
+            echo "<html lang=\"en()\">";
+            echo "<head>";
+            echo "<meta charset=\"utf-8\">";
+
+            echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+
+            echo "<title>R'YouIN</title>";
+
+            echo "<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\">";
+            echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
+
+            echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
+            echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+
+            //echo "<script type=\"text/javascript\">";
+            //    echo "function goIndex() {";                    
+            //        echo "var e = document.getElementById('team_select');";
+            //        echo "var teamID = e.options[e.selectedIndex].value;";
+            //        echo "alert('teamid: ' + teamID);";                
+            //    echo "}";
+            //echo "</script>";
+
+            echo "</head>";
+
+            echo "<body>";
+                echo "<div id=\"pagewrap\">";
+
+                    echo "<div id=\"loginwrapper\">";
+
+			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
+                        echo "<br />";
+
+                        echo "<fieldset id=\"loginfailfs\">";
+                            echo "<h2>Select your Team</h2>";
+                            
+                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
+                                echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
+                                    mysql_data_seek($result, 0);                            
+                                    while($row = mysql_fetch_array($result)){
+                                            echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
+                                    }
+                                echo "</select>";
+                                echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
+                                //echo "<a href='#' onclick='this.submit();'>Login</a>";
+                            echo "</form>";
+
+                            //echo "<br />";
+                            echo "<h1></h1>";
+                        echo "</fieldset>";
+                    echo "</div>";
+                echo "</div>";
+
+                //echo "<iframe name=\"frame_team\" style=\"display: none;\"></iframe>";
+
+            echo "</body>";
+            echo "</html>";
+            
+        } 
+        else {
+            header("location:login_success.php");
+        }
+            
         mysql_close($con);
 
-        header("location:login_success.php");
+        
 	}
 	else { //Login failed
 
