@@ -30,7 +30,7 @@ $(window).load(function () {
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
     //alert(serviceURL);
 
-    setTimeout(getPlayerInfo, 100);
+    setTimeout(getPlayerInfo, 200);
 });
 
 $(document).ajaxError(function(event, request, settings) {
