@@ -126,7 +126,8 @@
                                             echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
-                                echo "<input type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
+                                echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
+                                //echo "<a href='#' onclick='this.submit();'>Login</a>";
                             echo "</form>";
 
                             //echo "<br />";
