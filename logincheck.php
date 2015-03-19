@@ -117,7 +117,7 @@
                         echo "<br />";
 
                         echo "<fieldset id=\"loginfailfs\">";
-                            echo "<h2>Select your Team</h2>";
+                            echo "<h2 style='margin: 0px 0 .2em;'>Select your Team</h2>";
                             echo "<br />";
                             echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
@@ -126,11 +126,11 @@
                                             echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
+                                echo "<br />";
                                 echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
                                 //echo "<a href='#' onclick='this.submit();'>Login</a>";
                             echo "</form>";
-
-                            //echo "<br />";
+                            
                             echo "<h1></h1>";
                         echo "</fieldset>";
                     echo "</div>";
