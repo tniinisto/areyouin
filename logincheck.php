@@ -117,8 +117,7 @@
                         echo "<br />";
 
                         echo "<fieldset id=\"loginfailfs\">";
-                            echo "<h2 style='margin: 0px 0 .2em;'>Select your Team</h2>";
-                            echo "<br />";
+                            echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
