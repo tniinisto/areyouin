@@ -9,6 +9,7 @@ if($_SESSION['ChromeLog']) {
 }
         
 $pl=$_SESSION['myplayerid'];
+$team=$_SESSION['myteamid'];
 
 //$sql =	"SELECT playerID, name, photourl
 //    	FROM areyouin.players
@@ -18,7 +19,7 @@ $sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
         from areyouin.players p
         inner join areyouin.playerteam m on p.playerID = m.Players_playerID
         inner join areyouin.team t on m.Team_teamID = t.teamid
-	    where p.playerID = '" . $pl . "'";
+	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";
 try {
     //PDO means "PHP Data Objects"
     //dbh meand "Database handle"

@@ -464,6 +464,7 @@ screens smaller or equal to 480
 		z-index: 100;*/
 		height: auto;
 		width: 200px;
+        padding: 5px;
 	}
 
     #loginform input {

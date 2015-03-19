@@ -1,4 +1,6 @@
 <?php
+    include 'json/config.php';
+
     session_start();
 
     if($_SESSION['ChromeLog']) {
@@ -14,15 +16,13 @@
     $url = 'https://api.sendgrid.com/';
 
     $params = array(
-        'api_user' => 'azure_0d3507e7b5b2d3634624f1bcaba9b3fe@azure.com',
-        'api_key' => '1Vin5cDJQ4RK5y7',
-        //'api_user' => $user,
-        //'api_key' => $pass,
+        'api_user' => $mail_user,
+        'api_key' => $mail_key,
         'to' => 'tniinisto@gmail.com',
         'subject' => 'testing from AreYouIN',
         'html' => '<html><p>Testing html <b>body</b></p></html>',
         'text' => 'Testing text body txt',
-        'from' => 'AreYouIN@puonti',
+        'from' => 'AreYouIN@Puonti',
     );
 
     $request = $url.'api/mail.send.json';
