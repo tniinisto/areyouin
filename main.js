@@ -456,10 +456,18 @@ function insertComment(comment) {
 	xmlhttp.send();
 }
 
+function nl2br (str, is_xhtml) {   
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+}
+
 //Chat dynamic
 function addRow() {
 
     var comment = document.getElementById("comment_input").value;
+    comment = nl2br(comment, true);
+    //alert("Text: " + comment);
+
     document.getElementById("comment_input").value = "";
 
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
