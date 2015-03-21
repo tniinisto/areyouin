@@ -113,7 +113,7 @@
         <div id="openModal" class="modalDialog">
 	        <div>
 		        <a href="#close" title="Close" class="close">X</a>
-		        <h2>Edit your information</h2>
+		        <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
 		        <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
 <?php
 
@@ -121,14 +121,14 @@
                 echo "<form onsubmit='' id='player_edit' name='player_edit' method='post'";
 
                     echo "<label for='player_name' style='text-align: right;'>Name: </label>";
-                    echo "<input type='text' id='player_name' name='player_name' placeholder='" . $player->name ."' required>";
+                    echo "<input type='text' id='player_name' name='player_name' placeholder='" . $player->name ."' required style='margin-bottom: 15px;'>";
 
 
                     echo "<label for='player_email' style='text-align: right;'>Email: </label>";
-                    echo "<input type='text' id='player_email' name='player_email' placeholder='" . $player->email ."' required>";
+                    echo "<input type='text' id='player_email' name='player_email' placeholder='" . $player->email ."' required style='margin-bottom: 15px;'>";
                     
                     echo "<label for='player_email' style='text-align: right;'>Phone: </label>";
-                    echo "<input type='text' id='player_phone' name='player_phone' placeholder='" . $player->phone ."' required>";
+                    echo "<input type='text' id='player_phone' name='player_phone' placeholder='" . $player->phone ."' required style='margin-bottom: 15px;'>";
 
                     echo "<div class='buttonHolder'>";
                         echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
