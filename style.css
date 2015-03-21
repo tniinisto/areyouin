@@ -1345,3 +1345,26 @@ Modal dialog
 }
 
 .close:hover { background: #00d9ff; }
+
+.dialog_button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border:1px solid #ccc;
+  font-size:20px;
+  width:100px;
+  min-height:30px;
+  /*display:block;*/
+  margin-bottom:5px;
+  margin-top:20px;
+  /*margin-left:20px;*/
+  outline: none;  
+
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+  border-radius:5px;
+}
+
+.buttonHolder {
+    text-align: center;    
+}

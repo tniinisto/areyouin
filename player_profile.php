@@ -2,7 +2,8 @@
 <?php 
     
         require_once('ImageManipulator.php');
-        
+        $player;
+
         session_start();
 
         //$call = 0;
@@ -108,14 +109,35 @@
 ?>
         <a href="#openModal">Edit your information</a>
 
+        <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
         <div id="openModal" class="modalDialog">
 	        <div>
 		        <a href="#close" title="Close" class="close">X</a>
-		        <h2>Modal Box</h2>
-		        <p>This is a sample modal box that can be created using the powers of CSS3.</p>
-		        <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
+		        <h2>Edit your information</h2>
+		        <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
+<?php
+
+
+                echo "<form onsubmit='' id='player_edit' name='player_edit' method='post'";
+
+                    echo "<label for='player_name' style='text-align: right;'>Name: </label>";
+                    echo "<input type='text' id='player_name' name='player_name' placeholder='" . $player->name ."' required>";
+
+
+                    echo "<label for='player_email' style='text-align: right;'>Email: </label>";
+                    echo "<input type='text' id='player_email' name='player_email' placeholder='" . $player->email ."' required>";
+                    
+                    echo "<label for='player_email' style='text-align: right;'>Phone: </label>";
+                    echo "<input type='text' id='player_phone' name='player_phone' placeholder='" . $player->phone ."' required>";
+
+                    echo "<div class='buttonHolder'>";
+                        echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
+                    echo "</div>";
+		        echo "</form>";
+?>
 	        </div>
         </div>
+        <!--/Modal dialog for player information editing/////////////////////////////////////////////////////////-->
 
 <?php
                 echo"</fieldset>";
