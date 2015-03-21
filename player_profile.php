@@ -85,12 +85,15 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['photourl']);
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl']);
 
 
             echo "<div id=\"profile_profile_content_id\">";
                 //echo "PlayerID: " . $player->playerID . "</br>";
-                echo "<h4>Name: " . $player->name . "</h4>";
+                echo "<h5>Name: " . $player->name . "</h5>";
+                echo "<h5>Email: " . $player->email . "</h5>";
+                echo "<h5>Phone: " . $player->phone . "</h5>";
+
                 echo "<h4>Picture</h4>";
                 
                 echo "<div id=\"output\">";
@@ -131,10 +134,14 @@
             var $playerID;
             var $photourl;
             var $name;
+            var $email;
+            var $phone;
 
-            function Player($playerID, $name, $photourl) {
+            function Player($playerID, $name, $mail, $phone, $photourl) {
                 $this->playerID = $playerID;
                 $this->name = $name;
+                $this->email = $mail;
+                $this->phone = $phone;
                 $this->photourl = $photourl;
             }
 
