@@ -1,5 +1,6 @@
 
-<?php
+<?php 
+    
         require_once('ImageManipulator.php');
         
         session_start();
@@ -89,23 +90,37 @@
 
 
             echo "<div id=\"profile_profile_content_id\">";
-                //echo "PlayerID: " . $player->playerID . "</br>";
-                echo "<h5>Name: " . $player->name . "</h5>";
-                echo "<h5>Email: " . $player->email . "</h5>";
-                echo "<h5>Phone: " . $player->phone . "</h5>";
+                echo "<br />";
+                echo "<fieldset id='playerdata' style='padding-left: 5px;'>";
+                    echo "<br />";
+                    echo "<legend style='text-align: left; color: black;'><h4>Player info</h4></legend>";
+                        //echo "PlayerID: " . $player->playerID . "</br>";
+                        echo "<div id=\"output\">";
+                            echo "<img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\">";
+                        echo "</div>";
+                        echo "<h5>Name: " . $player->name . "</h5>";
+                        echo "<h5>Email: " . $player->email . "</h5>";
+                        echo "<h5>Phone: " . $player->phone . "</h5>";
+                        echo "<br />";
+                echo"</fieldset>";
 
-                echo "<h4>Picture</h4>";
-                
-                echo "<div id=\"output\">";
-                echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
-                echo "</div>";
+                echo "<br />";
+                //echo "<fieldset id='playerdata' style='padding: 5px;'>";
+                //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";
+                //    echo "<div id=\"output\">";
+                //    echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
+                //    echo "</div>";
+                //echo"</fieldset>";
                 
                 //echo "<div id=\"output\"  class=\"nomobile\">";
                 echo "<div class=\"nomobile\">";
                     //echo "</br>";
 
-                    //FORM/////////////////////////////////////////
-                    echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                //FORM/////////////////////////////////////////
+                //echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                echo "<br />";
+                echo "<fieldset id='playerdata' style='padding: 5px;'>";
+                echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB</h4></legend>";
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
@@ -117,6 +132,8 @@
                         echo "<div id=\"progressbar\"></div >";
                         echo "<div id=\"statustxt\">0%</div>";
                     echo "</div>";
+                echo"</fieldset>";
+
                 echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
                 //echo "<div id=\"output\"></div>";
