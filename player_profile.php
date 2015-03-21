@@ -91,7 +91,7 @@
 
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<br />";
-                echo "<fieldset id='playerdata' style='padding-left: 5px; margin-top: -30px;'>";
+                echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -30px;'>";
                     //echo "<br />";
                     echo "<legend style='text-align: left; color: black;'>";
                         echo "<div id=\"output\" style='padding-top: 35px;'>";
@@ -101,10 +101,23 @@
                     
                     echo "</legend>";
                         //echo "PlayerID: " . $player->playerID . "</br>";
-                        echo "<h5>Name: " . $player->name . "</h5>";
+                        echo "<h5 style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
                         echo "<h5>Email: " . $player->email . "</h5>";
                         echo "<h5>Phone: " . $player->phone . "</h5>";
                         echo "<br />";
+?>
+        <a href="#openModal">Edit your information</a>
+
+        <div id="openModal" class="modalDialog">
+	        <div>
+		        <a href="#close" title="Close" class="close">X</a>
+		        <h2>Modal Box</h2>
+		        <p>This is a sample modal box that can be created using the powers of CSS3.</p>
+		        <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or create a login/register form for users.</p>
+	        </div>
+        </div>
+
+<?php
                 echo"</fieldset>";
 
                 echo "<br />";
