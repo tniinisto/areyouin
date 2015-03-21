@@ -101,12 +101,12 @@
                     
                     echo "</legend>";
                         //echo "PlayerID: " . $player->playerID . "</br>";
-                        echo "<h5 style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
-                        echo "<h5>Email: " . $player->email . "</h5>";
-                        echo "<h5>Phone: " . $player->phone . "</h5>";
+                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
+                        echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";
                         echo "<br />";
 ?>
-        <a href="#openModal">Edit your information</a>
+            <a href="#openModal">Edit your information</a>
 
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
                     <div id="openModal" class="modalDialog">
@@ -116,7 +116,7 @@
 		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
                     <?php
 
-                            echo "<form onsubmit='refreshPlayerInfo()' id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player'";
+                            echo "<form onsubmit='refreshPlayerInfo();' id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player'";
 
                                 echo "<label for='player_name' style='text-align: right;'>User ID: </label>";                    
                                 echo "<input type='text' id='player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly>";
@@ -137,9 +137,10 @@
 	                    </div>
                     </div>
                 </fieldset>
-                <br />
+                
+            <br />
         
-        <iframe name="frame_player" style="display: none;"></iframe>
+            <iframe name="frame_player" style="display: none;"></iframe>
 
 <?php
 
