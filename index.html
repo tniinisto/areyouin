@@ -433,7 +433,9 @@
         //$("#openModal").removeClass("modalDialog");
         //$("#openModal").css("opacity", "0");
         //$("#openModal").addClass("modalDialog");
-        //document.getElementById("profile_playerPhone").innerHTML = "Phone: 123";
+        var phone = document.getElementById("dialog_player_phone").value;
+        document.getElementById("profile_playerPhone").innerHTML = "Phone: " + phone;
+        
         //getPlayerProfile();
         window.location.replace('#close');
     };
