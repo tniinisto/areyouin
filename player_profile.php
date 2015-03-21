@@ -118,13 +118,13 @@
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'";
 
                                 echo "<label for='player_name' style='text-align: right;'>User ID: </label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly>";
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly></input>";
 
                                 echo "<label for='player_email' style='text-align: right;'>Email: </label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px;'>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px;'></input>";
                     
                                 echo "<label for='player_phone' style='text-align: right;'>Phone: </label>";
-                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px;'>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px;'></input>";
 
                                 echo "<div class='buttonHolder'>";
                                     echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";

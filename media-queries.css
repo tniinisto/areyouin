@@ -270,7 +270,11 @@ screens smaller or equal to 750
 
 	td.col4 {
 		width: 51%;
-	}	
+	}
+
+    .modalDialog {
+        top: -130px;
+    }
 
 }
 
