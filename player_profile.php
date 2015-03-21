@@ -91,13 +91,16 @@
 
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<br />";
-                echo "<fieldset id='playerdata' style='padding-left: 5px;'>";
-                    echo "<br />";
-                    echo "<legend style='text-align: left; color: black;'><h4>Player info</h4></legend>";
-                        //echo "PlayerID: " . $player->playerID . "</br>";
-                        echo "<div id=\"output\">";
+                echo "<fieldset id='playerdata' style='padding-left: 5px; margin-top: -30px;'>";
+                    //echo "<br />";
+                    echo "<legend style='text-align: left; color: black;'>";
+                        echo "<div id=\"output\" style='padding-top: 35px;'>";
                             echo "<img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\">";
                         echo "</div>";
+                    echo "</legend>";
+                    
+                    echo "</legend>";
+                        //echo "PlayerID: " . $player->playerID . "</br>";
                         echo "<h5>Name: " . $player->name . "</h5>";
                         echo "<h5>Email: " . $player->email . "</h5>";
                         echo "<h5>Phone: " . $player->phone . "</h5>";
