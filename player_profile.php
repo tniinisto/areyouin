@@ -1,6 +1,5 @@
 
-<?php 
-    
+<?php  
         require_once('ImageManipulator.php');
         $player;
 
@@ -109,40 +108,41 @@
 ?>
         <a href="#openModal">Edit your information</a>
 
-        <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
-        <div id="openModal" class="modalDialog">
-	        <div>
-		        <a href="#close" title="Close" class="close">X</a>
-		        <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
-		        <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
-<?php
+                    <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                    <div id="openModal" class="modalDialog">
+	                    <div>
+		                    <a href="#close" title="Close" class="close">X</a>
+		                    <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
+		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
+                    <?php
 
+                            echo "<form onsubmit='refreshPlayerInfo()' id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player'";
 
-                echo "<form onsubmit='' id='player_edit' name='player_edit' method='post'";
+                                echo "<label for='player_name' style='text-align: right;'>User ID: </label>";                    
+                                echo "<input type='text' id='player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly>";
 
-                    echo "<label for='player_name' style='text-align: right;'>Name: </label>";
-                    echo "<input type='text' id='player_name' name='player_name' placeholder='" . $player->name ."' required style='margin-bottom: 15px;'>";
-
-
-                    echo "<label for='player_email' style='text-align: right;'>Email: </label>";
-                    echo "<input type='text' id='player_email' name='player_email' placeholder='" . $player->email ."' required style='margin-bottom: 15px;'>";
+                                echo "<label for='player_email' style='text-align: right;'>Email: </label>";
+                                echo "<input type='text' id='player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px;'>";
                     
-                    echo "<label for='player_email' style='text-align: right;'>Phone: </label>";
-                    echo "<input type='text' id='player_phone' name='player_phone' placeholder='" . $player->phone ."' required style='margin-bottom: 15px;'>";
+                                echo "<label for='player_phone' style='text-align: right;'>Phone: </label>";
+                                echo "<input type='text' id='player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px;'>";
 
-                    echo "<div class='buttonHolder'>";
-                        echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
-                    echo "</div>";
-		        echo "</form>";
-?>
-	        </div>
-        </div>
-        <!--/Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                                echo "<div class='buttonHolder'>";
+                                    echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
+                                echo "</div>";
+		                    echo "</form>";
+                    ?>
+                    <!--/Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+
+	                    </div>
+                    </div>
+                </fieldset>
+                <br />
+        
+        <iframe name="frame_player" style="display: none;"></iframe>
 
 <?php
-                echo"</fieldset>";
 
-                echo "<br />";
                 //echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";
                 //    echo "<div id=\"output\">";
