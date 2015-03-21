@@ -43,8 +43,6 @@
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
 
-        echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
-
         //JS Show notification if image size is too big/////////////////////////////////////////////////////////////////////
         //if($call == -5) {
         //    echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
@@ -90,6 +88,7 @@
 
 
             echo "<div id=\"profile_profile_content_id\">";
+                echo "<iframe name='frame_player' style='display: none;'></iframe>";
                 echo "<br />";
                 echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -30px;'>";
                     //echo "<br />";
@@ -111,12 +110,12 @@
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
                     <div id="openModal" class="modalDialog">
 	                    <div>
-		                    <a href="#close" title="Close" class="close">X</a>
+		                    <a id="closer" href="#close" title="Close" class="close">X</a>
 		                    <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
 		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
                     <?php
 
-                            echo "<form onsubmit='refreshPlayerInfo();' id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player'";
+                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'";
 
                                 echo "<label for='player_name' style='text-align: right;'>User ID: </label>";                    
                                 echo "<input type='text' id='player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly>";
@@ -136,13 +135,12 @@
 
 	                    </div>
                     </div>
-                </fieldset>
-                
+                </fieldset>                
             <br />
-        
-            <iframe name="frame_player" style="display: none;"></iframe>
 
 <?php
+
+            //echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
 
                 //echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";

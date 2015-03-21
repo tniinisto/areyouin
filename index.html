@@ -168,7 +168,7 @@
 
     //Document ready
     jQuery(document).ready(function () {
-    
+
         //Winter season :)
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
@@ -425,6 +425,19 @@
     };
     //Profile navigation - Content for the selected page///////////
 
+    function refreshPlayerInfo() {
+        //var href = $('closer').attr('href');
+        //window.location.href = href; //causes the browser to refresh and load the requested url
+        //$("#close").trigger( "click" );
+        //alert("here");
+        //$("#openModal").removeClass("modalDialog");
+        //$("#openModal").css("opacity", "0");
+        //$("#openModal").addClass("modalDialog");
+        //document.getElementById("profile_playerPhone").innerHTML = "Phone: 123";
+        //getPlayerProfile();
+        window.location.replace('#close');
+        getPlayerProfile();
+    };
 
 </script>
 <!-- /scripts -->

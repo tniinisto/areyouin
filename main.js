@@ -723,7 +723,3 @@ function getPlayerStats() {
     });
 }
 
-function refreshPlayerInfo() {
-    //alert("here");
-    document.getElementById("profile_playerPhone").innerHTML = "Phone: 123";    
-}

@@ -18,6 +18,6 @@
     $result = mysql_query($sql);
 
     mysql_close($con);
+
+    //header("location:player_profile.php");
 ?>
-
-
