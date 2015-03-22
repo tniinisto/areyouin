@@ -1,7 +1,8 @@
 
-<?php
+<?php  
         require_once('ImageManipulator.php');
-        
+        $player;
+
         session_start();
 
         //$call = 0;
@@ -41,8 +42,6 @@
 
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
-
-        echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
 
         //JS Show notification if image size is too big/////////////////////////////////////////////////////////////////////
         //if($call == -5) {
@@ -85,24 +84,86 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['photourl']);
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl']);
 
 
             echo "<div id=\"profile_profile_content_id\">";
-                //echo "PlayerID: " . $player->playerID . "</br>";
-                echo "<h4>Name: " . $player->name . "</h4>";
-                echo "<h4>Picture</h4>";
-                
-                echo "<div id=\"output\">";
-                echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
-                echo "</div>";
+                echo "<iframe name='frame_player' style='display: none;'></iframe>";
+                echo "<br />";
+                echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -30px;'>";
+                    //echo "<br />";
+                    echo "<legend style='text-align: left; color: black;'>";
+                        echo "<div id=\"output\" style='padding-top: 35px;'>";
+                            echo "<img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\">";
+                        echo "</div>";
+                    echo "</legend>";
+                    
+                    echo "</legend>";
+                        //echo "PlayerID: " . $player->playerID . "</br>";
+                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
+                        echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";
+                        echo "<br />";
+?>
+            <a href="#openModal">Edit your information</a>
+
+                    <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                    <div id="openModal" class="modalDialog">
+	                    <div>
+		                    <a id="closer" href="#close" title="Close" class="close">X</a>
+		                    <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
+		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
+                    <?php
+
+                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+                                echo "<div class='buttonHolder'>";
+                                    echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
+                                echo "</div>";
+		                    echo "</form>";
+                    ?>
+                    <!--/Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+
+	                    </div>
+                    </div>
+                </fieldset>                
+            <br />
+
+<?php
+
+            //echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
+
+                //echo "<fieldset id='playerdata' style='padding: 5px;'>";
+                //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";
+                //    echo "<div id=\"output\">";
+                //    echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
+                //    echo "</div>";
+                //echo"</fieldset>";
                 
                 //echo "<div id=\"output\"  class=\"nomobile\">";
                 echo "<div class=\"nomobile\">";
                     //echo "</br>";
 
-                    //FORM/////////////////////////////////////////
-                    echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                //FORM/////////////////////////////////////////
+                //echo "<h4>Upload new photo (Max size 2MB)</h4>";
+                echo "<br />";
+                echo "<fieldset id='playerdata' style='padding: 5px;'>";
+                echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB</h4></legend>";
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
@@ -114,6 +175,8 @@
                         echo "<div id=\"progressbar\"></div >";
                         echo "<div id=\"statustxt\">0%</div>";
                     echo "</div>";
+                echo"</fieldset>";
+
                 echo "</div>";
                 //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
                 //echo "<div id=\"output\"></div>";
@@ -131,10 +194,14 @@
             var $playerID;
             var $photourl;
             var $name;
+            var $email;
+            var $phone;
 
-            function Player($playerID, $name, $photourl) {
+            function Player($playerID, $name, $mail, $phone, $photourl) {
                 $this->playerID = $playerID;
                 $this->name = $name;
+                $this->email = $mail;
+                $this->phone = $phone;
                 $this->photourl = $photourl;
             }
 

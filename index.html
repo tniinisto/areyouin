@@ -168,7 +168,7 @@
 
     //Document ready
     jQuery(document).ready(function () {
-    
+
         //Winter season :)
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
@@ -425,6 +425,24 @@
     };
     //Profile navigation - Content for the selected page///////////
 
+    function refreshPlayerInfo() {
+        //var href = $('closer').attr('href');
+        //window.location.href = href; //causes the browser to refresh and load the requested url
+        //$("#close").trigger( "click" );
+        //alert("here");
+        //$("#openModal").removeClass("modalDialog");
+        //$("#openModal").css("opacity", "0");
+        //$("#openModal").addClass("modalDialog");
+
+        var email = document.getElementById("dialog_player_email").value;
+        document.getElementById("profile_playerEmail").innerHTML = "Email: " + email;
+
+        var phone = document.getElementById("dialog_player_phone").value;
+        document.getElementById("profile_playerPhone").innerHTML = "Phone: " + phone;
+        
+        //getPlayerProfile();
+        window.location.replace('#close');
+    };
 
 </script>
 <!-- /scripts -->

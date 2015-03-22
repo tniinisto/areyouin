@@ -156,8 +156,9 @@ screens smaller or equal to 750
         padding: 0px 0px 0px 10px;
     }
 
-    #chat_content_article {
+    #chat_content_article, #profile_content_article {
     	padding: 5px 10px 15px;
+        width: 99%;
     }
 
 	/* header */
@@ -269,7 +270,11 @@ screens smaller or equal to 750
 
 	td.col4 {
 		width: 51%;
-	}	
+	}
+
+    .modalDialog {
+        top: -130px;
+    }
 
 }
 
@@ -279,10 +284,18 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    .modalDialog {
+        top: 0px;
+    }
+    
     #event_article_id {
         padding: 1px 5px 18px 5px;
     }
- 
+
+    #chat_content_article, #profile_content_article {
+        width: 96%;
+    }
+
    .divtable {
         margin-right: 0px;
     }
