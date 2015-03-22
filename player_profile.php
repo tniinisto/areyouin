@@ -118,18 +118,18 @@
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                 echo "<p style='margin: 0px'>";
-                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID: </label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey;' readonly></input>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
-                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email: </label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px;'></input>";
+                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
-                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone: </label>";
-                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px;'></input>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
