@@ -70,14 +70,14 @@
     inner join areyouin.team t on teamID = e.Team_teamID
     inner join areyouin.players p on playerID = ep.Players_playerID
     inner join areyouin.location l on l.locationID = e.Location_locationID
-    where e.eventID = " . $eventid . " and t.teamID = " . $teamid . "";
+    where e.eventID = " . $eventid . " and t.teamID = " . $teamid . ";";
         
     $result = mysql_query($sql);
 
     //Update game's basic information//////////////////////////////////////////////////////////////
     $row = mysql_fetch_array($result);
     //$sql3 = "UPDATE events SET startTime = ". $row['startTime'] .", endTime = " . $row['endTime'] . " WHERE eventID = " . $eventid . "";
-    $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . "";
+    $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . ";";
     //ChromePhp::log('Update: ' . $sql3);
     $result3 = mysql_query($sql3);
 
