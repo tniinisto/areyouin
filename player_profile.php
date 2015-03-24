@@ -104,6 +104,16 @@
                         echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Nofity: " . $player->notify . "</h5>";
+
+                        echo "<div class=\"notifyswitch onoffswitch\">";
+						    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='notify_switch'>";
+						    //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
+                            echo "<label class=\"onoffswitch-label\" for='notify_switch' onClick=''>";
+                                echo "<div class=\"notifyswitch-inner\"></div>";
+						        echo "<div class=\"onoffswitch-switch\"></div>";
+						    echo "</label>";
+                        echo "</div>";
+
                         echo "<br />";
 ?>
             <a href="#openModal">Edit your information</a>
