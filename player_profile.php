@@ -84,7 +84,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl']);
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify']);
 
 
             echo "<div id=\"profile_profile_content_id\">";
@@ -103,6 +103,7 @@
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";
+                        echo "<h5 id='profile_playerPhone'>Nofity: " . $player->notify . "</h5>";
                         echo "<br />";
 ?>
             <a href="#openModal">Edit your information</a>
@@ -196,13 +197,15 @@
             var $name;
             var $email;
             var $phone;
+            var $notify;
 
-            function Player($playerID, $name, $mail, $phone, $photourl) {
+            function Player($playerID, $name, $mail, $phone, $photourl, $notify) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->email = $mail;
                 $this->phone = $phone;
                 $this->photourl = $photourl;
+                $this->notify = $notify;
             }
 
         }
