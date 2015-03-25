@@ -117,13 +117,12 @@
                     <div id="openModal" class="modalDialog">
 	                    <div>
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
-		                    <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
-		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
+		                    <!--<h2 style="text-align: center; margin-bottom: 5px; margin-top: 10px;">Edit your information</h2>-->
                     <?php
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
-                                echo "<p style='margin: 0px'>";
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                 echo "</p>";
