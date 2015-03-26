@@ -22,8 +22,8 @@ function sendMail($emailTo) {
         //'to' => json_encode(array('tniinisto@gmail.com', 'tuomasniinisto@hotmail.com')),
         //'to' => 'tniinisto@gmail.com',
         'to' => $emailTo,
-        'subject' => 'testing from AreYouIN',
-        'html' => '<html><p>Testing html <b>body</b></p></html>',
+        'subject' => 'AreYouIN has new game set',
+        'html' => '<html><p>Checkout the game from <a href="http://areyouin.azurewebsites.net/">AreYouIN</a></p></html>',
         'text' => 'Testing text body txt',
         'from' => 'AreYouIN@Puonti',
     );
