@@ -140,20 +140,20 @@
                 //Team page///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<h1>Testing mailer</h1>";
+                    //echo "<h1>Testing mailer</h1>";
 
-                    echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
-                    //echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
-                        echo "username: ";
-                        echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                        echo "</br>";
-                        echo "</br>";
-                        echo "password: ";
-                        echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
-                        echo "</br>";
-                        echo "</br>";
-                        echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
-                    echo "</form>";
+                    //echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
+                    ////echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
+                    //    echo "username: ";
+                    //    echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
+                    //    echo "</br>";
+                    //    echo "</br>";
+                    //    echo "password: ";
+                    //    echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
+                    //    echo "</br>";
+                    //    echo "</br>";
+                    //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
+                    //echo "</form>";
 
                     //echo "<div id=\"testdiv\" class=\"scrollit\">";
                     //echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
