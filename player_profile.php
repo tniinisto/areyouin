@@ -38,7 +38,7 @@
         echoProfile();
         
         //Team tab
-        echoTeam();
+        //echoTeam();
 
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
@@ -210,11 +210,11 @@
         }
 
         //Team content////////////////////////////////////////////////////////////////////
-        function echoTeam() {
-            echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
-                echo "<h1>Team</h1>";
-            echo "</div>";            
-        }
+        //function echoTeam() {
+        //    echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
+        //        echo "<h1>Team</h1>";
+        //    echo "</div>";            
+        //}
 
         class Player {
             var $playerID;
