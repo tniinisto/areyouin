@@ -141,7 +141,7 @@
                         echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
                             if( $player->notify = '0') {
                                 echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";						            
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>"; // Checked = OFF						            
                                     echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                echo "<div class=\"onoffswitch-switch\"></div>";
@@ -149,7 +149,7 @@
                                 echo "</div>";
                             } else {
                                 echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' >";						            
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' >"; // " " = ON
                                     echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                echo "<div class=\"onoffswitch-switch\"></div>";
