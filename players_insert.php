@@ -170,7 +170,7 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            echo "<iframe name=\"frame_mailer\" style=\"display: none;\"></iframe>";
+            //echo "<iframe name=\"frame_mailer\" style=\"display: none;\"></iframe>";
 
             mysql_close($con);
         }
