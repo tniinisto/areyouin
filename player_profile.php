@@ -103,7 +103,7 @@
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
-                        if($player->notify == 0) 
+                        if($player->notify == '0') 
                             echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
                         else
                             echo "<h5 id='profile_playerNotify'>Mail notifications: ON</h5>";
@@ -139,20 +139,18 @@
 
 
                         echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
-                            if( $player->notify = 0) {
+                            if( $player->notify = '0') {
                                 echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='notify_switch' checked>";
-						            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
-                                    echo "<label class=\"onoffswitch-label\" for='notify_switch' onClick=''>";
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";						            
+                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                echo "<div class=\"onoffswitch-switch\"></div>";
 						            echo "</label>";
                                 echo "</div>";
                             } else {
                                 echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='notify_switch'>";
-						            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
-                                    echo "<label class=\"onoffswitch-label\" for='notify_switch' onClick=''>";
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";						            
+                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                echo "<div class=\"onoffswitch-switch\"></div>";
 						            echo "</label>";
