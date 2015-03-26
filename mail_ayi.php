@@ -12,10 +12,6 @@ function sendMail($emailTo) {
         ChromePhp::log('mail_ayi.php, start');
     }
         
-    //$user=$_POST['mail_user'];
-    //$pass=$_POST['mail_pass'];
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $user: ', $user, ' @pass: ', $pass); }
-
     ////SendGrid, Web API//////////////////////////////////////////////////////////    
     $url = 'https://api.sendgrid.com/';
 

@@ -193,10 +193,8 @@
         //Get emails where players notify setting is 1(true)
         $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
         if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
-        //echo "alert(" . $sql_mail . ");";
 
         $result_mail = mysql_query($sql_mail);
-        //$mailAddresses = "array("; //Mail addressses string array in comma separated list
 
         while($row_mail = mysql_fetch_array($result_mail)) {
             if($row_mail['notify'] == 1) {
