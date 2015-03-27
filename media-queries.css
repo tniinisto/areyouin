@@ -273,7 +273,7 @@ screens smaller or equal to 750
 	}
 
     .modalDialog {
-        top: -130px;
+        top: -150px;
     }
 
 }
@@ -285,7 +285,7 @@ screens smaller or equal to 480
 @media screen and (max-width: 480px) {
     
     .modalDialog {
-        top: 0px;
+        top: -35px;
     }
     
     #event_article_id {

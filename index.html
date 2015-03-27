@@ -173,7 +173,7 @@
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
         //Init functions
-        //getLoginInformation();
+        getLoginInformation();
 
         //getAllPlayerGames(); //This is combined with getPlayerStats() function below
         getPlayerStats();
@@ -439,7 +439,14 @@
 
         var phone = document.getElementById("dialog_player_phone").value;
         document.getElementById("profile_playerPhone").innerHTML = "Phone: " + phone;
-        
+
+        var notify = document.getElementById("dialog_notify_switch").checked; //true, false       
+
+        if (notify == 0)
+            document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: OFF";
+        else
+            document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: ON";
+
         //getPlayerProfile();
         window.location.replace('#close');
     };

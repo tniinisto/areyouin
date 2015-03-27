@@ -1,5 +1,12 @@
 <?php
+        include 'mail_ayi.php';
+
         session_start();
+
+        if($_SESSION['ChromeLog']) {
+            require_once 'ChromePhp.php';
+            ChromePhp::log('insert_event.php start');
+        }
 
         $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
         if (!$con)
@@ -48,13 +55,24 @@
         {
                 $gamestart = str_replace("T", " ", $gamestart);
                 $gamestart = $gamestart . ":00";
+        }
+        if(stripos($gamesend,"T") && strlen($gamesend) < 17)
+        {
                 $gamesend = str_replace("T", " ", $gamesend);
                 $gamesend = $gamesend . ":00";
         }
-        //iPhone  -> 2013-07-27 17:30:00
+
+        //iPhone has seconds -> 2013-07-27 17:30:00
         if(stripos($gamestart,"T") && strlen($gamestart) > 17)
         {
                 $gamestart = str_replace("T", " ", $gamestart);
+                //$gamestart = DateTime::createFromFormat('Y-m-d H:i:s',$gamestart)->format('Y-m-d H:i');        
+                //$gamestart = $gamestart . ":00";
+                //$gamesend = DateTime::createFromFormat('d.m.Y H.i',$gamesend)->format('Y-m-d H:i');        
+                //$gamesend = $gamesend . ":00";
+        }
+        if(stripos($gamesend,"T") && strlen($gamesend) > 17)
+        {
                 $gamesend = str_replace("T", " ", $gamesend);
                 //$gamestart = DateTime::createFromFormat('Y-m-d H:i:s',$gamestart)->format('Y-m-d H:i');        
                 //$gamestart = $gamestart . ":00";
@@ -106,10 +124,7 @@
             }
         }
         
-        if($result3)
-        {
-            header("location:index.html");    
-        }    
+   
         
         //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
         //echo $sql3;
@@ -147,15 +162,54 @@
                 //echo "</br>";
         //}
 
-        //Sending email notification for the plyaers
-        /*$to      = "tniinisto@gmail.com";
-        $subject = "RYouIN";
-        $message = "New game set";
-        $headers = "From: webmaster@areyouin.net" . "\r\n" .
-                "Reply-To: webmaster@areyouin.net" . "\r\n" .
-                "X-Mailer: PHP/" . phpversion();
 
-        mail($to, $subject, $message, $headers);*/
+        //Get players emails which to notify, depending on the notify field's value///////////////////////////////////////
+
+        $playerIdSqlList=''; //PlayerIDs for the sql where statement
+        $loopFirst = 1;
+        for ($m=1; $m<=$playeramount; $m++)
+        {
+            if($ooswitch_all == '') //If all players switch is on, add all
+            {
+                if($m == 1)
+                    $playerIdSqlList = $players[$m][1];
+                else
+                    $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+            }
+            else
+            {
+                if($players[$m][2] == '') //Check if single player is selected
+                {
+                    if($loopFirst == 1) {
+                        $loopFirst = 0;
+                        $playerIdSqlList = $players[$m][1];
+                    }
+                    else
+                        $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+                }
+            }
+        }
+
+        //Get emails where players notify setting is 1(true)
+        $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+        if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
+
+        $result_mail = mysql_query($sql_mail);
+
+        while($row_mail = mysql_fetch_array($result_mail)) {
+            if($row_mail['notify'] == 1) {
+                if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
+                sendMail($row_mail['mail']);    
+            }
+        }
+    
+        //PlayerMails///////////////////////////////////////////////////////////////////////////////////////////
 
         mysql_close($con);
+
+        if($result3)
+        {
+            header("location:index.html");    
+        } 
+
 ?>

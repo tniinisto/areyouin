@@ -9,11 +9,17 @@
 
     mysql_select_db("areyouin", $con)or die("cannot select DB");
             
-    //$player_name=$_POST['player_name']; //Now this is the user name
+    //$player_name=$_POST['player_name']; //Currently this is the user name, do not allow editing
     $player_email=$_POST['player_email'];
     $player_phone=$_POST['player_phone'];
+    $player_notify=$_POST['notifyswitch'];
 
-    $sql = "UPDATE players SET mail = \"" . $player_email ."\", mobile = \"" . $player_phone . "\" WHERE playerID = " . $_SESSION['myplayerid'] . "";
+    if($player_notify == 'on')
+        $player_notify = 1;
+    else    
+        $player_notify = 0;
+
+    $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "' WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
     $result = mysql_query($sql);
 

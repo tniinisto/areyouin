@@ -38,7 +38,7 @@
         echoProfile();
         
         //Team tab
-        echoTeam();
+        //echoTeam();
 
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl']);
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify']);
 
 
             echo "<div id=\"profile_profile_content_id\">";
@@ -102,7 +102,13 @@
                         //echo "PlayerID: " . $player->playerID . "</br>";
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
-                        echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";
+                        echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
+                        if($player->notify == '0') 
+                            echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
+                        else
+                            echo "<h5 id='profile_playerNotify'>Mail notifications: ON</h5>";
+
+
                         echo "<br />";
 ?>
             <a href="#openModal">Edit your information</a>
@@ -111,13 +117,12 @@
                     <div id="openModal" class="modalDialog">
 	                    <div>
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
-		                    <h2 style="text-align: center; margin-bottom: 20px;">Edit your information</h2>
-		                    <!--<p>This is a sample modal box that can be created using the powers of CSS3.</p>-->
+		                    <!--<h2 style="text-align: center; margin-bottom: 5px; margin-top: 10px;">Edit your information</h2>-->
                     <?php
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
-                                echo "<p style='margin: 0px'>";
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                 echo "</p>";
@@ -131,6 +136,27 @@
                                 echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
                                 echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
+
+
+                        echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                            if( $player->notify == '1') {
+                                echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
+                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                                        echo "<div class=\"notifyswitch-inner\"></div>";
+						                echo "<div class=\"onoffswitch-switch\"></div>";
+						            echo "</label>";
+                                echo "</div>";
+                            } else {
+                                echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
+                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                                        echo "<div class=\"notifyswitch-inner\"></div>";
+						                echo "<div class=\"onoffswitch-switch\"></div>";
+						            echo "</label>";
+                                echo "</div>";                            
+                            }
+                        echo "</h5>";
 
                                 echo "<div class='buttonHolder'>";
                                     echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
@@ -184,11 +210,11 @@
         }
 
         //Team content////////////////////////////////////////////////////////////////////
-        function echoTeam() {
-            echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
-                echo "<h1>Team</h1>";
-            echo "</div>";            
-        }
+        //function echoTeam() {
+        //    echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
+        //        echo "<h1>Team</h1>";
+        //    echo "</div>";            
+        //}
 
         class Player {
             var $playerID;
@@ -196,13 +222,15 @@
             var $name;
             var $email;
             var $phone;
+            var $notify;
 
-            function Player($playerID, $name, $mail, $phone, $photourl) {
+            function Player($playerID, $name, $mail, $phone, $photourl, $notify) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->email = $mail;
                 $this->phone = $phone;
                 $this->photourl = $photourl;
+                $this->notify = $notify;
             }
 
         }

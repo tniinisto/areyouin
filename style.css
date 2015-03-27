@@ -1092,6 +1092,53 @@ margin-left: 0;
 right: 0px;
 }
 
+
+/************************************************************************************
+Notify switch
+*************************************************************************************/
+
+.notifyswitch-inner {
+width: 200%; margin-left: -100%;
+-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.notifyswitch-inner:before, .notifyswitch-inner:after {
+float: left; width: 50%; height: 27px; padding: 0; line-height: 27px;
+font-size: 15px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.notifyswitch-inner:before {
+content: "ON";
+padding-left: 9px;
+background-color: #CCCCCC; color: #FFFFFF;
+text-align: left;
+}
+.notifyswitch-inner:after {
+content: "OFF";
+padding-right: 7px;
+background-color: #CCCCCC; color: #FFFFFF;
+text-align: right;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .notifyswitch-inner {
+margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+right: 0px;
+}
+
+#dialog_player_notify {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 30px;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.notifyswitch {
+    vertical-align: middle;
+}
+
 /************************************************************************************
 Event form
 *************************************************************************************/
@@ -1354,7 +1401,7 @@ Modal dialog
   min-height:30px;
   /*display:block;*/
   margin-bottom:5px;
-  margin-top:20px;
+  margin-top:10px;
   /*margin-left:20px;*/
   outline: none;  
 
