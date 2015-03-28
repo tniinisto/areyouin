@@ -96,7 +96,7 @@
             echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
             echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-            echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+            echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
 
             //echo "<script type=\"text/javascript\">";
             //    echo "function goIndex() {";                    
@@ -165,7 +165,7 @@
         echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
         echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-        echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+        echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
 
         echo "</head>";
 
