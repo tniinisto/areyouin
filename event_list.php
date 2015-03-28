@@ -164,9 +164,9 @@
 				            //echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
                             echo "<th class=\"col21\">" . $playerid . "</th>";
 				            if($row3['seen'] == 1)
-					            echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+					            echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row3['photourl'] . "\"></th>";
 				            else
-					            echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+					            echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row3['photourl'] . "\"></th>";
 				            echo "<th class=\"col41\">" . $row3['name'] . "</th>";
 								        
 					        if($row3['areyouin'] == 0) {
@@ -234,9 +234,9 @@
 				        echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				        echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				        if($row['seen'] == 1)
-					        echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+					        echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
 				        else
-					        echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+					        echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
 				        echo "<td class=\"col4\">" . $row['name'] . "</td>";
 				
 				        //Show on/off switch only for the user

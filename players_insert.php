@@ -92,7 +92,7 @@
                                 echo "<tr>";
                                 echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                                 echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                                echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                                echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
                                 echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
                                 echo "<td class=\"pcol5\">";
                                         echo "<div class=\"onoffswitch\">";
@@ -110,7 +110,7 @@
                                     echo "<td style=\"width: 20px;\"></td>";
                                     echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                                     echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
                                     echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
                                     echo "<td class=\"pcol5\">";
                                             echo "<div class=\"onoffswitch\">";
