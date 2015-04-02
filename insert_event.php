@@ -197,9 +197,9 @@
         $result_mail = mysql_query($sql_mail);
 
         while($row_mail = mysql_fetch_array($result_mail)) {
-            if($row_mail['notify'] == 1) {
+            if($row_mail['notify'] == 1 && $row_mail['mail'] != '') {
                 if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
-                sendMail($row_mail['mail']);    
+                //sendMail($row_mail['mail']); //Commented away since credentials were in public git    
             }
         }
     
