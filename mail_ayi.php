@@ -3,7 +3,7 @@
 
 function sendMail($emailTo) {
 
-    include 'json/config.php';
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
     session_start();
 
