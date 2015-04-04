@@ -133,6 +133,18 @@
                     }
                     echo "</table>";
                     echo "</br>";
+
+                        //Input credentials to send mail from the event
+                        echo "</br>";
+                        echo "<h1>Email notify credentials:</h1>";
+                        echo "<label><h2>Mail userid:</h2></label>";                        
+                        echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
+                        echo "<label><h2>Mail password: </h2></label>";                        
+                        echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
+                        echo "</br>";
+
+                    //    echo "</br>";
+                    //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
                     echo "</br>";
                     echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
                     echo "</form>";
