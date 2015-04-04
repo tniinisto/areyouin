@@ -1,5 +1,5 @@
-
 <?php  
+
         require_once('ImageManipulator.php');
         $player;
 
@@ -69,14 +69,16 @@
 
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
+            include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
             $playerid=$_SESSION['myplayerid'];
+	        
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-	        $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	        if (!$con)
-	          {
-	          die('Could not connect: ' . mysql_error());
-	          }
+	        {
+    	        die('Could not connect here: ' . mysql_error());
+	        }
 
 	        mysql_select_db("areyouin", $con);
 
@@ -110,6 +112,7 @@
 
 
                         echo "<br />";
+            mysql_close($con);
 ?>
             <a href="#openModal">Edit your information</a>
 

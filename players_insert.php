@@ -1,4 +1,6 @@
 <?php
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
         session_start();
         
         //$teamid=1;
@@ -10,7 +12,8 @@
 
         if($ad==1) //Execute only for admin status
         {
-            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+            
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
             if (!$con)
               {
