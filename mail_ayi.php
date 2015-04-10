@@ -1,7 +1,7 @@
 <?php
 
 
-function sendMail($emailTo) {
+function sendMail($emailTo, $mail_user, $mail_key) {
 
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
@@ -22,7 +22,7 @@ function sendMail($emailTo) {
         //'to' => json_encode(array('tniinisto@gmail.com', 'tuomasniinisto@hotmail.com')),
         //'to' => 'tniinisto@gmail.com',
         'to' => $emailTo,
-        'subject' => 'AreYouIN, New game set',
+        'subject' => 'AreYouIN, New game',
         'html' => '<html><p>Checkout the game from <a href="http://areyouin.azurewebsites.net/">AreYouIN</a></p></html>',
         'text' => 'Testing text body txt',
         'from' => 'AreYouIN@Puonti',

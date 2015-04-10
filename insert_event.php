@@ -1,6 +1,7 @@
 <?php
         include 'mail_ayi.php';
-
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+        
         session_start();
 
         if($_SESSION['ChromeLog']) {
@@ -8,7 +9,8 @@
             ChromePhp::log('insert_event.php start');
         }
 
-        $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+        
+        $con = mysql_connect($dbhost, $dbuser, $dbpass);
         if (!$con)
           {
           die('Could not connect: ' . mysql_error());
@@ -23,6 +25,10 @@
         $gamestart=$_POST['gamestart'];
         $gamesend=$_POST['gamesend'];
         $locationId=$_POST['location'];
+
+        //SendGrid, post variables
+        $mailId=$_POST['mail_user'];
+        $mailPass=$_POST['mail_pass'];
 
         //Select all players switch
         $ooswitch_all = $_POST['ooswitch_all'];
@@ -165,44 +171,47 @@
 
         //Get players emails which to notify, depending on the notify field's value///////////////////////////////////////
 
-        $playerIdSqlList=''; //PlayerIDs for the sql where statement
-        $loopFirst = 1;
-        for ($m=1; $m<=$playeramount; $m++)
-        {
-            if($ooswitch_all == '') //If all players switch is on, add all
+        if($mailId != '' && $mailPass != '') { //Check if mail credentials are given in players_insert-form
+                  
+            $playerIdSqlList=''; //PlayerIDs for the sql where statement
+            $loopFirst = 1;
+            for ($m=1; $m<=$playeramount; $m++)
             {
-                if($m == 1)
-                    $playerIdSqlList = $players[$m][1];
-                else
-                    $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
-            }
-            else
-            {
-                if($players[$m][2] == '') //Check if single player is selected
+                if($ooswitch_all == '') //If all players switch is on, add all
                 {
-                    if($loopFirst == 1) {
-                        $loopFirst = 0;
+                    if($m == 1)
                         $playerIdSqlList = $players[$m][1];
-                    }
                     else
                         $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
                 }
+                else
+                {
+                    if($players[$m][2] == '') //Check if single player is selected
+                    {
+                        if($loopFirst == 1) {
+                            $loopFirst = 0;
+                            $playerIdSqlList = $players[$m][1];
+                        }
+                        else
+                            $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+                    }
+                }
             }
-        }
 
-        //Get emails where players notify setting is 1(true)
-        $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
-        if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
+            //Get emails where players notify setting is 1(true)
+            $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+            if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
 
-        $result_mail = mysql_query($sql_mail);
+            $result_mail = mysql_query($sql_mail);
 
-        while($row_mail = mysql_fetch_array($result_mail)) {
-            if($row_mail['notify'] == 1 && $row_mail['mail'] != '') {
-                if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
-                //sendMail($row_mail['mail']); //Commented away since credentials were in public git    
+            while($row_mail = mysql_fetch_array($result_mail)) {
+                if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
+                    if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
+                    sendMail($row_mail['mail'], $mailId, $mailPass);   
+                }
             }
+
         }
-    
         //PlayerMails///////////////////////////////////////////////////////////////////////////////////////////
 
         mysql_close($con);

@@ -1,5 +1,6 @@
 <?php
     require_once('ImageManipulator.php');
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
     session_start();
 
@@ -81,7 +82,8 @@
         if(1) {
 
             //DB settings////////////////////////////////////////////////////////////////////////////
-            $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+            
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
             if (!$con)
                 {
                 die('Could not connect: ' . mysql_error());
