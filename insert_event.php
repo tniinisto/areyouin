@@ -118,7 +118,7 @@
             if($ooswitch_all == '') //If all players switch is on -> add all players to event
             {
                     $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
-                    $result3 = mysql_query($sql3);                    
+                    $result3 = mysql_query($sql3);             
             }
             else
             {
