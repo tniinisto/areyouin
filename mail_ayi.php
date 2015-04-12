@@ -74,7 +74,7 @@ function getEventInformation($eventID) {
     //order by events.startTime desc;
 
     $eventInfoArray = array(        
-        'subject' => "Subject field, with team name...",
+        'subject' => "Subject field",
         'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
     );
 
