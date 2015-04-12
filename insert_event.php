@@ -168,6 +168,7 @@
                 //echo "</br>";
         //}
 
+        mysql_close($con);
 
         //Get players emails which to notify, depending on the notify field's value///////////////////////////////////////
 
@@ -198,6 +199,14 @@
                 }
             }
 
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+            if (!$con)
+              {
+              die('Could not connect: ' . mysql_error());
+              }
+
+            mysql_select_db("areyouin", $con)or die("cannot select DB");
+
             //Get emails where players notify setting is 1(true)
             $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
             if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
@@ -211,10 +220,9 @@
                 }
             }
 
+            mysql_close($con);
         }
         //PlayerMails///////////////////////////////////////////////////////////////////////////////////////////
-
-        mysql_close($con);
 
         if($result3)
         {
