@@ -198,6 +198,32 @@
                 }
             }
 
+            //Get event info to sendMail function parameter
+            $sql_eventInfo = "select * from areyouin.events
+                        inner join areyouin.team on team.teamID = events.Team_teamID
+                        inner join areyouin.location on location.locationID = events.Location_locationID
+                        where events.eventID = " . $eid . ";";
+            
+            $eventInfoArray = '';
+            
+            try {
+                $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	            $stmt = $dbh->query($sql_eventInfo);  
+	            $eventinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
+	            $dbh = null;
+
+                $eventInfoArray = array(        
+                    //'subject' => "team name: " . $eventinfo[0].teamName . "",
+                    'subject' => "teST:",                                      
+                    'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+                );
+            }
+            catch(PDOException $e) {
+	            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+            }    
+            ///////////////////////////////////////////////////
+
             //Get emails where players notify setting is 1(true)
             $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
             if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
@@ -207,7 +233,7 @@
             while($row_mail = mysql_fetch_array($result_mail)) {
                 if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
                     if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
-                    sendMail($row_mail['mail'], $mailId, $mailPass, $eid);   
+                    sendMail($row_mail['mail'], $mailId, $mailPass, $eventInfoArray);   
                 }
             }
 
