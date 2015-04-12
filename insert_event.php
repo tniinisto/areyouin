@@ -207,7 +207,7 @@
             while($row_mail = mysql_fetch_array($result_mail)) {
                 if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
                     if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
-                    sendMail($row_mail['mail'], $mailId, $mailPass);   
+                    sendMail($row_mail['mail'], $mailId, $mailPass, $eid);   
                 }
             }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-function sendMail($emailTo, $mail_user, $mail_key) {
+function sendMail($emailTo, $mail_user, $mail_key, $eventID) {
 
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
@@ -12,6 +12,9 @@ function sendMail($emailTo, $mail_user, $mail_key) {
         ChromePhp::log('mail_ayi.php, start');
     }
         
+    //Get event information
+    $eventInfo = getEventInformation($eventID);
+    
     ////SendGrid, Web API//////////////////////////////////////////////////////////    
     $url = 'https://api.sendgrid.com/';
 
@@ -22,8 +25,8 @@ function sendMail($emailTo, $mail_user, $mail_key) {
         //'to' => json_encode(array('tniinisto@gmail.com', 'tuomasniinisto@hotmail.com')),
         //'to' => 'tniinisto@gmail.com',
         'to' => $emailTo,
-        'subject' => 'AreYouIN, New game',
-        'html' => '<html><p>Checkout the game from <a href="http://areyouin.azurewebsites.net/">AreYouIN</a></p></html>',
+        'subject' => $eventInfo[subject],
+        'html' => $eventInfo[content],
         'text' => 'Testing text body txt',
         'from' => 'AreYouIN@Puonti',
     );
@@ -60,6 +63,22 @@ function sendMail($emailTo, $mail_user, $mail_key) {
     // print everything out
     print_r($response);
 
+}
+
+function getEventInformation($eventID) {
+    
+    //select * from areyouin.events
+    //inner join areyouin.team on team.teamID = events.Team_teamID
+    //inner join areyouin.location on location.locationID = events.Location_locationID
+    //where events.eventID = 2282
+    //order by events.startTime desc;
+
+    $eventInfoArray = array(        
+        'subject' => "Subject field, with team name...",
+        'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+    );
+
+    return $eventInfoArray;
 }
 
 ?>
