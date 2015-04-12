@@ -67,29 +67,18 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventID) {
 
 function getEventInformation($eventID) {
     
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    //select * from areyouin.events
+    //inner join areyouin.team on team.teamID = events.Team_teamID
+    //inner join areyouin.location on location.locationID = events.Location_locationID
+    //where events.eventID = 2282
+    //order by events.startTime desc;
 
-    $sql = "select * from areyouin.events
-            inner join areyouin.team on team.teamID = events.Team_teamID
-            inner join areyouin.location on location.locationID = events.Location_locationID
-            where events.eventID = " . $eventID . ";";
-    try {
-        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	    $stmt = $dbh->query($sql);  
-	    $eventinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
-	    $dbh = null;
+    $eventInfoArray = array(        
+        'subject' => "Subject field, with team name...",
+        'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+    );
 
-        $eventInfoArray = array(        
-            'subject' => "Subject team name: ". $eventinfo[0].teamName . "",
-            'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
-        );
-
-        return $eventInfoArray;
-    }
-    catch(PDOException $e) {
-	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-    }    
+    return $eventInfoArray;
 }
 
 ?>
