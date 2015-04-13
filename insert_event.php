@@ -204,24 +204,35 @@
                         inner join areyouin.location on location.locationID = events.Location_locationID
                         where events.eventID = " . $eid . ";";
             
-            $eventInfoArray = '';
-            
-            try {
-                $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	            $stmt = $dbh->query($sql_eventInfo);  
-	            $eventinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
-	            $dbh = null;
+            $r = mysql_query($sql_eventInfo);
+            $eventInfo = mysql_fetch_array($r);
 
-                $eventInfoArray = array(        
-                    //'subject' => "team name: " . $eventinfo[0].teamName . "",
-                    'subject' => "teST:",                                      
-                    'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
-                );
-            }
-            catch(PDOException $e) {
-	            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-            }    
+            $eventInfoArray = array(        
+                'subject' => "New game in team " . $eventInfo['teamName'] . "",                 
+                'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+            );
+            
+            //try {
+            //    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	           // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	           // $stmt = $dbh->query($sql_eventInfo);  
+	           // $eventinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
+	           // $dbh = null;
+
+            //    $teamName = '';
+            //    foreach($eventinfo as $row) {
+            //        $teamName = $row['teamName'];    
+            //    }
+
+            //    $eventInfoArray = array(        
+            //        'subject' => "team: " . $teamName . "",
+            //        //'subject' => "teST:",                                      
+            //        'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+            //    );
+            //}
+            //catch(PDOException $e) {
+	           // echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+            //}    
             ///////////////////////////////////////////////////
 
             //Get emails where players notify setting is 1(true)
