@@ -208,8 +208,13 @@
             $eventInfo = mysql_fetch_array($r);
 
             $eventInfoArray = array(        
-                'subject' => "New game in team " . $eventInfo['teamName'] . "",                 
-                'content' => "<html><p>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a></p></html>",
+                'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
+                'content' => "<html>
+                                <h1>Game placed at " . $eventInfo['name'] . "</h1>
+                                <p>Game starting: " . $eventInfo['startTime'] . " </p>
+                                <p>Game ending: " . $eventInfo['endTime'] . " </p>
+                                <h1>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> and roll in!</p>
+                              </html>",
             );
             
             //try {
