@@ -209,12 +209,19 @@
 
             $eventInfoArray = array(        
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
+            //    'content' => "<html>
+            //                    <h1>Game placed at " . $eventInfo['name'] . "</h1>
+            //                    <p>Game starting: " . $eventInfo['startTime'] . " </p>
+            //                    <p>Game ending: " . $eventInfo['endTime'] . " </p>
+            //                    <h1>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> and roll in!</p>
+            //                  </html>",
                 'content' => "<html>
-                                <h1>Game placed at " . $eventInfo['name'] . "</h1>
-                                <p>Game starting: " . $eventInfo['startTime'] . " </p>
-                                <p>Game ending: " . $eventInfo['endTime'] . " </p>
-                                <h1>Checkout the game from <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> and roll in!</p>
-                              </html>",
+	                <h2>New game at
+		                <a href='https://maps.google.fi/maps?q=" . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a>
+	                </h2>
+	                <p>Game starting at <span style='color:blue'> " . $eventInfo['startTime'] . "</span> and ending <span style='color:blue'>" . $eventInfo['endTime'] . "</span></p>
+	                <h3>Roll in at <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> !</h3>
+                </html>",
             );
             
             //try {
