@@ -215,10 +215,11 @@
 
             $eventInfoArray = array(        
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
-                'content' => "<html>
-	                <h2>New game at
+                'content' => "<html>             	
+	                <h2><img src='http://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'> New game at
 		                <a href='https://maps.google.fi/maps?q=" . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a>
 	                </h2>
+                    <p>Team " . $eventInfo['teamName'] . "</p>
 	                <p>Starting at <span style='color:blue'> " . $starttime . "</span> and ending <span style='color:blue'>" . $endtime . "</span></p>
 	                <h3>Roll in at <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> !</h3>
                 </html>",
