@@ -221,7 +221,7 @@
                                 <p>
 	                                <br>
                                     <font size='3' face='Trebuchet MS'>
-                                        <span style='text-decoration: underline; font-weight: bold;'>Game information</span><br>
+                                        <span style='text-decoration: underline; font-weight: bold;'>Game information</span><br><br>
                                         		
 	                                    <span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "<br>
 
