@@ -153,19 +153,31 @@
 
 
                 //Team page///////////////////////////////////////////////////////////////////////////
+
+//$textfield = "default";
+//echo $textfield;
+
+//if (isset($_POST)) {
+//  $textfield = $_POST['timezone']; // this will get you what was in the form POST
+//}
+
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<form id='timezones' method='post' action='' target='frame_local'>";
+                    echo "<form id='timezones' method='post' action=". $_SERVER['PHP_SELF'] . " target='frame_local'";
 
                         $timezone_identifiers = DateTimeZone::listIdentifiers();
                         echo "<label><h2>Timezone:</h2></label>";
+                    
                         echo "<select id='timezone_select' name='timezone' form='timezones'>";
                             for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
 	                            echo "<option value=\"" . $i . "\">" . $timezone_identifiers[$i] . "</option>";
                             }
                         echo "</select>";
-                    
+                    echo "<input type='submit' value='Submit' id='timezone_submit'></input>";
+
                     echo "</form>";
+
+
 
 // Don't know where the server is or how its clock is set, so default to UTC
 date_default_timezone_set( "UTC" );
@@ -173,8 +185,8 @@ date_default_timezone_set( "UTC" );
 // The client is in England where daylight savings may be in effect
 $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
 
-// Do something useful with the number
-echo round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
+echo "</br>";
+echo "Time offset to UTC is " . round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
 
 
                 echo "</div>";
@@ -184,7 +196,9 @@ echo round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            echo "<iframe name=\"frame_local\" style=\"display: none;\"></iframe>";
+            echo "<iframe name=\"frame_local\" style='display: none'>";
+                $textfield = $_POST['timezone'];
+            echo "</iframe>";
 
             mysql_close($con);
         }
