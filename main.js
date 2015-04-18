@@ -723,3 +723,14 @@ function getPlayerStats() {
     });
 }
 
+function showTimezone(str) {
+    //alert("showTimezone(): " + str);
+
+    if (str.length == 0) { 
+        document.getElementById("txtZone").innerHTML = "No selection";
+        return;
+    } else {
+        document.getElementById("txtZone").innerHTML = str;
+        return;
+    }
+}
