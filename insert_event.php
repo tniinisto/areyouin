@@ -216,13 +216,30 @@
             $eventInfoArray = array(        
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
-	                <h2><img src='http://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'> New game at
-		                <a href='https://maps.google.fi/maps?q=" . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a>
-	                </h2>
-                    <p>Team " . $eventInfo['teamName'] . "</p>
-	                <p>Starting at <span style='color:blue'> " . $starttime . "</span> and ending <span style='color:blue'>" . $endtime . "</span></p>
-	                <h3>Roll in at <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> !</h3>
-                </html>",
+	                            <img src='http://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+	                            <font size='4 face='Trebuchet MS'>There's new game!</font>		
+                                <p>
+	                                <br>
+                                    <font size='3' face='Trebuchet MS'>
+                                        <span style='text-decoration: underline; font-weight: bold;'>Game information</span><br><br>
+                                        		
+	                                    <span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "<br>
+
+	                                    <span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
+                                        " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a><br>
+
+	                                    <span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "</span><br> 
+
+	                                    <span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span>
+	                                </font>
+                                </p>
+                                <br>
+                                <p>
+	                                <font size='4' face='Trebuchet MS'>			
+	                                    Roll in at <a href='http://areyouin.azurewebsites.net/'>R'YouIN</a> !
+	                                </font>
+                                </p>
+                            </html>",
             );
             
             //try {
