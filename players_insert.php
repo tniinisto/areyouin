@@ -155,28 +155,18 @@
                 //Team page///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    //echo "<h1>Testing mailer</h1>";
+                    echo "<form id='timezones' method='post' action='' target='frame_local'>";
 
-                    //echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
-                    ////echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
-                    //    echo "username: ";
-                    //    echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                    //    echo "</br>";
-                    //    echo "</br>";
-                    //    echo "password: ";
-                    //    echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
-                    //    echo "</br>";
-                    //    echo "</br>";
-                    //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
-                    //echo "</form>";
+                        $timezone_identifiers = DateTimeZone::listIdentifiers();
+                        echo "<label><h2>Timezone:</h2></label>";
+                        echo "<select id='timezone_select' name='timezone' form='timezones'>";
+                            for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
+	                            echo "<option value=\"" . $i . "\">" . $timezone_identifiers[$i] . "</option>";
+                            }
+                        echo "</select>";
+                    
+                    echo "</form>";
 
-                    //echo "<div id=\"testdiv\" class=\"scrollit\">";
-                    //echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
-                    //  
-                    //    echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
-                    //    echo "</br>";
-
-                    //echo "</div>";
 
                 echo "</div>";
                 //Team page///////////////////////////////////////////////////////////////////////////
@@ -185,7 +175,7 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            //echo "<iframe name=\"frame_mailer\" style=\"display: none;\"></iframe>";
+            echo "<iframe name=\"frame_local\" style=\"display: none;\"></iframe>";
 
             mysql_close($con);
         }
