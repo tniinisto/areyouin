@@ -217,7 +217,7 @@
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
 	                            <img src='http://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
-	                            <font size='4 face='Trebuchet MS'>NEW GAME</font>		
+	                            <font size='4 face='Trebuchet MS'>There's new game!</font>		
                                 <p>
 	                                <br>
                                     <font size='3' face='Trebuchet MS'>
