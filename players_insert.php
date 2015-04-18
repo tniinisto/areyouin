@@ -180,6 +180,7 @@
                     echo "Time offset Helsinki to UTC is " . round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
                     //////////////////////////////////////
 
+
                 echo "</div>";
                 //Team page///////////////////////////////////////////////////////////////////////////
 
@@ -187,9 +188,8 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            echo "<iframe name=\"frame_local\" style='display: none'>";
-                $textfield = $_POST['timezone'];
-            echo "</iframe>";
+            //echo "<iframe name=\"frame_local\" style='display: none'>";
+            //echo "</iframe>";
 
             mysql_close($con);
         }
