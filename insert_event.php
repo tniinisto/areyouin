@@ -236,7 +236,7 @@
                                 <br>
                                 <p>
 	                                <font size='4' face='Trebuchet MS'>			
-	                                    Roll in at <a href='http://areyouin.azurewebsites.net/'>AreYouIN</a> !
+	                                    Roll in at <a href='http://areyouin.azurewebsites.net/'>R'YouIN</a> !
 	                                </font>
                                 </p>
                             </html>",
