@@ -167,6 +167,15 @@
                     
                     echo "</form>";
 
+// Don't know where the server is or how its clock is set, so default to UTC
+date_default_timezone_set( "UTC" );
+
+// The client is in England where daylight savings may be in effect
+$daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
+
+// Do something useful with the number
+echo round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
+
 
                 echo "</div>";
                 //Team page///////////////////////////////////////////////////////////////////////////
