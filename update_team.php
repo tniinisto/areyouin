@@ -18,11 +18,12 @@
     
     //Post variables
     $timezone=$_POST['timezone_select'];
+    //$offset=$_POST['timezone_offset'];
 
     //Calculate offset to UTC//////////////////////
     date_default_timezone_set( "UTC" );    
     $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
-    $offset = round(abs($daylight_savings_offset_in_seconds)/3600); //Hours
+    $offset = round($daylight_savings_offset_in_seconds/3600); //Hours
     ///////////////////////////////////////////////
       
     $sql = "UPDATE team SET timezone = '". $timezone . "', utcOffset = '" . $offset . "' WHERE teamID = '" . $_SESSION['myteamid'] . "';";

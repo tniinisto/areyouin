@@ -165,6 +165,7 @@
 	                            echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
                             }
                         echo "</select>";
+                        //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
                         echo "<input type='submit' value='Save' id='submit_timezone'></input>";                                         
                     echo "</form>";
 
@@ -178,7 +179,7 @@
                     $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
 
                     echo "</br>";
-                    echo "Time offset Helsinki to UTC is " . round(abs($daylight_savings_offset_in_seconds)/3600) . " hours";
+                    echo "Time offset Helsinki to UTC is " . round($daylight_savings_offset_in_seconds/3600) . " hours";
                     //////////////////////////////////////
 
 
