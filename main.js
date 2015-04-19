@@ -732,7 +732,7 @@ function showTimezone(str) {
     } else {
         var d = new Date()
         var n = d.getTimezoneOffset();
-        document.getElementById("txtZone").innerHTML = str + "<br><br> Local timezone offset to UTC: " + n/60 + "hours";
+        document.getElementById("txtZone").innerHTML = str + "<br><br> Local timezone offset to UTC: " + n/60 + " hours";
         return;
     }
 }
