@@ -730,7 +730,9 @@ function showTimezone(str) {
         document.getElementById("txtZone").innerHTML = "No selection";
         return;
     } else {
-        document.getElementById("txtZone").innerHTML = str;
+        var d = new Date()
+        var n = d.getTimezoneOffset();
+        document.getElementById("txtZone").innerHTML = str + "<br> Local timezone offset to UTC: " + n/60;
         return;
     }
 }
