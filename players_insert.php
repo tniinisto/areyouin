@@ -157,14 +157,15 @@
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<form id='timezones'";
+                    echo "<form id='timezones' method='post' action='update_team.php' target='frame_local'";
                         $timezone_identifiers = DateTimeZone::listIdentifiers();
                         echo "<label><h2>Timezone:</h2></label>";                    
-                        echo "<select id='timezone_select' name='timezone' form='timezones' onchange=showTimezone(this.value)>";
+                        echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
                             for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
 	                            echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
                             }
-                        echo "</select>";                    
+                        echo "</select>";
+                        echo "<input type='submit' value='Save' id='submit_timezone'></input>";                                         
                     echo "</form>";
 
                     echo "<p>Selection: <span id='txtZone'></span></p>";
@@ -188,8 +189,7 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            //echo "<iframe name=\"frame_local\" style='display: none'>";
-            //echo "</iframe>";
+            echo "<iframe name=\"frame_local\" style='display: none'></iframe>";
 
             mysql_close($con);
         }
