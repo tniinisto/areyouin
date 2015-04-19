@@ -730,10 +730,14 @@ function showTimezone(str) {
         document.getElementById("txtZone").innerHTML = "No selection";
         return;
     } else {
-        var d = new Date()
-        var n = d.getTimezoneOffset();
-        document.getElementById("txtZone").innerHTML = str + "<br><br> UTC difference to local timezone: " + n/60 + " hours";
-        document.getElementById("timezone_offset").innerHTML = n/60;
+        //var d = new Date()
+        //var n = d.getTimezoneOffset();
+        
+        document.getElementById("txtZone").innerHTML = str;
+        
+        //UTC difference to local timezone: " + n/60 + " hours";        
+        //document.getElementById("timezone_offset").innerHTML = n/60;
+
         return;
     }
 }
