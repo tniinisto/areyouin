@@ -1363,7 +1363,7 @@ Modal dialog
 .modalDialog > div {
 	width: 270px;
 	position: relative;
-	margin: 30% auto;
+	margin: 150px auto;
 	padding: 5px 5px 13px 5px;
 	border-radius: 10px;
 	background: #fff;
