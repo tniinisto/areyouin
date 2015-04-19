@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
 
-    date_default_timezone_set('UTC');
+    //date_default_timezone_set('UTC');
     
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
