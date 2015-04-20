@@ -367,6 +367,7 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
+            $("#playerwidget").removeClass("noshow");
         }
         //Profile
         if ($("#linkprofile").hasClass('current')) {
@@ -374,6 +375,7 @@
             $("#profile_content_id").removeClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
+            $("#playerwidget").removeClass("noshow");
         }
 
         //Chat
@@ -382,6 +384,7 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").removeClass("noshow");
             $("#admin_content_id").addClass("noshow");
+            $("#playerwidget").removeClass("noshow");
         }
 
         //Admin
@@ -390,6 +393,8 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
+            $("#playerwidget").addClass("noshow");
+
         }
     });
     //Main navigation - Content for the selected page///////////
