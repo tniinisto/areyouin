@@ -724,7 +724,7 @@ function getPlayerStats() {
 }
 
 function showTimezone(str) {
-    //alert("showTimezone(): " + str);
+    alert("showTimezone(): " + str);
 
     if (str.length == 0) { 
         document.getElementById("txtZone").innerHTML = "No selection";

@@ -157,10 +157,11 @@
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<form id='timezones' method='post' action='update_team.php' target='frame_local'";
+                    echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         $timezone_identifiers = DateTimeZone::listIdentifiers();
                         echo "<label><h2>Timezone:</h2></label>";                    
-                        echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                        //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                        echo "<select id='timezone_select' name='timezone_select' form='timezones'>";
                             for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
 	                            echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
                             }
@@ -169,7 +170,7 @@
                         echo "<input type='submit' value='Save' id='submit_timezone'></input>";                                         
                     echo "</form>";
                     echo "<br>";
-                    echo "<p>Selection: <span id='txtZone'></span></p>";
+                    echo "<p><span id='txtZone'></span></p>";
 
                     //TIMEZONE OFFSET///////////////////////
                     // Don't know where the server is or how its clock is set, so default to UTC
