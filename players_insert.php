@@ -157,7 +157,8 @@
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
+                    //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
+                    echo "<form id='timezones' method='get' target='frame_local' onsubmit=\"updateTimezone(timezone_select.value)\"";
                         $timezone_identifiers = DateTimeZone::listIdentifiers();
                         echo "<label><h2>Timezone:</h2></label>";                    
                         //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";

@@ -17,7 +17,10 @@
     mysql_select_db("areyouin", $con)or die("cannot select DB");
     
     //Post variables
-    $timezone=$_POST['timezone_select'];    
+    //$timezone=$_POST['timezone_select'];
+
+    //Ajax url parameter
+     $timezone=$_GET["timezone"];
 
     //Calculate offset to UTC//////////////////////
     date_default_timezone_set( "UTC" );    
