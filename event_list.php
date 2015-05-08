@@ -35,8 +35,14 @@
      //   FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a
      //   WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID
      //   and a.Team_teamID = //m.teamID        and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc, v.seen desc";
-
 	 	
+        //if($_SESSION['myoffset'] >= 0) {
+        //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
+        //} else {
+        //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
+        //}
+
+                
         $sql = 
         "SELECT ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
@@ -47,7 +53,7 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL 3 HOUR) > now()
+        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
 
 	    $result = mysql_query($sql);

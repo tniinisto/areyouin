@@ -723,3 +723,53 @@ function getPlayerStats() {
     });
 }
 
+function showTimezone(str) {
+    alert("showTimezone(): " + str);
+
+    if (str.length == 0) { 
+        document.getElementById("txtZone").innerHTML = "No selection";
+        return;
+    } else {
+        //var d = new Date()
+        //var n = d.getTimezoneOffset();
+        
+        document.getElementById("txtZone").innerHTML = str;
+        
+        //UTC difference to local timezone: " + n/60 + " hours";        
+        //document.getElementById("timezone_offset").innerHTML = n/60;
+
+        return;
+    }
+}
+
+
+//Update update timezone
+function updateTimezone(timezone)
+{
+	//alert("updateTimezone() gets called.");
+
+    if (timezone == "") {
+		document.getElementById("txtZone").innerHTML = "updateTimezone() no parameters";
+		return;
+	}
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        //alert(xmlhttp.responseText);
+            //alert("updateTimezone() returned successfully.");
+            document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;     
+	    }
+	}
+
+
+	var variables = "timezone=" + timezone;
+	//alert(variables);
+	xmlhttp.open("GET", "update_team.php?" + variables, true);
+	xmlhttp.send();
+}

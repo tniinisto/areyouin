@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
     
-    date_default_timezone_set('Europe/Helsinki');
+    //date_default_timezone_set('Europe/Helsinki');
 
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");

@@ -153,30 +153,42 @@
 
 
                 //Team page///////////////////////////////////////////////////////////////////////////
+
+
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
-                    //echo "<h1>Testing mailer</h1>";
+                    echo "<fieldset id='timezone_set'>";
+                    echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
 
-                    //echo "<form id=\"mailform\" method=\"post\" action=\"mail_ayi.php\" target=\"frame_chat\">";
-                    ////echo "<form id=\"mailform\" method=\"post\" target=\"frame_chat\" onsubmit=\"sendMail()\">";
-                    //    echo "username: ";
-                    //    echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                    //    echo "</br>";
-                    //    echo "</br>";
-                    //    echo "password: ";
-                    //    echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
-                    //    echo "</br>";
-                    //    echo "</br>";
-                    //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
-                    //echo "</form>";
+                        //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
+                        echo "<form id='timezones' method='get' target='frame_local' onsubmit=\"updateTimezone(timezone_select.value)\"";
+                            $timezone_identifiers = DateTimeZone::listIdentifiers();
+                            echo "<label><h3>Choose team's timezone:</h3></label>";                    
+                            //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                            echo "<select id='timezone_select' name='timezone_select' form='timezones'>";
+                                for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
+	                                echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
+                                }
+                            echo "</select>";
+                            //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
+                            echo "<input type='submit' value='Save' id='submit_timezone'></input>";                                         
+                        echo "</form>";
+                        echo "<br>";
+                        echo "<p><span id='txtZone'></span></p>";
+                
+                    echo "</fieldset>";
 
-                    //echo "<div id=\"testdiv\" class=\"scrollit\">";
-                    //echo "<div id=\"testdiv\" class=\"scrollit\" style=\"height: 200px; overflow-x: hidden; overflow-y: scroll; webkit-overflow-scrolling: touch;\">";
-                    //  
-                    //    echo "<a href=\"\" style=\"display: inline;\">item .......................................... 1</a>";
-                    //    echo "</br>";
+                    //TIMEZONE OFFSET///////////////////////
+                    // Don't know where the server is or how its clock is set, so default to UTC
+                    //date_default_timezone_set( "UTC" );
 
-                    //echo "</div>";
+                    //// The client is in England where daylight savings may be in effect
+                    //$daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
+
+                    //echo "</br>";
+                    //echo "Time offset Helsinki to UTC is " . round($daylight_savings_offset_in_seconds/3600) . " hours";
+                    //////////////////////////////////////
+
 
                 echo "</div>";
                 //Team page///////////////////////////////////////////////////////////////////////////
@@ -185,7 +197,7 @@
             echo "</article>";
             //Article///////////////////////////////////////////////////////////////////////////
         
-            //echo "<iframe name=\"frame_mailer\" style=\"display: none;\"></iframe>";
+            echo "<iframe name=\"frame_local\" style='display: none'></iframe>";
 
             mysql_close($con);
         }
