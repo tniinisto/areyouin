@@ -264,6 +264,25 @@
 	
 	    mysql_close($con);
 
+        //Close the last event's article
+        if($event_check != 0) {
+            echo "</article>";
+        }
+
+        //Weather info///////////////////////////////////////////////////////////////////
+        echo "<article id=\"event_article_id\" class=\"clearfix\">";
+            echo "<div>";
+                echo "<iframe 
+            	    id='forecast_embed'
+	                type='text/html'
+	                frameborder='0'
+	                height='245'
+	                width='100%'
+	                src='http://forecast.io/embed/#lat=60.413778&lon=23.155468&name=Puonti Areena&color=#00aaff&font=Georgia&units=si'>
+                </iframe>";
+            echo "</div>";
+        echo "</article>";
+
         //Display no event scheduled info if there are no games
         if($event_check == 0) {
             echo "<article id=\"event_article_id\" class=\"clearfix\">";
