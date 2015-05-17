@@ -269,6 +269,19 @@
             echo "</article>";
         }
 
+        //Display no event scheduled info if there are no games
+        if($event_check == 0) {
+            echo "<article id=\"event_article_id\" class=\"clearfix\">";
+                echo "<div>";
+
+                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+
+                echo "</div>";
+            echo "</article>";
+
+        }
+
         //Weather info///////////////////////////////////////////////////////////////////
         echo "<article id=\"event_article_id\" class=\"clearfix\">";
             echo "<div>";
@@ -282,19 +295,7 @@
                 </iframe>";
             echo "</div>";
         echo "</article>";
-
-        //Display no event scheduled info if there are no games
-        if($event_check == 0) {
-            echo "<article id=\"event_article_id\" class=\"clearfix\">";
-                echo "<div>";
-
-                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
-                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
-
-                echo "</div>";
-            echo "</article>";
-
-        }
+        /////////////////////////////////////////////////////////////////////////////////
 
     } //END OF event_list
 
