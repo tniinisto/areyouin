@@ -254,7 +254,11 @@
 		    $row_index = $row_index + 1;
 	    }	
 	
-	    mysql_close($con);
+
+        //Close the last event's article
+        if($event_check != 0) {
+            echo "</article>";
+        }
 
         //Display no event scheduled info if there are no games
         if($event_check == 0) {
@@ -262,7 +266,6 @@
                 echo "<div>";
 
                     echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
-
                     //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
                 echo "</div>";
@@ -270,6 +273,31 @@
 
         }
 
+        //Weather info///////////////////////////////////////////////////////////////////
+        $sql_weather = "select distinct name, position from location where teamID = " . $teamid . "";
+        $result_weather = mysql_query($sql_weather);
+	
+        while($row_weather = mysql_fetch_array($result_weather)) {
+
+            $lonlat = explode(", ", $row_weather['position']);
+
+            echo "<article id=\"event_article_id\" class=\"clearfix\">";
+                echo "<div>";
+                    echo "<iframe 
+            	        id='forecast_embed'
+	                    type='text/html'
+	                    frameborder='0'
+	                    height='245'
+	                    width='100%'
+	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $lonlat[0]) . "&lon=" . str_replace(' ', '', $lonlat[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>                       
+                    </iframe>";
+                echo "</div>";
+            echo "</article>";
+	    }
+        /////////////////////////////////////////////////////////////////////////////////
+        
+        mysql_close($con);
+        
         ob_end_flush;
 
     } //END OF event_list
