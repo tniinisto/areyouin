@@ -670,7 +670,7 @@ function getPlayerStats() {
 
         playedgames = data.items;
         playedGamesForTeam = playedgames[0].gamecount;      
-        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
+        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games set');
 
     });
 
