@@ -60,29 +60,29 @@ function getAdminStatus() {
 }
 
 //Get full player table data
-function showUser(str) {
-	//alert("showUser() gets called.");
-	if (str == "") {
-		document.getElementById("userlogin").innerHTML = "showUser()";
-		return;
-	}
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+//function showUser(str) {
+//	//alert("showUser() gets called.");
+//	if (str == "") {
+//		document.getElementById("userlogin").innerHTML = "showUser()";
+//		return;
+//	}
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
 
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("atable").innerHTML = xmlhttp.responseText;
-		}
-	}
+//	xmlhttp.onreadystatechange = function () {
+//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//			document.getElementById("atable").innerHTML = xmlhttp.responseText;
+//		}
+//	}
 
-	//alert("GET gets called.");
-	xmlhttp.open("GET", "database.php?q=" + str, true);
-	xmlhttp.send();
-}
+//	//alert("GET gets called.");
+//	xmlhttp.open("GET", "database.php?q=" + str, true);
+//	xmlhttp.send();
+//}
 
 //Getting player image & name
 //function getPlayers(teamid) {
@@ -425,7 +425,7 @@ function getChat() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "chat.php", false);
+	xmlhttp.open("GET", "chat.php", true);
 	xmlhttp.send();
 }
 
@@ -592,7 +592,7 @@ function getChatComments() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "comments.php", false);
+	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
 }
 
@@ -670,15 +670,11 @@ function getPlayerStats() {
 
         playedgames = data.items;
         playedGamesForTeam = playedgames[0].gamecount;      
-        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
+        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games set');
 
     });
 
     var playerstats;
-
-    var serviceURL = window.location.href;
-    serviceURL = serviceURL.replace("index.html", "/json/");
-    serviceURL = serviceURL.replace("#", '');
 
     $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
 
