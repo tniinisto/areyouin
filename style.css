@@ -843,7 +843,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     Chat
 *************************************************************************************/
 .scrollit {
-    height: 420px;
+    height: 600px;
     overflow-x: hidden;
     overflow-y: scroll;
     webkit-overflow-scrolling: touch;
