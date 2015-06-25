@@ -14,7 +14,8 @@
     if(!isset($_SESSION['logged_in'])) {
         //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
         ob_end_clean();
-        header("location:default.html");
+        //header("location:default.html");
+        header("Location: http://m-areyouin.azurewebsites.net/");
     }
     else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
     
