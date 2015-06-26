@@ -17,7 +17,8 @@
         //header("location:default.html");
         session_unset(); 	
         session_destroy();
-        header("Location: http://m-areyouin.azurewebsites.net/default.html");
+        //header("Location: http://m-areyouin.azurewebsites.net/default.html");
+        echo "<script> toLoginPage(); </script>";
     }
     else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
     
