@@ -11,17 +11,17 @@
 	//$playerid=$_GET["playerid"];
 
     //Check session expiration & logged_in status
-    //if(!isset($_SESSION['logged_in'])) {
-    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-    //    ob_end_clean();
-    //    //header("location:default.html");
-    //    session_unset(); 	
-    //    session_destroy();
-    //    //header("Location: http://m-areyouin.azurewebsites.net/default.html");
-    //    //echo "<script> toLoginPage(); </script>";
-    //}
-    //else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
-    {    
+    if(!isset($_SESSION['logged_in'])) {
+        //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
+        header("Location: http://m-areyouin.azurewebsites.net/default.html");
+        ob_end_clean();
+        //header("location:default.html");
+        session_unset(); 	
+        session_destroy();
+        //echo "<script> toLoginPage(); </script>";
+    }
+    else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
+        
         $playerid=$_SESSION['myplayerid'];
 	    $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
