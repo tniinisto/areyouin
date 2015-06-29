@@ -9,21 +9,22 @@
     //Check session expiration & logged_in status
     if(!isset($_SESSION['logged_in'])) {
         //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-        //header("Location: http://m-areyouin.azurewebsites.net/default.html");
+        
         ob_end_clean();
-        //header("location:default.html");
+        header("location:default.html");
+        //header("Location: http://m-areyouin.azurewebsites.net/default.html");
         session_unset(); 	
         session_destroy();
         //echo "<script> toLoginPage(); </script>";
 
-        echo "<article id=\"event_article_id\" class=\"clearfix\">";
-            echo "<div>";
+        //echo "<article id=\"event_article_id\" class=\"clearfix\">";
+        //    echo "<div>";
 
-                echo "<h3 style=\"text-align: center;\">Your session has exprired.</h3>";
-                echo "<a href='http://m-areyouin.azurewebsites.net/default.html'>Please login</a>";
+        //        echo "<h3 style=\"text-align: center;\">Your session has exprired.</h3>";
+        //        echo "<a href='http://m-areyouin.azurewebsites.net/default.html'>Please login</a>";
 
-            echo "</div>";
-        echo "</article>";
+        //    echo "</div>";
+        //echo "</article>";
     }
     else if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
         
