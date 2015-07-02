@@ -423,8 +423,6 @@ function getChat() {
 
 	}
 
-	//alert("GET gets called.");
-	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "chat.php", false); //Synchronous
 	xmlhttp.send();
 }
