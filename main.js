@@ -425,9 +425,7 @@ function getChat() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-    
-    //Testing git to azure deployment, setting this as false(synchronous)
-	xmlhttp.open("GET", "chat.php", false);
+	xmlhttp.open("GET", "chat.php", false); //Synchronous
 	xmlhttp.send();
 }
 
