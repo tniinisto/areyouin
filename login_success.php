@@ -16,12 +16,12 @@
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
 
-        header('Location:http://dev-areyouin.azurewebsites.net/default.html/');
+        header('Location:http://dev-areyouin.azurewebsites.net/default.html');
     }
     else {
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
 
-        header('Location:http://dev-areyouin.azurewebsites.net/index.html/');
+        header('Location:http://dev-areyouin.azurewebsites.net/index.html');
     }
 
 ?>
