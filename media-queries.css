@@ -304,9 +304,9 @@ screens smaller or equal to 480
       height: 30px;
     }
 
-    .comment-name {
+    /*.comment-name {
         display: none;
-    }
+    }*/
     
     #admin_content_id {
         width: 97%;
