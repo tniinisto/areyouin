@@ -304,9 +304,9 @@ screens smaller or equal to 480
       height: 30px;
     }
 
-    /*.comment-name {
-        display: none;
-    }*/
+    .comment-name {
+        width: 50px;
+    }
     
     #admin_content_id {
         width: 97%;
@@ -415,6 +415,10 @@ screens smaller or equal to 480
         padding: 0px 0px 0px 10px;      
     }
 
+    .chat-list-left {
+        display: inline-block;
+        width: 55px;
+    }
 
 	/*.SSEsupport {
 		HTMLElementObject.disabled: true;
