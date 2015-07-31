@@ -17,16 +17,16 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
 
         //SITE SPECIFIC
-        header('Location:http://areyouin.azurewebsites.net/default.html');
-        //header('Location:http://dev-areyouin.azurewebsites.net/default.html');
+        //header('Location:http://areyouin.azurewebsites.net/default.html');
+        header('Location:http://dev-areyouin.azurewebsites.net/default.html');
         //header('Location:http://localhost:18502/default.html');
     }
     else {
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
 
         //SITE SPECIFIC
-        header('Location:http://areyouin.azurewebsites.net/index.html');
-        //header('Location:http://dev-areyouin.azurewebsites.net/index.html');
+        //header('Location:http://areyouin.azurewebsites.net/index.html');
+        header('Location:http://dev-areyouin.azurewebsites.net/index.html');
         //header('Location:http://localhost:18502/index.html');
     }
 
