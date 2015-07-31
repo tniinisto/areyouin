@@ -92,7 +92,7 @@
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<iframe name='frame_player' style='display: none;'></iframe>";
                 echo "<br />";
-                echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -30px;'>";
+                echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -15px;'>";
                     //echo "<br />";
                     echo "<legend style='text-align: left; color: black;'>";
                         echo "<div id=\"output\" style='padding-top: 35px;'>";
