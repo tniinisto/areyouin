@@ -5,7 +5,7 @@
 	$dbpass = '8ffac735';
 	$dbname = 'areyouin';
 
-    //SITE SPECIFIC
+    //SITES
     $home_master = 'http://areyouin.azurewebsites.net/';
     $home_dev = 'http://dev-areyouin.azurewebsites.net/';
     $home_mobile = 'http://m-areyouin.azurewebsites.net/';
