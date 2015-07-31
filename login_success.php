@@ -22,9 +22,13 @@
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
             header('Location:http://m-areyouin.azurewebsites.net/default.html');  
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
+            header('Location:http://localhost:18502/');  
         } else { //Production
             header('Location:http://areyouin.azurewebsites.net/default.html');  
         }
+
 
     }
     else {
@@ -35,11 +39,13 @@
             header('Location:http://dev-areyouin.azurewebsites.net/index.html');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
-            header('Location:http://m-areyouin.azurewebsites.net/index.html');  
+            header('Location:http://m-areyouin.azurewebsites.net/index.html');
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
+            header('Location:http://localhost:18502/');  
         } else { //Production
-            header('Location:http://areyouin.azurewebsites.net/index.html');  
+            header('Location:http://areyouin.azurewebsites.net/default.html');  
         }
-
     }
 
 ?>
