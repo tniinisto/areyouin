@@ -423,9 +423,14 @@ function getChat() {
 
 	}
 
+<<<<<<< HEAD
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "chat.php", false);
+=======
+    //This is no synchronous
+	xmlhttp.open("GET", "chat.php", false); //Synchronous
+>>>>>>> origin/d2_0
 	xmlhttp.send();
 }
 

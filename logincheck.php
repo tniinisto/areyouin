@@ -146,7 +146,7 @@
             
         } 
         else {
-            header("location:login_success.php");
+            header('Location:login_success.php');
         }
             
         mysql_close($con);

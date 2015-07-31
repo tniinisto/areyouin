@@ -14,7 +14,7 @@
 <!-- media queries css -->
 <link href="media-queries.css" rel="stylesheet" type="text/css">
 
-<!-- Scripts -->
+<!-- Scripts main, jquery 2.0.0-->
 <script type="text/javascript" charset="utf-8" src="main.js"> </script>
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
 <script src="js/jquery-2.0.0.min.js"></script>
@@ -26,9 +26,17 @@
 
     if (screen.width < 574) {
         var ref = document.referrer;
+<<<<<<< HEAD
         var urls = new Array("http://areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
         //var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+=======
+
+        //SITE SPECIFIC
+        //var urls = new Array("http://areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+        var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+>>>>>>> origin/d2_0
         //var urls = new Array("http://localhost:18502/", "http://m-areyouin.azurewebsites.net/"); //LOCAL testing
+
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
         if ((m !== null) || (n !== null)) {

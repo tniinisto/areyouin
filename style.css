@@ -825,7 +825,13 @@ td.pcol5 {
 	/*text-align: right;*/
 }
 
-#admin_content_article, #profile_content_article, #chat_content_article {
+#profile_content_article, #chat_content_article {
+	margin: 0 0 20px;
+	padding: 15px 10px 30px;
+    width: 100%;    
+}
+
+#admin_content_article {
 	margin: 0 0 20px;
 	padding: 15px 10px 30px;
     width: 97%;    
@@ -872,6 +878,11 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
   /* border: 2px solid green; */
 }
 
+.comment-image {
+      width: 40px;
+      height: 40px;
+}
+    
 .comment-name {
     display: inline-block;
     width: 75px;

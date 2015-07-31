@@ -192,7 +192,7 @@
                 //echo "<h4>Upload new photo (Max size 2MB)</h4>";
                 echo "<br />";
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
-                echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB</h4></legend>";
+                echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";

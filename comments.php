@@ -52,7 +52,7 @@
                         echo "<td valign=\"top\">";
                                   echo "<div>";
                                     echo "<div class='chat-list-left'>";
-                                        echo "<img width='50' height='50' src='images/" . $row['photourl'] . "'>";
+                                        echo "<img class='comment-image' src='images/" . $row['photourl'] . "'>";
                                         echo "<br />";
                                         echo "<div class='comment-name'>" . $row['name'] . "</div>";
                                     echo "</div>";
