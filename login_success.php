@@ -16,17 +16,33 @@
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
         //SITE SPECIFIC
-        header('Location:http://areyouin.azurewebsites.net/default.html');
-        //header('Location:http://dev-areyouin.azurewebsites.net/default.html');
-        //header('Location:http://localhost:18502/default.html');
+        if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
+            header('Location:http://dev-areyouin.azurewebsites.net/default.html');  
+        } else
+        if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
+            header('Location:http://m-areyouin.azurewebsites.net/default.html');  
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
+            header('Location:http://localhost:18502/default.html');  
+        } else { //Production
+            header('Location:http://areyouin.azurewebsites.net/default.html');  
+        }
     }
     else {
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
         //SITE SPECIFIC
-        header('Location:http://areyouin.azurewebsites.net/index.html');
-        //header('Location:http://dev-areyouin.azurewebsites.net/index.html');
-        //header('Location:http://localhost:18502/index.html');
+        if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
+            header('Location:http://dev-areyouin.azurewebsites.net/index.html');  
+        } else
+        if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
+            header('Location:http://m-areyouin.azurewebsites.net/index.html');
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
+            header('Location:http://localhost:18502/index.html');  
+        } else { //Production
+            header('Location:http://areyouin.azurewebsites.net/index.html');  
+        }
     }
 
 ?>
