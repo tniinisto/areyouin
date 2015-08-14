@@ -785,7 +785,7 @@ function CheckForSession() {
         success: function (data) {
             if (data == "0") {
                 alert('Your session has been expired! ' + data);              
-                $('#nav_logout')[0].click();
+                $('#nav_logout').trigger("click");
             }
             else {
                 alert('Session active! ' + data);
