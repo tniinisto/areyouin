@@ -768,3 +768,44 @@ function updateTimezone(timezone)
 	xmlhttp.open("GET", "update_team.php?" + variables, true);
 	xmlhttp.send();
 }
+
+
+//SITE SPECIFIC
+var master = "http://areyouin.azurewebsites.net/";
+var dev = "http://dev-areyouin.azurewebsites.net/";
+var local = "http://localhost:18502/"; //LOCAL testing
+
+//Check session expiration
+function CheckForSession() {
+    $.ajax({
+        type: "GET",
+        url: "check_session.php",      
+        async: true,
+        cache: false,
+        success: function (data) {
+            if(data == "0") {
+                alert('Your session has been expired! ' + data);
+                
+                if(host_url.match(dev)) {
+                    window.location.replace("http://dev-areyouin.azurewebsites.net/");
+                } else
+                if(host_url.match(local)) {
+                    window.location.replace("http://localhost:18502/");
+                } else
+                if(host_url.match(master)) {
+                    window.location.replace("http://areyouin.azurewebsites.net/");
+                } 
+            }
+            else {
+                alert('Session active! ' + data);
+                setTimeout('CheckForSession()', 1000);
+            }
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('CheckForSession()', 1000);
+        }
+    });
+
+}
