@@ -778,11 +778,11 @@ function CheckForSession() {
         cache: false,
         success: function (data) {
             if (data == "0") {
-                alert('Your session has been expired! ' + data);
+                //alert('Your session has been expired! ' + data);
                 toLoginPage();
             }
             else {
-                alert('Session active! ' + data);
+                //alert('Session active! ' + data);
                 setTimeout('CheckForSession()', 1000);
             }
         },
