@@ -178,7 +178,7 @@
 
         //Start session checking
         CheckForSession();
-        
+
         //getAllPlayerGames(); //This is combined with getPlayerStats() function below
         getPlayerStats();
 
@@ -459,31 +459,6 @@
         //getPlayerProfile();
         window.location.replace('#close');
     };
-
-    //Check session expiration
-    function CheckForSession() {
-        $.ajax({
-            type: "GET",
-            url: "check_session.php",
-            async: true,
-            cache: false,
-            success: function (data) {
-                if (data == "0") {
-                    alert('Your session has been expired! ' + data);              
-                    $('#nav_logout').trigger("click");
-                }
-                else {
-                    alert('Session active! ' + data);
-                    setTimeout('CheckForSession()', 1000);
-                }
-            },
-
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                //alert("error: " + textStatus + " (" + errorThrown + ")");
-                setTimeout('CheckForSession()', 1000);
-            }
-        });
-    }
 
 </script>
 <!-- /scripts -->

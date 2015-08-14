@@ -768,3 +768,28 @@ function updateTimezone(timezone)
 	xmlhttp.open("GET", "update_team.php?" + variables, true);
 	xmlhttp.send();
 }
+
+//Check session expiration
+function CheckForSession() {
+    $.ajax({
+        type: "GET",
+        url: "check_session.php",
+        async: true,
+        cache: false,
+        success: function (data) {
+            if (data == "0") {
+                alert('Your session has been expired! ' + data);
+                toLoginPage();
+            }
+            else {
+                alert('Session active! ' + data);
+                setTimeout('CheckForSession()', 1000);
+            }
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('CheckForSession()', 1000);
+        }
+    });
+}
