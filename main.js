@@ -779,22 +779,13 @@ var local = "http://localhost:18502/"; //LOCAL testing
 function CheckForSession() {
     $.ajax({
         type: "GET",
-        url: "check_session.php",      
+        url: "check_session.php",
         async: true,
         cache: false,
         success: function (data) {
-            if(data == "0") {
-                alert('Your session has been expired! ' + data);
-                
-                if(host_url.match(dev)) {
-                    window.location.replace("http://dev-areyouin.azurewebsites.net/");
-                } else
-                if(host_url.match(local)) {
-                    window.location.replace("http://localhost:18502/");
-                } else
-                if(host_url.match(master)) {
-                    window.location.replace("http://areyouin.azurewebsites.net/");
-                } 
+            if (data == "0") {
+                alert('Your session has been expired! ' + data);              
+                $('#nav_logout')[0].click();
             }
             else {
                 alert('Session active! ' + data);
