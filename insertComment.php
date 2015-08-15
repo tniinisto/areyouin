@@ -21,7 +21,8 @@
 
 	mysql_select_db("areyouin", $con);
 
-    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . $comment . "\",'" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";
+    //$sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . $comment . "\",'" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";
+    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";
         
     if($_SESSION['ChromeLog']) { ChromePhp::log('Insert comment: ' . $sql3); }
     
