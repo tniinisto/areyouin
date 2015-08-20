@@ -23,6 +23,12 @@
     $gamesend=$_POST['gamesend'];
     $locationID=$_POST['location_select'];
 
+    //Private event
+    if($_POST['update_privateswitch'] == '') //OFF
+        $private_event = 0;
+    else
+        $private_event = 1;
+
     //Array containing [playerID, checkbox]
     $players = array(); 
     $idpost = '';
@@ -90,7 +96,7 @@
     //Update game's basic information//////////////////////////////////////////////////////////////
     $row = mysql_fetch_array($result);
     //$sql3 = "UPDATE events SET startTime = ". $row['startTime'] .", endTime = " . $row['endTime'] . " WHERE eventID = " . $eventid . "";
-    $sql3 = "UPDATE events SET Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . ";";
+    $sql3 = "UPDATE events SET private = \"" . $private_event . "\",  Location_locationID = \"" . $locationID . "\", startTime = \"" . $gamestart ."\", endTime = \"" . $gamesend . "\" WHERE eventID = " . $eventid . ";";
     //ChromePhp::log('Update: ' . $sql3);
     $result3 = mysql_query($sql3);
 

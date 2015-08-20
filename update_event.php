@@ -26,7 +26,7 @@
         mysql_select_db("areyouin", $con)or die("cannot select DB");
 
         /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
-        $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
+        $sql = "select e.eventID, e.private, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
         inner join areyouin.events e on e.eventID = ep.Events_eventID
         inner join areyouin.team t on teamID = e.Team_teamID
         inner join areyouin.players p on playerID = ep.Players_playerID
@@ -35,6 +35,9 @@
         
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
+
+        //Private event information
+        $private_event = $row['private'];
 
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
         //ChromePhp::log($user_agent);
@@ -206,6 +209,21 @@
         echo "</table>";
         echo "</br>";
         echo "</br>";
+                        
+        //Public/Private event switch        
+        echo "<h1>Private game:</h1>";
+        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+			if($private_event == 0)
+                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
+            else
+                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch' checked>";
+
+            echo "<label class=\"onoffswitch-label\" for='update_private_switch' onClick=''>";
+                echo "<div class=\"notifyswitch-inner\"></div>";
+				echo "<div class=\"onoffswitch-switch\"></div>";
+			echo "</label>";
+        echo "</div>";  
+
         echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
