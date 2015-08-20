@@ -371,7 +371,7 @@ function game_start() {
 
 //New game insert - Check game end time validity
 function game_end() {
-    ////alert("test end");
+    alert("test game_end");
     //var start = document.getElementById("gamestart_id")
     //var end = document.getElementById("gameend_id");
     //if (start.value > end.value) {
