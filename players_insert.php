@@ -64,7 +64,7 @@
                     echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
                     required></input>";
                     
-                    echo "<label><h3 id='gametime_notify' class='noshow'>Game end time must be after start time...</h3></label>";
+                    echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'>Game end time must be after start time...</h4></label>";
                     echo "<label><h2>Game end:</h2></label>";
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
