@@ -378,6 +378,14 @@ function game_end() {
     //    end.value = start.value;
     //    //alert("Game's end time must be after start time...");
     //}
+
+    var start_dt = document.getElementById("gamestart_id")
+    var end_dt = document.getElementById("gameend_id");
+
+    if (Date.parse(start_dt) > Date.parse(end_dt)) {
+        alert("Game end time must be after game start...");
+    }
+
 }
 
 //Player profile
