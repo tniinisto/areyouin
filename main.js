@@ -383,8 +383,12 @@ function game_end() {
     var end_dt = document.getElementById("gameend_id").value;
 
     if (start_dt > end_dt) {
-        alert("Game end time must be after game start...");
+        //alert("Game end time must be after game start...");
+        $("#gametime_notify").removeClass("noshow");
         document.getElementById("gameend_id").value = "";
+    }
+    else {
+        $("#gametime_notify").addClass("noshow");
     }
 
 }
