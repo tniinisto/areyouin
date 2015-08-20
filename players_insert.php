@@ -146,6 +146,18 @@
                     //    echo "</br>";
                     //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
                     echo "</br>";
+                        
+                        //Public/Private event switch
+                        echo "<h1>Private game:</h1>";
+                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						    echo "<input type='checkbox' name='privateswitch' class=\"onoffswitch-checkbox\" id='event_private_switch'>";
+                            echo "<label class=\"onoffswitch-label\" for='event_private_switch' onClick=''>";
+                                echo "<div class=\"notifyswitch-inner\"></div>";
+						        echo "<div class=\"onoffswitch-switch\"></div>";
+						    echo "</label>";
+                        echo "</div>";                    
+
+                    echo "</br>";
                     echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
                     echo "</form>";
                 echo "</div>";

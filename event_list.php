@@ -43,7 +43,6 @@
         //} else {
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
-
                 
         $sql = 
         "SELECT ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
