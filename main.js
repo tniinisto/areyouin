@@ -382,7 +382,7 @@ function game_end() {
     var start_dt = document.getElementById("gamestart_id").value;
     var end_dt = document.getElementById("gameend_id").value;
 
-    if (start_dt.getTime() > end_dt.getTime()) {
+    if (start_dt > end_dt) {
         alert("Game end time must be after game start...");
         document.getElementById("gameend_id").value = "";
     }
