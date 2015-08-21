@@ -336,53 +336,26 @@ function showPlayers(eventid) {
 
 //New game insert - Set game end time from after start time is set
 function game_start() {
-    //var start = document.getElementById("gamestart_id");
-    //var end = document.getElementById("gameend_id");
+    var start_dt = document.getElementById("gamestart_id").value;
+    var end_dt = document.getElementById("gameend_id").value;
 
-    ////alert(start.value);
-
-    ////Create date object & add 2 hours
-    //var dt; //Check chrome, iphone & firefox date differences
-    //if(start.value.indexOf("T")){
-    //    dt = start.value.split("T"); //Split date&time        
-    //}
-    //else {
-    //    dt = start.value.split(" "); //Split date&time        
-    //}
-
-    //var d = dt[0].split("-"); //Spilit year, month, day
-    //var t = dt[1].split(":"); //Split hour,minute
-    //var datetime = new Date(d[0], d[1] - 1, d[2], t[0], t[1], 0); //Create date object
-    //datetime.setHours(datetime.getHours() + 2); //Add 2 hours
-    ////alert(datetime);
-
-    ////Convert Date object back to string, check values below 10 and insert 0 before (Month: January=0...)
-    //var m, d, h, mm;
-    //if ((datetime.getMonth() + 1) < 10) m = "0" + (datetime.getMonth() + 1); else m = (datetime.getMonth() + 1);
-    //if (datetime.getDate() < 10) d = "0" + datetime.getDate(); else d = datetime.getDate();
-    //if (datetime.getHours() < 10) h = "0" + datetime.getHours(); else h = datetime.getHours();
-    //if (datetime.getMinutes() < 10) mm = "0" + datetime.getMinutes(); else mm = datetime.getMinutes();
-    //var dstring = datetime.getFullYear() + "-" + m + "-" + d + " " + h + ":" + mm;
-
-    ////alert(dstring);
-
-    //end.value = dstring;
+    if ((start_dt > end_dt) && end_dt != "") {
+        //alert("Game end time must be after game start...");
+        $("#gametime_notify").removeClass("noshow");
+        document.getElementById("gamestart_id").value = "";
+    }
+    else {
+        $("#gametime_notify").addClass("noshow");
+    }
+    
 }
 
 //New game insert - Check game end time validity
 function game_end() {
-    //alert("test game_end");
-    //var start = document.getElementById("gamestart_id")
-    //var end = document.getElementById("gameend_id");
-    //if (start.value > end.value) {
-    //    end.value = start.value;
-    //    //alert("Game's end time must be after start time...");
-    //}
-
     var start_dt = document.getElementById("gamestart_id").value;
     var end_dt = document.getElementById("gameend_id").value;
 
-    if (start_dt > end_dt) {
+    if ((start_dt > end_dt) && start_dt != "") {
         //alert("Game end time must be after game start...");
         $("#gametime_notify").removeClass("noshow");
         document.getElementById("gameend_id").value = "";
