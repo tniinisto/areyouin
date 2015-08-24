@@ -159,6 +159,7 @@
                         echo "</div>";                    
 
                     echo "</br>";
+                    echo "</br>";
                     echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
                     echo "</form>";
                 echo "</div>";
