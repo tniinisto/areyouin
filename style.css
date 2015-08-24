@@ -1246,6 +1246,28 @@ Event form
   -ms-border-radius:5px;
 }
 
+.uibutton_event {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border:1px solid #ccc;
+  font-size:20px;
+  width:200px;
+  min-height:30px;
+  display:block;
+  margin-bottom:5px;
+  margin-top:20px;
+  margin-left:200px;
+  outline: none;
+  background-color: #ccc;
+  color: black;
+  text-align: center;
+  padding-top: 10px;
+  
+  border-radius:5px;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  -o-border-radius:5px;
+  -ms-border-radius:5px;
+}
 
 
 /************************************************************************************

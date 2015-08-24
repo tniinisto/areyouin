@@ -303,6 +303,9 @@ screens smaller or equal to 480
       margin-left:30px;
     }
 
+    .uibutton_event {
+      margin-left:44px;
+    }
     .comment-image {
       width: 30px;
       height: 30px;
