@@ -299,6 +299,10 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    .uibutton {
+      margin-left:44px;
+    }
+
     .comment-image {
       width: 30px;
       height: 30px;
