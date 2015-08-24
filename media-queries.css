@@ -300,7 +300,7 @@ screens smaller or equal to 480
 @media screen and (max-width: 480px) {
     
     .uibutton {
-      margin-left:44px;
+      margin-left:30px;
     }
 
     .comment-image {
