@@ -222,7 +222,7 @@
 			echo "</label>";
         echo "</div>";  
 
-        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" onclick=\"eventFetchOn();\"></input>"; 
+        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" onClick=\"eventFetchOn();\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
