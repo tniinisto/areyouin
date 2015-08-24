@@ -137,11 +137,11 @@ function getPlayersInsert() {
 //Off&On for the event fetch
 var eventFetchPause = 0;
 function eventFetchOn() {
-    alert("eventFetchOn called...");
+    //alert("eventFetchOn called...");
     eventFetchPause = 0;
 }
 function eventFetchOff() {
-    alert("eventFetchOff called...");
+    //alert("eventFetchOff called...");
     eventFetchPause = 1;
 }
 
