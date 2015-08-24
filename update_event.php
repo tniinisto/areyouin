@@ -209,7 +209,7 @@
         echo "</br>";
                         
         //Public/Private event switch        
-        echo "<h2 style='display: inline-block;'>Private game: </h2>";
+        echo "<h2 style='display: inline-block;'>Private game:&nbsp</h2>";
         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 			if($private_event == 0)
                 echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
