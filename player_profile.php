@@ -114,7 +114,7 @@
                         echo "<br />";
             mysql_close($con);
 ?>
-            <a href="#openModal" class="button2" style="text-decoration: none;">Edit information</a>
+            <a href="#openModal" class="button2">Edit information</a>
             <!--<form action="#openModal">
                 <input type="submit" value="Edit information">
             </form>-->
