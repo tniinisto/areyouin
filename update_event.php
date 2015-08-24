@@ -230,7 +230,7 @@
         echo "</form>";
 
         //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"uibutton_event\">Cancel</a>";
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"uibutton_event\" style=\"text-decoration: none;\">Cancel</a>";
 
         echo "</article>";
     
