@@ -114,6 +114,7 @@
                         echo "<br />";
             mysql_close($con);
 ?>
+
             <a href="#openModal" class="uibutton" style="text-decoration: none;">Edit information</a>
 
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
