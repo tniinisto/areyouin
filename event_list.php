@@ -72,8 +72,8 @@
 	        $result_private = mysql_query($sql_private);
             $row_private = mysql_fetch_array($result_private);
 
-            //Private event and player selected for game -> show event, public event -> show event
-            if(($private == 1 && $row_private) || ($private == 0)) {
+            //Private event and player selected for game -> show event, public event -> show event, admin sees everything
+            if(($private == 1 && $row_private) || ($private == 0) || ($ad == 1)) {
             
                 //Check when the event changes, then echo the event basic information/////////////////////////////////////
 		        if($row['Events_eventID'] != $event_check)
