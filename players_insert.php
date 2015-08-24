@@ -160,7 +160,7 @@
 
                     echo "</br>";
                     echo "</br>";
-                    echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
+                    echo "<input type=\"submit\" value=\"Create Game\" class=\"button2\"></input>"; 
                     echo "</form>";
                 echo "</div>";
                 //New game///////////////////////////////////////////////////////////////////////////
