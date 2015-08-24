@@ -64,6 +64,7 @@
                     echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
                     required></input>";
                     
+                    echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
                     echo "<label><h2>Game end:</h2></label>";
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
@@ -136,15 +137,27 @@
 
                         //Input credentials to send mail from the event
                         echo "</br>";
-                        echo "<h1>Email notify credentials:</h1>";
-                        echo "<label><h2>Mail userid:</h2></label>";                        
+                        echo "<h2>Email notify credentials:</h2>";
+                        echo "<label><h3>Mail userid:</h3></label>";                        
                         echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                        echo "<label><h2>Mail password: </h2></label>";                        
+                        echo "<label><h3>Mail password: </h3></label>";                        
                         echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
                         echo "</br>";
 
                     //    echo "</br>";
                     //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
+                    echo "</br>";
+                        
+                        //Public/Private event switch
+                        echo "<h2>Private game:</h2>";
+                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						    echo "<input type='checkbox' name='privateswitch' class=\"onoffswitch-checkbox\" id='event_private_switch'>";
+                            echo "<label class=\"onoffswitch-label\" for='event_private_switch' onClick=''>";
+                                echo "<div class=\"notifyswitch-inner\"></div>";
+						        echo "<div class=\"onoffswitch-switch\"></div>";
+						    echo "</label>";
+                        echo "</div>";                    
+
                     echo "</br>";
                     echo "<input type=\"submit\" value=\"Create Game\" id=\"submitgame\"></input>"; 
                     echo "</form>";

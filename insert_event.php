@@ -30,6 +30,12 @@
         $mailId=$_POST['mail_user'];
         $mailPass=$_POST['mail_pass'];
 
+        //Private event switch
+        if($_POST['privateswitch'] == '') //OFF
+            $private_event = 0;
+        else
+            $private_event = 1;
+
         //Select all players switch
         $ooswitch_all = $_POST['ooswitch_all'];
 
@@ -90,7 +96,8 @@
         //Insert event to events
         //$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES ('1', '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
         //$sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '1')";
-        $sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '" . $teamid . "')";
+        $sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID, private)
+                VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '" . $teamid . "', '" . $private_event . "')";
         
         //echo $sql;
         //echo "</br>";
