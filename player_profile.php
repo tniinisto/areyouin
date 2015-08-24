@@ -115,13 +115,12 @@
             mysql_close($con);
 ?>
 
-            <a href="#openModal" class="uibutton" style="text-decoration: none;">Edit</a>
+            <a href="#openModal" class="uibutton" style="text-decoration: none;">Edit information</a>
 
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
                     <div id="openModal" class="modalDialog">
 	                    <div>
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
-		                    <!--<h2 style="text-align: center; margin-bottom: 5px; margin-top: 10px;">Edit your information</h2>-->
                     <?php
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
