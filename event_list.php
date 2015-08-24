@@ -64,6 +64,7 @@
 	    //Go through events & players
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
+        $private = 0; //Private event
 	    while($row = mysql_fetch_array($result))
 	    {
             //Check private event showing
