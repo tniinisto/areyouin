@@ -73,7 +73,7 @@
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update game</h1>";
-        echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
+        echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php>\"";
 
         //Location///////////////////////////////////////////
         echo "<label><h2>Game location:</h2></label>";
@@ -222,11 +222,12 @@
 			echo "</label>";
         echo "</div>";  
 
-        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
+        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" onclick=\"eventFetchOn();\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<a href=\"javascript:getEvents();\">Back to events</a>";
+        //Event fetching back on & fetch the events
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\">Back to events</a>";
 
         echo "</article>";
     

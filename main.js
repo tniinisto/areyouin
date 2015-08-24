@@ -134,30 +134,40 @@ function getPlayersInsert() {
 	xmlhttp.send();
 }
 
+//Off&On for the event fetch
+var eventFetchPause = 0;
+function eventFetchOn() {
+    alert("eventFetchOn called...");
+    eventFetchPause = 0;
+}
+function eventFetchOff() {
+    alert("eventFetchOff called...");
+    eventFetchPause = 1;
+}
+
 //Get events with players for the team
 function getEvents() {
-	//if (str == "" || str2 == "") {
-	//	document.getElementById("userlogin").innerHTML = "getEvents()";
-	//	return;
-	//}	
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+    if (eventFetchPause == 0) { //Don't run, if pause is on
 
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-		}
-	}
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
 
-	//alert("GET gets called.");
-	//var variables = "teamid=" + str + "&playerid=" + str2;
-	//xmlhttp.open("GET", "event_list.php?" + variables, false);
-    xmlhttp.open("GET", "event_list.php", false);
-	xmlhttp.send();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+        //alert("GET gets called.");
+        //var variables = "teamid=" + str + "&playerid=" + str2;
+        //xmlhttp.open("GET", "event_list.php?" + variables, false);
+        xmlhttp.open("GET", "event_list.php", false);
+        xmlhttp.send();
+    }
 }
 
 //Parse URL parameters by name
@@ -278,6 +288,9 @@ function setSSE()
 //Update selected event's content
 function updateEvent(eventID)
 {
+    //Set event updating on pause
+    eventFetchPause = 1;
+
 	//alert("updateEvent(eventID) gets called: eventID=" + eventID);
 	if (eventID == "") {
 		document.getElementById("userlogin").innerHTML = "updateEvent(eventID)";
