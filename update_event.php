@@ -225,7 +225,7 @@
         echo "</br>";
         echo "</br>";
         
-        echo "<input class=\"myButton\" type=\"submit\" value=\"Update Game\" id=\"submitgame\" onClick=\"eventFetchOn();\"></input>"; 
+        echo "<input class=\"myButton\" type=\"submit\" value=\"Update Game\" id=\"submitgame2\" onClick=\"eventFetchOn();\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 

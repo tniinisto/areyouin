@@ -1255,7 +1255,7 @@ Event form
   border-radius:5px;
 }
 
-#submitgame, .button {
+.button {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
   font-size:20px;
