@@ -229,8 +229,10 @@
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
+        echo "</br>";
+
         //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\" style=\"text-decoration: none;\">Cancel</a>";
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Cancel</a>";
 
         echo "</article>";
     
