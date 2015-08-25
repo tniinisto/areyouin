@@ -198,7 +198,7 @@
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
-                    echo "<input class=\"myButton\" name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
+                    echo "<input class=\"myButton\" style=\"padding-left: 5px; padding-right: 5px;\" name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
                     echo "<br>";
                     echo "<input class=\"myButton\" type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
