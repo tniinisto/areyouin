@@ -143,7 +143,7 @@
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
                     echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
                     echo "</br>";
-                    echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
 		        echo "</form>";
 
     echo "</article>";
