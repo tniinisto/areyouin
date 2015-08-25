@@ -305,7 +305,7 @@ MYBUTTON
 	-webkit-border-radius:6px;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
-	display:inline-block;
+	display:table;
 	cursor:pointer;
 	color:#666666;
 	font-family:Arial;
