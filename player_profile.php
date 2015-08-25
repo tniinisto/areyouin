@@ -200,6 +200,7 @@
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
                     echo "<br>";
+                    echo "<br>";
                     echo "<input class=\"myButton\" type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
                     //echo "</br>";
