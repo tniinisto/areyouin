@@ -225,12 +225,12 @@
         echo "</br>";
         echo "</br>";
         
-        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" onClick=\"eventFetchOn();\"></input>"; 
+        echo "<input class=\"myButton\" type=\"submit\" value=\"Update Game\" id=\"submitgame\" onClick=\"eventFetchOn();\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
         //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"uibutton_event\" style=\"text-decoration: none;\">Cancel</a>";
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\" style=\"text-decoration: none;\">Cancel</a>";
 
         echo "</article>";
     
