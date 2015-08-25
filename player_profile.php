@@ -198,8 +198,8 @@
                     echo "</br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
-                    echo "<input class=\"myButton\" name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
-                    echo "<input class=\"myButton\" type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
+                    echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
+                    echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
                     //echo "</br>";
                     echo "<div id=\"progressbox\">";
