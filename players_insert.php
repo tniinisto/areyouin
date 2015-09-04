@@ -168,11 +168,17 @@
 
                 //Team page///////////////////////////////////////////////////////////////////////////
 
+                $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
+                $res_team = mysql_query($sql_team);
+                $row_team = mysql_fetch_array($res_team);
+
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
                     echo "<fieldset id='timezone_set'>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
+                        echo "Team's current timezone is: " . $row_team['timezone'];
+                        echo "Offset to UTC is: " . $row_team['utcOffset'];
 
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         echo "<form id='timezones' method='get' target='frame_local' onsubmit=\"updateTimezone(timezone_select.value)\"";
