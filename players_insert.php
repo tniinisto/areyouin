@@ -177,8 +177,8 @@
                     
                     echo "<fieldset id='timezone_set'>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        echo "Team's current timezone is: " . $row_team['timezone'];
-                        echo "Offset to UTC is: " . $row_team['utcOffset'];
+                        echo "<h3>Team's current timezone is: " . $row_team['timezone']. "</h3>";
+                        echo "<h3>Offset to UTC is: " . $row_team['utcOffset'] . "</h3>";
 
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         echo "<form id='timezones' method='get' target='frame_local' onsubmit=\"updateTimezone(timezone_select.value)\"";
