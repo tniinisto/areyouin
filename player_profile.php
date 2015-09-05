@@ -221,7 +221,7 @@
         function echoChart() {
                 echo "<div id=\"profile_chart_content_id\" class=\"noshow\">";
                 //echo "<h3>Hello</h3>";
-                     echo "<div id='chart_div' style='width: 900px; height: 500px;'></div>";
+                     echo "<frame id='chart_div' style='width: 500px; height: 500px;'></frame>";
                 echo "</div>";
         }
         //Chart//////////////////////////////////////////////////////////////////////////////
