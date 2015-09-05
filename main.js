@@ -758,7 +758,7 @@ function updateTimezone(timezone)
 	        //alert(xmlhttp.responseText);
             //alert("updateTimezone() returned successfully.");
             //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
-            document.getElementById("team_timezone").innerHTML = "<h2>Team's current timezone is: " + timezone + "</h2>";   
+            document.getElementById("team_timezone").innerHTML = "Team's current timezone is: " + timezone;   
 	    }
 	}
 
