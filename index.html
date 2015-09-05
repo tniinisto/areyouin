@@ -246,9 +246,9 @@
             $("#link_profile_profile").addClass("current2");
         });
 
-        $("#link_profile_team").click(function (event) {
+        $("#link_profile_chart").click(function (event) {
             $("#profile-nav").children().removeClass("current2");
-            $("#link_profile_team").addClass("current2");
+            $("#link_profile_chart").addClass("current2");
         });
         //Profile navigation///////////////////////////////////////
 
@@ -411,6 +411,7 @@
             $("#newgame_id").addClass("noshow");
             $("#team_content_id").removeClass("noshow");
         }
+
     };
     //Admin navigation - Content for the selected page///////////
 
@@ -420,12 +421,12 @@
         //Games
         if ($("#link_profile_profile").hasClass('current2')) {
             $("#profile_profile_content_id").removeClass("noshow");
-            $("#profile_team_content_id").addClass("noshow");
+            $("#profile_chart_content_id").removeClass("noshow");
         }
 
-        if ($("#link_profile_team").hasClass('current2')) {
+        if ($("#link_profile_chart").hasClass('current2')) {
             $("#profile_profile_content_id").addClass("noshow");
-            $("#profile_team_content_id").removeClass("noshow");
+            $("#profile_chart_content_id").removeClass("noshow");
         }
     };
     //Profile navigation - Content for the selected page///////////
