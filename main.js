@@ -757,7 +757,8 @@ function updateTimezone(timezone)
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
             //alert("updateTimezone() returned successfully.");
-            document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;     
+            //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
+            document.getElementById("team_timezone").innerHTML = "<h2>Team's current timezone is: " + timezone + "</h2>";   
 	    }
 	}
 
