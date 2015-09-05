@@ -29,7 +29,7 @@
         echo "<nav>";
 			echo "<ul id=\"profile-nav\" class=\"clearfix\" onClick=\"profileClick()\">";
 				echo "<li id=\"link_profile_profile\" class=\"current2\"><a href=\"#\">Player</a></li>";
-                echo "<li id=\"link_profile_chart\" onClick='createChart()'><a href=\"#\">Chart</a></li>";
+                echo "<li id=\"link_profile_chart\"><a href=\"#\">Chart</a></li>";
 			echo "</ul>";
 		echo "</nav>";
         //Navigation///////////////////////////////////////////////////////////////////////////
