@@ -218,7 +218,7 @@
 
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
-                echo "<div id=\"chart_content_id\" class=\"noshow\">";
+                echo "<div id=\"profile_chart_content_id\" class=\"noshow\">";
                 echo "<h3>Hello</h3>";
 
                     ?>
