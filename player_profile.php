@@ -219,10 +219,10 @@
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
                 echo "<div id=\"profile_chart_content_id\" class=\"noshow\">";
-                echo "<h3>Hello</h3>";
+                //echo "<h3>Hello</h3>";
 
                     ?>
-                            <!--<script type="text/javascript">
+                            <script type="text/javascript">
                               google.load("visualization", "1", {packages:["corechart"]});
                               google.setOnLoadCallback(drawVisualization);
 
@@ -255,7 +255,7 @@
                           }
                             </script>
 
-                            <div id="chart_div" style="width: 900px; height: 500px;"></div>-->
+                            <div id="chart_div" style="width: 900px; height: 500px;"></div>
 
                     <?php
                 
