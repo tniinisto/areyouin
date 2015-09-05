@@ -219,6 +219,7 @@
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
                 echo "<div id=\"chart_content_id\" class=\"noshow\">";
+                echo "Hello";
                 ?>
                     <html>
                       <head>
