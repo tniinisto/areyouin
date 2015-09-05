@@ -824,7 +824,7 @@ function createChart() {
         }
     };
 
-    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
     chart.draw(data, options);
     }
 }

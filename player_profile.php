@@ -29,7 +29,7 @@
         echo "<nav>";
 			echo "<ul id=\"profile-nav\" class=\"clearfix\" onClick=\"profileClick()\">";
 				echo "<li id=\"link_profile_profile\" class=\"current2\"><a href=\"#\">Player</a></li>";
-                echo "<li id=\"link_profile_chart\"><a href=\"#\">Chart</a></li>";
+                echo "<li id=\"link_profile_chart\" onClick='createChart()'><a href=\"#\">Chart</a></li>";
 			echo "</ul>";
 		echo "</nav>";
         //Navigation///////////////////////////////////////////////////////////////////////////
@@ -219,10 +219,7 @@
 
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
-                echo "<div id=\"profile_chart_content_id\" class=\"noshow\">";
-                //echo "<h3>Hello</h3>";
-                     echo "<div id='chart_div' style='width: 900px; height: 500px;'></div>";
-                echo "</div>";
+            echo "<div id='profile_chart_content_id' style='width: 600px; height: 500px; class='noshow'></div>";
         }
         //Chart//////////////////////////////////////////////////////////////////////////////
 
