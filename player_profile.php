@@ -221,9 +221,6 @@
                 echo "<div id=\"chart_content_id\" class=\"noshow\">";
                 echo "Hello";
                 ?>
-                    <html>
-                      <head>
-                        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                         <script type="text/javascript">
                           google.load("visualization", "1", {packages:["corechart"]});
                           google.setOnLoadCallback(drawVisualization);
@@ -256,13 +253,10 @@
                         chart.draw(data, options);
                       }
                         </script>
-                      </head>
-                      <body>
-                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
-                      </body>
-                    </html>
 
-                <?php
+                        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+                <?php-->
                 echo "</div>";
         }
         //Chart//////////////////////////////////////////////////////////////////////////////
