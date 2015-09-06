@@ -794,37 +794,25 @@ function CheckForSession() {
     });
 }
 
-//Google chart
-function createChart() {
-                        
-        google.load("visualization", "1", {packages:["corechart"]});
-        google.setOnLoadCallback(drawVisualization);
+//Google chart data
+function getChartData() {
 
-        function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-            ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-            ['2004/05',  165,      938,         522,             998,           450,      614.6],
-            ['2005/06',  135,      1120,        599,             1268,          288,      682],
-            ['2006/07',  157,      1167,        587,             807,           397,      623],
-            ['2007/08',  139,      1110,        615,             968,           215,      609.4],
-            ['2008/09',  136,      691,         629,             1026,          366,      569.6]
-        ]);
-
-    var options = {
-        title : 'Game history',
-        vAxis: {title: 'Cups'},
-        hAxis: {title: 'Month'},
-        seriesType: 'bars',
-        series: {5: {type: 'line'}},
-	    animation:{
-        duration: 1000,
-        easing: 'out',
-		startup: 'true'
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
         }
-    };
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
 
-    var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
-    chart.draw(data, options);
-    }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                dataTable = xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("GET", "chart_data.php", false);
+        xmlhttp.send();
+
 }
+

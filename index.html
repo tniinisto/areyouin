@@ -78,6 +78,9 @@
 <!-- load Google chart AJAX API -->
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
+    //Charts datatable
+    var dataTable;
+
     //load the Google Visualization API and the chart
     //google.load('visualization', '1', { 'packages': ['columnchart'] });
     google.load('visualization', '1', { 'packages': ['corechart'] });
@@ -97,16 +100,16 @@
 
         //define rows of data
         //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
-        var dataTable = google.visualization.arrayToDataTable([
+        dataTable = google.visualization.arrayToDataTable([
             ['Month', 'Your games', 'Games set'],
-            ['2004/05',  565,      614.6],
-            ['2005/06',  635,      652],
-            ['2006/07',  557,      623],
-            ['2007/08',  539,      609.4],
-            ['2008/09',  536,      569.6],
-            ['2008/10',  536,      569.6],
-            ['2008/11',  536,      569.6],
-            ['2008/12',  536,      569.6]
+            ['2004/05', 565, 614.6],
+            ['2005/06', 635, 652],
+            ['2006/07', 557, 623],
+            ['2007/08', 539, 609.4],
+            ['2008/09', 536, 569.6],
+            ['2008/10', 536, 569.6],
+            ['2008/11', 536, 569.6],
+            ['2008/12', 536, 569.6]
         ]);
 
         //instantiate our chart object
@@ -119,10 +122,10 @@
             is3D: true,
             title: 'Game history',
             vAxis: { title: 'Games' },
-            hAxis: { title: 'Month', showTextEvery: '2'},
+            hAxis: { title: 'Month', showTextEvery: '2' },
             seriesType: 'bars',
             series: { 0: { type: 'line'} },
-            legend: {position: 'none'},
+            legend: { position: 'none' },
             animation: {
                 duration: 1000,
                 easing: 'out',
@@ -243,7 +246,7 @@
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
         //Init functions
-        getLoginInformation();
+        //getLoginInformation();
         getPlayerStats();
 
         //Start session checking
