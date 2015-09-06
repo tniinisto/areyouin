@@ -108,8 +108,6 @@
             }
         };
 
-        var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
-        chart.draw(data, options);
     </script>
 
 <!--Google Chart-->
@@ -227,6 +225,10 @@
         getChat();
 
         waitForChat();
+
+
+        var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
+        chart.draw(data, options);
 
         //SSE init
         //setSSE();
