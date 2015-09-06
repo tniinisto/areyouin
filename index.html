@@ -83,6 +83,7 @@
         google.setOnLoadCallback(drawVisualization);
 
     function drawVisualization() {
+        alert("here here!")
     // Some raw data (not necessarily accurate)
     var data = google.visualization.arrayToDataTable([
         ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
@@ -102,7 +103,7 @@
 	        animation:{
             duration: 1000,
             easing: 'out',
-		    startup: 'true',
+		    startup: 'true'
             }
         };
 
