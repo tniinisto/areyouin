@@ -219,7 +219,9 @@
 
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
-            echo "<div id='profile_chart_content_id' style='width: 600px; height: 500px; class='noshow'></div>";
+            echo "<iframe id='profile_chart_frame_id' name='frame_chart'>";
+                echo "<div id='profile_chart_content_id' style='width: 600px; height: 500px; class='noshow'></div>";
+            echo "</iframe>";
         }
         //Chart//////////////////////////////////////////////////////////////////////////////
 
