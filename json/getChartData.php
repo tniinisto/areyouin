@@ -6,16 +6,6 @@
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
-
-  
-    //   $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	//if (!$con)
-	//    {
-	//    die('Could not connect: ' . mysql_error());
-	//    }
-
-    //   mysql_select_db("areyouin", $con);
-
     $sql_team_events = "SELECT YEAR(events.startTime) as year, MONTH(events.startTime) as month, count(events.eventID) games FROM `areyouin`.`events`
                         where Team_teamID = " . $teamid . "
                         GROUP BY YEAR(events.startTime), MONTH(events.startTime);";
@@ -40,7 +30,6 @@
         }
 
 	    $dbh = null;
-
 
     }
     catch(PDOException $e) {
