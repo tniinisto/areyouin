@@ -139,14 +139,10 @@
     }
 
     function drawChart() {
-        createChart();
+        setInterval(createChart(), 100);
     }
 
     $(window).resize(function(){
-        drawChart();
-    });
-
-    $("#profile_chart_content_id").show(function() { 
         drawChart();
     });
 
