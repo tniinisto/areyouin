@@ -139,7 +139,7 @@
     }
 
     function drawChart() {
-        setInterval(createChart(), 100);
+        setInterval(function () { createChart()}, 200);
     }
 
     $(window).resize(function(){
