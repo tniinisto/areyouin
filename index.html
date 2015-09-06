@@ -79,7 +79,8 @@
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
     //load the Google Visualization API and the chart
-    google.load('visualization', '1', { 'packages': ['columnchart'] });
+    //google.load('visualization', '1', { 'packages': ['columnchart'] });
+    google.load('visualization', '1', { 'packages': ['corechart'] });
 
     //set callback
     google.setOnLoadCallback(createChart);
@@ -106,7 +107,7 @@
         //]);
 
         //instantiate our chart object
-        var chart = new google.visualization.ColumnChart(document.getElementById('profile_chart_content_id'));
+        var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
 
         //define options for visualization
         var options = {
