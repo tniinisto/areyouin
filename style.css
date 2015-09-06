@@ -117,7 +117,7 @@ input[type="text"]::-webkit-search-cancel-button {
 CHART
 /***********************************************/
 #profile_chart_content_id {
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 
