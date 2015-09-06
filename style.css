@@ -113,8 +113,11 @@ input[type="text"]::-webkit-search-cancel-button {
 	display: none;
 }
 
+/***********************************************
+CHART
+/***********************************************/
 #profile_chart_content_id {
-    height: 50%;
+    height: 60%;
     width: 100%;
 }
 
