@@ -1,7 +1,9 @@
 $(window).load(function () {
-    serviceURL = window.location.href;
-    serviceURL = serviceURL.replace("index.html", "json/");
-    serviceURL = serviceURL.replace("#", '');
+    //Already done in playerinfo.js
+    //serviceURL = window.location.href;
+    //serviceURL = serviceURL.replace("index.html", "json/");
+    //serviceURL = serviceURL.replace("#", '');
+    //localStorage['serviceURL'] = serviceURL;
 
     setTimeout(getChartData, 100);
 });
@@ -18,6 +20,7 @@ function getChartData() {
 
         chartdata = data.items;
 
+        alert("first year:" + chartdata[0].year);
 
         //$.each(playerinfo, function(index, player) {
         //    alert("playerinfo, name: " + player.name);
