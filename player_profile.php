@@ -220,6 +220,7 @@
         //Chart//////////////////////////////////////////////////////////////////////////////
         function echoChart() {
             //echo "<iframe id='profile_chart_frame_id' name='frame_chart'>";
+                echo "<h1 id='chartstats' onshow()='drawChart();'>Game statistics</h1>";
                 echo "<div id='profile_chart_content_id' class='noshow'></div>";
             //echo "</iframe>";
         }
