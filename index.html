@@ -75,39 +75,53 @@
 <meta name="theme-color" content="#ffffff">
 
 
-        <!-- load Google AJAX API -->
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-        <script type="text/javascript">
-            //load the Google Visualization API and the chart
-            google.load('visualization', '1', {'packages': ['columnchart']});
- 
-            //set callback
-            google.setOnLoadCallback (createChart);
- 
-            //callback function
-            function createChart() {
- 
-                //create data table object
-                var dataTable = new google.visualization.DataTable();
- 
-                //define columns
-                dataTable.addColumn('string','Quarters 2009');
-                dataTable.addColumn('number', 'Earnings');
- 
-                //define rows of data
-                dataTable.addRows([['Q1',308], ['Q2',257],['Q3',375],['Q4', 123]]);
- 
-                //instantiate our chart object
-                var chart = new google.visualization.ColumnChart (document.getElementById('profile_chart_content_id'));
- 
-                //define options for visualization
-                var options = {width: 400, height: 240, is3D: true, title: 'Company Earnings'};
- 
-                //draw our chart
-                chart.draw(dataTable, options);
- 
+<!-- load Google chart AJAX API -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    //load the Google Visualization API and the chart
+    google.load('visualization', '1', { 'packages': ['columnchart'] });
+
+    //set callback
+    google.setOnLoadCallback(createChart);
+
+    //callback function
+    function createChart() {
+
+        //create data table object
+        var dataTable = new google.visualization.DataTable();
+
+        //define columns
+        dataTable.addColumn('string', 'Quarters 2009');
+        dataTable.addColumn('number', 'Earnings');
+
+        //define rows of data
+        dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
+
+        //instantiate our chart object
+        var chart = new google.visualization.ColumnChart(document.getElementById('profile_chart_content_id'));
+
+        //define options for visualization
+        var options = {
+            width: 800,
+            height: 440,
+            is3D: true,
+            title: 'Game history',
+            vAxis: { title: 'Cups' },
+            hAxis: { title: 'Month' },
+            seriesType: 'bars',
+            series: { 5: { type: 'line'} },
+            animation: {
+                duration: 1000,
+                easing: 'out',
+                startup: 'true'
             }
-        </script>
+        };
+
+        //draw our chart
+        chart.draw(dataTable, options);
+
+    }
+</script>
 
 
 </head>
