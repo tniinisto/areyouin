@@ -29,6 +29,8 @@
             }
         }
 
+        echo '{"items":'. json_encode($chart_data_table) .'}'; 
+
 	    $dbh = null;
 
     }
