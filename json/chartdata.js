@@ -20,7 +20,7 @@ function getChartData() {
 
         chartdata = data.items;
 
-        alert("first year:" + chartdata[0].year);
+        alert("first month/year: " + chartdata[0].month + "/" + chartdata[0].year + " second month/year: " + chartdata[1].month+ "/" + chartdata[1].year);
 
         //$.each(playerinfo, function(index, player) {
         //    alert("playerinfo, name: " + player.name);
