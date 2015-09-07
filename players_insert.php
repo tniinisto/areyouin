@@ -193,7 +193,7 @@
                                 }
                             echo "</select>";
                             //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
-                            echo "<input type='submit' value='Save' id='submit_timezone'></input>";                                         
+                            echo "<input type='submit' class='myButton' value='Save' id='submit_timezone'></input>";                                         
                         echo "</form>";
                         echo "<br>";
                         echo "<p><span id='txtZone'></span></p>";
