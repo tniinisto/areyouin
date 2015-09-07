@@ -320,7 +320,7 @@ screens smaller or equal to 480
     }
 
     .modalDialog {
-        top: -35px;
+        top: -100px;
     }
     
     #event_article_id {
