@@ -116,23 +116,38 @@
         var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
 
         //define options for visualization
-
-        var options = {
-            //width: 600,
-            //height: 500,
-            is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
-            hAxis: { title: 'Month', showTextEvery: '2' },
-            seriesType: 'bars',
-            series: { 0: { type: 'line'} },
-            legend: { position: 'none' },
-            animation: {
-                duration: 1000,
-                easing: 'out',
-                startup: 'true'
+        if (animate == 1) {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Your game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'none' },
+                animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: 'true'
+                }
+            };
+        } else {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Your game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'none' },
+                animation: false
             }
-        };
+        }
+
 
         //draw our chart
         chart.draw(dataTable, options);
@@ -146,7 +161,7 @@
     }
 
     $(window).resize(function () {
-        drawChart();
+        createChart(0);
     });
 
 </script>
