@@ -89,7 +89,7 @@
     //google.setOnLoadCallback(createChart);
 
     //callback function
-    function createChart() {
+    function createChart(animate) {
 
         //create data table object
         //var dataTable = new google.visualization.DataTable();
@@ -116,22 +116,36 @@
         var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
 
         //define options for visualization
-        var options = {
-            //width: 600,
-            //height: 500,
-            is3D: true,
-            title: 'Game history',
-            vAxis: { title: 'Games' },
-            hAxis: { title: 'Month', showTextEvery: '2' },
-            seriesType: 'bars',
-            series: { 0: { type: 'line'} },
-            legend: { position: 'none' },
-            animation: {
-                duration: 500,
-                easing: 'out',
-                startup: 'true'
-            }
-        };
+        if (animate == 1) {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'none' },
+                animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: 'true'
+                }
+            };
+        } else {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'none' }
+            };            
+        }
 
         //draw our chart
         chart.draw(dataTable, options);
@@ -140,12 +154,12 @@
 
     function drawChart() {
         setTimeout(function () {
-            createChart();
+            createChart(1);
         }, 500);
     }
 
     $(window).resize(function () {
-        drawChart();
+        drawChart(0);
     });
 
 </script>
