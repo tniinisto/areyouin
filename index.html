@@ -87,6 +87,12 @@
 
     //set callback
     //google.setOnLoadCallback(createChart);
+
+    //Draw on window resize, don't animate
+    $(window).resize(function () {
+        createChart(0);
+    });
+
 </script>
 <!-- load Google chart AJAX API -->
 

@@ -889,7 +889,3 @@ function getChartData() {
         }, 200);
     }
 
-    //Draw on window resize, don't animate
-    $(window).resize(function () {
-        createChart(0);
-    });
