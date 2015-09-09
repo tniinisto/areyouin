@@ -816,3 +816,80 @@ function getChartData() {
 
 }
 
+    //callback function
+    function createChart(animate) {
+
+        //create data table object
+        //var dataTable = new google.visualization.DataTable();
+
+        //define columns
+        //dataTable.addColumn('string', 'Quarters 2009');
+        //dataTable.addColumn('number', 'Earnings');
+
+        //define rows of data
+        //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
+        dataTable = google.visualization.arrayToDataTable([
+                ['Month', 'Your games', 'Games set'],
+                ['2004/05', 565, 614.6],
+                ['2005/06', 635, 652],
+                ['2006/07', 557, 623],
+                ['2007/08', 539, 609.4],
+                ['2008/09', 536, 569.6],
+                ['2008/10', 536, 569.6],
+                ['2008/11', 536, 569.6],
+                ['2008/12', 536, 569.6]
+            ]);
+
+        //instantiate our chart object
+        var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
+
+        //define options for visualization
+        if (animate == 1) {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Your game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'right' },
+                animation: {
+                    duration: 1000,
+                    easing: 'out',
+                    startup: 'true'
+                }
+            };
+        } else {
+            var options = {
+                //width: 600,
+                //height: 500,
+                is3D: true,
+                title: 'Your game history',
+                vAxis: { title: 'Games' },
+                hAxis: { title: 'Month', showTextEvery: '2' },
+                seriesType: 'bars',
+                series: { 0: { type: 'line'} },
+                legend: { position: 'rigth' },
+                animation: false
+            }
+        }
+
+
+        //draw our chart
+        chart.draw(dataTable, options);
+
+    }
+
+    //Draw the chart with animation
+    function drawChart() {
+        setTimeout(function () {
+            createChart(1);
+        }, 200);
+    }
+
+    //Draw on window resize, don't animate
+    $(window).resize(function () {
+        createChart(0);
+    });
