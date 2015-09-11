@@ -40,14 +40,15 @@
 	    $stmt = $dbh->query($sql_team_events);  
 	    //$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        $team_data_table = array();
+        $data_table = array();
+        $data_table[] = array("Month", "Your Games", "Games set");
         if ($stmt->execute()) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $team_data_table[] = $row;
+                $data_table[] = $row;
             }
         }
 
-        echo '{"items":'. json_encode($team_data_table) .'}'; 
+        echo '{"items":'. json_encode($data_table) .'}'; 
 
 	    $dbh = null;
         //Team's events///////////////////////////////////////////////////////////////////////
