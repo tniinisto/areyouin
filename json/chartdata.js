@@ -8,9 +8,9 @@ $(window).load(function () {
     setTimeout(getChartData, 100);
 });
 
-$('#link_profile_chart'.onClick()) {
+$('#link_profile_chart').onclick(function() {
     alert("Joujoujou");
-}
+});
 
 $(document).ajaxError(function(event, request, settings) {
 	//$('#busy').hide();
