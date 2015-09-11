@@ -1,14 +1,14 @@
-$(window).load(function () {
-    //Already done in playerinfo.js
-    //serviceURL = window.location.href;
-    //serviceURL = serviceURL.replace("index.html", "json/");
-    //serviceURL = serviceURL.replace("#", '');
-    //localStorage['serviceURL'] = serviceURL;
+//$(window).load(function () {
+//    //Already done in playerinfo.js
+//    //serviceURL = window.location.href;
+//    //serviceURL = serviceURL.replace("index.html", "json/");
+//    //serviceURL = serviceURL.replace("#", '');
+//    //localStorage['serviceURL'] = serviceURL;
 
-    setTimeout(getChartData, 100);
-});
+//    setTimeout(getChartData, 100);
+//});
 
-$('#link_profile_chart').click( function() {
+$("#link_profile_chart").click(function() {
     alert("Joujoujou");
 });
 
