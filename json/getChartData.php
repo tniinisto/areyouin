@@ -16,12 +16,12 @@
     FROM
     (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) 'games_set'
     FROM `areyouin`.`events` e1
-    where Team_teamID = " . $teamid . "
+    where Team_teamID = '" . $teamid . "'
     GROUP BY YEAR(e1.startTime), MONTH(e1.startTime)) t1
     left join
     (SELECT eventID, YEAR(e2.startTime) as year2, MONTH(e2.startTime) as month2, count(ep.eventPlayerID) as participated
     FROM eventplayer ep, events e2
-    where ep.Players_playerID = " . $playerid. " and ep.areyouin = 1 and e2.eventID = ep.Events_eventID
+    where ep.Players_playerID = '" . $playerid. "' and ep.areyouin = 1 and e2.eventID = ep.Events_eventID
     GROUP BY YEAR(e2.startTime), MONTH(e2.startTime)) t2
     on t1.eventID = t2.eventID;";
     
