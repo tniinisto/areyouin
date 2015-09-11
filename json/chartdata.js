@@ -8,10 +8,6 @@
 //    setTimeout(getChartData, 100);
 //});
 
-$("#link_profile_chart").click(function() {
-    alert("Joujoujou");
-});
-
 $(document).ajaxError(function(event, request, settings) {
 	//$('#busy').hide();
 	//alert("Error accessing the server");
