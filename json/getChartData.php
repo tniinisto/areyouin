@@ -12,7 +12,7 @@
 
     
     $sql_team_events = 
-    "SELECT year, month, participated, games
+    "SELECT (year || '/'|| month) as month, participated, games
     FROM
     (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) as games
     FROM `areyouin`.`events` e1
@@ -37,7 +37,7 @@
 	    //$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $data_table = array();
-        $data_table[] = array('year'=>'Year', 'month'=>'Month', 'participated'=>'Your games', 'games'=>'Games set', );
+        $data_table[] = array('month'=>'Month', 'participated'=>'Your games', 'games'=>'Games set', );
         if ($stmt->execute()) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $data_table[] = $row;
