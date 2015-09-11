@@ -41,7 +41,7 @@
 	    //$result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         $data_table = array();
-        $data_table[] = array("Month", "Your Games", "Games set");
+        $data_table[] = array('Month', 'Your Games', 'Games set');
         if ($stmt->execute()) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $data_table[] = $row;
