@@ -20,24 +20,13 @@ function getChartData() {
 
         chartdata = data.items;
 
-        alert("FIRST ROW year/month: " + chartdata[0].month + " Your games: " + chartdata[0].participated + " Games set: " + chartdata[0].games +
-        " SECOND ROW year/month: " + chartdata[1].month + " Your games: " + chartdata[1].participated + " Games set: " + chartdata[1].games);
+        //alert("FIRST ROW year/month: " + chartdata[0].month + " Your games: " + chartdata[0].participated + " Games set: " + chartdata[0].games +
+        //" SECOND ROW year/month: " + chartdata[1].month + " Your games: " + chartdata[1].participated + " Games set: " + chartdata[1].games);
 
-        //$.each(playerinfo, function(index, player) {
-        //    alert("playerinfo, name: " + player.name);
-        //});
+        var arr = eval(chartdata);
+        alert(arr);
 
-        //$('#busy').hide();
-        //      $('#playerList li').remove();
-        //players = data.items;
-        //$.each(players, function(index, player) {
-        //	$('#playerList').append(
-        //			'<li>' +
-        //			'<img src="pics/' + player.photourl + '" class="list-icon"/>' +
-        //			// '<p class="line1">' + player.playerID + '</p>' +
-        //			'<p class="line1">' + player.name + '</p>' +
-        //			'</li>');
-        //});
+        return arr;
     });
 
 }
