@@ -10,10 +10,10 @@
                         where Team_teamID = " . $teamid . "
                         GROUP BY YEAR(events.startTime), MONTH(events.startTime);";
 
-    //SELECT year1, month1, games_set, participated
+    //SELECT year, month, games_set, participated
     //FROM
 
-    //(SELECT eventID, YEAR(e1.startTime) as year1, MONTH(e1.startTime) as month1, count(e1.eventID) 'games_set'
+    //(SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) 'games_set'
     //FROM `areyouin`.`events` e1
     //where Team_teamID = 1
     //GROUP BY YEAR(e1.startTime), MONTH(e1.startTime)) t1
@@ -25,6 +25,7 @@
     //GROUP BY YEAR(e2.startTime), MONTH(e2.startTime)) t2
 
     //on t1.eventID = t2.eventID;
+
 
     
     try {
