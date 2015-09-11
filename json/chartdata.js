@@ -8,7 +8,7 @@ $(window).load(function () {
     setTimeout(getChartData, 100);
 });
 
-$('#link_profile_chart').onclick(function() {
+$('#link_profile_chart').click( function() {
     alert("Joujoujou");
 });
 
