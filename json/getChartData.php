@@ -35,7 +35,6 @@
 
 	    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 
-	    //Team's events///////////////////////////////////////////////////////////////////////
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    $stmt = $dbh->query($sql_team_events);  
 	    //$result = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -51,12 +50,7 @@
         echo '{"items":'. json_encode($data_table) .'}'; 
 
 	    $dbh = null;
-        //Team's events///////////////////////////////////////////////////////////////////////
 
-
-        //Player's events/////////////////////////////////////////////////////////////////////
-        
-        //Player's events/////////////////////////////////////////////////////////////////////
 
 
 
