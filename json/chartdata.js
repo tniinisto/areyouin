@@ -16,6 +16,8 @@ $(document).ajaxError(function(event, request, settings) {
 function getChartData() {
 	//$('#busy').show();
 
+    alert("Jouders...");
+
     $.getJSON(serviceURL + 'getChartData.php', function (data) {
 
         chartdata = data.items;
