@@ -832,6 +832,10 @@ function createChart(animate) {
 
     //define rows of data
     //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
+
+    //function in json/chartdata.js
+    getChartData();
+    
     dataTable = google.visualization.arrayToDataTable([
             ['Month', 'Your games', 'Games set'],
             ['2004/05', 565, 614.6],
@@ -890,7 +894,6 @@ function createChart(animate) {
 //Draw the chart with animation
 function drawChart() {
     setTimeout(function () {
-        getChartData();
         createChart(1);
     }, 200);
 }
