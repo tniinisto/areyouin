@@ -886,9 +886,11 @@ function createChart(animate) {
 
 }
 
+
 //Draw the chart with animation
 function drawChart() {
     setTimeout(function () {
+        getChartData();
         createChart(1);
     }, 200);
 }
