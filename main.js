@@ -863,6 +863,7 @@ function createChart(animate) {
             seriesType: 'bars',
             series: { 0: { type: 'line'} },
             legend: { position: 'right' },
+            dataType:"json",
             animation: {
                 duration: 1000,
                 easing: 'out',
@@ -880,7 +881,8 @@ function createChart(animate) {
             seriesType: 'bars',
             series: { 0: { type: 'line'} },
             legend: { position: 'rigth' },
-            animation: false
+            animation: false,
+            dataType:"json"
         }
     }
 
