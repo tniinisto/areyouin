@@ -14,7 +14,7 @@
     $sql_team_events = 
     "SELECT year, month, participated, games
     FROM
-    (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) 'games_set'
+    (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) as games
     FROM `areyouin`.`events` e1
     where Team_teamID = '" . $teamid . "'
     GROUP BY YEAR(e1.startTime), MONTH(e1.startTime)) t1
