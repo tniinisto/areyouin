@@ -12,7 +12,7 @@
 
     
     $sql_team_events = 
-    "SELECT (year || '/'|| month) as month, participated, games
+    "SELECT CONCAT(year, '/' ,month) as month, participated, games
     FROM
     (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) as games
     FROM `areyouin`.`events` e1
