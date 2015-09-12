@@ -36,7 +36,7 @@ function getChartData() {
         for (i = 0; i < chartdata.length; i++) {
             games_chart_array.push([]);
             if(i==0)
-                games_chart_array[i][0] = '[[' + chartdata[i].month;
+                games_chart_array[i][0] = '[' + chartdata[i].month;
 
             if (chartdata[i].participated == null)
                 games_chart_array[i][1] = 0;
