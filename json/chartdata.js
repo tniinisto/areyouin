@@ -31,7 +31,10 @@ function getChartData() {
             games_chart_array[i][1] = chartdata[i].games;
         }
 
+        alert(games_chart_array);
+
         return games_chart_array;
+
     });
 
 }
