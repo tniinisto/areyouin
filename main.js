@@ -837,7 +837,7 @@ function createChart(animate) {
 
     var arr = new Array([]);
     arr = getChartData();
-    dataTable = google.visualization.arrayToDataTable(arr);
+    //dataTable = google.visualization.arrayToDataTable(arr);
 
     ////Template
     dataTable = google.visualization.arrayToDataTable([
