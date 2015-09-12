@@ -41,15 +41,22 @@ function getChartData() {
             else
                 games_chart_array[i][0] = '[\'' + chartdata[i].month + '\'';
 
+            
             if (chartdata[i].participated == null)
                 games_chart_array[i][1] = 0;
             else
-                games_chart_array[i][1] = chartdata[i].participated;
+                if (i == 0)
+                    games_chart_array[i][1] = '\'' + chartdata[i].participated + '\'';
+                else
+                    games_chart_array[i][1] = chartdata[i].participated;
 
             if (chartdata[i].games == null)
                 games_chart_array[i][2] = 0 + ']';
             else
-                games_chart_array[i][2] = chartdata[i].games + ']';
+                if (i == 0)
+                    games_chart_array[i][2] = '\'' + chartdata[i].games + '\'' + ']';
+                else
+                    games_chart_array[i][2] = chartdata[i].games + ']';
         }
 
         //Remove last ',' and add ']' to the end
