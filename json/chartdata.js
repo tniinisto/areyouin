@@ -51,6 +51,9 @@ function getChartData() {
             else
                 games_chart_array[i][2] = chartdata[i].games + ']';
         }
+
+        //Remove last ',' and add ']' to the end
+        games_chart_array.length = games_chart_array.length - 1;
         games_chart_array = games_chart_array + ']';
 
         alert(games_chart_array);
