@@ -28,6 +28,7 @@ function getChartData() {
         games_chart_array[0][1] = 'Your games';
         games_chart_array[0][2] = 'Games set';
 
+        games_chart_array.push([]);
         games_chart_array[1][0] = '2015/09';
         games_chart_array[1][1] = '1';
         games_chart_array[1][2] = '10';
