@@ -36,8 +36,14 @@ function getChartData() {
         for (i = 0; i < chartdata.length; i++) {
             games_chart_array.push([]);
             games_chart_array[i][0] = chartdata[i].month;
-            games_chart_array[i][1] = chartdata[i].participated;
-            games_chart_array[i][2] = chartdata[i].games;
+            if (chartdata[i].participated == null)
+                games_chart_array[i][1] = 0;
+            else
+                games_chart_array[i][1] = chartdata[i].participated;
+            if (chartdata[i].games == null)
+                games_chart_array[i][2] = 0;
+            else
+                games_chart_array[i][2] = chartdata[i].games;
         }
 
         alert(games_chart_array);
