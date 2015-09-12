@@ -24,16 +24,16 @@ function getChartData() {
         //" SECOND ROW year/month: " + chartdata[1].month + " Your games: " + chartdata[1].participated + " Games set: " + chartdata[1].games);
 
         var games_chart_array = new Array([]);
-        games_chart_array[0][0] = 'Month';
-        games_chart_array[0][1] = 'Your games';
-        games_chart_array[0][2] = 'Games set';
+        //games_chart_array[0][0] = 'Month';
+        //games_chart_array[0][1] = 'Your games';
+        //games_chart_array[0][2] = 'Games set';
 
         //games_chart_array.push([]);
         //games_chart_array[1][0] = '2015/09';
         //games_chart_array[1][1] = '1';
         //games_chart_array[1][2] = '10';
 
-        for (i = 1; i < chartdata.length; i++) {
+        for (i = 0; i < chartdata.length; i++) {
             games_chart_array.push([]);
             games_chart_array[i][0] = chartdata[i].month;
             games_chart_array[i][1] = chartdata[i].participated;
