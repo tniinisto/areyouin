@@ -36,7 +36,7 @@ function getChartData() {
         for (i = 0; i < chartdata.length; i++) {
             games_chart_array.push([]);
 
-            if(i==0)
+            if (i == 0)
                 games_chart_array[i][0] = '[[' + chartdata[i].month;
             else
                 games_chart_array[i][0] = '[' + chartdata[i].month;
@@ -45,15 +45,13 @@ function getChartData() {
                 games_chart_array[i][1] = 0;
             else
                 games_chart_array[i][1] = chartdata[i].participated;
-                       
+
             if (chartdata[i].games == null)
                 games_chart_array[i][2] = 0 + ']';
             else
                 games_chart_array[i][2] = chartdata[i].games + ']';
-
-            if( i == chartdata.length - 1)
-                games_chart_array[i][2] = ']';
         }
+        games_chart_array = games_chart_array + ']';
 
         alert(games_chart_array);
 
