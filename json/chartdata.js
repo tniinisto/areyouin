@@ -42,7 +42,7 @@ function getChartData() {
 
         alert(games_chart_array);
 
-        return games_chart_array[][];
+        return games_chart_array;
 
     });
 
