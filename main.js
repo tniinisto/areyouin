@@ -834,8 +834,7 @@ function createChart(animate) {
     //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
     
     //dataTable = new google.visualization.DataTable(getChartData());
-    var arr = [];
-    arr.push([]);
+    var arr = new Array([]);
     arr = getChartData();
     dataTable = google.visualization.arrayToDataTable(arr);
 
