@@ -833,7 +833,14 @@ function createChart(animate) {
     //define rows of data
     //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
 
-    var obj = window.JSON.stringify(getChartData());
+
+    var jsonData = $.ajax({
+                url: "json/getChartData.php",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+    var obj = window.JSON.stringify(jsonData);
     dataTable = new google.visualization.arrayToDataTable(obj);
 
     ////Template
