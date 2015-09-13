@@ -833,32 +833,31 @@ function createChart(animate) {
     //define rows of data
     //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
 
+    //var jsonData = $.ajax({
+    //            url: "json/getChartData.php",
+    //            dataType: "json",
+    //            async: false
+    //        }).responseText;
 
-    var jsonData = $.ajax({
-                url: "json/getChartData.php",
-                dataType: "json",
-                async: false
-            }).responseText;
+    //        
+    ////var obj = window.JSON.stringify(jsonData);
 
-            
-    //var obj = window.JSON.stringify(jsonData);
+    ////var obj = window.JSON.stringify(jsonData);
+    ////dataTable = google.visualization.arrayToDataTable(obj);
+    //dataTable = new google.visualization.DataTable(jsonData);
 
-    //var obj = window.JSON.stringify(jsonData);
-    //dataTable = google.visualization.arrayToDataTable(obj);
-    dataTable = new google.visualization.DataTable(jsonData);
-
-    ////Template
-    //dataTable = google.visualization.arrayToDataTable([
-    //        ['Month', 'Your games', 'Games set'],
-    //        ['2004/05', 565, 614.6],
-    //        ['2005/06', 635, 652],
-    //        ['2006/07', 557, 623],
-    //        ['2007/08', 539, 609.4],
-    //        ['2008/09', 536, 569.6],
-    //        ['2008/10', 536, 569.6],
-    //        ['2008/11', 536, 569.6],
-    //        ['2008/12', 536, 569.6]
-    //    ]);
+    //Template
+    dataTable = google.visualization.arrayToDataTable([
+            ['Month', 'Your games', 'Games set'],
+            ['2004/05', 565, 614.6],
+            ['2005/06', 635, 652],
+            ['2006/07', 557, 623],
+            ['2007/08', 539, 609.4],
+            ['2008/09', 536, 569.6],
+            ['2008/10', 536, 569.6],
+            ['2008/11', 536, 569.6],
+            ['2008/12', 536, 569.6]
+        ]);
 
     //instantiate our chart object
     var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
