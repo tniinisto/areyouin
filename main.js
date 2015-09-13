@@ -840,6 +840,7 @@ function createChart(animate) {
                 async: false
             }).responseText;
 
+            alert(jsonData);
     var obj = window.JSON.stringify(jsonData);
     dataTable = new google.visualization.arrayToDataTable(obj);
 
