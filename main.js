@@ -840,8 +840,9 @@ function createChart(animate) {
                 async: false
             }).responseText;
 
-            alert(jsonData);
+            
     var obj = window.JSON.stringify(jsonData);
+    alert(obj);
     dataTable = new google.visualization.arrayToDataTable(obj);
 
     ////Template
