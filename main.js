@@ -829,26 +829,26 @@ function createChart(animate) {
        //         async: false
        //     }).responseText;
 
-    chartdata = getChartData();
+    //chartdata = getChartData();
 
-        // Version 2: DataTable.addRows
-        var dataTable = new google.visualization.DataTable();
-        dataTable.addColumn('string', 'Month');
-        dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('number', 'Games set');
+    //    // Version 2: DataTable.addRows
+    //    var dataTable = new google.visualization.DataTable();
+    //    dataTable.addColumn('string', 'Month');
+    //    dataTable.addColumn('number', 'Your games');
+    //    dataTable.addColumn('number', 'Games set');
 
-        //dataTable.addRow(['Elokuu', 1, 1]);
-        //alert(chartdata[0].month);
+    //    //dataTable.addRow(['Elokuu', 1, 1]);
+    //    //alert(chartdata[0].month);
 
-        for (i = 0; i < chartdata.length; i++) {
-            //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+    //    for (i = 0; i < chartdata.length; i++) {
+    //        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
-            var arr = new Array(chartdata[i].month, (chartdata[i].participated != null) ? chartdata[i].participated : 0 , (chartdata[i].games != null) ? chartdata[i].games: 0);
+    //        var arr = new Array(chartdata[i].month, (chartdata[i].participated != null) ? chartdata[i].participated : 0 , (chartdata[i].games != null) ? chartdata[i].games: 0);
 
-            dataTable.addRow(arr);
-            //dataTable.addRow(['Elokuu', 1, 1]);
+    //        dataTable.addRow(arr);
+    //        //dataTable.addRow(['Elokuu', 1, 1]);
 
-        }
+    //    }
 
     //dataTable.addRows([
     //  ['CN', 1324, 9640821],
