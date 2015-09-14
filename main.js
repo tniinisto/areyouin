@@ -838,7 +838,10 @@ function createChart(animate) {
     //    dataTable.addColumn('number', 'Games set');
 
     //    //dataTable.addRow(['Elokuu', 1, 1]);
-        alert(chartdata);
+        var arr = [];
+        arr = chartdata;
+
+        alert(arr[0].month);
 
     //    for (i = 0; i < chartdata.length; i++) {
     //        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
