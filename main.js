@@ -829,7 +829,7 @@ function createChart(animate) {
        //         async: false
        //     }).responseText;
 
-    var chartdate = new Array();
+    var chartdata = new Array();
     chartdata = getChartData();
 
     //    // Version 2: DataTable.addRows
