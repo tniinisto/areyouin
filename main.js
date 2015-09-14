@@ -829,28 +829,28 @@ function createChart(animate) {
     //            async: false
     //        }).responseText;
 
-     $.getJSON(serviceURL + 'getChartData.php', function (data) {
-    
+    $.getJSON(serviceURL + 'getChartData.php', function (data) {
+
         // Version 2: DataTable.addRows
         var dataTable = new google.visualization.DataTable();
-        dataTable.addColumn('string','Month');
-        dataTable.addColumn('number','Your games');
-        dataTable.addColumn('number','Games set');
+        dataTable.addColumn('string', 'Month');
+        dataTable.addColumn('number', 'Your games');
+        dataTable.addColumn('number', 'Games set');
 
         chartdata = data.items;
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
-        for ( i = 0; i < chartdata.length; i++ ) {
+        for (i = 0; i < chartdata.length; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-       
-           arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].games);
 
-           dataTable.addRow(arr);
-           //dataTable.addRow(['Elokuu', 1, 1]);
+            arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].games);
+
+            dataTable.addRow(arr);
+            //dataTable.addRow(['Elokuu', 1, 1]);
 
         }
-    }
+    });
 
     //dataTable.addRows([
     //  ['CN', 1324, 9640821],
