@@ -843,9 +843,9 @@ function createChart(animate) {
         for (i = 0; i < dataArray.length; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
-            var arr = (dataArray[i].month, ((dataArray[i].participated != null) ? dataArray[i].participated : 0) , ((dataArray[i].games != null) ? dataArray[i].games : 0));
+            dataTable.addRow([dataArray[i].month, ((dataArray[i].participated != null) ? dataArray[i].participated : 0) , ((dataArray[i].games != null) ? dataArray[i].games : 0)]);
 
-            dataTable.addRow(arr);
+            //dataTable.addRow(arr);
         }
 
     //dataTable.addRows([
