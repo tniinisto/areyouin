@@ -840,7 +840,7 @@ function createChart(animate) {
     //    //dataTable.addRow(['Elokuu', 1, 1]);
 
             var theArray = $.parseJSON(chartdata);
-            alert(theArray);
+            alert(theArray[0].month);
 
     //    for (i = 0; i < chartdata.length; i++) {
     //        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
