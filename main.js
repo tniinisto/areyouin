@@ -823,28 +823,33 @@ function getChartData() {
 //callback function
 function createChart(animate) {
 
-    //create data table object
-    //var dataTable = new google.visualization.DataTable();
+    var chartdata = [];
+    chartdata= $.ajax({
+                url: "json/getChartData.php",
+                dataType: "json",
+                async: false
+            }).responseText;
 
-    //define columns
-    //dataTable.addColumn('string', 'Quarters 2009');
-    //dataTable.addColumn('number', 'Earnings');
+    // Version 2: DataTable.addRows
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('string','Month');
+    dataTable.addColumn('number','Your games');
+    dataTable.addColumn('number','Games set');
+    
+    for ( i = 0; i < chartdata.length; i++ ) {
+        //if(i==0)
+        //    dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+        //else
+        dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+    }
 
-    //define rows of data
-    //dataTable.addRows([['Q1', 308], ['Q2', 257], ['Q3', 375], ['Q4', 123]]);
-
-    //var jsonData = $.ajax({
-    //            url: "json/getChartData.php",
-    //            dataType: "json",
-    //            async: false
-    //        }).responseText;
-
-    //        
-    ////var obj = window.JSON.stringify(jsonData);
-
-    ////var obj = window.JSON.stringify(jsonData);
-    ////dataTable = google.visualization.arrayToDataTable(obj);
-    //dataTable = new google.visualization.DataTable(jsonData);
+    //dataTable.addRows([
+    //  ['CN', 1324, 9640821],
+    //  ['IN', 1133, 3287263],
+    //  ['US', 304, 9629091],
+    //  ['ID', 232, 1904569],
+    //  ['BR', 187, 8514877]
+    //]);
 
     //Template
     dataTable = google.visualization.arrayToDataTable([

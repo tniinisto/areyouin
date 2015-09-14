@@ -18,8 +18,6 @@ function getChartData() {
 
     $.getJSON(serviceURL + 'getChartData.php', function (data) {
 
-        chartdata = data.items;
-
         return data.items;
 
         //alert("FIRST ROW year/month: " + chartdata[0].month + " Your games: " + chartdata[0].participated + " Games set: " + chartdata[0].games +
