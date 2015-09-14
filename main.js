@@ -838,7 +838,7 @@ function createChart(animate) {
     
     for ( i = 0; i < chartdata.length; i++ ) {
         //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-        dataTable.addRow('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+        dataTable.addRow(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
         //dataTable.addRow(['Elokuu', 1, 1]);
         //if(i == 0)
         //    dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
