@@ -837,7 +837,7 @@ function createChart(animate) {
         dataTable.addColumn('number', 'Your games');
         dataTable.addColumn('number', 'Games set');
 
-        chartdata = data.items;
+        chartdata = data;
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
