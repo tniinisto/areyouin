@@ -907,7 +907,7 @@ function createChart(animate) {
 
 
     //draw our chart
-    //chart.draw(dataTable, options);
+    chart.draw(dataTable, options);
 
 }
 
