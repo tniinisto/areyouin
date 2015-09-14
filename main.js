@@ -832,8 +832,8 @@ function createChart(animate) {
     // Version 2: DataTable.addRows
     var dataTable = new google.visualization.DataTable();
     dataTable.addColumn('string','Month');
-    dataTable.addColumn('number','Your games');
-    dataTable.addColumn('number','Games set');
+    dataTable.addColumn('string','Your games');
+    dataTable.addColumn('string','Games set');
 
     var month, participated, games;
 
@@ -844,7 +844,7 @@ function createChart(animate) {
        participated = chartdata[i].participated;
        games = chartdata[i].games;
 
-       arr = ["'" + month + "'", participated, games];
+       arr = [month, participated, games];
 
        dataTable.addRow(arr);
        //dataTable.addRow(['Elokuu', 1, 1]);
