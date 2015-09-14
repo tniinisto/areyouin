@@ -823,7 +823,6 @@ function getChartData() {
 //callback function
 function createChart(animate) {
 
-    var chartdata = [];
     chartdata= $.ajax({
                 url: "json/getChartData.php",
                 dataType: "json",
@@ -835,18 +834,19 @@ function createChart(animate) {
     dataTable.addColumn('string','Month');
     dataTable.addColumn('number','Your games');
     dataTable.addColumn('number','Games set');
-    
+
+    var month, participated, setgames;
+
     for ( i = 0; i < chartdata.length; i++ ) {
         //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-        dataTable.addRow(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-        //dataTable.addRow(['Elokuu', 1, 1]);
-        //if(i == 0)
-        //    dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
-        //else
-        //    if(i == (chartdata.length - 1))
-        //        dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']]');
-        //    else
-        //        dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+       
+       month = chartdata[i].month;
+       participated = chartdata[i].participated;
+       setgames = chartdata[i].games;
+
+       dataTable.addRow("[" + month, participated, games + "]");
+       //dataTable.addRow(['Elokuu', 1, 1]);
+
     }
 
     //dataTable.addRows([
