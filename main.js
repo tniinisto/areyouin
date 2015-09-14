@@ -840,7 +840,7 @@ function createChart(animate) {
         for (i = 0; i < chartdata.length; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
-            arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].games);
+            arr = new Array(chartdata[i].month, (chartdata[i].participated != null) ? chartdata[i].participated : 0 , (chartdata[i].games != null) ? chartdata[i].games: 0);
 
             dataTable.addRow(arr);
             //dataTable.addRow(['Elokuu', 1, 1]);
