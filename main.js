@@ -888,7 +888,8 @@ function createChart(animate) {
                 duration: 1000,
                 easing: 'out',
                 startup: 'true'
-            }
+            },
+            colors:['red','#004411']
         };
     } else {
         var options = {
