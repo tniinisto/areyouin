@@ -823,21 +823,17 @@ function getChartData() {
 //callback function
 function createChart(animate) {
    
-       //chartdata= $.ajax({
-    //            url: "json/getChartData.php",
-    //            dataType: "json",
-    //            async: false
-    //        }).responseText;
-
-    $.getJSON(serviceURL + 'getChartData.php', function (data) {
+       chartdata= $.ajax({
+                url: "json/getChartData.php",
+                dataType: "json",
+                async: false
+            }).responseText;
 
         // Version 2: DataTable.addRows
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
         dataTable.addColumn('number', 'Your games');
         dataTable.addColumn('number', 'Games set');
-
-        chartdata = data;
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
@@ -850,7 +846,6 @@ function createChart(animate) {
             //dataTable.addRow(['Elokuu', 1, 1]);
 
         }
-    });
 
     //dataTable.addRows([
     //  ['CN', 1324, 9640821],
