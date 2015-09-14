@@ -45,8 +45,8 @@
         }
 
 
-        //echo '{"items":'. json_encode($data_table) .'}'; 
-        echo json_encode($data_table, JSON_NUMERIC_CHECK); 
+        echo '{"items":'. json_encode($data_table) .'}'; 
+        //echo json_encode($data_table); 
 
 	    $dbh = null;
 

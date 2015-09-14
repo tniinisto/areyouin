@@ -822,29 +822,34 @@ function getChartData() {
 
 //callback function
 function createChart(animate) {
-    chartdata= $.ajax({
-                url: "json/getChartData.php",
-                dataType: "json",
-                async: false
-            }).responseText;
+   
+       //chartdata= $.ajax({
+    //            url: "json/getChartData.php",
+    //            dataType: "json",
+    //            async: false
+    //        }).responseText;
 
-    // Version 2: DataTable.addRows
-    var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn('string','Month');
-    dataTable.addColumn('number','Your games');
-    dataTable.addColumn('number','Games set');
+     $.getJSON(serviceURL + 'getChartData.php', function (data) {
+    
+        // Version 2: DataTable.addRows
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('string','Month');
+        dataTable.addColumn('number','Your games');
+        dataTable.addColumn('number','Games set');
 
+        chartdata = data.items;
 
-    dataTable.addRow(['Elokuu', 1, 1]);
+        //dataTable.addRow(['Elokuu', 1, 1]);
 
-    for ( i = 0; i < chartdata.length; i++ ) {
-        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+        for ( i = 0; i < chartdata.length; i++ ) {
+            //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
        
-       arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].games);
+           arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].games);
 
-       dataTable.addRow(arr);
-       //dataTable.addRow(['Elokuu', 1, 1]);
+           dataTable.addRow(arr);
+           //dataTable.addRow(['Elokuu', 1, 1]);
 
+        }
     }
 
     //dataTable.addRows([
