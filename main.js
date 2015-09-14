@@ -829,6 +829,7 @@ function createChart(animate) {
        //         async: false
        //     }).responseText;
 
+    var chartdate = new Array();
     chartdata = getChartData();
 
     //    // Version 2: DataTable.addRows
