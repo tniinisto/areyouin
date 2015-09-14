@@ -829,15 +829,13 @@ function createChart(animate) {
                 async: false
             }).responseText;
 
-    //var chartdata = getChartData();
 
-    //    // Version 2: DataTable.addRows
-    //    var dataTable = new google.visualization.DataTable();
-    //    dataTable.addColumn('string', 'Month');
-    //    dataTable.addColumn('number', 'Your games');
-    //    dataTable.addColumn('number', 'Games set');
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('string', 'Month');
+        dataTable.addColumn('number', 'Your games');
+        dataTable.addColumn('number', 'Games set');
 
-    //    //dataTable.addRow(['Elokuu', 1, 1]);
+        //dataTable.addRow(['Elokuu', 1, 1]);
 
             var dataArray = $.parseJSON(chartdata);
             //alert(dataArray[0].month);
@@ -848,7 +846,6 @@ function createChart(animate) {
             var arr = new Array(dataArray[i].month, (dataArray[i].participated != null) ? dataArray[i].participated : 0 , (dataArray[i].games != null) ? dataArray[i].games: 0);
 
             dataTable.addRow(arr);
-            //dataTable.addRow(['Elokuu', 1, 1]);
         }
 
     //dataTable.addRows([
