@@ -46,7 +46,8 @@
 
 
         //echo '{"items":'. json_encode($data_table) .'}'; 
-        echo '{' . json_encode($data_table) .'}';
+        //echo '{' . json_encode($data_table) .'}';
+        echo json_encode($data_table);
 
 	    $dbh = null;
 
