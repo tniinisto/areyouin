@@ -837,13 +837,14 @@ function createChart(animate) {
     dataTable.addColumn('number','Games set');
     
     for ( i = 0; i < chartdata.length; i++ ) {
-        if(i == 0)
-            dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
-        else
-            if(i == (chartdata.length - 1))
-                dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']]');
-            else
-                dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+        dataTable.addRows(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+        //if(i == 0)
+        //    dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
+        //else
+        //    if(i == (chartdata.length - 1))
+        //        dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']]');
+        //    else
+        //        dataTable.addRows('[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
     }
 
     //dataTable.addRows([
