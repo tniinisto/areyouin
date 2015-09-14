@@ -839,18 +839,17 @@ function createChart(animate) {
 
     //    //dataTable.addRow(['Elokuu', 1, 1]);
 
-            var theArray = $.parseJSON(chartdata);
-            alert(theArray[0].month);
+            var dataArray = $.parseJSON(chartdata);
+            //alert(dataArray[0].month);
 
-    //    for (i = 0; i < chartdata.length; i++) {
-    //        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+        for (i = 0; i < dataArray.length; i++) {
+            //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
-    //        var arr = new Array(chartdata[i].month, (chartdata[i].participated != null) ? chartdata[i].participated : 0 , (chartdata[i].games != null) ? chartdata[i].games: 0);
+            var arr = new Array(dataArray[i].month, (dataArray[i].participated != null) ? dataArray[i].participated : 0 , (dataArray[i].games != null) ? dataArray[i].games: 0);
 
-    //        dataTable.addRow(arr);
-    //        //dataTable.addRow(['Elokuu', 1, 1]);
-
-    //    }
+            dataTable.addRow(arr);
+            //dataTable.addRow(['Elokuu', 1, 1]);
+        }
 
     //dataTable.addRows([
     //  ['CN', 1324, 9640821],
