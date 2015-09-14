@@ -832,13 +832,13 @@ function createChart(animate) {
 
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
-        dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('number', 'Games set');
+        dataTable.addColumn('string', 'Your games');
+        dataTable.addColumn('string', 'Games set');
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
         var dataArray = $.parseJSON(chartdata);
-        //alert(dataArray[0].month);
+        alert(dataArray[0].month);
 
         for (i = 0; i < dataArray.length-1; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
