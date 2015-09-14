@@ -837,10 +837,10 @@ function createChart(animate) {
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
-            var dataArray = $.parseJSON(chartdata);
-            //alert(dataArray[0].month);
+        var dataArray = $.parseJSON(chartdata);
+        //alert(dataArray[0].month);
 
-        for (i = 0; i < dataArray.length; i++) {
+        for (i = 0; i < dataArray.length-1; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
             dataTable.addRow([dataArray[i].month, ((dataArray[i].participated != null) ? dataArray[i].participated : 0) , ((dataArray[i].games != null) ? dataArray[i].games : 0)]);
