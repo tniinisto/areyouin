@@ -829,7 +829,7 @@ function createChart(animate) {
        //         async: false
        //     }).responseText;
 
-    //chartdata = getChartData();
+    chartdata = getChartData();
 
     //    // Version 2: DataTable.addRows
     //    var dataTable = new google.visualization.DataTable();
@@ -909,7 +909,7 @@ function createChart(animate) {
 
 
     //draw our chart
-    chart.draw(dataTable, options);
+    //chart.draw(dataTable, options);
 
 }
 
