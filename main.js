@@ -833,7 +833,7 @@ function createChart(animate) {
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
         dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('string', 'Games set');
+        dataTable.addColumn('number', 'Games set');
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
