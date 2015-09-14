@@ -836,6 +836,7 @@ function createChart(animate) {
     dataTable.addColumn('number','Games set');
 
     var month, participated, games;
+    alert("test");
     alert(chartdata.length);
 
     for ( i = 0; i < chartdata.length; i++ ) {
