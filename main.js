@@ -823,7 +823,7 @@ function getChartData() {
 //callback function
 function createChart(animate) {
 
-    ;alert("here!")
+    alert("here!");
     chartdata= $.ajax({
                 url: "json/getChartData.php",
                 dataType: "json",
