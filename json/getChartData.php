@@ -45,7 +45,7 @@
         }
 
 
-        echo '{"items":'. json_encode($data_table) .'}'; 
+        //echo '{"items":'. json_encode($data_table) .'}'; 
         echo '{' . json_encode($data_table) .'}';
         //echo json_encode($data_table); 
 
