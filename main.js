@@ -845,6 +845,7 @@ function createChart(animate) {
        games = chartdata[i].games;
 
        arr = [month, participated, games];
+       alert(arr);
 
        dataTable.addRow(arr);
        //dataTable.addRow(['Elokuu', 1, 1]);
