@@ -837,8 +837,8 @@ function createChart(animate) {
     dataTable.addColumn('number','Games set');
     
     for ( i = 0; i < chartdata.length; i++ ) {
-        var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-        dataTable.addRows(arr);
+        //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+        dataTable.addRows(new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated));
         //if(i == 0)
         //    dataTable.addRows('[[' + chartdata[i].month, chartdata[i].participated, chartdata[i].participated + ']');
         //else
