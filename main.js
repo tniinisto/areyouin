@@ -823,11 +823,13 @@ function getChartData() {
 //callback function
 function createChart(animate) {
    
-       chartdata= $.ajax({
+       data= $.ajax({
                 url: "json/getChartData.php",
                 dataType: "json",
                 async: false
             }).responseText;
+
+        chartdata = data.items; 
 
         // Version 2: DataTable.addRows
         var dataTable = new google.visualization.DataTable();
