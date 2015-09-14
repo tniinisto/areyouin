@@ -823,13 +823,13 @@ function getChartData() {
 //callback function
 function createChart(animate) {
    
-       //data= $.ajax({
-       //         url: "json/getChartData.php",
-       //         dataType: "json",
-       //         async: false
-       //     }).responseText;
+        chartdata= $.ajax({
+                url: "json/getChartData.php",
+                dataType: "json",
+                async: false
+            }).responseText;
 
-    var chartdata = getChartData();
+    //var chartdata = getChartData();
 
     //    // Version 2: DataTable.addRows
     //    var dataTable = new google.visualization.DataTable();
