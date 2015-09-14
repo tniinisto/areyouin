@@ -889,7 +889,7 @@ function createChart(animate) {
                 easing: 'out',
                 startup: 'true'
             },
-            colors:['red','#004411']
+            colors:['red','yellow']
         };
     } else {
         var options = {
@@ -902,7 +902,8 @@ function createChart(animate) {
             seriesType: 'bars',
             series: { 0: { type: 'line'} },
             legend: { position: 'rigth' },
-            animation: false
+            animation: false,
+            colors:['red','yellow']
         }
     }
 
