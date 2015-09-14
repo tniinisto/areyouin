@@ -840,7 +840,7 @@ function createChart(animate) {
         var dataArray = $.parseJSON(chartdata);
         //alert(dataArray[0].month);
 
-        for (i = 0; i < dataArray.length-1; i++) {
+        for (i = 0; i < dataArray.length; i++) {
             //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
 
             dataTable.addRow([dataArray[i].month, ((dataArray[i].participated != null) ? Number(dataArray[i].participated) : 0) , ((dataArray[i].games != null) ? Number(dataArray[i].games) : 0)]);
