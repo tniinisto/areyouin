@@ -823,6 +823,7 @@ function getChartData() {
 //callback function
 function createChart(animate) {
 
+    ;alert("here!")
     chartdata= $.ajax({
                 url: "json/getChartData.php",
                 dataType: "json",
@@ -835,18 +836,10 @@ function createChart(animate) {
     dataTable.addColumn('number','Your games');
     dataTable.addColumn('number','Games set');
 
-    var month, participated, games;
-    alert("test");
-    alert(chartdata.length);
-
     for ( i = 0; i < chartdata.length; i++ ) {
         //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
        
-       month = chartdata[i].month;
-       participated = chartdata[i].participated;
-       games = chartdata[i].games;
-
-       arr = [month, participated, games];
+       arr = [chartdata[i].month, chartdata[i].participated, chartdata[i].games];
 
        dataTable.addRow(arr);
        //dataTable.addRow(['Elokuu', 1, 1]);
