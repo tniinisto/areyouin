@@ -835,14 +835,14 @@ function createChart(animate) {
     dataTable.addColumn('number','Your games');
     dataTable.addColumn('number','Games set');
 
-    var month, participated, setgames;
+    var month, participated, games;
 
     for ( i = 0; i < chartdata.length; i++ ) {
         //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
        
        month = chartdata[i].month;
        participated = chartdata[i].participated;
-       setgames = chartdata[i].games;
+       games = chartdata[i].games;
 
        dataTable.addRow("[" + month, participated, games + "]");
        //dataTable.addRow(['Elokuu', 1, 1]);
