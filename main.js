@@ -900,7 +900,7 @@ function createChart(animate) {
             title: 'Your game history',
             vAxis: { title: 'Games' },
             hAxis: { title: 'Month',
-                     slantedText: 'true', slantedTextAngle: 75 },            },
+                     slantedText: 'true', slantedTextAngle: 75 },
             seriesType: 'bars',
             series: { 0: { type: 'line'} },
             legend: { position: 'rigth' },
