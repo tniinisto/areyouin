@@ -32,6 +32,14 @@ table {
 /************************************************************************************
 GENERAL STYLING
 *************************************************************************************/
+html { 
+  background: url(images/carbon.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
 	background: #0d1424;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
 	font: .81em/150% Arial, Helvetica, sans-serif;
