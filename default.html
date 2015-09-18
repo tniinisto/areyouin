@@ -38,7 +38,7 @@
             var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://dev-areyouin.azurewebsites.net/mobile");
         } else
         if(host_url.match(local)) {
-            var urls = new Array("http://localhost:18502/", "http://areyouin.azurewebsites.net/mobile");
+            var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile");
         } else
         if(host_url.match(master)) {
             var urls = new Array("http://areyouin.azurewebsites.net/", "http://areyouin.azurewebsites.net/mobile");
@@ -54,6 +54,15 @@
             var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for the mobile site.");
             if (r == true) {
                 //alert("here we are mobile direct referrer");
+                if(host_url.match(dev)) {
+                    window.location = "http://dev-areyouin.azurewebsites.net/mobile";                    
+                } else
+                if(host_url.match(local)) {
+                    window.location = "http://localhost:18502/mobile";
+                } else
+                if(host_url.match(master)) {
+                    var urls = new Array("http://dev-areyouin.azurewebsites.net/mobile");
+                } 
                 window.location = "http://m-areyouin.azurewebsites.net/";
             }
             else {
