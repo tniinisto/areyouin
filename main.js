@@ -925,7 +925,7 @@ function drawChart() {
 
 //Rain
 // number of drops created.
-var nbDrop = 458; 
+var nbDrop = 258; 
 
 // function to generate a random number range.
 function randRange( minNum, maxNum) {
@@ -937,7 +937,7 @@ function createRain() {
 
 	for( i=1;i<nbDrop;i++) {
 	var dropLeft = randRange(0,1600);
-	var dropTop = randRange(-1000,700);
+	var dropTop = randRange(-1000,600);
 
 	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
 	$('#drop'+i).css('left',dropLeft);
