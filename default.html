@@ -35,13 +35,13 @@
         var host_url = document.location.href; //Current url
 
         if(host_url.match(dev)) {
-            var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+            var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://dev-areyouin.azurewebsites.net/mobile");
         } else
         if(host_url.match(local)) {
-            var urls = new Array("http://localhost:18502/", "http://m-areyouin.azurewebsites.net/");
+            var urls = new Array("http://localhost:18502/", "http://areyouin.azurewebsites.net/mobile");
         } else
         if(host_url.match(master)) {
-            var urls = new Array("http://areyouin.azurewebsites.net/", "http://m-areyouin.azurewebsites.net/");
+            var urls = new Array("http://areyouin.azurewebsites.net/", "http://areyouin.azurewebsites.net/mobile");
         } 
 
         var n = ref.match(urls[0]);
