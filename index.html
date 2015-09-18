@@ -194,11 +194,11 @@
     jQuery(document).ready(function () {
 
        //Seasons rains...
-       if(new Date() >= new Date(year,11,15)) {
+       if(new Date() >= new Date(new Date().getYear(),11,15)) {
             //Winter season :)
             $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
         } else {
-            if(new Date() >= new Date(year,9,15)) {
+            if(new Date() >= new Date(new Date().getYear(),9,15)) {
                 //Autumn season :)
                 createRain();
             }
