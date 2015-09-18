@@ -194,11 +194,17 @@
     //Document ready
     jQuery(document).ready(function () {
 
-        //Winter season :)
-        //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
-
-        //Autumn season :)
-        createRain();
+        //Seasons rains...
+        var year = new Date().getFullYear();
+        if (new Date() >= new Date(year+'-11-15')) {
+            //Winter season :)
+            $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
+        } else {
+            if (new Date() >= new Date(year+'-09-15')) {
+                //Autumn season :)
+                createRain();
+            }
+        }
 
         //Init functions
         //getLoginInformation();

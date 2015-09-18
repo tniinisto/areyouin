@@ -924,7 +924,7 @@ function drawChart() {
     }, 200);
 }
 
-//Rain
+//Rain/////////////////////////////////////////////////////////////////
 // number of drops created.
 var nbDrop = 258; 
 
@@ -938,7 +938,7 @@ function createRain() {
 
 	for( i=1;i<nbDrop;i++) {
 	var dropLeft = randRange(0, screen.width - 150);
-	var dropTop = randRange(-1000, 600);
+	var dropTop = randRange(-40000, 600);
 
 	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
 	$('#drop'+i).css('left',dropLeft);
