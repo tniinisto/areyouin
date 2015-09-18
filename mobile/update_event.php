@@ -1,12 +1,12 @@
 <?php
-        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-        //include 'ChromePhp.php';
+        session_start();
 
-        //ChromePhp::log('Hello console!');
+        if($_SESSION['ChromeLog']) {
+            require_once 'ChromePhp.php';
+            ChromePhp::log('update_event.php, start');
+        }
 
         $eventid=$_GET["eventid"];
-        
-        session_start();
 	
         //$teamid=$_GET["teamid"];
 	    //$playerid=$_GET["playerid"];
@@ -16,8 +16,7 @@
 
         //echo "update_event.php called eventid=" . $eventid;
 
-        
-        $con = mysql_connect($dbhost, $dbuser, $dbpass);
+        $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
         if (!$con)
           {
           die('Could not connect: ' . mysql_error());
@@ -26,7 +25,7 @@
         mysql_select_db("areyouin", $con)or die("cannot select DB");
 
         /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
-        $sql = "select e.eventID, e.private, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
+        $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
         inner join areyouin.events e on e.eventID = ep.Events_eventID
         inner join areyouin.team t on teamID = e.Team_teamID
         inner join areyouin.players p on playerID = ep.Players_playerID
@@ -35,9 +34,6 @@
         
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
-
-        //Private event information
-        $private_event = $row['private'];
 
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
         //ChromePhp::log($user_agent);
@@ -59,6 +55,8 @@
         //ChromePhp::log(date(('Y-m-d H:i'), strtotime($row['startTime'])));
         ////ChromePhp::log(date(('Y-m-d H:i'), strtotime(strtotime('+10 hours'))));
         //ChromePhp::log(date(('Y-m-d H:i'), strtotime(strtotime($gamestart))));
+        if($_SESSION['ChromeLog']) { ChromePhp::log('update_event.php, gamestart: ', $gamestart); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('update_event.php, gameend: ', $gameend); }
 
         //Get team's players
         //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t WHERE t.teamID = '" . $teamid . "'";);
@@ -73,6 +71,7 @@
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update game</h1>";
+        //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";        
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
         //Location///////////////////////////////////////////
@@ -121,6 +120,7 @@
         
         //Form - Players////////////////////////////////////
         echo "<h2>Pick players:</h2>";
+        echo "</br>";
         mysql_data_seek($result, 0); //Reset $result index position (earlier query)
         $eventplayers = array(); //Players who are already in the game
         $index = 0;
@@ -207,32 +207,12 @@
         }
         echo "</table>";
         echo "</br>";
-                        
-        //Public/Private event switch        
-        echo "<h2 style='display: inline-block;'>Private game:&nbsp</h2>";
-        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-			if($private_event == 0)
-                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
-            else
-                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch' checked>";
-
-            echo "<label class=\"onoffswitch-label\" for='update_private_switch' onClick=''>";
-                echo "<div class=\"notifyswitch-inner\"></div>";
-				echo "<div class=\"onoffswitch-switch\"></div>";
-			echo "</label>";
-        echo "</div>";  
-        
         echo "</br>";
-        echo "</br>";
-        
-        echo "<input class=\"myButton\" type=\"submit\" value=\"Update Game\" id=\"submitgame2\" onClick=\"eventFetchOn();\"></input>"; 
+        echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
-        echo "</br>";
-
-        //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Cancel</a>";
-
         echo "</form>";
+
+        echo "<a href=\"javascript:getEvents();\">Back to events</a>";
 
         echo "</article>";
     

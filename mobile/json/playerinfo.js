@@ -24,13 +24,12 @@ var playerinfo;
 $(window).load(function () {
     serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "json/");
-    serviceURL = serviceURL.replace("#", '');
     localStorage['serviceURL'] = serviceURL;
 
     //localStorage['serviceURL'] = "http://localhost:18502/json/";
     //alert(serviceURL);
 
-    setTimeout(getPlayerInfo, 100);
+    setTimeout(getPlayerInfo, 200);
 });
 
 $(document).ajaxError(function(event, request, settings) {
@@ -45,14 +44,12 @@ function getPlayerInfo() {
 
         playerinfo = data.items;
 
-        //alert("playerinfo, photoURL: " + playerinfo[0].photourl);
+        //alert("playerinfo, name: " + playerinfo[0].name);
 
         sessionStorage['playerID'] = playerinfo[0].playerID;
         sessionStorage['playerName'] = playerinfo[0].name;
         sessionStorage['photoURL'] = playerinfo[0].photourl;
-        sessionStorage['teamName'] = playerinfo[0].teamName;
-        
-        document.getElementById("userlogin1").innerHTML = "Welcome " + sessionStorage['playerName'] + " team " + sessionStorage['teamName'];
+
 
         //$.each(playerinfo, function(index, player) {
         //    alert("playerinfo, name: " + player.name);

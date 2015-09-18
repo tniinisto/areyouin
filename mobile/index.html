@@ -9,6 +9,11 @@
 
 <title>R'YouIN</title>
 
+<!--Jquery mobile 1.4.5-->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
 
@@ -21,7 +26,6 @@
 
 <!--JQuery -->
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
-<script src="js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 
 <!--Snowing-->
@@ -33,6 +37,12 @@
     //    alert("#chatdiv is now shown");
     //    scroll.refresh();
     //});
+
+	$(document).on("pageshow","#areyouin-chat-page",function(){
+  		//alert("pageshow event fired - Players is now shown");
+  		scroll.refresh();
+	});
+
 </script>
 
 <!-- html5.js for IE less than 9 -->
@@ -45,16 +55,16 @@
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 <![endif]-->
 
-<!--<script>
+<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-50815012-1', 'areyouin.azurewebsites.net');
+  ga('create', 'UA-50815012-2', 'auto');
   ga('send', 'pageview');
 
-</script>-->
+</script>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
@@ -74,115 +84,77 @@
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
-
-<!-- load Google chart AJAX API -->
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-    //Charts datatable
-    var dataTable;
-
-    //load the Google Visualization API and the chart
-    //google.load('visualization', '1', { 'packages': ['columnchart'] });
-    google.load('visualization', '1', { 'packages': ['corechart'] });
-
-    //set callback
-    //google.setOnLoadCallback(createChart);
-
-    //Draw on window resize, don't animate
-    $(window).resize(function () {
-        createChart(0);
-    });
-
-</script>
-<!-- load Google chart AJAX API -->
-
-
 </head>
-
 
 <body>
 
-<div id="pagewrap">
+	<!-- Events -->
+	 <div data-role="page" id="areyouin-events-page" data-theme="b" data-url="areyouin-events-page">
+	    <div data-role="header" data-theme="b"  data-position="fixed" data-tap-toggle="false">	        
+            <h1><span style="display: inline; color:#ffd800; font-size: 1.5em;">R'YouIN</span></h1>
+            <h1 id="userlogin1"> </h1>
+	        <a href="#left-panel-events" data-theme="b" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc" >Open left panel</a>
+	    </div>
+	    
+	    <div data-role="content">
+    		<div id="event_content_id"> </div>
+	    </div>
+	    
+	    <div data-role="panel" id="left-panel-events" data-display="overlay" data-theme="b">
+	        <p style="font-size: 22px; font-weight: 700; color:#ffd800;">Menu</p>
 
-	<header id="header">
+	        <a href="#areyouin-events-page" data-role="button" data-theme="b" data-icon="events" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-events menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Events</div>
+            </a>
 
-		<hgroup>
-			<h1 id="site-logo"><a href="">R'YouIN</a></h1>
-			<h6 id="userlogin1">Welcome</h6>
-		</hgroup>
+	        <a href="#areyouin-chat-page" data-role="button" data-theme="b" data-icon="chat" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-chat menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Chat</div>
+            </a>
 
-		<nav>
-			<ul id="main-nav" class="clearfix">
-				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
-                <li id="linkprofile"><a href="#">Profile</a></li>
-                <li id="linkchat" onclick="refreshScroll()"><a href="#">Chat</a></li>
-                <li id="linkadmin"></li>
-                
-                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
-                <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php">Logout</a></li>-->
-                
-                <li id="nav_logout" style="float: right; padding-right: 10px;"><a href="#" onclick="toLoginPage(); logout();">Logout</a></li>
-			</ul>
-		</nav>
+            <a href="#" data-role="button" data-theme="b" data-icon="logout" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-logout menu-layout" onclick="logout.php; toLoginPage();"
+                style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Logout</div>
+            </a>
+	    </div>
+    </div> 
+    <!-- /Events -->   
 
-	</header>
-		
-	<!-- #content -->
-    <!--<div id="notification_content_id" class="content">
-		<article class="clearfix">
-			<h4>Notifications here...</h4>
-		</article>
-	</div>-->
+    <!-- Chat -->
+	 <div data-role="page" id="areyouin-chat-page" data-theme="b" data-url="areyouin-chat-page">
+	    <div data-role="header" data-theme="b"  data-position="fixed" data-tap-toggle="false">	        
+            <h1><span style="color:yellow; font-size: 1.5em;">R'YouIN</span></h1>
+            <h1 id="userlogin2"> </h1>
+	        <a href="#left-panel-chat" data-theme="b" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc" >Open left panel</a>
+	    </div>
+	    
+	    <div data-role="content">           
+            <a id="modal_comment" href="modal.html" data-role="button" data-rel="dialog" data-transition="flip" data-theme="b" style="margin-top: -5px;">New comment</a>
+            <div id="chat_content_id"> </div>
+	    </div>
 
+	    <div data-role="panel" id="left-panel-chat" data-display="overlay" data-theme="b">
+	        <p style="font-size: 22px; font-weight: 700; color:#ffd800;">Menu</p>
 
-	<div id="event_content_id" class="content">
-		<article class="clearfix" onClick="getEvents()">
-			<!--<h2>Games</h2>-->
-		</article>
-	</div>
+	        <a href="#areyouin-events-page" data-role="button" data-theme="b" data-icon="events" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-events menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Events</div>
+            </a>
 
-    <div id="profile_content_id" class="content noshow">
-        <article class="clearfix">
-            <!--<h2>Profile</h2>-->
-        </article>
-    </div>
+	        <a href="#areyouin-chat-page" data-role="button" data-theme="b" data-icon="chat" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-chat menu-layout"
+               style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Chat</div>
+            </a>
 
-    <div id="chat_content_id" class="content noshow">
-        <article class="clearfix">
-            <!--<h3 style="text-align: center;">Chat closed...</h3>-->
-        </article>
-    </div>   
-
-    <div id="admin_content_id" class="content noshow">
-        <article class="clearfix">
-            <h2>Admin</h2>
-        </article>
-    </div>                    
-   	<!-- /#content --> 
-
-	<!-- #sidebar -->
-    <aside id="sidebar">
-
-        <section id="playerwidget" class="widget">
-                <h2 class="widgettitle" onClick="">Player statistics</h2>                
-                <div id="GamesAmount" class="widgettitle"></div>            
-        </section>
-    </aside>
-    <!-- /#sidebar -->
-
-	<!-- #footer --> 
+            <a href="#" data-role="button" data-theme="b" data-icon="logout" data-iconpos="" data-shadow="" data-iconshadow="" class="icon-logout menu-layout" onclick="logout.php; toLoginPage();"
+                style="background-color: #2A2A2A; border-radius: 0; color: #FFF; text-shadow: none; height: 40px;">
+                <div style="padding-top: 8px; font-size: 20px; font-weight: 400;">Logout</div>
+            </a>
+	    </div>
+    </div> 
+    <!-- /Chat -->  
 	
-	<footer id="footer">
-	
-		<p>Made by TN &copy <a href="https://maps.google.fi/maps?q=60.413778,+23.155468&hl=en&sll=60.413778,23.155468&sspn=0.002108,0.004367&t=h&z=16" target="_blank">Puonti </a></p>
-
-	</footer>
-
-	<!-- /#footer --> 
-	
-</div>
-<!-- /#pagewrap -->
-
 <!-- scripts -->
 <script>
 
@@ -193,21 +165,18 @@
 
     //Document ready
     jQuery(document).ready(function () {
-
+        
         //Winter season :)
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
         //Init functions
-        //getLoginInformation();
-        getPlayerStats();
-
-        //Start session checking
+        getLoginInformation();
         CheckForSession();
 
         getEvents();
-        getPlayersInsert();
-        getAdminStatus();
-        getPlayerProfile();
+        //getPlayersInsert();
+        //getAdminStatus();
+        //getPlayerProfile();
         getChat();
 
         waitForChat();
@@ -270,9 +239,9 @@
             $("#link_profile_profile").addClass("current2");
         });
 
-        $("#link_profile_chart").click(function (event) {
+        $("#link_profile_team").click(function (event) {
             $("#profile-nav").children().removeClass("current2");
-            $("#link_profile_chart").addClass("current2");
+            $("#link_profile_team").addClass("current2");
         });
         //Profile navigation///////////////////////////////////////
 
@@ -390,7 +359,6 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
-            $("#playerwidget").removeClass("noshow");
         }
         //Profile
         if ($("#linkprofile").hasClass('current')) {
@@ -398,7 +366,6 @@
             $("#profile_content_id").removeClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").addClass("noshow");
-            $("#playerwidget").removeClass("noshow");
         }
 
         //Chat
@@ -407,7 +374,6 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").removeClass("noshow");
             $("#admin_content_id").addClass("noshow");
-            $("#playerwidget").removeClass("noshow");
         }
 
         //Admin
@@ -416,8 +382,6 @@
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").addClass("noshow");
             $("#admin_content_id").removeClass("noshow");
-            $("#playerwidget").addClass("noshow");
-
         }
     });
     //Main navigation - Content for the selected page///////////
@@ -435,7 +399,6 @@
             $("#newgame_id").addClass("noshow");
             $("#team_content_id").removeClass("noshow");
         }
-
     };
     //Admin navigation - Content for the selected page///////////
 
@@ -445,51 +408,20 @@
         //Games
         if ($("#link_profile_profile").hasClass('current2')) {
             $("#profile_profile_content_id").removeClass("noshow");
-            $("#profile_chart_content_id").addClass("noshow");
+            $("#profile_team_content_id").addClass("noshow");
         }
 
-        if ($("#link_profile_chart").hasClass('current2')) {
+        if ($("#link_profile_team").hasClass('current2')) {
             $("#profile_profile_content_id").addClass("noshow");
-            $("#profile_chart_content_id").removeClass("noshow");
+            $("#profile_team_content_id").removeClass("noshow");
         }
     };
     //Profile navigation - Content for the selected page///////////
 
-    function refreshPlayerInfo() {
-        //var href = $('closer').attr('href');
-        //window.location.href = href; //causes the browser to refresh and load the requested url
-        //$("#close").trigger( "click" );
-        //alert("here");
-        //$("#openModal").removeClass("modalDialog");
-        //$("#openModal").css("opacity", "0");
-        //$("#openModal").addClass("modalDialog");
-
-        var email = document.getElementById("dialog_player_email").value;
-        document.getElementById("profile_playerEmail").innerHTML = "Email: " + email;
-
-        var phone = document.getElementById("dialog_player_phone").value;
-        document.getElementById("profile_playerPhone").innerHTML = "Phone: " + phone;
-
-        var notify = document.getElementById("dialog_notify_switch").checked; //true, false       
-
-        if (notify == 0)
-            document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: OFF";
-        else
-            document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: ON";
-
-        //getPlayerProfile();
-        window.location.replace('#close');
-    };
-
 </script>
 <!-- /scripts -->
-
-<!--Get player info and save to session storage-->
-<script src="json/playerinfo.js"></script> 
-
-<!--Get chart data-->
-<script src="json/chartdata.js"></script> 
-
+    
+<script src="json/playerinfo.js"></script>    			
 
 </body>
 </html>

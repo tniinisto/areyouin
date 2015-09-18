@@ -8,70 +8,16 @@
 
 <title>R'YouIN</title>
 
+<!-- Scripts main, jquery-->
+<script type="text/javascript" charset="utf-8" src="main.js"> </script>
+<!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
 
 <!-- media queries css -->
 <link href="media-queries.css" rel="stylesheet" type="text/css">
-
-<!-- Scripts main, jquery 2.0.0-->
-<script type="text/javascript" charset="utf-8" src="main.js"> </script>
-<!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
-<script src="js/jquery-2.0.0.min.js"></script>
-
-
-<script type="text/javascript">
-
-    if (screen.width < 574) {
-        var ref = document.referrer;
-
-        //SITE SPECIFIC
-        var master = "http://areyouin.azurewebsites.net/";
-        var dev = "http://dev-areyouin.azurewebsites.net/";
-        var local = "http://localhost:18502/"; //LOCAL testing
-
-        var host_url = document.location.href; //Current url
-
-        if (host_url.match(dev)) {
-            var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://dev-areyouin.azurewebsites.net/mobile");
-        } else
-            if (host_url.match(local)) {
-                var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile");
-            } else
-                if (host_url.match(master)) {
-                    var urls = new Array("http://areyouin.azurewebsites.net/", "http://areyouin.azurewebsites.net/mobile");
-                }
-
-        var n = ref.match(urls[0]);
-        var m = ref.match(urls[1]);
-        if ((m !== null) || (n !== null)) {
-            //alert("stop");
-            stop;
-        }
-        else if (ref == '') {
-            var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for the mobile site.");
-            if (r == true) {
-                //alert("here we are mobile direct referrer");
-                if (host_url.match(dev)) {
-                    window.location = "http://dev-areyouin.azurewebsites.net/mobile";
-                } else
-                    if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile";
-                    } else
-                        if (host_url.match(master)) {
-                            window.location = "http://areyouin.azurewebsites.net/mobile";
-                        }
-            }
-            else {
-                stop;
-            }
-        }
-        else {
-            //alert("here we are mobile redirect referrer");
-            window.location = "http://areyouin.azurewebsites.net/mobile";
-        }
-    }
-</script>
 
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
@@ -89,7 +35,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-50815012-1', 'areyouin.azurewebsites.net');
+  ga('create', 'UA-50815012-2', 'auto');
   ga('send', 'pageview');
 
 </script>
@@ -119,20 +65,14 @@
 <div id="pagewrap">
 
     <div id="loginwrapper">
-	    <!--<header id="header_login">
 
-		    <hgroup>-->
-			    <h1 id="loginsite-logo">R'YouIN</h1>			
-		    <!--</hgroup>
+        <!--Logo & mobile icon-->
+	    <h1 id="loginsite-logo">R'YouIN <img alt="mobile" width="40" height="40" src="images/icon-mobile.png" align="top"></h1>  
 
-	    </header>-->
-
-        <!--<div style="margin-left: 40px;">-->
         <div>
 		    <form id="loginform" name="loginform" method="post" action="logincheck.php">
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
-                    <!--<font color="white" size="3">-->
 			    
                     <label style="color: white">User ID</label>
                     <input type="text" id="login" name="ayiloginName" placeholder="" required>
@@ -140,7 +80,6 @@
                     <label style="color: white">Password</label>
                     <input type="password" id="password" name="ayipassword" placeholder="" required>
             
-                    <!--<br>-->
                     <div style="padding-top: 5px;"></div>
                     <input type="submit" value="Login" name="loginbutton" id="loginbutton">
                     
@@ -154,9 +93,6 @@
 		    </form>
         </div>
     </div>
-
-    <!--<iframe name="frame_login" style="display: none;"></iframe>";-->
-
 </div>
 
 <script type="text/javascript">

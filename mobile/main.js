@@ -11,14 +11,12 @@ function getLoginInformation() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
-            //document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
+            document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
 		}
 	}
-
 	//alert("GET ge7ts called.");
 	//var variables = "p=" + playerID + "&t=" + teamID;
 	//var variables = "p=1&t=1";
@@ -42,13 +40,11 @@ function getAdminStatus() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("linkadmin").innerHTML = xmlhttp.responseText;
 		}
 	}
-
 	//alert("GET ge7ts called.");
 	//var variables = "p=" + playerID + "&t=" + teamID;
 	//var variables = "p=1&t=1";
@@ -60,29 +56,27 @@ function getAdminStatus() {
 }
 
 //Get full player table data
-//function showUser(str) {
-//	//alert("showUser() gets called.");
-//	if (str == "") {
-//		document.getElementById("userlogin").innerHTML = "showUser()";
-//		return;
-//	}
-//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-//		xmlhttp = new XMLHttpRequest();
-//	}
-//	else {// code for IE6, IE5
-//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//	}
-
-//	xmlhttp.onreadystatechange = function () {
-//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//			document.getElementById("atable").innerHTML = xmlhttp.responseText;
-//		}
-//	}
-
-//	//alert("GET gets called.");
-//	xmlhttp.open("GET", "database.php?q=" + str, true);
-//	xmlhttp.send();
-//}
+function showUser(str) {
+	//alert("showUser() gets called.");
+	if (str == "") {
+		document.getElementById("userlogin").innerHTML = "showUser()";
+		return;
+	}
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("atable").innerHTML = xmlhttp.responseText;
+		}
+	}
+	//alert("GET gets called.");
+	xmlhttp.open("GET", "database.php?q=" + str, true);
+	xmlhttp.send();
+}
 
 //Getting player image & name
 //function getPlayers(teamid) {
@@ -96,13 +90,11 @@ function getAdminStatus() {
 //	else {// code for IE6, IE5
 //		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 //	}
-
 //	xmlhttp.onreadystatechange = function () {
 //		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 //			document.getElementById("players_short").innerHTML = xmlhttp.responseText;
 //		}
 //	}
-
 //	//alert("GET gets called.");
 //    var variables = "teamid=" + teamid;
 //	xmlhttp.open("GET", "players_short.php?" + variables, false);
@@ -121,53 +113,39 @@ function getPlayersInsert() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
 		}
 	}
-
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "players_insert.php", false);
 	xmlhttp.send();
 }
 
-//Off&On for the event fetch
-var eventFetchPause = 0;
-function eventFetchOn() {
-    //alert("eventFetchOn called...");
-    eventFetchPause = 0;
-}
-function eventFetchOff() {
-    //alert("eventFetchOff called...");
-    eventFetchPause = 1;
-}
-
 //Get events with players for the team
 function getEvents() {
-    if (eventFetchPause == 0) { //Don't run, if pause is on
-
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-            }
-        }
-
-        //alert("GET gets called.");
-        //var variables = "teamid=" + str + "&playerid=" + str2;
-        //xmlhttp.open("GET", "event_list.php?" + variables, false);
-        xmlhttp.open("GET", "event_list.php", false);
-        xmlhttp.send();
-    }
+	//if (str == "" || str2 == "") {
+	//	document.getElementById("userlogin").innerHTML = "getEvents()";
+	//	return;
+	//}	
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+	//alert("GET gets called.");
+	//var variables = "teamid=" + str + "&playerid=" + str2;
+	//xmlhttp.open("GET", "event_list.php?" + variables, false);
+    xmlhttp.open("GET", "event_list.php", false);
+	xmlhttp.send();
 }
 
 //Parse URL parameters by name
@@ -188,7 +166,6 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 {
 	//alert("updateAYI() gets called.");
     //alert(switchid);
-
     if (eventplayerid == "" || ayi == "") {
 		document.getElementById("userlogin").innerHTML = "updateAYI()";
 		return;
@@ -199,26 +176,21 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
-
 	        //getEvents(); //Update events
 	    }
 	}
-
 	//Update the summary count to client when in/out switch is clicked///////////////////////////
 	var summary_id = "id_summary" + eventid;
 	var th = document.getElementById(summary_id).innerHTML;
 	//alert(th);
-
 	var start = th.indexOf(":")
 	var end = th.indexOf("/")
 	var value = th.substring(start + 1, end);
 	value = value.trim();
 	//alert(value);
-
 	//alert(ayi);
     var switch_id = "myonoffswitch" + switchid;
 	//var sw = document.getElementById(switch_id).innerHTML;
@@ -235,14 +207,11 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
         ayi = 1;
         value++;
 	}
-
 	var start2 = th.indexOf("/")
 	var value2 = th.substr(start2 + 1);
 	value2 = value2.trim();
-
 	document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
     //////////////////////////////////////////////////////////////////////////////////////////////////
-
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
 	//alert(variables);
 	xmlhttp.open("GET", "update_inout.php?" + variables, true);
@@ -255,22 +224,17 @@ function setSSE()
 	if(typeof(EventSource)!=="undefined")
 	{
 		var source=new EventSource("events_sse.php");
-
 		source.addEventListener("ayi", function (event) {
 		    var data = event.data;
 		    //var origin = event.origin;
 		    //var lastEventId = event.lastEventId;
-
 		    //Update chat
 		    //getChat();
-
 		    // handle message
 		    //console.log("AYI:" + event.data);
 		    //getEvents(gup('t'), gup('p'));
 		    //getEvents();
-
 		}, false);
-		
 		/*source.onmessage=function(event)
 		{
 			//document.getElementById("result").innerHTML+=event.data + "<br>";
@@ -288,9 +252,6 @@ function setSSE()
 //Update selected event's content
 function updateEvent(eventID)
 {
-    //Set event updating on pause
-    eventFetchPause = 1;
-
 	//alert("updateEvent(eventID) gets called: eventID=" + eventID);
 	if (eventID == "") {
 		document.getElementById("userlogin").innerHTML = "updateEvent(eventID)";
@@ -302,13 +263,11 @@ function updateEvent(eventID)
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
 		}
 	}
-
 	//alert("GET gets called.");
 	var variables = "eventid=" + eventID;
 	xmlhttp.open("GET", "update_event.php?" + variables, false);
@@ -324,77 +283,74 @@ function showPlayers(eventid) {
     //    $(id).removeClass("noshow");
     //else
     //    $(id).addClass("noshow");
-    
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
-
     if (box.hasClass('noshow')) {
-    
         box.removeClass('noshow');
         setTimeout(function () {
             box.removeClass('visuallynoshow');
         }, 20);
-
     } else {
-    
         box.addClass('visuallynoshow');
-    
         box.one('transitionend', function(e) {
-
             box.addClass('noshow');
-
         });
     }
 }
 
 //New game insert - Set game end time from after start time is set
 function game_start() {
-    var start_dt = document.getElementById("gamestart_id").value;
-    var end_dt = document.getElementById("gameend_id").value;
-
-    if ((start_dt > end_dt) && end_dt != "") {
-        //alert("Game end time must be after game start...");
-        $("#gametime_notify").removeClass("noshow");
-        document.getElementById("gamestart_id").value = "";
-    }
-    else {
-        $("#gametime_notify").addClass("noshow");
-    }
-    
+    //var start = document.getElementById("gamestart_id");
+    //var end = document.getElementById("gameend_id");
+    ////alert(start.value);
+    ////Create date object & add 2 hours
+    //var dt; //Check chrome, iphone & firefox date differences
+    //if(start.value.indexOf("T")){
+    //    dt = start.value.split("T"); //Split date&time        
+    //}
+    //else {
+    //    dt = start.value.split(" "); //Split date&time        
+    //}
+    //var d = dt[0].split("-"); //Spilit year, month, day
+    //var t = dt[1].split(":"); //Split hour,minute
+    //var datetime = new Date(d[0], d[1] - 1, d[2], t[0], t[1], 0); //Create date object
+    //datetime.setHours(datetime.getHours() + 2); //Add 2 hours
+    ////alert(datetime);
+    ////Convert Date object back to string, check values below 10 and insert 0 before (Month: January=0...)
+    //var m, d, h, mm;
+    //if ((datetime.getMonth() + 1) < 10) m = "0" + (datetime.getMonth() + 1); else m = (datetime.getMonth() + 1);
+    //if (datetime.getDate() < 10) d = "0" + datetime.getDate(); else d = datetime.getDate();
+    //if (datetime.getHours() < 10) h = "0" + datetime.getHours(); else h = datetime.getHours();
+    //if (datetime.getMinutes() < 10) mm = "0" + datetime.getMinutes(); else mm = datetime.getMinutes();
+    //var dstring = datetime.getFullYear() + "-" + m + "-" + d + " " + h + ":" + mm;
+    ////alert(dstring);
+    //end.value = dstring;
 }
 
 //New game insert - Check game end time validity
 function game_end() {
-    var start_dt = document.getElementById("gamestart_id").value;
-    var end_dt = document.getElementById("gameend_id").value;
-
-    if ((start_dt > end_dt) && start_dt != "") {
-        //alert("Game end time must be after game start...");
-        $("#gametime_notify").removeClass("noshow");
-        document.getElementById("gameend_id").value = "";
-    }
-    else {
-        $("#gametime_notify").addClass("noshow");
-    }
-
+    ////alert("test end");
+    //var start = document.getElementById("gamestart_id")
+    //var end = document.getElementById("gameend_id");
+    //if (start.value > end.value) {
+    //    end.value = start.value;
+    //    //alert("Game's end time must be after start time...");
+    //}
 }
 
 //Player profile
 function getPlayerProfile() {
-
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("profile_content_id").innerHTML = xmlhttp.responseText;
 		}
 	}
-
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "player_profile.php", false);
@@ -409,22 +365,17 @@ function getChat() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
-
       //      scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
       //      setTimeout(function(){
 			   // scroll.refresh();
 		    //});
 		}
-
 	}
 
-    //This is no synchronous
-	xmlhttp.open("GET", "chat.php", false); //Synchronous
-
+	xmlhttp.open("GET", "chat.php", false);
 	xmlhttp.send();
 }
 
@@ -437,21 +388,16 @@ function insertComment(comment) {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
 	        //getChat();
 	    }
 	}
-
-
 	var variables = "comment=" + comment;
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
-
 	xmlhttp.open("GET", "insertComment.php?" + variables, true);
-
 	xmlhttp.send();
 }
 
@@ -462,58 +408,57 @@ function nl2br (str, is_xhtml) {
 
 //Chat dynamic
 function addRow() {
-
     var comment = document.getElementById("comment_input").value;
     comment = nl2br(comment, true);
-    //alert("Text: " + comment);
-
-    document.getElementById("comment_input").value = "";
-
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
-
     var table = document.getElementById("comments_table");
-
     var row = table.insertRow(0);
     row.className = "chatrow";
-
-    row.innerHTML = "<td valign=\"top\">" +
-        "<div>" +
-            "<div class='chat-list-left'>" +
-                "<img width='50' height='50' src='images/" + sessionStorage['photoURL'] + "'>" +
-                "<br />" +
-                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
-            "</div>" +
-            "<br />" +
-            "<div class='chat-list-right'>" +
-                "<div class='comment-time'>Just now...</div>" +
-                "<div class='comment-text'>" + comment + "</div>" +
-            "</div>" +
-        "</div>" +
-    "</td>";
-
+    //row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
+    //sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
+    //sessionStorage['playerName'] + "</text></td>" +
+    //"<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
+                                    row.innerHTML = "<td valign=\"top\">" +
+                                        "<div>" +
+                                            "<div class='chat-list-left'>" +
+                                                "<img width='50' height='50' src='http://areyouin.azurewebsites.net/images/" + sessionStorage['photoURL'] + "'>" +
+                                                "<br />" +
+                                                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
+                                            "</div>" +
+                                            "<br />" +
+                                            "<div class='chat-list-right'>" +
+                                                "<div class='comment-time'>Just now...</div>" +
+                                                "<div class='comment-text'>" + comment + "</div>" +
+                                            "</div>" +
+                                        "</div>" +
+                                    "</td>";
     //document.getElementById("comment_input").value = "";    
-
     //$("#chatdiv").scrollTop(0);
-
+    $("#backpacker").trigger("click");
     setTimeout(insertComment(comment), 100);
+}
 
-
-
+function clickBack() {
+    //alert("jou");
+    //document.getElementById('backpacker').click();
+    //$("#backpacker").trigger("click");
+    $('#areyouin-modal-page').dialog('close');
+    //$("#areyouin-modal-page").dialog('destroy').remove();
+    //$( "#modal_comment" ).dialog( "close" );
+    //$(":mobile-pagecontainer").pagecontainer("change", "#areyouin-chat-page", { options });
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: true});
+    //$.mobile.changePage("#areyouin-chat-page");
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: false});
 }
 
 //Clear chat input
 //function clearComment() {
 //    document.getElementById("comment_input").value = "";
 //}
-
-
 //Chat LongPolling////////////////
 var parameter = null;
 parameter = "1900-01-01 10:10:10";
-
 function waitForChat(){
-
-    
     //if(timestamp != null) {
     //    // Split timestamp into [ Y, M, D, h, m, s ]
     //    //var t = timestamp.split(/[- :]/);
@@ -526,9 +471,7 @@ function waitForChat(){
     //    //timestamp = timestamp.split(' ').join('T');
     //    //alert("1: timestamp: " + timestamp);
     //}
-
     //var param = 'timestamp=' + timestamp;
-    
     $.ajax({
         type: "GET",
         //url: "getChat.php?timestamp=" + parameter,
@@ -541,14 +484,12 @@ function waitForChat(){
         //processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
-
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
             //alert("success timestamp: " + json['timestamp']);
             //}
-            
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
@@ -557,28 +498,23 @@ function waitForChat(){
             //else {
             //    alert("success timeout true: " + json['timeout']);
             //}
-
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
         },
-
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
             setTimeout('waitForChat()', 15000);
         }
     });
-            
 }
 
 function getChatComments() {
-    
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
@@ -588,10 +524,9 @@ function getChatComments() {
 		    });
 		}
 	}
-
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "comments.php", true);
+	xmlhttp.open("GET", "comments.php", false);
 	xmlhttp.send();
 }
 
@@ -605,169 +540,24 @@ function toLoginPage() {
     var loginURL = window.location.href;
     loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
     loginURL = loginURL + "default.html";
+    
     //alert(loginURL);
 
     window.location.assign(loginURL);
+    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
+    //window.location.assign("http://localhost:18502/default.html")    
 }
 
-//function sendMail() {
-//    alert("sendMail()");
-//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-//		xmlhttp = new XMLHttpRequest();
-//	}
-//	else {// code for IE6, IE5
-//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//	}
-
-//	xmlhttp.onreadystatechange = function () {
-//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-//	        //getChat();
-//	    }
-//	}
-
-//	//var variables = "comment=" + comment;
-//	//alert(variables);
-//	
-//	xmlhttp.open("POST", "mailer.php", false);
-
-//	xmlhttp.send();
-//}
-
-
-//Combined into getPlayerStats() function
-//var playedGamesForTeam = 0;
-//function getAllPlayerGames() {
-
-//    var serviceURL = window.location.href;
-//    serviceURL = serviceURL.replace("index.html", "/json/");
-//    serviceURL = serviceURL.replace("#", '');
-
-//    //alert("getPlayerStats called...url: " + serviceURL);
-
-//    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
-
-//        playedgames = data.items;
-//        playedGamesForTeam = playedgames[0].gamecount;      
-//        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
-
-//    });
-
-//}
-
-
-function getPlayerStats() {
-    var playedGamesForTeam;
-
-    var serviceURL = window.location.href;
-    serviceURL = serviceURL.replace("index.html", "/json/");
-    serviceURL = serviceURL.replace("#", '');
-
-    //alert("getPlayerStats called...url: " + serviceURL);
-
-    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
-
-        playedgames = data.items;
-        playedGamesForTeam = playedgames[0].gamecount;      
-        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games set');
-
-    });
-
-    var playerstats;
-
-    $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
-
-        playerstats = data.items;
-
-        $.each(playerstats, function (index, player) {
-            if (player.games > 1) {
-                $('#playerwidget').append(
-                "<div class='list-row'>" +
-                    "<div class='list-left'>" +
-                        "<img width='50' height='50' src='images/" + player.photourl + "'>" +
-                    "</div>" +
-                    "<div class='list-right'>" +
-                        "<span class='list-title'>" + player.name + "</span>" +
-                        "<br />" +
-                        "<span class='gameamountheader'>" + player.games + " played games</span>" +
-                        "<br />" +
-                        "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
-                        "<br>" +
-                    "</div>" +
-                "</div>"
-                );
-            } else {
-                    $('#playerwidget').append(
-                    "<div class='list-row'>" +
-                        "<div class='list-left'>" +
-                            "<img width='50' height='50' src='images/" + player.photourl + "'>" +
-                        "</div>" +
-                        "<div class='list-right'>" +
-                            "<span class='list-title'>" + player.name + "</span>" +
-                            "<br />" +
-                            "<span class='gameamountheader'>" + player.games + " played game</span>" +
-                            "<br />" +
-                            "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
-                            "<br>" +
-                        "</div>" +
-                    "</div>"
-                );    
-            }
-        });
-
-    });
-}
-
-function showTimezone(str) {
-    alert("showTimezone(): " + str);
-
-    if (str.length == 0) { 
-        document.getElementById("txtZone").innerHTML = "No selection";
-        return;
-    } else {
-        //var d = new Date()
-        //var n = d.getTimezoneOffset();
-        
-        document.getElementById("txtZone").innerHTML = str;
-        
-        //UTC difference to local timezone: " + n/60 + " hours";        
-        //document.getElementById("timezone_offset").innerHTML = n/60;
-
-        return;
-    }
-}
-
-
-//Update update timezone
-function updateTimezone(timezone)
-{
-	//alert("updateTimezone() gets called.");
-
-    if (timezone == "") {
-		document.getElementById("txtZone").innerHTML = "updateTimezone() no parameters";
-		return;
-	}
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //alert(xmlhttp.responseText);
-            //alert("updateTimezone() returned successfully.");
-            //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
-            document.getElementById("team_timezone").innerHTML = "Team's current timezone is: " + timezone;   
-	    }
-	}
-
-
-	var variables = "timezone=" + timezone;
-	//alert(variables);
-	xmlhttp.open("GET", "update_team.php?" + variables, true);
-	xmlhttp.send();
+function toEvents() {
+    //window.location.assign("<a href=\"#areyouin-events-page\"></>");
+    //$("#main-nav").children().removeClass("current");
+    //$("#linkgames").addClass("current");
+    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
+    //window.location.assign("<a getEvents();\"></a>");
+    //$.mobile.changePage(index.html#areyouin-events-page);
+    getEvents();
+    window.location.assign("index.html");
+    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
 }
 
 //Check session expiration
@@ -794,133 +584,3 @@ function CheckForSession() {
         }
     });
 }
-
-
-/**********************************************************************************
-Google Chart
-**********************************************************************************/
-//Google chart data
-function getChartData() {
-
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                //document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                dataTable = xmlhttp.responseText;
-            }
-        }
-
-        xmlhttp.open("GET", "chart_data.php", false);
-        xmlhttp.send();
-
-}
-
-//callback function
-function createChart(animate) {
-   
-        chartdata= $.ajax({
-                url: "json/getChartData.php",
-                dataType: "json",
-                async: false
-            }).responseText;
-
-
-        var dataTable = new google.visualization.DataTable();
-        dataTable.addColumn('string', 'Month');
-        dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('number', 'Games set');
-
-        //dataTable.addRow(['Elokuu', 1, 1]);
-
-        var dataArray = $.parseJSON(chartdata);
-        //alert(dataArray[0].month);
-
-        for (i = 0; i < dataArray.length; i++) {
-            //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
-
-            dataTable.addRow([dataArray[i].month, ((dataArray[i].participated != null) ? Number(dataArray[i].participated) : 0) , ((dataArray[i].games != null) ? Number(dataArray[i].games) : 0)]);
-
-            //dataTable.addRow(arr);
-        }
-
-    //dataTable.addRows([
-    //  ['CN', 1324, 9640821],
-    //  ['IN', 1133, 3287263],
-    //  ['US', 304, 9629091],
-    //  ['ID', 232, 1904569],
-    //  ['BR', 187, 8514877]
-    //]);
-
-    //Template
-    //dataTable = google.visualization.arrayToDataTable([
-    //        ['Month', 'Your games', 'Games set'],
-    //        ['2004/05', 565, 614.6],
-    //        ['2005/06', 635, 652],
-    //        ['2006/07', 557, 623],
-    //        ['2007/08', 539, 609.4],
-    //        ['2008/09', 536, 569.6],
-    //        ['2008/10', 536, 569.6],
-    //        ['2008/11', 536, 569.6],
-    //        ['2008/12', 536, 569.6]
-    //    ]);
-
-    //instantiate our chart object
-    var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
-
-    //define options for visualization
-    if (animate == 1) {
-        var options = {
-            //width: 600,
-            //height: 500,
-            is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
-            hAxis: { title: 'Month',
-                     slantedText: 'true', slantedTextAngle: 75 },
-            seriesType: 'bars',
-            series: { 0: { type: 'line'} },
-            legend: { position: 'right' },
-            animation: {
-                duration: 1000,
-                easing: 'out',
-                startup: 'true'
-            },
-            colors:['blue','orange']
-        };
-    } else {
-        var options = {
-            //width: 600,
-            //height: 500,
-            is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
-            hAxis: { title: 'Month',
-                     slantedText: 'true', slantedTextAngle: 75 },
-            seriesType: 'bars',
-            series: { 0: { type: 'line'} },
-            legend: { position: 'rigth' },
-            animation: false,
-            colors:['blue','orange']
-        }
-    }
-
-
-    //draw our chart
-    chart.draw(dataTable, options);
-
-}
-
-
-//Draw the chart with animation
-function drawChart() {
-    setTimeout(function () {
-        createChart(1);
-    }, 200);
-}
-

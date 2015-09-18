@@ -1,9 +1,9 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-    session_start();
 
-    //date_default_timezone_set('UTC');
+    session_start();
     
+    date_default_timezone_set('UTC');
+
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
@@ -16,8 +16,8 @@
     //    ob_end_clean();
     //    header("location:default.html");
     //}
-    //else if($_SESSION['logged_in'] == TRUE) {	    
-        $con = mysql_connect($dbhost, $dbuser, $dbpass);
+    //else if($_SESSION['logged_in'] == TRUE) {
+	    $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	    if (!$con)
 	        {
 	        die('Could not connect: ' . mysql_error());
@@ -112,7 +112,7 @@
                                     echo "<td valign=\"top\">";
                                               echo "<div>";
                                                 echo "<div class='chat-list-left'>";
-                                                    echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
+                                                    echo "<img width='50' height='50' src='http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "'>";
                                                     echo "<br />";
                                                     echo "<div class='comment-name'>" . $row['name'] . "</div>";
                                                 echo "</div>";
@@ -135,22 +135,7 @@
                     echo "</table>";
                 echo "</div>";
 
-                echo "</br>";
-
-                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
-                    echo "<label for=\"comment_input\">Comment: </label>";
-                    echo "</br>";
-			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                    echo "</br>";
-                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-		        echo "</form>";
-
-    echo "</article>";
-
-    echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
-
-        //echo "</article>";
+        echo "</article>";
 
         //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
  

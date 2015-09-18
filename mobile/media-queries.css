@@ -1,26 +1,12 @@
-
 /************************************************************************************
 screens smaller or equal to 980
 *************************************************************************************/
 @media screen and (max-width: 980px) {
-
-    .comment-image {
-      width: 40px;
-      height: 40px;
-    }
-    
-    #admin_content_id {
-        width: 100%;
-    }
 	
 	/* pagewrap */
 	#pagewrap {
 		width: 95%;
 	}
-
-    .comment-text {
-        width: 318px;
-    }
 
 	/* content */
 	.content {
@@ -40,7 +26,7 @@ screens smaller or equal to 980
 		float: right;
 	}
 	#sidebar .widget {
-		/*padding: 8% 7%;*/
+		padding: 8% 7%;
 		margin-bottom: 10px;
 		/*display: none;*/
 	}
@@ -54,34 +40,16 @@ screens smaller or equal to 980
 		min-height: 300px;
 	}
 
-    .list-right {
-        display: inline-block;
-        width: 65%;
+    .comment-text {
+        width: 320px;
     }
 
-.list-row {
-    padding-left: 20px;
 }
-
-    /*.gamemeter {
-        display: inline-block;
-        width: 80px;
-        overflow: hidden;
-    }*/
-}
-
 
 /************************************************************************************
 screens smaller or equal to 750
 *************************************************************************************/
 @media screen and (max-width: 750px) {
-
-    .comment-image {
-      width: 40px;
-      height: 40px;
-    }
-    
-    
     #footer {
         display: none;
     }
@@ -90,20 +58,19 @@ screens smaller or equal to 750
         display: none;
     }
     
-    #userlogin1 {
+    #userlogin {
         /*display: none;*/
         padding-top: 10px;
     }
 
     #main-nav {
         margin-top: 10px;
-        /*padding-right: 5px;*/
     }
 
 
    /*chat*/
     .scrollit {
-        height: 200px;
+        height: 400px;
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;
@@ -130,13 +97,9 @@ screens smaller or equal to 750
         color: white;
         display: inline-block;
         word-wrap: break-word;
-        width: 85%;
+        width: 55%;
         padding-left: 10px;
         padding-bottom: 10px;    
-    }
-
-    .comment-text {
-      width: 310px;
     }
 
     .chatrow:nth-of-type(odd) {
@@ -171,9 +134,8 @@ screens smaller or equal to 750
         padding: 0px 0px 0px 10px;
     }
 
-    #chat_content_article, #profile_content_article {
+    #chat_content_article {
     	padding: 5px 10px 15px;
-        width: 99%;
     }
 
 	/* header */
@@ -285,10 +247,14 @@ screens smaller or equal to 750
 
 	td.col4 {
 		width: 51%;
-	}
+	}	
 
-    .modalDialog {
-        top: -135px;
+    .comment-text {
+        width: 310px;
+    }
+
+    #chat_content_article {
+        width: 97%;
     }
 
 }
@@ -299,40 +265,8 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
-    .uibutton {
-      margin-left:30px;
-    }
-
-    .uibutton_event {
-      margin-left:44px;
-    }
-    .comment-image {
-      width: 30px;
-      height: 30px;
-    }
-
-    .comment-name {
-        width: 50px;
-    }
-    
-    #admin_content_id {
-        width: 97%;
-    }
-
-    .modalDialog {
-        top: -120px;
-    }
-    
-    #event_article_id {
-        padding: 1px 5px 18px 5px;
-    }
-
-    #chat_content_article, #profile_content_article {
-        width: 96%;
-    }
-
-   .divtable {
-        margin-right: 0px;
+    #chat_content_article {
+        width: 94%;
     }
 
     #footer {
@@ -344,7 +278,7 @@ screens smaller or equal to 480
     }
 
     
-    #userlogin1 {
+    #userlogin {
         /*display: none;*/
         padding-top: 10px;                
     }
@@ -355,14 +289,10 @@ screens smaller or equal to 480
 
     /*chat*/
     .scrollit {
-        height: 210px;
+        height: 290px;
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;    
-    }
-
-    .comment-text {
-        width: 150px;
     }
 
     .seenchat {
@@ -377,7 +307,7 @@ screens smaller or equal to 480
         display: inline-block;
         word-wrap: break-word;
         width: 85%;
-        padding-left: 10px;
+        padding-left: 0px;
     }
 
     .commentArea2 {
@@ -386,8 +316,8 @@ screens smaller or equal to 480
         color: white;
         display: inline-block;
         word-wrap: break-word;
-        width: 80%;
-        padding-left: 10px;
+        width: 185px;
+        padding-left: 0px;
         padding-bottom: 10px;    
     }
 
@@ -422,10 +352,6 @@ screens smaller or equal to 480
         padding: 0px 0px 0px 10px;      
     }
 
-    .chat-list-left {
-        display: inline-block;
-        width: 55px;
-    }
 
 	/*.SSEsupport {
 		HTMLElementObject.disabled: true;
@@ -616,6 +542,9 @@ th.col51 {
 	border-radius: 0px;*/	
 }
 
-
+.comment-text {
+    width: 150px;
 }
 
+
+}

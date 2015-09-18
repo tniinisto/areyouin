@@ -29,7 +29,7 @@
         echo "<nav>";
 			echo "<ul id=\"profile-nav\" class=\"clearfix\" onClick=\"profileClick()\">";
 				echo "<li id=\"link_profile_profile\" class=\"current2\"><a href=\"#\">Player</a></li>";
-                //echo "<li id=\"link_profile_team\"><a href=\"#\">Team</a></li>";
+                echo "<li id=\"link_profile_chart\"' onClick='drawChart();'><a href=\"#\">Chart</a></li>";
 			echo "</ul>";
 		echo "</nav>";
         //Navigation///////////////////////////////////////////////////////////////////////////
@@ -37,8 +37,8 @@
         //Profile tab
         echoProfile();
         
-        //Team tab
-        //echoTeam();
+        //Chart tab
+        echoChart();
 
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
@@ -114,13 +114,15 @@
                         echo "<br />";
             mysql_close($con);
 ?>
-            <a href="#openModal">Edit your information</a>
+            <a href="#openModal" class="myButton">Edit information</a>
+            <!--<form action="#openModal">
+                <input type="submit" value="Edit information">
+            </form>-->
 
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
                     <div id="openModal" class="modalDialog">
 	                    <div>
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
-		                    <!--<h2 style="text-align: center; margin-bottom: 5px; margin-top: 10px;">Edit your information</h2>-->
                     <?php
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
@@ -197,7 +199,9 @@
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
-                    echo "<input type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<input class=\"myButton\" type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
                     //echo "</br>";
                     echo "<div id=\"progressbox\">";
@@ -212,12 +216,22 @@
             echo "</div>";
         }
 
+
+        //Chart//////////////////////////////////////////////////////////////////////////////
+        function echoChart() {
+            echo "<div id='profile_chart_content_id' class='noshow'></div>";
+        }
+        //Chart//////////////////////////////////////////////////////////////////////////////
+
+
         //Team content////////////////////////////////////////////////////////////////////
         //function echoTeam() {
         //    echo "<div id=\"profile_team_content_id\" class=\"noshow\">";
         //        echo "<h1>Team</h1>";
         //    echo "</div>";            
         //}
+
+
 
         class Player {
             var $playerID;
