@@ -936,7 +936,7 @@ function randRange( minNum, maxNum) {
 function createRain() {
 
 	for( i=1;i<nbDrop;i++) {
-	var dropLeft = randRange(0, screen.width - 100);
+	var dropLeft = randRange(0, screen.width - 150);
 	var dropTop = randRange(-1000, 600);
 
 	$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
