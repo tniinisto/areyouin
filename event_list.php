@@ -3,20 +3,8 @@
 
     session_start();
 
-    //include 'ChromePhp.php';
-    //$password = $_SESSION['mypassword'];        
-    //ChromePhp::log("MD5:", $password);
-	
-    //Old implementation with URL paramaters
-    //$teamid=$_GET["teamid"];
-	//$playerid=$_GET["playerid"];
-
-    //Check session expiration & logged_in status OLD PART
-    //if(!isset($_SESSION['logged_in'])) {
-    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-    //    header("location:default.html");
-    //}
-    //else
+    //Maximum number of events listed
+    define('MAX_NRO_EVENTS', 15);
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
     
@@ -63,7 +51,7 @@
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event
-	    while($row = mysql_fetch_array($result))
+	    while($row = mysql_fetch_array($result) and $row_index <= MAX_NRO_EVENTS)
 	    {
             //Check private event showing
             $private = $row['private'];
