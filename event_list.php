@@ -3,7 +3,7 @@
 
     session_start();
 
-    //Maximum number of events listed
+    //Maximum number of events listed at once
     define('MAX_NRO_EVENTS', 15);
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
