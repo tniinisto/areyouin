@@ -141,7 +141,7 @@
             	        echo "<tr>";
 					        echo "<th> Games @&nbsp 
                             <a href='https://maps.google.fi/maps?q=" . $row['pos'] . "&npsp target='_blank\'>" . $row['location'] . "</a>
-                            <img id='gmaps_". $row_index . "' width='15' height='15' src='images/googlemaps.jpg' style='cursor: pointer'></img>
+                            <img id='gmaps_". $row_index . "' width='15' height='15' src='images/googlemaps.jpg' style='padding-top: 1px;'></img>
                             </th>";
 				        echo "</tr>";
 			        echo "</table>";
