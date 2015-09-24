@@ -139,8 +139,8 @@
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\"&npsp target=\"_blank\">" . $row['location'] . "
-                            <img id='gmaps_". $row_index . "' width='30' height='30' src='images/googlemaps.jpg' style='cursor: pointer'></img>
+					        echo "<th> Games @&nbsp <a href='https://maps.google.fi/maps?q=" . $row['pos'] . "&npsp target='_blank\'>" . $row['location'] . "
+                            &npsp<img id='gmaps_". $row_index . "' width='20' height='20' src='images/googlemaps.jpg' style='cursor: pointer'></img>
                             </a></th>";
 				        echo "</tr>";
 			        echo "</table>";
