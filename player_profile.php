@@ -183,10 +183,8 @@
                 echo "</br>";
                 echo "<a href='#openModalPassword' class='myButton'>Change</a>";
                 //echo "</br>";
-            echo"</fieldset>";
-            //Password change////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    //Modal dialog for password change/////////////////////////////////////////////////////////-->
+                    //Modal dialog for password change/////////////////////////////////////////////////////////
                     echo "<div id='openModalPassword' class='modalDialog'>";
 	                    echo "<div>";
 		                    echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
@@ -209,6 +207,9 @@
                                 echo "</div>";
 		                    echo "</form>";
                     //Modal dialog for password change/////////////////////////////////////////////////////////
+            
+            echo"</fieldset>";
+            //Password change////////////////////////////////////////////////////////////////////////////////////////////////
                 
             //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////    
             echo "<div class=\"nomobile\">";                
