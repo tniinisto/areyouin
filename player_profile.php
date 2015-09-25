@@ -178,7 +178,6 @@
 <?php
     
             //Password change////////////////////////////////////////////////////////////////////////////////////////////////                    
-            echo "<br />";
             echo "<fieldset id='playerdata' style='padding: 5px;'>";
             echo "<legend style='text-align: left; color: black;'><h4>Change password</h4></legend>";
                 echo "</br>";
