@@ -123,15 +123,13 @@
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
-                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
-                                echo "<div align='center'>";
+                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";                                
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
                                             echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
-                                echo "</div>";
                                 echo "<br />";
                                 echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\" class='myButton'></input>";
                                 //echo "<a href='#' onclick='this.submit();'>Login</a>";

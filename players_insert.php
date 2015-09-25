@@ -179,7 +179,7 @@
                     echo "<fieldset id='timezone_set'>";
                     echo "<br>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        echo "<h3 id='team_timezone'>Current timezone: " . $row_team['timezone'] . "</h3>";
+                        echo "<h3 id='team_timezone'> Current timezone: " . $row_team['timezone'] . "</h3>";
                         //echo "<h2 id='team_timezone'>Team's current timezone is: " . $row_team['timezone']. "<br>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h2>";
                         //echo "<h3>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h3>";
 
@@ -188,11 +188,15 @@
                             $timezone_identifiers = DateTimeZone::listIdentifiers();
                             echo "<label><h3 style='text-align: center;'>Choose team's timezone:</h3></label>";                    
                             //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                            
+                            echo "<div align='center'>";
                             echo "<select id='timezone_select' name='timezone_select' form='timezones' style='text-align: center;'>";
                                 for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
 	                                echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
                                 }
                             echo "</select>";
+                            echo "</div>";
+
                             //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
                             echo "<input type='submit' class='myButton' value='Save' id='submit_timezone'></input>";                                         
                         echo "</form>";
