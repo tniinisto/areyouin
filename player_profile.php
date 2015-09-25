@@ -191,23 +191,26 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='' target='frame_player>";
                             
+                                echo "<div style='margin: auto; width: 60%;'>";
                                 echo "<p style='margin: 0px; padding-top: 10px; align: center;'>";
                                 echo "<label style='display: inline-block; width: 250px; font-weight: bold;'>Type your password twice</label>";                        
                                 echo "</p>";
+                                echo "</div>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "<input type='text' id='dialog_password1' name='dialog_password1' value='' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "<input type='text' id='dialog_password2' name='dialog_password2' value='' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
                                     echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
                                 echo "</div>";
+
 		                    echo "</form>";
                     //Modal dialog for password change/////////////////////////////////////////////////////////
             
