@@ -131,7 +131,7 @@
                                     }
                                 echo "</select>";
                                 echo "<br />";
-                                echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\" class='myButton'></input>";
+                                echo "<input class='linkButton' type='submit' value='Login' id='submit_team' class='myButton'></input>";
                                 //echo "<a href='#' onclick='this.submit();'>Login</a>";
                             echo "</form>";                            
                             echo "<h1></h1>";
