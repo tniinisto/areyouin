@@ -191,15 +191,16 @@
 
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                                echo "<label style='display: inline-block; width: 60px; text-align: right;'>Type your password twice</label>";                        
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;'></input>";
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='' required style='margin-bottom: 15px; background: grey; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
