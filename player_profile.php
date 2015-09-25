@@ -189,11 +189,9 @@
 	                    echo "<div>";
 		                    echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
 
-                            echo "<form id='player_edit' name='player_edit' method='post' action='' target='frame_player>";
+                            echo "<form id='player_edit' name='player_edit' method='post' target='frame_player>";
                             
-                                echo "<div>";
-                                echo "<p style='text-align: center; weight: bold;'>Type your password twice</p>";
-                                echo "</div>";
+                                echo "<p style='text-align: center; weight: bold;'>Type your password twice</p>";                           
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
