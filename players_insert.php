@@ -177,17 +177,18 @@
                     
                     echo "<br>";
                     echo "<fieldset id='timezone_set'>";
+                    echo "<br>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        echo "<h3 id='team_timezone' style='margin: 0 auto;'>Current timezone: " . $row_team['timezone'] . "</h3>";
+                        echo "<h3 id='team_timezone'>Current timezone: " . $row_team['timezone'] . "</h3>";
                         //echo "<h2 id='team_timezone'>Team's current timezone is: " . $row_team['timezone']. "<br>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h2>";
                         //echo "<h3>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h3>";
 
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         echo "<form id='timezones' method='get' target='frame_local' onsubmit=\"updateTimezone(timezone_select.value)\"";
                             $timezone_identifiers = DateTimeZone::listIdentifiers();
-                            echo "<label><h3>Choose team's timezone:</h3></label>";                    
+                            echo "<label><h3 style='text-align: center;'>Choose team's timezone:</h3></label>";                    
                             //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
-                            echo "<select id='timezone_select' name='timezone_select' form='timezones'>";
+                            echo "<select id='timezone_select' name='timezone_select' form='timezones' style='text-align: center;'>";
                                 for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
 	                                echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
                                 }
