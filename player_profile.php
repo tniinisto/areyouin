@@ -186,7 +186,7 @@
             echo"</fieldset>";
             //Password change////////////////////////////////////////////////////////////////////////////////////////////////
 
-                    //Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                    //Modal dialog for password change/////////////////////////////////////////////////////////-->
                     echo "<div id='openModalPassword' class='modalDialog'>";
 	                    echo "<div>";
 		                    echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
@@ -208,8 +208,7 @@
                                     echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
                                 echo "</div>";
 		                    echo "</form>";
-                    ?>
-                    <!--/Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                    //Modal dialog for password change/////////////////////////////////////////////////////////
                 
             //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////    
             echo "<div class=\"nomobile\">";                
