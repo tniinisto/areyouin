@@ -191,8 +191,8 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='' target='frame_player>";
                             
-                                echo "<p style='text-align: center;'>";
-                                echo "<label style='font-weight: bold;'>Type your password twice</label>";                        
+                                echo "<p style='text-align: center; weight: bold;'>";
+                                echo "Type your password twice";                        
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
