@@ -176,22 +176,19 @@
             <br />
 
 <?php
-
-            //echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
-
-                //echo "<fieldset id='playerdata' style='padding: 5px;'>";
-                //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";
-                //    echo "<div id=\"output\">";
-                //    echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
-                //    echo "</div>";
-                //echo"</fieldset>";
+    
+            //Password change////////////////////////////////////////////////////////////////////////////////////////////////                    
+            echo "<br />";
+            echo "<fieldset id='playerdata' style='padding: 5px;'>";
+            echo "<legend style='text-align: left; color: black;'><h4>Change password</h4></legend>";
+                echo "</br>";
+                echo "<a href='#changePassword' class='myButton'>Change</a>";
+                //echo "</br>";
+            echo"</fieldset>";
+            //Password change////////////////////////////////////////////////////////////////////////////////////////////////
                 
-                //echo "<div id=\"output\"  class=\"nomobile\">";
-                echo "<div class=\"nomobile\">";
-                    //echo "</br>";
-
-                //FORM/////////////////////////////////////////
-                //echo "<h4>Upload new photo (Max size 2MB)</h4>";
+            //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////    
+            echo "<div class=\"nomobile\">";                
                 echo "<br />";
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
@@ -210,10 +207,12 @@
                     echo "</div>";
                 echo"</fieldset>";
 
-                echo "</div>";
-                //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
-                //echo "<div id=\"output\"></div>";
             echo "</div>";
+            //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////
+                //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
+                //echo "<div id=\"output\"></div>";                
+            
+        echo "</div>"; //profile_profile_content_id
         }
 
 
