@@ -178,7 +178,7 @@
                     echo "<br>";
                     echo "<fieldset id='timezone_set'>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        echo "<h3 id='team_timezone'>Current timezone: " . $row_team['timezone'] . "</h3>";
+                        echo "<h3 id='team_timezone' style='margin: 0 auto;'>Current timezone: " . $row_team['timezone'] . "</h3>";
                         //echo "<h2 id='team_timezone'>Team's current timezone is: " . $row_team['timezone']. "<br>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h2>";
                         //echo "<h3>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h3>";
 
