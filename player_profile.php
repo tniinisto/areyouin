@@ -127,6 +127,10 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
+                                echo "<p style='margin: 10px; padding-top: 15px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Edit your information</label>";
+                                echo "</p>";
+
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
@@ -192,7 +196,7 @@
                             echo "<form id='pass_edit' name='pass_edit' method='post' action='updatePassword.php' target='frame_player>";
                             
                                 echo "<p style='margin: 10px; padding-top: 15px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Type your new password twice</label>";                           
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Type your new password twice</label>";                      
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
