@@ -192,7 +192,7 @@
                     //Modal dialog for password change/////////////////////////////////////////////////////////
                     echo "<div id='openModalPassword' class='modalDialog'>";
 	                    echo "<div>";
-		                    echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
+		                    echo "<a id='closer1' href='#close' title='Close' class='close'>X</a>";
 
                             echo "<form id='pass_edit' name='pass_edit' method='post' action='updatePassword.php' target='frame_player' onsubmit='refreshPassword();'>";
                             
