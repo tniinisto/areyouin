@@ -128,7 +128,7 @@
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                 echo "<p style='margin: 10px; padding-top: 15px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Edit your information</label>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
