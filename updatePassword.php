@@ -12,7 +12,7 @@
     mysql_select_db("areyouin", $con)or die("cannot select DB");
             
     //$player_name=$_POST['player_name']; //Currently this is the user name, do not allow editing
-    $player_password=$_POST['passwprd'];
+    $player_password=$_POST['password'];
 
     $sql = "UPDATE players SET password = '" . md5($player_password) . "' WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
