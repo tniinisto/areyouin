@@ -195,7 +195,7 @@
 
                             echo "<form id='pass_edit' name='pass_edit' method='post' action='updatePassword.php' target='frame_player' onsubmit='refreshPassword();'>";
                             
-                                echo "<p style='margin: 10px; padding-top: 15px;'>";
+                                echo "<p style='margin: 10px;'>";
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Type your new password twice</label>";                      
                                 echo "</p>";
 
