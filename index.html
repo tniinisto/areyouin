@@ -484,8 +484,9 @@
     //Password change
     function refreshPassword() {        
         if ( $("#password_info_id").hasClass('noshow') ) {                       
-            $("#password_info_id").removeClass('noshow');
+            
             window.location.replace('#close');
+            $("#password_info_id").removeClass('noshow');
             setTimeout(refreshPassword(), 5000);
         }
         else
