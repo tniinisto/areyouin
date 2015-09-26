@@ -195,7 +195,7 @@
 
         //Seasons rains...
         var year = new Date().getFullYear();
-        if (new Date() >= new Date(year+'-11-01')) {
+        if (new Date() >= new Date(year + '-11-01')) {
             //Winter season :)
             $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
         }
@@ -480,6 +480,10 @@
 
         window.location.replace('#close');
     };
+
+    function refreshPassword() {
+        window.location.replace('#close');
+    }
 
 </script>
 <!-- /scripts -->
