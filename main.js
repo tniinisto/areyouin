@@ -382,8 +382,9 @@ function game_end() {
 //Check password change
 function check_pass() {
     alert("jes");
+    document.getElementById("dialog_password2").value = "";
     if (document.getElementById("dialog_password1").value != document.getElementById("dialog_password2").value)
-        document.getElementById("dialog_password2").value = '';
+        document.getElementById("dialog_password2").value = "";
 }
 
 //Player profile
