@@ -189,7 +189,7 @@
 	                    echo "<div>";
 		                    echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
 
-                            echo "<form id='player_edit' name='player_edit' method='post' target='frame_player>";
+                            echo "<form id='pass_edit' name='pass_edit' method='post' action='updatePassword.php' target='frame_player>";
                             
                                 echo "<p style='margin: 10px; padding-top: 15px;'>";
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Type your new password twice</label>";                           
