@@ -27,5 +27,4 @@
 
     mysql_close($con);
 
-    //header("location:player_profile.php");
 ?>
