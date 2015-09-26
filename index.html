@@ -481,19 +481,18 @@
         window.location.replace('#close');
     };
 
-    //Password change
-    function refreshPassword() {        
-        if ( $("#password_info_id").hasClass('noshow') ) {                       
-            
-            window.location.replace('#close');
-            $("#password_info_id").removeClass('noshow');
-            //setTimeout(refreshPassword(), 5000);
-        }
-        else
-        {
-            $("#password_info_id").addClass('noshow');
-        }
+    //Password change////////////////////////////////////
+    function refreshPassword() {
+        window.location.replace('#close');
+        $("#password_info_id").removeClass('noshow');
+        setTimeout(hidePassNotitification(), 3000);
     }
+
+    function hidePassNotitification() {
+        $("#password_info_id").addClass('noshow');
+    }
+    //Password change////////////////////////////////////
+
 
 </script>
 <!-- /scripts -->
