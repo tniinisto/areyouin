@@ -482,15 +482,16 @@
     };
 
     //Password change
-    function refreshPassword() {
-        //alert("here");
-        //if ($("#password_info_id").hasClass('noshow')) {           
+    function refreshPassword() {        
+        if ($("#password_info_id").hasClass('noshow')) {           
             window.location.replace('#close');
             $("#password_info_id").removeClass("noshow");
-    //        setTimeout(refreshPassword(), 2000);
-    //    }
-    //    else
-    //        $("#password_info_id").addClass("noshow");
+            setTimeout(refreshPassword(), 5000);
+        }
+        else
+        {
+            $("#password_info_id").addClass("noshow");
+        }
     }
 
 </script>
