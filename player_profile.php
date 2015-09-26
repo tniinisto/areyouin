@@ -192,7 +192,7 @@
                             echo "<form id='player_edit' name='player_edit' method='post' target='frame_player>";
                             
                                 echo "<p style='margin: 10px; padding-top: 15px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%; margin-top: 10px;'>Type your password twice</label>";                           
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; margin-top: 10px;'>Type your new password twice</label>";                           
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
