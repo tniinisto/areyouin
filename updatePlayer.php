@@ -24,7 +24,6 @@
     $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "' WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
     $result = mysql_query($sql);
-    echo $result;
 
     mysql_close($con);
 

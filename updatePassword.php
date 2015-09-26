@@ -17,6 +17,7 @@
     $sql = "UPDATE players SET password = '" . md5($player_password) . "' WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
     $result = mysql_query($sql);
+    echo $result;
 
     mysql_close($con);
 
