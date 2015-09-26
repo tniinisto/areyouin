@@ -794,33 +794,6 @@ function CheckForSession() {
     });
 }
 
-function refreshPlayerInfo() {
-    //var href = $('closer').attr('href');
-    //window.location.href = href; //causes the browser to refresh and load the requested url
-    //$("#close").trigger( "click" );
-    //alert("here");
-    //$("#openModal").removeClass("modalDialog");
-    //$("#openModal").css("opacity", "0");
-    //$("#openModal").addClass("modalDialog");
-
-    var email = document.getElementById("dialog_player_email").value;
-    document.getElementById("profile_playerEmail").innerHTML = "Email: " + email;
-
-    var phone = document.getElementById("dialog_player_phone").value;
-    document.getElementById("profile_playerPhone").innerHTML = "Phone: " + phone;
-
-    var notify = document.getElementById("dialog_notify_switch").checked; //true, false       
-
-    if (notify == 0)
-        document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: OFF";
-    else
-        document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: ON";
-
-    //getPlayerProfile();
-    window.location.replace('#close');
-};
-
-
 /**********************************************************************************
 Google Chart
 **********************************************************************************/
