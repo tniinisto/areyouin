@@ -481,9 +481,15 @@
         window.location.replace('#close');
     };
 
+    //Password change
     function refreshPassword() {
-        $("#password_info_id").removeClass("noshow");
-        window.location.replace('#close');
+        if ($("#password_info_id").hasClass('noshow')) {
+            $("#password_info_id").removeClass("noshow");
+            window.location.replace('#close');
+            setTimeout(refreshPassword(), 2000);
+        }
+        else
+            $("#password_info_id").addClass("noshow");
     }
 
 </script>
