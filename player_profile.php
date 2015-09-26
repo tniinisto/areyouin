@@ -179,7 +179,7 @@
     
             //Password change////////////////////////////////////////////////////////////////////////////////////////////////                    
             echo "<fieldset id='playerdata' style='padding: 5px;'>";
-            echo "<legend style='text-align: left; color: black;'><h4>Change password</h4></legend>";
+            echo "<legend style='text-align: left; color: black;'><h4>Password change</h4></legend>";
                 echo "</br>";
                 echo "<a href='#openModalPassword' class='myButton'>Change</a>";
                 //echo "</br>";
