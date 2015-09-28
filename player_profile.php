@@ -127,6 +127,10 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
+                                echo "<p style='margin: 10px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                echo "</p>";
+
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
@@ -143,25 +147,25 @@
                                 echo "</p>";
 
 
-                        echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
-                            if( $player->notify == '1') {
-                                echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
-                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
-                                        echo "<div class=\"notifyswitch-inner\"></div>";
-						                echo "<div class=\"onoffswitch-switch\"></div>";
-						            echo "</label>";
-                                echo "</div>";
-                            } else {
-                                echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
-                                    echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
-                                        echo "<div class=\"notifyswitch-inner\"></div>";
-						                echo "<div class=\"onoffswitch-switch\"></div>";
-						            echo "</label>";
-                                echo "</div>";                            
-                            }
-                        echo "</h5>";
+                                echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                                    if( $player->notify == '1') {
+                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+                                        echo "</div>";
+                                    } else {
+                                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+                                        echo "</div>";                            
+                                    }
+                                echo "</h5>";
 
                                 echo "<div class='buttonHolder'>";
                                     echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
@@ -176,22 +180,50 @@
             <br />
 
 <?php
+    
+            //Password change////////////////////////////////////////////////////////////////////////////////////////////////                    
+            echo "<fieldset id='playerdata' style='padding: 5px;'>";
+            echo "<legend style='text-align: left; color: black;'><h4>Password change</h4></legend>";
+                echo "</br>";
+                echo "<p id='password_info_id' class='noshow' style='text-align: center;'>Your password is changed</p>";
+                echo "<a href='#openModalPassword' class='myButton' onclick='initPassForm();'>Change password</a>";
+                //echo "</br>";
 
-            //echo "<iframe name=\"frame\" style=\"display: none;\"></iframe>";
+                    //Modal dialog for password change/////////////////////////////////////////////////////////
+                    echo "<div id='openModalPassword' class='modalDialog'>";
+	                    echo "<div>";
+		                    echo "<a id='closer1' href='#close' title='Close' class='close'>X</a>";
 
-                //echo "<fieldset id='playerdata' style='padding: 5px;'>";
-                //echo "<legend style='text-align: left; color: black;'><h4>Picture</h4></legend>";
-                //    echo "<div id=\"output\">";
-                //    echo "<img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" . $player->photourl . "\">";
-                //    echo "</div>";
-                //echo"</fieldset>";
+                            echo "<form id='pass_edit' name='pass_edit' method='post' action='updatePassword.php' target='frame_player' onsubmit='refreshPassword();'>";
+                            
+                                echo "<p style='margin: 10px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Type your new password twice</label>";                      
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_password1' name='password1' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
+                                echo "<input type='text' id='dialog_password2' name='password2' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "</p>";
+
+                                echo "<div class='buttonHolder'>";
+                                    echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='myButton'>";
+                                echo "</div>";
+
+		                    echo "</form>";
+	                    echo "</div>";
+                    echo "</div>";
+                    //Modal dialog for password change/////////////////////////////////////////////////////////
+
+            echo"</fieldset>";
+            //Password change////////////////////////////////////////////////////////////////////////////////////////////////
                 
-                //echo "<div id=\"output\"  class=\"nomobile\">";
-                echo "<div class=\"nomobile\">";
-                    //echo "</br>";
-
-                //FORM/////////////////////////////////////////
-                //echo "<h4>Upload new photo (Max size 2MB)</h4>";
+            //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////    
+            echo "<div class=\"nomobile\">";                
                 echo "<br />";
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
@@ -210,10 +242,12 @@
                     echo "</div>";
                 echo"</fieldset>";
 
-                echo "</div>";
-                //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
-                //echo "<div id=\"output\"></div>";
             echo "</div>";
+            //Photo upload////////////////////////////////////////////////////////////////////////////////////////////////
+                //echo "<h4 name=\"ImageSize\" id=\"ImageSizeId\" class=\"noshow\">Your image is too big!</h4>";
+                //echo "<div id=\"output\"></div>";                
+            
+        echo "</div>"; //profile_profile_content_id
         }
 
 

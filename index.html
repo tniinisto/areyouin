@@ -196,7 +196,7 @@
 
         //Seasons rains...
         var year = new Date().getFullYear();
-        if (new Date() >= new Date(year+'-11-01')) {
+        if (new Date() >= new Date(year + '-11-01')) {
             //Winter season :)
             $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
         }
@@ -466,14 +466,6 @@
     //Profile navigation - Content for the selected page///////////
 
     function refreshPlayerInfo() {
-        //var href = $('closer').attr('href');
-        //window.location.href = href; //causes the browser to refresh and load the requested url
-        //$("#close").trigger( "click" );
-        //alert("here");
-        //$("#openModal").removeClass("modalDialog");
-        //$("#openModal").css("opacity", "0");
-        //$("#openModal").addClass("modalDialog");
-
         var email = document.getElementById("dialog_player_email").value;
         document.getElementById("profile_playerEmail").innerHTML = "Email: " + email;
 
@@ -487,9 +479,21 @@
         else
             document.getElementById("profile_playerNotify").innerHTML = "Mail notifications: ON";
 
-        //getPlayerProfile();
         window.location.replace('#close');
     };
+
+    //Password change////////////////////////////////////
+    function refreshPassword() {
+        window.location.replace('#close');
+        $("#password_info_id").removeClass('noshow');
+        setTimeout(hidePassNotitification, 3000);
+    }
+
+    function hidePassNotitification() {
+        $("#password_info_id").addClass('noshow');
+    }
+    //Password change////////////////////////////////////
+
 
 </script>
 <!-- /scripts -->

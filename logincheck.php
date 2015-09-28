@@ -48,7 +48,7 @@
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin
     FROM areyouin.players p, playerteam m, team t
-    WHERE name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
     ORDER BY t.teamID";
 
 	$result=mysql_query($sql);
@@ -123,7 +123,7 @@
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
-                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
+                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";                                
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
@@ -131,7 +131,7 @@
                                     }
                                 echo "</select>";
                                 echo "<br />";
-                                echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
+                                echo "<input class='myButton' type='submit' value='Select' id='submit_team'></input>";
                                 //echo "<a href='#' onclick='this.submit();'>Login</a>";
                             echo "</form>";                            
                             echo "<h1></h1>";

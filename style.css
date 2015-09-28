@@ -447,14 +447,14 @@ ADMIN & PROFILR NAVIGATION
 #admin-nav a, #profile-nav a, #chat-nav a {
 	line-height: 50%;
 	font-weight: bold;
-	color: #FFD800;
+	color: #FFF;
 	display: block;
 	padding: 14px 15px;
 	text-decoration: none;
 	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
 }
 #admin-nav a:hover, #profile-nav a:hover {
-	color: #FFD800;
+	color: #FFF;
 	background: #6A6A6A;
 	/* gradient */  
 	/*background: -webkit-gradient(linear, left top, left bottom, from(#B9B9B9), to(#6A6A6A));
