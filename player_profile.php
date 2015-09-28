@@ -186,7 +186,7 @@
             echo "<legend style='text-align: left; color: black;'><h4>Password change</h4></legend>";
                 echo "</br>";
                 echo "<p id='password_info_id' class='noshow' style='text-align: center;'>Your password is changed</p>";
-                echo "<a href='#openModalPassword' class='myButton'>Change password</a>";
+                echo "<a href='#openModalPassword' class='myButton' onclick='initPassForm()'>Change password</a>";
                 //echo "</br>";
 
                     //Modal dialog for password change/////////////////////////////////////////////////////////

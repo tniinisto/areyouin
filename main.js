@@ -388,6 +388,12 @@ function check_pass() {
 
 }
 
+//Clear password fields when form opened
+function initPassForm() {
+    document.getElementById("dialog_password1").value = '';
+    document.getElementById("dialog_password2").value = '';
+}
+
 //Player profile
 function getPlayerProfile() {
 
