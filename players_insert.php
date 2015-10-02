@@ -35,7 +35,7 @@
             echo "<nav>";
 			    echo "<ul id=\"admin-nav\" class=\"clearfix\" onClick=\"adminClick()\">";
 				    echo "<li id=\"link_admingame\" class=\"current2\"><a href=\"#\">New game</a></li>";
-                    echo "<li id=\"link_adminteam\"><a href=\"#\">Team</a></li>";
+                    echo "<li id=\"link_adminteam\"><a href=\"#\">Settings</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
@@ -179,7 +179,8 @@
                     echo "<fieldset id='timezone_set'>";
                     echo "<br>";
                     echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        echo "<h3 id='team_timezone'>&nbspCurrent timezone: " . $row_team['timezone'] . "</h3>";
+                        echo "<h3 id='team_timezone' tyle='text-align: center;'>Current timezone: " . $row_team['timezone'] . "</h3>";
+                        echo "<h4 id='team_timezone' tyle='text-align: center;'>" . $row_team['timezone'] . "</h4>";
                         //echo "<h2 id='team_timezone'>Team's current timezone is: " . $row_team['timezone']. "<br>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h2>";
                         //echo "<h3>Offset to UTC is: " . $row_team['utcOffset'] . " hours</h3>";
 
