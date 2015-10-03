@@ -769,11 +769,8 @@ function updateTimezone(timezone)
 	}
 
 	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //alert(xmlhttp.responseText);
-            //alert("updateTimezone() returned successfully.");
-            //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
-            document.getElementById("team_timezone").innerHTML = "Current timezone is: " + timezone;   
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {       
+            document.getElementById("team_timezone_value").innerHTML = timezone;   
 	    }
 	}
 

@@ -181,7 +181,7 @@
                         
                         echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
                             echo "<h3 id='team_timezone' style='text-align: center;'>Current timezone:</h3>";
-                            echo "<h4 id='team_timezone' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
+                            echo "<h4 id='team_timezone_value' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
                         echo "</div>";
 
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
