@@ -773,7 +773,7 @@ function updateTimezone(timezone)
 	        //alert(xmlhttp.responseText);
             //alert("updateTimezone() returned successfully.");
             //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
-            document.getElementById("team_timezone").innerHTML = "Team's current timezone is: " + timezone;   
+            document.getElementById("team_timezone").innerHTML = "Current timezone is: " + timezone;   
 	    }
 	}
 
