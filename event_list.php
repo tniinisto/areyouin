@@ -140,7 +140,7 @@
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
 					        echo "<th> Games @&nbsp 
-                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" &nbsp target='_blank'>" . $row['location'] . "</a>
+                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
                             </th>";
 				        echo "</tr>";
 			        echo "</table>";
