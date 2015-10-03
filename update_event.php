@@ -81,6 +81,9 @@
         $result2 = mysql_query($sql2);
 
         echo "<select id=\"location_select\" name=\"location_select\" form=\"eventform\">";
+        //Default location when no locations entered to RYouIN
+        echo "<option value='0'>R'YouIN home</option>";
+        //Team's locations
         while($row2 = mysql_fetch_array($result2))
 	    {  
             //<option selected="selected">3</option>
