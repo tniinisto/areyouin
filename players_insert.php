@@ -52,7 +52,8 @@
                     $result2 = mysql_query($sql2);
 
                     echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
-                    echo "<option value='0'> Not defined </option>"; //Default location when no locations entered to RYouIN
+                    //Default location when no locations entered to RYouIN
+                    echo "<option value='0'>No location</option>";
                     while($row2 = mysql_fetch_array($result2))
 	                {  
                         echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
