@@ -55,7 +55,6 @@
                     
                     //Default location when no locations entered to RYouIN
                     echo "<option value='0'>R'YouIN home</option>";
-
                     //Team's locations
                     while($row2 = mysql_fetch_array($result2))
 	                {  
