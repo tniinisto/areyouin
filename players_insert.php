@@ -179,7 +179,7 @@
                     echo "<fieldset id='timezone_set'>";
                         echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
                         
-                        echo "<div style='background-color: #b9b9b9'; margin: 5px;>";
+                        echo "<div style='background-color: #b9b9b9'; border: 25px solid navy; margin: 20px;>";
                             echo "<h3 id='team_timezone' style='text-align: center;'>Current timezone:</h3>";
                             echo "<h4 id='team_timezone' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
                         echo "</div>";
