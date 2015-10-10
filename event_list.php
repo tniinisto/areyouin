@@ -292,7 +292,7 @@
 	
         while($row_weather = mysql_fetch_array($result_weather)) {
 
-            $lonlat = explode(", ", $row_weather['position']);
+            $latlon = explode(", ", $row_weather['position']);
 
             echo "<article id=\"event_article_id\" class=\"clearfix\">";
                 echo "<div>";
@@ -302,7 +302,7 @@
 	                    frameborder='0'
 	                    height='245'
 	                    width='100%'
-	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $lonlat[0]) . "&lon=" . str_replace(' ', '', $lonlat[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>                       
+	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>                       
                     </iframe>";
                 echo "</div>";
             echo "</article>";
