@@ -302,6 +302,11 @@ screens smaller or equal to 480
 *************************************************************************************/
  /* portrait mode */
 @media screen and (max-width: 480px) {
+
+
+    .atable2 {
+        width: 80%;
+    }
     
     .uibutton {
       margin-left:30px;
