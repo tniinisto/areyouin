@@ -72,11 +72,11 @@
         //Form - Start & End time/////////////////////
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
-        echo "<h1>Update game</h1>";
+        echo "<h1>Update event</h1>";
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
         //Location///////////////////////////////////////////
-        echo "<label><h2>Game location:</h2></label>";
+        echo "<label><h2>Event location:</h2></label>";
         $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
         $result2 = mysql_query($sql2);
 
@@ -95,7 +95,7 @@
         echo "</select>";
         //Location///////////////////////////////////////////
 
-        echo "<label><h2>Game start:</h2></label>";
+        echo "<label><h2>Event start:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime('+10 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "\"></input>";
         if ((preg_match('/safari/i', $user_agent)) || (preg_match('/chrome/i', $user_agent))) {
@@ -109,7 +109,7 @@
             //echo "<p>other " . date(('Y-m-d H:i'), strtotime($row['startTime'])) . "</p>";
         }
 
-        echo "<label><h2>Game end:</h2></label>";
+        echo "<label><h2>Event end:</h2></label>";
         //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime('+12 hours')) . "\"></input>";
         //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:i'), strtotime($row['endTime'])) . "\"></input>";
         if ((preg_match('/safari/i', $user_agent)) || (preg_match('/chrome/i', $user_agent))) {
@@ -228,19 +228,19 @@
         echo "</br>";
         echo "</br>";
         
-        echo "<input class='myButton' type='submit' value='Update Game' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+        echo "<input class='myButton' type='submit' value='Update Event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
 
         echo "</br>";
 
         //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to Events</a>";
 
         echo "</form>";
 
         //Delete event
         echo "</br>";
         echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
-            echo "<input class='myButton' style='color: red;' type='submit' value='Delete Game' id='deletegame' onClick='eventFetchOn();'></input>";
+            echo "<input class='myButton' style='color: red;' type='submit' value='Delete Event' id='deletegame' onClick='eventFetchOn();'></input>";
             echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
         echo "</form>";
 
