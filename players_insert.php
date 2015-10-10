@@ -75,7 +75,7 @@
 
                     //OnOff switch to selecte all
                     //echo "<div>";
-                    echo "<h2 id=\"pickall\">Pick players: <span style=\"float: right;\">Select all: ";
+                    echo "<h2 id=\"pickall\">Pick players: <span style='float: right; margin-right:10px;'>Select all: ";
       
                     echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                         echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
