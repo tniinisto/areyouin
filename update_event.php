@@ -212,7 +212,7 @@
         echo "</br>";
                         
         //Public/Private event switch        
-        echo "<h2 style='display: inline-block;'>Private game:&nbsp</h2>";
+        echo "<h2 style='display: inline-block;'>Private event:&nbsp</h2>";
         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 			if($private_event == 0)
                 echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
@@ -228,19 +228,19 @@
         echo "</br>";
         echo "</br>";
         
-        echo "<input class='myButton' type='submit' value='Update Event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+        echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
 
         echo "</br>";
 
         //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to Events</a>";
+        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
 
         echo "</form>";
 
         //Delete event
         echo "</br>";
         echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
-            echo "<input class='myButton' style='color: red;' type='submit' value='Delete Event' id='deletegame' onClick='eventFetchOn();'></input>";
+            echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
             echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
         echo "</form>";
 
