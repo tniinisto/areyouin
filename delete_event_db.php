@@ -13,19 +13,18 @@
             
     //$eventid=$_POST['delete_eventid'];
     
-    $sql1 = "DELETE FROM eventplayer WHERE Events_eventID =  :eventId";
-    $stmt = $pdo->prepare($sql1);
-    $stmt->bindParam(':eventId', $_POST['delete_eventid'], PDO::PARAM_INT);   
-    $stmt->execute();
+    $sql1 = "DELETE FROM eventplayer WHERE Events_eventID = :eventId";
+    $stmt1 = $pdo->prepare($sql1);
+    $stmt1->bindParam(':eventId', $_POST['delete_eventid'], PDO::PARAM_INT);   
+    $stmt1->execute();
 
-    $sql2 = "DELETE FROM events WHERE eventID =  :eventId";
-    $stmt = $pdo->prepare($sql2);
-    $stmt->bindParam(':eventId', $_POST['delete_eventid'], PDO::PARAM_INT);   
-    $stmt->execute();
+    $sql2 = "DELETE FROM events WHERE eventID = :eventId";
+    $stmt2 = $pdo->prepare($sql2);
+    $stmt2->bindParam(':eventId', $_POST['delete_eventid'], PDO::PARAM_INT);   
+    $stmt2->execute();
 
     header("location:index.html");    
     
-
 ?>
 
 
