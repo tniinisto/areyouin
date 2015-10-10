@@ -73,9 +73,7 @@
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
 
-                    //OnOff switch to select all
-                    //echo "<div>";
-                    //echo "<h2 id=\"pickall\">Pick players:</h2>";
+
                     echo "<label><h2>Pick players:</h2></label>";
                     echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
@@ -87,7 +85,6 @@
                         echo "</div>
                     </h4>";
 
-                    echo "</br>";
                     echo "</br>";
 
                     $row_index = 1; 
