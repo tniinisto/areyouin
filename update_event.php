@@ -239,7 +239,7 @@
 
         //Delete event
         echo "</br>";
-        echo "<form id='event_delete_form' method='post' action='delete_event_db.php'>";
+        echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 90%;'>";
             echo "<input class='myButton' type='submit' value='Delete Game' id='deletegame' onClick='eventFetchOn();'></input>";
             echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
         echo "</form>";
