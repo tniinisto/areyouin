@@ -77,7 +77,7 @@
                     //echo "<div>";
                     //echo "<h2 id=\"pickall\">Pick players:</h2>";
                     echo "<label><h2 id=\"pickall\">Pick players:</h2></label>";
-                    echo "<span>Select all: ";
+                    echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
                             echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
@@ -85,7 +85,7 @@
                             echo "<div class=\"onoffswitch-switch\"></div>";
                             echo "</label>";
                         echo "</div>
-                    </span>";
+                    </h4>";
 
                     echo "</br>";
                     echo "</br>";
