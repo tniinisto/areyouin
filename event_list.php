@@ -139,7 +139,7 @@
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Games @&nbsp 
+					        echo "<th> Event @&nbsp 
                             <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
                             </th>";
 				        echo "</tr>";
