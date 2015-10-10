@@ -73,17 +73,18 @@
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
 
-                    //OnOff switch to selecte all
+                    //OnOff switch to select all
                     //echo "<div>";
-                    echo "<h2 id=\"pickall\">Pick players: <span style='float: right; margin-right:10px;'>Select all: ";
-      
-                    echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
-                        echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
-                        echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
-                        echo "<div class=\"onoffswitch-inner\"></div>";
-                        echo "<div class=\"onoffswitch-switch\"></div>";
-                        echo "</label>";
-                    echo "</div></span></h2>";
+                    echo "<h2 id=\"pickall\">Pick players:</h2>";
+                    echo "<span>Select all: ";
+                        echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
+                            echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
+                            echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
+                            echo "<div class=\"onoffswitch-inner\"></div>";
+                            echo "<div class=\"onoffswitch-switch\"></div>";
+                            echo "</label>";
+                        echo "</div>
+                    </span>";
 
                     echo "</br>";
                     echo "</br>";
