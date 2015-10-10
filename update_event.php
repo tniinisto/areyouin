@@ -228,13 +228,19 @@
         echo "</br>";
         echo "</br>";
         
-        echo "<input class=\"myButton\" type=\"submit\" value=\"Update Game\" id=\"submitgame2\" onClick=\"eventFetchOn();\"></input>"; 
-        //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
+        echo "<input class='myButton' type='submit' value='Update Game' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+
         echo "</br>";
 
         //Event fetching back on & fetch the events
         echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Cancel</a>";
 
+        echo "</form>";
+
+        //Delete event
+        echo "<form id='event_delete_form' method='post' action='delete_event_db.php'>";
+            echo "<input class='myButton' type='submit' value='Delete Game' id='deletegame' onClick='eventFetchOn();'></input>";
+            echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
         echo "</form>";
 
         echo "</article>";
