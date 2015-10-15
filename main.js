@@ -703,7 +703,7 @@ function getPlayerStats() {
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +
                         "<br />" +
-                        "<span class='gameamountheader'>In " + player.games + " events</span>" +
+                        "<span class='gameamountheader'>In for " + player.games + " events</span>" +
                         "<br />" +
                         "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                         "<br>" +
@@ -719,7 +719,7 @@ function getPlayerStats() {
                         "<div class='list-right'>" +
                             "<span class='list-title'>" + player.name + "</span>" +
                             "<br />" +
-                            "<span class='gameamountheader'>In " + player.games + " event</span>" +
+                            "<span class='gameamountheader'>In for" + player.games + " event</span>" +
                             "<br />" +
                             "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                             "<br>" +
