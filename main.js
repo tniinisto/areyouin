@@ -437,7 +437,7 @@ function getChat() {
 
 	}
 
-    //This is no synchronous
+    //This is not synchronous
 	xmlhttp.open("GET", "chat.php", false); //Synchronous
 	xmlhttp.send();
 }

@@ -58,7 +58,7 @@
                                     echo "</div>";
                                     echo "<br />";
                                     echo "<div class='chat-list-right'>";
-                                        echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                        echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";                        
                                         echo "<div class='comment-text'>" . $row['comment'] . "</div>";
                                     echo "</div>";
                                 echo "</div>";
