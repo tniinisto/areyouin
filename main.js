@@ -703,7 +703,7 @@ function getPlayerStats() {
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +
                         "<br />" +
-                        "<span class='gameamountheader'>" + player.games + " played games</span>" +
+                        "<span class='gameamountheader'>" + player.games + " events</span>" +
                         "<br />" +
                         "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                         "<br>" +
