@@ -287,7 +287,7 @@
         }
 
         //Weather info///////////////////////////////////////////////////////////////////        
-        $sql_weather = "select distinct name, position from location where teamID = " . $teamid . "";
+        $sql_weather = "select distinct name, position from location where teamID = " . $teamid . " and showWeather = 1";
         $result_weather = mysql_query($sql_weather);
 	
         while($row_weather = mysql_fetch_array($result_weather)) {
