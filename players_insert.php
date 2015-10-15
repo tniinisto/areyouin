@@ -44,12 +44,12 @@
 
                 //New game///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"newgame_id\">";
-                    echo "<h1>Enter new game</h1>";
+                    echo "<h1>Enter new event</h1>";
                     
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
                     
                     //Location///////////////////////////////////////////
-                    echo "<label><h2>Game location:</h2></label>";
+                    echo "<label><h2>Event location:</h2></label>";
                     $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
                     $result2 = mysql_query($sql2);
 
@@ -66,17 +66,17 @@
                     //Location///////////////////////////////////////////
 
                     //echo "<h2>Set Time</h2>";
-                    echo "<label><h2>Game start:</h2></label>";
+                    echo "<label><h2>Start time:</h2></label>";
                     echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
                     required></input>";
                     
                     echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
-                    echo "<label><h2>Game end:</h2></label>";
+                    echo "<label><h2>End time:</h2></label>";
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
 
 
-                    echo "<label><h2>Pick players:</h2></label>";
+                    echo "<label><h2>Pick participants:</h2></label>";
                     echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
@@ -154,7 +154,7 @@
                     echo "</br>";
                         
                         //Public/Private event switch
-                        echo "<h2>Private game:</h2>";
+                        echo "<h2>Private event:</h2>";
                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 						    echo "<input type='checkbox' name='privateswitch' class=\"onoffswitch-checkbox\" id='event_private_switch'>";
                             echo "<label class=\"onoffswitch-label\" for='event_private_switch' onClick=''>";
