@@ -229,7 +229,7 @@
                 //Members page///////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id' class='noshow'>";
                 
-                    echo "<p>User managing stuff new, delete, edit...</p>";
+                    echo "<br><h2>User managing stuff new, delete, edit...</h2>";
 
                 echo "</div>";
                 //Members page///////////////////////////////////////////////////////////////////////////
