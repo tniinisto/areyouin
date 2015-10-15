@@ -29,13 +29,14 @@
             $row_count = mysql_num_rows($result);
 
             //Article///////////////////////////////////////////////////////////////////////////
-            echo "<article id=\"admin_content_article\" class=\"clearfix \">";
+            echo "<article id='admin_content_article' class='clearfix'>";
             
             //Navigation///////////////////////////////////////////////////////////////////////////
             echo "<nav>";
-			    echo "<ul id=\"admin-nav\" class=\"clearfix\" onClick=\"adminClick()\">";
-				    echo "<li id=\"link_admingame\" class=\"current2\"><a href=\"#\">New game</a></li>";
-                    echo "<li id=\"link_adminteam\"><a href=\"#\">Settings</a></li>";
+			    echo "<ul id='admin-nav' class='clearfix' onClick='adminClick()'>";
+				    echo "<li id='link_admingame' class='current2'><a href='#'>New event</a></li>";
+                    echo "<li id='link_adminteam'><a href='#'>Settings</a></li>";
+                    echo "<li id='link_adminmembers'><a href='#'>Members</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
