@@ -35,11 +35,12 @@
             echo "<nav>";
 			    echo "<ul id='admin-nav' class='clearfix' onClick='adminClick()'>";
 				    echo "<li id='link_admingame' class='current2'><a href='#'>New event</a></li>";
-                    echo "<li id='link_adminteam'><a href='#'>Settings</a></li>";
+                    echo "<li id='link_adminsettings'><a href='#'>Settings</a></li>";
                     echo "<li id='link_adminmembers'><a href='#'>Members</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
+
 
                 //New game///////////////////////////////////////////////////////////////////////////
                 echo "<div id=\"newgame_id\">";
@@ -170,7 +171,7 @@
                 //New game///////////////////////////////////////////////////////////////////////////
 
 
-                //Team page///////////////////////////////////////////////////////////////////////////
+                //Settings page///////////////////////////////////////////////////////////////////////////
 
                 $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
                 $res_team = mysql_query($sql_team);
@@ -222,7 +223,17 @@
 
 
                 echo "</div>";
-                //Team page///////////////////////////////////////////////////////////////////////////
+                //Settings page///////////////////////////////////////////////////////////////////////////
+
+
+                //Members page///////////////////////////////////////////////////////////////////////////
+                echo "<div id='member_content_id' class='noshow'>";
+                
+                    echo "<p>User managing stuff new, delete, edit...</p>";
+
+                echo "</div>";
+                //Members page///////////////////////////////////////////////////////////////////////////
+
 
 
             echo "</article>";
