@@ -119,7 +119,7 @@
                             //Still more than 1 player needed, yellow
                             //if($minimum - $row5['players_in'] > 1) {
                                 echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
-                                IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                                In for event: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                             //}
                             //else {
                             //    //Only one player missing, pink
