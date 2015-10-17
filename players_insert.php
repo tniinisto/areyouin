@@ -238,8 +238,7 @@
                             //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
                             echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
                             echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
-                            echo "<br>";
-                            echo "<td class=''>" . $row['name'] . "</td>";
+                            echo "<td class=''> name: " . $row['name'] . "</td>";
                         echo "<tr>";
                         echo "<br>";
                     }
