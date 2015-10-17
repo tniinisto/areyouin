@@ -254,5 +254,6 @@
             echo "<iframe name=\"frame_local\" style='display: none'></iframe>";
 
             mysql_close($con);
-        }
+
+        } //Admin
 ?>
