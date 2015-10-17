@@ -226,10 +226,30 @@
                 //Settings page///////////////////////////////////////////////////////////////////////////
 
 
-                //Members page///////////////////////////////////////////////////////////////////////////
+                //Members/Users page///////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id' class='noshow'>";
                 
                     echo "<br><h2>User managing stuff new, delete, edit...</h2>";
+
+                    mysql_data_seek($result, 0);
+                    while($row = mysql_fetch_array($result))
+                    {
+                        echo "<tr>";
+                            //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
+                            echo "<td class=''><playerID: " . $row['playerID'] . "'></td>";
+                            echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
+                            echo "<td class=''>" . $row['name'] . "</td>";
+                            //echo "<td class=''>";
+                            //        echo "<div class='onoffswitch'>";
+                            //                echo "<input type='checkbox' name='ooswitch" . $row_index . "' class='onoffswitch-checkbox' id='myonoff" . $row_index . "' checked>";
+                            //                echo "<label class='onoffswitch-label' for='myonoff" . $row_index . "'>";
+                            //                echo "<div class='onoffswitch-inner'></div>";
+                            //                echo "<div class='onoffswitch-switch'></div>";
+                            //                echo "</label>";
+                            //        echo "</div>";
+                            //echo "</td>";
+                        echo "<tr>";
+                    }
 
                 echo "</div>";
                 //Members page///////////////////////////////////////////////////////////////////////////
