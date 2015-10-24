@@ -43,7 +43,7 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit 10";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit" . MAX_NRO_EVENTS . "";
 
 	    $result = mysql_query($sql);
 	
@@ -51,7 +51,7 @@
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event
-	    while($row = mysql_fetch_array($result) and $row_index <= MAX_NRO_EVENTS)
+	    while($row = mysql_fetch_array($result))
 	    {
             //Check private event showing
             $private = $row['private'];
