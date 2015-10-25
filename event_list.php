@@ -46,7 +46,7 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit"  . $moreevents . "," . MAX_NRO_EVENTS ."";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit " . $moreevents . ", " . MAX_NRO_EVENTS ."";
 
 	    $result = mysql_query($sql);
 
