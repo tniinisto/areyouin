@@ -42,7 +42,7 @@
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
                
-        $max_events = MAX_NRO_EVENTS;
+        $max_events = 2;
         $offset = $moreevents * $max_events;
                 
         $sql = 
@@ -77,7 +77,6 @@
         FROM events e
         where Team_teamID = '" . $teamid  . "'
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
-
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
         $totalrows = $total['total'];
