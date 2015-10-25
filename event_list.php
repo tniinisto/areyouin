@@ -51,8 +51,12 @@
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event
+        $totalrows = 0; //Total row amount
 	    while($row = mysql_fetch_array($result))
 	    {
+            //Take total row amount into variable
+            $totalrows = $row['totalrows'];
+
             //Check private event showing
             $private = $row['private'];
 
@@ -275,7 +279,7 @@
 
         //Display no event scheduled info if there are no events
         if($event_check == 0) {
-            echo "<article id=\"event_article_id\" class=\"clearfix\">";
+            echo "<article id='event_article_id' class='clearfix'>";
                 echo "<div>";
 
                     echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
@@ -285,6 +289,23 @@
             echo "</article>";
 
         }
+
+        //More events info///////////////////////////////////////////////////////////////////        
+        if($totalrows > MAX_NRO_EVENTS) {
+            echo "<article id='event_article_id' class='clearfix'>";
+                echo "<div>";
+
+                    echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
+                    
+                echo "</div>";
+            echo "</article>";
+
+  
+
+        }
+
+
+        //More events info///////////////////////////////////////////////////////////////////        
 
         //Weather info///////////////////////////////////////////////////////////////////        
         $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
