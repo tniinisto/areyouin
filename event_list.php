@@ -42,7 +42,8 @@
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
                
-        $offset = $moreevents * MAX_NRO_EVENTS;
+        $max_events = MAX_NRO_EVENTS;
+        $offset = $moreevents * $max_events;
                 
         $sql = 
         "SELECT SQL_CALC_FOUND_ROWS *, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
@@ -55,7 +56,7 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $max_events . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
 
 	    $result = mysql_query($sql);
