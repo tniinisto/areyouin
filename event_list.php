@@ -320,7 +320,7 @@
         $p = $_SESSION['more_clicks'];
         $max = MAX_NRO_EVENTS;
         $call = $p + 1;
-        if( $totalrows > $max || ($totalrows > ($max * $p)) ) {
+        if( $totalrows > $max && ($totalrows > ($max * $p)) ) {
 
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
