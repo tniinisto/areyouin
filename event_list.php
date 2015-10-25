@@ -59,9 +59,6 @@
         $private = 0; //Private event        
 	    while($row = mysql_fetch_array($result))
 	    {
-            //Take total row amount into variable
-            $totalrows = $row['totalrows'];
-
             //Check private event showing
             $private = $row['private'];
 
