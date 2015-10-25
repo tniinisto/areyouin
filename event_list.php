@@ -308,7 +308,8 @@
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
                         //echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
-                        echo "<a href='#' onclick='getEvents(" . $_SESSION['more_clicks'] + 1 . ")'>More events available</a>";                    
+                        $p = $_SESSION['more_clicks'] + 1;
+                        echo "<a href='#' onclick='getEvents(" . $p . ")'>More events available</a>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
