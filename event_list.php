@@ -3,11 +3,18 @@
 
     session_start();
 
-    //Parameter
-    $moreevents=$_GET["more"];
-
     //Maximum number of events listed at once
     define('MAX_NRO_EVENTS', 1);
+
+    //More events parameter & session//////////////////////
+    $moreevents=$_GET["more"];    
+    if($moreevents == 0) {
+        $_SESSION['more_clicks'] = 0;
+    }
+    else {
+        $_SESSION['more_clicks'] = $moreevents;
+    }
+    //More events parameter & session//////////////////////
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
     
@@ -46,7 +53,7 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit " . $moreevents . ", " . MAX_NRO_EVENTS ."";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit " . $moreevents * MAX_NRO_EVENTS . ", " . MAX_NRO_EVENTS ."";
 
 	    $result = mysql_query($sql);
 
@@ -300,9 +307,8 @@
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
-                        //getEvents(moreevents)
                         //echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
-                        echo "<a href='#' onclick='getEvents(2);'>More events available</a>";                    
+                        echo "<a href='#' onclick='getEvents(". $_SESSION['more_clicks'] + 1 .");'>More events available</a>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
