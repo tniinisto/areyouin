@@ -73,10 +73,19 @@
 //echo $row['count'];
 
         //Getting the total row amount//////////////
-        $sql_total = "SELECT FOUND_ROWS() AS count;";
+        $sql_total = "SELECT count(e.eventID) as total
+        FROM events e
+        inner join location l on l.locationID = e.Location_locationID
+        inner join eventplayer ep on ep.Events_eventID = e.eventID
+        inner join players p on ep.Players_playerID = p.playerID
+        inner join playerteam pt on pt.Players_playerID = p.playerID
+        inner join team t on t.teamID = pt.Team_teamID
+        where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
+        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
+
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
-        $totalrows = $total['count'];
+        $totalrows = $total['total'];
             
 	    //Go through events & players
 	    $event_check = 0; //Check when the event changes
