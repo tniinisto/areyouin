@@ -303,7 +303,7 @@
         }
 
         //More events info///////////////////////////////////////////////////////////////////        
-        if($totalrows > MAX_NRO_EVENTS && $totalrows > MAX_NRO_EVENTS * $_SESSION['more_clicks']) {
+        if( $totalrows > MAX_NRO_EVENTS && $totalrows > (MAX_NRO_EVENTS * $_SESSION['more_clicks']) ) {
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
