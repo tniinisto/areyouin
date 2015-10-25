@@ -59,8 +59,6 @@
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $max_events . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
 
-	    $result = mysql_query($sql);
-
 //$query = "
 //SELECT SQL_CALC_FOUND_ROWS * 
 //FROM tb1
@@ -77,11 +75,13 @@
         FROM events e
         where Team_teamID = '" . $teamid  . "'
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
+
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
         $totalrows = $total['total'];
             
 	    //Go through events & players
+        $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event        
