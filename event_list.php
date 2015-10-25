@@ -306,13 +306,14 @@
 
         //More events info///////////////////////////////////////////////////////////////////        
         $p = $_SESSION['more_clicks'];
+        $call = $p + 1;
         if( $totalrows > MAX_NRO_EVENTS && ($totalrows > (MAX_NRO_EVENTS * $p)) ) {
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
                         //echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
                         
-                        echo "<a href='#' onclick='getEvents(" . $p+1 . ")'>More events available</a>";                    
+                        echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
