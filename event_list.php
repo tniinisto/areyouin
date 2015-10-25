@@ -46,12 +46,17 @@
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc limit " . MAX_NRO_EVENTS . "";
 
 	    $result = mysql_query($sql);
-	
+
+        //Getting the total row amount//////////////
+        $sql_total = "SELECT FOUND_ROWS() AS `found_rows`;";
+        $rows_total = mysql_query($sql_total);
+        $rows_total = mysql_fetch_assoc($rows_total);
+        $totalrows = $rows_total['found_rows'];
+            
 	    //Go through events & players
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
-        $private = 0; //Private event
-        $totalrows = 0; //Total row amount
+        $private = 0; //Private event        
 	    while($row = mysql_fetch_array($result))
 	    {
             //Take total row amount into variable
