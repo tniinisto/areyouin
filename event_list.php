@@ -46,7 +46,7 @@
         $offset = $moreevents * $max_events;
                 
         $sql = 
-        "SELECT SQL_CALC_FOUND_ROWS *, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+        "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
         FROM events e
         inner join location l on l.locationID = e.Location_locationID
@@ -321,7 +321,7 @@
         $p = $_SESSION['more_clicks'];
         $max = MAX_NRO_EVENTS;
         $call = $p + 1;
-        if( $totalrows > $max && ($totalrows > ($max * $p)) ) {
+        //if( $totalrows > $max && ($totalrows > ($max * $p)) ) {
 
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
@@ -333,7 +333,7 @@
                 echo "</article>";
             echo "</div>";
 
-        }
+        //}
         //More events info///////////////////////////////////////////////////////////////////        
 
         //Weather info///////////////////////////////////////////////////////////////////        
