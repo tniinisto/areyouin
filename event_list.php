@@ -60,11 +60,22 @@
 
 	    $result = mysql_query($sql);
 
+//$query = "
+//SELECT SQL_CALC_FOUND_ROWS * 
+//FROM tb1
+//LIMIT 5";
+//$result = mysql_query($query);
+
+//$query = "SELECT FOUND_ROWS() AS count";
+//$result2 = mysql_query($query);
+//$row = mysql_fetch_array($result2);
+//echo $row['count'];
+
         //Getting the total row amount//////////////
-        $sql_total = "SELECT FOUND_ROWS() AS 'found_rows';";
+        $sql_total = "SELECT FOUND_ROWS() AS count;";
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
-        $totalrows = $total['found_rows'];
+        $totalrows = $total['count'];
             
 	    //Go through events & players
 	    $event_check = 0; //Check when the event changes
