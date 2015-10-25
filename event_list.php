@@ -61,10 +61,10 @@
 	    $result = mysql_query($sql);
 
         //Getting the total row amount//////////////
-        $sql_total = "SELECT FOUND_ROWS() AS `found_rows`;";
+        $sql_total = "SELECT FOUND_ROWS() AS 'found_rows';";
         $rows_total = mysql_query($sql_total);
-        $rows_total = mysql_fetch_assoc($rows_total);
-        $totalrows = $rows_total['found_rows'];
+        $total = mysql_fetch_array($rows_total);
+        $totalrows = $total['found_rows'];
             
 	    //Go through events & players
 	    $event_check = 0; //Check when the event changes
@@ -310,6 +310,7 @@
         $max = MAX_NRO_EVENTS;
         $call = $p + 1;
         if( $totalrows > $max && ($totalrows > ($max * $p)) ) {
+
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
@@ -319,6 +320,7 @@
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
+
         }
         //More events info///////////////////////////////////////////////////////////////////        
 
