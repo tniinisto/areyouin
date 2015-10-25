@@ -302,7 +302,7 @@
                     echo "<div>";
                         //getEvents(moreevents)
                         //echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
-                        echo "<a href='#' onclick='getEvents(" . MAX_NRO_EVENTS . ");'>More events available</a>";                    
+                        echo "<a href='#' onclick='getEvents('2');'>More events available</a>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
