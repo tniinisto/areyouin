@@ -325,7 +325,7 @@
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
-                        //echo "<h3 style=\"text-align: center;\">There are more events available...</h3>";
+                        echo "<h3 style=\"text-align: center;\">" . $totalrows . "</h3>";
                         
                         echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
                     echo "</div>";
