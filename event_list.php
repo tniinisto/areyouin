@@ -42,7 +42,7 @@
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
                
-        $max_events = 2;
+        $max_events = 1;
         $offset = $moreevents * $max_events;
                 
         $sql = 
