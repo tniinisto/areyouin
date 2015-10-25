@@ -14,6 +14,7 @@
     else {
         $_SESSION['more_clicks'] = $moreevents;
     }
+    $moreevents++;
     //More events parameter & session//////////////////////
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
