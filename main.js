@@ -160,12 +160,13 @@ function getEvents(more) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if(more != 0){
-                    document.getElementById("more_events_content").innerHTML = xmlhttp.responseText;                    
+                if (more != 0) {
+                    document.getElementById("more_events_content").innerHTML = xmlhttp.responseText;
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
                 }
+            }
         }
 
         //alert("GET gets called.");
