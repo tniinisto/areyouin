@@ -56,8 +56,6 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc";
-
-        $result = mysql_query($sql);
          
         //LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";        
         //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
@@ -76,6 +74,7 @@
         
             
 	    //Go through events & players
+        $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event        
