@@ -5,7 +5,7 @@
 
     //Maximum number of events listed at once
     //define('MAX_NRO_EVENTS', 1);
-    //$MAX_NRO_EVENTS = 2;
+    $MAX_NRO_EVENTS = 2;
 
     //More events parameter & session//////////////////////
     $moreevents=$_GET["more"];    
@@ -43,7 +43,7 @@
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
                
-        //$offset = $moreevents * $MAX_NRO_EVENTS;
+        $offset = $moreevents * $MAX_NRO_EVENTS;
                 
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
