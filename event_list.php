@@ -55,8 +55,10 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
-
+        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc 
+        LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
+        
+        //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
 
         //Getting the total row amount////////////////////////////////
