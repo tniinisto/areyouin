@@ -55,22 +55,9 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
+        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
 
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
-        
-
-//$query = "
-//SELECT SQL_CALC_FOUND_ROWS * 
-//FROM tb1
-//LIMIT 5";
-//$result = mysql_query($query);
-
-//$query = "SELECT FOUND_ROWS() AS count";
-//$result2 = mysql_query($query);
-//$row = mysql_fetch_array($result2);
-//echo $row['count'];
 
         //Getting the total row amount////////////////////////////////
         $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
