@@ -4,17 +4,16 @@
     session_start();
 
     //Maximum number of events listed at once
-    //define('MAX_NRO_EVENTS', 1);
-    //$MAX_NRO_EVENTS = 2;
+    define('MAX_NRO_EVENTS', 1);
 
     //More events parameter & session//////////////////////
-    //$moreevents=$_GET["more"];    
-    //if($moreevents == 0) {
-    //    $_SESSION['more_clicks'] = 0;
-    //}
-    //else {
-    //    $_SESSION['more_clicks'] = $moreevents;
-    //}
+    $moreevents=$_GET["more"];    
+    if($moreevents == 0) {
+        $_SESSION['more_clicks'] = 0;
+    }
+    else {
+        $_SESSION['more_clicks'] = $moreevents;
+    }
     //More events parameter & session//////////////////////
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
@@ -31,7 +30,7 @@
 
 	    mysql_select_db("areyouin", $con);
                
-        //$offset = $moreevents * $MAX_NRO_EVENTS;
+        $offset = $moreevents * MAX_NRO_EVENTS;
                 
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
@@ -44,21 +43,21 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
-         
-        //LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";        
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc
+        LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
+
         //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
 
         //Getting the total row amount////////////////////////////////
-        //$sql_total_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now();";
-        //$rows_total_events = mysql_query($sql_total_events);
-        //$total_events = mysql_fetch_array($rows_total_events);
+        $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now();";
+        $rows_total_events = mysql_query($sql_total_events);
+        $total_events = mysql_fetch_array($rows_total_events);
 
-        //$sql_total = "SELECT FOUND_ROWS() AS total;";
-        //$rows_total = mysql_query($sql_total);
-        //$total = mysql_fetch_array($rows_total);
-        //$totalrows = $total['total'];
+        $sql_total = "SELECT FOUND_ROWS() AS total;";
+        $rows_total = mysql_query($sql_total);
+        $total = mysql_fetch_array($rows_total);
+        $totalrows = $total['total'];
         //Getting the total row amount////////////////////////////////
                     
 	    //Go through events & players
@@ -302,21 +301,21 @@
         }
 
         //More events info///////////////////////////////////////////////////////////////////        
-        //$p = $_SESSION['more_clicks'];
-        //$call = $p + 1;
-        ////if( $totalrows > $max && ($totalrows > ($MAX_NRO_EVENTS * $p)) ) {
+        
+        $call = $_SESSION['more_clicks'] + 1;
+        //if( $totalrows > $max && ($totalrows > ($MAX_NRO_EVENTS * $p)) ) {
 
-        //    echo "<div id='more_events_content'>";
-        //        echo "<article id='more_events' class='clearfix'>";
-        //            echo "<div>";
-        //                echo "<h3 style=\"text-align: center;\">" . $totalrows . "</h3>";
-        //                
-        //                echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
-        //            echo "</div>";
-        //        echo "</article>";
-        //    echo "</div>";
+            echo "<div id='more_events_content'>";
+                echo "<article id='more_events' class='clearfix'>";
+                    echo "<div>";
+                        echo "<h3 style=\"text-align: center;\">" . $totalrows . "</h3>";
+                        
+                        echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
+                    echo "</div>";
+                echo "</article>";
+            echo "</div>";
 
-        ////}
+        //}
         //More events info///////////////////////////////////////////////////////////////////        
 
         //Weather info///////////////////////////////////////////////////////////////////        
