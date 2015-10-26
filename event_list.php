@@ -86,7 +86,7 @@
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event        
-	    while($row = mysql_fetch_array($result))
+	    while($row = mysql_fetch_array($result) && $row_index <= MAX_NRO_EVENTS)
 	    {
             //Check private event showing
             $private = $row['private'];
