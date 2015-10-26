@@ -3,7 +3,6 @@
 
     session_start();
 
-
     //Maximum number of events listed at once
     //define('MAX_NRO_EVENTS', 1);
     //$MAX_NRO_EVENTS = 2;
