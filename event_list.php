@@ -45,7 +45,7 @@
         $offset = $moreevents * MAX_NRO_EVENTS;
                 
         $sql = 
-        "SELECT SQL_CALC_FOUND_ROWS e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+        "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
         FROM events e
         inner join location l on l.locationID = e.Location_locationID
@@ -55,7 +55,8 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
+        //LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
 
 //$query = "
@@ -69,11 +70,17 @@
 //$row = mysql_fetch_array($result2);
 //echo $row['count'];
 
-        //Getting the total row amount//////////////
+        //Getting the total row amount////////////////////////////////
+        $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS eventID FROM events where t.teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
+        $rows_total_events = mysql_query($sql_total_events);
+        $total_events = mysql_fetch_array($rows_total_events);
+
         $sql_total = "SELECT FOUND_ROWS() AS total";
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
         $totalrows = $total['total'];
+        //Getting the total row amount////////////////////////////////
+        
             
 	    //Go through events & players
         $result = mysql_query($sql);
