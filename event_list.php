@@ -43,7 +43,8 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
+        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
          
         //LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";        
         //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
@@ -59,8 +60,7 @@
         //$total = mysql_fetch_array($rows_total);
         //$totalrows = $total['total'];
         //Getting the total row amount////////////////////////////////
-        
-            
+                    
 	    //Go through events & players
         $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
@@ -299,25 +299,7 @@
                 echo "</div>";
             echo "</article>";
 
-        }
-
-        //More events info///////////////////////////////////////////////////////////////////        
-        //$p = $_SESSION['more_clicks'];
-        //$call = $p + 1;
-        ////if( $totalrows > $max && ($totalrows > ($MAX_NRO_EVENTS * $p)) ) {
-
-        //    echo "<div id='more_events_content'>";
-        //        echo "<article id='more_events' class='clearfix'>";
-        //            echo "<div>";
-        //                echo "<h3 style=\"text-align: center;\">" . $totalrows . "</h3>";
-        //                
-        //                echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
-        //            echo "</div>";
-        //        echo "</article>";
-        //    echo "</div>";
-
-        ////}
-        //More events info///////////////////////////////////////////////////////////////////        
+        }    
 
         //Weather info///////////////////////////////////////////////////////////////////        
         $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
