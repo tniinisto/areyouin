@@ -71,7 +71,7 @@
 //echo $row['count'];
 
         //Getting the total row amount////////////////////////////////
-        $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS eventID FROM events e where t.teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
+        $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where t.teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()";
         $rows_total_events = mysql_query($sql_total_events);
         $total_events = mysql_fetch_array($rows_total_events);
 
