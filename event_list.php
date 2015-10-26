@@ -4,7 +4,8 @@
     session_start();
 
     //Maximum number of events listed at once
-    define('MAX_NRO_EVENTS', 1);
+    //define('MAX_NRO_EVENTS', 1);
+    $MAX_NRO_EVENTS = 1;
 
     //More events parameter & session//////////////////////
     $moreevents=$_GET["more"];    
@@ -42,7 +43,7 @@
         //    $time_condition = "(e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR)";
         //}
                
-        $offset = $moreevents * MAX_NRO_EVENTS;
+        $offset = $moreevents * $MAX_NRO_EVENTS;
                 
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
@@ -55,7 +56,7 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
 
 //$query = "
@@ -86,7 +87,7 @@
 	    $event_check = 0; //Check when the event changes
 	    $row_index = 1; //Unique naming for switches
         $private = 0; //Private event        
-	    while($row = mysql_fetch_array($result) && $row_index <= MAX_NRO_EVENTS)
+	    while($row = mysql_fetch_array($result) && $row_index <= $MAX_NRO_EVENTS)
 	    {
             //Check private event showing
             $private = $row['private'];
@@ -323,9 +324,8 @@
 
         //More events info///////////////////////////////////////////////////////////////////        
         $p = $_SESSION['more_clicks'];
-        $max = MAX_NRO_EVENTS;
         $call = $p + 1;
-        //if( $totalrows > $max && ($totalrows > ($max * $p)) ) {
+        //if( $totalrows > $max && ($totalrows > ($MAX_NRO_EVENTS * $p)) ) {
 
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
