@@ -46,7 +46,7 @@
         //$offset = $moreevents * $MAX_NRO_EVENTS;
                 
         $sql = 
-        "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+        "SELECT private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
         FROM events e
         inner join location l on l.locationID = e.Location_locationID
