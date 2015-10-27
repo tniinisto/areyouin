@@ -30,7 +30,25 @@
 
 	    mysql_select_db("areyouin", $con);
                
-        $offset = $moreevents * MAX_NRO_EVENTS;
+        //Get events in set limit
+        $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() LIMIT " . MAX_NRO_EVENTS . ";";
+        $rows_events = mysql_query($sql_events);        
+        $eventrow = 0;
+        $eventIDs = 0;
+        if($eventrow = mysql_fetch_array($rows_events)) {
+            $eventIDs = $eventrow['eventID'];
+	        while($eventrow = mysql_fetch_array($rows_events)) {
+                $eventIDs += ", " + $eventrow['eventID'];
+            }
+        }
+
+        //Get total event amount
+        $sql_total = "SELECT FOUND_ROWS() AS total;";
+        $rows_total = mysql_query($sql_total);
+        $total = mysql_fetch_array($rows_total);
+        $totalrows = $total['total'];        
+                
+        //$offset = $moreevents * MAX_NRO_EVENTS;
 
 //SELECT x.eventcount, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
 //p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
@@ -56,22 +74,11 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
-        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc
-        LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
-
+        and ep.Events_eventID IN (". $eventIDs .")
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
+        //LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
         //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
-
-        //Getting the total row amount////////////////////////////////
-        $sql_total_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now();";
-        $rows_total_events = mysql_query($sql_total_events);
-        $total_events = mysql_fetch_array($rows_total_events);
-
-        $sql_total = "SELECT FOUND_ROWS() AS total;";
-        $rows_total = mysql_query($sql_total);
-        $total = mysql_fetch_array($rows_total);
-        $totalrows = $total['total'];
-        //Getting the total row amount////////////////////////////////
                     
 	    //Go through events & players
         $result = mysql_query($sql);
@@ -105,8 +112,6 @@
 	                $result3 = mysql_query($sql3);
                     $row3 = mysql_fetch_array($result3);
 
-
-			
 			        echo "<article id=\"event_article_id\" class=\"clearfix\">";
             
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
@@ -314,15 +319,14 @@
         }
 
         //More events info///////////////////////////////////////////////////////////////////        
-        
         $call = $_SESSION['more_clicks'] + 1;
-        //if( $totalrows > $max && ($totalrows > ($MAX_NRO_EVENTS * $p)) ) {
+        if( $totalrows > MAX_NRO_EVENTS) {
 
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
-                        echo "<h3 style=\"text-align: center;\">" . $totalrows . "</h3>";
-                        
+                        echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
+                        echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
                         echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
                     echo "</div>";
                 echo "</article>";
