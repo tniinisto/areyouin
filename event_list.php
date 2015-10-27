@@ -311,6 +311,7 @@
     		            echo "</table>";  
                         echo "<table class='atable_summary'>";
 				            echo "<tr style='cursor: pointer;'>";
+                                echo "<th>&nbsp</th>";
 				            echo "</tr>";
     		            echo "</table>";  
                     echo "</div>";
