@@ -309,9 +309,9 @@
                                 echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
 				            echo "</tr>";
     		            echo "</table>";  
-                        echo "<table class='lastrow2' style='border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px;'>";
+                        echo "<table class='lastrow2'>";
 				            echo "<tr>";
-                                echo "<th>&nbsp</th>";
+                                echo "<th style='border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px;'>&nbsp</th>";
 				            echo "</tr>";
     		            echo "</table>";  
                     echo "</div>";
