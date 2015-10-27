@@ -309,8 +309,8 @@
                                 echo "<th style='text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
 				            echo "</tr>";
     		            echo "</table>";  
-                        echo "<table class='atable_summary'>";
-				            echo "<tr style='cursor: pointer;'>";
+                        echo "<table class='lastrow2'>";
+				            echo "<tr>";
                                 echo "<th>&nbsp</th>";
 				            echo "</tr>";
     		            echo "</table>";  
