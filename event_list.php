@@ -307,7 +307,7 @@
                         echo "<table class='atable_summary'>";
 				            echo "<tr style='cursor: pointer;'>";
                                 //echo "<th><h3 style='text-align: center;'><a href='#' style='color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>More events available</a></h3></th>";7
-                                echo "<th style='text-align: center; color: #ffd800; text-decoration: underline;'><a href='#'  onclick='getEvents(" . $call . ")'>More events available</a></th>";                
+                                echo "<th style='text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";                
 				            echo "</tr>";
 				            //echo "<tr style=\"cursor: pointer;\">";
                 //                echo "<th>&nbsp</th>";
