@@ -311,7 +311,7 @@
     		            echo "</table>";  
                         echo "<table class='lastrow2'>";
 				            echo "<tr>";
-                                echo "<th></th>";
+                                echo "<th>&nbsp</th>";
 				            echo "</tr>";
     		            echo "</table>";  
                     echo "</div>";
