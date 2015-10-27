@@ -754,7 +754,7 @@ td.col6 {
 .atable_summary th {
 	text-align: left;
 	height: auto;
-    color: #00ff21;
+    /*color: #00ff21;*/
     text-decoration: underline;
     padding: 0px 0px;
     font-size: large;
