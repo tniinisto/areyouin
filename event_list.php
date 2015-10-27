@@ -303,7 +303,7 @@
                     echo "<div>";
                         //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
-                        echo "<h3 style='text-align: center;'><a href='#' onclick='getEvents(" . $call . ")'>More events available</a></h3>";                    
+                        echo "<h3 style='text-align: center;'><a href='#' style='color: #ffd800;' onclick='getEvents(" . $call . ")'>More events available</a></h3>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
