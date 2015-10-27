@@ -304,10 +304,10 @@
                     echo "<div class='divtable'>&nbsp";
                         //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
-                        echo "<table class='atable_summary'>";
+                        echo "<table class='atable_summary' style='z-index: 999;'>";
 				            echo "<tr style='cursor: pointer;'>";
                                 //echo "<th><h3 style='text-align: center;'><a href='#' style='color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>More events available</a></h3></th>";7
-                                echo "<th><a href='#' style='z-index: 99; text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>More events available</a></th>";                
+                                echo "<th><a href='#' style='text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>More events available</a></th>";                
 				            echo "</tr>";
 			            echo "</table>";            
                     echo "</div>";
