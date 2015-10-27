@@ -31,7 +31,8 @@
 	    mysql_select_db("areyouin", $con);
                
         //Get events in set limit
-        $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now() LIMIT " . MAX_NRO_EVENTS . ";";
+        $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID FROM events e where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+                       LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $moreevents . ";";
         $rows_events = mysql_query($sql_events);        
         $eventrow = 0;
         $eventIDs = 0;
