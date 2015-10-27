@@ -47,23 +47,9 @@
         $sql_total = "SELECT FOUND_ROWS() AS total;";
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
-        $totalrows = $total['total'];        
+        $totalrows = $total['total'];                        
                 
-        //$offset = $moreevents * MAX_NRO_EVENTS;
-
-//SELECT x.eventcount, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
-//p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
-//FROM events e
-//cross join (select count(Events_eventID) as eventcount, Events_eventId from eventplayer ee group by Events_eventId) as x on x.Events_eventID = e.eventID
-//inner join location l on l.locationID = e.Location_locationID
-//inner join eventplayer ep on ep.Events_eventID = e.eventID
-//inner join players p on ep.Players_playerID = p.playerID
-//inner join playerteam pt on pt.Players_playerID = p.playerID
-//inner join team t on t.teamID = pt.Team_teamID
-//where t.teamID = 3 and e.Team_teamID = t.teamID
-//and e.endTime > now()
-//order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;
-                
+        //Get events with players
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
@@ -77,9 +63,6 @@
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
         and ep.Events_eventID IN (". $eventIDs .")
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
-        //LIMIT " . $offset . " , ". MAX_NRO_EVENTS . ";";
-        //LIMIT " . $MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
-        //order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc LIMIT " . $offset . " , ". $MAX_NRO_EVENTS . ";";
                     
 	    //Go through events & players
         $result = mysql_query($sql);
@@ -122,14 +105,6 @@
                         echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
                     else
                         echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
-
-                    //Top table for rounded corners
-           //         echo "<table class=\"lastrow\">";
-			        //	echo "<tr style=\"cursor: pointer;\">";
-			        //		//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
-           //                 echo "<th>&nbsp</th>";
-			        //	echo "</tr>";
-			        //echo "</table>";
 			
                     //Event summary info, Invited players
                     $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . "";
