@@ -301,9 +301,9 @@
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' class='clearfix'>";
                     echo "<div>";
-                        echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
-                        echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
-                        echo "<a href='#' onclick='getEvents(" . $call . ")'>More events available</a>";                    
+                        //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
+                        //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
+                        echo "<h3 style='text-align: center;'><a href='#' onclick='getEvents(" . $call . ")'>More events available</a></h3>";                    
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
