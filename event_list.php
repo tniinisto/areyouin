@@ -300,7 +300,7 @@
             $call = $_SESSION['more_clicks'] + 1;
             echo "<div id='more_events_content'>";
                 echo "<article id='more_events' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
-                    echo "<div>";
+                    echo "<div class='divtable'>";
                         //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
                         echo "<table class='atable_summary'>";
