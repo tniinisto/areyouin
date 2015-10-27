@@ -301,7 +301,7 @@
             echo "<div id='more_events_content'>";
                 //echo "<article id='event_article_id' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
                 echo "<article id='event_article_id' class='clearfix'>";
-                    echo "<div class='divtable'>";
+                    echo "<div class='divtable'>&nbsp";
                         //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
                         echo "<table class='atable_summary'>";
