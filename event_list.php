@@ -311,6 +311,11 @@
 				            echo "</tr>";
 			            echo "</table>";            
                     echo "</div>";
+                    echo "<table class=\"lastrow2\">";
+				        echo "<tr style=\"cursor: pointer;\">";
+                            echo "<th>&nbsp</th>";
+				        echo "</tr>";
+			        echo "</table>";
                 echo "</article>";
             echo "</div>";
 
