@@ -31,6 +31,19 @@
 	    mysql_select_db("areyouin", $con);
                
         $offset = $moreevents * MAX_NRO_EVENTS;
+
+//SELECT x.eventcount, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+//p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
+//FROM events e
+//cross join (select count(Events_eventID) as eventcount, Events_eventId from eventplayer ee group by Events_eventId) as x on x.Events_eventID = e.eventID
+//inner join location l on l.locationID = e.Location_locationID
+//inner join eventplayer ep on ep.Events_eventID = e.eventID
+//inner join players p on ep.Players_playerID = p.playerID
+//inner join playerteam pt on pt.Players_playerID = p.playerID
+//inner join team t on t.teamID = pt.Team_teamID
+//where t.teamID = 3 and e.Team_teamID = t.teamID
+//and e.endTime > now()
+//order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;
                 
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
