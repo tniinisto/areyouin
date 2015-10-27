@@ -308,11 +308,10 @@
 				            echo "<tr style='cursor: pointer;'>";
                                 echo "<th style='text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
 				            echo "</tr>";
-				            //echo "<tr style='cursor: pointer;'>";
-                //                echo "<th>&nbsp</th>";
-				            //echo "</tr>";
-    		          //  echo "</table>";
-                        echo "&nbsp";            
+				            echo "<tr style='cursor: pointer;'>";
+                                echo "<th>&nbsp</th>";
+				            echo "</tr>";
+    		            echo "</table>";  
                     echo "</div>";
                 echo "</article>";
             echo "</div>";
