@@ -308,8 +308,7 @@
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
                         echo "<table class='atable_summary'>";
 				            echo "<tr style='cursor: pointer;'>";
-                                echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'
-                                onclick='getEvents(" . $call . ", more_events_content" . $moreevents . ")'>More events available</a></th>";        
+                                echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
 				            echo "</tr>";
     		            echo "</table>";  
                         echo "<table class='lastrow2'>";
