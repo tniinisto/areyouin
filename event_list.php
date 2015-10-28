@@ -300,7 +300,7 @@
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
 
             $call = $_SESSION['more_clicks'] + 1;
-            echo "<div id='more_events_content'>";
+            echo "<div id='more_events_content". $moreevents ."'>";
                 //echo "<article id='event_article_id' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
                 echo "<article id='event_article_id' class='clearfix'>";
                     echo "<div class='divtable'>&nbsp";

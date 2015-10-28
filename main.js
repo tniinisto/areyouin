@@ -157,11 +157,12 @@ function getEvents(more) {
         }
 
         more = typeof more !== 'undefined' ? more : 0;
+        var moreid = "more_events_content" + more;
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (more != 0) {
-                    document.getElementById("more_events_content").innerHTML = xmlhttp.responseText;
+                    document.getElementById(moreid).innerHTML = xmlhttp.responseText;
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
