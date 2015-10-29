@@ -4,7 +4,7 @@
     session_start();
 
     //Maximum number of events listed at once
-    define('MAX_NRO_EVENTS', 3);
+    define('MAX_NRO_EVENTS', 5);
 
     //More events parameter & session//////////////////////
     $moreevents=$_GET["more"];    
@@ -41,7 +41,7 @@
         if($eventrow = mysql_fetch_array($rows_events)) {
             $eventIDs = $eventrow['eventID'];
 	        while($eventrow = mysql_fetch_array($rows_events)) {
-                $eventIDs += ", " + $eventrow['eventID'];
+                $eventIDs .= ", " . $eventrow['eventID'];
             }
         }
 
