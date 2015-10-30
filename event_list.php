@@ -101,7 +101,7 @@
 
                     //Unique event id
                     $eventID_unique = 'event_article_' . $row_index;
-			        echo "<article id='". $eventID_unique ."' class='clearfix event_article'>";
+			        echo "<article id='". $eventID_unique ."' class='event_article clearfix'>";
                 
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
