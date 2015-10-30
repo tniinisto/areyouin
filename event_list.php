@@ -100,7 +100,7 @@
                     $row3 = mysql_fetch_array($result3);
 
                     //Unique event id
-                    $eventID_unique = 'event_article_' . ($moreevents + 1);
+                    $eventID_unique = 'event_article_' . $row_index;
 			        echo "<article id='". $eventID_unique ."' class='event_article clearfix'>";
                 
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
