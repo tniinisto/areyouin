@@ -288,7 +288,7 @@
 
         //Display no event scheduled info if there are no events
         if($event_check == 0) {
-            echo "<article id='event_article_id' class='clearfix'>";
+            echo "<article id='event_article_id' class='event_article clearfix'>";
                 echo "<div>";
 
                     echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
@@ -305,7 +305,7 @@
             $call = $_SESSION['more_clicks'] + 1;
             echo "<div id='more_events_content". $call ."'>";
                 //echo "<article id='event_article_id' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
-                echo "<article id='event_article_id' class='clearfix'>";
+                echo "<article id='event_article_id' class='event_article clearfix'>";
                     echo "<div class='divtable'>&nbsp";
                         //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
@@ -334,7 +334,7 @@
 
             $latlon = explode(", ", $row_weather['position']);
 
-            echo "<article id=\"event_article_id\" class=\"clearfix\">";
+            echo "<article id=\"event_article_id\" class='event_article clearfix'>";
                 echo "<div style='width=100%;'>";
                     echo "<iframe 
             	        id='forecast_embed'
