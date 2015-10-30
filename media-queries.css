@@ -332,7 +332,7 @@ screens smaller or equal to 480
         top: -120px;
     }
     
-    #event_article_id {
+    .clearfix.event_article {
         padding: 1px 5px 18px 5px;
     }
 
