@@ -696,7 +696,7 @@ function getPlayerStats() {
 
     });
 
-    setTimeout(function () { }, 500);
+    setTimeout(function () {}, 1000);
     
     var playerstats;
 
