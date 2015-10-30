@@ -39,12 +39,12 @@
         $rows_events = mysql_query($sql_events);        
         $eventrow = 0;
         $eventIDs = 0;
-        if($eventrow = mysql_fetch_array($rows_events)) {
-            $eventIDs = $eventrow['eventID'];
-	        while($eventrow = mysql_fetch_array($rows_events)) {
-                $eventIDs .= ", " . $eventrow['eventID'];
-            }
+        $eventrow = mysql_fetch_array($rows_events);
+        $eventIDs = $eventrow['eventID'];
+	    while($eventrow = mysql_fetch_array($rows_events)) {
+            $eventIDs .= ", " . $eventrow['eventID'];
         }
+
 
         //Get total event amount
         $sql_total = "SELECT FOUND_ROWS() AS total;";
