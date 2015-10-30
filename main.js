@@ -162,7 +162,8 @@ function getEvents(more) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (more != 0) {
-                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;                    
+                    $('#more_events_content' + moreid).scrollIntoView( true );
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
@@ -695,7 +696,7 @@ function getPlayerStats() {
 
     });
 
-    setTimeout(function () { }, 100);
+    setTimeout(function () { }, 500);
     
     var playerstats;
 
