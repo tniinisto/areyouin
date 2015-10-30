@@ -680,7 +680,7 @@ function toLoginPage() {
 
 
 function getPlayerStats() {
-    var playedGamesForTeam = 0;
+    var playedGamesForTeam;
 
     var serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "/json/");
@@ -696,8 +696,8 @@ function getPlayerStats() {
 
     });
 
-    //Wait until the gamecount has been set...
-    while (playedGamesForTeam == 0) {};
+    //To ensure gamecount has been set
+    setTimeout(function () {}, 500);
     
     var playerstats;
 
