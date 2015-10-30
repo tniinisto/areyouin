@@ -99,6 +99,7 @@
 	                $result3 = mysql_query($sql3);
                     $row3 = mysql_fetch_array($result3);
 
+                    //Unique event id
 			        echo "<article id='event_article" . $row_index . "' class='clearfix event_article'>";
             
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
