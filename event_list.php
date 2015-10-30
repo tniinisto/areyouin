@@ -100,9 +100,9 @@
                     $row3 = mysql_fetch_array($result3);
 
                     //Unique event id
-                    $eventID_unique = 'event_article' . $row_index;
-			        echo "<article id='". $eventID_unique .  "' class='clearfix event_article'>";
-            
+                    $eventID_unique = 'event_article_' . $row_index;
+			        echo "<article id='". $eventID_unique ."' class='clearfix event_article'>";
+                
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
                     //Admin's event update button
@@ -132,7 +132,7 @@
                             //Still more than 1 player needed, yellow
                             //if($minimum - $row5['players_in'] > 1) {
                                 echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
-                                Event status: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                                Event statussss: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                             //}
                             //else {
                             //    //Only one player missing, pink
