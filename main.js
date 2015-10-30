@@ -695,6 +695,8 @@ function getPlayerStats() {
 
     });
 
+    setTimeout(function () { }, 100);
+    
     var playerstats;
 
     $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
