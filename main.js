@@ -163,7 +163,7 @@ function getEvents(more) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (more != 0) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;                    
-                    $('#' + moreid).scrollintoview();
+                    $('#' + moreid).scrollintoview({duration: 1000});
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
