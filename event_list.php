@@ -303,6 +303,7 @@
 
         }
 
+
         //More events info///////////////////////////////////////////////////////////////////        
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
             
