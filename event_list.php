@@ -70,7 +70,7 @@
 	    //Go through events & players
         $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
-	    $row_index = 1 + ($moreevents + 1); //Unique naming for switches
+	    $row_index = 1 + $moreevents; //Unique naming for switches
         $private = 0; //Private event        
 	    while($row = mysql_fetch_array($result))
 	    {
@@ -197,7 +197,7 @@
 					            if($row3['areyouin'] == 0) {
 						            echo "<th class=\"col51\">";
 							            echo "<div class=\"onoffswitch\">";
-								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id='myonoffswitch" . $row_index . "" . $moreevents . "' checked>";
 								            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
                                             echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1', '". $event_check . "', '". $row_index . "')\">";
                                             echo "<div class=\"onoffswitch-inner\"></div>";
@@ -215,7 +215,7 @@
 					            else {
 						            echo "<th class=\"col51\">";
 							            echo "<div class=\"onoffswitch\">";
-								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id='myonoffswitch" . $row_index . "" . $moreevents . "'>";
 								            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
                                             echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0', '". $event_check . "',  '". $row_index . "')\">";
                                             echo "<div class=\"onoffswitch-inner\"></div>";
