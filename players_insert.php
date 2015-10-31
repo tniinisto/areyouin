@@ -141,13 +141,13 @@
                     echo "</br>";
 
                         //Input credentials to send mail from the event
-                        echo "</br>";
-                        echo "<h2>Email notify credentials:</h2>";
-                        echo "<label><h3>Mail userid:</h3></label>";                        
-                        echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                        echo "<label><h3>Mail password: </h3></label>";                        
-                        echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
-                        echo "</br>";
+                        //echo "</br>";
+                        //echo "<h2>Email notify credentials:</h2>";
+                        //echo "<label><h3>Mail userid:</h3></label>";                        
+                        //echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
+                        //echo "<label><h3>Mail password: </h3></label>";                        
+                        //echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
+                        //echo "</br>";
 
                     //    echo "</br>";
                     //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 

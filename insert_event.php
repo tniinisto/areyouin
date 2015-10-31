@@ -26,9 +26,9 @@
         $gamesend=$_POST['gamesend'];
         $locationId=$_POST['location'];
 
-        //SendGrid, post variables
-        $mailId=$_POST['mail_user'];
-        $mailPass=$_POST['mail_pass'];
+        //SendGrid
+        $mailId= $mail_user;
+        $mailPass=$mail_key;
 
         //Private event switch
         if($_POST['privateswitch'] == '') //OFF
@@ -178,7 +178,7 @@
 
         //Get players emails which to notify, depending on the notify field's value///////////////////////////////////////
 
-        if($mailId != '' && $mailPass != '') { //Check if mail credentials are given in players_insert-form
+        if($mailId != '' && $mailPass != '') { //Check if mail credentials are set
                   
             $playerIdSqlList=''; //PlayerIDs for the sql where statement
             $loopFirst = 1;
