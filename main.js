@@ -340,8 +340,10 @@ function showPlayers(eventid) {
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
+        $('#' + id).scrollintoview({duration: 1000});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
+            
         }, 20);
 
     } else {
