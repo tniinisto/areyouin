@@ -140,17 +140,16 @@
                     echo "</table>";
                     echo "</br>";
 
-                        //Input credentials to send mail from the event
-                        //echo "</br>";
-                        //echo "<h2>Email notify credentials:</h2>";
-                        //echo "<label><h3>Mail userid:</h3></label>";                        
-                        //echo "<input type=\"text\" name=\"mail_user\" value=\"\"></input>";
-                        //echo "<label><h3>Mail password: </h3></label>";                        
-                        //echo "<input type=\"text\" name=\"mail_pass\" value=\"\"></input>";
-                        //echo "</br>";
-
-                    //    echo "</br>";
-                    //    echo "<input type=\"submit\" value=\"Send mail\" id=\"submitmail\"></input>"; 
+                    //Sendmail credentials
+                        echo "<h2>Send event email for players:</h2>";
+                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						    echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
+                            echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
+                                echo "<div class=\"notifyswitch-inner\"></div>";
+						        echo "<div class=\"onoffswitch-switch\"></div>";
+						    echo "</label>";
+                        echo "</div>";  
+                    
                     echo "</br>";
                         
                         //Public/Private event switch
