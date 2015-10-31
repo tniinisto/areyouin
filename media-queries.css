@@ -302,6 +302,11 @@ screens smaller or equal to 480
 *************************************************************************************/
  /* portrait mode */
 @media screen and (max-width: 480px) {
+
+
+    .atable2 {
+        width: 80%;
+    }
     
     .uibutton {
       margin-left:30px;
@@ -327,7 +332,7 @@ screens smaller or equal to 480
         top: -120px;
     }
     
-    #event_article_id {
+    .event_article.clearfix {
         padding: 1px 5px 18px 5px;
     }
 

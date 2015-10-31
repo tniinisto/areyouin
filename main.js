@@ -146,7 +146,7 @@ function eventFetchOff() {
 }
 
 //Get events with players for the team
-function getEvents() {
+function getEvents(more) {
     if (eventFetchPause == 0) { //Don't run, if pause is on
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -156,16 +156,25 @@ function getEvents() {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
+        more = typeof more !== 'undefined' ? more : 0;
+        var moreid = "more_events_content" + more;
+
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                if (more != 0) {
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;                    
+                    $('#' + moreid).scrollintoview({duration: 1000});
+                }
+                else {
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                }
             }
         }
 
         //alert("GET gets called.");
-        //var variables = "teamid=" + str + "&playerid=" + str2;
-        //xmlhttp.open("GET", "event_list.php?" + variables, false);
-        xmlhttp.open("GET", "event_list.php", false);
+        var variables = "more=" + more;
+        xmlhttp.open("GET", "event_list.php?" + variables, false);
+        //xmlhttp.open("GET", "event_list.php", false);
         xmlhttp.send();
     }
 }
@@ -331,6 +340,7 @@ function showPlayers(eventid) {
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
+        $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
         }, 20);
@@ -437,7 +447,7 @@ function getChat() {
 
 	}
 
-    //This is no synchronous
+    //This is not synchronous
 	xmlhttp.open("GET", "chat.php", false); //Synchronous
 
 	xmlhttp.send();
@@ -672,7 +682,7 @@ function toLoginPage() {
 
 
 function getPlayerStats() {
-    var playedGamesForTeam;
+    var playedGamesForTeam= 100;
 
     var serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "/json/");
@@ -684,10 +694,10 @@ function getPlayerStats() {
 
         playedgames = data.items;
         playedGamesForTeam = playedgames[0].gamecount;      
-        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games set');
+        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' events set');
 
     });
-
+    
     var playerstats;
 
     $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
@@ -704,7 +714,7 @@ function getPlayerStats() {
                     "<div class='list-right'>" +
                         "<span class='list-title'>" + player.name + "</span>" +
                         "<br />" +
-                        "<span class='gameamountheader'>" + player.games + " played games</span>" +
+                        "<span class='gameamountheader'>In for " + player.games + " events</span>" +
                         "<br />" +
                         "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                         "<br>" +
@@ -720,7 +730,7 @@ function getPlayerStats() {
                         "<div class='list-right'>" +
                             "<span class='list-title'>" + player.name + "</span>" +
                             "<br />" +
-                            "<span class='gameamountheader'>" + player.games + " played game</span>" +
+                            "<span class='gameamountheader'>In for " + player.games + " event</span>" +
                             "<br />" +
                             "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
                             "<br>" +
@@ -770,11 +780,8 @@ function updateTimezone(timezone)
 	}
 
 	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //alert(xmlhttp.responseText);
-            //alert("updateTimezone() returned successfully.");
-            //document.getElementById("txtZone").innerHTML = 'Timezone set succesfully: ' + timezone;            
-            document.getElementById("team_timezone").innerHTML = "Team's current timezone is: " + timezone;   
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {       
+            document.getElementById("team_timezone_value").innerHTML = timezone;   
 	    }
 	}
 

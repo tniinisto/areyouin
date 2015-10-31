@@ -227,10 +227,16 @@
             $("#link_admingame").addClass("current2");
         });
 
-        $("#link_adminteam").click(function (event) {
+        $("#link_adminsettings").click(function (event) {
             $("#admin-nav").children().removeClass("current2");
-            $("#link_adminteam").addClass("current2");
+            $("#link_adminsettings").addClass("current2");
         });
+
+        $("#link_adminmembers").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminmembers").addClass("current2");
+        });
+
         //Admin navigation///////////////////////////////////////
 
         //Profile navigation///////////////////////////////////////
@@ -393,11 +399,19 @@
         if ($("#link_admingame").hasClass('current2')) {
             $("#newgame_id").removeClass("noshow");
             $("#team_content_id").addClass("noshow");
+            $("#member_content_id").addClass("noshow");         
         }
 
-        if ($("#link_adminteam").hasClass('current2')) {
+        if ($("#link_adminsettings").hasClass('current2')) {
             $("#newgame_id").addClass("noshow");
             $("#team_content_id").removeClass("noshow");
+            $("#member_content_id").addClass("noshow");
+        }
+
+        if ($("#link_adminmembers").hasClass('current2')) {
+            $("#newgame_id").addClass("noshow");
+            $("#team_content_id").addClass("noshow");
+            $("#member_content_id").removeClass("noshow");
         }
     };
     //Admin navigation - Content for the selected page///////////

@@ -23,6 +23,7 @@
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
 <script src="js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/scrollintoview.js"></script>
 
 <!--Snowing-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
@@ -113,9 +114,9 @@
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
-				<li id="linkgames" class="current"><a href="#">Games</a></li> <!--Simple & clear list on games for player -->
-                <li id="linkprofile"><a href="#">Profile</a></li>
+				<li id="linkgames" class="current"><a href="#">Events</a></li> <!--Simple & clear list on games for player -->
                 <li id="linkchat" onclick="refreshScroll()"><a href="#">Chat</a></li>
+                <li id="linkprofile"><a href="#">Profile</a></li>
                 <li id="linkadmin"></li>
                 
                 <!--<li id="nav_logout" style="float: right;"><a href="http://areyouin.azurewebsites.net/" onclick="logout.php"><span style="color:red">Logout</span></a></li>-->
@@ -164,9 +165,10 @@
     <aside id="sidebar">
 
         <section id="playerwidget" class="widget">
-                <h2 class="widgettitle" onClick="">Player statistics</h2>                
+                <h2 class="widgettitle" onClick="">Activity</h2>                
                 <div id="GamesAmount" class="widgettitle"></div>            
         </section>
+
     </aside>
     <!-- /#sidebar -->
 
@@ -195,16 +197,10 @@
     jQuery(document).ready(function () {
 
         //Seasons rains...
-        var year = new Date().getFullYear();
-        if (new Date() >= new Date(year + '-11-01')) {
-            //Winter season :)
-            $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
-        }
-        //else {
-        //    if (new Date() >= new Date(year+'-09-15')) {
-        //        //Autumn season :)
-        //        createRain();
-        //    }
+        //var year = new Date().getFullYear();
+        //if (new Date() >= new Date(year + '-11-01')) {
+        //    //Winter season :)
+        //    $.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
         //}
 
         //Init functions
@@ -236,8 +232,8 @@
         setInterval(
             function () {
                 getEvents();
-            }, 240000
-        ); //refreshes every 4 minutes
+            }, 300000
+        ); //refreshes every 5 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
@@ -268,11 +264,17 @@
             $("#link_admingame").addClass("current2");
         });
 
-        $("#link_adminteam").click(function (event) {
+        $("#link_adminsettings").click(function (event) {
             $("#admin-nav").children().removeClass("current2");
-            $("#link_adminteam").addClass("current2");
+            $("#link_adminsettings").addClass("current2");
+        });
+
+        $("#link_adminmembers").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminmembers").addClass("current2");
         });
         //Admin navigation///////////////////////////////////////
+
 
         //Profile navigation///////////////////////////////////////
         $("#link_profile_profile").click(function (event) {
@@ -425,9 +427,8 @@
             $("#event_content_id").addClass("noshow");
             $("#profile_content_id").addClass("noshow");
             $("#chat_content_id").addClass("noshow");
-            $("#admin_content_id").removeClass("noshow");
             $("#playerwidget").addClass("noshow");
-
+            $("#admin_content_id").removeClass("noshow");
         }
     });
     //Main navigation - Content for the selected page///////////
@@ -439,13 +440,20 @@
         if ($("#link_admingame").hasClass('current2')) {
             $("#newgame_id").removeClass("noshow");
             $("#team_content_id").addClass("noshow");
+            $("#member_content_id").addClass("noshow");
         }
 
-        if ($("#link_adminteam").hasClass('current2')) {
+        if ($("#link_adminsettings").hasClass('current2')) {
             $("#newgame_id").addClass("noshow");
             $("#team_content_id").removeClass("noshow");
+            $("#member_content_id").addClass("noshow");
         }
 
+        if ($("#link_adminmembers").hasClass('current2')) {
+            $("#newgame_id").addClass("noshow");
+            $("#team_content_id").addClass("noshow");
+            $("#member_content_id").removeClass("noshow");
+        }
     };
     //Admin navigation - Content for the selected page///////////
 

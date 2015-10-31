@@ -686,7 +686,7 @@ article
 	height: auto;
 }
 
-#event_article_id {
+.event_article.clearfix {
     padding: 1px 10px 18px 5px;
     /*height: auto;
     -moz-transition: height 1s ease-out;*/
@@ -754,7 +754,7 @@ td.col6 {
 .atable_summary th {
 	text-align: left;
 	height: auto;
-    color: #00ff21;
+    /*color: #00ff21;*/
     text-decoration: underline;
     padding: 0px 0px;
     font-size: large;
@@ -1246,7 +1246,7 @@ Event form
 }*/
 
 #eventform {
-  width:90%;
+  width:100%;
 }
 
 #gamestart_id, #gameend_id {
@@ -1403,7 +1403,7 @@ DIV instead of tables
 .gameamountheader {
     display: inline-block;
     width: 90px;
-    text-align: right;
+    /*text-align: right;*/
     padding-left: 5px;
     font-weight: 700;
     padding-top: 5px;

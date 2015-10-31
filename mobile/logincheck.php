@@ -113,7 +113,7 @@
 
                     echo "<div id=\"loginwrapper\">";
 
-			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
+                        echo"<h1 id='loginsite-logo'>R'YouIN <img alt='mobile' width='40' height='40' src='images/icon-mobile.png' align='top'></h1>";
                         echo "<br />";
 
                         echo "<fieldset id=\"loginfailfs\">";
@@ -126,7 +126,7 @@
                                     }
                                 echo "</select>";
                                 echo "<br />";
-                                echo "<input class='linkButton' type=\"submit\" value=\"Login\" id=\"submit_team\"></input>";
+                                echo "<input class='myButton' type='submit' value='Select' id='submit_team'></input>";
                                 //echo "<a href='#' onclick='this.submit();'>Login</a>";
                             echo "</form>";
                             
