@@ -301,6 +301,8 @@
 
         //More events info///////////////////////////////////////////////////////////////////        
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
+            
+            $eventsleft = $totalrows - $moreevents * MAX_NRO_EVENTS;  
 
             $call = $_SESSION['more_clicks'] + 1;
             echo "<div id='more_events_content". $call ."'>";
@@ -311,7 +313,7 @@
                         //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
                         echo "<table class='atable_summary'>";
 				            echo "<tr style='cursor: pointer;'>";
-                                echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
+                                echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'><a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>" . $eventsleft . " more events available</a></th>";        
 				            echo "</tr>";
     		            echo "</table>";  
                         echo "<table class='lastrow2'>";
