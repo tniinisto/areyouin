@@ -70,7 +70,7 @@
 	    //Go through events & players
         $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
-	    $row_index = 1 + $moreevents; //Unique naming for switches
+	    $row_index = 1 + ($moreevents + 1); //Unique naming for switches
         $private = 0; //Private event        
 	    while($row = mysql_fetch_array($result))
 	    {
