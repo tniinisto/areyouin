@@ -45,7 +45,6 @@
             $eventIDs .= ", " . $eventrow['eventID'];
         }
 
-
         //Get total event amount
         $sql_total = "SELECT FOUND_ROWS() AS total;";
         $rows_total = mysql_query($sql_total);
