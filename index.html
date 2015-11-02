@@ -171,14 +171,16 @@
     </aside>
     <!-- /#sidebar -->
 
-	<!-- #footer --> 
-	
+    <div id="loadingDiv">
+      <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader">
+    </div>
+
+	<!-- #footer --> 	
 	<footer id="footer">
 	
 		<p>Made by TN &copy <a href="https://maps.google.fi/maps?q=60.413778,+23.155468&hl=en&sll=60.413778,23.155468&sspn=0.002108,0.004367&t=h&z=16" target="_blank">Puonti </a></p>
 
 	</footer>
-
 	<!-- /#footer --> 
 	
 </div>
@@ -194,6 +196,14 @@
 
     //Document ready
     jQuery(document).ready(function () {
+        var $loading = $('#loadingDiv').hide();
+        $(document)
+          .ajaxStart(function () {
+            $loading.show();
+          })
+          .ajaxStop(function () {
+            $loading.hide();
+          });
 
         //Seasons rains...
         //var year = new Date().getFullYear();

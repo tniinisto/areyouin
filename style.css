@@ -923,7 +923,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     height: 600px;
     overflow-x: hidden;
     overflow-y: scroll;
-    webkit-overflow-scrolling: touch;
+    /*webkit-overflow-scrolling: touch;*/
 }
 
 .chat-list-left {
@@ -1077,7 +1077,7 @@ SIDEBAR
 	background: -webkit-gradient(linear, left top, left bottom, from(#121111), to(#474747));
 	background: -moz-linear-gradient(top,  #121111,  #474747);
 	background: linear-gradient(-90deg, #121111, #474747);         
-    color: #ffd800;;   
+    color: #ffd800;   
     padding: 0px 0px;
     font-size: large;
     height: 30px;
@@ -1572,4 +1572,18 @@ Rain effect
 }
 @-moz-keyframes fall {
 	to {margin-top:900px;}
+}
+
+/*Progress scroller*/
+#loadingDiv {
+  height: 400px;
+  position: relative;
+  /*background-color: gray;*/
+}
+.ajax-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px; /* -1 * image width / 2 */
+  margin-top: -32px; /* -1 * image height / 2 */
 }
