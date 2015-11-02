@@ -1578,6 +1578,7 @@ Rain effect
 #loadingDiv {
   height: 400px;
   position: relative;
+  visibility: hidden;
   /*background-color: gray;*/
 }
 .ajax-loader {
