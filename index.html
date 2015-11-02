@@ -160,9 +160,9 @@
     </div>
     
     <!--<div id="loadingDiv" style="display: none;">-->
-    <div id="loadingDiv">
+    <!--<div id="loadingDiv">
       <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader clearfix">
-    </div>                 
+    </div>-->                 
    	<!-- /#content --> 
 
 	<!-- #sidebar -->
@@ -199,14 +199,14 @@
     jQuery(document).ready(function () {
         
         //Loader gif
-        var $loading = $('#loadingDiv').hide();
-        $(document)
-          .ajaxStart(function () {
-            $loading.show();
-          })
-          .ajaxStop(function () {
-            $loading.hide();
-          });
+        //var $loading = $('#loadingDiv').hide();
+        //$(document)
+        //  .ajaxStart(function () {
+        //    $loading.show();
+        //  })
+        //  .ajaxStop(function () {
+        //    $loading.hide();
+        //  });
 
         //Seasons rains...
         //var year = new Date().getFullYear();
