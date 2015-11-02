@@ -159,9 +159,9 @@
         </article>
     </div>
     
-    <div id="loading" class="clearfix">
+    <!--<div id="loading" class="clearfix">
       <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader clearfix">
-    </div>                 
+    </div>-->                 
    	
     <!-- /#content --> 
 
@@ -199,16 +199,16 @@
     jQuery(document).ready(function () {
         
         //Loader gif
-        $.ajaxSetup({
-            beforeSend:function(){
-                // show gif here, eg:
-                $("#loading").show();
-            },
-            complete:function(){
-                // hide gif here, eg:
-                $("#loading").hide();
-            }
-        });
+        //$.ajaxSetup({
+        //    beforeSend:function(){
+        //        // show gif here, eg:
+        //        $("#loading").show();
+        //    },
+        //    complete:function(){
+        //        // hide gif here, eg:
+        //        $("#loading").hide();
+        //    }
+        //});
 
         //Seasons rains...
         //var year = new Date().getFullYear();
