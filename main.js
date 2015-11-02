@@ -337,10 +337,12 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
+    var eventarticle = "event_article_" + eventid;
+    
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
-        $(id).scrollintoview({duration: 300});
+        $(eventarticle).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
         }, 20);
