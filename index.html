@@ -159,11 +159,11 @@
         </article>
     </div>
     
-    <!--<div id="loadingDiv" style="display: none;">-->
-    <!--<div id="loadingDiv">
-      <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader clearfix">
-    </div>-->                 
-   	<!-- /#content --> 
+    <div id="loading" class="clearfix">
+      <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader">
+    </div>                 
+   	
+    <!-- /#content --> 
 
 	<!-- #sidebar -->
     <aside id="sidebar">
@@ -199,14 +199,16 @@
     jQuery(document).ready(function () {
         
         //Loader gif
-        //var $loading = $('#loadingDiv').hide();
-        //$(document)
-        //  .ajaxStart(function () {
-        //    $loading.show();
-        //  })
-        //  .ajaxStop(function () {
-        //    $loading.hide();
-        //  });
+        $.ajaxSetup({
+            beforeSend:function(){
+                // show gif here, eg:
+                $("#loading").show();
+            },
+            complete:function(){
+                // hide gif here, eg:
+                $("#loading").hide();
+            }
+        });
 
         //Seasons rains...
         //var year = new Date().getFullYear();

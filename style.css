@@ -1575,7 +1575,7 @@ Rain effect
 }
 
 /*Progress scroller*/
-#loadingDiv {
+#loading {
   height: 400px;
   position: relative;
   visibility: hidden;
