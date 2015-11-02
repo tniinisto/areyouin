@@ -311,6 +311,7 @@
 
             $call = $_SESSION['more_clicks'] + 1;
             echo "<div id='more_events_content". $call ."' class='ajax_loader'>";
+                echo "<div id='spinner_id'></div>";
                 //echo "<article id='event_article_id' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
                 echo "<article id='event_article_id' class='event_article clearfix'>";
                     echo "<div class='divtable'>&nbsp";
