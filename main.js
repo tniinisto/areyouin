@@ -146,9 +146,9 @@ function eventFetchOff() {
 }
 
 //Get events with players for the team
-function getEvents(more) {
+function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
-
+        startSpinner();
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -179,7 +179,6 @@ function getEvents(more) {
         xmlhttp.open("GET", "event_list.php?" + variables, false);
         //xmlhttp.open("GET", "event_list.php", false);
         xmlhttp.send();
-        startSpinner();
     }
 }
 
