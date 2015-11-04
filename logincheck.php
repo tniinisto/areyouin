@@ -166,7 +166,7 @@
                         , position: 'fixed' // Element positioning
                     }";
 
-                    echo "var target = document.getElementById('spinnerteamlogin_id');";
+                    //echo "var target = document.getElementById('spinnerteamlogin_id');";
                     echo "spinnerTeamlogin = new Spinner(opts);";
 
                     echo "function startLoginSpinner() {";

@@ -1000,7 +1000,6 @@ function initSpinner() {
         , position: 'fixed' // Element positioning
     }
         
-    var target = document.getElementById('spinner_id');
     spinner = new Spinner(opts);
 }
 
