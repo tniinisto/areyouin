@@ -162,13 +162,14 @@ function getEvents(more) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (more != 0) {
-                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;                    
-                    $('#' + moreid).scrollintoview({duration: 1000});
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    $('#' + moreid).scrollintoview({ duration: 1000 });
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
                 }
             }
+            stopSpinner();
         }
 
         //alert("GET gets called.");
@@ -176,6 +177,7 @@ function getEvents(more) {
         xmlhttp.open("GET", "event_list.php?" + variables, false);
         //xmlhttp.open("GET", "event_list.php", false);
         xmlhttp.send();
+        startSpinner();
     }
 }
 
