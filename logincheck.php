@@ -119,7 +119,7 @@
                 echo "<script type='text/javascript'>var spinnerTeam_id;</script>";
 
                 echo "<script  type='text/javascript'>";
-                echo "var spinnerlogin;";
+                echo "var spinnerTeamlogin;";
 
                     echo "var opts = {
                         lines: 17 // The number of lines to draw
@@ -145,12 +145,12 @@
                     }";
 
                     echo "var target = document.getElementById('spinnerteamlogin_id');";
-                    echo "spinnerTeam_id = new Spinner(opts);";
+                    echo "spinnerTeamlogin = new Spinner(opts);";
 
 
                     echo "function startLoginSpinner() {";
                         echo "var target = document.getElementById('spinnerteamlogin_id');";
-                        echo "spinnerTeam_id.spin(target);";
+                        echo "spinnerTeamlogin.spin(target);";
                     echo "}";
 
                 echo "</script>";
