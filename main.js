@@ -998,7 +998,7 @@ function initSpinner() {
         }
         
         var target = document.getElementById('spinner_id');
-        spinner = new Spinner(opts).spin(target);
+        spinner = new Spinner(opts);
 
 }
 
