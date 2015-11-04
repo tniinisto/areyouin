@@ -178,8 +178,8 @@
             //            echo "}";
             //        echo "</script>";
 
-            //    echo "</body>";
-            //echo "</html>";
+                echo "</body>";
+            echo "</html>";
             
         } 
         else {
