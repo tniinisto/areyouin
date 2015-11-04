@@ -164,7 +164,7 @@
                         , shadow: false // Whether to render a shadow
                         , hwaccel: false // Whether to use hardware acceleration
                         , position: 'fixed' // Element positioning
-                    }";
+                    };";
 
                     //echo "var target = document.getElementById('spinnerteamlogin_id');";
                     echo "spinnerTeamlogin = new Spinner(opts);";
