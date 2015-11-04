@@ -225,7 +225,6 @@
         initSpinner();
         startSpinner();
 
-
         //getLoginInformation();
         getPlayerStats();
 
@@ -233,7 +232,10 @@
         CheckForSession();
 
         getEvents();
+
+        //Stop spinner after events have been load
         stopSpinner();
+        
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
