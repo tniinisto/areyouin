@@ -971,7 +971,7 @@ function createRain() {
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 var spinner;
-var target = document.getElementById('spinner_id')
+var target = document.getElementById('spinner_id');
 
 function initSpinner() {
             
