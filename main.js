@@ -998,7 +998,7 @@ function initSpinner() {
         , position: 'fixed' // Element positioning
         }
         
-        var spinner = new Spinner(opts).spin(target);
+        spinner = new Spinner(opts).spin(target);
 
 }
 
@@ -1009,3 +1009,4 @@ function startSpinner() {
 function stopSpinner() {
     spinner.stop();
 }
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
