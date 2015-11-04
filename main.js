@@ -974,9 +974,9 @@ function initSpinner() {
             
         var opts = {
           lines: 17 // The number of lines to draw
-        , length: 17 // The length of each line
+        , length: 5 // The length of each line
         , width: 16 // The line thickness
-        , radius: 54 // The radius of the inner circle
+        , radius: 32 // The radius of the inner circle
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#000' // #rgb or #rrggbb or array of colors
