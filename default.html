@@ -171,8 +171,10 @@
 </script>
 
 <script  type="text/javascript">
+    var spinnerlogin;
+
     var opts = {
-          lines: 17 // The number of lines to draw
+        lines: 17 // The number of lines to draw
         , length: 5 // The length of each line
         , width: 16 // The line thickness
         , radius: 42 // The radius of the inner circle
@@ -193,14 +195,14 @@
         , hwaccel: false // Whether to use hardware acceleration
         , position: 'fixed' // Element positioning
     }
-        
+
     var target = document.getElementById('spinnerlogin_id');
     spinnerlogin = new Spinner(opts);
 
 
     function startLoginSpinner() {
         var target = document.getElementById('spinnerlogin_id');
-        spinner.spin(target);
+        spinnerlogin.spin(target);
     }
 
 </script>
