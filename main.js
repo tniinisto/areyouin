@@ -977,7 +977,7 @@ var spinner;
 
 function initSpinner() {
             
-        var opts = {
+    var opts = {
           lines: 17 // The number of lines to draw
         , length: 5 // The length of each line
         , width: 16 // The line thickness
@@ -998,11 +998,10 @@ function initSpinner() {
         , shadow: false // Whether to render a shadow
         , hwaccel: false // Whether to use hardware acceleration
         , position: 'fixed' // Element positioning
-        }
+    }
         
-        var target = document.getElementById('spinner_id');
-        spinner = new Spinner(opts);
-
+    var target = document.getElementById('spinner_id');
+    spinner = new Spinner(opts);
 }
 
 function startSpinner() {
@@ -1011,6 +1010,7 @@ function startSpinner() {
 }
 
 function stopSpinner() {
-    spinner.stop();
+    var target = document.getElementById('spinner_id');
+    spinner.stop(target);
 }
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
