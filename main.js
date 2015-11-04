@@ -164,12 +164,13 @@ function getEvents(more) {
                 if (more != 0) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     $('#' + moreid).scrollintoview({ duration: 1000 });
+                    stopSpinner();
                 }
                 else {
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    stopSpinner();
                 }
-            }
-            stopSpinner();
+            }            
         }
 
         //alert("GET gets called.");
