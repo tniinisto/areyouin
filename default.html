@@ -131,7 +131,7 @@
 
         <!--<div style="margin-left: 40px;">-->
         <div>
-		    <form id="loginform" name="loginform" method="post" onClick="startSpinner();" action="logincheck.php">
+		    <form id="loginform" name="loginform" method="post" onClick="startLoginSpinner();" action="logincheck.php">
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
                     <!--<font color="white" size="3">-->
@@ -193,6 +193,13 @@
         
     var target = document.getElementById('spinnerlogin_id');
     spinnerlogin = new Spinner(opts);
+
+
+    function startLoginSpinner() {
+        var target = document.getElementById('spinnerlogin_id');
+        spinner.spin(target);
+    }
+
 </script>
 
 </body>
