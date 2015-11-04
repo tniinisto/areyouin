@@ -972,7 +972,6 @@ function createRain() {
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 var spinner;
 
-
 function initSpinner() {
             
         var opts = {

@@ -119,6 +119,7 @@
 <body>
 
 <div id="pagewrap">
+    <div id="spinner_id"></div>;
 
     <div id="loginwrapper">
 	    <!--<header id="header_login">
@@ -131,7 +132,7 @@
 
         <!--<div style="margin-left: 40px;">-->
         <div>
-		    <form id="loginform" name="loginform" method="post" action="logincheck.php">
+		    <form id="loginform" name="loginform" method="post" onClick="initSpinner(); startSpinner();" action="logincheck.php">
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
                     <!--<font color="white" size="3">-->
