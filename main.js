@@ -969,14 +969,17 @@ function createRain() {
 
 }
 
-//Spinner/////////////////////////////////////////////////////////////////////////////////////       
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
+var spinner;
+var target = document.getElementById('spinner_id')
+
 function initSpinner() {
             
         var opts = {
           lines: 17 // The number of lines to draw
         , length: 5 // The length of each line
         , width: 16 // The line thickness
-        , radius: 32 // The radius of the inner circle
+        , radius: 42 // The radius of the inner circle
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#000' // #rgb or #rrggbb or array of colors
@@ -994,6 +997,15 @@ function initSpinner() {
         , hwaccel: false // Whether to use hardware acceleration
         , position: 'fixed' // Element positioning
         }
-        var target = document.getElementById('spinner_id')
+        
         var spinner = new Spinner(opts).spin(target);
+
+}
+
+function startSpinner() {
+    spinner.spin(target);
+}
+
+function stopSpinner() {
+    spinner.stop();
 }

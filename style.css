@@ -1548,22 +1548,3 @@ Modal dialog
 .buttonHolder {
     text-align: center;    
 }
-
-
-
-/************************************************************************************
-Loagind animation
-*************************************************************************************/
-/*Progress scroller*/
-/*#loading {
-  height: 400px;
-  position: relative;
-  visibility: hidden;
-}
-.ajax-loader {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-left: -32px;
-  margin-top: -32px;
-}*/
