@@ -971,7 +971,7 @@ function createRain() {
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 var spinner;
-var target = document.getElementById('spinner_id');
+
 
 function initSpinner() {
             
@@ -998,11 +998,13 @@ function initSpinner() {
         , position: 'fixed' // Element positioning
         }
         
+        var target = document.getElementById('spinner_id');
         spinner = new Spinner(opts).spin(target);
 
 }
 
 function startSpinner() {
+    var target = document.getElementById('spinner_id');
     spinner.spin(target);
 }
 
