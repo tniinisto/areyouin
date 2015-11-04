@@ -137,7 +137,7 @@
                             echo "<h1></h1>";
                         echo "</fieldset>";
                     echo "</div>";
-                    echo "<div id='spinnerteamlogin_id'></div>;";
+                    echo "<div id='spinnerteamlogin_id'></div>";
                 echo "</div>";
 
                 echo "<script  type='text/javascript'>";
