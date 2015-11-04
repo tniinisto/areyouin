@@ -231,17 +231,16 @@
         //Start session checking
         CheckForSession();
 
-        getEvents();
-
-        //Stop spinner after events have been load
-        //stopSpinner();
-        
+        getEvents();        
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
         getChat();
 
         waitForChat();
+
+        //Stop spinner after events have been load
+        stopSpinner();
 
         //SSE init
         //setSSE();
