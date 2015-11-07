@@ -166,7 +166,7 @@
                     echo "</br>";
                     
                     //Background for button on form
-                    echo "<div style='background-color: #474747; margin: 5px; padding: 5px;'>";
+                    echo "<div style='background-color: #474747; margin: 5px; padding: 10px;'>";
                         echo "<input class=\"myButton\" type=\"submit\" value=\"Create Game\" id=\"submitgame1\"></input>"; 
                     echo "</div>";
 
