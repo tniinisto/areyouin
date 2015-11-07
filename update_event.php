@@ -227,6 +227,7 @@
         
         echo "</br>";
         echo "</br>";
+        echo "</br>";
         
         //Background for buttons on form
         echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
