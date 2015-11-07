@@ -4,7 +4,7 @@
     session_start();
 
     //Maximum number of events listed at once
-    define('MAX_NRO_EVENTS', 4);
+    define('MAX_NRO_EVENTS', 3);
 
     //More events parameter & session//////////////////////
     $moreevents=$_GET["more"];    
