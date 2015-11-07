@@ -252,7 +252,7 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	var value2 = th.substr(start2 + 1);
 	value2 = value2.trim();
 
-	document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
+	document.getElementById(summary_id).innerHTML = "Event status: " + value + " / " + value2;
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
