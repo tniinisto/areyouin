@@ -232,8 +232,11 @@
 
         echo "</br>";
 
-        //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+        
+        echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
+            //Event fetching back on & fetch the events
+            echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+        echo "</div>";  
 
         echo "</form>";
 
