@@ -118,7 +118,7 @@
                     echo "<div id=\"loginwrapper\">";
 			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
                         echo "<br />";
-
+                        echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
@@ -159,7 +159,7 @@
                         , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
                         , zIndex: 2e9 // The z-index (defaults to 2000000000)
                         , className: 'spinner' // The CSS class to assign to the spinner
-                        , top: '10.5%' // Top position relative to parent
+                        , top: '12%' // Top position relative to parent
                         , left: '50%' // Left position relative to parent
                         , shadow: false // Whether to render a shadow
                         , hwaccel: false // Whether to use hardware acceleration
