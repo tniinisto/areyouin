@@ -858,8 +858,8 @@ function createChart(animate) {
 
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
-        dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('number', 'Games set');
+        dataTable.addColumn('number', 'You');
+        dataTable.addColumn('number', 'Events set');
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
@@ -904,8 +904,8 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
+            title: 'Event history',
+            vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
             seriesType: 'bars',
@@ -923,8 +923,8 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
+            title: 'Events history',
+            vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
             seriesType: 'bars',
