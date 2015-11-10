@@ -1548,3 +1548,7 @@ Modal dialog
 .buttonHolder {
     text-align: center;    
 }
+
+.spin {
+    position: relative;   
+}
