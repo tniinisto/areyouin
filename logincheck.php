@@ -120,7 +120,7 @@
                             echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
                         echo "</div>";
                         //echo "<br />";
-                        echo "<div id='spinnerteamlogin_id' style='position: relative; class='spin'></div>";
+                        echo "<div id='spinnerteamlogin_id' class='spin'></div>";
                         echo "<br />";
                         echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
