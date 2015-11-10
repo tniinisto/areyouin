@@ -117,7 +117,7 @@
                 echo "<div id=\"pagewrap\">";
                     echo "<div id=\"loginwrapper\">";
 			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
-                        echo "<br />";
+                        echo "<div id='spinnerteamlogin_id' style='position: relative;'></div>";
                         echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
@@ -137,7 +137,6 @@
                             echo "<h1></h1>";
                         echo "</fieldset>";
                     echo "</div>";
-                    echo "<div id='spinnerteamlogin_id'></div>";
                 echo "</div>";
 
                 echo "<script  type='text/javascript'>";
