@@ -119,6 +119,7 @@
 			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
                         echo "<div id='spinnerteamlogin_id' style='position: relative;'></div>";
                         echo "<br />";
+                        echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
