@@ -859,7 +859,7 @@ function createChart(animate) {
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
         dataTable.addColumn('number', 'You');
-        dataTable.addColumn('number', 'Events set');
+        dataTable.addColumn('number', 'Events');
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
