@@ -944,7 +944,7 @@ function createChart(animate) {
 
 //Draw the chart with animation
 function drawChart() {
-    document.getElementById('profile_chart_content_id') = '';
+    document.getElementById('profile_chart_content_id').innerHTML = "";
 
     setTimeout(function () {
         createChart(1);
