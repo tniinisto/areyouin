@@ -124,7 +124,8 @@
 
 		<h1 id="loginsite-logo">R'YouIN</h1>			
         </br>
-        <div id="spinnerlogin_id" style="position: relative;"></div>
+        //<div id="spinnerlogin_id" style="position: relative;"></div>
+        <div id="spinnerlogin_id"></div>
         </br>
         <div>
 		    <form id="loginform" name="loginform" method="post" action="logincheck.php">
@@ -194,7 +195,6 @@
 
 
     function startLoginSpinner() {
-        alert("spin...");
         var target = document.getElementById('spinnerlogin_id');
         spinnerlogin.spin(target);
     }
