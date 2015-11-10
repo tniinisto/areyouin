@@ -197,7 +197,7 @@ HEADER
 }
 
 /* loginform */
-#loginform, #loginfailfs {
+#loginform, #loginfailfs, #loginwrapper {
 	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
