@@ -121,8 +121,8 @@
                         echo "</div>";
                         //echo "<br />";
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
-                        echo "<br />";
-                        echo "<br />";
+                        //echo "<br />";
+                        //echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
