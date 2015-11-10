@@ -304,8 +304,7 @@ screens smaller or equal to 480
 @media screen and (max-width: 480px) {
 
     .spin {
-        position: relative;
-        margin-top: 40px;
+        padding-top: 20px;
     }
 
     .atable2 {
