@@ -303,6 +303,10 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
 
+    .spin {
+        position: relative;
+        margin-top: 15px;
+    }
 
     .atable2 {
         width: 80%;
