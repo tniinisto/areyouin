@@ -117,6 +117,7 @@
                 echo "<div id=\"pagewrap\">";
                     echo "<div id=\"loginwrapper\">";
 			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
+                        echo "<br />";
                         echo "<div id='spinnerteamlogin_id' style='position: relative;'></div>";
                         echo "<br />";
                         echo "<br />";
