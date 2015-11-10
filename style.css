@@ -1550,5 +1550,6 @@ Modal dialog
 }
 
 .spin {
-    position: relative;   
+    position: relative;
+    margin-top: 5px;
 }
