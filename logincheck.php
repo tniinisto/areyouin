@@ -134,9 +134,9 @@
                                     }
                                 echo "</select>";
                                 echo "<br />";
-                                //echo "<input class='myButton' type='submit' value='Select' id='submit_team'></input>";
+                                
                                 echo "<input class='myButton' type='submit' value='Select' id='submit_team' onClick='startLoginSpinner();'></input>";
-                                //echo "<a href='#' onclick='this.submit();'>Login</a>";
+                                
                             echo "</form>";                            
                             echo "<h1></h1>";
                         echo "</fieldset>";
