@@ -624,6 +624,7 @@ th.col51 {
 	border-radius: 0px;*/	
 }
 
-
+.spin {
+    position: relative;
+    padding: 20px;
 }
-
