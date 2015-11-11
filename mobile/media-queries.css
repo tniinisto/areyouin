@@ -546,5 +546,7 @@ th.col51 {
     width: 150px;
 }
 
-
+.spin {
+    position: relative;
+    padding: 20px;
 }
