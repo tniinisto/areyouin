@@ -12,6 +12,7 @@
 <script type="text/javascript" charset="utf-8" src="main.js"> </script>
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/spin.min.js"></script>
 
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -66,13 +67,17 @@
 
     <div id="loginwrapper">
 
-        <!--Logo & mobile icon-->
-	    <h1 id="loginsite-logo">R'YouIN <img alt="mobile" width="40" height="40" src="images/icon-mobile.png" align="top"></h1>  
+		<div>
+        <h1 id="loginsite-logo" style="margin-top: 10px;">R'YouIN <img alt="mobile" width="40" height="40" src="images/icon-mobile.png" align="top"></h1>            			
+        </div>
 
+        <div id="spinnerlogin_id" class="spin"></div>
+        
         <div>
 		    <form id="loginform" name="loginform" method="post" action="logincheck.php">
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
+                    <!--<font color="white" size="3">-->
 			    
                     <label style="color: white">User ID</label>
                     <input type="text" id="login" name="ayiloginName" placeholder="" required>
@@ -80,8 +85,9 @@
                     <label style="color: white">Password</label>
                     <input type="password" id="password" name="ayipassword" placeholder="" required>
             
+                    <!--<br>-->
                     <div style="padding-top: 5px;"></div>
-                    <input type="submit" value="Login" name="loginbutton" id="loginbutton"  class='myButton'>
+                    <input type="submit" value="Login" name="loginbutton" id="loginbutton" class='myButton' onClick="startLoginSpinner();">
                     
                     <div id="checklogin" class="noshow">
                         </br>
@@ -93,12 +99,52 @@
 		    </form>
         </div>
     </div>
+    
+
+    
 </div>
 
 <script type="text/javascript">
     function loginFailed() {
         $("#checklogin").removeClass("noshow");
     }
+</script>
+
+<script  type="text/javascript">
+    var spinnerlogin;
+
+    var opts = {
+        lines: 15 // The number of lines to draw
+        , length: 2 // The length of each line
+        , width: 4 // The line thickness
+        , radius: 10 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#fff' // #rgb or #rrggbb or array of colors
+        , opacity: 0.25 // Opacity of the lines
+        , rotate: 0 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    }
+
+    //var target = document.getElementById('spinnerlogin_id');
+    spinnerlogin = new Spinner(opts);
+
+
+    function startLoginSpinner() {
+        var target = document.getElementById('spinnerlogin_id');
+        spinnerlogin.spin(target);
+    }
+
 </script>
 
 </body>

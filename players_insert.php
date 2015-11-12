@@ -164,7 +164,13 @@
 
                     echo "</br>";
                     echo "</br>";
-                    echo "<input class=\"myButton\" type=\"submit\" value=\"Create Game\" id=\"submitgame1\"></input>"; 
+                    echo "</br>";
+
+                    //Background for button on form
+                    echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
+                        echo "<input class=\"myButton\" type=\"submit\" value=\"Create Game\" id=\"submitgame1\"></input>"; 
+                    echo "</div>";
+
                     echo "</form>";
                 echo "</div>";
                 //New game///////////////////////////////////////////////////////////////////////////

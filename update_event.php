@@ -227,22 +227,31 @@
         
         echo "</br>";
         echo "</br>";
+        echo "</br>";
         
-        echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+        //Background for buttons on form
+        echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
 
-        echo "</br>";
+            echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
 
-        //Event fetching back on & fetch the events
-        echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+            echo "</br>";
 
-        echo "</form>";
+        
 
-        //Delete event
-        echo "</br>";
-        echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
-            echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
-            echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
-        echo "</form>";
+            //Event fetching back on & fetch the events
+            echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+
+
+            echo "</form>";
+
+            //Delete event
+            echo "</br>";
+            echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
+                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
+                echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
+            echo "</form>";
+
+        echo "</div>";  
 
         echo "</article>";
     

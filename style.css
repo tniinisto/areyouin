@@ -178,7 +178,7 @@ HEADER
     width: 310px;
     height: 75px;
     text-align: center;
-    font-size: 50px;    
+    font-size: 60px;    
 }
 
 #loginsite-logo a {
@@ -197,7 +197,7 @@ HEADER
 }
 
 /* loginform */
-#loginform, #loginfailfs {
+#loginform, #loginfailfs, #loginwrapper {
 	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
@@ -285,6 +285,7 @@ select {
     color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:18px;
+    padding: 10px;
 }
 
 #loginfailfs h1, #loginfailfs h2 {
@@ -923,7 +924,7 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     height: 600px;
     overflow-x: hidden;
     overflow-y: scroll;
-    webkit-overflow-scrolling: touch;
+    /*webkit-overflow-scrolling: touch;*/
 }
 
 .chat-list-left {
@@ -1077,7 +1078,7 @@ SIDEBAR
 	background: -webkit-gradient(linear, left top, left bottom, from(#121111), to(#474747));
 	background: -moz-linear-gradient(top,  #121111,  #474747);
 	background: linear-gradient(-90deg, #121111, #474747);         
-    color: #ffd800;;   
+    color: #ffd800;   
     padding: 0px 0px;
     font-size: large;
     height: 30px;
@@ -1549,27 +1550,7 @@ Modal dialog
     text-align: center;    
 }
 
-
-
-/************************************************************************************
-Rain effect
-*************************************************************************************/
-.drop {
-  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(13,52,58,1) ), to(rgba(255,255,255,0.6))  );
-  background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);
-	width:1px;
-	height:89px;
-	position: absolute;
-	bottom:200px;
-	-webkit-animation: fall .93s linear infinite;
-  -moz-animation: fall .93s linear infinite;
-  
-}
-
-/* animate the drops*/
-@-webkit-keyframes fall {
-	to {margin-top:900px;}
-}
-@-moz-keyframes fall {
-	to {margin-top:900px;}
+.spin {
+    position: relative;
+    padding: 10px;
 }

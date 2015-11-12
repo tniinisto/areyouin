@@ -146,9 +146,9 @@ function eventFetchOff() {
 }
 
 //Get events with players for the team
-function getEvents(more) {
+function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
-
+        startSpinner();
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -161,14 +161,17 @@ function getEvents(more) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (more != 0) {
-                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;                    
-                    $('#' + moreid).scrollintoview({duration: 1000});
+                if (more != 0) {                    
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    stopSpinner();
+                    $('#' + moreid).scrollintoview({ duration: 1000 });
+                    
                 }
                 else {
-                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    stopSpinner();
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;                    
                 }
-            }
+            }            
         }
 
         //alert("GET gets called.");
@@ -249,7 +252,7 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	var value2 = th.substr(start2 + 1);
 	value2 = value2.trim();
 
-	document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
+	document.getElementById(summary_id).innerHTML = "Event status: " + value + " / " + value2;
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
@@ -337,6 +340,8 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
+    //var eventarticle = "event_article_" + eventid;
+    
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
@@ -854,8 +859,8 @@ function createChart(animate) {
 
         var dataTable = new google.visualization.DataTable();
         dataTable.addColumn('string', 'Month');
-        dataTable.addColumn('number', 'Your games');
-        dataTable.addColumn('number', 'Games set');
+        dataTable.addColumn('number', 'You');
+        dataTable.addColumn('number', 'Events');
 
         //dataTable.addRow(['Elokuu', 1, 1]);
 
@@ -900,8 +905,8 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
+            title: 'Event history',
+            vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
             seriesType: 'bars',
@@ -919,8 +924,8 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Your game history',
-            vAxis: { title: 'Games' },
+            title: 'Events history',
+            vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
             seriesType: 'bars',
@@ -940,6 +945,8 @@ function createChart(animate) {
 
 //Draw the chart with animation
 function drawChart() {
+    document.getElementById('profile_chart_content_id').innerHTML = "";
+
     setTimeout(function () {
         createChart(1);
     }, 200);
@@ -967,3 +974,48 @@ function createRain() {
 	}
 
 }
+<<<<<<< HEAD
+=======
+
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
+var spinner;
+
+function initSpinner() {
+            
+    var opts = {
+        lines: 15 // The number of lines to draw
+        , length: 2 // The length of each line
+        , width: 4 // The line thickness
+        , radius: 10 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#fff' // #rgb or #rrggbb or array of colors
+        , opacity: 0.25 // Opacity of the lines
+        , rotate: 0 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '4%' // Top position relative to parent
+        , left: '90%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'fixed' // Element positioning
+    }
+        
+    spinner = new Spinner(opts);
+}
+
+function startSpinner() {
+    var target = document.getElementById('spinner_id');
+    spinner.spin(target);
+}
+
+function stopSpinner() {
+    spinner.stop();
+}
+
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> refs/heads/d21

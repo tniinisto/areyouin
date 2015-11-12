@@ -1260,3 +1260,8 @@ MYBUTTON
 	position:relative;
 	top:1px;
 }
+
+.spin {
+    position: relative;
+    padding: 10px;
+}

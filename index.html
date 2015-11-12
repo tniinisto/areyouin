@@ -24,6 +24,7 @@
 <script src="js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/scrollintoview.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
 
 <!--Snowing-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
@@ -135,6 +136,7 @@
 		</article>
 	</div>-->
 
+    <div id="spinner_id"></div>
 
 	<div id="event_content_id" class="content">
 		<article class="clearfix" onClick="getEvents()">
@@ -158,8 +160,13 @@
         <article class="clearfix">
             <h2>Admin</h2>
         </article>
-    </div>                    
-   	<!-- /#content --> 
+    </div>
+    
+    <!--<div id="loading" class="clearfix">
+      <img alt="loader gif" src="images/ajax-loader.gif" class="ajax-loader clearfix">
+    </div>-->                 
+   	
+    <!-- /#content --> 
 
 	<!-- #sidebar -->
     <aside id="sidebar">
@@ -172,14 +179,12 @@
     </aside>
     <!-- /#sidebar -->
 
-	<!-- #footer --> 
-	
+	<!-- #footer --> 	
 	<footer id="footer">
 	
 		<p>Made by TN &copy <a href="https://maps.google.fi/maps?q=60.413778,+23.155468&hl=en&sll=60.413778,23.155468&sspn=0.002108,0.004367&t=h&z=16" target="_blank">Puonti </a></p>
 
 	</footer>
-
 	<!-- /#footer --> 
 	
 </div>
@@ -195,6 +200,18 @@
 
     //Document ready
     jQuery(document).ready(function () {
+        
+        //Loader gif
+        //$.ajaxSetup({
+        //    beforeSend:function(){
+        //        // show gif here, eg:
+        //        $("#loading").show();
+        //    },
+        //    complete:function(){
+        //        // hide gif here, eg:
+        //        $("#loading").hide();
+        //    }
+        //});
 
         //Seasons rains...
         //var year = new Date().getFullYear();
@@ -204,19 +221,27 @@
         //}
 
         //Init functions
+
+        //Spinner
+        initSpinner();
+        startSpinner();
+
         //getLoginInformation();
         getPlayerStats();
 
         //Start session checking
         CheckForSession();
 
-        getEvents();
+        getEvents();        
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
         getChat();
 
         waitForChat();
+
+        //Stop spinner after events have been load
+        stopSpinner();
 
         //SSE init
         //setSSE();
@@ -501,7 +526,6 @@
         $("#password_info_id").addClass('noshow');
     }
     //Password change////////////////////////////////////
-
 
 </script>
 <!-- /scripts -->
