@@ -230,7 +230,7 @@
         echo "</br>";
         
         //Background for buttons on form
-        echo "<div style='background: #b9b9b9;'); margin: 5px; padding: 10px;'>";
+        echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";
 
             echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
 
