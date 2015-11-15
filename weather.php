@@ -1,4 +1,6 @@
 <?php
+       include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );      
+       
        $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    if (!$con)
 	      {
