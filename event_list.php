@@ -336,7 +336,7 @@
         //More events info///////////////////////////////////////////////////////////////////        
 
         //Weather info///////////////////////////////////////////////////////////////////        
-        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
+        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and l.showWeather = 1 and l.teamID = t.teamID";
         $result_weather = mysql_query($sql_weather);
 	
         $latlon = explode(", ", $row_weather['position']);
