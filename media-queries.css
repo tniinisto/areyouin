@@ -257,14 +257,14 @@ screens smaller or equal to 750
 	}
 
 	/* sidebar */
-	#sidebar {
+	.sidebar {
 		/*width: 100%;
 		margin: 0;
 		float: none;*/
 		display: none;
 	}
 	
-	#sidebar .widget {
+	.sidebar .widget {
 		padding: 3% 4%;
 		margin: 0 0 10px;
 	}
