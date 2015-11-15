@@ -19,7 +19,7 @@
             $latlon = explode(", ", $row_weather['position']);
 
             //echo "<aside id='" . $row_weather['name'] . "' class='sidebar'>";
-                echo "<article id=\"event_article_id\" class='event_article clearfix'>";
+                //echo "<article id=\"event_article_id\" class='event_article clearfix'>";
                     echo "<div style='width=100%;'>";
                         echo "<iframe 
             	            id='forecast_embed'
@@ -30,7 +30,7 @@
 	                        src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
                         </iframe>";
                     echo "</div>";
-                echo "</article>";
+                //echo "</article>";
             //echo "</aside>";            
 	    }
         /////////////////////////////////////////////////////////////////////////////////
