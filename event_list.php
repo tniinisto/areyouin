@@ -339,9 +339,9 @@
         $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and l.showWeather = 1 and l.teamID = t.teamID";
         $result_weather = mysql_query($sql_weather);
 	
-        $latlon = explode(", ", $row_weather['position']);
-
         while($row_weather = mysql_fetch_array($result_weather)) {
+            $latlon = explode(", ", $row_weather['position']);
+            
             echo "<article id=\"event_article_id\" class='event_article clearfix'>";
                 echo "<div style='width=100%;'>";
                     echo "<iframe 
