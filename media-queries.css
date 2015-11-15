@@ -454,7 +454,7 @@ screens smaller or equal to 480
 		/*margin: 0 30px 10px 0;*/
 	}
 	
-	#sidebar {
+	.sidebar {
 		display: none;
 	}	
 	
