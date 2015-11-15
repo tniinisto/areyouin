@@ -1024,7 +1024,8 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 .chatrow:nth-of-type(even) {
-    background-color:#474747;
+    /*background-color:#474747;*/
+    background: linear-gradient(-90deg, #121111, #474747);
 }
 
 #comment_input {
