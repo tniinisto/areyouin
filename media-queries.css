@@ -39,11 +39,11 @@ screens smaller or equal to 980
 	}	
 
 	/* sidebar */
-	#sidebar {
+	.sidebar {
 		width: 30%;
 		float: right;
 	}
-	#sidebar .widget {
+	.sidebar .widget {
 		/*padding: 8% 7%;*/
 		margin-bottom: 10px;
 		/*display: none;*/
