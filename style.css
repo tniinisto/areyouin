@@ -1055,7 +1055,7 @@ SIDEBAR
 .sidebar {
 	width: 280px;
 	float: right;
-	margin: 20px 0 10px;
+	margin: 20px 0 0px;
 }
 .widget {
 	background: #fff;
