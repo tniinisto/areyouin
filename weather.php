@@ -18,7 +18,7 @@
 
             $latlon = explode(", ", $row_weather['position']);
 
-            echo "<aside id='" . $row_weather['name'] . "' class='sidebar widget'>";
+            echo "<aside id='" . $row_weather['name'] . "' class='widget'>";
                 //echo "<article id=\"event_article_id\" class='event_article clearfix'>";
                     echo "<div style='width=100%;'>";
                         echo "<iframe 
