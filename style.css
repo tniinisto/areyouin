@@ -1019,7 +1019,8 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 .chatrow:nth-of-type(odd) {
-    background-color:rgba(0,0,0,.5);
+    /*background-color:rgba(0,0,0,.5);*/
+    background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);
 }
 
 .chatrow:nth-of-type(even) {
