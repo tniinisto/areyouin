@@ -168,6 +168,8 @@
     <!-- /#content --> 
 
 	<!-- #sidebar -->
+    <aside id="weather_content_id" class="sidebar"></aside>
+    
     <aside id="sidebar1" class="sidebar">
 
         <section id="playerwidget" class="widget">
@@ -199,7 +201,7 @@
 
     //Document ready
     jQuery(document).ready(function () {
-        
+
         //Loader gif
         //$.ajaxSetup({
         //    beforeSend:function(){
@@ -231,7 +233,7 @@
         //Start session checking
         CheckForSession();
 
-        getEvents();        
+        getEvents();
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
@@ -242,6 +244,7 @@
         //Stop spinner after events have been load
         stopSpinner();
 
+        getWeather();
         //SSE init
         //setSSE();
 
