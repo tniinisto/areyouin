@@ -923,7 +923,7 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Events history',
+            title: 'Events & Your participation',
             vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
