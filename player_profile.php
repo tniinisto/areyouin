@@ -5,23 +5,9 @@
 
         session_start();
 
-        //$call = 0;
-	    //if ($_POST['Uploader']) // form has been submitted
-	    //{ 
-     //       uploadPhoto();
-
-    	//    //if(uploadPhoto() == -5) {
-     //    //       ChromePhp::log("Upload -5");
-     //    //       $call = -5;
-    	//    //}
-     //   } 
-
         //include 'ChromePhp.php';        
         //ChromePhp::log("players_insert, admin:", $ad);
-        
-        //echo "<html>";
-        //echo "<body>";
-        
+                
         //Article///////////////////////////////////////////////////////////////////////////
         echo "<article id=\"profile_content_article\" class=\"clearfix \">";
                     
@@ -43,29 +29,8 @@
         echo "</article>";
         //Article///////////////////////////////////////////////////////////////////////////
 
-        //JS Show notification if image size is too big/////////////////////////////////////////////////////////////////////
-        //if($call == -5) {
-        //    echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
-        //    echo "<script type=\"text/javascript\">";
-        //    //echo "jQuery(document).ready(function () {";
-        //        
-        //            //echo "alert(\"PHP JS run...\");";
-        //            echo "var x=document.getElementById(\"ImageSizeId\");";
-        //            //echo "alert(x.innerHTML);";
-        //            echo "alert(x.className);";
-        //            //echo "var myClassName=\" noshow\";";
-        //            //echo "x.className=x.className.replace(\"myClassName\",\"\");"; 
-        //            echo "$(\"#ImageSizeId\").removeClass(\"noshow\");";
-        //            echo "alert(x.className);";
-        //            
-        //     //echo "});";                        
-
-        //    echo "</script>";
-        //}
-        //JS Show notification if image size is too big/////////////////////////////////////////////////////////////////////
-
-        echo "</body>";
-        echo "</html>";
+        //echo "</body>";
+        //echo "</html>";
 
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
