@@ -87,6 +87,7 @@
 </head>
 
 <body>
+    <div id="spinner_id"></div>
 
 	<!-- Events -->
 	 <div data-role="page" id="areyouin-events-page" data-theme="b" data-url="areyouin-events-page">
@@ -173,6 +174,10 @@
         getLoginInformation();
         CheckForSession();
 
+        //Spinner
+        initSpinner();
+        startSpinner();
+
         getEvents();
         //getPlayersInsert();
         //getAdminStatus();
@@ -181,15 +186,8 @@
 
         waitForChat();
 
-        //SSE init
-        //setSSE();
-
-        //Chat update
-        //setInterval(
-        //    function () {
-        //        getChat();
-        //    }, 180000
-        //); //refreshes every 3 minutes
+        //Stop spinner after events have been load
+        stopSpinner();
 
         //Events update
         setInterval(
