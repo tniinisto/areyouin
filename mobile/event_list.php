@@ -1,51 +1,58 @@
 <?php
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
     session_start();
-    ob_start();
 
-    //include 'ChromePhp.php';
-    //$password = $_SESSION['mypassword'];        
-    //ChromePhp::log("MD5:", $password);
-	
-    //Check session expiration & logged_in status
-    //if(!isset($_SESSION['logged_in'])) {
-    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-    //    
-    //    ob_end_clean();
-    //    header("location:default.html");
-    //    //header("Location: http://m-areyouin.azurewebsites.net/default.html");
-    //    session_unset(); 	
-    //    session_destroy();
-    //    //echo "<script> toLoginPage(); </script>";
+    //Maximum number of events listed at once
+    define('MAX_NRO_EVENTS', 3);
 
-    //    //echo "<article id=\"event_article_id\" class=\"clearfix\">";
-    //    //    echo "<div>";
+    //More events parameter & session//////////////////////
+    $moreevents=$_GET["more"];    
+    if($moreevents == 0) {
+        $_SESSION['more_clicks'] = 0;
+    }
+    else {
+        $_SESSION['more_clicks'] = $moreevents;
+    }
+    //More events parameter & session//////////////////////
 
-    //    //        echo "<h3 style=\"text-align: center;\">Your session has exprired.</h3>";
-    //    //        echo "<a href='http://m-areyouin.azurewebsites.net/default.html'>Please login</a>";
-
-    //    //    echo "</div>";
-    //    //echo "</article>";
-    //}
-    //else 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
-        
+    
         $playerid=$_SESSION['myplayerid'];
 	    $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
 
-	    $con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+        $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    if (!$con)
 	      {
 	      die('Could not connect: ' . mysql_error());
 	      }
 
 	    mysql_select_db("areyouin", $con);
+        $offset = $moreevents * MAX_NRO_EVENTS;
+               
+        //Get events in set limit
+        $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
+                       where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+                       order by e.startTIme asc
+                       LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
+        $rows_events = mysql_query($sql_events);        
+        $eventrow = 0;
+        $eventIDs = 0;
+        $eventrow = mysql_fetch_array($rows_events);
+        $eventIDs = $eventrow['eventID'];
+	    while($eventrow = mysql_fetch_array($rows_events)) {
+            $eventIDs .= ", " . $eventrow['eventID'];
+        }
 
-	    //$sql = 
-     //   "SELECT v.Events_eventID, l.name as location,l.position as pos, e.startTime, e.endTime, p.playerid, p.name, p.photourl, v.eventplayerid, v.areyouin, v.seen, m.teamID, m.teamName, a.teamAdmin
-     //   FROM events e, eventtype t, location l, players p,  eventplayer v, team m, playerteam a
-     //   WHERE t.eventTypeID = e.EventType_eventTypeID and l.locationID = e.Location_locationID and p.playerID = v.Players_playerID and v.Events_eventID = e.eventID and a.Players_playerID = p.playerID and a.Team_teamID = m.teamID        and m.teamID = '" . $teamid  . "' and e.endTime > now() order by e.startTime asc, v.Events_eventID asc, v.areyouin desc, v.seen desc";
-	 	
+
+        //Get total event amount
+        $sql_total = "SELECT FOUND_ROWS() AS total;";
+        $rows_total = mysql_query($sql_total);
+        $total = mysql_fetch_array($rows_total);
+        $totalrows = $total['total'];                        
+                
+        //Get events with players
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
         p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
@@ -57,14 +64,14 @@
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
         and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+        and ep.Events_eventID IN (". $eventIDs .")
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
-
-	    $result = mysql_query($sql);
-	
+                    
 	    //Go through events & players
+        $result = mysql_query($sql);
 	    $event_check = 0; //Check when the event changes
-	    $row_index = 1; //Unique naming for switches
-        $private = 0; //Private event
+	    $row_index = 1 + $moreevents; //Unique naming for switches
+        $private = 0; //Private event        
 	    while($row = mysql_fetch_array($result))
 	    {
             //Check private event showing
@@ -91,24 +98,18 @@
                     $sql3 = "SELECT eventplayerid, players_playerid, areyouin, seen, photourl, name FROM eventplayer, players WHERE Players_playerID = playerID and Players_playerID = " . $playerid . " and Events_eventID = " . $event_check . "";
 	                $result3 = mysql_query($sql3);
                     $row3 = mysql_fetch_array($result3);
-			
-			        echo "<article id=\"event_article_id\" class=\"clearfix\">";
-            
+
+                    //Unique event id
+                    $eventID_unique = 'event_article_' . $row_index;
+			        echo "<article id='". $eventID_unique ."' class='event_article clearfix'>";
+                
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
                     //Admin's event update button
                     if($ad==1)
-                        echo "<img id=\"update_event\" onClick=\"updateEvent(" . $event_check . ")\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
+                        echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
                     else
                         echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
-
-                    //Top table for rounded corners
-           //         echo "<table class=\"lastrow\">";
-			        //	echo "<tr style=\"cursor: pointer;\">";
-			        //		//echo "<th style=\"text-align:right;\" onClick=\"showPlayers(" . $event_check . ")\">Click for others >>></th>";
-           //                 echo "<th>&nbsp</th>";
-			        //	echo "</tr>";
-			        //echo "</table>";
 			
                     //Event summary info, Invited players
                     $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . "";
@@ -131,7 +132,7 @@
                             //Still more than 1 player needed, yellow
                             //if($minimum - $row5['players_in'] > 1) {
                                 echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
-                                Players IN: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
+                                Event status: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                             //}
                             //else {
                             //    //Only one player missing, pink
@@ -151,7 +152,9 @@
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Games @&nbsp <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\"&npsp target=\"_blank\">" . $row['location'] . "</a></th>";
+					        echo "<th> Event @&nbsp 
+                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
+                            </th>";
 				        echo "</tr>";
 			        echo "</table>";
 			
@@ -186,17 +189,19 @@
 				                //echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
                                 echo "<th class=\"col21\">" . $playerid . "</th>";
 				                if($row3['seen'] == 1)
-					                echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row3['photourl'] . "\"></th>";
+					                echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
 				                else
-					                echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row3['photourl'] . "\"></th>";
+					                echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
 				                echo "<th class=\"col41\">" . $row3['name'] . "</th>";
 								        
 					            if($row3['areyouin'] == 0) {
 						            echo "<th class=\"col51\">";
 							            echo "<div class=\"onoffswitch\">";
-								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\" checked>";
+								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id='myonoffswitch" . $row_index . "" . $moreevents . "' checked>";
 								            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1')\">";
-                                            echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1', '". $event_check . "', '". $row_index . "')\">";
+                                            echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "" . $moreevents . "\"
+                                            onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '1', '". $event_check . "', '" . $row_index . "" . $moreevents . "')\">";
+                                            
                                             echo "<div class=\"onoffswitch-inner\"></div>";
 								            echo "<div class=\"onoffswitch-switch\"></div>";
 								            echo "</label>";
@@ -212,9 +217,11 @@
 					            else {
 						            echo "<th class=\"col51\">";
 							            echo "<div class=\"onoffswitch\">";
-								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id=\"myonoffswitch" . $row_index . "\">";
+								            echo "<input type=\"checkbox\" name=\"onoffswitch\" class=\"onoffswitch-checkbox\" id='myonoffswitch" . $row_index . "" . $moreevents . "'>";
 								            //echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0')\">";
-                                            echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "\" onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0', '". $event_check . "',  '". $row_index . "')\">";
+                                            echo "<label class=\"onoffswitch-label\" for=\"myonoffswitch" . $row_index . "" . $moreevents . "\" 
+                                            onClick=\"updateAYI(" . $row3['eventplayerid'] . ", '0', '". $event_check . "',  '" . $row_index . "" . $moreevents . "')\">";
+                                            
                                             echo "<div class=\"onoffswitch-inner\"></div>";
 								            echo "<div class=\"onoffswitch-switch\"></div>";
 								            echo "</label>";
@@ -256,9 +263,9 @@
 				            echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				            echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				            if($row['seen'] == 1)
-					            echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
+					            echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				            else
-					            echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "\"></td>";
+					            echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				            echo "<td class=\"col4\">" . $row['name'] . "</td>";
 				
 				            //Show on/off switch only for the user
@@ -272,22 +279,23 @@
 			            echo "</tr>";
 		            echo "</table>";
                 }
-		    }
+		    
+            }
+
 		    $row_index = $row_index + 1;
 	    }	
 	
-
         //Close the last event's article
         if($event_check != 0) {
             echo "</article>";
         }
 
-        //Display no event scheduled info if there are no games
+        //Display no event scheduled info if there are no events
         if($event_check == 0) {
-            echo "<article id=\"event_article_id\" class=\"clearfix\">";
+            echo "<article id='event_article_id' class='event_article clearfix'>";
                 echo "<div>";
 
-                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+                    echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
                     //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
                 echo "</div>";
@@ -295,33 +303,61 @@
 
         }
 
-        //Weather info///////////////////////////////////////////////////////////////////
-        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
+
+        //More events info///////////////////////////////////////////////////////////////////        
+        if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
+            
+            $eventsleft = $totalrows - (($moreevents + 1) * MAX_NRO_EVENTS);  
+
+            $call = $_SESSION['more_clicks'] + 1;
+            echo "<div id='more_events_content". $call ."' class='ajax_loader'>";
+                //echo "<article id='event_article_id' style='background-color: #6a6a6a; width: 99%;' class='clearfix'>";
+                echo "<article id='event_article_id' class='event_article clearfix'>";
+                    echo "<div class='divtable'>&nbsp";
+                        //echo "<h3 style=\"text-align: center;\">Total " . $totalrows . "</h3>";
+                        //echo "<h3 style=\"text-align: center;\">MAX_NRO_EVENTS " . MAX_NRO_EVENTS . "</h3>";
+                        echo "<table class='atable_summary'>";
+				            echo "<tr style='cursor: pointer;'>";
+                                echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>
+                                <a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
+                                //<a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>" . $eventsleft . " more events available</a></th>";        
+				            echo "</tr>";
+    		            echo "</table>";  
+                        echo "<table class='lastrow2'>";
+				            echo "<tr>";
+                                echo "<th style='border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 6px; border-bottom-left-radius: 6px;'>&nbsp</th>";
+				            echo "</tr>";
+    		            echo "</table>";  
+                    echo "</div>";
+                echo "</article>";
+            echo "</div>";
+
+        }
+        //More events info///////////////////////////////////////////////////////////////////        
+
+        //Weather info///////////////////////////////////////////////////////////////////        
+        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and l.showWeather = 1 and l.teamID = t.teamID";
         $result_weather = mysql_query($sql_weather);
 	
         while($row_weather = mysql_fetch_array($result_weather)) {
-
-            $lonlat = explode(", ", $row_weather['position']);
-
-            echo "<article id=\"event_article_id\" class=\"clearfix\">";
-                echo "<div>";
+            $latlon = explode(", ", $row_weather['position']);
+            
+            echo "<article id=\"event_article_id\" class='event_article clearfix'>";
+                echo "<div style='width=100%;'>";
                     echo "<iframe 
             	        id='forecast_embed'
 	                    type='text/html'
 	                    frameborder='0'
 	                    height='245'
 	                    width='100%'
-	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $lonlat[0]) . "&lon=" . str_replace(' ', '', $lonlat[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>                       
+	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
                     </iframe>";
                 echo "</div>";
-            echo "</article>";
-	    }
+            echo "</article>";         	    
+        }
         /////////////////////////////////////////////////////////////////////////////////
         
         mysql_close($con);
-        
-        ob_end_flush;
-
     } //END OF event_list
 
     //Returns the minParticipants count for the event (Depends on the sport)
