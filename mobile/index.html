@@ -23,7 +23,6 @@
 <!-- Scripts -->
 <script type="text/javascript" charset="utf-8" src="../main.js"> </script>
 <script src="js/iscroll.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
 
 <!--JQuery -->
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
@@ -88,7 +87,6 @@
 </head>
 
 <body>
-    <div id="spinner_id"></div>
 
 	<!-- Events -->
 	 <div data-role="page" id="areyouin-events-page" data-theme="b" data-url="areyouin-events-page">
@@ -171,10 +169,6 @@
         //Winter season :)
         //$.fn.snow({ minSize: 5, maxSize: 50, newOn: 1000, flakeColor: '#FFFFFF' });
 
-        //Spinner
-        initSpinner();
-        startSpinner();
-
         //Init functions
         getLoginInformation();
         CheckForSession();
@@ -187,8 +181,15 @@
 
         waitForChat();
 
-        //Stop spinner after events have been load
-        stopSpinner();
+        //SSE init
+        //setSSE();
+
+        //Chat update
+        //setInterval(
+        //    function () {
+        //        getChat();
+        //    }, 180000
+        //); //refreshes every 3 minutes
 
         //Events update
         setInterval(
