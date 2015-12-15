@@ -124,6 +124,17 @@ function getPlayersInsert() {
 	xmlhttp.send();
 }
 
+//Off&On for the event fetch
+var eventFetchPause = 0;
+function eventFetchOn() {
+    //alert("eventFetchOn called...");
+    eventFetchPause = 0;
+}
+function eventFetchOff() {
+    //alert("eventFetchOff called...");
+    eventFetchPause = 1;
+}
+
 //Get events with players for the team
 function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
