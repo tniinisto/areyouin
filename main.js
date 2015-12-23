@@ -345,7 +345,7 @@ function showPlayers(eventid) {
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
-        $('#eventarticle').animate({height:$('#eventarticle').children().first().outerHeight()});
+        $('#eventarticle').animate({height:$('#eventarticle').outerHeight()});
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
@@ -358,7 +358,7 @@ function showPlayers(eventid) {
         box.one('transitionend', function(e) {
 
             box.addClass('noshow');
-            $('#eventarticle').animate({height:$('#eventarticle').children().first().outerHeight()});
+            $('#eventarticle').animate({height:$('#eventarticle').outerHeight()});
 
         });
     }
