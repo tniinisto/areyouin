@@ -345,10 +345,10 @@ function showPlayers(eventid) {
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
+        $('#eventarticle').animate({height:$('#eventarticle').children().first().outerHeight()});
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
-            $('#eventarticle').animate({height:$('#eventarticle').content().outerHeight()});
         }, 20);
 
     } else {
@@ -358,7 +358,7 @@ function showPlayers(eventid) {
         box.one('transitionend', function(e) {
 
             box.addClass('noshow');
-            $('#eventarticle').animate({height:$('#eventarticle').content().outerHeight()});
+            $('#eventarticle').animate({height:$('#eventarticle').children().first().outerHeight()});
 
         });
     }
