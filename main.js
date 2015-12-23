@@ -340,21 +340,11 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    var article_id = "event_article_" + eventid;
+    //var eventarticle = "event_article_" + eventid;
     
     if (box.hasClass('noshow')) {
     
-        var article_height = $(article_id).css('height');
-        
-
         box.removeClass('noshow');
-
-
-        var newHeight = $(article_id).css('height');
-        $(article_id).css({'height': height});
-        $(article_id).animate({'width': newHeight}, 1000);
-
-
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
