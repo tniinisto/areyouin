@@ -691,6 +691,8 @@ article
     padding: 1px 10px 18px 5px;
     /*height: auto;
     -moz-transition: height 1s ease-out;*/
+    max-height: 900px;
+    transition: max-height 0.5s ease-in;    
 }
 
 #update_event {
