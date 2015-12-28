@@ -39,11 +39,11 @@ screens smaller or equal to 980
 	}	
 
 	/* sidebar */
-	#sidebar {
+	.sidebar {
 		width: 30%;
 		float: right;
 	}
-	#sidebar .widget {
+	.sidebar .widget {
 		/*padding: 8% 7%;*/
 		margin-bottom: 10px;
 		/*display: none;*/
@@ -144,11 +144,13 @@ screens smaller or equal to 750
     }
 
     .chatrow:nth-of-type(odd) {
-        background-color:rgba(0,0,0,.5);
+        /*background-color:rgba(0,0,0,.5);*/
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);      
     }
 
     .chatrow:nth-of-type(even) {
-        background-color:#474747;
+        /*background-color:#474747;*/
+        background: linear-gradient(-90deg, #121111, #474747);
     }
 
     #comment_input {
@@ -257,14 +259,14 @@ screens smaller or equal to 750
 	}
 
 	/* sidebar */
-	#sidebar {
+	.sidebar {
 		/*width: 100%;
 		margin: 0;
 		float: none;*/
 		display: none;
 	}
 	
-	#sidebar .widget {
+	.sidebar .widget {
 		padding: 3% 4%;
 		margin: 0 0 10px;
 	}
@@ -400,11 +402,13 @@ screens smaller or equal to 480
     }
 
     .chatrow:nth-of-type(odd) {
-        background-color:rgba(0,0,0,.5);
+        /*background-color:rgba(0,0,0,.5);*/
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
     }
 
     .chatrow:nth-of-type(even) {
-        background-color:#474747;
+        /*background-color:#474747;*/
+        background: linear-gradient(-90deg, #121111, #474747);
     }
 
     #comment_input {
@@ -454,7 +458,7 @@ screens smaller or equal to 480
 		/*margin: 0 30px 10px 0;*/
 	}
 	
-	#sidebar {
+	.sidebar {
 		display: none;
 	}	
 	

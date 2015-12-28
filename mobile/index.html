@@ -23,10 +23,12 @@
 <!-- Scripts -->
 <script type="text/javascript" charset="utf-8" src="main.js"> </script>
 <script src="js/iscroll.js"></script>
+<script type="text/javascript" src="../js/scrollintoview.js"></script>
 
 <!--JQuery -->
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/spin.min.js"></script>
 
 <!--Snowing-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
@@ -87,6 +89,7 @@
 </head>
 
 <body>
+    <div id="spinner_id"></div>
 
 	<!-- Events -->
 	 <div data-role="page" id="areyouin-events-page" data-theme="b" data-url="areyouin-events-page">
@@ -173,6 +176,10 @@
         getLoginInformation();
         CheckForSession();
 
+        //Spinner
+        initSpinner();
+        startSpinner();
+
         getEvents();
         //getPlayersInsert();
         //getAdminStatus();
@@ -181,15 +188,8 @@
 
         waitForChat();
 
-        //SSE init
-        //setSSE();
-
-        //Chat update
-        //setInterval(
-        //    function () {
-        //        getChat();
-        //    }, 180000
-        //); //refreshes every 3 minutes
+        //Stop spinner after events have been load
+        stopSpinner();
 
         //Events update
         setInterval(

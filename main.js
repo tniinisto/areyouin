@@ -340,11 +340,12 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    //var eventarticle = "event_article_" + eventid;
-    
+    var eventarticle = "event_article_" + eventid;
+
     if (box.hasClass('noshow')) {
     
         box.removeClass('noshow');
+
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
@@ -905,7 +906,7 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Event history',
+            title: 'Events & Your activity',
             vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
@@ -924,7 +925,7 @@ function createChart(animate) {
             //width: 600,
             //height: 500,
             is3D: true,
-            title: 'Events history',
+            title: 'Events & Your activity',
             vAxis: { title: 'Events' },
             hAxis: { title: 'Month',
                      slantedText: 'true', slantedTextAngle: 75 },
@@ -974,8 +975,8 @@ function initSpinner() {
         , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
         , zIndex: 2e9 // The z-index (defaults to 2000000000)
         , className: 'spinner' // The CSS class to assign to the spinner
-        , top: '4%' // Top position relative to parent
-        , left: '90%' // Left position relative to parent
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
         , shadow: false // Whether to render a shadow
         , hwaccel: false // Whether to use hardware acceleration
         , position: 'fixed' // Element positioning
@@ -995,3 +996,28 @@ function stopSpinner() {
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+=======
+
+function getWeather() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("weather_content_id").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("GET", "weather.php", false);
+        xmlhttp.send();
+
+}
+
+
+>>>>>>> refs/remotes/origin/d21

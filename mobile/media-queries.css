@@ -103,11 +103,13 @@ screens smaller or equal to 750
     }
 
     .chatrow:nth-of-type(odd) {
-        background-color:rgba(0,0,0,.5);
+        /*background-color:rgba(0,0,0,.5);*/
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a); 
     }
 
     .chatrow:nth-of-type(even) {
-        background-color:#474747;
+        /*background-color:#474747;*/
+        background: linear-gradient(-90deg, #121111, #474747);
     }
 
     #comment_input {
@@ -265,6 +267,10 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
     
+    .event_article.clearfix {
+        padding: 1px 5px 18px 5px;
+    }
+
     #chat_content_article {
         width: 94%;
     }
@@ -322,11 +328,13 @@ screens smaller or equal to 480
     }
 
     .chatrow:nth-of-type(odd) {
-        background-color:rgba(0,0,0,.5);
+        /*background-color:rgba(0,0,0,.5);*/
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
     }
 
     .chatrow:nth-of-type(even) {
-        background-color:#474747;
+        /*background-color:#474747;*/
+        background: linear-gradient(-90deg, #121111, #474747);
     }
 
     #comment_input {

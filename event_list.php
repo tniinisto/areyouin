@@ -335,13 +335,12 @@
         //More events info///////////////////////////////////////////////////////////////////        
 
         //Weather info///////////////////////////////////////////////////////////////////        
-        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
+        $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and l.showWeather = 1 and l.teamID = t.teamID";
         $result_weather = mysql_query($sql_weather);
 	
         while($row_weather = mysql_fetch_array($result_weather)) {
-
             $latlon = explode(", ", $row_weather['position']);
-
+            
             echo "<article id=\"event_article_id\" class='event_article clearfix'>";
                 echo "<div style='width=100%;'>";
                     echo "<iframe 
@@ -350,11 +349,11 @@
 	                    frameborder='0'
 	                    height='245'
 	                    width='100%'
-	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>                       
+	                    src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
                     </iframe>";
                 echo "</div>";
-            echo "</article>";
-	    }
+            echo "</article>";         	    
+        }
         /////////////////////////////////////////////////////////////////////////////////
         
         mysql_close($con);

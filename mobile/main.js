@@ -124,28 +124,52 @@ function getPlayersInsert() {
 	xmlhttp.send();
 }
 
+//Off&On for the event fetch
+var eventFetchPause = 0;
+function eventFetchOn() {
+    //alert("eventFetchOn called...");
+    eventFetchPause = 0;
+}
+function eventFetchOff() {
+    //alert("eventFetchOff called...");
+    eventFetchPause = 1;
+}
+
 //Get events with players for the team
-function getEvents() {
-	//if (str == "" || str2 == "") {
-	//	document.getElementById("userlogin").innerHTML = "getEvents()";
-	//	return;
-	//}	
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-		}
-	}
-	//alert("GET gets called.");
-	//var variables = "teamid=" + str + "&playerid=" + str2;
-	//xmlhttp.open("GET", "event_list.php?" + variables, false);
-    xmlhttp.open("GET", "event_list.php", false);
-	xmlhttp.send();
+function getEvents(more) {    
+    if (eventFetchPause == 0) { //Don't run, if pause is on
+        startSpinner();
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        more = typeof more !== 'undefined' ? more : 0;
+        var moreid = "more_events_content" + more;
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (more != 0) {                    
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    stopSpinner();
+                    $('#' + moreid).scrollintoview({ duration: 1000 });
+                    
+                }
+                else {
+                    stopSpinner();
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;                    
+                }
+            }            
+        }
+
+        //alert("GET gets called.");
+        var variables = "more=" + more;
+        xmlhttp.open("GET", "event_list.php?" + variables, false);
+        //xmlhttp.open("GET", "event_list.php", false);
+        xmlhttp.send();
+    }
 }
 
 //Parse URL parameters by name
@@ -275,6 +299,7 @@ function updateEvent(eventID)
 }
 
 //Show&hide events players in event list
+//Show&hide events players in event list
 function showPlayers(eventid) {
     //alert(eventid);
     //var id = "#id_playersfull_" + eventid;
@@ -283,17 +308,28 @@ function showPlayers(eventid) {
     //    $(id).removeClass("noshow");
     //else
     //    $(id).addClass("noshow");
+    
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
+
+    //var eventarticle = "event_article_" + eventid;
+    
     if (box.hasClass('noshow')) {
+    
         box.removeClass('noshow');
+        $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
         }, 20);
+
     } else {
+    
         box.addClass('visuallynoshow');
+    
         box.one('transitionend', function(e) {
+
             box.addClass('noshow');
+
         });
     }
 }
@@ -584,3 +620,46 @@ function CheckForSession() {
         }
     });
 }
+
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
+var spinner;
+
+function initSpinner() {
+            
+    var opts = {
+        lines: 15 // The number of lines to draw
+        , length: 2 // The length of each line
+        , width: 4 // The line thickness
+        , radius: 10 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 1 // Corner roundness (0..1)
+        , color: '#fff' // #rgb or #rrggbb or array of colors
+        , opacity: 0.25 // Opacity of the lines
+        , rotate: 0 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 1 // Rounds per second
+        , trail: 60 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'fixed' // Element positioning
+    }
+        
+    spinner = new Spinner(opts);
+}
+
+function startSpinner() {
+    var target = document.getElementById('spinner_id');
+    spinner.spin(target);
+}
+
+function stopSpinner() {
+    spinner.stop();
+}
+
+//Spinner/////////////////////////////////////////////////////////////////////////////////////
+

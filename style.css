@@ -321,7 +321,7 @@ MYBUTTON
 	border:1px solid #dcdcdc;
 	display:table;
 	cursor:pointer;
-	color:#666666;
+	color:#1F1F1F;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
@@ -690,7 +690,7 @@ article
 .event_article.clearfix {
     padding: 1px 10px 18px 5px;
     /*height: auto;
-    -moz-transition: height 1s ease-out;*/
+    -moz-transition: height 1s ease-out;*/ 
 }
 
 #update_event {
@@ -1019,11 +1019,13 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 }
 
 .chatrow:nth-of-type(odd) {
-    background-color:rgba(0,0,0,.5);
+    /*background-color:rgba(0,0,0,.5);*/
+    background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);
 }
 
 .chatrow:nth-of-type(even) {
-    background-color:#474747;
+    /*background-color:#474747;*/
+    background: linear-gradient(-90deg, #121111, #474747);
 }
 
 #comment_input {
@@ -1052,10 +1054,10 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
-#sidebar {
+.sidebar {
 	width: 280px;
 	float: right;
-	margin: 20px 0 10px;
+	margin: 20px 0 0px;
 }
 .widget {
 	background: #fff;

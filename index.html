@@ -26,7 +26,7 @@
 <script type="text/javascript" src="js/scrollintoview.js"></script>
 <script type="text/javascript" src="js/spin.min.js"></script>
 
-<!--Snowing-->
+<!--Snowing disabled-->
 <script type="text/javascript" src="js/jquery.snow.js"></script>
 
 <script>
@@ -169,7 +169,9 @@
     <!-- /#content --> 
 
 	<!-- #sidebar -->
-    <aside id="sidebar">
+    <!--<aside id="weather_content_id" class="sidebar"></aside>-->
+    
+    <aside id="sidebar1" class="sidebar">
 
         <section id="playerwidget" class="widget">
                 <h2 class="widgettitle" onClick="">Activity</h2>                
@@ -200,7 +202,7 @@
 
     //Document ready
     jQuery(document).ready(function () {
-        
+
         //Loader gif
         //$.ajaxSetup({
         //    beforeSend:function(){
@@ -232,7 +234,7 @@
         //Start session checking
         CheckForSession();
 
-        getEvents();        
+        getEvents();
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
@@ -243,6 +245,8 @@
         //Stop spinner after events have been load
         stopSpinner();
 
+        //getWeather();
+        
         //SSE init
         //setSSE();
 
@@ -484,8 +488,7 @@
 
     //Profile navigation - Content for the selected page///////////
     function profileClick() {
-        //alert("Handler for admin navigation .click() called.");
-        //Games
+
         if ($("#link_profile_profile").hasClass('current2')) {
             $("#profile_profile_content_id").removeClass("noshow");
             $("#profile_chart_content_id").addClass("noshow");
