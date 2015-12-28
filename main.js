@@ -996,8 +996,6 @@ function stopSpinner() {
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 
-<<<<<<< HEAD
-=======
 
 function getWeather() {
 
@@ -1020,4 +1018,3 @@ function getWeather() {
 }
 
 
->>>>>>> refs/remotes/origin/d21
