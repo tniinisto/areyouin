@@ -700,7 +700,7 @@ article
   -ms-transition: max-height 2s; 
   -o-transition: max-height 2s; 
   transition: max-height 2s;  
-  background: #e5feff;
+  /*background: #e5feff;*/
   /*overflow: hidden;*/
   
   max-height: 900px;
