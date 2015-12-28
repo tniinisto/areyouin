@@ -340,7 +340,8 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    var eventarticle = $("#event_article_" + eventid);
+    var eventarticle = "#event_article_" + eventid;
+    eventarticle = $(eventarticle);
 
     if (box.hasClass('noshow')) {
     
