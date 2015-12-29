@@ -1270,3 +1270,8 @@ MYBUTTON
     position: relative;
     padding: 10px;
 }
+
+/*Validation*/
+.error {
+    color:red;
+}
