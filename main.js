@@ -340,12 +340,14 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    var eventarticle = "event_article_" + eventid;
+    //var eventarticle = "#event_article_" + 1 2 3 jne.;
+    //eventarticle = $(eventarticle);
 
     if (box.hasClass('noshow')) {
     
+        //eventarticle.addClass('event_article_animate');
         box.removeClass('noshow');
-
+        
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
@@ -356,7 +358,7 @@ function showPlayers(eventid) {
         box.addClass('visuallynoshow');
     
         box.one('transitionend', function(e) {
-
+            //eventarticle.removeClass('event_article_animate')
             box.addClass('noshow');
 
         });
