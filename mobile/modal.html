@@ -104,45 +104,38 @@
             //});
 
             //Form validation
-            //$('#chatform').validate({
-            //    rules: {
-            //        comment_input: {
-            //            required: true
-            //        }
-            //    },
-            //    messages: {
-            //        comment_input: {
-            //            required: "Enter chat comment"
-            //        }
-            //    },
-            //    errorPlacement: function (error, element) {
-            //        error.appendTo(element.parent().prev());
-            //    },
-            //    submitHandler: function (form) {
-            //        $(':mobile-pagecontainer').pagecontainer('change', '#success', {
-            //            reload: false
-            //        });
-            //        return false;
-            //    }
-            //});
+            $('#chatform').validate({
+                rules: {
+                    comment_input: {
+                        required: true
+                    }
+                },
+                messages: {
+                    comment_input: {
+                        required: "Enter chat comment"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent().prev());
+                },
+                submitHandler: function (form) {
+                    $(':mobile-pagecontainer').pagecontainer('change', '#success', {
+                        reload: false
+                    });
+                    return false;
+                }
+            });
 
 
-function hasHtml5Validation () {
-  return typeof document.createElement('input').checkValidity === 'function';
-}
+            document.getElementById('chatform').disabled = true;
 
-if (hasHtml5Validation()) {
-  $('.validate-form').submit(function (e) {
-    if (!this.checkValidity()) {
-      e.preventDefault();
-      $(this).addClass('invalid');
-      //$('#status').html('invalid');
-    } else {
-      $(this).removeClass('invalid');
-      //$('#status').html('submitted');
-    }
-  });
-}
+            $("#chatform").keyup(function (e) {
+                var value = document.getElementById('comment_input').value;
+                if (value.length < 1) {
+                    document.getElementById('chatform').disabled = false;
+                }
+            });
+
 
         </script>
 
