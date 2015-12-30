@@ -58,18 +58,18 @@
 	    </div>
 
         <script>
+            $('#sendbutton').addClass('ui-disabled');
 
             //Document ready
-            jQuery(document).ready(function () {
-                //document.getElementById('sendbutton').disabled = true;
-                alert("test");
-                $('input[type="submit"]').prop('disabled', true);
-                $('input[type="text"]').keyup(function () {
-                    if ($(this).val() != '') {
-                        $('input[type="submit"]').prop('disabled', false);
-                    }
-                });
-            });
+            //jQuery(document).ready(function () {
+            //    //document.getElementById('sendbutton').disabled = true;
+            //    $('input[type="submit"]').prop('disabled', true);
+            //    $('input[type="text"]').keyup(function () {
+            //        if ($(this).val() != '') {
+            //            $('input[type="submit"]').prop('disabled', false);
+            //        }
+            //    });
+            //});
 
             //$(document).on("click", "#sendbutton", function () {
             //    alert("test");
