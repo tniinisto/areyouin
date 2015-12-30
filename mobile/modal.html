@@ -58,7 +58,7 @@
 	    </div>
 
         <script>
-            $('#sendbutton').addClass('ui-disabled');
+            //$('#sendbutton').addClass('ui-disabled');
 
             //Document ready
             //jQuery(document).ready(function () {
@@ -120,7 +120,8 @@
             $('#chatform').validate({
                 rules: {
                     comment_input: {
-                        required: true
+                        required: true,
+                        minlength: 1
                     }
                 },
                 messages: {
