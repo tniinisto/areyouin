@@ -57,12 +57,19 @@
 		    </div>
 	    </div>
 
-        <script>       
-       
+        <script>
+
             //Document ready
             jQuery(document).ready(function () {
-               document.getElementById('sendbutton').disabled = true;
-            }
+                //document.getElementById('sendbutton').disabled = true;
+
+                $('input[type="submit"]').prop('disabled', true);
+                $('input[type="text"]').keyup(function () {
+                    if ($(this).val() != '') {
+                        $('input[type="submit"]').prop('disabled', false);
+                    }
+                });
+            });
 
             //$(document).on("click", "#sendbutton", function () {
             //    alert("test");
@@ -133,12 +140,12 @@
             });
 
 
-            $("#comment_input").keyup(function (e) {
-                var value = document.getElementById('comment_input').value;
-                if (value.length > 1) {
-                    document.getElementById('sendbutton').disabled = false;
-                }
-            });
+            //$("#comment_input").keyup(function (e) {
+            //    var value = document.getElementById('comment_input').value;
+            //    if (value.length > 1) {
+            //        document.getElementById('sendbutton').disabled = false;
+            //    }
+            //});
 
 
         </script>
