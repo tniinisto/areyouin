@@ -34,7 +34,7 @@
 			    <!--<h1>Write new comment</h1>
 			    <p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
 
-                <form id="chatform" onsubmit="addRow();" name="chatform" method="GET" target="frame_chat">
+                <form id="chatform" class="validate-form" onsubmit="addRow();" name="chatform" method="GET" target="frame_chat">
                     
                     <div data-role="fieldcontainer">
                         <label for="comment_input">Comment: </label>
@@ -104,27 +104,45 @@
             //});
 
             //Form validation
-            $('#chatform').validate({
-                rules: {
-                    comment_input: {
-                        required: true
-                    }
-                },
-                messages: {
-                    comment_input: {
-                        required: "Enter chat comment"
-                    }
-                },
-                errorPlacement: function (error, element) {
-                    error.appendTo(element.parent().prev());
-                },
-                submitHandler: function (form) {
-                    $(':mobile-pagecontainer').pagecontainer('change', '#success', {
-                        reload: false
-                    });
-                    return false;
-                }
-            });
+            //$('#chatform').validate({
+            //    rules: {
+            //        comment_input: {
+            //            required: true
+            //        }
+            //    },
+            //    messages: {
+            //        comment_input: {
+            //            required: "Enter chat comment"
+            //        }
+            //    },
+            //    errorPlacement: function (error, element) {
+            //        error.appendTo(element.parent().prev());
+            //    },
+            //    submitHandler: function (form) {
+            //        $(':mobile-pagecontainer').pagecontainer('change', '#success', {
+            //            reload: false
+            //        });
+            //        return false;
+            //    }
+            //});
+
+
+function hasHtml5Validation () {
+  return typeof document.createElement('input').checkValidity === 'function';
+}
+
+if (hasHtml5Validation()) {
+  $('.validate-form').submit(function (e) {
+    if (!this.checkValidity()) {
+      e.preventDefault();
+      $(this).addClass('invalid');
+      //$('#status').html('invalid');
+    } else {
+      $(this).removeClass('invalid');
+      //$('#status').html('submitted');
+    }
+  });
+}
 
         </script>
 
