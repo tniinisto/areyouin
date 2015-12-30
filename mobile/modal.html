@@ -38,7 +38,7 @@
                     
                     <div data-role="fieldcontainer">
                         <label for="comment_input">Comment: </label>
-                        <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" style="height:  100px;"required></textarea>
+                        <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" style="height:  100px;" required></textarea>
                     </div>
                     
                     <input type="submit" value="Send" name="sendbutton" id="sendbutton"/>
@@ -49,6 +49,10 @@
                     <!--<button id="comment_submit" type="submit" name="send" value="send" data-rel="back" onclick="$('.ui-dialog').dialog('close');">Send</button>-->
                     <!--<a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>-->
                 </form>
+                
+                <script>
+                    $("#chatform").validate();
+                </script>
 
                 <iframe name="frame_chat" style="display: none;"></iframe>                    
 			    
