@@ -56,8 +56,14 @@
 
 		    </div>
 	    </div>
-    
-        <script>
+
+        <script>       
+       
+            //Document ready
+            //jQuery(document).ready(function () {
+            //   
+            //}
+
             //$(document).on("click", "#sendbutton", function () {
             //    alert("test");
             //    //$("#chatform").submit();
@@ -127,12 +133,12 @@
             });
 
 
-            document.getElementById('chatform').disabled = true;
+            document.getElementById('sendbutton').disabled = false;
 
-            $("#chatform").keyup(function (e) {
+            $("#comment_input").keyup(function (e) {
                 var value = document.getElementById('comment_input').value;
-                if (value.length < 1) {
-                    document.getElementById('chatform').disabled = false;
+                if (value.length > 1) {
+                    document.getElementById('sendbutton').disabled = false;
                 }
             });
 
