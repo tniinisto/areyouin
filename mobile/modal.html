@@ -60,9 +60,9 @@
         <script>       
        
             //Document ready
-            //jQuery(document).ready(function () {
-            //   
-            //}
+            jQuery(document).ready(function () {
+               document.getElementById('sendbutton').disabled = true;
+            }
 
             //$(document).on("click", "#sendbutton", function () {
             //    alert("test");
@@ -132,8 +132,6 @@
                 }
             });
 
-
-            document.getElementById('sendbutton').disabled = true;
 
             $("#comment_input").keyup(function (e) {
                 var value = document.getElementById('comment_input').value;
