@@ -186,6 +186,7 @@
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
                     echo "<br>";
                     echo "<fieldset id='timezone_set'>";
                         echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
@@ -226,7 +227,16 @@
                     //echo "</br>";
                     //echo "Time offset Helsinki to UTC is " . round($daylight_savings_offset_in_seconds/3600) . " hours";
                     //////////////////////////////////////
+                    
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
 
+                    //Location section///////////////////////////////////////////////////////////////////////////
+                    echo "<fieldset id='location_set'>";
+                        echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
+
+
+                    echo "</fieldset>";
+                    //Location section///////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
                 //Settings page///////////////////////////////////////////////////////////////////////////
