@@ -1045,25 +1045,23 @@ function getWeather() {
 
 function initializeMap() {
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
-} 
-else {
-  alert('geolocation not supported');
-}
+//if (navigator.geolocation) {
+//  navigator.geolocation.getCurrentPosition(success, error);
+//} 
+//else {
+//  alert('geolocation not supported');
+//}
 
-var nlat, nlon;
-function success(position) {
-  alert(position.coords.latitude + ', ' + position.coords.longitude);
-  nlat = position.coords.latitude;
-  nlon = position.coords.longitude;
-}
+//var nlat, nlon;
+//function success(position) {
+//  alert(position.coords.latitude + ', ' + position.coords.longitude);
+//  nlat = position.coords.latitude;
+//  nlon = position.coords.longitude;
+//}
 
-function error(msg) {
-  alert('error: ' + msg);
-}
-
-
+//function error(msg) {
+//  alert('error: ' + msg);
+//}
 
     var mapCanvas = document.getElementById('Location_map');
     
