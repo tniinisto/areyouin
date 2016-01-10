@@ -99,6 +99,9 @@
 </script>
 <!-- load Google chart AJAX API -->
 
+<script>
+    google.maps.event.addDomListener(window, 'load', initializeMap);
+</script>
 
 </head>
 
@@ -244,9 +247,6 @@
 
         //Stop spinner after events have been load
         stopSpinner();
-
-        initializeMap();
-        listenLocation();
 
         //getWeather();
         

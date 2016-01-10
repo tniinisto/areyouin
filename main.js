@@ -1047,8 +1047,16 @@ var map;
 
 function initializeMap() {
     var mapCanvas = document.getElementById('Location_map');
-    map = new google.maps.Map(mapCanvas);
-    google.maps.event.addDomListener(window, 'load', initialize);
+    
+    var mapOptions = {
+        center: new google.maps.LatLng(44.5403, -78.5463),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    map = new google.maps.Map(mapCanvas, mapOptions);
+
+    listenLocation();
 }
 
 function listenLocation() {
