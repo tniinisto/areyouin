@@ -103,13 +103,6 @@
 
     google.maps.event.addDomListener(window, 'load', initializeMap);
 
-    $('#admin_content_article').live("pageshow", function() {
-            $('#map_canvas').gmap('refresh');
-    });
-    $('#admin_content_article').live("pageinit", function() {
-            $('#map_canvas').gmap({'center': '59.3426606750, 25.0736160278'});
-    });
-
 </script>
 
 </head>
