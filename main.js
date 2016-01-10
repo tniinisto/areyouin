@@ -1092,8 +1092,8 @@ var nlat = 0, nlon = 0;
 
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker(event.latLng);
-       //alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
-       // ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
 
 
