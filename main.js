@@ -1055,8 +1055,8 @@ function listenLocation() {
         var latitude = point.y;
         var longitude = point.x;
 
-        alert("Location (lat, lon): ", latitude, longitude);
-        // do something with the lat/lng
+        alert("Location (lat, lon): " + latitude + ", " + longitude);
+        // do something with the lat/lng 
     });
 }
 
