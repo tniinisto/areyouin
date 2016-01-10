@@ -1047,7 +1047,7 @@ function initializeMap() {
     var mapCanvas = document.getElementById('Location_map');
     
     var mapOptions = {
-        center: new google.maps.LatLng(59.9403, 24.5463),
+        center: new google.maps.LatLng(60.3403, 23.5463),
         zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
@@ -1055,7 +1055,9 @@ function initializeMap() {
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
     //alert("jou");
-
+    $('#Location_map').on('pageshow', function(){
+        google.maps.event.trigger(canvas-map, "resize");
+    });
 
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker(event.latLng);
