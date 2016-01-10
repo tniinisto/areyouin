@@ -1045,22 +1045,20 @@ function getWeather() {
 
 function initializeMap() {
 
+//Geolocation/////////////////////////////////////////////////
 var nlat = 0, nlon = 0;
 
-if (navigator.geolocation) {
-  
-    //Geolocation/////////////////////////////////////////////////
-    navigator.geolocation.getCurrentPosition(success, error);
-
-        function success(position) {
-          //alert(position.coords.latitude + ', ' + position.coords.longitude);
-          nlat = position.coords.latitude;
-          nlon = position.coords.longitude;
-        }
-
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
     } 
     else {
       //alert('geolocation not supported');
+    }
+
+    function success(position) {
+        //alert(position.coords.latitude + ', ' + position.coords.longitude);
+        nlat = position.coords.latitude;
+        nlon = position.coords.longitude;
     }
 
     function error(msg) {
