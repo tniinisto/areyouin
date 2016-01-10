@@ -177,65 +177,65 @@
                 //New game///////////////////////////////////////////////////////////////////////////
 
 
-                //Settings page///////////////////////////////////////////////////////////////////////////
+                ////Settings page///////////////////////////////////////////////////////////////////////////
 
-                $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
-                $res_team = mysql_query($sql_team);
-                $row_team = mysql_fetch_array($res_team);
-
-
-                echo "<div id=\"team_content_id\" class=\"noshow\">";
-                    
-                    //Timezone section///////////////////////////////////////////////////////////////////////////
-                    echo "<br>";
-                    echo "<fieldset id='timezone_set'>";
-                        echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
-                        
-                        echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
-                            echo "<h3 id='team_timezone' style='text-align: center;'>Current timezone:</h3>";
-                            echo "<h4 id='team_timezone_value' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
-                        echo "</div>";
-
-                        //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
-                        echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
-                            $timezone_identifiers = DateTimeZone::listIdentifiers();
-                            echo "<label><h3 style='text-align: center;'>Choose team's timezone:</h3></label>";                    
-                            //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
-                            
-                            echo "<div align='center'>";
-                            echo "<select id='timezone_select' name='timezone_select' form='timezones' style='text-align: center;'>";
-                                for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
-	                                echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
-                                }
-                            echo "</select>";
-                            echo "</div>";
-
-                            //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
-                            echo "<input type='submit' class='myButton' value='Save' id='submit_timezone'></input>";                                         
-                        echo "</form>";
-                        echo "<br>";
-                        echo "<p><span id='txtZone'></span></p>";                
-                    echo "</fieldset>";
-                    
-                    //Timezone section///////////////////////////////////////////////////////////////////////////
+                //$sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
+                //$res_team = mysql_query($sql_team);
+                //$row_team = mysql_fetch_array($res_team);
 
 
-                    //Location section///////////////////////////////////////////////////////////////////////////
-                   
-                        echo "<div id='Location_map'></div>";
+                //echo "<div id=\"team_content_id\" class=\"noshow\">";
+                //    
+                //    //Timezone section///////////////////////////////////////////////////////////////////////////
+                //    echo "<br>";
+                //    echo "<fieldset id='timezone_set'>";
+                //        echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
+                //        
+                //        echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
+                //            echo "<h3 id='team_timezone' style='text-align: center;'>Current timezone:</h3>";
+                //            echo "<h4 id='team_timezone_value' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
+                //        echo "</div>";
 
-                        //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
-                        //    $timezone_identifiers = DateTimeZone::listIdentifiers();
-                        //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
-                        //    //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                //        //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
+                //        echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
+                //            $timezone_identifiers = DateTimeZone::listIdentifiers();
+                //            echo "<label><h3 style='text-align: center;'>Choose team's timezone:</h3></label>";                    
+                //            //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                //            
+                //            echo "<div align='center'>";
+                //            echo "<select id='timezone_select' name='timezone_select' form='timezones' style='text-align: center;'>";
+                //                for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
+	               //                 echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
+                //                }
+                //            echo "</select>";
+                //            echo "</div>";
 
-                        //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
-                        //echo "</form>";
-                   
-                    //Location section///////////////////////////////////////////////////////////////////////////
+                //            //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
+                //            echo "<input type='submit' class='myButton' value='Save' id='submit_timezone'></input>";                                         
+                //        echo "</form>";
+                //        echo "<br>";
+                //        echo "<p><span id='txtZone'></span></p>";                
+                //    echo "</fieldset>";
+                //    
+                //    //Timezone section///////////////////////////////////////////////////////////////////////////
 
-                echo "</div>";
-                //Settings page///////////////////////////////////////////////////////////////////////////
+
+                //    //Location section///////////////////////////////////////////////////////////////////////////
+                //   
+                //        echo "<div id='Location_map'></div>";
+
+                //        //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
+                //        //    $timezone_identifiers = DateTimeZone::listIdentifiers();
+                //        //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
+                //        //    //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+
+                //        //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
+                //        //echo "</form>";
+                //   
+                //    //Location section///////////////////////////////////////////////////////////////////////////
+
+                //echo "</div>";
+                ////Settings page///////////////////////////////////////////////////////////////////////////
 
 
                 //Members/Users page///////////////////////////////////////////////////////////////////////////
