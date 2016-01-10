@@ -222,7 +222,10 @@
                     echo "<br>";
 
                     //Location section///////////////////////////////////////////////////////////////////////////
-                   
+                    echo "<fieldset id='location_set'>";
+                        echo "<legend style='text-align: left;'><h2>Location</h2></legend>";
+                        echo "<br>";
+
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
@@ -232,7 +235,8 @@
 
                         //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
                         //echo "</form>";
-                   
+                   echo "</fieldset>";
+
                     //Location section///////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
