@@ -1045,31 +1045,44 @@ function getWeather() {
 
 function initializeMap() {
 
-//if (navigator.geolocation) {
-//  navigator.geolocation.getCurrentPosition(success, error);
-//} 
-//else {
-//  alert('geolocation not supported');
-//}
+var nlat = 0, nlon = 0;
 
-//var nlat, nlon;
-//function success(position) {
-//  alert(position.coords.latitude + ', ' + position.coords.longitude);
-//  nlat = position.coords.latitude;
-//  nlon = position.coords.longitude;
-//}
+if (navigator.geolocation) {
+  
+    //Geolocation/////////////////////////////////////////////////
+    navigator.geolocation.getCurrentPosition(success, error);
 
-//function error(msg) {
-//  alert('error: ' + msg);
-//}
+        function success(position) {
+          alert(position.coords.latitude + ', ' + position.coords.longitude);
+          nlat = position.coords.latitude;
+          nlon = position.coords.longitude;
+        }
 
+    } 
+    else {
+      //alert('geolocation not supported');
+    }
+
+    function error(msg) {
+      alert('error: ' + msg);
+    }
+
+
+    //Google maps/////////////////////////////////////////////////
     var mapCanvas = document.getElementById('Location_map');
-    
-    var mapOptions = {
-        //center: new google.maps.LatLng(nlat, nlon),
-        center: new google.maps.LatLng(61,154, 23,350),
-        zoom: 6,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+
+    if (nlat != 0) {
+        var mapOptions = {
+            center: new google.maps.LatLng(nlat, nlon),
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    } else {
+        var mapOptions = {
+            center: new google.maps.LatLng(60,387, 23,134),
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
     }
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
