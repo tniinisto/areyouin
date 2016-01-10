@@ -1054,7 +1054,7 @@ else {
 
 var nlat, nlon;
 function success(position) {
-  alert(position.coords.latitude + ', ' + position.coords.longitude);
+  //alert(position.coords.latitude + ', ' + position.coords.longitude);
   nlat = position.coords.latitude;
   nlon = position.coords.longitude;
 }
