@@ -1053,7 +1053,9 @@ function initializeMap() {
 function listenLocation() {
     //var map2 = new GMap2(document.getElementById("Location_map"));
 
-    GEvent.addListener(map, "click", function (marker, point) {
+    //google.maps.event.addDomListener(window, 'load', initialize);
+    
+    google.maps.event.addListener(map, "click", function (marker, point) {
         var latitude = point.y;
         var longitude = point.x;
 
