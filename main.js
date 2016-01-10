@@ -1054,42 +1054,25 @@ function initializeMap() {
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    alert("jou");
+    //alert("jou");
 
 
-google.maps.event.addListener(map, 'click', function(event) {
-   placeMarker(event.latLng);
-});
-
-function placeMarker(location) {
-    var marker = new google.maps.Marker({
-        position: location, 
-        map: map
+    google.maps.event.addListener(map, 'click', function(event) {
+       placeMarker(event.latLng);
+       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
-}
 
 
-    //google.maps.event.addListener(map, "click", function (marker, point) {
-    //    var latitude = point.y;
-    //    var longitude = point.x;
-
-    //    alert("Location (lat, lon): " + latitude + ", " + longitude);
-    //    // do something with the lat/lng 
-    //});
+    function placeMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location, 
+            map: map
+        });
+    }
 
 }
 
-//function listenLocation() {
-//    //var map2 = new GMap2(document.getElementById("Location_map"));
-//    
-//    google.maps.event.addListener(map, "click", function (marker, point) {
-//        var latitude = point.y;
-//        var longitude = point.x;
-
-//        alert("Location (lat, lon): " + latitude + ", " + longitude);
-//        // do something with the lat/lng 
-//    });
-//}
 
 
 
