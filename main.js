@@ -1042,11 +1042,10 @@ function getWeather() {
 
 
 //Location////////////////////////////////////////////////////////////////////////////////////
-var map;
 
 function initializeMap() {
-var mapCanvas = document.getElementById('Location_map');
-map = new google.maps.Map(mapCanvas);
+    var mapCanvas = document.getElementById('Location_map');
+    var map = new google.maps.Map(mapCanvas);
 }
 
 function listenLocation() {

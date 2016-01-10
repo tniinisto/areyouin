@@ -242,7 +242,7 @@
                         //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
                         //echo "</form>";
 
-                        <div id="Location_map"></div>
+                        echo "<div id='Location_map'></div>";
 
                     echo "</fieldset>";
                     //Location section///////////////////////////////////////////////////////////////////////////
