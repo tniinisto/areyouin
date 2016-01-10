@@ -231,6 +231,7 @@
                     //Timezone section///////////////////////////////////////////////////////////////////////////
 
                     //Location section///////////////////////////////////////////////////////////////////////////
+                   
                     //echo "<fieldset id='location_set' style='height: 400px;'>";
                     //    echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
                         
@@ -245,6 +246,7 @@
                         echo "<div id='Location_map'></div>";
 
                     //echo "</fieldset>";
+                   
                     //Location section///////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
