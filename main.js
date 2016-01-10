@@ -1066,7 +1066,8 @@ function initializeMap() {
     var mapCanvas = document.getElementById('Location_map');
     
     var mapOptions = {
-        center: new google.maps.LatLng(nlat, nlon),
+        //center: new google.maps.LatLng(nlat, nlon),
+        center: new google.maps.LatLng(61,154, 23,350),
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
