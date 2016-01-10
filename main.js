@@ -1044,10 +1044,31 @@ function getWeather() {
 //Location, google maps////////////////////////////////////////////////////////////////////////////////////
 
 function initializeMap() {
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} 
+else {
+  alert('geolocation not supported');
+}
+
+var nlat, nlon;
+function success(position) {
+  alert(position.coords.latitude + ', ' + position.coords.longitude);
+  nlat = position.coords.latitude;
+  nlon = position.coords.longitude;
+}
+
+function error(msg) {
+  alert('error: ' + msg);
+}
+
+
+
     var mapCanvas = document.getElementById('Location_map');
     
     var mapOptions = {
-        center: new google.maps.LatLng(60.3403, 23.1463),
+        center: new google.maps.LatLng(nlat, nlon),
         zoom: 6,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
