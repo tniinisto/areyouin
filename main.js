@@ -1043,35 +1043,53 @@ function getWeather() {
 
 //Location////////////////////////////////////////////////////////////////////////////////////
 
-var map;
-
 function initializeMap() {
     var mapCanvas = document.getElementById('Location_map');
     
     var mapOptions = {
-        center: new google.maps.LatLng(44.5403, -78.5463),
-        zoom: 8,
+        center: new google.maps.LatLng(58.5403, 5.5463),
+        zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    map = new google.maps.Map(mapCanvas, mapOptions);
+    var map = new google.maps.Map(mapCanvas, mapOptions);
 
     alert("jou");
 
-    listenLocation();
-}
 
-function listenLocation() {
-    //var map2 = new GMap2(document.getElementById("Location_map"));
-    
-    google.maps.event.addListener(map, "click", function (marker, point) {
-        var latitude = point.y;
-        var longitude = point.x;
+google.maps.event.addListener(map, 'click', function(event) {
+   placeMarker(event.latLng);
+});
 
-        alert("Location (lat, lon): " + latitude + ", " + longitude);
-        // do something with the lat/lng 
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
     });
 }
+
+
+    //google.maps.event.addListener(map, "click", function (marker, point) {
+    //    var latitude = point.y;
+    //    var longitude = point.x;
+
+    //    alert("Location (lat, lon): " + latitude + ", " + longitude);
+    //    // do something with the lat/lng 
+    //});
+
+}
+
+//function listenLocation() {
+//    //var map2 = new GMap2(document.getElementById("Location_map"));
+//    
+//    google.maps.event.addListener(map, "click", function (marker, point) {
+//        var latitude = point.y;
+//        var longitude = point.x;
+
+//        alert("Location (lat, lon): " + latitude + ", " + longitude);
+//        // do something with the lat/lng 
+//    });
+//}
 
 
 

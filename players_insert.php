@@ -222,7 +222,7 @@
 
                     //Location section///////////////////////////////////////////////////////////////////////////
                    
-                        echo "<div id='Location_map'></div>";
+                        echo "<div id='Location_map' style='height: 400px;'></div>";
 
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
                         //    $timezone_identifiers = DateTimeZone::listIdentifiers();
