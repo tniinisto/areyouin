@@ -1056,6 +1056,8 @@ function initializeMap() {
 
     map = new google.maps.Map(mapCanvas, mapOptions);
 
+    alert("jou");
+
     listenLocation();
 }
 
