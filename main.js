@@ -1085,7 +1085,6 @@ var nlat = 0, nlon = 0;
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    //alert("jou");
     $('#Location_map').on('pageshow', function(){
         google.maps.event.trigger(canvas-map, "resize");
     });
