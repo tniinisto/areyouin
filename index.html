@@ -18,6 +18,7 @@
 <!-- Scripts -->
 <script type="text/javascript" charset="utf-8" src="main.js"> </script>
 <script src="js/iscroll.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!--JQuery -->
 <!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
@@ -243,6 +244,9 @@
 
         //Stop spinner after events have been load
         stopSpinner();
+
+        initializeMap();
+        listenLocation();
 
         //getWeather();
         

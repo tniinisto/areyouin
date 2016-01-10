@@ -1041,3 +1041,26 @@ function getWeather() {
 }
 
 
+//Location////////////////////////////////////////////////////////////////////////////////////
+var map;
+
+function initializeMap() {
+var mapCanvas = document.getElementById('Location_map');
+map = new google.maps.Map(mapCanvas);
+}
+
+function listenLocation() {
+    var map2 = new GMap2(document.getElementById("Location_map"));
+
+    GEvent.addListener(map2, "click", function (marker, point) {
+        var latitude = point.y;
+        var longitude = point.x;
+
+        alert("Location (lat, lon): ", latitude, longitude);
+        // do something with the lat/lng
+    });
+}
+
+
+
+

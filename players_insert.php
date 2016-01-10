@@ -234,6 +234,15 @@
                     echo "<fieldset id='location_set'>";
                         echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
+                        //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
+                        //    $timezone_identifiers = DateTimeZone::listIdentifiers();
+                        //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
+                        //    //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+
+                        //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
+                        //echo "</form>";
+
+                        <div id="Location_map"></div>
 
                     echo "</fieldset>";
                     //Location section///////////////////////////////////////////////////////////////////////////
