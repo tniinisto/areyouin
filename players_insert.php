@@ -231,8 +231,8 @@
                     //Timezone section///////////////////////////////////////////////////////////////////////////
 
                     //Location section///////////////////////////////////////////////////////////////////////////
-                    echo "<fieldset id='location_set' style='height: 400px;'>";
-                        echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
+                    //echo "<fieldset id='location_set' style='height: 400px;'>";
+                    //    echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
                         
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
                         //    $timezone_identifiers = DateTimeZone::listIdentifiers();
@@ -244,7 +244,7 @@
 
                         echo "<div id='Location_map'></div>";
 
-                    echo "</fieldset>";
+                    //echo "</fieldset>";
                     //Location section///////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
