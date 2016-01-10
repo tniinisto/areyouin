@@ -216,22 +216,14 @@
                         echo "<br>";
                         echo "<p><span id='txtZone'></span></p>";                
                     echo "</fieldset>";
-
-                    //TIMEZONE OFFSET///////////////////////
-                    // Don't know where the server is or how its clock is set, so default to UTC
-                    //date_default_timezone_set( "UTC" );
-
-                    //// The client is in England where daylight savings may be in effect
-                    //$daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
-
-                    //echo "</br>";
-                    //echo "Time offset Helsinki to UTC is " . round($daylight_savings_offset_in_seconds/3600) . " hours";
-                    //////////////////////////////////////
                     
                     //Timezone section///////////////////////////////////////////////////////////////////////////
 
+
                     //Location section///////////////////////////////////////////////////////////////////////////
                    
+                        echo "<div id='Location_map'></div>";
+
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
                         //    $timezone_identifiers = DateTimeZone::listIdentifiers();
                         //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
@@ -239,8 +231,6 @@
 
                         //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
                         //echo "</form>";
-
-                        echo "<div id='Location_map'></div>";
                    
                     //Location section///////////////////////////////////////////////////////////////////////////
 
