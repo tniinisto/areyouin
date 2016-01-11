@@ -1056,7 +1056,7 @@ var nlat = 0, nlon = 0;
     }
 
     function success(position) {
-        //alert(position.coords.latitude + ', ' + position.coords.longitude);
+        alert(position.coords.latitude + ', ' + position.coords.longitude);
         nlat = position.coords.latitude;
         nlon = position.coords.longitude;
     }
@@ -1072,28 +1072,27 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 6,
+            zoom: 3,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
-            zoom: 6,
+            zoom: 3,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    //alert("jou");
     $('#Location_map').on('pageshow', function(){
         google.maps.event.trigger(canvas-map, "resize");
     });
 
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker(event.latLng);
-       //alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
-       // ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
 
 
