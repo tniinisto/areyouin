@@ -212,7 +212,7 @@
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<a href=\"javascript:getEvents();\">Back to events</a>";
+        echo "<a href=\"javascript:toEvents();\">Back to events</a>";
 
         echo "</article>";
     
