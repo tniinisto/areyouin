@@ -209,10 +209,11 @@
         echo "</br>";
         echo "</br>";
         echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\"></input>"; 
+        echo "<a href='javascript:toEvents();' class='myButton'>Back to events</a>";
         //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
-        echo "<a href=\"javascript:toEvents();\">Back to events</a>";
+        
 
         echo "</article>";
     
