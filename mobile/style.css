@@ -1014,7 +1014,7 @@ Event form
   display:block;
   margin-bottom:5px;
   margin-top:20px;
-  margin-left:200px;
+  margin-left:auto;
   outline: none;
   -webkit-border-radius:5px;
   -moz-border-radius:5px;
