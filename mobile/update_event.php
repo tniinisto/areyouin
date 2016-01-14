@@ -208,14 +208,9 @@
         echo "</table>";
         echo "</br>";
         echo "</br>";
-
-        echo "<div>";  
-            echo "<input type='submit' value='Update Game' id='submitgame' class='myButton'></input>"; 
-            echo "</br>";
-            echo "<input type='button' value='Back to events' class='myButton'><a href='javascript:toEvents();' style='color: black; text-decoration:none;'></a></input>";
-            //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
-        echo "</div>";  
-
+        echo "<input type='submit' value='Update Game' id='submitgame' class='myButton'></input>"; 
+        echo "<input type='button' value='Back to events' class='myButton'><a href='javascript:toEvents();' style='color: black; text-decoration:none;'></a></input>";
+        //echo "<input type=\"submit\" value=\"Delete Game\" id=\"submitgame\"></input>"; 
         echo "</form>";
 
         
