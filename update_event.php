@@ -239,7 +239,7 @@
         
 
             //Event fetching back on & fetch the events
-            echo "<a href=\"javascript:eventFetchOn(); javascript:getEvents();\" class=\"myButton\">Back to events</a>";
+            echo "<a href='javascript:eventFetchOn(); javascript:getEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
 
 
             echo "</form>";
