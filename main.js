@@ -1009,8 +1009,13 @@ function initSpinner() {
 }
 
 function startSpinner() {
+    //Event content
     var target = document.getElementById('spinner_id');
     spinner.spin(target);
+
+    //Event update
+    var target2 = document.getElementById('update_spinner_id');
+    spinner.spin(target2);
 }
 
 function stopSpinner() {
