@@ -69,10 +69,8 @@
         //$sql2 = "";
         //$result2 = mysql_query($sql2);
 
-        //Spinner
-        echo "<div id='update_spinner_id'></div>";
-
         //Form - Start & End time/////////////////////
+
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
         echo "<h1>Update event</h1>";
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
@@ -249,7 +247,7 @@
             //Delete event
             echo "</br>";
             echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
-                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn(); startSpinner();'></input>";
+                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
                 echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
             echo "</form>";
 
