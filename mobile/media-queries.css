@@ -496,7 +496,7 @@ screens smaller or equal to 480
 	  display:block;
 	  margin-bottom:5px;
 	  margin-top:5px;
-	  margin-left:45px;
+	  margin-left:auto;
 	  outline: none;
 
 	  -webkit-border-radius:5px;
