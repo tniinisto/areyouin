@@ -1097,13 +1097,17 @@ var nlat = 0, nlon = 0;
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
 
-
+        
     function placeMarker(location) {
         var marker = new google.maps.Marker({
             position: location, 
             map: map
         });
     }
+
+    google.maps.event.addListener(map, 'mousedown', function(event) {
+        //console.log("Can't touch this");
+    });
 
 }
 
