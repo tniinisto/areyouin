@@ -1073,13 +1073,15 @@ var nlat = 0, nlon = 0;
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
             zoom: 3,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            draggable: isDraggable
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
             zoom: 3,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            draggable: isDraggable
         }
     }
 
