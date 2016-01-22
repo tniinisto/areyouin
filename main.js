@@ -1072,29 +1072,29 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 3,
+            zoom: 5,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
-            zoom: 3,
+            zoom: 5,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-//Touch functionality for Maps//
-function MapTouch() {
-    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
-}
+    //Touch functionality for Maps//
+    function MapTouch() {
+        return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+    }
     
-if (MapTouch() === true) {
-    navigator = navigator || {};
-    navigator.msMaxTouchPoints = navigator.msMaxTouchPoints || 2;
-}
-///////////////////////////////
+    if (MapTouch() === true) {
+        navigator = navigator || {};
+        navigator.msMaxTouchPoints = navigator.msMaxTouchPoints || 2;
+    }
+    ///////////////////////////////
 
     $('#Location_map').on('pageshow', function(){
         google.maps.event.trigger(canvas-map, "resize");
