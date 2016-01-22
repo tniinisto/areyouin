@@ -1096,8 +1096,7 @@ var nlat = 0, nlon = 0;
        alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
-
-        
+ 
     function placeMarker(location) {
         var marker = new google.maps.Marker({
             position: location, 
@@ -1105,9 +1104,44 @@ var nlat = 0, nlon = 0;
         });
     }
 
-    google.maps.event.addListener(map, 'mousedown', function(event) {
-        //console.log("Can't touch this");
-    });
+    //google.maps.event.addListener(map, 'mousedown', function(event) {
+    //    //console.log("Can't touch this");
+    //});
+
+
+          var mouseIsDown = false;
+            var oldX = 0; var oldY = 0;
+            var newX = 0; var newY = 0;
+            var toid;
+            $("#Location_map").on("vmousemove vmousedown", function(e) {
+                clearTimeout(toid);
+                if (e.target.id == "map-div") {
+                    if (e.type == "vmousedown") { // resets all values
+                        oldX = 0; oldY = 0; newX = 0; newY = 0;
+                        mouseIsDown = true;
+                    }
+
+                if (mouseIsDown) {
+                    if (newX != 0 && newY != 0) {
+                        oldX = newX;
+                        oldY = newY;
+
+                        newX = e.pageX;
+                        newY = e.pageY;
+
+                        map.panBy(-(newX - oldX), -(newY - oldY));
+                    } else {
+                        newX = e.pageX;
+                        newY = e.pageY;
+                    }       
+
+                }
+
+            toid = setTimeout(function() {
+                mouseIsDown = false;
+            }, 100);
+        }
+
 
 }
 
