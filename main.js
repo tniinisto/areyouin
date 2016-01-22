@@ -1137,11 +1137,11 @@ var nlat = 0, nlon = 0;
 
                 }
 
-            toid = setTimeout(function() {
-                mouseIsDown = false;
-            }, 100);
+                toid = setTimeout(function() {
+                    mouseIsDown = false;
+                }, 100);
+            }
         }
-
 
 }
 
