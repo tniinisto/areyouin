@@ -1073,19 +1073,28 @@ var nlat = 0, nlon = 0;
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
             zoom: 3,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            draggable: true
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
             zoom: 3,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            draggable: true
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
+
+//Touch functionality for Maps//
+function MapTouch() {
+    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+}
+    
+if (MapTouch() === true) {
+    navigator = navigator || {};
+    navigator.msMaxTouchPoints = navigator.msMaxTouchPoints || 2;
+}
+///////////////////////////////
 
     $('#Location_map').on('pageshow', function(){
         google.maps.event.trigger(canvas-map, "resize");
@@ -1096,7 +1105,8 @@ var nlat = 0, nlon = 0;
        alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
- 
+
+
     function placeMarker(location) {
         var marker = new google.maps.Marker({
             position: location, 
@@ -1104,45 +1114,6 @@ var nlat = 0, nlon = 0;
         });
     }
 
-    //google.maps.event.addListener(map, 'mousedown', function(event) {
-    //    //console.log("Can't touch this");
-    //});
-
-
-          //var mouseIsDown = false;
-          //  var oldX = 0; var oldY = 0;
-          //  var newX = 0; var newY = 0;
-          //  var toid;
-          //  $("#Location_map").on("vmousemove vmousedown", function (e) {
-          //      clearTimeout(toid);
-          //      if (e.target.id == "map-div") {
-          //          if (e.type == "vmousedown") { // resets all values
-          //              oldX = 0; oldY = 0; newX = 0; newY = 0;
-          //              mouseIsDown = true;
-          //          }
-
-          //          if (mouseIsDown) {
-          //              if (newX != 0 && newY != 0) {
-          //                  oldX = newX;
-          //                  oldY = newY;
-
-          //                  newX = e.pageX;
-          //                  newY = e.pageY;
-
-          //                  map.panBy(-(newX - oldX), -(newY - oldY));
-          //              } else {
-          //                  newX = e.pageX;
-          //                  newY = e.pageY;
-          //              }
-
-          //          }
-
-          //          toid = setTimeout(function () {
-          //              mouseIsDown = false;
-          //          }, 100);
-          //      }
-          //  });
-    
 }
 
 
