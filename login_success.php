@@ -24,7 +24,7 @@
             header('Location:http://m-areyouin.azurewebsites.net/default.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
-            header('Location:http://localhost:18502/default.html');  
+            header('Location:http://localhost:48595/default.html');  
         } else { //Production
             header('Location:http://areyouin.azurewebsites.net/default.html');  
         }
@@ -40,7 +40,7 @@
             header('Location:http://m-areyouin.azurewebsites.net/index.html');
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
-            header('Location:http://localhost:18502/index.html');  
+            header('Location:http://localhost:48595/index.html');  
         } else { //Production
             header('Location:http://areyouin.azurewebsites.net/index.html');  
         }

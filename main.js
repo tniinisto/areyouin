@@ -340,12 +340,14 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    var eventarticle = "event_article_" + eventid;
+    //var eventarticle = "#event_article_" + 1 2 3 jne.;
+    //eventarticle = $(eventarticle);
 
     if (box.hasClass('noshow')) {
     
+        //eventarticle.addClass('event_article_animate');
         box.removeClass('noshow');
-
+        
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
@@ -356,7 +358,7 @@ function showPlayers(eventid) {
         box.addClass('visuallynoshow');
     
         box.one('transitionend', function(e) {
-
+            //eventarticle.removeClass('event_article_animate')
             box.addClass('noshow');
 
         });
@@ -1016,5 +1018,84 @@ function getWeather() {
         xmlhttp.send();
 
 }
+
+
+//Location, google maps////////////////////////////////////////////////////////////////////////////////////
+
+function initializeMap() {
+
+//Geolocation/////////////////////////////////////////////////
+var nlat = 0, nlon = 0;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } 
+    else {
+      //alert('geolocation not supported');
+    }
+
+    function success(position) {
+        alert(position.coords.latitude + ', ' + position.coords.longitude);
+        nlat = position.coords.latitude;
+        nlon = position.coords.longitude;
+    }
+
+    function error(msg) {
+      alert('Geolocation error: ' + msg);
+    }
+
+
+    //Google maps/////////////////////////////////////////////////
+    var mapCanvas = document.getElementById('Location_map');
+
+    if (nlat != 0) {
+        var mapOptions = {
+            center: new google.maps.LatLng(nlat, nlon),
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    } else {
+        var mapOptions = {
+            center: new google.maps.LatLng(60,387, 23,134),
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    }
+
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Touch functionality for Maps//
+    function MapTouch() {
+        return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+    }
+    
+    if (MapTouch() === true) {
+        navigator = navigator || {};
+        navigator.msMaxTouchPoints = navigator.msMaxTouchPoints || 2;
+    }
+    ///////////////////////////////
+
+    $('#Location_map').on('pageshow', function(){
+        google.maps.event.trigger(canvas-map, "resize");
+    });
+
+    google.maps.event.addListener(map, 'click', function(event) {
+       placeMarker(event.latLng);
+       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+    });
+
+
+    function placeMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location, 
+            map: map
+        });
+    }
+
+}
+
+
+
 
 

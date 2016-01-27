@@ -36,7 +36,7 @@
 			    echo "<ul id='admin-nav' class='clearfix' onClick='adminClick()'>";
 				    echo "<li id='link_admingame' class='current2'><a href='#'>New event</a></li>";
                     echo "<li id='link_adminmembers'><a href='#'>Users</a></li>";
-                    echo "<li id='link_adminsettings'><a href='#'>Settings</a></li>";
+                    echo "<li id='link_adminsettings' onClick='setTimeout(function(){ initializeMap(); }, 100);'><a href='#'>Settings</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
@@ -186,6 +186,7 @@
 
                 echo "<div id=\"team_content_id\" class=\"noshow\">";
                     
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
                     echo "<br>";
                     echo "<fieldset id='timezone_set'>";
                         echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
@@ -215,18 +216,27 @@
                         echo "<br>";
                         echo "<p><span id='txtZone'></span></p>";                
                     echo "</fieldset>";
+                    
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
 
-                    //TIMEZONE OFFSET///////////////////////
-                    // Don't know where the server is or how its clock is set, so default to UTC
-                    //date_default_timezone_set( "UTC" );
+                    echo "<br>";
 
-                    //// The client is in England where daylight savings may be in effect
-                    //$daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open( 'Europe/Helsinki' ), new DateTime() );
+                    //Location section///////////////////////////////////////////////////////////////////////////
+                    echo "<fieldset id='location_set' style='padding:4px;'>";
+                        echo "<legend style='text-align: left;'><h2>Location</h2></legend>";
 
-                    //echo "</br>";
-                    //echo "Time offset Helsinki to UTC is " . round($daylight_savings_offset_in_seconds/3600) . " hours";
-                    //////////////////////////////////////
+                        echo "<div id='Location_map' style='height: 400px;'></div>";
 
+                        //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
+                        //    $timezone_identifiers = DateTimeZone::listIdentifiers();
+                        //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
+                        //    //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+
+                        //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
+                        //echo "</form>";
+                   echo "</fieldset>";
+
+                    //Location section///////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
                 //Settings page///////////////////////////////////////////////////////////////////////////
