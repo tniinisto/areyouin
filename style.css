@@ -921,11 +921,6 @@ td.pcol5 {
     width: 100%;    
 }
 
-/*Div height with vh-percentage*/
-#chat_content_id {
-    height:90vh;    
-}
-
 #admin_content_article {
 	margin: 0 0 20px;
 	padding: 15px 10px 30px;
