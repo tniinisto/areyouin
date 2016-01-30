@@ -212,8 +212,8 @@ HEADER
 #loginform input {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border:1px solid #ccc;
-    font-size:22px;
-    width:200px;
+    font-size:12px;
+    width:220px;
     min-height:30px;
     display:block;
     margin-bottom:15px;
