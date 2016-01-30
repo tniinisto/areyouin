@@ -231,6 +231,10 @@ HEADER
     border-radius:5px;
 }
 
+#loginform submit {
+        font-size:20px;
+}
+
 select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
