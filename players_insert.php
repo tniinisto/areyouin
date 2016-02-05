@@ -268,7 +268,7 @@
                                         //echo "<td class=''> name: " . $row['name'] . "</td>";
 
                                         echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
-                                        echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit information</a>";
+                                        echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit information</a></td>";
                                         
                                     echo "</tr>";
                                 
