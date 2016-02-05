@@ -247,7 +247,7 @@
                 
                     echo "<br><h2>User managing stuff new, delete, edit...</h2>";
                         
-                        echo "<table border='0' id='usertable' class='atable'>";
+                        echo "<table border='0' id='usertable' class=''>";
                         
                             mysql_data_seek($result, 0);
                             while($row = mysql_fetch_array($result))
@@ -268,7 +268,8 @@
                                         //echo "<td class=''> name: " . $row['name'] . "</td>";
 
                                         echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
-                                        echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit information</a></td>";
+                                        
+                                        echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
                                         
                                     echo "</tr>";
                                 
