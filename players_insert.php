@@ -249,20 +249,19 @@
 
                     echo "<div>";
                         
-                        echo "<table border='0' id='usertable' class=\"atable2\">";
+                        echo "<table border='0' id='usertable' class='atable'>";
                         
                             mysql_data_seek($result, 0);
                             while($row = mysql_fetch_array($result))
                             {
-                                echo "<div>";
-                                
+                                                                
                                     echo "<tr>";
                                         //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
                                         echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
                                         echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
                                         echo "<td class=''> name: " . $row['name'] . "</td>";
                                     echo "<tr>";
-                                echo "</div>";
+                                
                                 echo "<br>";
                             }
 
