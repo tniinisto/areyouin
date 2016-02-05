@@ -254,11 +254,22 @@
                             {
                                                                 
                                     echo "<tr>";
+
+                                        echo "<td>";
+                                            echo "<div class='chat-list-left'>";
+                                                echo "<img width='40' height='40' src='images/" . $row['photourl'] . "'>";
+                                                echo "<br />";
+                                                echo "<div class=''> name: " . $row['name'] . "</div>";
+                                            echo "</div>";
+                                        echo "</td>";
+                    
                                         //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
-                                        echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
+                                        //echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
+                                        //echo "<td class=''> name: " . $row['name'] . "</td>";
+
                                         echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
-                                        echo "<td class=''> name: " . $row['name'] . "</td>";
-                                    echo "<tr>";
+                                        
+                                    echo "</tr>";
                                 
                             }
 
