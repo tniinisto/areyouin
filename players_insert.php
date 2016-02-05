@@ -258,7 +258,7 @@
                                     echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
                                     echo "<td class=''> name: " . $row['name'] . "</td>";
                                 echo "<tr>";
-                            echo "<div>";
+                            echo "</div>";
                             echo "<br>";
                         }
                     echo "</div>";
