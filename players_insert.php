@@ -268,12 +268,71 @@
                                         //echo "<td class=''> name: " . $row['name'] . "</td>";
 
                                         echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
+                                        echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit information</a>";
                                         
                                     echo "</tr>";
                                 
                             }
 
                         echo "</table>";
+
+
+                    //Modal dialog for player information editing/////////////////////////////////////////////////////////
+                    echo "<div id='openModalEdit' class='modalDialog'>";
+	                    echo "<div>";
+		                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
+
+
+                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                echo "<p style='margin: 10px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='name' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='email' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='phone' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+
+                          //      echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                          //          if( $player->notify == '1') {
+                          //              echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
+                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                    //echo "</label>";
+                          //              echo "</div>";
+                          //          } else {
+                          //              echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
+                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                    //echo "</label>";
+                          //              echo "</div>";                            
+                          //          }
+                          //      echo "</h5>";
+
+                                echo "<div class='buttonHolder'>";
+                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
+                                echo "</div>";
+		                    echo "</form>";
+
+                    //Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+
+
 
                 echo "</div>";
                 //Members page///////////////////////////////////////////////////////////////////////////
