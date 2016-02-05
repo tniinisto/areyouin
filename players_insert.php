@@ -246,8 +246,6 @@
                 echo "<div id='member_content_id' class='noshow'>";
                 
                     echo "<br><h2>User managing stuff new, delete, edit...</h2>";
-
-                    echo "<div>";
                         
                         echo "<table border='0' id='usertable' class='atable'>";
                         
@@ -262,12 +260,9 @@
                                         echo "<td class=''> name: " . $row['name'] . "</td>";
                                     echo "<tr>";
                                 
-                                echo "<br>";
                             }
 
                         echo "</table>";
-
-                    echo "</div>";
 
                 echo "</div>";
                 //Members page///////////////////////////////////////////////////////////////////////////
