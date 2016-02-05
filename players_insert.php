@@ -259,7 +259,7 @@
                                             echo "<div class='chat-list-left'>";
                                                 echo "<img width='40' height='40' src='images/" . $row['photourl'] . "'>";
                                                 echo "<br />";
-                                                echo "<div class=''> name: " . $row['name'] . "</div>";
+                                                echo "<div class='comment-name'> adadfaname: " . $row['name'] . "</div>";
                                             echo "</div>";
                                         echo "</td>";
                     
