@@ -269,7 +269,7 @@
 
                                         //Firstname Lastname, mobile, mail
                                         echo "<td>";
-                                            echo "<div>";
+                                            echo "<div class='edit-listinfo'>";
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
