@@ -358,7 +358,7 @@
             var $playerID;
             var $photourl;
             var $name;
-            var $email;
+            var $mail;
             var $mobile;
             var $notify;
             var $firstname;
@@ -367,8 +367,8 @@
             function PlayerEdit($playerID, $name, $mail, $mobile, $photourl, $notify, $firstname, $lastname) {
                 $this->playerID = $playerID;
                 $this->name = $name;
-                $this->email = $mail;
-                $this->phone = $mobile;
+                $this->mail = $mail;
+                $this->mobile = $mobile;
                 $this->photourl = $photourl;
                 $this->notify = $notify;
                 $this->notify = $firstname;
