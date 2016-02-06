@@ -258,21 +258,29 @@
                                                                 
                                     echo "<tr>";
 
+                                        //Image & Nickname
                                         echo "<td>";
                                             echo "<div class='chat-list-left'>";
                                                 echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
                                                 echo "<br />";
                                                 echo "<div class='comment-name' style='color: #474747; text-align: left;'>" . $player->name . "</div>";
                                             echo "</div>";
-                                        echo "</td>";
-                    
-                                        //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
-                                        //echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
-                                        //echo "<td class=''> name: " . $row['name'] . "</td>";
+                                        echo "</td>";                  
 
-                                        echo "<td class=''> ID: " . $player->playerID . "</td>";
-                                        
+                                        //Firstname Lastname, mobile, mail
+                                        echo "<td>";
+                                            echo "<div class='chat-list-left'>";
+                                                echo "" . $player->firstname . " " . $player->lastname . ">";
+                                                echo "<br />";
+                                                echo "" . $player->mobile . ">";
+                                                echo "<br />";
+                                                echo "" . $player->mail . ">";
+                                            echo "</div>";
+                                        echo "</td>";                  
+
                                         echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
+                                        
+                                        echo "<td class=''> ID: " . $player->playerID . "</td>";
                                         
                                     echo "</tr>";
                                 
