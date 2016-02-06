@@ -254,7 +254,7 @@
                             while($row = mysql_fetch_array($result))
                             {
 
-                                    $player = new Player($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
                                                                 
                                     echo "<tr>";
 
