@@ -281,7 +281,7 @@
                                         //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
                                         echo "<td><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
                                         
-                                        echo "<td class=''> ID: " . $player->playerID . "</td>";
+                                        echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
                                         
                                     echo "</tr>";
                                 
