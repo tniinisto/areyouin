@@ -254,7 +254,7 @@
                             while($row = mysql_fetch_array($result))
                             {
 
-                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
                                                                 
                                     echo "<tr>";
 
@@ -356,15 +356,15 @@
 
         class PlayerEdit {
             var $playerID;
-            var $photourl;
             var $name;
-            var $mail;
             var $mobile;
+            var $mail;
+            var $photourl;
             var $notify;
             var $firstname;
             var $lastname;
 
-            function PlayerEdit($playerID, $name, $mail, $mobile, $photourl, $notify, $firstname, $lastname) {
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->mail = $mail;
