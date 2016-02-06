@@ -270,11 +270,11 @@
                                         //Firstname Lastname, mobile, mail
                                         echo "<td>";
                                             echo "<div class='chat-list-left'>";
-                                                echo "<div>" . $player->firstname . " " . $player->lastname . "</div>";
+                                                echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
-                                                echo "<div>" . $player->mobile . "</div>";
+                                                echo "" . $player->mobile . "";
                                                 echo "<br />";
-                                                echo "<div>" . $player->mail . "</div>";
+                                                echo "" . $player->mail . "";
                                             echo "</div>";
                                         echo "</td>";                  
 
