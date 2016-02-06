@@ -263,7 +263,7 @@
                                             echo "<div class='chat-list-left' style='width: 50px;'>";
                                                 echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
                                                 echo "<br />";
-                                                echo "<div class='comment-name' style='color: #474747; text-align: left; padding-left: 4px; font-weight: bold;'>" . $player->name . "</div>";
+                                                echo "<div class='comment-name' style='color: #474747; text-align: left; padding-left: 4px; font-weight: bold; width: 60px;'>" . $player->name . "</div>";
                                             echo "</div>";
                                         echo "</td>";                  
 
