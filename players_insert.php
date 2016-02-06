@@ -270,7 +270,7 @@
                                         //echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
                                         //echo "<td class=''> name: " . $row['name'] . "</td>";
 
-                                        echo "<td class=''> playerID: " . $player->playerID . "</td>";
+                                        echo "<td class=''> ID: " . $player->playerID . "</td>";
                                         
                                         echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
                                         
