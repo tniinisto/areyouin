@@ -23,7 +23,8 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.photourl FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname
+            FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
@@ -252,14 +253,16 @@
                             mysql_data_seek($result, 0);
                             while($row = mysql_fetch_array($result))
                             {
+
+                                    $player = new Player($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
                                                                 
                                     echo "<tr>";
 
                                         echo "<td>";
                                             echo "<div class='chat-list-left'>";
-                                                echo "<img width='40' height='40' src='images/" . $row['photourl'] . "'>";
+                                                echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
                                                 echo "<br />";
-                                                echo "<div class='comment-name' style='color: #474747; text-align: left;'>" . $row['name'] . "</div>";
+                                                echo "<div class='comment-name' style='color: #474747; text-align: left;'>" . $player->name . "</div>";
                                             echo "</div>";
                                         echo "</td>";
                     
@@ -267,7 +270,7 @@
                                         //echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
                                         //echo "<td class=''> name: " . $row['name'] . "</td>";
 
-                                        echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
+                                        echo "<td class=''> playerID: " . $player->playerID . "</td>";
                                         
                                         echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
                                         
@@ -278,7 +281,7 @@
                         echo "</table>";
 
 
-                    //Modal dialog for player information editing/////////////////////////////////////////////////////////
+                    //Modal dialog for player information editing///////////////
                     echo "<div id='openModalEdit' class='modalDialog'>";
 	                    echo "<div>";
 		                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
@@ -331,7 +334,7 @@
                                 echo "</div>";
 		                    echo "</form>";
 
-                    //Modal dialog for player information editing/////////////////////////////////////////////////////////-->
+                    //Modal dialog for player information editing//////////////////
 
 
 
@@ -348,4 +351,30 @@
             mysql_close($con);
 
         } //Admin
+
+
+
+        class PlayerEdit {
+            var $playerID;
+            var $photourl;
+            var $name;
+            var $email;
+            var $phone;
+            var $notify;
+            var $firstname;
+            var $lastname;
+
+            function PlayerEdit($playerID, $name, $mail, $phone, $photourl, $notify, $firstname, $lastname) {
+                $this->playerID = $playerID;
+                $this->name = $name;
+                $this->email = $mail;
+                $this->phone = $phone;
+                $this->photourl = $photourl;
+                $this->notify = $notify;
+                $this->notify = $firstname;
+                $this->notify = $lastname;
+            }
+
+        }
+
 ?>
