@@ -247,7 +247,7 @@
                 
                     echo "<br><h2>User managing stuff new, delete, edit...</h2>";
                         
-                        echo "<table border='0' id='usertable' class=''>";
+                        echo "<table border='0' id='usertable' class='usertable'>";
                         
                             mysql_data_seek($result, 0);
                             while($row = mysql_fetch_array($result))
