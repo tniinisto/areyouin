@@ -269,7 +269,7 @@
 
                                         //Firstname Lastname, mobile, mail
                                         echo "<td>";
-                                            echo "<div class='chat-list-left'>";
+                                            echo "<div>";
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
