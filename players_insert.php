@@ -379,8 +379,8 @@
                 $this->mobile = $mobile;
                 $this->photourl = $photourl;
                 $this->notify = $notify;
-                $this->notify = $firstname;
-                $this->notify = $lastname;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
             }
 
         }
