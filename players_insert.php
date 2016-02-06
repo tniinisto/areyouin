@@ -359,16 +359,16 @@
             var $photourl;
             var $name;
             var $email;
-            var $phone;
+            var $mobile;
             var $notify;
             var $firstname;
             var $lastname;
 
-            function PlayerEdit($playerID, $name, $mail, $phone, $photourl, $notify, $firstname, $lastname) {
+            function PlayerEdit($playerID, $name, $mail, $mobile, $photourl, $notify, $firstname, $lastname) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->email = $mail;
-                $this->phone = $phone;
+                $this->phone = $mobile;
                 $this->photourl = $photourl;
                 $this->notify = $notify;
                 $this->notify = $firstname;
