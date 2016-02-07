@@ -130,7 +130,7 @@
 
                             //Still more than 1 player needed, yellow
                             //if($minimum - $row5['players_in'] > 1) {
-                                echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #ffd800;\" onClick=\"showPlayers(" . $event_check . ")\">
+                                echo "<th id=\"id_summary" . $event_check . "\" style=\"text-align: center; color: #CEB425;\" onClick=\"showPlayers(" . $event_check . ")\">
                                 Event status: " . $row5['players_in'] . " / " . $row4['player_amount'] . "</th>";
                             //}
                             //else {
@@ -318,7 +318,7 @@
                         echo "<table class='atable_summary'>";
 				            echo "<tr style='cursor: pointer;'>";
                                 echo "<th style='padding-bottom: 10px; text-align: center; color: #ffd800; text-decoration: underline;' onclick='getEvents(" . $call . ")'>
-                                <a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
+                                <a href='#' style='color: #CEB425;'  onclick='getEvents(" . $call . ")'>More events available</a></th>";        
                                 //<a href='#' style='color: #ffd800;'  onclick='getEvents(" . $call . ")'>" . $eventsleft . " more events available</a></th>";        
 				            echo "</tr>";
     		            echo "</table>";  

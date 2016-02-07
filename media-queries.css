@@ -107,7 +107,7 @@ screens smaller or equal to 750
 
    /*chat*/
     .scrollit {
-        height: 200px;
+        height: 400px;
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;
@@ -219,8 +219,8 @@ screens smaller or equal to 750
 	}
 
     #loginform input {
-      font-size:20px;
-      width:150px;
+      font-size:12px;
+      width:175px;
       min-height:20px;
       display:block;
       margin-bottom:15px;
@@ -365,7 +365,7 @@ screens smaller or equal to 480
 
     /*chat*/
     .scrollit {
-        height: 210px;
+        height: 240px;
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;    
@@ -532,8 +532,8 @@ screens smaller or equal to 480
 	}
 
     #loginform input {
-      font-size:20px;
-      width:150px;
+      font-size:12px;
+      width:175px;
       min-height:20px;
       display:block;
       margin-bottom:15px;

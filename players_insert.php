@@ -23,7 +23,8 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.photourl FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname
+            FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
@@ -246,18 +247,105 @@
                 echo "<div id='member_content_id' class='noshow'>";
                 
                     echo "<br><h2>User managing stuff new, delete, edit...</h2>";
+                        
+                        echo "<table border='0' id='usertable' class='usertable'>";
+                        
+                            mysql_data_seek($result, 0);
+                            while($row = mysql_fetch_array($result))
+                            {
 
-                    mysql_data_seek($result, 0);
-                    while($row = mysql_fetch_array($result))
-                    {
-                        echo "<tr>";
-                            //echo "<td class='pcol1'><input type='number' name='playeramount' value='" . $row_count . "'></input></td>";
-                            echo "<td class=''><img width='40' height='40' src='images/" . $row['photourl'] . "'></td>";
-                            echo "<td class=''> playerID: " . $row['playerID'] . "</td>";
-                            echo "<td class=''> name: " . $row['name'] . "</td>";
-                        echo "<tr>";
-                        echo "<br>";
-                    }
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
+                                                                
+                                    echo "<tr>";
+
+                                        //Image & Nickname
+                                        echo "<td>";
+                                            echo "<div class='chat-list-left' style='width: 50px;'>";
+                                                echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
+                                                echo "<br />";
+                                                echo "<div class='comment-name' style='color: #474747; text-align: left; padding-left: 2px; font-weight: bold; width: 55px;'>" . $player->name . "</div>";
+                                            echo "</div>";
+                                        echo "</td>";                  
+
+                                        //Firstname Lastname, mobile, mail
+                                        echo "<td>";
+                                            echo "<div class='edit-listinfo'>";
+                                                echo "" . $player->firstname . " " . $player->lastname . "";
+                                                echo "<br />";
+                                                echo "" . $player->mobile . "";
+                                                echo "<br />";
+                                                echo "" . $player->mail . "";
+                                            echo "</div>";
+                                        echo "</td>";                  
+
+                                        //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
+                                        echo "<td><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        
+                                        echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
+                                        
+                                    echo "</tr>";
+                                
+                            }
+
+                        echo "</table>";
+
+
+                    //Modal dialog for player information editing///////////////
+                    echo "<div id='openModalEdit' class='modalDialog'>";
+	                    echo "<div>";
+		                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
+
+
+                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                echo "<p style='margin: 10px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='name' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='email' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px'>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='phone' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "</p>";
+
+
+                          //      echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                          //          if( $player->notify == '1') {
+                          //              echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
+                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                    //echo "</label>";
+                          //              echo "</div>";
+                          //          } else {
+                          //              echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
+                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
+                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                    //echo "</label>";
+                          //              echo "</div>";                            
+                          //          }
+                          //      echo "</h5>";
+
+                                echo "<div class='buttonHolder'>";
+                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
+                                echo "</div>";
+		                    echo "</form>";
+
+                    //Modal dialog for player information editing//////////////////
+
+
 
                 echo "</div>";
                 //Members page///////////////////////////////////////////////////////////////////////////
@@ -272,4 +360,30 @@
             mysql_close($con);
 
         } //Admin
+
+
+
+        class PlayerEdit {
+            var $playerID;
+            var $name;
+            var $mobile;
+            var $mail;
+            var $photourl;
+            var $notify;
+            var $firstname;
+            var $lastname;
+
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname) {
+                $this->playerID = $playerID;
+                $this->name = $name;
+                $this->mail = $mail;
+                $this->mobile = $mobile;
+                $this->photourl = $photourl;
+                $this->notify = $notify;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+            }
+
+        }
+
 ?>

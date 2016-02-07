@@ -147,7 +147,7 @@
                     echo "var spinnerTeamlogin;";
 
                     echo "var opts = {
-                        lines: 15 // The number of lines to draw
+                       lines: 15 // The number of lines to draw
                         , length: 2 // The length of each line
                         , width: 4 // The line thickness
                         , radius: 10 // The radius of the inner circle
