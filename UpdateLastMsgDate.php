@@ -7,14 +7,10 @@
         require_once 'ChromePhp.php';
         ChromePhp::log('UpdateLastMagDate.php, start');
     }
-        
-    
-    date_default_timezone_set($_SESSION['mytimezone']);
 
-    $lastmsgdate=$_SESSION['mylastmsg']; //Stored in logincheck.php & comments.php
-    
-    $playerid= $_SESSION['myplayerid'];
-	$teamid=$_SESSION['myteamid'];
+    $lastmsgdate = $_SESSION['mylastmsg']; //Stored in logincheck.php & comments.php    
+    $playerid = $_SESSION['myplayerid'];
+	$teamid = $_SESSION['myteamid'];
 	
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
