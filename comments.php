@@ -83,7 +83,7 @@
 
         echo "</table>";
 
-        echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
+        echo "<input type='text' id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</input>";
 
         mysql_close($con);
 

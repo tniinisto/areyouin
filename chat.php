@@ -143,7 +143,7 @@
                     echo "</table>";
 
                     //Latest message datetime
-                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
+                    echo "<input type='text' id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</input>";
 
                 echo "</div>";
 
