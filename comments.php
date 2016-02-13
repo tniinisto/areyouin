@@ -70,6 +70,7 @@
                         echo "</td>";
 
                     echo "</tr>";
+  
 
                     $i++;
                 }
@@ -79,6 +80,8 @@
             }
 
         echo "</table>";
+
+        echo "<div id='latestMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>";
  
         mysql_close($con);
 
