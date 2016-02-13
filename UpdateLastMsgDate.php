@@ -20,6 +20,7 @@
 
 	mysql_select_db("areyouin", $con);
 
+    ChromePhp::log('UpdateLastMagDate.php, 1');
     $sql3 = "UPDATE playerteam SET lastMsg = '" . $lastmsgdate  . "' WHERE Players_playerID = '" . $playerid . "' AND Team_teamID = '" . $teamid . "';";
         
     if($_SESSION['ChromeLog']) { ChromePhp::log('Update comment date: ' . $sql3); }
