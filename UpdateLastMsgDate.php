@@ -19,11 +19,7 @@
     	die('Could not connect: ' . mysql_error());
 	}
 
-    if($_SESSION['ChromeLog']) {ChromePhp::log('UpdateLastMagDate.php, test 1'); }
-
 	mysql_select_db("areyouin", $con);
-
-    if($_SESSION['ChromeLog']) {ChromePhp::log('UpdateLastMagDate.php, last msgDateTime: ' . $lastmsgdate); }
 
     $sql3 = "UPDATE playerteam SET lastMsg = '" . $lastmsgdate  . "' WHERE Players_playerID = '" . $playerid . "' AND Team_teamID = '" . $teamid . "'";
         
