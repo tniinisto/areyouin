@@ -47,6 +47,11 @@
                 if($i < $limit) {                        
                     $published = new DateTime($row['publishTime']);
 
+                    //Save the newest comment's datetime to session
+                    if($i == 0) {
+                        $_SESSION['mylastmsg'] = $published;
+                    }
+                        
                     echo "<tr class=\"chatrow\">";
 
                         echo "<td valign=\"top\">";

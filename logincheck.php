@@ -46,7 +46,7 @@
     $mymd5 = md5($mypassword);
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
     FROM areyouin.players p, playerteam m, team t
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
     ORDER BY t.teamID";
@@ -81,6 +81,7 @@
         $_SESSION['myAdmin'] = $row['teamAdmin'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
+        $_SESSION['mylastmsg'] = $row['lastMsg'];
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
