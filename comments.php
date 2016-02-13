@@ -81,7 +81,7 @@
 
         echo "</table>";
 
-        echo "<div id='latestMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>";
+        echo "<div id='latestMsg' style='display: none;'>value: " . $_SESSION['mylastmsg'] . "</div>";
  
         mysql_close($con);
 
