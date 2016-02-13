@@ -141,7 +141,7 @@
 
                     //Latest message datetime
                     //echo "<div id='latestMsg' style='visibility: hidden;'>value: " . $_SESSION['mylastmsg'] . "</div>";
-                    echo "<div id='latestMsg'>value: " . $_SESSION['mylastmsg'] . "</div>";
+                    //echo "<div id='latestMsg'>value: " . $_SESSION['mylastmsg'] . "</div>";
 
                 echo "</div>";
 
