@@ -1117,6 +1117,12 @@ var nlat = 0, nlon = 0;
 }
 
 
+//Message icon, update latest message time to db/////////////////////////////////////////////
+function updateLastMsgTime() {
+    
+}
+
+
 
 
 
