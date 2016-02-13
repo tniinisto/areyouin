@@ -142,7 +142,7 @@
                         }
                     echo "</table>";
 
-                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
+                    echo "<input id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</input>";
 
                 echo "</div>";
 
