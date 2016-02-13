@@ -69,14 +69,12 @@
                                 echo "</div>";
                         echo "</td>";
 
-                        //Marks the newest comment time
-                        //if($i == 0) {
-                        //    echo "<td style='display: none;'>";
-                        //        echo "<div id='latestMsg'>" . $published . "</div>";
-                        //    echo "</td>";
-                        //}
-
                     echo "</tr>";
+
+                    //Marks the newest unformatted comment datetime to div
+                    if($i == 0) {
+                        echo "<div id='latestMsg'>" . $published . "</div>";
+                    }
 
                     $i++;
                 }
