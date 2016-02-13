@@ -107,7 +107,7 @@
 
                                 //Save the newest comment's datetime to session
                                 if($i == 0) {
-                                    $lastmsgdatetime = $published;
+                                    $lastmsgdatetime = $row['publishTime'];
                                 }
 
                                 //echo "<tr class=\"chatrow\">";
@@ -155,7 +155,7 @@
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
                     
                     //Latest message datetime
-                    echo "<label type='text' id='latestMsg'> moikka moi</label>";
+                    echo "<label type='text' id='latestMsg'> moikka moi" .  $lastmsgdatetime . "</label>";
 		        echo "</form>";
 
     echo "</article>";
