@@ -38,7 +38,7 @@
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
         }
 
-        $lastmsgdatetime;
+        //$lastmsgdatetime;
 
         echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
@@ -50,9 +50,9 @@
                     $published = new DateTime($row['publishTime']);
 
                     //Save the newest comment's datetime to session
-                    if($i == 0) {
-                        $lastmsgdatetime = $published;
-                    }
+                    //if($i == 0) {
+                    //    $lastmsgdatetime = $published;
+                    //}
                         
                     echo "<tr class=\"chatrow\">";
 
