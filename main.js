@@ -1121,10 +1121,8 @@ var nlat = 0, nlon = 0;
 function updateLastMsgTime() {
 
     //Latest message date on list, already in session [mylastmsg]
-    //var msgdatetime = document.getElementById("latestMsg").value;
-    var msgdatetime = $("#latestMsg").html();
-
-
+    var msgdatetime = document.getElementById("latestMsg").textContent;
+    
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
