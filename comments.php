@@ -71,11 +71,6 @@
 
                     echo "</tr>";
 
-                    //Marks the newest unformatted comment datetime to div
-                    if($i == 0) {
-                        echo "<td id='latestMsg' style='display: none:'>" . $published . "</td>";
-                    }
-
                     $i++;
                 }
                 else {
