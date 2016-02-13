@@ -38,11 +38,11 @@
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
         }
 
+        $lastmsgdatetime;
         echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
             $limit=30;
             $i=0;
-            $lastmsgdatetime;
 
             while($row = mysql_fetch_array($GLOBALS['commentsresult'])) {
                 if($i < $limit) {                        
@@ -82,7 +82,7 @@
 
         echo "</table>";
 
-        echo "<div id='latestMsg' style='visibility: hidden;'>" . $lastmsgdatetime . "</div>";
+        echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
 
         mysql_close($con);
 

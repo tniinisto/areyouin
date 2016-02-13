@@ -93,11 +93,12 @@
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
 
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
+                
+                $lastmsgdatetime;
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
                         $limit=30;
                         $i=0;
-                        $lastmsgdatetime;
 
                         while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
                             if($i < $limit) {                        
