@@ -1121,7 +1121,7 @@ var nlat = 0, nlon = 0;
 function updateLastMsgTime() {
     
     //TODO
-    alert("update latest chat msgTime to db...")
+    alert("update latest chat msgTime to db...");
 
 }
 
