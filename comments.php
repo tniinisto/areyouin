@@ -39,6 +39,7 @@
         }
 
         $lastmsgdatetime;
+
         echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
             $limit=30;
