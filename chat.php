@@ -155,7 +155,7 @@
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
                     
                     //Latest message datetime
-                    echo "<input type='text' id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</input>";
+                    echo "<input type='text' id='latestMsg'>" . $lastmsgdatetime . "</input>";
 		        echo "</form>";
 
     echo "</article>";
