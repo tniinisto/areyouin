@@ -142,6 +142,8 @@
                         }
                     echo "</table>";
 
+                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
+
                 echo "</div>";
 
                 echo "</br>";
@@ -154,8 +156,6 @@
                     echo "</br>";
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
                 echo "</form>";
-
-               echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
 
     echo "</article>";
 
