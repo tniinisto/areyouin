@@ -81,8 +81,9 @@
 
         echo "</table>";
 
-        echo "<div id='latestMsg' style='visibility: hidden;'>value: " . $_SESSION['mylastmsg'] . "</div>";
- 
+        //echo "<div id='latestMsg' style='visibility: hidden;'>value: " . $_SESSION['mylastmsg'] . "</div>";
+        echo "<div id='latestMsg'>12345</div>";
+
         mysql_close($con);
 
         //ob_end_flush;    
