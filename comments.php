@@ -64,8 +64,10 @@
                                     echo "<br />";
                                     echo "<div class='chat-list-right'>";
                                         //Marks the newest comment time
-                                        if($i == 0)
-                                            echo "<div id='latestMsg' class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";
+                                        if($i == 0) {
+                                            echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";
+                                            echo "<div id='latestMsg' style='display: none;'>" . $published . "</div>";
+                                        }
                                         else
                                             echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";
 
