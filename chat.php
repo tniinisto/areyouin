@@ -153,10 +153,9 @@
                     echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
                     echo "</br>";
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-                    
-                    //Latest message datetime
-                    echo "<label type='text' id='latestMsg'>" .  $lastmsgdatetime . "</label>";
-		        echo "</form>";
+                echo "</form>";
+
+               echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>";
 
     echo "</article>";
 
