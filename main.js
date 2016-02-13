@@ -1119,9 +1119,26 @@ var nlat = 0, nlon = 0;
 
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
-    
-    //TODO
-    alert("update latest chat msgTime to db...");
+
+    //Latest message date on list, already in session [mylastmsg]
+    //var msgdatetime = document.getElementById("latestMsg");
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //Success
+		}
+	}
+
+	//alert("GET gets called.");
+	xmlhttp.open("GET", "UpdateLastMsgDate.php", false);
+	xmlhttp.send();	
 
 }
 
