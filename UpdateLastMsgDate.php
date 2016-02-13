@@ -14,9 +14,11 @@
 	
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
-	    {
-	    die('Could not connect: ' . mysql_error());
-	    }
+	{
+    	die('Could not connect: ' . mysql_error());
+	}
+
+    if($_SESSION['ChromeLog']) {ChromePhp::log('UpdateLastMagDate.php, test 1'); }
 
 	mysql_select_db("areyouin", $con);
 
