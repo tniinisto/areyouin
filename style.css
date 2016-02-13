@@ -1606,4 +1606,5 @@ New message icon
     padding-left: 1px;
     margin-top: -10px;
     margin-right: -14px;
+    z-index: 100;
 }
