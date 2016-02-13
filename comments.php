@@ -42,6 +42,7 @@
                     
             $limit=30;
             $i=0;
+            $lastmsgdatetime;
 
             while($row = mysql_fetch_array($GLOBALS['commentsresult'])) {
                 if($i < $limit) {                        
@@ -49,7 +50,7 @@
 
                     //Save the newest comment's datetime to session
                     if($i == 0) {
-                        $_SESSION['mylastmsg'] = $published;
+                        $lastmsgdatetime = $published;
                     }
                         
                     echo "<tr class=\"chatrow\">";
@@ -81,8 +82,7 @@
 
         echo "</table>";
 
-        //echo "<div id='latestMsg' style='visibility: hidden;'>value: " . $_SESSION['mylastmsg'] . "</div>";
-        echo "<div id='latestMsg'>12345</div>";
+        echo "<div id='latestMsg' style='visibility: hidden;'>" . $lastmsgdatetime . "</div>";
 
         mysql_close($con);
 
