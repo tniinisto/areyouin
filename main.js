@@ -1121,7 +1121,7 @@ var nlat = 0, nlon = 0;
 function updateLastMsgTime() {
 
     //Latest message date on list, already in session [mylastmsg]
-    //var msgdatetime = document.getElementById("latestMsg");
+    var msgdatetime = document.getElementById("latestMsg");
 
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -1136,8 +1136,9 @@ function updateLastMsgTime() {
 		}
 	}
 
-	//alert("GET gets called.");
-	xmlhttp.open("GET", "UpdateLastMsgDate.php", false);
+    var variables = "datetime=" + msgdatetime;
+    alert(variables);
+	xmlhttp.open("GET", "UpdateLastMsgDate.php?" + variables, false);
 	xmlhttp.send();	
 
 }

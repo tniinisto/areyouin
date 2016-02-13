@@ -8,7 +8,8 @@
         ChromePhp::log('UpdateLastMagDate.php, start');
     }
 
-    $lastmsgdate = $_SESSION['mylastmsg']; //Stored in logincheck.php & comments.php    
+    $lastmsgdate=$_GET["datetime"];
+
     $playerid = $_SESSION['myplayerid'];
 	$teamid = $_SESSION['myteamid'];
 	
