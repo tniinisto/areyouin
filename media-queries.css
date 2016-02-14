@@ -306,7 +306,7 @@ screens smaller or equal to 480
 @media screen and (max-width: 480px) {
 
     .msg_icon {
-        margin-right: -5px;
+        margin-right: -8px;
     }
 
     .atable2 {
