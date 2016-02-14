@@ -612,13 +612,16 @@ function getChatComments() {
 	}
 
 	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
-            scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
-            setTimeout(function(){
-			    scroll.refresh();
-		    });
-		}
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+	        scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        setTimeout(function () {
+	            scroll.refresh();
+	        });
+
+	        //Update the message icon
+	        checkMsgStatus();
+	    }
 	}
 
 	//alert("GET gets called.");
@@ -1131,9 +1134,10 @@ function updateLastMsgTime() {
 	}
 
 	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            //Success
-		}
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        //Update message icon visibility
+	        checkMsgStatus();
+	    }
 	}
 
     var variables = "datetime=" + msgdatetime;
