@@ -1140,7 +1140,7 @@ function updateLastMsgTime() {
 
     var variables = "datetime=" + msgdatetime;
     //alert(variables);
-	xmlhttp.open("GET", "UpdateLastMsgDate.php?" + variables, false);
+	xmlhttp.open("GET", "UpdateLastMsgDate.php?" + variables, true);
 	xmlhttp.send();	
 
 }
