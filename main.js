@@ -1151,12 +1151,12 @@ function updateLastMsgTime() {
 function checkMsgStatus() {
     
     //Latest message datetime on list
-    var msgdatetime = new Date(document.getElementById("latestMsg").textContent);
+    var msgdatetime = new Date(document.getElementById("latestMsg").textContent).getTime();
     
     //Latest message datetine user has seen
-    var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
+    var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).getTime();
 
-    //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
+    alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
     //var icon = document.getElementById("msg_icon");
 
