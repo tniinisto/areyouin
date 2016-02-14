@@ -1137,7 +1137,6 @@ function updateLastMsgTime() {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //Update the chat list & message icon visibility
 	        getChatComments();
-	        checkMsgStatus();
 	    }
 	}
 
@@ -1157,7 +1156,7 @@ function checkMsgStatus() {
     //Latest message datetine user has seen
     var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
 
-    alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
+    //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
     if(msgdatetime <= seenmsgdatetime) {
         $("#msg_icon").css("visibility", "hidden");
