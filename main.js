@@ -473,9 +473,9 @@ function insertComment(comment) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-	        updateLastMsgTime(); //Update your own messages time, so it wont put the icon
-	        
-            clearIcon();
+            //Update own messages time for user, so it wont put the icon when coming back
+            setTimeout('updateLastMsgTime()', 200);
+
 	    }
 	}
 
