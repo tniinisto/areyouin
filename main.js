@@ -1153,12 +1153,11 @@ function checkMsgStatus() {
     
     //Latest message datetime on list
     var msgdatetime = new Date(document.getElementById("latestMsg").textContent);
-    //alert("latest on list: " + msgdatetime);
-
+    
     //Latest message datetine user has seen
     var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
-    //alert("last seen: " + seenmsgdatetime);
 
+    alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
     if(msgdatetime <= seenmsgdatetime) {
         $("#msg_icon").css("visibility", "hidden");
