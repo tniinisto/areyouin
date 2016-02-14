@@ -1036,7 +1036,7 @@ function getWeather() {
             }
         }
 
-        xmlhttp.open("GET", "weather.php", false);
+        xmlhttp.open("GET", "weather.php", true);
         xmlhttp.send();
 
 }
