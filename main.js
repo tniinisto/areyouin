@@ -472,8 +472,9 @@ function insertComment(comment) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //Clear tha new msg icon
-	        clearIcon();
+
+	        updateLastMsgTime(); //Update your own messages time, so it wont put the icon
+
 	    }
 	}
 
@@ -1122,6 +1123,9 @@ var nlat = 0, nlon = 0;
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
 
+	 //Clear msg notification icon
+     clearIcon();
+
     //Latest message date on list
     var msgdatetime = document.getElementById("latestMsg").textContent;
     
@@ -1134,7 +1138,7 @@ function updateLastMsgTime() {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //getChatComments(), not a good idea to update here...
+
 	    }
 	}
 
