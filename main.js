@@ -176,7 +176,7 @@ function getEvents(more) {
 
         //alert("GET gets called.");
         var variables = "more=" + more;
-        xmlhttp.open("GET", "event_list.php?" + variables, true);
+        xmlhttp.open("GET", "event_list.php?" + variables, false);
         //xmlhttp.open("GET", "event_list.php", false);
         xmlhttp.send();
     }
