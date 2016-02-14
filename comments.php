@@ -7,6 +7,7 @@
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
+    $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
