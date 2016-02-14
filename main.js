@@ -176,7 +176,7 @@ function getEvents(more) {
 
         //alert("GET gets called.");
         var variables = "more=" + more;
-        xmlhttp.open("GET", "event_list.php?" + variables, false);
+        xmlhttp.open("GET", "event_list.php?" + variables, true);
         //xmlhttp.open("GET", "event_list.php", false);
         xmlhttp.send();
     }
@@ -480,7 +480,7 @@ function insertComment(comment) {
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
 
-	xmlhttp.open("GET", "insertComment.php?" + variables, true);
+	xmlhttp.open("GET", "insertComment.php?" + variables, false);
 
 	xmlhttp.send();
 }
@@ -845,7 +845,7 @@ function getChartData() {
             }
         }
 
-        xmlhttp.open("GET", "chart_data.php", false);
+        xmlhttp.open("GET", "chart_data.php", true);
         xmlhttp.send();
 
 }
