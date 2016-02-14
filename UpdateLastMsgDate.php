@@ -3,6 +3,8 @@
     
     session_start();
     
+    date_default_timezone_set($_SESSION['mytimezone']);
+
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
         ChromePhp::log('UpdateLastMagDate.php, start');
