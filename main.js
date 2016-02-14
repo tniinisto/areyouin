@@ -1136,7 +1136,7 @@ function updateLastMsgTime() {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //Update the chat list & message icon visibility
-	        getChatComments();
+	        //getChatComments(), not good
 	    }
 	}
 
