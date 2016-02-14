@@ -474,7 +474,8 @@ function insertComment(comment) {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
 	        updateLastMsgTime(); //Update your own messages time, so it wont put the icon
-
+	        
+            clearIcon();
 	    }
 	}
 
