@@ -473,9 +473,6 @@ function insertComment(comment) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            //Update own messages time for user, so it wont put the icon when coming back
-            setTimeout('updateLastMsgTime()', 200);
-
 	    }
 	}
 
@@ -1161,7 +1158,7 @@ function checkMsgStatus() {
 
     //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
-    if(msgdatetime <= seenmsgdatetime) {
+    if(msgdatetime <= seenmsgdatetime && $("#linkchat").hasClass("current")) {
         $("#msg_icon").addClass("noshow");
     }
     else {       
