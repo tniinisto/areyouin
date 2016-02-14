@@ -26,7 +26,7 @@
 	    mysql_select_db("areyouin", $con);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl, pt.lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
+        $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
@@ -109,7 +109,7 @@
                                 //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
-                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['pt.lastMsg'];
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
                                 }
 
                                 //echo "<tr class=\"chatrow\">";
