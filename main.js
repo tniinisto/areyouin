@@ -1156,11 +1156,11 @@ function checkMsgStatus() {
 
 
     if(msgdatetime <= seenmsgdatetime) {
-        $("msg_icon").css("visibility", "initial");
+        $("msg_icon").css("visibility", "hidden");
         alert("already seen the messages...");
     }
     else {
-        $("msg_icon").css("visibility", "initial");
+        $("msg_icon").css("visibility", "visible");
         alert("there are new messages...");
     }             
 }
