@@ -1156,7 +1156,7 @@ function checkMsgStatus() {
     //Latest message datetine user has seen
     var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).getTime();
 
-    alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
+    //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
     //var icon = document.getElementById("msg_icon");
 
