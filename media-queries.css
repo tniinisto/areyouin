@@ -305,7 +305,7 @@ screens smaller or equal to 480
  /* portrait mode */
 @media screen and (max-width: 480px) {
 
-    .msg_icon {
+    .msg_icon_style {
         margin-right: -8px;
     }
 
