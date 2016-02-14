@@ -254,15 +254,15 @@
         //SSE init
         //setSSE();
 
-        //Chat msg check & icon 
-        checkMsgStatus();
-
         //Events update. 5 minute interval
         setInterval(
             function () {
                 getEvents();
             }, 300000
         );
+
+        //Chat msg check & icon 
+        //checkMsgStatus();
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {

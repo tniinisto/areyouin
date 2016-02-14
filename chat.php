@@ -26,9 +26,10 @@
 	    mysql_select_db("areyouin", $con);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl FROM players WHERE playerID = " . $playerid . "";
+        $sql5 = "SELECT name, photourl, pt.lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
+
 
         getComments($teamid);
 
@@ -105,9 +106,10 @@
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
-                                //Save the newest comment's datetime to session
+                                //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
-                                    $lastmsgdatetime = $row['publishTime'];
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['pt.lastMsg'];
                                 }
 
                                 //echo "<tr class=\"chatrow\">";

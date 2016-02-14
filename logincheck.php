@@ -81,7 +81,7 @@
         $_SESSION['myAdmin'] = $row['teamAdmin'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
-        $_SESSION['mylastmsg'] = $row['lastMsg'];
+        $_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
