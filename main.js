@@ -1137,22 +1137,32 @@ function updateLastMsgTime() {
 	}
 
     var variables = "datetime=" + msgdatetime;
-    alert(variables);
+    //alert(variables);
 	xmlhttp.open("GET", "UpdateLastMsgDate.php?" + variables, false);
 	xmlhttp.send();	
 
 }
 
+//Showing the chat message icon
 function checkMsgStatus() {
     
     //Latest message datetime on list
     var msgdatetime = new Date(document.getElementById("latestMsg").textContent);
-    alert("latest on list: " + msgdatetime);
+    //alert("latest on list: " + msgdatetime);
 
     //Latest message datetine user has seen
     var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
-    alert("last seen: " + seenmsgdatetime);
-    
+    //alert("last seen: " + seenmsgdatetime);
+
+
+    if(msgdatetime > seenmsgdatetime) {
+        $("msg_icon").css("visibility", "initial");
+        alert("already seen the messages...");
+    }
+    else {
+        $("msg_icon").css("visibility", "initial");
+        alert("there are new messages...");
+    }             
 }
 
 
