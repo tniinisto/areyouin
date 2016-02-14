@@ -1161,19 +1161,22 @@ function checkMsgStatus() {
     var icon = document.getElementById("msg_icon");
     if(msgdatetime <= seenmsgdatetime) {
         //$("#msg_icon").css("visibility", "hidden");
-        icon.style.display = "none";
+        //icon.style.display = "none";
         //alert("already seen the messages...");
+        $("#msg_icon").addClass("noshow");
     }
     else {       
         //$("#msg_icon").css("visibility", "visible");
-        icon.style.display = "visible";
+        //icon.style.display = "visible";
         //alert("there are new messages...");
+        $("#msg_icon").removeClass("noshow");
     }             
 }
 
 //Clear icon
 function clearIcon() {
     //$("#msg_icon").css("visibility", "hidden");
-    var icon = document.getElementById("msg_icon");
-    icon.style.display = "none";
+    //var icon = document.getElementById("msg_icon");
+    //icon.style.display = "none";
+    $("#msg_icon").addClass("noshow");
 }
