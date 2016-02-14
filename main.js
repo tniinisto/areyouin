@@ -1147,7 +1147,7 @@ function updateLastMsgTime() {
 
 }
 
-//Showing the chat message icon
+//Showing the chat message icon /////////////////////////////////////////////////
 function checkMsgStatus() {
     
     //Latest message datetime on list
@@ -1168,5 +1168,7 @@ function checkMsgStatus() {
     }             
 }
 
-
-
+//Clear icon
+function clearIcon() {
+    $("#msg_icon").css("visibility", "hidden");
+}
