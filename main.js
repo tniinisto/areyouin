@@ -472,11 +472,10 @@ function insertComment(comment) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-	        //getChat();
+	        //Clear tha new msg icon
+	        clearIcon();
 	    }
 	}
-
 
 	var variables = "comment=" + comment;
 	//alert(variables);
@@ -1135,8 +1134,7 @@ function updateLastMsgTime() {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //Update the chat list & message icon visibility
-	        //getChatComments(), not good
+	        //getChatComments(), not a good idea to update here...
 	    }
 	}
 
@@ -1158,26 +1156,15 @@ function checkMsgStatus() {
 
     //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
-    //var icon = document.getElementById("msg_icon");
-
     if(msgdatetime <= seenmsgdatetime) {
-        //$("#msg_icon").css("visibility", "hidden");
-        //icon.style.display = "none";
-        //alert("already seen the messages...");
         $("#msg_icon").addClass("noshow");
     }
     else {       
-        //$("#msg_icon").css("visibility", "visible");
-        //icon.style.display = "visible";
-        //alert("there are new messages...");
         $("#msg_icon").removeClass("noshow");
     }             
 }
 
 //Clear icon
 function clearIcon() {
-    //$("#msg_icon").css("visibility", "hidden");
-    //var icon = document.getElementById("msg_icon");
-    //icon.style.display = "none";
     $("#msg_icon").addClass("noshow");
 }
