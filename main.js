@@ -1155,7 +1155,7 @@ function checkMsgStatus() {
     //alert("last seen: " + seenmsgdatetime);
 
 
-    if(msgdatetime > seenmsgdatetime) {
+    if(msgdatetime <= seenmsgdatetime) {
         $("msg_icon").css("visibility", "initial");
         alert("already seen the messages...");
     }
