@@ -1158,7 +1158,8 @@ function checkMsgStatus() {
 
     //alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
 
-    var icon = document.getElementById("msg_icon");
+    //var icon = document.getElementById("msg_icon");
+
     if(msgdatetime <= seenmsgdatetime) {
         //$("#msg_icon").css("visibility", "hidden");
         //icon.style.display = "none";
