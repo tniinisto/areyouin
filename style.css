@@ -1605,5 +1605,6 @@ New message icon
     height: 30px;
     margin-top: -20px;
     margin-right: -15px;
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: none;
 }
