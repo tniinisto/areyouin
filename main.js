@@ -1158,7 +1158,7 @@ function checkMsgStatus() {
     //var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).getTime();
     var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
 
-    alert("latest on list:" + msgdatetime + " ,last seen:" + seenmsgdatetime);
+    alert("latest on list:" + msgdatetime + "<br>last seen:" + seenmsgdatetime);
 
     //Show icon if there are newer messages and chat view is not active
     if((msgdatetime == seenmsgdatetime) || $("#linkchat").hasClass("current")) {
