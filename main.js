@@ -1152,11 +1152,11 @@ function checkMsgStatus() {
     
     //Latest message datetime on list
     //var msgdatetime = new Date(document.getElementById("latestMsg").textContent).getTime();
-    var msgdatetime = new Date(document.getElementById("latestMsg").textContent).valueOf();
+    var msgdatetime = new Date(document.getElementById("latestMsg").textContent);
 
     //Latest message datetine user has seen
     //var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).getTime();
-    var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).valueOf();
+    var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
 
     alert("latest on list:" + msgdatetime + "\nlast seen:" + seenmsgdatetime);
 
