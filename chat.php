@@ -93,6 +93,15 @@
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
 
+            echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                echo "<label for=\"comment_input\">Comment: </label>";
+                echo "</br>";
+			    //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                echo "</br>";
+                echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+            echo "</form>";
+
             $lastmsgdatetime = '0';
 
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
@@ -151,15 +160,6 @@
                 echo "</div>";
 
                 echo "</br>";
-
-                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
-                    echo "<label for=\"comment_input\">Comment: </label>";
-                    echo "</br>";
-			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                    echo "</br>";
-                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-                echo "</form>";
 
     echo "</article>";
 
