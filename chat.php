@@ -101,6 +101,7 @@
                 echo "</br>";
                 echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
             echo "</form>";
+            echo "</br>";
 
             $lastmsgdatetime = '0';
 
@@ -159,7 +160,6 @@
 
                 echo "</div>";
 
-                echo "</br>";
 
     echo "</article>";
 
