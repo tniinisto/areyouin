@@ -121,7 +121,7 @@
 		<nav>
 			<ul id="main-nav" class="clearfix">
 				<li id="linkgames" class="current"><a href="#">Events</a></li> <!--Simple & clear list on games for player -->
-                <li id="linkchat" onclick="refreshScroll()"><a href="#">Chat</a></li>
+                <li id="linkchat" onclick="refreshScroll(); updateLastMsgTime();"><a href="#">Chat<img id="msg_icon" class="msg_icon_style noshow" alt="New messages" src="images/new_chat.png"></img></a></li>  
                 <li id="linkprofile"><a href="#">Profile</a></li>
                 <li id="linkadmin"></li>
                 
@@ -255,19 +255,13 @@
         //SSE init
         //setSSE();
 
-        //Chat update
-        //setInterval(
-        //    function () {
-        //        getChat();
-        //    }, 180000
-        //); //refreshes every 3 minutes
-
         //Events update. 5 minute interval
         setInterval(
             function () {
                 getEvents();
             }, 300000
         );
+
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {

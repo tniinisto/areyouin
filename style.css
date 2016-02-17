@@ -1595,3 +1595,14 @@ User list, edit,...
     text-overflow: ellipsis;
     /* border: 2px solid blue; */
 }
+
+/************************************************************************************
+New message icon
+*************************************************************************************/
+.msg_icon_style {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-top: -20px;
+    margin-right: -15px;
+}

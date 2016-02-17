@@ -7,6 +7,7 @@
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
+    $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
@@ -25,6 +26,13 @@
 
 	    mysql_select_db("areyouin", $con);
 
+        //Get current users lastseen datetime & update to session
+        $sql5 = "SELECT pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
+	    $result5 = mysql_query($sql5);
+        $row5 = mysql_fetch_array($result5);
+        $_SESSION['mylastmsg'] = $row5['lastMsg'];
+
+
         getComments($teamid);
 
         function getComments($p_teamid) {                                
@@ -38,6 +46,8 @@
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
         }
 
+        $lastmsgdatetime;
+
         echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
             $limit=30;
@@ -47,6 +57,11 @@
                 if($i < $limit) {                        
                     $published = new DateTime($row['publishTime']);
 
+                    //Save the newest comment's datetime to session
+                    if($i == 0) {
+                        $lastmsgdatetime = $row['publishTime'];
+                    }
+                        
                     echo "<tr class=\"chatrow\">";
 
                         echo "<td valign=\"top\">";
@@ -58,13 +73,14 @@
                                     echo "</div>";
                                     echo "<br />";
                                     echo "<div class='chat-list-right'>";
-                                        echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";                        
+                                        echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";         
                                         echo "<div class='comment-text'>" . $row['comment'] . "</div>";
                                     echo "</div>";
                                 echo "</div>";
                         echo "</td>";
-                    
+
                     echo "</tr>";
+  
 
                     $i++;
                 }
@@ -74,7 +90,11 @@
             }
 
         echo "</table>";
- 
+
+        
+        echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+        echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+
         mysql_close($con);
 
         //ob_end_flush;    

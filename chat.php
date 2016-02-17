@@ -26,9 +26,10 @@
 	    mysql_select_db("areyouin", $con);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl FROM players WHERE playerID = " . $playerid . "";
+        $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
+
 
         getComments($teamid);
 
@@ -92,7 +93,21 @@
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
 
+            echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                echo "<label for=\"comment_input\"><b>New comment</b></label>";
+                echo "</br>";
+			    //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                echo "</br>";
+                echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+            echo "</form>";
+            echo "</br>";
+
+            $lastmsgdatetime = '0';
+
+            echo "<p><b>Comments</b></p>";
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
+                
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
                         $limit=30;
@@ -101,6 +116,12 @@
                         while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
+
+                                //Save the newest chat comment's datetime and update the last seen message to session
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
+                                }
 
                                 //echo "<tr class=\"chatrow\">";
                                 //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
@@ -133,18 +154,13 @@
                             }
                         }
                     echo "</table>";
+
+                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+                    echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+                    
+
                 echo "</div>";
 
-                echo "</br>";
-
-                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
-                    echo "<label for=\"comment_input\">Comment: </label>";
-                    echo "</br>";
-			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                    echo "</br>";
-                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-		        echo "</form>";
 
     echo "</article>";
 
