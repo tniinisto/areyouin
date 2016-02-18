@@ -1612,10 +1612,8 @@ New message icon
     -webkit-transition:height 1s; /* Safari and Chrome */
     -o-transition:height 1s; /* Opera */
     height: 0px;
-    display: none;
 }
 
 .clicked {
     height:150px;
-    display: block;
 }
