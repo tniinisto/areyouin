@@ -1612,6 +1612,6 @@ New message icon
     height: 40px;
 }
 
-.clicked {
+.chat_new clicked {
     height:150px;
 }
