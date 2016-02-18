@@ -261,6 +261,11 @@
             }, 300000
         );
 
+        //Chat new message form
+        $("#newChatImg").click(function (event) {
+            $("#chat_new").toggleClass("clicked");
+            alert("test");
+        });
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
@@ -527,13 +532,6 @@
         $("#password_info_id").addClass('noshow');
     }
     //Password change////////////////////////////////////
-
-
-    //Chat new message form
-    $('#newChatImg').on('click', function () {
-        $('#chat_new').toggleClass('clicked');
-        alert("test");
-    });
 
 </script>
 <!-- /scripts -->
