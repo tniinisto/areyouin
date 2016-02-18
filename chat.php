@@ -92,15 +92,20 @@
             //echo "<a href=\"modal.html\" data-role=\"button\" data-inline=\"true\" data-rel=\"dialog\" data-transition=\"pop\" data-theme=\"b\">Open dialog</a>";
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
+            echo "<div class='chat_new'>";
+                echo "<img id='newChatImg' width='40' height='40' src='images/edit.png' style='cursor: pointer;'>";
+                
+                echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                    echo "<label for=\"comment_input\"><b>New comment</b></label>";
+                    echo "</br>";
+			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                    echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                    echo "</br>";
+                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
+                echo "</form>";
+            
+            echo "</div>";
 
-            echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
-                echo "<label for=\"comment_input\"><b>New comment</b></label>";
-                echo "</br>";
-			    //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-                echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                echo "</br>";
-                echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
-            echo "</form>";
             echo "</br>";
 
             $lastmsgdatetime = '0';

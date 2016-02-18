@@ -1606,3 +1606,12 @@ New message icon
     margin-top: -20px;
     margin-right: -15px;
 }
+  
+.chat_new {
+    -webkit-transition:1s;
+    height: 40px;
+}
+
+.chat_new.clicked {
+    height:150px;
+}
