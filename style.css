@@ -1608,7 +1608,9 @@ New message icon
 }
   
 .chat_new {
-    -webkit-transition:1s;
+    -moz-transition:height 1s; /* Firefox */
+    -webkit-transition:height 1s; /* Safari and Chrome */
+    -o-transition:height 1s; /* Opera */
     height: 40px;
 }
 
