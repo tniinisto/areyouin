@@ -1611,7 +1611,7 @@ New message icon
     -moz-transition:height 1s; /* Firefox */
     -webkit-transition:height 1s; /* Safari and Chrome */
     -o-transition:height 1s; /* Opera */
-    height: 40px;
+    height: 0px;
 }
 
 .clicked {
