@@ -1182,7 +1182,7 @@ function clearIcon() {
 }
  
 //Chat new message form
-$('#newChatImg').on('click', function() {
+$('.chat_new img').on('click', function () {
     $('#chat_new').toggleClass('clicked');
+    alert("test");
 });
-
