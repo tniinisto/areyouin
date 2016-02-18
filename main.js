@@ -1180,4 +1180,10 @@ function checkMsgStatus() {
 function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
- 
+
+//Chat new message form
+$('#newChatImg').on('click', function () {
+    $('#chat_new').toggleClass('clicked');
+    alert("test");
+});
+
