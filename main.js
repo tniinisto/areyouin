@@ -1159,3 +1159,4 @@ function checkMsgStatus() {
 function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
+

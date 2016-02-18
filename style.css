@@ -1606,3 +1606,15 @@ New message icon
     margin-top: -20px;
     margin-right: -15px;
 }
+  
+.chat_new {
+    -moz-transition:height 1s; /* Firefox */
+    -webkit-transition:height 1s; /* Safari and Chrome */
+    -o-transition:height 1s; /* Opera */
+    height: 0px;
+    overflow:hidden;
+}
+
+.clicked {
+    height:125px;
+}
