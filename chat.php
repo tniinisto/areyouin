@@ -106,7 +106,7 @@
             
             echo "</div>";
 
-            echo "</br>";
+            //echo "</br>";
 
             $lastmsgdatetime = '0';
 
