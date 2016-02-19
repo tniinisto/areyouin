@@ -1618,7 +1618,7 @@ Chat message editor
     left: -14px;
     top: -20px;
     z-index: 1;
-    /*margin-top: -70%;*/
+    margin-bottom: -10px;
 }
   
 .chat_new {
