@@ -1613,11 +1613,12 @@ Chat message editor
 *************************************************************************************/
 
 #newChatIcon {
+    cursor: pointer;
     position: relative;
     left: -14px;
     top: 8px;
     z-index: 1;
-    margin-top: -70%;
+    /*margin-top: -70%;*/
 }
   
 .chat_new {
