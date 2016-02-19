@@ -1612,7 +1612,7 @@ New message icon
 Chat message editor
 *************************************************************************************/
 
-#newChatIcon {
+#newChatImg {
     cursor: pointer;
     position: relative;
     left: -14px;
