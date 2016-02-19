@@ -96,7 +96,7 @@
             //echo "<div id='newChatImg' style='width:100%;'><img id='newChatIcon' width='40' height='40' src='images/edit.png' style='cursor: pointer; display: block; margin-left: auto; margin-right: auto;'></div>";
             echo "<img id='newChatImg' width='40' height='40' src='images/edit.png'>";
 
-            echo "<table class='atable_summary'>";
+            echo "<table class='atable_summary' style='margin-top: -48px;'>";
 				echo "<tr>";
                         echo "<th>c</th>";
 				echo "</tr>";
