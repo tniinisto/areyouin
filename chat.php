@@ -98,7 +98,7 @@
 
             echo "<table class='atable_summary'>";
 				echo "<tr>";
-                        echo "<th>&nbsp</th>";
+                        echo "<th> </th>";
 				echo "</tr>";
 			echo "</table>";  
 
