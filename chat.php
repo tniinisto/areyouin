@@ -96,8 +96,7 @@
             //echo "<div id='newChatImg' style='width:100%;'><img id='newChatIcon' width='40' height='40' src='images/edit.png' style='cursor: pointer; display: block; margin-left: auto; margin-right: auto;'></div>";
             echo "<img id='newChatImg' width='40' height='40' src='images/edit.png'>";
 
-            echo "<div id='chat_new_id' class='chat_new'>";
-                
+            echo "<div id='chat_new_id' class='chat_new'>";                
                 echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\"><b>New comment</b></label>";
                     echo "</br>";
@@ -106,7 +105,6 @@
                     echo "</br>";
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
                 echo "</form>";
-            
             echo "</div>";
 
             //echo "</br>";
