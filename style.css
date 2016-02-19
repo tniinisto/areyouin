@@ -1604,13 +1604,27 @@ New message icon
     width: 30px;
     height: 30px;
     margin-top: -20px;
-    margin-right: -15px;
+    margin-bottom: -20px;
+}
+
+
+/************************************************************************************
+Chat message editor
+*************************************************************************************/
+
+#newChatImg {
+    cursor: pointer;
+    position: relative;
+    left: -14px;
+    top: -20px;
+    z-index: 1;
+    margin-bottom: -10px;
 }
   
 .chat_new {
-    -moz-transition:height 1s; /* Firefox */
-    -webkit-transition:height 1s; /* Safari and Chrome */
-    -o-transition:height 1s; /* Opera */
+    -moz-transition:height 0.5s; /* Firefox */
+    -webkit-transition:height 0.5s; /* Safari and Chrome */
+    -o-transition:height 0.5s; /* Opera */
     height: 0px;
     overflow:hidden;
 }
