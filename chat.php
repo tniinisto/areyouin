@@ -96,6 +96,12 @@
             //echo "<div id='newChatImg' style='width:100%;'><img id='newChatIcon' width='40' height='40' src='images/edit.png' style='cursor: pointer; display: block; margin-left: auto; margin-right: auto;'></div>";
             echo "<img id='newChatImg' width='40' height='40' src='images/edit.png'>";
 
+            echo "<table class='atable_summary'>";
+				echo "<tr>";
+                        echo "<th>&nbsp</th>";
+				echo "</tr>";
+			echo "</table>";  
+
             echo "<div id='chat_new_id' class='chat_new'>";
                 
                 echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
