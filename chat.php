@@ -113,7 +113,7 @@
 
             $lastmsgdatetime = '0';
 
-            echo "<p><b>Comments</b></p>";
+            //echo "<p><b>Comments</b></p>";
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
                 
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
