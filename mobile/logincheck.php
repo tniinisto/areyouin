@@ -116,7 +116,7 @@
                     echo "<div id=\"loginwrapper\">";
 
 			            echo "<div>";
-                            echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN<img alt='mobile' width='40' height='40' src='images/icon-mobile.png' align='top'></img></h1>";
+                            echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN  <img alt='mobile' width='40' height='40' src='images/icon-mobile.png' align='top'></img></h1>";
                         echo "</div>";
 
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
