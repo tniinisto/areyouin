@@ -851,6 +851,11 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 #comments_table td {
     padding: 4px 5px 0px;
 }
+
+#chat_content_article {
+    width: 97%;
+}
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
