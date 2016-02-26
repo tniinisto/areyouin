@@ -98,6 +98,9 @@ STRUCTURE
 #pagewrap {
 	width: 980px;
 	margin: 0 auto;
+}
+
+element.style {
     min-width: 340px;
 }
 
