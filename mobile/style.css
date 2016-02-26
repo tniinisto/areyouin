@@ -824,13 +824,13 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     padding-bottom: 10px;    
 }
 
-.chatrow:nth-of-type(odd) {
-    background: linear-gradient(-90deg, #121111, #474747);
-}
+    .chatrow:nth-of-type(odd) {
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
+    }
 
-.chatrow:nth-of-type(even) {
-    background: linear-gradient(-90deg, #121111, #474747);
-}
+    .chatrow:nth-of-type(even) {
+        background: linear-gradient(-90deg, #121111, #474747);
+    }
 
 #comment_input {
     width: 98%;
