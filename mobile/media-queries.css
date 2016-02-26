@@ -44,6 +44,15 @@ screens smaller or equal to 980
         width: 320px;
     }
 
+    .chatrow:nth-of-type(odd) {
+        /*background-color:rgba(0,0,0,.5);*/
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
+    }
+
+    .chatrow:nth-of-type(even) {
+        /*background-color:#474747;*/
+        background: linear-gradient(-90deg, #121111, #474747);
+    }
 }
 
 /************************************************************************************
