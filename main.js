@@ -164,7 +164,7 @@ function getEvents(more) {
                 if (more != 0) {                    
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
-                    $('#' + moreid).scrollintoview({ duration: 1000 });
+                    $('#' + moreid).scrollintoview({ duration: 500 });
                     
                 }
                 else {

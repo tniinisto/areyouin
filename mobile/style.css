@@ -28,7 +28,7 @@ table {
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #0d1424;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
+	background: #1A1F27;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
 }
@@ -99,6 +99,7 @@ STRUCTURE
 	width: 980px;
 	margin: 0 auto;
 }
+
 /************************************************************************************
 HEADER
 *************************************************************************************/
@@ -824,15 +825,13 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
     padding-bottom: 10px;    
 }
 
-.chatrow:nth-of-type(odd) {
-    /*background-color:rgba(0,0,0,.5);*/
-    background: linear-gradient(-90deg, #121111, #474747);
-}
+    .chatrow:nth-of-type(odd) {
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
+    }
 
-.chatrow:nth-of-type(even) {
-    /*background-color:#474747;*/
-    background: linear-gradient(-90deg, #121111, #474747);
-}
+    .chatrow:nth-of-type(even) {
+        background: linear-gradient(-90deg, #121111, #474747);
+    }
 
 #comment_input {
     width: 98%;
@@ -852,6 +851,11 @@ img.unseensummary {padding:3px; background-color: rgb(106, 106, 106); -moz-borde
 #comments_table td {
     padding: 4px 5px 0px;
 }
+
+#chat_content_article {
+    width: 97%;
+}
+
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
@@ -1090,9 +1094,10 @@ Modal box
 Jquery mobile override
 *************************************************************************************/
 .ui-overlay-b, .ui-page-theme-b, .ui-page-theme-b .ui-panel-wrapper {
-    color: #6a6a6a;
+    color: #1A1F27;
     text-shadow: none;
 }
+
 .ui-header .ui-title, .ui-footer .ui-title {
     display: block;
     font-size: 1em;
