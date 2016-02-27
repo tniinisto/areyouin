@@ -47,6 +47,7 @@ function getPlayerInfo() {
         //alert("playerinfo, name: " + playerinfo[0].name);
 
         sessionStorage['playerID'] = playerinfo[0].playerID;
+        sessionStorage['teamID'] = playerinfo[0].teamID;
         sessionStorage['playerName'] = playerinfo[0].name;
         sessionStorage['photoURL'] = playerinfo[0].photourl;
 
