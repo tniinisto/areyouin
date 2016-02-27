@@ -9,6 +9,8 @@
     }
 
 	$teamid=$_SESSION['myteamid'];
+    $playerid=$_SESSION['myplayerid'];
+	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
     //if(!isset($_SESSION['logged_in'])) {
