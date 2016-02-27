@@ -1,7 +1,7 @@
 <?php
     ////////////////////////////////////////////////////////
     //Uncomment to enable ChromePhp-logging
-    //include 'ChromePhp.php';
+    include 'ChromePhp.php';
     ////////////////////////////////////////////////////////
 
     //ini_set('default_charset', 'UTF-8');

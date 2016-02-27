@@ -3,8 +3,10 @@
     
     date_default_timezone_set('Europe/Helsinki');
 
-    //include 'ChromePhp.php';        
-    //ChromePhp::log("starting chat...");
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('comments.php, start');
+    }
 
 	$teamid=$_SESSION['myteamid'];
 
@@ -28,6 +30,8 @@
 	    $result5 = mysql_query($sql5);
         $row5 = mysql_fetch_array($result5);
         $_SESSION['mylastmsg'] = $row5['lastMsg'];
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('Latest seen msg time: ' . $row5['lastMsg']); }
 
         getComments($teamid);
 
