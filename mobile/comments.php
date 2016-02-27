@@ -31,6 +31,7 @@
         $row5 = mysql_fetch_array($result5);
         $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
+    if($_SESSION['ChromeLog']) { ChromePhp::log('sql lastmsg: ' . $sql5); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('Latest seen msg time: ' . $row5['lastMsg']); }
 
         getComments($teamid);
