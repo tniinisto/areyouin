@@ -29,7 +29,7 @@
         $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $row5 = mysql_fetch_array($result5);
-        //$_SESSION['mylastmsg'] = $row5['lastMsg'];
+        $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
         getComments($teamid);
 
@@ -105,10 +105,9 @@
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
-                                //Save the newest chat comment's datetime and update the last seen message to session
+                                //Save the newest chat comment's datetime
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
-                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
                                 }
 
                                 echo "<tr class=\"chatrow\">";
@@ -139,7 +138,7 @@
                     echo "</table>";
                 
                     echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-                    echo "<div id='latestSeenMsg' style='display: none;'>" . $row5['lastMsg'] . "</div>"; //Latest message datetime user has seen
+                    echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
 
                 echo "</div>";
 
