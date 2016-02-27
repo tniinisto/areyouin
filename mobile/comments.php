@@ -3,9 +3,13 @@
     
     date_default_timezone_set('Europe/Helsinki');
 
-    //include 'ChromePhp.php';        
-    //ChromePhp::log("starting chat...");
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('comments.php, start');
+    }
 
+	$teamid=$_SESSION['myteamid'];
+    $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
@@ -23,6 +27,15 @@
 
 	    mysql_select_db("areyouin", $con);
 
+        //Get current users lastseen datetime & update to session
+        $sql5 = "SELECT pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
+	    $result5 = mysql_query($sql5);
+        $row5 = mysql_fetch_array($result5);
+        $_SESSION['mylastmsg'] = $row5['lastMsg'];
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('sql lastmsg: ' . $sql5); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('Latest seen msg time: ' . $row5['lastMsg']); }
+
         getComments($teamid);
 
         function getComments($p_teamid) {                                
@@ -36,6 +49,8 @@
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
         }
 
+        $lastmsgdatetime;
+
         echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
             $limit=30;
@@ -44,6 +59,11 @@
             while($row = mysql_fetch_array($GLOBALS['commentsresult'])) {
                 if($i < $limit) {                        
                     $published = new DateTime($row['publishTime']);
+
+                    //Save the newest comment's datetime to session
+                    if($i == 0) {
+                        $lastmsgdatetime = $row['publishTime'];
+                    }
 
                     echo "<tr class=\"chatrow\">";
 
@@ -73,6 +93,9 @@
 
         echo "</table>";
  
+        echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+        echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] .  "</div>"; //Latest message datetime user has seen
+
         mysql_close($con);
 
         //ob_end_flush;    

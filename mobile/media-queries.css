@@ -304,7 +304,7 @@ screens smaller or equal to 480
 
     /*chat*/
     .scrollit {
-        height: 290px;
+        height: 400px;
         overflow-x: hidden;        
         overflow-y: scroll;
         webkit-overflow-scrolling: touch;    

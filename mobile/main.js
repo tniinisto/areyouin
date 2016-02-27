@@ -558,6 +558,9 @@ function getChatComments() {
             setTimeout(function(){
 			    scroll.refresh();
 		    });
+
+            //Update the message icon
+	        checkMsgStatus();
 		}
 	}
 	//alert("GET gets called.");
@@ -663,3 +666,67 @@ function stopSpinner() {
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 
+//Message icon, update latest message time to db/////////////////////////////////////////////
+function updateLastMsgTime() {
+
+	 //Clear msg notification icon
+     clearIcon();
+
+    //Latest message date on list
+    var msgdatetime = document.getElementById("latestMsg").textContent;
+    
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+	    }
+	}
+
+    var variables = "datetime=" + msgdatetime;
+    //alert(variables);
+	xmlhttp.open("GET", "UpdateLastMsgDate.php?" + variables, true);
+	xmlhttp.send();	
+
+}
+
+//Showing the chat message icon /////////////////////////////////////////////////
+function checkMsgStatus() {
+    
+    //Latest message datetime on list
+    //var msgdatetime = new Date(document.getElementById("latestMsg").textContent).getTime();
+    //var msgdatetime = new Date(document.getElementById("latestMsg").textContent);
+    var arr = document.getElementById("latestMsg").textContent.split(/[- :]/);
+    var msgdatetime = new Date(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
+    
+    //Latest message datetine user has seen
+    //var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent).getTime();
+    //var seenmsgdatetime = new Date(document.getElementById("latestSeenMsg").textContent);
+    arr = document.getElementById("latestSeenMsg").textContent.split(/[- :]/);
+    var seenmsgdatetime = new Date(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5]);
+
+    //alert("latest on list:" + msgdatetime + "\nlast seen:" + seenmsgdatetime);
+    //alert("latest on list: " + document.getElementById("latestMsg").textContent + 
+    //      "\nlast seen: " + document.getElementById("latestSeenMsg").textContent);
+
+    //Show icon if there are newer messages and chat view is not active
+    if((msgdatetime <= seenmsgdatetime) || ($.mobile.activePage.attr('id') == 'areyouin-chat-page')) {
+        $("#msg_icon1").addClass("noshow");
+        $("#msg_icon2").addClass("noshow");
+    }
+    else {       
+        $("#msg_icon1").removeClass("noshow");
+        $("#msg_icon2").removeClass("noshow");
+    }             
+}
+
+//Clear icon
+function clearIcon() {
+    $("#msg_icon1").addClass("noshow");
+    $("#msg_icon2").addClass("noshow");
+}

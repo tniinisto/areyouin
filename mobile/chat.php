@@ -26,9 +26,10 @@
 	    mysql_select_db("areyouin", $con);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl FROM players WHERE playerID = " . $playerid . "";
+        $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
-        $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
+        $row5 = mysql_fetch_array($result5);
+        $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
         getComments($teamid);
 
@@ -92,6 +93,8 @@
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
 
+            $lastmsgdatetime = '0';
+
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
@@ -102,10 +105,10 @@
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
-                                //echo "<tr class=\"chatrow\">";
-                                //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-                                //echo "</tr>";
+                                //Save the newest chat comment's datetime
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                }
 
                                 echo "<tr class=\"chatrow\">";
 
@@ -133,6 +136,10 @@
                             }
                         }
                     echo "</table>";
+                
+                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+                    echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+
                 echo "</div>";
 
         echo "</article>";
