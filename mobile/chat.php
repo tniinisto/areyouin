@@ -29,8 +29,7 @@
         $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $row5 = mysql_fetch_array($result5);
-        //$_SESSION['mylastmsg'] = $row5['lastMsg'];
-        $latestseendatetime = $row5['lastMsg'];
+        $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
         getComments($teamid);
 
@@ -139,7 +138,7 @@
                     echo "</table>";
                 
                     echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-                    echo "<div id='latestSeenMsg' style='display: none;'>" . $latestseendatetime . "</div>"; //Latest message datetime user has seen
+                    echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
 
                 echo "</div>";
 
