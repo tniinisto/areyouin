@@ -715,7 +715,7 @@ function checkMsgStatus() {
     //      "\nlast seen: " + document.getElementById("latestSeenMsg").textContent);
 
     //Show icon if there are newer messages and chat view is not active
-    if((msgdatetime <= seenmsgdatetime) || $("#linkchat").hasClass("current")) {
+    if((msgdatetime <= seenmsgdatetime) || ($.mobile.activePage.attr('id') == 'areyouin-chat-page')) {
         $("#msg_icon1").addClass("noshow");
         $("#msg_icon2").addClass("noshow");
     }
