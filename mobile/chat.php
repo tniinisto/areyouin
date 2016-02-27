@@ -26,7 +26,7 @@
 	    mysql_select_db("areyouin", $con);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl FROM players WHERE playerID = " . $playerid . "";
+        $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
         $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
@@ -92,6 +92,8 @@
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
 
+            $lastmsgdatetime = '0';
+
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
@@ -102,10 +104,11 @@
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
-                                //echo "<tr class=\"chatrow\">";
-                                //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-                                //echo "</tr>";
+                                //Save the newest chat comment's datetime and update the last seen message to session
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
+                                }
 
                                 echo "<tr class=\"chatrow\">";
 
