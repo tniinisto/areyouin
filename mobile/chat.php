@@ -137,8 +137,10 @@
                         }
                     echo "</table>";
                 
-                    echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-                    echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+                    //echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+                    //echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+                    echo "<div id='latestMsg'>newest msg: " . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
+                    echo "<div id='latestSeenMsg'>latest user has seen: " . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
 
                 echo "</div>";
 
