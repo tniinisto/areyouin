@@ -23,7 +23,8 @@
     else    
         $player_notify = 0;
 
-    $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "', firstname = '" . $player_firstname . ", lastname = '" . $player_lastname . "
+    $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "',
+            name = '" . $player_name . ", firstname = '" . $player_firstname . ", lastname = '" . $player_lastname . "
             WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
     $result = mysql_query($sql);
