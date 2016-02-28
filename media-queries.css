@@ -648,3 +648,20 @@ th.col51 {
     position: relative;
     padding: 20px;
 }
+
+/************************************************************************************
+User list, edit,...
+*************************************************************************************/
+.edit-listinfo {
+    display: inline-block;
+    width: 130px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    float: left;
+    padding-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* border: 2px solid blue; */
+}

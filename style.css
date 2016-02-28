@@ -1585,7 +1585,7 @@ User list, edit,...
 *************************************************************************************/
 .edit-listinfo {
     display: inline-block;
-    width: 130px;
+    width: 300px;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px;
