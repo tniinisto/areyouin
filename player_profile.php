@@ -51,8 +51,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify']);
-
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'],$row['firstname'], $row['lastname']);
 
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<iframe name='frame_player' style='display: none;'></iframe>";
@@ -67,7 +66,9 @@
                     
                     echo "</legend>";
                         //echo "PlayerID: " . $player->playerID . "</br>";
-                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
+                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
+                        echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
+                        echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
                         echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
                         if($player->notify == '0') 
@@ -97,8 +98,18 @@
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Nickname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Fistname:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->firstname ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "</p>";
+
+                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Lastname:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->lastname ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
@@ -239,14 +250,18 @@
             var $email;
             var $phone;
             var $notify;
+            var $firstname;
+            var $lastname;
 
-            function Player($playerID, $name, $mail, $phone, $photourl, $notify) {
+            function Player($playerID, $name, $mail, $phone, $photourl, $notify, $firstname, $lastname) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->email = $mail;
                 $this->phone = $phone;
                 $this->photourl = $photourl;
                 $this->notify = $notify;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
             }
 
         }
