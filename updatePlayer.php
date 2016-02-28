@@ -2,6 +2,10 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
 
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('insert_event.php start');
+    }
     
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
     if (!$con)
@@ -26,7 +30,10 @@
     $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "',
             name = '" . $player_name . ", firstname = '" . $player_firstname . ", lastname = '" . $player_lastname . "
             WHERE playerID = " . $_SESSION['myplayerid'] . ";";
-    
+
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
+        
     $result = mysql_query($sql);
 
     mysql_close($con);

@@ -97,16 +97,19 @@
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
                                 echo "</p>";
 
+                                //Nickname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Nickname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
-
+                                
+                                //Firstname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right;'>Fistname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
+                                //Lastname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right;'>Lastname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 190px;'></input>";
