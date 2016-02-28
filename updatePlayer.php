@@ -15,13 +15,16 @@
     $player_email=$_POST['player_email'];
     $player_phone=$_POST['player_phone'];
     $player_notify=$_POST['notifyswitch'];
+    $player_firstname=$_POST['firstname'];
+    $player_lastname=$_POST['lastname'];
 
     if($player_notify == 'on')
         $player_notify = 1;
     else    
         $player_notify = 0;
 
-    $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "' WHERE playerID = " . $_SESSION['myplayerid'] . ";";
+    $sql = "UPDATE players SET mail = '" . $player_email ."', mobile = '" . $player_phone . "', notify = '" . $player_notify . "', firstname = '" . $player_firstname . ", lastname = '" . $player_lastname . "
+            WHERE playerID = " . $_SESSION['myplayerid'] . ";";
     
     $result = mysql_query($sql);
 

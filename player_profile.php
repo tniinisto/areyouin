@@ -99,7 +99,7 @@
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Nickname:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
