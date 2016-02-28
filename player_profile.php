@@ -51,7 +51,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'],$row['firstname'], $row['lastname']);
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
 
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<iframe name='frame_player' style='display: none;'></iframe>";
