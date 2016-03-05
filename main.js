@@ -1181,7 +1181,11 @@ function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
 
+
 //Email validation////////////////////////////////////////////////////////////////////////////////
+
+var addresscount;
+
 function validateEmail(mail) {
     //alert(mail);
 
@@ -1192,8 +1196,8 @@ function validateEmail(mail) {
     if(checkEmail(mail)) {
         //alert("email valid");
 
-        var count = 0;
-        count = checkMailUnique(mail);
+        addresscount = 0;
+        addresscount = checkMailUnique(mail);
 
         if(count > 0) {
             alert("email not unique");
