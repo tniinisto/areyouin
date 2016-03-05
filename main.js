@@ -1183,7 +1183,7 @@ function clearIcon() {
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
 function validateEmail(mail) {
-    
+    alert(mail);
     //Get the current mail address, return it to field if new one is invalid
     var currentMail = document.getElementById("latestMsg").textContent;
     
