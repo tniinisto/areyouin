@@ -26,7 +26,7 @@ try {
 
 	$dbh = null;
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log("mailcount: " . json_encode($mailcount).$mailcount[0].mailcount); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log("mailcount: " . $mailcount); }
 
 	echo '{"items":'. json_encode($mailcount) .'}'; 
 }
