@@ -101,7 +101,7 @@
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Email/UserID</label>";
                                 echo "<p style='margin: 0px'>";
                                 //echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px; text-align: center;'></input>";
+                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px; text-align: center; margin: auto;'></input>";
                                 echo "</p>";
                                 echo "<br>";
 
