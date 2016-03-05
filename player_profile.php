@@ -99,7 +99,7 @@
 
                                 //Mail & UserID
                                 echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%;'>";
-                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Email / UserID</label>";
+                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%; color:black;'>Email / UserID</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
                                            style='margin-bottom: 15px; width: 210px;'></input>";
@@ -108,29 +108,29 @@
 
                                 //Nickname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Nickname:&nbsp </label>";                    
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp </label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
                                 
                                 //Firstname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right;'>Fistname:&nbsp </label>";                    
+                                echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Fistname:&nbsp </label>";                    
                                 echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 //Lastname
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right;'>Lastname:&nbsp </label>";                    
+                                echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp </label>";                    
                                 echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
-                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp </label>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp </label>";
                                 echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                                echo "<h5 id='dialog_player_notify' style='color:black;'>Mail notifications:</h5>";
                                     if( $player->notify == '1') {
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
