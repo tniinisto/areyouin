@@ -1193,7 +1193,7 @@ function validateEmail(mail) {
     var currentMail = document.getElementById("latestMsg").textContent;
     
     //Validate entered mail address with regexp
-    if(checkEmail(mail))
+    if(!checkEmail(mail))
         alert("email not valid");    
     
     //if(checkEmail(mail)){
