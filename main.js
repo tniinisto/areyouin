@@ -1198,8 +1198,7 @@ function validateEmail(mail) {
 
         addresscount = 0;
         addresscount = checkMailUnique(mail);
-
-        if(count > 0) {
+        if(addresscount > 0) {
             alert("email not unique");
         }
 
