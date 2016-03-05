@@ -1192,9 +1192,13 @@ function validateEmail(mail) {
     if(checkEmail(mail)) {
         //alert("email valid");
 
-        if(checkMailUnique(mail) > 0) {
+        var count = 0;
+        count = checkMailUnique(mail);
+
+        if(count > 0) {
             alert("email not unique");
         }
+
     }
     else {
         alert("email not valid");
