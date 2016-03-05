@@ -1215,10 +1215,10 @@ function checkMailUnique(mail) {
 
     var mailcount = 0;
 
-//$.getJSON('uniqueMail.php?' + variables, function (data) {
-//    var uniquemail = data.items;
-//    mailcount = uniquemail[0].mailcount;        
-//});
+    //$.getJSON('uniqueMail.php?' + variables, function (data) {
+    //    var uniquemail = data.items;
+    //    mailcount = uniquemail[0].mailcount;        
+    //});
 
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -1230,8 +1230,8 @@ function checkMailUnique(mail) {
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        alert("mailcount: " + xmlhttp.responseText);
-	        var count = xmlhttp.responseText;
-	        return count;
+	        mailcount = xmlhttp.responseText;
+	        return mailcount;
 	    }
 	}
 
