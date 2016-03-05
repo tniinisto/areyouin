@@ -112,11 +112,13 @@
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
                                 
-                                //Name
+                                //Fullname
                                 echo "<p style='margin: 0px; padding-top: 5px;'>";
                                 echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Name:&nbsp </label>";                    
-                                echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
-                                echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                echo "<div>";
+                                    echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                    echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                echo "</div>";
                                 echo "</p>";
 
                                 //Lastname
