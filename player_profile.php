@@ -68,7 +68,7 @@
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
                         echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
-                        echo "<h5 id='profile_playerEmail' style='color:red;'>Email / UserID: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerEmail'>Email / UserID: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
                         if($player->notify == '0') 
                             echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
