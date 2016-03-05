@@ -92,12 +92,12 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
-                                echo "<p style='margin: 5px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
-                                echo "</p>";
+                                //echo "<p style='margin: 5px;'>";
+                                //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
+                                //echo "</p>";
 
                                 //Mail & UserID
-                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%;'>";
+                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 10px;'>";
                                     echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
