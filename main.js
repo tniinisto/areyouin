@@ -1192,7 +1192,7 @@ function validateEmail(mail) {
     //Get the current mail address, return it to field if new one is invalid
     var currentMail = document.getElementById("latestMsg").textContent;
     
-    //Validate entered mail address
+    //Validate entered mail address with regexp
     if(checkEmail(mail))
         alert("email not valid");    
     
