@@ -107,7 +107,7 @@
 
                                 //Nickname
                                 echo "<p style='margin: 0px; padding-top: 0px;'>";
-                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nick:&nbsp</label>";                    
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
                                 
