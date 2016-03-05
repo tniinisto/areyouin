@@ -1181,3 +1181,8 @@ function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
 
+//Email validation
+function validateEmail() {
+    alert("validate this!");
+}
+
