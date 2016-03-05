@@ -1191,6 +1191,8 @@ function validateEmail(mail) {
     //Validate entered mail address
     if(checkEmail(mail)) {
         //alert("email valid");
+        alert("check unique function returns: " + checkMailUnique(mail));
+
         if(checkMailUnique(mail) > 0) {
             alert("email not unique");
         }
