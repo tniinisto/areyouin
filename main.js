@@ -1193,19 +1193,22 @@ function validateEmail(mail) {
     var currentMail = document.getElementById("latestMsg").textContent;
     
     //Validate entered mail address
-    if(checkEmail(mail)) {
-        //alert("email valid");
+    if(checkEmail(mail))
+        alert("email not valid");    
+    
+    //if(checkEmail(mail)){
+    //    //alert("email valid");
 
-        addresscount = 0;
-        addresscount = checkMailUnique(mail);
-        if(addresscount > 0) {
-            alert("email not unique");
-        }
+    //    addresscount = 0;
+    //    addresscount = checkMailUnique(mail);
+    //    if(addresscount > 0) {
+    //        alert("email not unique");
+    //    }
 
-    }
-    else {
-        alert("email not valid");
-    }
+    //}
+    //else {
+    //    alert("email not valid");
+    //}
 
 }
 
