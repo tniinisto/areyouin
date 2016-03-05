@@ -101,7 +101,7 @@
                                     echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
-                                           style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";
+                                           style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(document.getElementById('dialog_player_email').value);'></input>";
                                     echo "</p>";
                                 echo "</div>";
 
