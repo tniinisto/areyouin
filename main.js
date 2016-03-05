@@ -1191,7 +1191,7 @@ function validateEmail(mail) {
     //Validate entered mail address
     if(checkEmail(mail)) {
         //alert("email valid");
-        if(checkMail(mail) > 0) {
+        if(checkMailUnique(mail) > 0) {
             alert("email not unique");
         }
     }
@@ -1209,21 +1209,32 @@ function checkEmail(mail) {
 }
 
 //Check email uniquenes from database
-function checkMail(mail) {
+function checkMailUnique(mail) {
 
     var mailcount = 0;
+
+//$.getJSON('uniqueMail.php?' + variables, function (data) {
+//    var uniquemail = data.items;
+//    mailcount = uniquemail[0].mailcount;        
+//});
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //alert("mailcount: " + mailcount);
+            return xmlhttp.responseText;
+	    }
+	}
+
     var variables = "mail=" + mail;
-
-    //$.getJSON('uniqueMail.php?' + variables, function (data) {
-    //    var uniquemail = data.items;
-    //    mailcount = uniquemail[0].mailcount;        
-    //});
-
 	xmlhttp.open("GET", "uniqueMail.php?" + variables, true);
 	xmlhttp.send();	
-
-    alert("mailcount: " + mailcount);
-    return mailcount;
 }
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
