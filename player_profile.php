@@ -64,12 +64,11 @@
                         echo "</div>";
                     echo "</legend>";
                     
-                    echo "</legend>";
                         //echo "PlayerID: " . $player->playerID . "</br>";
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
                         echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
-                        echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerEmail'>Email/UserID: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
                         if($player->notify == '0') 
                             echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
@@ -93,7 +92,7 @@
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
-                                echo "<p style='margin: 10px;'>";
+                                echo "<p style='margin: 5px;'>";
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
                                 echo "</p>";
 
