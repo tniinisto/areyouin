@@ -124,7 +124,8 @@
                                 echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
-                                echo "<p style='margin: 0px'>";
+                                //Phone
+                                echo "<p style='margin: 0px padding-top: 10px;'>";
                                 echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp </label>";
                                 echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
