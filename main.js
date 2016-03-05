@@ -1227,13 +1227,14 @@ function checkMailUnique(mail) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert("mailcount: " + xmlhttp.responseText);
-            return xmlhttp.responseText;
+	        //alert("mailcount: " + xmlhttp.responseText);
+	        var count = xmlhttp.responseText;
+	        return count;
 	    }
 	}
 
     var variables = "mail=" + mail;
-	xmlhttp.open("GET", "uniqueMail.php?" + variables, true);
+	xmlhttp.open("GET", "uniqueMail.php?" + variables, false);
 	xmlhttp.send();	
 }
 
