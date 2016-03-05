@@ -1190,7 +1190,10 @@ function validateEmail(mail) {
     
     //Validate entered mail address
     if(checkEmail(mail)) {
-        alert("email valid");
+        //alert("email valid");
+        if(checkMail(mail) > 0) {
+            alert("email not unique");
+        }
     }
     else {
         alert("email not valid");
@@ -1204,3 +1207,20 @@ function checkEmail(mail) {
 
     return pattern.test(mail);
 }
+
+//Check email uniquenes from database
+function checkMail(mail) {
+
+    var mailcount = 0;
+    var variables = "mail=" + mail;
+
+    $.getJSON('uniqueMail.php?' + variables, function (data) {
+        var uniquemail = data.items;
+        mailcount = uniquemail[0].mailcount;        
+    });
+
+    alert("mailcount: " + mailcount);
+    return mailcount;
+}
+
+//Email validation////////////////////////////////////////////////////////////////////////////////
