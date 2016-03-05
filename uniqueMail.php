@@ -26,6 +26,8 @@ try {
 
 	$dbh = null;
 
+    if($_SESSION['ChromeLog']) { ChromePhp::log("mailcount: " . $mailcount[0].mailcount); }
+
 	echo '{"items":'. json_encode($mailcount) .'}'; 
 }
 catch(PDOException $e) {
