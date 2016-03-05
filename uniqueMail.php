@@ -22,7 +22,7 @@ try {
 
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$stmt = $dbh->query($sql);  
-	$playerinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
+	$mailcount = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 	$dbh = null;
 
