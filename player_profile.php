@@ -99,7 +99,7 @@
 
                                 //Mail & UserID
                                 echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%;'>";
-                                    echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID</label>";
+                                    echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
                                            style='margin-bottom: 15px; width: 210px;'></input>";
@@ -113,19 +113,19 @@
                                 echo "</p>";
                                 
                                 //Fullname
-                                echo "<p style='margin: 0px; padding-top: 1px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px;'>";
                                 echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 //Lastname
-                                echo "<p style='margin: 0px; padding-top: 1px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px;'>";
                                 echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 //Phone
-                                echo "<p style='margin: 0px; padding-top: 1px; padding-bottom: 5px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 4px;'>";
                                 echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
                                 echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
