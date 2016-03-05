@@ -1227,7 +1227,7 @@ function checkMailUnique(mail) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //alert("mailcount: " + xmlhttp.responseText);
+	        alert("mailcount: " + xmlhttp.responseText);
 	        var count = xmlhttp.responseText;
 	        return count;
 	    }
