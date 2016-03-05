@@ -1214,10 +1214,13 @@ function checkMail(mail) {
     var mailcount = 0;
     var variables = "mail=" + mail;
 
-    $.getJSON('uniqueMail.php?' + variables, function (data) {
-        var uniquemail = data.items;
-        mailcount = uniquemail[0].mailcount;        
-    });
+    //$.getJSON('uniqueMail.php?' + variables, function (data) {
+    //    var uniquemail = data.items;
+    //    mailcount = uniquemail[0].mailcount;        
+    //});
+
+	xmlhttp.open("GET", "uniqueMail.php?" + variables, true);
+	xmlhttp.send();	
 
     alert("mailcount: " + mailcount);
     return mailcount;

@@ -13,25 +13,27 @@ $mail=$_GET["mail"];
 
 $sql = "SELECT count(mail) as mailcount from players WHERE mail like '" . $mail . "'";
 
-try {
-    //PDO means "PHP Data Objects"
-    //dbh meand "Database handle"
-    //STH means "Statement Handle"
 
-	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$stmt = $dbh->query($sql);  
-	$mailcount = $stmt->fetchAll(PDO::FETCH_OBJ);
+//try {
+//    //PDO means "PHP Data Objects"
+//    //dbh meand "Database handle"
+//    //STH means "Statement Handle"
 
-	$dbh = null;
+//	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log("mailcount: " . $mailcount[0]); }
+//	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//	$stmt = $dbh->query($sql);  
+//	$mailcount = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-	echo '{"items":'. json_encode($mailcount) .'}'; 
-}
-catch(PDOException $e) {
-	echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-}
+//	$dbh = null;
+
+//    //if($_SESSION['ChromeLog']) { ChromePhp::log("mailcount: " . $mailcount[0]); }
+
+//	echo '{"items":'. json_encode($mailcount) .'}'; 
+//}
+//catch(PDOException $e) {
+//	echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+//}
 
 ?>
