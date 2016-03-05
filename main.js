@@ -1189,7 +1189,7 @@ function validateEmail(mail) {
     var currentMail = document.getElementById("latestMsg").textContent;
     
     //Validate entered mail address
-    if( checkEmail(mail) == 'true' ) {
+    if(checkEmail(mail)) {
         alert("email valid");
     }
     else {
