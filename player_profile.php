@@ -99,10 +99,10 @@
 
                                 //Mail & UserID
                                 echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%;'>";
-                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Email/UserID</label>";
+                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Email / UserID</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
-                                           style='margin-bottom: 15px; width: 200px;'></input>";
+                                           style='margin-bottom: 15px; width: 210px;'></input>";
                                     echo "</p>";
                                 echo "</div>";
 
