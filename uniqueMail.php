@@ -23,8 +23,11 @@
     $sql = "SELECT count(mail) as mailcount from players WHERE mail like '" . $mail . "'";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
-    echo $row[0];
-    echo "test";
+
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('mailcount: ' . $row['mailcount']); }
+    
+    echo $row['mailcount'];
 
 
 
