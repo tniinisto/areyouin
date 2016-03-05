@@ -1183,12 +1183,13 @@ function clearIcon() {
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
 function validateEmail(mail) {
-    alert(mail);
+    //alert(mail);
+
     //Get the current mail address, return it to field if new one is invalid
     var currentMail = document.getElementById("latestMsg").textContent;
     
     //Validate entered mail address
-    if(checkEmail(mail)) {
+    if( checkEmail(mail) ) {
         alert("email valid");
     }
     else {
@@ -1196,7 +1197,7 @@ function validateEmail(mail) {
     }
 }
 
-function checkEmail(email) {
+function checkEmail(mail) {
     var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return re.test(email);
+    return re.test(mail);
 }
