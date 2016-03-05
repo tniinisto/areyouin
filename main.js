@@ -1200,6 +1200,6 @@ function validateEmail(mail) {
 
 //Validate address 
 function checkEmail(mail) {
-    var patt = new RegExp("/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i");
+    var patt = new RegExp("/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;");
     return patt.test(mail);
 }
