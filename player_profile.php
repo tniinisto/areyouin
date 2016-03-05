@@ -87,7 +87,7 @@
                     <!--Modal dialog for player information editing/////////////////////////////////////////////////////////-->
                     <div id="openModal" class="modalDialog">
 	                    <div>
-		                    <a id="closer" href="#close" title="Close" class="close">X</a>
+		                    <a id="closer" href="" title="Close" class="close">X</a>
                     <?php
 
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
