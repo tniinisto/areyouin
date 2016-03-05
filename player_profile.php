@@ -68,7 +68,7 @@
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
                         echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
-                        echo "<h5 id='profile_playerEmail'>Email/UserID: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerEmail' style='color:red;'>Email / UserID: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
                         if($player->notify == '0') 
                             echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
@@ -97,7 +97,7 @@
                                 //echo "</p>";
 
                                 //Mail & UserID
-                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 10px; color:red;'>";
+                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 10px;'>";
                                     echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
