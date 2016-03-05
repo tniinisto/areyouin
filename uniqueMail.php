@@ -23,7 +23,8 @@
     $sql = "SELECT count(mail) as mailcount from players WHERE mail like '" . $mail . "'";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
-    echo $row['mailcount'];
+    echo $row[0];
+    echo "test";
 
 
 
