@@ -112,19 +112,19 @@
                                 echo "</p>";
                                 
                                 //Fullname
-                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -2px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
                                 echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 //Lastname
-                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -2px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
                                 echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
                                 //Phone
-                                echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -2px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;'>";
                                 echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
                                 echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
