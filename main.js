@@ -1181,8 +1181,22 @@ function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
 
-//Email validation
-function validateEmail() {
-    alert("validate this!");
+//Email validation////////////////////////////////////////////////////////////////////////////////
+function validateEmail(mail) {
+    
+    //Get the current mail address, return it to field if new one is invalid
+    var currentMail = document.getElementById("latestMsg").textContent;
+    
+    //Validate entered mail address
+    if(checkEmail()) {
+        alert("email valid");
+    }
+    else {
+        alert("email not valid");
+    }
 }
 
+function checkEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
