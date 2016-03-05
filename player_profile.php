@@ -97,7 +97,7 @@
                                 //echo "</p>";
 
                                 //Mail & UserID
-                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 10px;'>";
+                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
                                     echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
@@ -106,7 +106,7 @@
                                 echo "</div>";
 
                                 //Nickname
-                                echo "<p style='margin: 0px; padding-top: 5px;'>";
+                                echo "<p style='margin: 0px; padding-top: 0px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nick:&nbsp</label>";                    
                                 echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
