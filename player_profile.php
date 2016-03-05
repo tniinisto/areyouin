@@ -94,12 +94,12 @@
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                 echo "<p style='margin: 10px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
                                 echo "</p>";
 
                                 //Mail & UserID
                                 echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%;'>";
-                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%; color:black;'>Email / UserID</label>";
+                                    echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID</label>";
                                     echo "<p style='margin: 0px'>";
                                     echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
                                            style='margin-bottom: 15px; width: 210px;'></input>";
@@ -130,7 +130,7 @@
                                 echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify' style='color:black;'>Mail notifications:</h5>";
+                                echo "<h5 id='dialog_player_notify' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
                                     if( $player->notify == '1') {
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
