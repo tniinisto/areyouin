@@ -41,7 +41,7 @@
     //duplicate key, duplicate mail address
     if( mysql_errno() == 1062) {
        // Duplicate key
-       echo (mysql_affected_rows() > 0 ) ? 1 : $player_email;
+       echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
     }
 
 

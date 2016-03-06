@@ -1223,10 +1223,10 @@ function UpdatePlayer() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             var result = xmlhttp.responseText;
-            if (resutl.indexOf("1"))
+            if (result.indexOf("1"))
                 refreshPlayerInfo();
             else
-                document.getElementById("profile_playerEmail").value = 'Mail address already in use!';
+                document.getElementById("dialog_player_email").value = xmlhttp.responseText;
         }
     }
 
