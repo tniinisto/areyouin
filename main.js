@@ -1228,11 +1228,11 @@ function UpdatePlayer() {
 
     var variables;
     variables = "player_name=" + document.getElementById("dialog_player_name").value
-    + "player_email=" + document.getElementById("dialog_player_email").value
-    + "player_phone=" + document.getElementById("dialog_player_phone").value
-    + "notifyswitch=" + document.getElementById("dialog_notify_switch").value
-    + "player_firstname=" + document.getElementById("dialog_player_firstname").value
-    + "player_lastname=" + document.getElementById("dialog_player_lastname").value
+    + ",player_email=" + document.getElementById("dialog_player_email").value
+    + ",player_phone=" + document.getElementById("dialog_player_phone").value
+    + ",notifyswitch=" + document.getElementById("dialog_notify_switch").value
+    + ",player_firstname=" + document.getElementById("dialog_player_firstname").value
+    + ",player_lastname=" + document.getElementById("dialog_player_lastname").value
 
     xmlhttp.open("POST", "updatePlayer.php?" + variables, true);
     xmlhttp.send();
