@@ -1225,7 +1225,7 @@ function UpdatePlayer() {
             var result = xmlhttp.responseText;
             if (result.indexOf("1062") >= 0) {
                 //document.getElementById("dialog_player_email").value = xmlhttp.responseText;                
-                document.getElementById("dialog_player_email").value = "Duplicate address!";
+                document.getElementById("dialog_player_email").value = "Duplicate mail address!";
             }
             else
                 refreshPlayerInfo();
