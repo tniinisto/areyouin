@@ -1189,9 +1189,10 @@ var addresscount;
 function validateEmail(mail) {
     //alert(mail);
 
-    //Get the current mail address, return it to field if new one is invalid
+    //Get the current mail address, return mail part to field if new one is invalid
     var currentMail = document.getElementById("profile_playerEmail").textContent;
-    currentMail = currentMail.substr(16);
+    var n = currentMail.lastIndexOf(":") + 1;
+    currentMail = currentMail.substr(n);
     
     //Validate entered mail address with regexp
     if(!checkEmail(mail)) {
