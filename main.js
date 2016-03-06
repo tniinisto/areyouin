@@ -1223,8 +1223,10 @@ function UpdatePlayer() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             var result = xmlhttp.responseText;
-            if (result.indexOf("1062") >= 0)
-                document.getElementById("dialog_player_email").value = xmlhttp.responseText;                
+            if (result.indexOf("1062") >= 0) {
+                //document.getElementById("dialog_player_email").value = xmlhttp.responseText;                
+                document.getElementById("dialog_player_email").value = "Duplicate address!";
+            }
             else
                 refreshPlayerInfo();
         }
