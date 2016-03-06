@@ -90,7 +90,7 @@
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
                     <?php
 
-                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                            echo "<form id='player_edit' name='player_edit' action='UpdatePlayer();' method='post' target='frame_player'>";
 
                                 //echo "<p style='margin: 5px;'>";
                                 //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";

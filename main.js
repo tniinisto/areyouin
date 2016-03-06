@@ -1209,34 +1209,25 @@ function checkEmail(mail) {
     return pattern.test(mail);
 }
 
-//Check email uniquenes from database - DOING IT IN THE UPDATE FUNCTION
-//function checkMailUnique(mail) {
+//Update player data & handle duplicate mail address case
+function UpdatePlayer() {
 
-//    var mailcount = 0;
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 
-//    //$.getJSON('uniqueMail.php?' + variables, function (data) {
-//    //    var uniquemail = data.items;
-//    //    mailcount = uniquemail[0].mailcount;        
-//    //});
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-//		xmlhttp = new XMLHttpRequest();
-//	}
-//	else {// code for IE6, IE5
-//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//	}
+        refreshPlayerInfo();
+	}
 
-//	xmlhttp.onreadystatechange = function () {
-//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//	        alert("mailcount: " + xmlhttp.responseText);
-//	        mailcount = xmlhttp.responseText;
-//	        return mailcount;
-//	    }
-//	}
 
-//    var variables = "mail=" + mail;
-//	xmlhttp.open("GET", "uniqueMail.php?" + variables, false);
-//	xmlhttp.send();	
-//}
+	xmlhttp.open("POST", "updatePlayer.php", false);
+	xmlhttp.send();	
+}
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
