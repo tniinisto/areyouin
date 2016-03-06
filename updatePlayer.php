@@ -4,7 +4,7 @@
 
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
-        ChromePhp::log('insert_event.php start');
+        ChromePhp::log('updatePlayer.php start');
     }
     
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -39,6 +39,7 @@
     //duplicate key, duplicate mail address
     if( mysql_errno() == 1586) {
        // Duplicate key
+       if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno 1586'); }
        echo (mysql_affected_rows() > 0 ) ? "Update success" : "Update failed, duplicate mail: " . $player_email;
     }
 

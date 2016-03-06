@@ -1190,12 +1190,14 @@ function validateEmail(mail) {
     //alert(mail);
 
     //Get the current mail address, return it to field if new one is invalid
-    var currentMail = document.getElementById("latestMsg").textContent;
+    var currentMail = document.getElementById("profile_playerEmail").textContent;
     
     //Validate entered mail address with regexp
-    if(!checkEmail(mail))
-        alert("email not valid");    
-
+    if(!checkEmail(mail)) {
+        alert("Invalid email address!");
+        document.getElementById("dialog_player_email").textContent = currentMail;
+    }
+    
 }
 
 //Validate address 
