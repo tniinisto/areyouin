@@ -1191,6 +1191,7 @@ function validateEmail(mail) {
 
     //Get the current mail address, return it to field if new one is invalid
     var currentMail = document.getElementById("profile_playerEmail").textContent;
+    currentMail = currentMail.substr(15);
     
     //Validate entered mail address with regexp
     if(!checkEmail(mail)) {
