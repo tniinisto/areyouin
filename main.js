@@ -1223,10 +1223,10 @@ function UpdatePlayer() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             var result = xmlhttp.responseText;
-            if (result.indexOf("1"))
-                refreshPlayerInfo();
+            if (result.indexOf("1062"))
+                document.getElementById("dialog_player_email").value = xmlhttp.responseText;                
             else
-                document.getElementById("dialog_player_email").value = xmlhttp.responseText;
+                refreshPlayerInfo();
         }
     }
 
