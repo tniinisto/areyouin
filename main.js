@@ -1224,8 +1224,11 @@ function UpdatePlayer() {
 
             var result = xmlhttp.responseText;
             if (result.indexOf("1062") >= 0) {
-                //document.getElementById("dialog_player_email").value = xmlhttp.responseText;                
-                document.getElementById("dialog_player_email").value = "Duplicate mail address!";
+                var currentMail = document.getElementById("profile_playerEmail").textContent;
+                var n = currentMail.lastIndexOf(":") + 2;
+                currentMail = currentMail.substr(n);
+                document.getElementById("dialog_player_email").value = currentMail;
+                alert("Duplicate mail address inputted!");
             }
             else
                 refreshPlayerInfo();
