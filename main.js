@@ -1195,7 +1195,7 @@ function validateEmail(mail) {
     //Validate entered mail address with regexp
     if(!checkEmail(mail)) {
         alert("Invalid email address!");
-        document.getElementById("dialog_player_email").textContent = currentMail;
+        document.getElementById("dialog_player_email").value = currentMail;
     }
     
 }
