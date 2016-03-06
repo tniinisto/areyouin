@@ -24,6 +24,7 @@ var playerinfo;
 $(window).load(function () {
     serviceURL = window.location.href;
     serviceURL = serviceURL.replace("index.html", "json/");
+    serviceURL = serviceURL.replace("close", '');
     serviceURL = serviceURL.replace("#", '');
     localStorage['serviceURL'] = serviceURL;
 
