@@ -37,9 +37,9 @@
     $result = mysql_query($sql);
     
     //duplicate key, duplicate mail address
-    if( mysql_errno() == 1586) {
+    if( mysql_errno() != 0) {
        // Duplicate key
-       if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno 1586'); }
+       if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
        echo (mysql_affected_rows() > 0 ) ? "Update success" : "Update failed, duplicate mail: " . $player_email;
     }
 
