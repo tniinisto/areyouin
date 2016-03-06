@@ -41,7 +41,7 @@
     //duplicate key, duplicate mail address
     if( mysql_errno() == 1062) {
        // Duplicate key
-       echo (mysql_affected_rows() > 0 ) ? "Update success" : "Update failed, duplicate mail: " . $player_email;
+       echo (mysql_affected_rows() > 0 ) ? 1 : $player_email;
     }
 
 

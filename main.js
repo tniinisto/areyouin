@@ -1222,7 +1222,11 @@ function UpdatePlayer() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            refreshPlayerInfo();
+            var result = xmlhttp.responseText;
+            if (resutl.indexOf("1"))
+                refreshPlayerInfo();
+            else
+                document.getElementById("profile_playerEmail").value = 'Mail address already in use!';
         }
     }
 
