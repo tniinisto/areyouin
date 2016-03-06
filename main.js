@@ -1222,6 +1222,7 @@ function UpdatePlayer() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+            stopSpinner();
             var result = xmlhttp.responseText;
             if (result.indexOf("1062") >= 0) {
                 var currentMail = document.getElementById("profile_playerEmail").textContent;
@@ -1243,6 +1244,7 @@ function UpdatePlayer() {
     + "&player_firstname=" + document.getElementById("dialog_player_firstname").value
     + "&player_lastname=" + document.getElementById("dialog_player_lastname").value
 
+    startSpinner();
     xmlhttp.open("GET", "updatePlayer.php?" + variables, true);
     xmlhttp.send();
 
