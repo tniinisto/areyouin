@@ -1195,20 +1195,6 @@ function validateEmail(mail) {
     //Validate entered mail address with regexp
     if(!checkEmail(mail))
         alert("email not valid");    
-    
-    //if(checkEmail(mail)){
-    //    //alert("email valid");
-
-    //    addresscount = 0;
-    //    addresscount = checkMailUnique(mail);
-    //    if(addresscount > 0) {
-    //        alert("email not unique");
-    //    }
-
-    //}
-    //else {
-    //    alert("email not valid");
-    //}
 
 }
 
@@ -1219,34 +1205,34 @@ function checkEmail(mail) {
     return pattern.test(mail);
 }
 
-//Check email uniquenes from database
-function checkMailUnique(mail) {
+//Check email uniquenes from database - DOING IT IN THE UPDATE FUNCTION
+//function checkMailUnique(mail) {
 
-    var mailcount = 0;
+//    var mailcount = 0;
 
-    //$.getJSON('uniqueMail.php?' + variables, function (data) {
-    //    var uniquemail = data.items;
-    //    mailcount = uniquemail[0].mailcount;        
-    //});
+//    //$.getJSON('uniqueMail.php?' + variables, function (data) {
+//    //    var uniquemail = data.items;
+//    //    mailcount = uniquemail[0].mailcount;        
+//    //});
 
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
 
-	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        alert("mailcount: " + xmlhttp.responseText);
-	        mailcount = xmlhttp.responseText;
-	        return mailcount;
-	    }
-	}
+//	xmlhttp.onreadystatechange = function () {
+//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//	        alert("mailcount: " + xmlhttp.responseText);
+//	        mailcount = xmlhttp.responseText;
+//	        return mailcount;
+//	    }
+//	}
 
-    var variables = "mail=" + mail;
-	xmlhttp.open("GET", "uniqueMail.php?" + variables, false);
-	xmlhttp.send();	
-}
+//    var variables = "mail=" + mail;
+//	xmlhttp.open("GET", "uniqueMail.php?" + variables, false);
+//	xmlhttp.send();	
+//}
 
 //Email validation////////////////////////////////////////////////////////////////////////////////

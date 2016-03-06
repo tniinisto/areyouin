@@ -35,6 +35,13 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
         
     $result = mysql_query($sql);
+    
+    //duplicate key, duplicate mail address
+    if( mysql_errno() == 1586) {
+       // Duplicate key
+       echo (mysql_affected_rows() > 0 ) ? "Update success" : "Update failed, duplicate mail: " . $player_email;
+    }
+
 
     mysql_close($con);
 
