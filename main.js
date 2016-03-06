@@ -1234,7 +1234,7 @@ function UpdatePlayer() {
     + ",player_firstname=" + document.getElementById("dialog_player_firstname").value
     + ",player_lastname=" + document.getElementById("dialog_player_lastname").value
 
-    xmlhttp.open("POST", "updatePlayer.php?" + variables, true);
+    xmlhttp.open("GET", "updatePlayer.php?" + variables, true);
     xmlhttp.send();
 
 }

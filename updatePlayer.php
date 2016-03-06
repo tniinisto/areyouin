@@ -15,12 +15,12 @@
 
     mysql_select_db("areyouin", $con)or die("cannot select DB");
             
-    $player_name=$_POST['player_name'];
-    $player_email=$_POST['player_email'];
-    $player_phone=$_POST['player_phone'];
-    $player_notify=$_POST['notifyswitch'];
-    $player_firstname=$_POST['player_firstname'];
-    $player_lastname=$_POST['player_lastname'];
+    $player_name=$_GET['player_name'];
+    $player_email=$_GET['player_email'];
+    $player_phone=$_GET['player_phone'];
+    $player_notify=$_GET['notifyswitch'];
+    $player_firstname=$_GET['player_firstname'];
+    $player_lastname=$_GET['player_lastname'];
 
     if($player_notify == 'on')
         $player_notify = 1;
