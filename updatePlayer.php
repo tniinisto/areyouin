@@ -39,7 +39,7 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
     
     //duplicate key, duplicate mail address
-    if( mysql_errno() != 0) {
+    if( mysql_errno() == 1062) {
        // Duplicate key
        echo (mysql_affected_rows() > 0 ) ? "Update success" : "Update failed, duplicate mail: " . $player_email;
     }
