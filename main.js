@@ -1212,22 +1212,24 @@ function checkEmail(mail) {
 //Update player data & handle duplicate mail address case
 function UpdatePlayer() {
 
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
 
-	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-        refreshPlayerInfo();
-	}
+            refreshPlayerInfo();
+        }
+    }
 
 
-	xmlhttp.open("POST", "updatePlayer.php", false);
-	xmlhttp.send();	
+    xmlhttp.open("POST", "updatePlayer.php", true);
+    xmlhttp.send();
+
 }
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
