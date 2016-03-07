@@ -188,12 +188,12 @@
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_password1' name='password1' value='' pattern='.{5,10}' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password1' name='password1' value='' pattern='.{5,10}' minlength='5' maxlength='10' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
-                                echo "<input type='text' id='dialog_password2' name='password2' value='' pattern='.{5,10}' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password2' name='password2' value='' pattern='.{5,10}' minlength='5' maxlength='10' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
