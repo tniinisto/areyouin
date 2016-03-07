@@ -272,13 +272,14 @@
                                             echo "<div class='edit-listinfo'>";
 
                                                 if($player->teamAdmin == 1)
-                                                    echo "<p style='color: red;'>Team Admin</p>";                                                    
+                                                    echo "<div style='color: red;'>Team Admin</div>";
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
                                                 echo "<br />";
                                                 echo "" . $player->mail . "";
+
                                             echo "</div>";
                                         echo "</td>";                  
 
