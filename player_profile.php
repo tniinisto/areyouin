@@ -182,15 +182,18 @@
                                 echo "<p style='margin: 10px;'>";
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Type your new password twice</label>";                      
                                 echo "</p>";
+                                echo "<p style='margin: 0px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Length 5-10 characters</label>";                      
+                                echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_password1' name='password1' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password1' name='password1' value='' pattern='.{5,10}' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
-                                echo "<input type='text' id='dialog_password2' name='password2' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password2' name='password2' value='' pattern='.{5,10}' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
