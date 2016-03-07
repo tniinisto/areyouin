@@ -272,7 +272,7 @@
                                             echo "<div class='edit-listinfo'>";
 
                                                 if($player->teamAdmin == 1)
-                                                    echo "<div style='color: red;'>Team Admin</div>";
+                                                    echo "<div style='color: blue;'>-Team Admin-</div>";
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
