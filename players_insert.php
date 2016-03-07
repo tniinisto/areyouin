@@ -304,7 +304,7 @@
                             echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                 echo "<p style='margin: 10px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit information</label>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
@@ -323,25 +323,25 @@
                                 echo "</p>";
 
 
-                          //      echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
-                          //          if( $player->notify == '1') {
-                          //              echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
-                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
-                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
-						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
-						                    //echo "</label>";
-                          //              echo "</div>";
-                          //          } else {
-                          //              echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						                    //echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch'>";
-                          //                  echo "<label class=\"onoffswitch-label\" for='dialog_notify_switch' onClick=''>";
-                          //                      echo "<div class=\"notifyswitch-inner\"></div>";
-						                    //    echo "<div class=\"onoffswitch-switch\"></div>";
-						                    //echo "</label>";
-                          //              echo "</div>";                            
-                          //          }
-                          //      echo "</h5>";
+                                echo "<h5 id='dialog_player_notify'>Admin</h5>";
+                                    if( $player->teamAdmin == '1') {
+                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch' checked>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+                                        echo "</div>";
+                                    } else {
+                                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch'>";
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+                                        echo "</div>";                            
+                                    }
+                                echo "</h5>";
 
                                 echo "<div class='buttonHolder'>";
                                     echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
