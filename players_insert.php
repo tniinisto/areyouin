@@ -23,7 +23,7 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin
             FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
@@ -254,7 +254,7 @@
                             while($row = mysql_fetch_array($result))
                             {
 
-                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin']);
                                                                 
                                     echo "<tr>";
 
@@ -267,9 +267,13 @@
                                             echo "</div>";
                                         echo "</td>";                  
 
-                                        //Firstname Lastname, mobile, mail
+                                        //Firstname Lastname, mobile, mail, teamAdmin
                                         echo "<td>";
                                             echo "<div class='edit-listinfo'>";
+
+                                                if($player->teamAdmin == 1)
+                                                    echo "<p style='color: red;'>Team Admin</p>";                                                    
+
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
@@ -372,8 +376,9 @@
             var $notify;
             var $firstname;
             var $lastname;
+            var $teamAdmin;
 
-            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname) {
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->mail = $mail;
@@ -382,6 +387,7 @@
                 $this->notify = $notify;
                 $this->firstname = $firstname;
                 $this->lastname = $lastname;
+                $this->teamAdmin = $teamAdmin;
             }
 
         }
