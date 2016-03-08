@@ -325,7 +325,7 @@
                                 echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify". $index . "'>Team Admin: </h5>";
+                                echo "<h5 id='dialog_player_notify". $index . "' class='dialog_player_notify'>Team Admin: </h5>";
                                     if( $player->teamAdmin == 1) {
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "' checked>";					            
