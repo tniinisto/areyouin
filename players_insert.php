@@ -265,6 +265,7 @@
                                                 echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
                                                 echo "<br />";
                                                 echo "<div class='comment-name' style='color: #474747; text-align: left; padding-left: 2px; font-weight: bold; width: 55px;'>" . $player->name . "</div>";
+                                                 echo "<div id='player_name" . $index . "' class='noshow'>".$player->name."</div>";
                                             echo "</div>";
                                         echo "</td>";                  
 
@@ -290,7 +291,7 @@
                                         echo "</td>";                  
 
                                         //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
-                                        echo "<td id='row'". $index ."><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        echo "<td id='editrow'". $index ."><a href='#openModalEdit&index'". $index ."><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
                                         
                                         echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
                                         
