@@ -297,62 +297,60 @@
                                         
                                     echo "</tr>";
                
-                    //Modal dialog for player information editing///////////////
-                    echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
-	                    echo "<div>";
-		                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
+                                    //Modal dialog for player information editing///////////////
+                                    echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
+	                                    echo "<div>";
+		                                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
 
 
-                            echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                                            echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
-                                echo "<p style='margin: 10px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit information</label>";
-                                echo "</p>";
+                                                echo "<p style='margin: 10px;'>";
+                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit information</label>";
+                                                echo "</p>";
 
-                                echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->name . "'' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
-                                echo "</p>";
+                                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
+                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->name . "'' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                                echo "</p>";
 
-                                echo "<p style='margin: 0px'>";
-                                echo "<label for='player_email". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_email". $index . "' name='player_email". $index . "' value='". $player->mail ."' required style='margin-bottom: 15px; width: 190px;'></input>";
-                                echo "</p>";
+                                                echo "<p style='margin: 0px'>";
+                                                echo "<label for='player_email". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                                echo "<input type='text' id='dialog_player_email". $index . "' name='player_email". $index . "' value='". $player->mail ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                                echo "</p>";
 
-                                echo "<p style='margin: 0px'>";
-                                echo "<label for='player_phone". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_phone". $index . "' name='player_phone". $index . "' value='" . $player->mobile . "' required style='margin-bottom: 15px; width: 190px;'></input>";
-                                echo "</p>";
+                                                echo "<p style='margin: 0px'>";
+                                                echo "<label for='player_phone". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                                echo "<input type='text' id='dialog_player_phone". $index . "' name='player_phone". $index . "' value='" . $player->mobile . "' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                                echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify". $index . "' class='dialog_player_notify'>Team Admin: </h5>";
-                                    if( $player->teamAdmin == 1) {
-                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "' checked>";					            
-                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
-                                                echo "<div class=\"notifyswitch-inner\"></div>";
-						                        echo "<div class=\"onoffswitch-switch\"></div>";
-						                    echo "</label>";
-                                        echo "</div>";
-                                    } else {
-                                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "'>";
-                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
-                                                echo "<div class=\"notifyswitch-inner\"></div>";
-						                        echo "<div class=\"onoffswitch-switch\"></div>";
-						                    echo "</label>";
-                                        echo "</div>";                            
-                                    }
-                                echo "</h5>";
+                                                echo "<h5 id='dialog_player_notify". $index . "' class='dialog_player_notify'>Team Admin: </h5>";
+                                                    if( $player->teamAdmin == 1) {
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "' checked>";					            
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";
+                                                    } else {
+                                                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "'>";
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";                            
+                                                    }
+                                                echo "</h5>";
 
-                                echo "<div class='buttonHolder'>";
-                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
-                                echo "</div>";
-		                    echo "</form>";
+                                                echo "<div class='buttonHolder'>";
+                                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
+                                                echo "</div>";
+		                                    echo "</form>";
 
-                    //Modal dialog for player information editing//////////////////               
-                            
-                            
+                                    //Modal dialog for player information editing//////////////////               
                             
                                     $index++;
                             }
