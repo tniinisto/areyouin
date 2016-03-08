@@ -311,7 +311,7 @@
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name". $index . "' style='display inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name ". $index . "'name='player_name". $index . "' value='". $player->name . "'' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                echo "<input type='text' id='dialog_player_name". $index . "'name='player_name". $index . "' value='". $player->name . "'' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
@@ -321,7 +321,7 @@
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_phone". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_phone". $index . "' name='player_phone". $index . "' value='" . $player->phone . "' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                echo "<input type='text' id='dialog_player_phone". $index . "' name='player_phone". $index . "' value='" . $player->mobile . "' required style='margin-bottom: 15px; width: 190px;'></input>";
                                 echo "</p>";
 
 
