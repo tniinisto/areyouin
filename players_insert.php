@@ -274,17 +274,17 @@
 
                                                 if($player->teamAdmin == 1)
                                                     echo "<div style='font-weight: bold;'>Team Admin</div>";
-                                                echo "<div id='player_admin" . $index . "' style='noshow'>".$player->teamAdmin."</div>";
+                                                echo "<div id='player_admin" . $index . "' class='noshow'>".$player->teamAdmin."</div>";
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
-                                                echo "<div id='player_firstname" . $index . "' style='noshow'>".$player->firstname."</div>";
-                                                echo "<div id='playerlastname" . $index . "' style='noshow'>".$player->lasttname."</div>";
+                                                echo "<div id='player_firstname" . $index . "' class='noshow'>".$player->firstname."</div>";
+                                                echo "<div id='playerlastname" . $index . "' class='noshow'>".$player->lastname."</div>";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
-                                                echo "<div id='player_modile" . $index . "' style='noshow'>".$player->mobile."</div>";
+                                                echo "<div id='player_modile" . $index . "' class='noshow'>".$player->mobile."</div>";
                                                 echo "<br />";
                                                 echo "" . $player->mail . "";
-                                                echo "<div id='player_mail" . $index . "' style='noshow'>".$player->mail."</div>";
+                                                echo "<div id='player_mail" . $index . "' class='noshow'>".$player->mail."</div>";
 
                                             echo "</div>";
                                         echo "</td>";                  
