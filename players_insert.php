@@ -271,7 +271,7 @@
 
                                         //Firstname Lastname, mobile, mail, teamAdmin
                                         echo "<td>";
-                                            echo "<div class'edit-listinfo'>";
+                                            echo "<div class='edit-listinfo'>";
 
                                                 if($player->teamAdmin == 1)
                                                     echo "<div style='font-weight: bold;'>Team Admin</div>";
