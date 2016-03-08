@@ -251,6 +251,7 @@
                         echo "<table border='0' id='usertable' class='usertable'>";
                         
                             mysql_data_seek($result, 0);
+                            $index = 1;
                             while($row = mysql_fetch_array($result))
                             {
 
@@ -269,27 +270,32 @@
 
                                         //Firstname Lastname, mobile, mail, teamAdmin
                                         echo "<td>";
-                                            echo "<div class='edit-listinfo'>";
+                                            echo "<div class'edit-listinfo'>";
 
                                                 if($player->teamAdmin == 1)
                                                     echo "<div style='font-weight: bold;'>Team Admin</div>";
+                                                echo "<div id='player_admin" . $index . "' style='noshow'>".$player->teamAdmin."</div>";
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
+                                                echo "<div id='player_firstname" . $index . "' style='noshow'>".$player->firstname."</div>";
+                                                echo "<div id='playerlastname" . $index . "' style='noshow'>".$player->lasttname."</div>";
                                                 echo "<br />";
                                                 echo "" . $player->mobile . "";
+                                                echo "<div id='player_modile" . $index . "' style='noshow'>".$player->mobile."</div>";
                                                 echo "<br />";
                                                 echo "" . $player->mail . "";
+                                                echo "<div id='player_mail" . $index . "' style='noshow'>".$player->mail."</div>";
 
                                             echo "</div>";
                                         echo "</td>";                  
 
                                         //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
-                                        echo "<td><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        echo "<td id='row'". $index ."><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
                                         
                                         echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
                                         
                                     echo "</tr>";
-                                
+                                    $index++;
                             }
 
                         echo "</table>";
