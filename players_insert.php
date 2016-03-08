@@ -325,19 +325,19 @@
                                 echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify'>Team Admin: </h5>";
+                                echo "<h5 id='dialog_player_notify". $index . "'>Team Admin: </h5>";
                                     if( $player->teamAdmin == 1) {
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch' checked>";					            
-                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch' onClick=''>";
+						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "' checked>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
                                                 echo "<div class=\"notifyswitch-inner\"></div>";
 						                        echo "<div class=\"onoffswitch-switch\"></div>";
 						                    echo "</label>";
                                         echo "</div>";
                                     } else {
                                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch'>";
-                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch' onClick=''>";
+						                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "'>";
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
                                                 echo "<div class=\"notifyswitch-inner\"></div>";
 						                        echo "<div class=\"onoffswitch-switch\"></div>";
 						                    echo "</label>";
