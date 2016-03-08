@@ -291,14 +291,14 @@
                                         echo "</td>";                  
 
                                         //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
-                                        echo "<td id='editrow'". $index ."><a href='#openModalEdit'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        echo "<td id='editrow'". $index ."><a href='#openModalEdit". $index . "'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
                                         
                                         echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
                                         
                                     echo "</tr>";
                
                     //Modal dialog for player information editing///////////////
-                    echo "<div id='openModalEdit' class='modalDialog'>";
+                    echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
 	                    echo "<div>";
 		                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
 
