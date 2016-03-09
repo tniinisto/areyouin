@@ -350,7 +350,7 @@
                                                 //echo "</div>";
                                                 echo "</br>";
                                                 echo "<div class='buttonHolder'>";
-                                                    echo "<input type='button' class='dialog_button' style='float: left; padding-left: 10px;' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
+                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
                                                     echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='this.form.action = 'deleteUser.php'; this.form.submit();'/>";
                                                 echo "</div>";
 
