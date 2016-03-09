@@ -1283,7 +1283,7 @@ function confirmDelete(playerID) {
 function updateAdminStatus(playerID) {
         
         //test
-        updateUserlist();
+        //updateUserlist();
         closeModalDialog();
         
         //if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
