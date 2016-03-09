@@ -1279,11 +1279,12 @@ function confirmDelete(playerID) {
         return false;
 }
 
-//Admin status update
+//Admin status update/////////////////////////////////////////////////////////////////
 function updateAdminStatus(playerID) {
         
         //test
         updateUserlist();
+        closeModalDialog();
         
         //if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         //    xmlhttp = new XMLHttpRequest();
@@ -1295,6 +1296,7 @@ function updateAdminStatus(playerID) {
         //xmlhttp.onreadystatechange = function () {
         //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         //        updateUserlist();
+        //        closeModalDialog();
         //    }
         //}
 
@@ -1303,6 +1305,7 @@ function updateAdminStatus(playerID) {
         //xmlhttp.send();    
 }
 
+//Update userlist and close modal dialog
 function updateUserlist() {
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
