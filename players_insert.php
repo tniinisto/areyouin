@@ -348,11 +348,13 @@
                                                 //echo "<div class='buttonHolder'>";
                                                 //    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
                                                 //echo "</div>";
-                                                echo "</br>";
+                                                echo "<br>";
+                                                echo "<br>";
                                                 echo "<div class='buttonHolder'>";
                                                     echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
                                                     echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='this.form.action = 'deleteUser.php'; this.form.submit();'/>";
                                                 echo "</div>";
+                                                
 
 		                                    echo "</form>";
 
