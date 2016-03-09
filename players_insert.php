@@ -353,19 +353,18 @@
                                                     echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
                                                     echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmSubmit();'/>";
                                                 echo "</div>";
-                                                
+
+                                                echo "<script>";
+                                                    echo "function confirmSubmit() {";
+                                                        echo "if (confirm("Are you sure you want delete user?")) {";
+                                                            echo "player_edit". $index . "'.form.action = 'deleteUser.php';";
+                                                            echo "player_edit". $index . "'.form.submit();";
+                                                        echo "}";
+                                                            echo "return false;";
+                                                    echo "}";
+                                                echo "</script>";                                                
 
 		                                    echo "</form>";
-
-                                            echo "<script>";
-                                                echo "function confirmSubmit() {";
-                                                    echo "if (confirm("Are you sure you want delete user?")) {";
-                                                        echo "player_edit". $index . "'.form.action = 'deleteUser.php';";
-                                                        echo "player_edit". $index . "'.form.submit();";
-                                                    echo "}";
-                                                        echo "return false;";
-                                                echo "}";
-                                            echo "</script>";
                                     //Modal dialog for player information editing//////////////////               
                             
                                     $index++;
