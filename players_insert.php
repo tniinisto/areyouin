@@ -306,7 +306,7 @@
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                 echo "<p style='margin: 10px;'>";
-                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit information</label>";
+                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit user status</label>";
                                                 echo "</p>";
 
                                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
