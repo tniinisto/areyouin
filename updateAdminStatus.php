@@ -20,7 +20,7 @@
     $playerID=$_GET["playerID"];
     $admin = $_GET['admin'];
           
-    $sql = "UPDATE playerteam SET teamAdmin = '". $admin . "' WHERE player_playerID = '" . $playerID . "' AND teamID = '" . $_SESSION['myteamid'] . "';";
+    $sql = "UPDATE playerteam SET teamAdmin = '". $admin . "' WHERE Players_playerID = '" . $playerID . "' AND teamID = '" . $_SESSION['myteamid'] . "';";
     $result = mysql_query($sql);
     
     mysql_close($con);
