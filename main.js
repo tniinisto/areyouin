@@ -1280,29 +1280,31 @@ function confirmDelete(playerID) {
 }
 
 //Admin status update/////////////////////////////////////////////////////////////////
-function updateAdminStatus(playerID) {
+function updateAdminStatus(playerID, admin) {
         
         //test
-        updateUserlist();
-        window.location.replace('#close');
+        //updateUserlist();
+        alert(admin);
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                closeModalDialog();
+            }
+        }
+ 
+        var ad = ((admin == '') ? 0 : 1);
+        var variables = "playerID=" + playerID + "&admin=" + ad;
         
-        //if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-        //    xmlhttp = new XMLHttpRequest();
-        //}
-        //else {// code for IE6, IE5
-        //    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        //}
-
-        //xmlhttp.onreadystatechange = function () {
-        //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        //        updateUserlist();
-        //        closeModalDialog();
-        //    }
-        //}
-
-        //var variables = "playerID=" + playerID;
-        //xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
-        //xmlhttp.send();    
+        xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
+        xmlhttp.send();    
 }
 
 //Update userlist and close modal dialog
