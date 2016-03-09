@@ -1268,6 +1268,7 @@ function confirmDelete(playerID) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 updateUserlist();
+                window.location.replace('#close');
             }
         }
 
@@ -1296,7 +1297,7 @@ function updateAdminStatus(playerID, admin_checkbox) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 //updateUserlist();
-                closeModalDialog();
+                window.location.replace('#close');
             }
         }
 
