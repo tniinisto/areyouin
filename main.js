@@ -1281,22 +1281,26 @@ function confirmDelete(playerID) {
 
 //Admin status update
 function updateAdminStatus(playerID) {
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
+        
+        //test
+        updateUserlist();
+        
+        //if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        //    xmlhttp = new XMLHttpRequest();
+        //}
+        //else {// code for IE6, IE5
+        //    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        //}
 
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                updateUserlist();
-            }
-        }
+        //xmlhttp.onreadystatechange = function () {
+        //    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //        updateUserlist();
+        //    }
+        //}
 
-        var variables = "playerID=" + playerID;
-        xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
-        xmlhttp.send();    
+        //var variables = "playerID=" + playerID;
+        //xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
+        //xmlhttp.send();    
 }
 
 function updateUserlist() {
