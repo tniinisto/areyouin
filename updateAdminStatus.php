@@ -20,7 +20,7 @@
     $playerID=$_GET["playerID"];
     $admin = $_GET['admin'];
           
-    $sql = "UPDATE playerteam SET teamAdmin = " . $admin . " WHERE Players_playerID = '" . $playerID . "' AND teamID = '" . $_SESSION['myteamid'] . "';";
+    $sql = "UPDATE playerteam SET teamAdmin = '" . $admin . "' WHERE Players_playerID = '" . $playerID . "' AND Team_teamID = '" . $_SESSION['myteamid'] . "';";
     if($_SESSION['ChromeLog']) {ChromePhp::log('updateAdminStatus sql: ', $sql);}
     $result = mysql_query($sql);
     
