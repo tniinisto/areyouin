@@ -1280,12 +1280,12 @@ function confirmDelete(playerID) {
 }
 
 //Admin status update/////////////////////////////////////////////////////////////////
-function updateAdminStatus(playerID, admin) {
+function updateAdminStatus(playerID, admin_checkbox) {
         
         //test
         //updateUserlist();
-        alert(admin);
-
+        alert(admin_checkbox);
+        
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -1299,7 +1299,8 @@ function updateAdminStatus(playerID, admin) {
                 closeModalDialog();
             }
         }
- 
+
+        admin = document.getElementById(admin_checkbox).value;
         var ad = ((admin == '') ? 0 : 1);
         var variables = "playerID=" + playerID + "&admin=" + ad;
         
