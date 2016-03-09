@@ -17,14 +17,8 @@
     mysql_select_db("areyouin", $con)or die("cannot select DB");
 
     //Ajax url parameter
-     $playerID=$_GET["playerID"];
-
-    //Admin switch
-    $admin = 0;
-    if($_GET['admin'] == '') //OFF
-        $admin = 0;
-    else
-        $admin = 1;
+    $playerID=$_GET["playerID"];
+    $admin = $_GET['admin'];
           
     $sql = "UPDATE playerteam SET teamAdmin = '". $admin . "' WHERE player_playerID = '" . $playerID . "' AND teamID = '" . $_SESSION['myteamid'] . "';";
     $result = mysql_query($sql);
