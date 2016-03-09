@@ -1284,7 +1284,8 @@ function updateAdminStatus(playerID) {
         
         //test
         //updateUserlist();
-        closeModalDialog();
+        //closeModalDialog();
+        window.location.replace('#close');
         
         //if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         //    xmlhttp = new XMLHttpRequest();
