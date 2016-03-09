@@ -300,7 +300,7 @@
                                     //Modal dialog for player information editing///////////////
                                     echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
 	                                    echo "<div>";
-		                                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
+		                                    echo "<a id='closer_edit". $index . "' href='#close' title='Close' class='close'>X</a>";
 
 
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
