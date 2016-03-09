@@ -1300,8 +1300,8 @@ function updateAdminStatus(playerID, admin_checkbox) {
             }
         }
 
-        admin = document.getElementById(admin_checkbox).value;
-        var ad = ((admin == '') ? 0 : 1);
+        admin = document.getElementById(admin_checkbox).checked;
+        var ad = ((admin) ? 1 : 0);
         var variables = "playerID=" + playerID + "&admin=" + ad;
         
         xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
