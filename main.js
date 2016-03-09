@@ -1254,10 +1254,9 @@ function UpdatePlayer() {
 
 //User delete confirmation
 function confirmSubmit(playerID) {
-    alert("PlayerID: " + playerID);
+    //alert("PlayerID: " + playerID);
     if (confirm("Are you sure you want delete user?")) {
-        //"player_edit" + index + "'.form.action = 'deleteUser.php';
-        //"player_edit". $index . "'.form.submit();";
+
     }
         return false;
 }
