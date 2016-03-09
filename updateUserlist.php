@@ -134,8 +134,8 @@
                                                 //echo "</div>";
                                                 
                                                 echo "<div class='buttonHolder' style='margin-top:15px;'>";
-                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
-                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmSubmit(" . $player->playerID . ");'/>";
+                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='updateAdminStatus(" . $player->playerID . ");'/>";
+                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmDelete(" . $player->playerID . ");'/>";
                                                 echo "</div>";
 
 		                                    echo "</form>";
