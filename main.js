@@ -1254,8 +1254,12 @@ function UpdatePlayer() {
 
 //User delete confirmation
 function confirmSubmit(playerID) {
-    //alert("PlayerID: " + playerID);
+    
     if (confirm("Are you sure you want delete user?")) {
+        
+        //Delete user from db
+
+        //Update userlist, call updateUserlist.php via ajax
 
     }
         return false;
