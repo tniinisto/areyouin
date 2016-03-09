@@ -311,7 +311,7 @@
 
                                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                 echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
-                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname . "&nbsp". $player->lastname . "' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname $player->lastname ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                                 echo "</p>";
 
                                                 //echo "<p style='margin: 0px'>";
@@ -350,7 +350,7 @@
                                                 //echo "</div>";
                                                 
                                                 echo "<div class='buttonHolder'>";
-                                                    echo "<input type='button' class='dialog_button' value='Delete' onclick='this.form.action = 'deleteUser.php'; this.form.submit();'/>";
+                                                    echo "<input type='button' class='dialog_button' style='color: red;' value='Delete' onclick='this.form.action = 'deleteUser.php'; this.form.submit();'/>";
                                                 echo "</div>";
                                                 echo "<div class='buttonHolder'>";
                                                     echo "<input type='button' class='dialog_button' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
