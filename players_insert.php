@@ -353,7 +353,7 @@
                                                     echo "<input type='button' class='dialog_button' value='Delete' onclick='this.form.action = 'deleteUser.php'; this.form.submit();'/>";
                                                 echo "</div>";
                                                 echo "<div class='buttonHolder'>";
-                                                    echo "<input type='button' class='dialog_button' value='Save' onclick='this.form.action = 'updatePlayer.php'; this.form.submit();'/>";
+                                                    echo "<input type='button' class='dialog_button' value='Save' onclick='this.form.action = 'updateAdminPlayer.php'; this.form.submit();'/>";
                                                 echo "</div>";
 
 		                                    echo "</form>";
