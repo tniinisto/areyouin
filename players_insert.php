@@ -311,7 +311,7 @@
 
                                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                 echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
-                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->name . "'' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname . " &nbsp ". $player->firstname . "' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
                                                 echo "</p>";
 
                                                 //echo "<p style='margin: 0px'>";
