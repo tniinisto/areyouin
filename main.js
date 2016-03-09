@@ -1284,7 +1284,7 @@ function updateAdminStatus(playerID, admin_checkbox) {
         
         //test
         //updateUserlist();
-        alert(admin_checkbox);
+        //alert(admin_checkbox);
         
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -1300,8 +1300,7 @@ function updateAdminStatus(playerID, admin_checkbox) {
             }
         }
 
-        admin = document.getElementById(admin_checkbox).checked;
-        var ad = ((admin) ? 1 : 0);
+        var ad = ((document.getElementById(admin_checkbox).checked) ? 1 : 0);
         var variables = "playerID=" + playerID + "&admin=" + ad;
         
         xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
