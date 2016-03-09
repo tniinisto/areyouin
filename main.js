@@ -1253,8 +1253,8 @@ function UpdatePlayer() {
 //Email validation////////////////////////////////////////////////////////////////////////////////
 
 //User delete confirmation
-function confirmSubmit(index) {
-    alert(index);
+function confirmSubmit(playerID) {
+    alert("PlayerID: " + playerID);
     if (confirm("Are you sure you want delete user?")) {
         //"player_edit" + index + "'.form.action = 'deleteUser.php';
         //"player_edit". $index . "'.form.submit();";
