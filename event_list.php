@@ -112,12 +112,14 @@
                         echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
 			
                     //Event summary info, Invited players
-                    $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . "";
+                    $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " AND
+                             Players_playerID IN (SELECT Players_playerID FROM playerteam WHERE Team_teamID = " . $teamid . ")";
                     $result4 = mysql_query($sql4);
                     $row4 = mysql_fetch_array($result4);
 
                     //Event summary info, Players IN
-                    $sql5 = "SELECT count(*) as players_in FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " and areyouin = 1";
+                    $sql5 = "SELECT count(*) as players_in FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " AND areyouin = 1 AND
+                             Players_playerID IN (SELECT Players_playerID FROM playerteam WHERE Team_teamID = " . $teamid . ")";
                     $result5 = mysql_query($sql5);
                     $row5 = mysql_fetch_array($result5);
 
