@@ -1247,6 +1247,15 @@ right: 0px;
   margin-bottom: 10px;
 }
 
+.dialog_player_notify {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 30px;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .notifyswitch {
     vertical-align: middle;
 }

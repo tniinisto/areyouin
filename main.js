@@ -1251,3 +1251,83 @@ function UpdatePlayer() {
 }
 
 //Email validation////////////////////////////////////////////////////////////////////////////////
+
+
+//User delete and confirmation/////////////////////////////////////////////////////////
+function confirmDelete(playerID) {
+    
+    if (confirm("Are you sure you want delete user?")) {
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#close');
+            }
+        }
+
+        var variables = "playerID=" + playerID;
+        xmlhttp.open("GET", "deleteUser.php?" + variables, true);
+        xmlhttp.send();
+
+    }
+        return false;
+}
+
+//Admin status update/////////////////////////////////////////////////////////////////
+function updateAdminStatus(playerID, admin_checkbox) {
+        
+        //test
+        //updateUserlist();
+        //alert(admin_checkbox);
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#close');
+            }
+        }
+
+        var ad = ((document.getElementById(admin_checkbox).checked) ? 1 : 0);
+        var variables = "playerID=" + playerID + "&admin=" + ad;
+        
+        xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
+        xmlhttp.send();    
+}
+
+//Update userlist and close modal dialog
+function updateUserlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+                    window.location.replace('#close');
+            }
+        }
+
+        xmlhttp.open("GET", "updateUserlist.php", true);
+        xmlhttp.send();
+
+}
+
+
