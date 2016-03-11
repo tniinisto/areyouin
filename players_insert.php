@@ -246,7 +246,7 @@
                 //Members/Users page///////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id' class='noshow'>";
                 
-                    echo "<h2>User managing stuff new, delete, edit...</h2>";
+                    echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
                     echo "<br>";
                         
                         echo "<table border='0' id='usertable' class='usertable'>";
