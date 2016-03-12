@@ -1331,4 +1331,65 @@ function updateUserlist() {
 
 }
 
+//Asynchronous event update///////////////////////////////////////////////////////////////////
+var eventparameter = null;
+eventparameter = "1900-01-01 10:10:10";
 
+function waitForEventUpdate(){
+
+    
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
+
+    //var param = 'timestamp=' + timestamp;
+    
+    $.ajax({
+        type: "GET",
+        //url: "getChat.php?timestamp=" + parameter,
+        url: "eventCheck.php",
+        data: { timestamp:  JSON.stringify(eventparameter) },
+        async: true,
+        cache: false,
+        //timeout: 40000,
+        //dataType: 'json',
+        //processData: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+
+            //Testing
+            //if (json['timestamp'] != "") {
+            //    //alert("jep: " + json['msg']);
+            //alert("success param timestamp: " + timestamp);
+            //alert("success timestamp: " + json['timestamp']);
+            //}
+            
+            //Get comments only if php not timed out...
+            if(json['timeout'] == 0) {
+                //alert("success timeout false: " + json['timeout']);
+                //setTimeout('getChatComments()', 100);
+            } 
+            //else {
+            //    alert("success timeout true: " + json['timeout']);
+            //}
+
+            parameter = json['timestamp'];
+            setTimeout('waitForEventUpdate()', 15000);
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForEventUpdate()', 15000);
+        }
+    });
+            
+}
