@@ -48,7 +48,7 @@
 
 	mysql_select_db("areyouin", $con);
     //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
-    $sql = "select max(lastEventUpdate) from playerteam where Team_teamID = " . $teamid . " ;";
+    $sql = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . "";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 

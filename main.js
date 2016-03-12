@@ -1453,7 +1453,7 @@ function getEventsAsync(more) {
             }
         }
 
-        alert("GET gets called.");
+        //alert("GET gets called.");
         var variables = "more=" + more;
         xmlhttp.open("GET", "event_list.php?" + variables, true);
         xmlhttp.send();
