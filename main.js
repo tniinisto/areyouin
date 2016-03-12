@@ -187,7 +187,7 @@ function getEvents(more) {
 //Get events with players for the team
 function getEventsAsync(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
-        startSpinner();
+        //startSpinner();
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -203,12 +203,12 @@ function getEventsAsync(more) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 if (more != 0) {                    
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
-                    stopSpinner();
+                    //stopSpinner();
                     $('#' + moreid).scrollintoview({ duration: 500 });
                     updateLastEventTime();
                 }
                 else {
-                    stopSpinner();
+                    //stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
                     updateLastEventTime();
                 }
