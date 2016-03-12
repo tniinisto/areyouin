@@ -1,5 +1,6 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
     session_start();
         
     date_default_timezone_set($_SESSION['mytimezone']);
@@ -20,6 +21,9 @@
         
     $teamid=$_SESSION['myteamid'];
     $playerid==$_SESSION['myplayerid'];
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('player: ', $playerid); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('team: ', $teamid); }
 
     // Close the session prematurely to avoid usleep() from locking other requests
     session_write_close();
