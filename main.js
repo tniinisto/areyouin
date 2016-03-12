@@ -1383,7 +1383,7 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                getEventsAsync();
+                getEventsAsync(0);
             }
             //else {
             //    alert("eventcheck success,json timeout: " + json['timeout']);
@@ -1452,7 +1452,7 @@ function getEventsAsync(more) {
             }
         }
 
-        //alert("GET gets called.");
+        alert("GET gets called.");
         var variables = "more=" + more;
         xmlhttp.open("GET", "event_list.php?" + variables, true);
         xmlhttp.send();
