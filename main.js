@@ -1380,13 +1380,13 @@ function waitForEventUpdate(){
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
-                //setTimeout('getChatComments()', 100);
+                setTimeout('getEvents()', 100);
             } 
             //else {
             //    alert("success timeout true: " + json['timeout']);
             //}
 
-            parameter = json['timestamp'];
+            eventparameter = json['timestamp'];
             setTimeout('waitForEventUpdate()', 15000);
         },
 
