@@ -1395,12 +1395,12 @@ function waitForEventUpdate(){
     //}
 
     //var param = 'timestamp=' + timestamp;
-    
+
     $.ajax({
         type: "GET",
         //url: "getChat.php?timestamp=" + parameter,
         url: "eventCheck.php",
-        data: { timestamp:  JSON.stringify(eventparameter) },
+        data: { timestamp: JSON.stringify(eventparameter) },
         async: true,
         cache: false,
         //timeout: 40000,
@@ -1415,12 +1415,13 @@ function waitForEventUpdate(){
             //alert("success param timestamp: " + timestamp);
             //alert("success timestamp: " + json['timestamp']);
             //}
-            
+
             //Get comments only if php not timed out...
-            if(json['timeout'] == 0) {
+            if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
-                setTimeout('getEventsAsync()', 100);
-            } 
+                //setTimeout('getEventsAsync()', 100);
+                getEventsAsync();
+            }
             //else {
             //    alert("success timeout true: " + json['timeout']);
             //}
