@@ -1436,7 +1436,7 @@ function getEventsAsync(more) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                if (more != 0) {                    
+                if (more != 0) {
                     //document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     ////stopSpinner();
                     //$('#' + moreid).scrollintoview({ duration: 500 });
@@ -1445,9 +1445,9 @@ function getEventsAsync(more) {
                 else {
                     //stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                    setTimeout('updateLastEventTime()', 500);
+                    updateLastEventTime();
                 }
-            }            
+            }
         }
 
         //alert("GET gets called.");
