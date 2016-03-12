@@ -20,7 +20,7 @@
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
     $teamid=$_SESSION['myteamid'];
-    $playerid==$_SESSION['myplayerid'];
+    $playerid=$_SESSION['myplayerid'];
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('player: ', $playerid); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('team: ', $teamid); }
