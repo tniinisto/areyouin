@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 
 <!-- disable iPhone inital scale -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 <title>R'YouIN</title>
 
@@ -497,6 +497,15 @@
     //Profile navigation - Content for the selected page///////////
 
     function refreshPlayerInfo() {
+        var name = document.getElementById("dialog_player_name").value;
+        document.getElementById("profile_playerName").innerHTML = "Nickname: " + name;
+
+        var first = document.getElementById("dialog_player_firstname").value;
+        document.getElementById("profile_playerFirstname").innerHTML = "Firstname: " + first;
+
+        var last = document.getElementById("dialog_player_lastname").value;
+        document.getElementById("profile_playerLastname").innerHTML = "Lastname: " + last;
+
         var email = document.getElementById("dialog_player_email").value;
         document.getElementById("profile_playerEmail").innerHTML = "Email: " + email;
 

@@ -32,6 +32,7 @@ table {
 /************************************************************************************
 GENERAL STYLING
 *************************************************************************************/
+
 body {
 	background: #1A1F27;
 	font: .81em/150% Arial, Helvetica, sans-serif;
@@ -1246,6 +1247,15 @@ right: 0px;
   margin-bottom: 10px;
 }
 
+.dialog_player_notify {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 30px;
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
 .notifyswitch {
     vertical-align: middle;
 }
@@ -1585,8 +1595,7 @@ User list, edit,...
 *************************************************************************************/
 .edit-listinfo {
     display: inline-block;
-    width: 130px;
-    padding-top: 5px;
+    width: 300px;
     padding-bottom: 5px;
     padding-left: 10px;
     float: left;

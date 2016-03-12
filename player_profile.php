@@ -14,7 +14,7 @@
         //Navigation///////////////////////////////////////////////////////////////////////////
         echo "<nav>";
 			echo "<ul id=\"profile-nav\" class=\"clearfix\" onClick=\"profileClick()\">";
-				echo "<li id=\"link_profile_profile\" class=\"current2\"><a href=\"#\">Player</a></li>";
+				echo "<li id=\"link_profile_profile\" class=\"current2\"><a href=\"#\">Your information</a></li>";
                 echo "<li id=\"link_profile_chart\"' onClick='drawChart();'><a href=\"#\">Activity</a></li>";
 			echo "</ul>";
 		echo "</nav>";
@@ -51,8 +51,7 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
 
-            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify']);
-
+            $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
 
             echo "<div id=\"profile_profile_content_id\">";
                 echo "<iframe name='frame_player' style='display: none;'></iframe>";
@@ -65,10 +64,11 @@
                         echo "</div>";
                     echo "</legend>";
                     
-                    echo "</legend>";
                         //echo "PlayerID: " . $player->playerID . "</br>";
-                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Name: " . $player->name . "</h5>";
-                        echo "<h5 id='profile_playerEmail'>Email: " . $player->email . "</h5>";
+                        echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
+                        echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
+                        echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
+                        echo "<h5 id='profile_playerEmail'>Email / UserID: " . $player->email . "</h5>";
                         echo "<h5 id='profile_playerPhone'>Phone: " . $player->phone . "</h5>";                        
                         if($player->notify == '0') 
                             echo "<h5 id='profile_playerNotify'>Mail notifications: OFF</h5>";
@@ -90,29 +90,47 @@
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
                     <?php
 
-                            echo "<form id='player_edit' name='player_edit' method='post' action='updatePlayer.php' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                            echo "<form id='player_edit' name='player_edit' method='get' target='frame_player' onsubmit='UpdatePlayer();'>";
 
-                                echo "<p style='margin: 10px;'>";
-                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit your information</label>";
+                                //echo "<p style='margin: 5px;'>";
+                                //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
+                                //echo "</p>";
+
+                                //Mail & UserID
+                                echo "<div id='profile_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
+                                    echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
+                                    echo "<p style='margin: 0px'>";
+                                    echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required
+                                           style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";
+                                    echo "</p>";
+                                echo "</div>";
+
+                                //Nickname
+                                echo "<p style='margin: 0px; padding-top: 0px;'>";
+                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                echo "</p>";
+                                
+                                //Fullname
+                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
+                                echo "<label for='player_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_firstname' name='player_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
-                                echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>User ID:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_player_name' name='player_name' value='" . $player->name ."' required style='margin-bottom: 15px; background: grey; width: 190px;' readonly></input>";
+                                //Lastname
+                                echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
+                                echo "<label for='player_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
+                                echo "<input type='text' id='dialog_player_lastname' name='player_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
-                                echo "<p style='margin: 0px'>";
-                                echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_email' name='player_email' value='" . $player->email ."' required style='margin-bottom: 15px; width: 190px;'></input>";
-                                echo "</p>";
-
-                                echo "<p style='margin: 0px'>";
-                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
-                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                //Phone
+                                echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;'>";
+                                echo "<label for='player_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
+                                echo "<input type='text' id='dialog_player_phone' name='player_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                 echo "</p>";
 
 
-                                echo "<h5 id='dialog_player_notify'>Mail notifications:</h5>";
+                                echo "<h5 id='dialog_player_notify' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
                                     if( $player->notify == '1') {
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_notify_switch' checked>";					            
@@ -132,8 +150,8 @@
                                     }
                                 echo "</h5>";
 
-                                echo "<div class='buttonHolder'>";
-                                    echo "<input type=\"submit\" value=\"Save\" name=\"savebutton\" id=\"savebutton\" class='dialog_button'>";
+                                echo "<div class='buttonHolder' style='padding-top: 2px;'>";
+                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton' class='dialog_button'>";
                                 echo "</div>";
 		                    echo "</form>";
                     ?>
@@ -164,15 +182,18 @@
                                 echo "<p style='margin: 10px;'>";
                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Type your new password twice</label>";                      
                                 echo "</p>";
+                                echo "<p style='margin: 0px;'>";
+                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 100%;'>Length 5-10 characters</label>";                      
+                                echo "</p>";
 
                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
                                 echo "<label for='player_name' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";                    
-                                echo "<input type='text' id='dialog_password1' name='password1' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password1' name='password1' value='' pattern='.{5,10}' minlength='5' maxlength='10' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<p style='margin: 0px'>";
                                 echo "<label for='player_email' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>";
-                                echo "<input type='text' id='dialog_password2' name='password2' value='' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
+                                echo "<input type='text' id='dialog_password2' name='password2' value='' pattern='.{5,10}' minlength='5' maxlength='10' required style='margin-bottom: 15px; width: 190px;' onfocusout='check_pass()'></input>";
                                 echo "</p>";
 
                                 echo "<div class='buttonHolder'>";
@@ -239,14 +260,18 @@
             var $email;
             var $phone;
             var $notify;
+            var $firstname;
+            var $lastname;
 
-            function Player($playerID, $name, $mail, $phone, $photourl, $notify) {
+            function Player($playerID, $name, $mail, $phone, $photourl, $notify, $firstname, $lastname) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->email = $mail;
                 $this->phone = $phone;
                 $this->photourl = $photourl;
                 $this->notify = $notify;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
             }
 
         }

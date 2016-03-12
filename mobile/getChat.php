@@ -1,4 +1,6 @@
 <?php
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
     session_start();
     date_default_timezone_set('Europe/Helsinki');
         
@@ -49,8 +51,8 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     //    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif format: ', date_format($lastmodif, 'Y-m-d H:i:s')); }
     //}    
 
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
 	if (!$con)
 	{
 	    die('Could not connect: ' . mysql_error());

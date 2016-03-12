@@ -1052,13 +1052,13 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 5,
+            zoom: 6,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
-            zoom: 5,
+            zoom: 6,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
@@ -1159,4 +1159,154 @@ function checkMsgStatus() {
 function clearIcon() {
     $("#msg_icon").addClass("noshow");
 }
+
+
+//Email validation////////////////////////////////////////////////////////////////////////////////
+
+var addresscount;
+
+function validateEmail(mail) {
+    //alert(mail);
+
+    //Get the current mail address, return mail part to field if new one is invalid
+    var currentMail = document.getElementById("profile_playerEmail").textContent;
+    var n = currentMail.lastIndexOf(":") + 2;
+    currentMail = currentMail.substr(n);
+    
+    //Validate entered mail address with regexp
+    if(!checkEmail(mail)) {
+        alert("Invalid email address!");
+        document.getElementById("dialog_player_email").value = currentMail;
+    }
+    
+}
+
+//Validate address 
+function checkEmail(mail) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+
+    return pattern.test(mail);
+}
+
+//Update player data & handle duplicate mail address case
+function UpdatePlayer() {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            stopSpinner();
+            var result = xmlhttp.responseText;
+            if (result.indexOf("1062") >= 0) {
+                var currentMail = document.getElementById("profile_playerEmail").textContent;
+                var n = currentMail.lastIndexOf(":") + 2;
+                currentMail = currentMail.substr(n);
+                document.getElementById("dialog_player_email").value = currentMail;
+                alert("Duplicate mail address inputted!");
+            }
+            else
+                refreshPlayerInfo();
+        }
+    }
+
+    var variables;
+    variables = "player_name=" + document.getElementById("dialog_player_name").value
+    + "&player_email=" + document.getElementById("dialog_player_email").value
+    + "&player_phone=" + document.getElementById("dialog_player_phone").value
+    + "&notifyswitch=" + document.getElementById("dialog_notify_switch").value
+    + "&player_firstname=" + document.getElementById("dialog_player_firstname").value
+    + "&player_lastname=" + document.getElementById("dialog_player_lastname").value
+
+    startSpinner();
+    xmlhttp.open("GET", "updatePlayer.php?" + variables, true);
+    xmlhttp.send();
+
+}
+
+//Email validation////////////////////////////////////////////////////////////////////////////////
+
+
+//User delete and confirmation/////////////////////////////////////////////////////////
+function confirmDelete(playerID) {
+    
+    if (confirm("Are you sure you want delete user?")) {
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#close');
+            }
+        }
+
+        var variables = "playerID=" + playerID;
+        xmlhttp.open("GET", "deleteUser.php?" + variables, true);
+        xmlhttp.send();
+
+    }
+        return false;
+}
+
+//Admin status update/////////////////////////////////////////////////////////////////
+function updateAdminStatus(playerID, admin_checkbox) {
+        
+        //test
+        //updateUserlist();
+        //alert(admin_checkbox);
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#close');
+            }
+        }
+
+        var ad = ((document.getElementById(admin_checkbox).checked) ? 1 : 0);
+        var variables = "playerID=" + playerID + "&admin=" + ad;
+        
+        xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
+        xmlhttp.send();    
+}
+
+//Update userlist and close modal dialog
+function updateUserlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+                    window.location.replace('#close');
+            }
+        }
+
+        xmlhttp.open("GET", "updateUserlist.php", true);
+        xmlhttp.send();
+
+}
+
 
