@@ -8,7 +8,7 @@
     }
 
     // How often to poll, in microseconds (1,000,000 μs equals 1 s)
-    define('MESSAGE_POLL_MICROSECONDS', 15000000);
+    define('MESSAGE_POLL_MICROSECONDS', 60000000);
 
     // How long to keep the Long Poll open, in seconds
     define('MESSAGE_TIMEOUT_SECONDS', 60);
@@ -64,7 +64,7 @@
 
         while($d1 <= $d2 && $counter > 0) {
                         
-            //sleep(15);
+            //sleep minute
             usleep(MESSAGE_POLL_MICROSECONDS);
                         
             if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, woke up... '); }
