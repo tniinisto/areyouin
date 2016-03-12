@@ -1277,6 +1277,7 @@ function confirmDelete(playerID) {
         xmlhttp.send();
 
     }
+    else
         return false;
 }
 
