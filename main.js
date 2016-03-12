@@ -1385,11 +1385,12 @@ function waitForEventUpdate(){
                 //eventparameter = json['timestamp']; NO NO NO NO
                 getEventsAsync(0);
             }
-            //else {
-            //    alert("eventcheck success,json timeout: " + json['timeout']);
-            //}
+            else {
+                //alert("eventcheck success,json timeout: " + json['timeout']);
+                eventparameter = json['timestamp'];
+            }
 
-            eventparameter = json['timestamp'];
+
             setTimeout('waitForEventUpdate()', 15000);
         },
 
