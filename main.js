@@ -184,6 +184,45 @@ function getEvents(more) {
     }
 }
 
+//Get events with players for the team
+function getEventsAsync(more) {    
+    if (eventFetchPause == 0) { //Don't run, if pause is on
+        startSpinner();
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        more = typeof more !== 'undefined' ? more : 0;
+        var moreid = "more_events_content" + more;
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (more != 0) {                    
+                    document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    stopSpinner();
+                    $('#' + moreid).scrollintoview({ duration: 500 });
+                    updateLastEventTime();
+                }
+                else {
+                    stopSpinner();
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    updateLastEventTime();
+                }
+            }            
+        }
+
+        //alert("GET gets called.");
+        var variables = "more=" + more;
+        xmlhttp.open("GET", "event_list.php?" + variables, true);
+        //xmlhttp.open("GET", "event_list.php", false);
+        xmlhttp.send();
+    }
+}
+
 //Parse URL parameters by name
 //function gup( name )
 //{
@@ -1380,7 +1419,7 @@ function waitForEventUpdate(){
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
-                setTimeout('getEvents()', 100);
+                setTimeout('getEventsAsync()', 100);
             } 
             //else {
             //    alert("success timeout true: " + json['timeout']);
