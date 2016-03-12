@@ -1335,6 +1335,7 @@ function updateUserlist() {
 var eventparameter = null;
 eventparameter = "1900-01-01 10:10:10";
 
+//Long polling for event update time
 function waitForEventUpdate(){
 
     
@@ -1392,4 +1393,25 @@ function waitForEventUpdate(){
         }
     });
             
+}
+
+//Updates the event update time for team
+function updateLastEventTime() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+                    window.location.replace('#close');
+            }
+        }
+
+        xmlhttp.open("GET", "updateLastEventTime.php", true);
+        xmlhttp.send();
 }
