@@ -235,7 +235,11 @@
         getPlayerProfile();
         getChat();
 
+        //Comet for chat
         waitForChat();
+
+        //Comet for events
+        waitForEventUpdate();
 
         //Stop spinner after events have been load
         stopSpinner();
