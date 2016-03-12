@@ -1382,7 +1382,7 @@ function waitForEventUpdate(){
                 //alert("success timeout false: " + json['timeout']);
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
-                eventparameter = json['timestamp'];
+                //eventparameter = json['timestamp']; NO NO NO NO
                 getEventsAsync(0);
             }
             //else {
