@@ -149,6 +149,7 @@ function eventFetchOff() {
 function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
         startSpinner();
+
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -165,11 +166,12 @@ function getEvents(more) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
                     $('#' + moreid).scrollintoview({ duration: 500 });
-                    
+                    updateLastEventTime();
                 }
                 else {
                     stopSpinner();
-                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;                    
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    updateLastEventTime();
                 }
             }            
         }
@@ -215,8 +217,8 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
-
 	        //getEvents(); //Update events
+	        updateLastEventTime();
 	    }
 	}
 
@@ -318,7 +320,8 @@ function updateEvent(eventID)
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-		}
+            updateLastEventTime();		
+        }
 	}
 
 	//alert("GET gets called.");
@@ -1408,7 +1411,7 @@ function updateLastEventTime() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
-                    window.location.replace('#close');
+                alert("lastEventDatetime updated!");
             }
         }
 
