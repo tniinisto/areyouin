@@ -239,8 +239,9 @@
         waitForChat();
 
         //Comet for events
-        setTimeout('waitForEventUpdate()', 60000); //1 minute
-        
+        //setTimeout('waitForEventUpdate()', 60000); //1 minute
+        setTimeout('waitForEventUpdate()', 1000); //1 second
+
         //Stop spinner after events have been load
         stopSpinner();
 
