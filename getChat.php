@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
 
-    //date_default_timezone_set($_SESSION['mytimezone']);
+    date_default_timezone_set($_SESSION['mytimezone']);
         
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
