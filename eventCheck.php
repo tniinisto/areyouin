@@ -47,7 +47,7 @@
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['time']); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['lastEventUpdate']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
     $currentmodif = $row['lastEventUpdate'];
