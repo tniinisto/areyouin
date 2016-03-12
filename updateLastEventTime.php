@@ -13,7 +13,7 @@
     mysql_select_db("areyouin", $con)or die("cannot select DB");
             
     $teamid=$_SESSION['myteamid'];
-    $playerid==$_SESSION['myplayerid'];
+    $playerid=$_SESSION['myplayerid'];
 
     $updateDateTime = date("Y-n-j H:i:s");
     $sql = "UPDATE playerteam SET lastEventUpdate = '" . $updateDateTime .  "' where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
