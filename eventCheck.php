@@ -74,7 +74,7 @@
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
-            $currentmodif = $row['time'];
+            $currentmodif = $row['lastEventUpdate'];
             $d1 = new DateTime($currentmodif);
 
             if($d1 > $d2) {
