@@ -230,11 +230,7 @@
         CheckForSession();
 
         //getEvents();
-        setInterval(
-            function () {
-                getEvents(), 180000
-            }
-        );
+        setInterval(getEvents(), 180000);
 
         getPlayersInsert();
         getAdminStatus();
