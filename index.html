@@ -230,28 +230,33 @@
         //Start session checking
         CheckForSession();
 
-        getEvents();
+        //getEvents();
+        setInterval(getEvents(), 300000);
+
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
         getChat();
 
+        //Comet for chat
         waitForChat();
+
+        //Comet for events, affected the whole usability too much, needs more investigation!
+        //setTimeout('waitForEventUpdate()', 60000); //1 minute
+        //setTimeout('waitForEventUpdate()', 1000); //1 second
 
         //Stop spinner after events have been load
         stopSpinner();
 
         //getWeather();
 
-        //SSE init
-        //setSSE();
-
-        //Events update. 5 minute interval
-        setInterval(
-            function () {
-                getEvents();
-            }, 300000
-        );
+        //Events update. 3 minute interval, start after 3 minutes
+        //setTimeout(
+        //    setInterval(
+        //        function () {
+        //            getEvents(), 180000
+        //        })
+        //, 360000);
 
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {

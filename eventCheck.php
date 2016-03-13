@@ -1,48 +1,37 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-    session_start();
 
-    date_default_timezone_set($_SESSION['mytimezone']);
+    session_start();
         
+    date_default_timezone_set($_SESSION['mytimezone']);
+
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
-        ChromePhp::log('getChat.php, start');
+        ChromePhp::log('eventCheck.php, start');
     }
 
-// How often to poll, in microseconds (1,000,000 μs equals 1 s)
-define('MESSAGE_POLL_MICROSECONDS', 15000000);
+    // How often to poll, in microseconds (1,000,000 μs equals 1 s)
+    define('MESSAGE_POLL_MICROSECONDS', 180000000); //seconds
 
-// How long to keep the Long Poll open, in seconds
-define('MESSAGE_TIMEOUT_SECONDS', 60);
+    // How long to keep the Long Poll open, in seconds
+    define('MESSAGE_TIMEOUT_SECONDS', 360);
 
-// Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
-define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
+    // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
+    define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
     $teamid=$_SESSION['myteamid'];
+    $playerid=$_SESSION['myplayerid'];
 
-// Close the session prematurely to avoid usleep() from locking other requests
-session_write_close();
+    if($_SESSION['ChromeLog']) { ChromePhp::log('player: ', $playerid); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('team: ', $teamid); }
 
-// Automatically die after timeout (plus buffer)
-set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
+    // Close the session prematurely to avoid usleep() from locking other requests
+    session_write_close();
 
-    //if($_SESSION['ChromeLog']) {
-    //    ChromePhp::log('timestamp: ', $_GET['timestamp']);
-    //}
+    // Automatically die after timeout (plus buffer)
+    set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
     $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
-    //$lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
-    //$time = strtotime($lastmodif);
-    //$lastmodif = date("m/d/y g:i A", $time);
-    //if($lastmodif != 0) {
-    //    $lastmodif = date("Y-m-d H:i:s",strtotime($lastmodif));
-    //}
-    
-    //if($lastmodif != "") {
-    //    $date = new DateTime($lastmodif);
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif: ', $lastmodif); }
-    //}
-    //$date2 = 0;
 
     //if($lastmodif != "") {
     //    //$date2 = date_create($lastmodif);
@@ -51,8 +40,6 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     //    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif format: ', date_format($lastmodif, 'Y-m-d H:i:s')); }
     //}    
 
-
-	
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	{
@@ -60,44 +47,41 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     }
 
 	mysql_select_db("areyouin", $con);
-    $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
+    //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
+    $sql = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . "";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['lastEventUpdate']); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, lastmodif: ', $lastmodif); }
-
-    $currentmodif = $row['time'];
+    $currentmodif = $row['lastEventUpdate'];
     
     $timeout = 1;
-
     $d1 = new DateTime($currentmodif);
     $d2 = new DateTime($lastmodif); 
 
     if($d1 <= $d2) {
-        //$d1 = new DateTime($currentmodif);
-        //$d2 = new DateTime($lastmodif);        
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d1: ', $d1); }
-        if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, d2: ', $d2); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d1: ', $d1); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d2: ', $d2); }
 
         // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
         $counter = MESSAGE_TIMEOUT_SECONDS;
 
         while($d1 <= $d2 && $counter > 0) {
-            //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, start to sleep... '); }
                         
-            //sleep(15);
+            //sleep
             usleep(MESSAGE_POLL_MICROSECONDS);
                         
-            if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, woke up... '); }
+            if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, woke up... '); }
 
             clearstatcache();
+
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
-            $currentmodif = $row['time'];
+            $currentmodif = $row['lastEventUpdate'];
             $d1 = new DateTime($currentmodif);
 
             if($d1 > $d2) {
@@ -126,3 +110,4 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     mysql_close($con);
 
 ?>
+

@@ -149,6 +149,7 @@ function eventFetchOff() {
 function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
         startSpinner();
+
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -165,11 +166,12 @@ function getEvents(more) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
                     $('#' + moreid).scrollintoview({ duration: 500 });
-                    
+                    updateLastEventTime();
                 }
                 else {
                     stopSpinner();
-                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;                    
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    updateLastEventTime();
                 }
             }            
         }
@@ -215,8 +217,8 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
-
 	        //getEvents(); //Update events
+	        updateLastEventTime();
 	    }
 	}
 
@@ -318,7 +320,8 @@ function updateEvent(eventID)
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-		}
+            updateLastEventTime();		
+        }
 	}
 
 	//alert("GET gets called.");
@@ -1256,6 +1259,7 @@ function confirmDelete(playerID) {
         xmlhttp.send();
 
     }
+    else
         return false;
 }
 
@@ -1309,4 +1313,128 @@ function updateUserlist() {
 
 }
 
+//Asynchronous event update///////////////////////////////////////////////////////////////////
+var eventparameter = null;
+eventparameter = "1900-01-01 10:10:10";
 
+//Long polling for event update time
+function waitForEventUpdate(){
+
+    
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
+
+    //var param = 'timestamp=' + timestamp;
+
+    $.ajax({
+        type: "GET",
+        //url: "getChat.php?timestamp=" + parameter,
+        url: "eventCheck.php",
+        data: { timestamp: JSON.stringify(eventparameter) },
+        async: true,
+        cache: false,
+        //timeout: 40000,
+        //dataType: 'json',
+        //processData: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+
+            //Testing
+            //if (json['timestamp'] != "") {
+            //    //alert("jep: " + json['msg']);
+            //alert("success param timestamp: " + timestamp);
+            //alert("success timestamp: " + json['timestamp']);
+            //}
+
+            //Get comments only if php not timed out...
+            if (json['timeout'] == 0) {
+                //alert("success timeout false: " + json['timeout']);
+                //alert("json timestamp: "+ json['timestamp']);
+                //setTimeout('getEventsAsync()', 100);
+                eventparameter = json['timestamp'];
+                getEventsAsync(0);
+            }
+            else {
+                //alert("eventcheck success,json timeout: " + json['timeout']);
+                eventparameter = json['timestamp'];
+            }
+
+
+            setTimeout('waitForEventUpdate()', 15000);
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForEventUpdate()', 15000);
+        }
+    });
+            
+}
+
+//Updates the event update time for team
+function updateLastEventTime() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //alert("lastEventDatetime updated!");
+            }
+        }
+
+        xmlhttp.open("GET", "updateLastEventTime.php", true);
+        xmlhttp.send();
+}
+
+//Get events with players for the team
+function getEventsAsync(more) {    
+    if (eventFetchPause == 0) { //Don't run, if pause is on
+        //startSpinner();
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        more = typeof more !== 'undefined' ? more : 0;
+        var moreid = "more_events_content" + more;
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (more != 0) {
+                    //document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    ////stopSpinner();
+                    //$('#' + moreid).scrollintoview({ duration: 500 });
+                    //updateLastEventTime();
+                }
+                else {
+                    //stopSpinner();
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    updateLastEventTime();
+                }
+            }
+        }
+
+        //alert("GET gets called.");
+        var variables = "more=" + more;
+        xmlhttp.open("GET", "event_list.php?" + variables, true);
+        xmlhttp.send();
+    }
+}
