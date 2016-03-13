@@ -240,7 +240,7 @@
 
         //Comet for events
         //setTimeout('waitForEventUpdate()', 60000); //1 minute
-        setTimeout('waitForEventUpdate()', 1000); //1 second
+        //setTimeout('waitForEventUpdate()', 1000); //1 second
 
         //Stop spinner after events have been load
         stopSpinner();
@@ -250,13 +250,12 @@
         //SSE init
         //setSSE();
 
-        //Events update. 5 minute interval
-        //setInterval(
-        //    function () {
-        //        getEvents();
-        //    }, 300000
-        //);
-
+        //Events update. 3 minute interval
+        setInterval(
+            function () {
+                getEventsAsync(), 180000
+        });
+        
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {
             $("#chat_new_id").toggleClass("clicked");
