@@ -238,7 +238,7 @@
         //Comet for chat
         waitForChat();
 
-        //Comet for events
+        //Comet for events, affected the whole usability too much, needs more investigation!
         //setTimeout('waitForEventUpdate()', 60000); //1 minute
         //setTimeout('waitForEventUpdate()', 1000); //1 second
 
@@ -246,9 +246,6 @@
         stopSpinner();
 
         //getWeather();
-
-        //SSE init
-        //setSSE();
 
         //Events update. 3 minute interval
         setInterval(
