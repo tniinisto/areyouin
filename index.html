@@ -229,7 +229,13 @@
         //Start session checking
         CheckForSession();
 
-        getEvents();
+        //getEvents();
+        setInterval(
+            function () {
+                getEvents(), 180000
+            }
+        );
+
         getPlayersInsert();
         getAdminStatus();
         getPlayerProfile();
@@ -248,12 +254,12 @@
         //getWeather();
 
         //Events update. 3 minute interval, start after 3 minutes
-        setTimeout(
-            setInterval(
-                function () {
-                    getEvents(), 180000
-                })
-        , 360000);
+        //setTimeout(
+        //    setInterval(
+        //        function () {
+        //            getEvents(), 180000
+        //        })
+        //, 360000);
 
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {
