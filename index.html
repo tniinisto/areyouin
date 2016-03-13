@@ -247,13 +247,13 @@
 
         //getWeather();
 
-        //Events update. 3 minute interval, start after 1 minute
+        //Events update. 3 minute interval, start after 3 minutes
         setTimeout(
             setInterval(
                 function () {
                     getEvents(), 180000
                 })
-        , 60000);
+        , 360000);
 
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {
