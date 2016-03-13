@@ -242,7 +242,7 @@
                                 </p>
                                 <p>
 	                                <font size='4' face='Trebuchet MS'>			
-	                                    Roll in at <a href='http://areyouin.azurewebsites.net/'>R'YouIN</a> !
+	                                    Roll in at <a href='http://r-youin.com/'>R'YouIN</a> !
 	                                </font>
                                 </p>
                             </html>",
