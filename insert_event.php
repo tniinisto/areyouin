@@ -229,7 +229,7 @@
             $eventInfoArray = array(        
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
-	                            <img src='http://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+	                            <img src='http://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
                                 <font size='4' face='Trebuchet MS'>Game information</font><br><br>	                            
                                 <p>	                               
                                     <font size='3' face='Trebuchet MS'>                                       		
@@ -242,7 +242,7 @@
                                 </p>
                                 <p>
 	                                <font size='4' face='Trebuchet MS'>			
-	                                    Roll in at <a href='http://areyouin.azurewebsites.net/'>R'YouIN</a> !
+	                                    Roll in at <a href='http://r-youin.com/'>R'YouIN</a> !
 	                                </font>
                                 </p>
                             </html>",
