@@ -25,6 +25,10 @@
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
             header('Location:http://localhost:48595/default.html');  
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www
+            //header('Location:http://localhost:48595/default.html');
+            header('Location:http://www.r-youin.com/default.html');
         } else { //Production
             //header('Location:http://areyouin.azurewebsites.net/default.html');  
             header('Location:http://r-youin.com/default.html');
@@ -42,6 +46,10 @@
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
             header('Location:http://localhost:48595/index.html');  
+        } else 
+        if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www
+            //header('Location:http://localhost:48595/default.html');
+            header('Location:http://www.r-youin.com/index.html');
         } else { //Production
             //header('Location:http://areyouin.azurewebsites.net/index.html');
             header('Location:http://r-youin.com/index.html');
