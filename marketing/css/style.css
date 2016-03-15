@@ -62,7 +62,7 @@
 		font-weight: 700;
 		line-height: 1em;
 		margin: 0 0 1em 0;
-		/*text-transform: uppercase;*/
+		text-transform: uppercase;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -170,7 +170,7 @@
 		color: #aaa;
 		position: relative;
 		margin: 0 0 1.5em 0;
-		/*text-transform: uppercase;*/
+		text-transform: uppercase;
 	}
 
 	header h2 + p {
@@ -787,7 +787,7 @@
 		padding: 0 2.2em;
 		text-align: center;
 		text-decoration: none;
-		/*text-transform: uppercase;*/
+		text-transform: uppercase;
 		white-space: nowrap;
 	}
 
@@ -1077,7 +1077,7 @@
 			color: #aaa;
 			font-size: 1.5em;
 			margin-bottom: 1.75em;
-			/*text-transform: uppercase;*/
+			text-transform: uppercase;
 		}
 
 	body.is-touch #banner {
