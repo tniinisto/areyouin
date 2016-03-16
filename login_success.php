@@ -20,18 +20,18 @@
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
             header('Location:http://dev-areyouin.azurewebsites.net/default.html');  
         } else
-        if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
-            header('Location:http://m-areyouin.azurewebsites.net/default.html');  
+        if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
+            header('Location:http://areyouin.azurewebsites.net/default.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
             header('Location:http://localhost:48595/default.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www
             //header('Location:http://localhost:48595/default.html');
-            header('Location:http://www.r-youin.com/default.html');
+            header('Location:https://www.r-youin.com/default.html');
         } else { //Production
             //header('Location:http://areyouin.azurewebsites.net/default.html');  
-            header('Location:http://r-youin.com/default.html');
+            header('Location:https://r-youin.com/default.html');
         }
     }
     else {
@@ -41,18 +41,18 @@
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
             header('Location:http://dev-areyouin.azurewebsites.net/index.html');  
         } else
-        if (strpos($_SERVER['HTTP_HOST'], 'm-') !== false) { //Mobile
-            header('Location:http://m-areyouin.azurewebsites.net/index.html');
+        if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
+            header('Location:http://areyouin.azurewebsites.net/index.html');
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
             header('Location:http://localhost:48595/index.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www
             //header('Location:http://localhost:48595/default.html');
-            header('Location:http://www.r-youin.com/index.html');
+            header('Location:https://www.r-youin.com/index.html');
         } else { //Production
             //header('Location:http://areyouin.azurewebsites.net/index.html');
-            header('Location:http://r-youin.com/index.html');
+            header('Location:https://r-youin.com/index.html');
         }
     }
 
