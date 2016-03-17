@@ -156,7 +156,7 @@
             	        echo "<tr>";
 					        echo "<th> Event @&nbsp 
                             <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
-                            <img src='images/GoogleMapsIcon.png' alt='maps' height='30' width='30'>
+                            <img src='images/GoogleMapsIcon.png' alt='maps' height='25' width='25' style='margin-top:5px;'>
                             </th>";
 				        echo "</tr>";
 			        echo "</table>";
