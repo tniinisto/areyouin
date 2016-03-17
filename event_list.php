@@ -154,9 +154,9 @@
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Event @&nbsp 
+					        echo "<th style='vertical-align: center;'> Event @&nbsp 
                             <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
-                            <img src='images/GoogleMapsIcon.png' alt='maps' height='22' width='22' style='margin-top:15px;'>
+                            <img src='images/GoogleMapsIcon.png' alt='maps' height='22' width='22'>
                             </th>";
 				        echo "</tr>";
 			        echo "</table>";
