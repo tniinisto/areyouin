@@ -155,8 +155,8 @@
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
 					        echo "<th> Event @&nbsp 
-                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "
-                            <img style='vertical-align: bottom;' src='images/GoogleMapsIcon.png' alt='maps' height='22' width='22' style='padding-top: 0px;'></a>
+                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . " &nbsp
+                            <img style='vertical-align: middle;' src='images/GoogleMapsIcon.png' alt='maps' height='22' width='22' style='padding-top: 0px;'></a>
                             </th>";
 				        echo "</tr>";
 			        echo "</table>";
