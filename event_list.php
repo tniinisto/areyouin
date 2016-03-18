@@ -157,7 +157,7 @@
 					        echo "<th> Event @&nbsp";
                                 
                                 if($row['location'] != 'No location set')
-                                    echo "<a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>";
+                                    echo "<a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>&nbsp";
                                 else
                                     echo "" . $row['location'] . "";
 
