@@ -154,9 +154,13 @@
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Event @&nbsp 
-                                <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>";
+					        echo "<th> Event @&nbsp";
                                 
+                                if($row['location'] != 'No location set')
+                                    echo "<a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>";
+                                else
+                                    echo "" . $row['location'] . "";
+
                                 //Dont show location icon for "No location"
                                 if($row['location'] != 'No location set') {
                                     echo "<a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>
