@@ -246,7 +246,7 @@
                 //Members/Users page///////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id' class='noshow'>";
                     
-                    echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
+                    //echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
 
                     mysql_data_seek($result, 0);
                     $row = mysql_fetch_array($result);
