@@ -127,10 +127,10 @@ function getPlayersInsert() {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
 
             //Userlist scroll init
-	        scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
-	        setTimeout(function () {
-	            scroll2.refresh();
-	        });
+	        //scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        //setTimeout(function () {
+	        //    scroll2.refresh();
+	        //});
 
 		}
 	}
@@ -142,11 +142,11 @@ function getPlayersInsert() {
 }
 
 //Refresh the users list scrolling
-function refreshScroll2() {
-    setTimeout(function(){
-	    scroll2.refresh();
-    });    
-}
+//function refreshScroll2() {
+//    setTimeout(function(){
+//	    scroll2.refresh();
+//    });    
+//}
 
 //Off&On for the event fetch
 var eventFetchPause = 0;
