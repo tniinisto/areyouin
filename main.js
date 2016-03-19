@@ -141,6 +141,13 @@ function getPlayersInsert() {
 	xmlhttp.send();
 }
 
+//Refresh the users list scrolling
+function refreshScroll2() {
+    setTimeout(function(){
+	    scroll2.refresh();
+    });    
+}
+
 //Off&On for the event fetch
 var eventFetchPause = 0;
 function eventFetchOn() {
@@ -1340,12 +1347,6 @@ function updateUserlist() {
         xmlhttp.open("GET", "updateUserlist.php", true);
         xmlhttp.send();
 
-}
-
-function refreshScroll2() {
-    setTimeout(function(){
-	    scroll2.refresh();
-    });    
 }
 
 //Asynchronous event update///////////////////////////////////////////////////////////////////
