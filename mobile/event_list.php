@@ -153,16 +153,28 @@
                             //}
 				        echo "</tr>";
 			        echo "</table>";            
-            
+
                     //Event location information
                     echo "<table class=\"atable\">";			    
             	        echo "<tr>";
-					        echo "<th> Event @&nbsp 
-                            <a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>
-                            </th>";
+					        echo "<th> Event @&nbsp";
+                                
+                                if($row['location'] != 'No location set')
+                                    echo "<a href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>" . $row['location'] . "</a>&nbsp";
+                                else
+                                    echo "" . $row['location'] . "";
+
+                                //Dont show location icon for "No location"
+                                if($row['location'] != 'No location set') {
+                                    echo "<a style='text-decoration: none;' href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>
+                                        <img style='vertical-align: middle;' src='../images/GoogleMapsIcon.png' alt='maps' height='18' width='18' style='padding-top: 0px;'>
+                                    </a>";
+                                }
+
+                            echo "</th>";
 				        echo "</tr>";
 			        echo "</table>";
-			
+                                			
                     //Event date&time information
 			        echo "<table class=\"atable\">";
                             //$day2 used when event lasts multiple days
