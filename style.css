@@ -1648,6 +1648,7 @@ Chat message editor
     height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
+    overflow: hidden;
     /*margin-top: -35px;*/
     /*webkit-overflow-scrolling: touch;*/
 }
