@@ -1653,7 +1653,7 @@ Chat message editor
     /*webkit-overflow-scrolling: touch;*/
 }
 
-#users_list.tableSection {
+#users_list.table {
     height: 150px;
 }
 /*User list************************************/
