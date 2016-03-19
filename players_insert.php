@@ -23,7 +23,7 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, t.maxPlayers
             FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
@@ -247,6 +247,9 @@
                 echo "<div id='member_content_id' class='noshow'>";
                 
                     echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
+
+                    echo "MaxPlayers: " . $row[maxPlayers]; 
+
                     echo "<br>";
                     
                     echo "<div id='users_list' class='scrollit2'>";
