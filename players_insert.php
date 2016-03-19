@@ -250,7 +250,7 @@
 
                     mysql_data_seek($result, 0);
                     $row = mysql_fetch_array($result);
-                    echo "MaxPlayers: " . $row[maxPlayers]; 
+                    echo "<h2>Team's player amount: " . $row_count . " / " . $row[maxPlayers] . "</h2>"; 
 
                     echo "<br>";
                     
