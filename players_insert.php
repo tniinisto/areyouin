@@ -249,7 +249,7 @@
                     echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
                     echo "<br>";
                     
-                    echo "<div id='users_list' class='scrollit'>";
+                    echo "<div id='users_list' class='scrollit2'>";
 
                         echo "<table border='0' id='usertable' class='usertable'>";
                         
