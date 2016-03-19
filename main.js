@@ -125,6 +125,14 @@ function getPlayersInsert() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
+
+            //Userlist scroll init
+	        document.getElementById("users_list").innerHTML = xmlhttp.responseText;
+	        scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        setTimeout(function () {
+	            scroll2.refresh();
+	        });
+
 		}
 	}
 
@@ -1325,15 +1333,8 @@ function updateUserlist() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
-                    window.location.replace('#close');
-
-                    //List scroll
-	                document.getElementById("users_list").innerHTML = xmlhttp.responseText;
-	                scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
-	                setTimeout(function () {
-	                    scroll2.refresh();
-	                });
-
+                window.location.replace('#close');
+                refreshScroll2();
             }
         }
 
