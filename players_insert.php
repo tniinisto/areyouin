@@ -248,7 +248,9 @@
                 
                     echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
                     echo "<br>";
-                        
+                    
+                    echo "<div id='users_list' class='scrollit'>";
+
                         echo "<table border='0' id='usertable' class='usertable'>";
                         
                             mysql_data_seek($result, 0);
@@ -364,7 +366,9 @@
 
                         echo "</table>";
 
-                echo "</div>";
+                    echo "</div>"; //Scrollit
+
+                echo "</div>"; //Member content
                 //Members page///////////////////////////////////////////////////////////////////////////
 
             echo "</article>";
