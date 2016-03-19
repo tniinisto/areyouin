@@ -1326,12 +1326,26 @@ function updateUserlist() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
                     window.location.replace('#close');
+
+                    //List scroll
+	                document.getElementById("users_list").innerHTML = xmlhttp.responseText;
+	                scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	                setTimeout(function () {
+	                    scroll2.refresh();
+	                });
+
             }
         }
 
         xmlhttp.open("GET", "updateUserlist.php", true);
         xmlhttp.send();
 
+}
+
+function refreshScroll2() {
+    setTimeout(function(){
+	    scroll2.refresh();
+    });    
 }
 
 //Asynchronous event update///////////////////////////////////////////////////////////////////
