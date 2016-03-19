@@ -127,7 +127,6 @@ function getPlayersInsert() {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
 
             //Userlist scroll init
-	        document.getElementById("users_list").innerHTML = xmlhttp.responseText;
 	        scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
 	        setTimeout(function () {
 	            scroll2.refresh();
