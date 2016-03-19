@@ -251,7 +251,7 @@
                     
                     //echo "<div id='users_list' class='scrollit2'>";
 
-                        echo "<table border='0' id='users_list' class='usertable scrollit2' style='height: 200px;'>";
+                        echo "<table border='0' id='users_list' class='usertable scrollit2'>";
                         
                             mysql_data_seek($result, 0);
                             $index = 1;
