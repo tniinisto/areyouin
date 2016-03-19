@@ -1648,13 +1648,10 @@ Chat message editor
     height: 200px;
     overflow-x: hidden;
     overflow-y: scroll;
-    overflow: hidden;    
+    overflow: hidden; 
     /*margin-top: -35px;*/
     /*webkit-overflow-scrolling: touch;*/
 }
 
-#users_list.table {
-    height: 150px;
-}
 /*User list************************************/
 
