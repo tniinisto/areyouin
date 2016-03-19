@@ -1067,7 +1067,7 @@ var nlat = 0, nlon = 0;
     }
 
     function success(position) {
-        alert(position.coords.latitude + ', ' + position.coords.longitude);
+        //alert(position.coords.latitude + ', ' + position.coords.longitude);
         nlat = position.coords.latitude;
         nlon = position.coords.longitude;
     }
