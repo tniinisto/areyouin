@@ -116,6 +116,7 @@ function getPlayersInsert() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
+
 		}
 	}
 	//alert("GET gets called.");

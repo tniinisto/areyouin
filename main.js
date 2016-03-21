@@ -125,6 +125,13 @@ function getPlayersInsert() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
+
+            //Userlist scroll init
+	        //scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        //setTimeout(function () {
+	        //    scroll2.refresh();
+	        //});
+
 		}
 	}
 
@@ -133,6 +140,13 @@ function getPlayersInsert() {
 	xmlhttp.open("GET", "players_insert.php", false);
 	xmlhttp.send();
 }
+
+//Refresh the users list scrolling
+//function refreshScroll2() {
+//    setTimeout(function(){
+//	    scroll2.refresh();
+//    });    
+//}
 
 //Off&On for the event fetch
 var eventFetchPause = 0;
@@ -1039,7 +1053,7 @@ var nlat = 0, nlon = 0;
     }
 
     function success(position) {
-        alert(position.coords.latitude + ', ' + position.coords.longitude);
+        //alert(position.coords.latitude + ', ' + position.coords.longitude);
         nlat = position.coords.latitude;
         nlon = position.coords.longitude;
     }
@@ -1304,7 +1318,8 @@ function updateUserlist() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
-                    window.location.replace('#close');
+                window.location.replace('#close');
+                refreshScroll2();
             }
         }
 

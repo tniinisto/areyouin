@@ -913,6 +913,8 @@ td.pcol3 {
 
 td.pcol4 {
 	width: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 td.pcol5 {
@@ -1642,3 +1644,16 @@ Chat message editor
 .clicked {
     height:165px;
 }
+
+/*User list************************************/
+.scrollit2 {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow: hidden; 
+    /*margin-top: -35px;*/
+    /*webkit-overflow-scrolling: touch;*/
+}
+
+/*User list************************************/
+
