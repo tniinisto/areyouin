@@ -186,8 +186,8 @@ screens smaller or equal to 750
 	}
 
     #loginform input {
-      font-size:20px;
-      width:150px;
+      font-size:12px;
+      width:175px;
       min-height:20px;
       display:block;
       margin-bottom:15px;
@@ -463,8 +463,8 @@ screens smaller or equal to 480
 	}
 
     #loginform input {
-      font-size:20px;
-      width:150px;
+      font-size:12px;
+      width:175px;
       min-height:20px;
       display:block;
       margin-bottom:15px;
