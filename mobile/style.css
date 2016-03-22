@@ -152,8 +152,9 @@ HEADER
 	position: absolute;
 	top: 55px;
 }
+
 /* loginform */
-#loginform, #loginfailfs {
+#loginform, #loginfailfs, #loginwrapper {
 	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
@@ -162,14 +163,14 @@ HEADER
 	/*z-index: 100;*/
 	width: 310px;
     text-align: center;
-    
     padding: 5px;
 }
+
 #loginform input {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border:1px solid #ccc;
-    font-size:22px;
-    width:200px;
+    font-size:12px;
+    width:220px;
     min-height:30px;
     display:block;
     margin-bottom:15px;
@@ -179,16 +180,23 @@ HEADER
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     -o-border-radius:5px;
     -ms-border-radius:5px;
     border-radius:5px;
 }
+
+
+#loginform input[type=submit] {
+    font-size:20px;
+}
+
 select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   border:1px solid #ccc;
-  font-size:20px;
+  font-size:14px;
   width:200px;
   min-height:30px;
   display:block;
@@ -196,50 +204,64 @@ select {
   margin-top:5px;
   margin-left: 20px;
   outline: none;
+
   -webkit-border-radius:5px;
   -moz-border-radius:5px;
   -o-border-radius:5px;
   -ms-border-radius:5px;
   border-radius:5px;
 }
+
 /*#loginform #s {
 	width: 150px;
+
 	background: #fff;
 	border: none;
 	padding: 6px 10px;
+
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+
 	-webkit-transition: width .7s;
 	-moz-transition: width .7s;
 	transition: width .7s;
 }*/
+
 #login, #password{
 	width: 150px;
 }
+
 /*#teamradio {
 	position: absolute;
 	width: 150px;
 }*/
+
 #loginfs {
     display: normal;
     border: 1px solid;
     color: white;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:18px;
+    padding: 10px;
 }
+
 #loginfailfs h1, #loginfailfs h2 {
     color: white;
 }
+
+
 #loginfailfs a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:28px; 
     color: #FFD800;
     text-decoration: underline;
 }
+
 /************************************************************************************
 MAIN NAVIGATION
 *************************************************************************************/
