@@ -200,7 +200,7 @@
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
                             $timezone_identifiers = DateTimeZone::listIdentifiers();
-                            echo "<label><h3 style='text-align: center;'>Choose team's timezone:</h3></label>";                    
+                            echo "<label><h3 style='text-align: center;'>Set timezone:</h3></label>";                    
                             //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
                             
                             echo "<div align='center'>";

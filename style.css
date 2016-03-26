@@ -1628,7 +1628,7 @@ Chat message editor
     cursor: pointer;
     position: relative;
     left: -14px;
-    top: -20px;
+    top: -25px;
     z-index: 1;
     margin-bottom: -10px;
 }
