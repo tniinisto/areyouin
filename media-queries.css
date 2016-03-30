@@ -90,6 +90,10 @@ screens smaller or equal to 750
 *************************************************************************************/
 @media screen and (max-width: 750px) {
 
+    #newChatImg {
+        top: -16px;
+    }
+
     .comment-image {
       width: 40px;
       height: 40px;
@@ -314,6 +318,10 @@ screens smaller or equal to 480
 *************************************************************************************/
  /* portrait mode */
 @media screen and (max-width: 480px) {
+
+    #newChatImg {
+        top: -16px;
+    }
 
     .msg_icon_style {
         margin-right: -8px;
