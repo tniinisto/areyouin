@@ -170,7 +170,7 @@ screens smaller or equal to 750
     #comment_input {
         width: 98%;
         resize: none;
-        height: 40px;    
+        height: 80px;    
     }
 
     #comments_table {
