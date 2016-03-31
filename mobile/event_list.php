@@ -307,7 +307,7 @@
             echo "<article id=\"event_article_id\" class=\"clearfix\">";
                 echo "<div>";
 
-                    echo "<h3 style=\"text-align: center;\">No games currently scheduled...</h3>";
+                    echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
                     //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
                 echo "</div>";
@@ -346,6 +346,7 @@
 
         }
         //More events info///////////////////////////////////////////////////////////////////  
+
         //Weather info///////////////////////////////////////////////////////////////////
         $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $teamid . " and t.showWeather = 1 and l.teamID = t.teamID";
         $result_weather = mysql_query($sql_weather);
