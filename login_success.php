@@ -18,7 +18,7 @@
 
         //SITE SPECIFIC
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
-            header('Location:http://dev-areyouin.azurewebsites.net/default.html');  
+            header('Location:https://dev-areyouin.azurewebsites.net/default.html');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
             header('Location:http://areyouin.azurewebsites.net/default.html');  
@@ -37,7 +37,7 @@
 
         //SITE SPECIFIC
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
-            header('Location:http://dev-areyouin.azurewebsites.net/index.html');  
+            header('Location:https://dev-areyouin.azurewebsites.net/index.html');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
             header('Location:http://areyouin.azurewebsites.net/index.html');
