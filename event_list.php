@@ -368,7 +368,7 @@
 	                        frameborder='0'
 	                        height='245'
 	                        width='100%'
-	                        src='http://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
+	                        src='https://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
                         </iframe>";
                     echo "</div>";
                 echo "</article>";         	    
