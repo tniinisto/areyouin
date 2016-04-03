@@ -309,7 +309,7 @@
                                         echo "<h5 id='dialog_player_new_notify' class='noshow' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
                                             if( $player->notify == '1') {
                                                 echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
-						                            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_player_new_notify_switch' checked>";					            
+						                            echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch' checked>";					            
                                                     echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
                                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                                echo "<div class=\"onoffswitch-switch\"></div>";
@@ -317,7 +317,7 @@
                                                 echo "</div>";
                                             } else {
                                                 echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
-						                            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_player_new_notify_switch'>";
+						                            echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch'>";
                                                     echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
                                                         echo "<div class=\"notifyswitch-inner\"></div>";
 						                                echo "<div class=\"onoffswitch-switch\"></div>";
@@ -328,7 +328,7 @@
 
                                         echo "<div class='buttonHolder' style='padding-top: 2px;'>";
                                             echo "<input type='submit' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'>";
-                                            echo "<input type='' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button'>";
+                                            echo "<input type='submit' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'>";
                                         echo "</div>";
 		                            echo "</form>";
                                 echo "</div>";
