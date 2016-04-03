@@ -327,7 +327,8 @@
                                             echo "<input type='submit' value='Save' name='savebutton' id='savebutton' class='dialog_button'>";
                                         echo "</div>";
 		                            echo "</form>";
-
+                            
+                            echo "</div>";
                             //Modal dialog for new user/////////////////////////////////////////////////////////
 
                     echo "<br>";
