@@ -255,7 +255,9 @@
                     echo "<br>";
 
                     //Add new user
-                    echo "<a href='#openModal_new' class='myButton'>Add user</a>";
+                    echo "<a href='#openModal_new' class='myButton' style='float: left;'>New user</a>";
+
+                    echo "<br>";
 
                             //Modal dialog for new user/////////////////////////////////////////////////////////
                             echo "<div id='openModal_new' class='modalDialog'>";
