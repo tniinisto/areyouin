@@ -274,7 +274,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Enter Email / UserID:</label>";
+                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%;'>Enter Email / UserID:</label>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
                                                    style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";
@@ -308,7 +308,7 @@
 
                                         echo "<h5 id='dialog_player_new_notify' class='noshow' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
                                             if( $player->notify == '1') {
-                                                echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
 						                            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_player_new_notify_switch' checked>";					            
                                                     echo "<label class=\"onoffswitch-label\" for='dialog_player_new_notify_switch' onClick=''>";
                                                         echo "<div class=\"notifyswitch-inner\"></div>";
@@ -316,7 +316,7 @@
 						                            echo "</label>";
                                                 echo "</div>";
                                             } else {
-                                                echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+                                                echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
 						                            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_player_new_notify_switch'>";
                                                     echo "<label class=\"onoffswitch-label\" for='dialog_player_new_notify_switch' onClick=''>";
                                                         echo "<div class=\"notifyswitch-inner\"></div>";
