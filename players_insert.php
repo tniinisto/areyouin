@@ -274,7 +274,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Email / UserID:</label>";
+                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 100%; color:red;'>Enter Email / UserID:</label>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
                                                    style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";
@@ -282,31 +282,31 @@
                                         echo "</div>";
 
                                         //Nickname
-                                        echo "<p style='margin: 0px; padding-top: 0px;'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow'>";
                                         echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
                                 
                                         //Fullname
-                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow'>";
                                         echo "<label for='player_new_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_firstname' name='player_new_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
 
                                         //Lastname
-                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow'>";
                                         echo "<label for='player_new_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_lastname' name='player_new_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
 
                                         //Phone
-                                        echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;' class='noshow'>";
                                         echo "<label for='player_new_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
                                         echo "<input type='text' id='dialog_player_new_phone' name='player_new_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
 
 
-                                        echo "<h5 id='dialog_player_new_notify' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
+                                        echo "<h5 id='dialog_player_new_notify' class='noshow' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
                                             if( $player->notify == '1') {
                                                 echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                            echo "<input type='checkbox' name='notifyswitch' class=\"onoffswitch-checkbox\" id='dialog_player_new_notify_switch' checked>";					            
@@ -326,7 +326,7 @@
                                             }
                                         echo "</h5>";
 
-                                        echo "<div class='buttonHolder' style='padding-top: 2px;'>";
+                                        echo "<div class='buttonHolder noshow' style='padding-top: 2px;'>";
                                             echo "<input type='submit' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button'>";
                                         echo "</div>";
 		                            echo "</form>";
