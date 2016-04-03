@@ -261,7 +261,7 @@
 
                             //Modal dialog for new user/////////////////////////////////////////////////////////
                             echo "<div id='openModal_new' class='modalDialog'>";
-	                            //echo "<div>";
+	                            echo "<div>";
 
 		                            echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
 
@@ -329,7 +329,7 @@
                                             echo "<input type='submit' value='Save' name='savebutton' id='savebutton' class='dialog_button'>";
                                         echo "</div>";
 		                            echo "</form>";
-                            
+                                echo "</div>";
                             echo "</div>";
                             //Modal dialog for new user/////////////////////////////////////////////////////////
 
