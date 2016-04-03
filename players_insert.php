@@ -326,8 +326,9 @@
                                             }
                                         echo "</h5>";
 
-                                        echo "<div class='buttonHolder noshow' style='padding-top: 2px;'>";
-                                            echo "<input type='submit' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button'>";
+                                        echo "<div class='buttonHolder' style='padding-top: 2px;'>";
+                                            echo "<input type='submit' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'>";
+                                            echo "<input type='' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button'>";
                                         echo "</div>";
 		                            echo "</form>";
                                 echo "</div>";
