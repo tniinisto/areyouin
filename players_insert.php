@@ -327,8 +327,15 @@
                                   //      echo "</h5>";
 
                                         echo "<div class='buttonHolder' style='padding-top: 2px;'>";
-                                            echo "<input type='' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'>";
-                                            echo "<input type='' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'>";
+
+                                            //Insert the player for the team
+                                            echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'
+                                                   onclick=''>";
+
+                                            //Validate the email entered, does email already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
+                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    
+                                                   onclick='newValidateEmail()'>";
+
                                         echo "</div>";
 		                            echo "</form>";
                                 echo "</div>";
