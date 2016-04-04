@@ -16,7 +16,7 @@
     try {
         $result = 0;
 
-        if($_GET['totallyNew'] > 0) { //Create new player, if the player is not already in another team
+        if($_GET['totallyNew'] == 0) { //Create new player, if the player is not already in another team
 
             //Insert new player
             $photourl = '/images/player7.png';
