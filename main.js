@@ -1493,7 +1493,7 @@ function newValidateEmail(mail) {
 	}
 
     var variables = "mail=" + mail;
-    //alert(variables);
+    alert(variables);
 	xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
 	xmlhttp.send();	
 
