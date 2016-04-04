@@ -1491,6 +1491,8 @@ function newValidateEmail(mail) {
 	        //alert("mail check: " + xmlhttp.responseText);
                        
             $("#p_dialog_player_new_name").removeClass("noshow");
+            $("#p_dialog_player_new_firstname").removeClass("noshow");
+            $("#p_dialog_player_new_lastname").removeClass("noshow");
            
 	    }
 	}
