@@ -1493,8 +1493,8 @@ function newValidateEmail(mail) {
             $("#p_dialog_player_new_name").removeClass("noshow");
             $("#p_dialog_player_new_firstname").removeClass("noshow");
             $("#p_dialog_player_new_lastname").removeClass("noshow");
+            $("#p_dialog_player_new_header").removeClass("noshow");
            
-	    }
 	}
 
     var variables = "mail=" + mail;
