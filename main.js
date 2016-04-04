@@ -1478,29 +1478,30 @@ function getEventsAsync(more) {
 
 //Validate new players email//////////////////////////////////////////////////////////////
 function newValidateEmail(mail) {
-    
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
 
-	xmlhttp.onreadystatechange = function () {
-	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //alert("mail check: " + xmlhttp.responseText);
-                       
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //alert("mail check: " + xmlhttp.responseText);
+
             $("#p_dialog_player_new_name").removeClass("noshow");
             $("#p_dialog_player_new_firstname").removeClass("noshow");
             $("#p_dialog_player_new_lastname").removeClass("noshow");
             $("#p_dialog_player_new_header").removeClass("noshow");
-           
-	}
 
-    var variables = "mail=" + mail;
-    //alert(variables);
-	xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
-	xmlhttp.send();	
+        }
+
+        var variables = "mail=" + mail;
+        //alert(variables);
+        xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
+        xmlhttp.send();
+
+    }
 
 }
-
