@@ -336,7 +336,7 @@
 
                                             //Insert the player for the team, send mail for the new user
                                             echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'
-                                                   onclick=''>";
+                                                   onclick='addTeamUser(" . $teamid . ", player_new_email.value, player_new_name.value, player_new_firstname.value, player_new_lastname.value)'>";
 
                                             //Validate the email entered, does email already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
                                             echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    

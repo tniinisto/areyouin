@@ -39,14 +39,17 @@
         }
 
         
-        //Check if mail address already in use
-        if($mailCount > 0) {
-            //Return mailCount and team
-            echo $mailCount . "," . $row['t.teamID'];
-        } else {
-            //Return mailCount
-            echo $mailCount;
-        }
+        ////Check if mail address already in use
+        //if($mailCount > 0) {
+        //    //Return mailCount and team
+        //    //echo $mailCount . "," . $row['t.teamID'];
+        //    echo $mailCount . "," . $row['t.teamID'];
+        //} else {
+        //    //Return mailCount
+        //    echo $mailCount;
+        //}
+
+        echo $mailCount;
 
         $dbh = null;
     }
