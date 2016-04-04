@@ -53,14 +53,13 @@
         //If player is only in one team -> Clear email value, so same email can be used when making a new player for the same mail in future
         if($teamCount < 2) {
             $sql1 = "UPDATE players SET mail = '" . $max_mail . "' WHERE playerID = :playerID";
-            if($_SESSION['ChromeLog']) { ChromePhp::log('delete player: ' . $sql1); }
         
             $stmt1 = $dbh->prepare($sql1);
             $stmt1->bindParam(':playerID', $_GET['playerID'], PDO::PARAM_INT);   
             $stmt1->execute();
+            
+            if($_SESSION['ChromeLog']) { ChromePhp::log('deleteUser.php: ', $sql1); }
         }
-        
-        if($_SESSION['ChromeLog']) { ChromePhp::log('deleteUser.php: ', $sql1); }
 
         $dbh = null;
     }
