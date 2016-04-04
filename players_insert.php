@@ -294,7 +294,7 @@
                                         echo "</p>";
 
                                         //Lastname
-                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_lastname>";
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_lastname'>";
                                         echo "<label for='player_new_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_lastname' name='player_new_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
