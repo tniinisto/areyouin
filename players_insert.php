@@ -255,7 +255,7 @@
                     echo "<br>";
 
                     //Add new user
-                    echo "<a href='#openModal_new' class='myButton' style='float: left;'>New user</a>";
+                    echo "<a href='#openModal_new' class='myButton' style='float: left;'>Add new user</a>";
 
                     echo "<br>";
                     echo "<br>";
@@ -328,7 +328,7 @@
 
                                         echo "<div class='buttonHolder' style='padding-top: 2px;'>";
 
-                                            //Insert the player for the team
+                                            //Insert the player for the team, send mail for the new user
                                             echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'
                                                    onclick=''>";
 
