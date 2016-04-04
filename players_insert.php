@@ -282,7 +282,7 @@
                                         echo "</div>";
 
                                         //Nickname
-                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
                                         echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
