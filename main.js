@@ -1490,7 +1490,7 @@ function newValidateEmail(mail) {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert("mail check: " + xmlhttp.responseText);
                        
-            $('#dialog_player_new_name').toggleClass('noshow');
+            $("#dialog_player_new_name").removeClass("noshow");
            
 	    }
 	}
