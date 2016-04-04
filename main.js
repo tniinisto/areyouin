@@ -1285,7 +1285,7 @@ function confirmDelete(playerID) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 updateUserlist();
-                //window.location.replace('#close');
+                window.location.replace('#close');
             }
         }
 
@@ -1540,8 +1540,8 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
-            //Update the users list
             updateUserlist();
+            window.location.replace('#close');
         }
     }
 
