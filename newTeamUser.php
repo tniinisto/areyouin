@@ -28,13 +28,15 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
-            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+            //$stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
             $stmt->bindParam(':nick', $_GET['nickname'], PDO::PARAM_STR);
+            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
             $stmt->bindParam(':first', $_GET['firstname'], PDO::PARAM_STR);
             $stmt->bindParam(':last', $_GET['lastname'], PDO::PARAM_STR);
         
-            $result = $stmt->execute();                        
+            $result = $stmt->execute();
+            
+            if($_SESSION['ChromeLog']) { ChromePhp::log('New player result: ' . $result); }
         }
 
 
