@@ -1498,13 +1498,17 @@ function newValidateEmail(mail) {
             //alert("mail check: " + xmlhttp.responseText);
             totallyNewUser = xmlhttp.responseText;
 
-            $("#p_dialog_player_new_name").removeClass("noshow");
-            $("#p_dialog_player_new_firstname").removeClass("noshow");
-            $("#p_dialog_player_new_lastname").removeClass("noshow");
-            $("#p_dialog_player_new_header").removeClass("noshow");
+            if (totallyNewUser < 1) {
+                $("#p_dialog_player_new_name").removeClass("noshow");
+                $("#p_dialog_player_new_firstname").removeClass("noshow");
+                $("#p_dialog_player_new_lastname").removeClass("noshow");
+                $("#p_dialog_player_new_header").removeClass("noshow");
 
-            $("#player_new_validtebutton").addClass("noshow");
-            $("#player_new_savebutton").removeClass("noshow");
+                $("#player_new_validtebutton").addClass("noshow");
+                $("#player_new_savebutton").removeClass("noshow");
+            } else {
+                alert('Email address already exists!');
+            }
 
         }
     }
