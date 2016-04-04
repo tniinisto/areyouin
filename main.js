@@ -1547,7 +1547,7 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
                     + "&firstname=" + firstname
                     + "&lastname=" + lastname;
 
-    alert(variables);
+    //alert(variables);
     xmlhttp.open("GET", "newTeamUser.php?" + variables, true);
     xmlhttp.send();
             
