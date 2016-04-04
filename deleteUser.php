@@ -40,9 +40,18 @@
             $teamCount = $row['TeamMemberCount'];
         }
 
+        //Get the max "nulled" mail value
+        $sql3 = "SELECT MAX(mail + 0) as max FROM players;";
+
+        $stmt3 = $dbh->prepare($sql3);
+        $stmt3->execute();
+        $row3 = $stmt3->fetch();
+        $max_mail = $row3['max'] + 1;
+        
+
         //If player only in one team -> Clear email value, so same email can be used when making a new player for the same mail in future
         if($teamCount < 2) {
-            $sql1 = "UPDATE players SET mail = '' WHERE playerID =  :playerID";
+            $sql1 = "UPDATE players SET mail = '" . $max_mail . "' WHERE playerID =  :playerID";
             if($_SESSION['ChromeLog']) { ChromePhp::log('delete player: ' . $sql1); }
         
             $stmt1 = $dbh->prepare($sql1);
