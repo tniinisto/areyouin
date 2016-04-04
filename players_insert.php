@@ -274,12 +274,16 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user email:</label>";
+                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user email</label>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
-                                                   style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";
-                                            echo "</p>";
+                                                   style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";                                            
                                         echo "</div>";
+
+                                        //Header
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_header'>";
+                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's info</label>";
+                                        echo "</p>";
 
                                         //Nickname
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
