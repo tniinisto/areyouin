@@ -1285,7 +1285,7 @@ function confirmDelete(playerID) {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 updateUserlist();
-                window.location.replace('#close');
+                //window.location.replace('#close');
             }
         }
 
@@ -1340,7 +1340,7 @@ function updateUserlist() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
                 window.location.replace('#close');
-                refreshScroll2();
+                //refreshScroll2();
             }
         }
 
@@ -1542,7 +1542,6 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
             //Update the users list
             updateUserlist();
-            window.location.replace('#close');
         }
     }
 
