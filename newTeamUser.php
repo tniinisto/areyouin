@@ -20,7 +20,7 @@
 
             //Insert new player
             $photourl = '/images/player7.png';
-            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl) VALUES (:nick, :mail, :first, :last," . $photourl .")";
+            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl) VALUES (:nick, :mail, :first, :last,'" . $photourl ."')";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
         
