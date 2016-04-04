@@ -20,14 +20,14 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, t.maxPlayers
             FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
 
                //Members/Users page///////////////////////////////////////////////////////////////////////////
-                echo "<div id='member_content_id' class='noshow'>";
+                echo "<div id='member_content_id'>";
                     
                     //echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
 
