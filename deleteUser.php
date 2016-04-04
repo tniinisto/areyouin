@@ -46,7 +46,8 @@
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->execute();
         $row3 = $stmt3->fetch();
-        $max_mail = ($row3['max'] + 1);
+        $max_mail = $row3['max'];
+        $max_mail++;
         
 
         //If player only in one team -> Clear email value, so same email can be used when making a new player for the same mail in future
