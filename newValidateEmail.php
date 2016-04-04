@@ -25,7 +25,7 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('newValidateEmail mailcount: ' . $sql); }
         
         $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_INT);
+        $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         $stmt->execute();
 
         $mailCount = 0;
