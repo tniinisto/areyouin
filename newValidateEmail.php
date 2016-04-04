@@ -19,14 +19,23 @@
 
         //Validate the email, does it already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
 
-        $sql = "";
+        //Check mail address, return count of matching addresses
+        $sql = "SELECT count(mail) as mailcount from players where mail like :mail";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('newValidateEmail player: ' . $sql); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('newValidateEmail mailcount: ' . $sql); }
         
         $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':playerID', $_GET['playerID'], PDO::PARAM_INT);
-        $stmt->bindParam(':teamID', $_SESSION['myteamid'], PDO::PARAM_INT);
+        $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_INT);
         $stmt->execute();
+
+        $mailCount = 0;
+        while($row = $stmt->fetch()) {
+            //print_r($row);
+            $mailCount = $row['mailcount'];
+        }
+
+        //Return mailCount
+        echo $mailCount;
 
         $dbh = null;
     }
