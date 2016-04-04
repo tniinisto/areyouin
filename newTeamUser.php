@@ -19,7 +19,8 @@
         if($_GET['totallyNew'] > 0) { //Create new player, if the player is not already in another team
 
             //Insert new player
-            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl) VALUES ()";
+            $photourl = '/images/player7.png';
+            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl) VALUES (:nick, :mail, :first, :last," . $photourl .")";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
         
@@ -33,12 +34,31 @@
             $result = $stmt->execute();                        
         }
 
-        //Add player to the team
-        $sql1 = "INSERT INTO playerteam () VALUES ()";
+        //Get the playerID////////////////////////////////////////////////////////////////           
+
+        $sql2 = "SELECT playerID from players WHERE mail like :mail";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for team: ' . $sql); }
         
-        $stmt1 = $dbh->prepare($sql);
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+        
+        $result2 = $stmt2->execute();   
+        $row2;
+        $playerid = 0;
+        while($row2 = $stmt2->fetch()) {
+            //print_r($row);
+            $playerid = $row2['playerID'];
+        }                     
+
+
+        //Add player to the team//////////////////////////////////////////////////////////
+
+        $sql1 = "INSERT INTO playerteam () VALUES (" . $playerid . "," . $_SESSION['myteamid'] . ", 0)";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for team: ' . $sql); }
+        
+        $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
         $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         
