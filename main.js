@@ -1541,7 +1541,7 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     }
 
     var variables = "totallynew=" + totallyNewUser
-                    + "teamid=" + teamid
+                    + "&teamid=" + teamid
                     + "&mail=" + mail
                     + "&nickname=" + nickname
                     + "&firstname=" + firstname
