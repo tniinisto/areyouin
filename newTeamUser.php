@@ -51,6 +51,8 @@
             $playerid = $row2['playerID'];
         }                     
 
+        //Create password
+
 
         //Add player to the team//////////////////////////////////////////////////////////
 
@@ -63,6 +65,8 @@
         $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         
         $result1 = $stmt1->execute();                        
+
+        //Send mail
 
 
 
