@@ -18,6 +18,9 @@
 
         if($_GET['totallyNew'] == 0) { //Create new player, if the player is not already in another team
 
+            //Create password
+            
+            
             //Insert new player
             $photourl = '/images/player7.png';
             $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl, password) VALUES (:nick, :mail, :first, :last,'" . $photourl ."', 'ca412a4244ea7f113cfeb6c10992f66a')";
@@ -34,8 +37,8 @@
             $result = $stmt->execute();                        
         }
 
-        //Get the playerID////////////////////////////////////////////////////////////////           
 
+        //Get the playerID////////////////////////////////////////////////////////////////           
         $sql2 = "SELECT playerID from players WHERE mail like :mail";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for team: ' . $sql); }
@@ -51,11 +54,8 @@
             $playerid = $row2['playerID'];
         }                     
 
-        //Create password
-
 
         //Add player to the team//////////////////////////////////////////////////////////
-
         $sql1 = "INSERT INTO playerteam () VALUES (" . $playerid . "," . $_SESSION['myteamid'] . ", 0)";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for team: ' . $sql); }
