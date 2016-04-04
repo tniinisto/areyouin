@@ -41,12 +41,12 @@
         }
 
         //Get the max "nulled" mail value
-        $sql3 = "SELECT MAX(mail + 0) as max FROM players;";
+        $sql3 = "SELECT MAX(mail + 0) as maxi FROM players;";
 
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->execute();
         $row3 = $stmt3->fetch();
-        $max_mail = $row3['max'];
+        $max_mail = $row3['maxi'];
         $max_mail++;
         
 
