@@ -1496,12 +1496,12 @@ function newValidateEmail(mail) {
             $("#p_dialog_player_new_header").removeClass("noshow");
 
         }
-
-        var variables = "mail=" + mail;
-        //alert(variables);
-        xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
-        xmlhttp.send();
-
     }
+
+    var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
+    xmlhttp.send();
+            
 
 }
