@@ -1542,11 +1542,11 @@ function getExistingUser(mail) {
             //alert(t);
 
             $("#p_dialog_player_new_firstname").removeClass("noshow");
-            document.getElementById("dialog_player_new_firstname").innerHTML = t[1];
+            document.getElementById("dialog_player_new_firstname").value = t[1];
             //$("#dialog_player_new_firstname").value = t[1];
 
             $("#p_dialog_player_new_lastname").removeClass("noshow");
-            document.getElementById("dialog_player_new_lastname").innerHTML = t[2];
+            document.getElementById("dialog_player_new_lastname").value = t[2];
             //$("#dialog_player_new_lastname").value = t[2];
 
         }
