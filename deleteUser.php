@@ -17,7 +17,7 @@
           
     try {
 
-        //Update the removed player teamID to nullTeam, teamId = 0 for current team, player can be in multiple teams
+        //Update the removed player teamID to nullTeam, teamId = 0, player can be in multiple teams
         $sql = "UPDATE playerteam SET Team_teamID = '0' WHERE Players_playerID =  :playerID AND Team_teamid = :teamID";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('delete player: ' . $sql); }
