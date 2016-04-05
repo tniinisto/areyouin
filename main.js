@@ -1583,12 +1583,14 @@ function addExistingUser(playerid) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            alert(xmlhttp.responseText);
+            //alert(xmlhttp.responseText);
+            updateUserlist();
+            window.location.replace('#close');
         }
     }
 
     var variables = "playerid=" + playerid;
-    alert(variables);
+    //alert(variables);
     xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
     xmlhttp.send();
             
