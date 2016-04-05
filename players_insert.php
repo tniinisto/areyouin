@@ -273,7 +273,7 @@
                                         //echo "</p>";
 
                                         //PlayerID, hidden
-                                        echo "<p style='margin: 0px; padding-top: 0px;' class='' id='p_new_dialog_playerid'>";
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
                                         echo "<input type='text' id='new_dialog_playerid' name='player_playerid' value='' style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
 
@@ -349,7 +349,7 @@
 
                                             //Add existing RYouIN user
                                             echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
-                                                   onclick='addExistingUser(new_dialog_playerid.value)'>";
+                                                   onclick='addExistingUser(player_playerid.value)'>";
 
                                         echo "</div>";
 		                            echo "</form>";

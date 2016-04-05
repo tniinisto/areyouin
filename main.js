@@ -1571,7 +1571,7 @@ function getExistingUser(mail) {
 }
 
 //Add existing user to team//////////////////////////////////////////////////////////////
-function addExistingUser(playerID) {
+function addExistingUser(playerid) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1587,7 +1587,7 @@ function addExistingUser(playerID) {
         }
     }
 
-    var variables = "playerid=" + playerID;
+    var variables = "playerid=" + playerid;
     //alert(variables);
     xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
     xmlhttp.send();
