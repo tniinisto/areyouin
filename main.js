@@ -1540,6 +1540,12 @@ function getExistingUser(mail) {
 
             var t = xmlhttp.responseText.split(/,/);
             alert(t);
+
+            $("#p_dialog_player_new_firstname").removeClass("noshow");
+            $("#p_dialog_player_new_firstname").value = t[1];
+            $("#p_dialog_player_new_lastname").removeClass("noshow");
+            $("#p_dialog_player_new_lastname").value = t[2];
+
         }
     }
 
