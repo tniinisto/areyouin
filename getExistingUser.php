@@ -23,8 +23,8 @@
         $stmt->execute();
         $row = $stmt->fetch();
 
-        //echo "playerID, firstname lastname"
-        $result = $row['playerID'] . "," . $row['firstname'] . " " . $row['lastname'];
+        //echo "playerID,firstname,lastname"
+        $result = $row['playerID'] . "," . $row['firstname'] . "," . $row['lastname'];
         echo $result;
 
         $dbh = null;
