@@ -25,8 +25,8 @@
         $row = $stmt->fetch();
         $playerid = $row['playerID'];
 
-        //echo $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'];
-        echo $row;
+        echo $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'];
+        //echo $row;
 
         $dbh = null;
 
