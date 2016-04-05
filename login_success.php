@@ -27,9 +27,9 @@
             header('Location:http://localhost:48595/default.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www, for https on custom domain a certificate is needed
-            header('Location:http://www.r-youin.com/default.html');
+            header('Location:https://www.r-youin.com/default.html');
         } else { //Production
-            header('Location:http://r-youin.com/default.html');
+            header('Location:https://r-youin.com/default.html');
         }
     }
     else {
@@ -46,9 +46,9 @@
             header('Location:http://localhost:48595/index.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www , for https on custom domain a certificate is needed
-            header('Location:http://www.r-youin.com/index.html');
+            header('Location:https://www.r-youin.com/index.html');
         } else { //Production
-            header('Location:http://r-youin.com/index.html');
+            header('Location:https://r-youin.com/index.html');
         }
     }
 
