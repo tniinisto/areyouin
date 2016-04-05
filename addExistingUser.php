@@ -6,7 +6,7 @@
 
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
-        ChromePhp::log('getExistingUser.php start');
+        ChromePhp::log('addExistingUser.php start');
     }
 
 
@@ -16,7 +16,7 @@
     try {
 
         //Get playerID for mail address////////////////////////////////////////////////////////////
-        $sql = "SELECT playerID, firstname, lastname from players WHERE mail like ' :mail '";
+        $sql = "SELECT playerID from players WHERE mail like ' :mail '";
         
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);        
@@ -25,8 +25,15 @@
         $row = $stmt->fetch();
         $playerid = $row['playerID'];
 
-        //echo $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'];
-        echo $row;
+        //Add existing player to the team//////////////////////////////////////////////////////////
+        $sql1 = "INSERT INTO playerteam (Players_playerID, Team_teamID, teamAdmin) VALUES (" . $playerid . "," . $_SESSION['myteamid'] . ", 0)";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for playerteam: ' . $sql1); }
+        
+        $stmt1 = $dbh->prepare($sql1);      
+        $result1 = $stmt1->execute();                        
+
+        echo 
 
         $dbh = null;
 

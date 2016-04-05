@@ -1508,9 +1508,8 @@ function newValidateEmail(mail) {
                 $("#player_new_savebutton").removeClass("noshow");
             } else {
                 //alert('Email address already exists!');
-                addExistingUser(mail);
-                $("#p_dialog_player_new_firstname").removeClass("noshow");
-                $("#p_dialog_player_new_lastname").removeClass("noshow");
+                getExistingUser(mail);
+
             }
 
             totallyNewUser = 0;
@@ -1525,8 +1524,8 @@ function newValidateEmail(mail) {
 
 }
 
-//Add existing user for team//////////////////////////////////////////////////////////////
-function addExistingUser(mail) {
+//Get existing user//////////////////////////////////////////////////////////////
+function getExistingUser(mail) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1538,16 +1537,43 @@ function addExistingUser(mail) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+            alert(xmlhttp.responseText);
         }
     }
 
     var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "getExistingUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+//Add existing user to team//////////////////////////////////////////////////////////////
+function addExistingUser(playerID) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            alert(xmlhttp.responseText);
+        }
+    }
+
+    var variables = "playerid=" + playerID;
     //alert(variables);
     xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
     xmlhttp.send();
             
 
 }
+
 
 //Add new user for team//////////////////////////////////////////////////////////////
 //Parameters:
