@@ -1588,7 +1588,7 @@ function addExistingUser(playerid) {
     }
 
     var variables = "playerid=" + playerid;
-    //alert(variables);
+    alert(variables);
     xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
     xmlhttp.send();
             
