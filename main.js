@@ -1504,7 +1504,7 @@ function newValidateEmail(mail) {
                 $("#p_dialog_player_new_lastname").removeClass("noshow");
                 $("#p_dialog_player_new_header").removeClass("noshow");
 
-                $("#player_new_validtebutton").addClass("noshow");
+                $("#player_new_validatebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
             }
             else
@@ -1551,6 +1551,12 @@ function getExistingUser(mail) {
             //lastname
             $("#p_dialog_player_new_lastname").removeClass("noshow");
             document.getElementById("dialog_player_new_lastname").value = t[2];
+
+            //show Add player button
+            $("#player_new_add_button").removeClass("noshow");
+            
+            //hide validate button            
+            $("#player_new_validatebutton").addClass("noshow");
 
         }
     }

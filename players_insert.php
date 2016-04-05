@@ -344,12 +344,12 @@
                                                    onclick='addTeamUser(" . $teamid . ", player_new_email.value, player_new_name.value, player_new_firstname.value, player_new_lastname.value)'>";
 
                                             //Validate the email entered, does email already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
-                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    
+                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validatebutton' class='dialog_button' style='text-align: center;'    
                                                    onclick='newValidateEmail(player_new_email.value)'>";
 
                                             //Add existing RYouIN user
                                             echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
-                                                   onclick='addExistingUser(player_new_email.value)'>";
+                                                   onclick='addExistingUser(new_dialog_playerid.value)'>";
 
                                         echo "</div>";
 		                            echo "</form>";
