@@ -1538,7 +1538,8 @@ function getExistingUser(mail) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            alert(xmlhttp.responseText);
+            var t = xmlhttp.responseText.split(/,/);
+            alert(t);
         }
     }
 
