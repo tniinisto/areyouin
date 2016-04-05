@@ -344,7 +344,7 @@
 
                                             //Add existing RYouIN user
                                             echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
-                                                   onclick='addNewUser(player_new_email.value)'>";
+                                                   onclick='addExistingUser(player_new_email.value)'>";
 
                                         echo "</div>";
 		                            echo "</form>";

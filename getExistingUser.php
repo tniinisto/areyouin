@@ -23,9 +23,9 @@
         $stmt->execute();
 
         $row = $stmt->fetch();
+        $result = $row['playerID'] . "," . $row['firstname'] . "," . $row['lastname'];
 
-        echo "" . $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'] . "";
-        //echo $row;
+        echo $result;
 
         $dbh = null;
 
