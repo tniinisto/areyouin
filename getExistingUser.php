@@ -16,16 +16,15 @@
     try {
 
         //Get playerID for mail address////////////////////////////////////////////////////////////
-        $sql = "SELECT playerID, firstname, lastname from players WHERE mail like ' :mail '";
+        $sql = "SELECT playerID, firstname, lastname from players WHERE mail like '%:mail%'";
         
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);        
-        $stmt->execute();                        
+        $stmt->execute();
 
         $row = $stmt->fetch();
-        $playerid = $row['playerID'];
 
-        echo $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'];
+        echo "" . $row['playerID'] . "," . $row['firstName'] . "," . $row['lastname'] . "";
         //echo $row;
 
         $dbh = null;
