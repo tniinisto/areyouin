@@ -16,7 +16,7 @@
     try {
 
         //Add existing player to the team//////////////////////////////////////////////////////////
-        $sql1 = "INSERT INTO playerteam (Players_playerID, Team_teamID, teamAdmin) VALUES ( :playerid," . $_SESSION['myteamid'] . ", 0)";
+        $sql1 = "INSERT INTO playerteam (Players_playerID, Team_teamID, teamAdmin) VALUES ( :playerid ," . $_SESSION['myteamid'] . ", 0)";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for playerteam: ' . $sql1); }
 
