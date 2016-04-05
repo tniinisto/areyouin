@@ -18,7 +18,7 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
         //SITE SPECIFIC
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
-            header('Location:http://dev-areyouin.azurewebsites.net/default.html');  
+            header('Location:https://dev-areyouin.azurewebsites.net/default.html');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
             header('Location:http://areyouin.azurewebsites.net/default.html');  
@@ -27,9 +27,9 @@
             header('Location:http://localhost:48595/default.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www, for https on custom domain a certificate is needed
-            header('Location:http://www.r-youin.com/default.html');
+            header('Location:https://www.r-youin.com/default.html');
         } else { //Production
-            header('Location:http://r-youin.com/default.html');
+            header('Location:https://r-youin.com/default.html');
         }
     }
     else {
@@ -37,7 +37,7 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
         //SITE SPECIFIC
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
-            header('Location:http://dev-areyouin.azurewebsites.net/index.html');  
+            header('Location:https://dev-areyouin.azurewebsites.net/index.html');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
             header('Location:http://areyouin.azurewebsites.net/index.html');
@@ -46,9 +46,9 @@
             header('Location:http://localhost:48595/index.html');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www , for https on custom domain a certificate is needed
-            header('Location:http://www.r-youin.com/index.html');
+            header('Location:https://www.r-youin.com/index.html');
         } else { //Production
-            header('Location:http://r-youin.com/index.html');
+            header('Location:https://r-youin.com/index.html');
         }
     }
 

@@ -1319,7 +1319,7 @@ function updateUserlist() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
                 window.location.replace('#close');
-                refreshScroll2();
+                //refreshScroll2();
             }
         }
 
@@ -1452,4 +1452,88 @@ function getEventsAsync(more) {
         xmlhttp.open("GET", "event_list.php?" + variables, true);
         xmlhttp.send();
     }
+}
+
+
+
+//Used for checking is the player totally new or is she/he already in a team./////////////
+var totallyNewUser = 0;
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Validate new players email//////////////////////////////////////////////////////////////
+function newValidateEmail(mail) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //alert("mail check: " + xmlhttp.responseText);
+            totallyNewUser = xmlhttp.responseText;
+
+            if (totallyNewUser < 1) {
+                $("#p_dialog_player_new_name").removeClass("noshow");
+                $("#p_dialog_player_new_firstname").removeClass("noshow");
+                $("#p_dialog_player_new_lastname").removeClass("noshow");
+                $("#p_dialog_player_new_header").removeClass("noshow");
+
+                $("#player_new_validtebutton").addClass("noshow");
+                $("#player_new_savebutton").removeClass("noshow");
+            } else {
+                alert('Email address already exists!');
+            }
+
+        }
+    }
+
+    var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+//Add new user for team//////////////////////////////////////////////////////////////
+//Parameters:
+    //$teamid
+    //player_new_email
+    //player_new_name
+    //player_new_firstname
+    //player_new_lastname
+
+function addTeamUser(teamid, mail, nickname, firstname, lastname) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+            updateUserlist();
+            window.location.replace('#close');
+        }
+    }
+
+    var variables = "totallynew=" + totallyNewUser
+                    + "&teamid=" + teamid
+                    + "&mail=" + mail
+                    + "&nickname=" + nickname
+                    + "&firstname=" + firstname
+                    + "&lastname=" + lastname;
+
+    //alert(variables);
+    xmlhttp.open("GET", "newTeamUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
 }

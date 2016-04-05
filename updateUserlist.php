@@ -20,19 +20,122 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, t.maxPlayers
             FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
         
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
 
-                //Members/Users page list, show content after update//////////////////////////////////////////////////////////////////
-                //echo "<div id='member_content_id' class='noshow'>";
+               //Members/Users page///////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id'>";
+                    
+                    //echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
 
-                    echo "<br><h2>User managing stuff new, delete, edit...</h2>";
-                        
-                        echo "<table border='0' id='usertable' class='usertable'>";
+                    mysql_data_seek($result, 0);
+                    $row = mysql_fetch_array($result);
+                    echo "<h2>Users: " . $row_count . " / " . $row[maxPlayers] . "</h2>";
+
+                    echo "<br>";
+
+                    //Add new user
+                    echo "<a href='#openModal_new' class='myButton' style='float: left;'>Add new user</a>";
+
+                    echo "<br>";
+                    echo "<br>";
+
+                            //Modal dialog for new user/////////////////////////////////////////////////////////
+                            echo "<div id='openModal_new' class='modalDialog'>";
+	                            echo "<div>";
+
+		                            echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
+
+                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
+
+                                        //echo "<p style='margin: 5px;'>";
+                                        //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
+                                        //echo "</p>";
+
+                                        //Mail & UserID
+                                        echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
+                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
+                                            echo "<br>";
+                                            echo "<p style='margin: 0px'>";
+                                            echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
+                                                   style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";                                            
+                                        echo "</div>";
+
+                                        //Header
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_header'>";
+                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's info</label>";
+                                        echo "</p>";
+                                        echo "<br>";
+
+                                        //Nickname
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
+                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+                                
+                                        //Fullname
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_firstname'>";
+                                        echo "<label for='player_new_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_firstname' name='player_new_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
+                                        //Lastname
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_lastname'>";
+                                        echo "<label for='player_new_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_lastname' name='player_new_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
+                                        //Phone
+                                        //echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;' class='noshow'>";
+                                        //echo "<label for='player_new_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
+                                        //echo "<input type='text' id='dialog_player_new_phone' name='player_new_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        //echo "</p>";
+
+
+                                  //      echo "<h5 id='dialog_player_new_notify' class='noshow' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
+                                  //          if( $player->notify == '1') {
+                                  //              echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
+						                            //echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch' checked>";					            
+                                  //                  echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
+                                  //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                            //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                            //echo "</label>";
+                                  //              echo "</div>";
+                                  //          } else {
+                                  //              echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
+						                            //echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch'>";
+                                  //                  echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
+                                  //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                            //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                            //echo "</label>";
+                                  //              echo "</div>";                            
+                                  //          }
+                                  //      echo "</h5>";
+
+                                        echo "<div class='buttonHolder' style='padding-top: 2px;'>";
+
+                                            //Insert the player for the team, send mail for the new user
+                                            echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'
+                                                   onclick='addTeamUser(" . $teamid . ", player_new_email.value, player_new_name.value, player_new_firstname.value, player_new_lastname.value)'>";
+
+                                            //Validate the email entered, does email already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
+                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    
+                                                   onclick='newValidateEmail(player_new_email.value)'>";
+
+                                        echo "</div>";
+		                            echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                            //Modal dialog for new user/////////////////////////////////////////////////////////
+
+                    echo "<br>";
+                    
+                    echo "<div id='users_list' class='scrollit2'>";
+
+                        echo "<table border='0' id='users_table' class='usertable'";
                         
                             mysql_data_seek($result, 0);
                             $index = 1;
@@ -84,7 +187,7 @@
                                     //Modal dialog for player information editing///////////////
                                     echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
 	                                    echo "<div>";
-		                                    echo "<a id='closer_edit' href='#close' title='Close' class='close'>X</a>";
+		                                    echo "<a id='closer_edit". $index . "' href='#close' title='Close' class='close'>X</a>";
 
 
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
@@ -147,7 +250,9 @@
 
                         echo "</table>";
 
-                echo "</div>";
+                    echo "</div>"; //Scrollit
+
+                echo "</div>"; //Member content
                 //Members page///////////////////////////////////////////////////////////////////////////
         
             echo "<iframe name='frame_local' style='display: none'></iframe>";
