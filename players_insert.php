@@ -272,6 +272,11 @@
                                         //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
                                         //echo "</p>";
 
+                                        //PlayerID, hidden
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
+                                        echo "<input type='text' id='new_dialog_playerid' name='player_playerid' value='' style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
                                             echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
