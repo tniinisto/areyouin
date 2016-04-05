@@ -1541,10 +1541,13 @@ function getExistingUser(mail) {
             var t = xmlhttp.responseText.split(/,/);
             //alert(t);
 
-            $("#pdialog_player_new_firstname").removeClass("noshow");
-            $("#dialog_player_new_firstname").text = t[1];
+            $("#p_dialog_player_new_firstname").removeClass("noshow");
+            document.getElementById("dialog_player_new_firstname").innerHTML = t[1];
+            //$("#dialog_player_new_firstname").value = t[1];
+
             $("#p_dialog_player_new_lastname").removeClass("noshow");
-            $("#dialog_player_new_lastname").text = t[2];
+            document.getElementById("dialog_player_new_lastname").innerHTML = t[2];
+            //$("#dialog_player_new_lastname").value = t[2];
 
         }
     }
