@@ -33,7 +33,7 @@
         $stmt1 = $dbh->prepare($sql1);      
         $result1 = $stmt1->execute();                        
 
-        echo $result1;
+        echo 
 
         $dbh = null;
 

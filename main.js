@@ -1507,7 +1507,10 @@ function newValidateEmail(mail) {
                 $("#player_new_validtebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
             } else {
-                alert('Email address already exists!');
+                //alert('Email address already exists!');
+                addExistingUser(mail);
+                $("#p_dialog_player_new_firstname").removeClass("noshow");
+                $("#p_dialog_player_new_lastname").removeClass("noshow");
             }
 
             totallyNewUser = 0;
