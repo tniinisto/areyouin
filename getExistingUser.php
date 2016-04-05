@@ -21,10 +21,10 @@
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);        
         $stmt->execute();
-
         $row = $stmt->fetch();
-        $result = $row['playerID'] . "," . $row['firstname'] . "," . $row['lastname'];
 
+        //echo "playerID, firstname lastname"
+        $result = $row['playerID'] . "," . $row['firstname'] . " " . $row['lastname'];
         echo $result;
 
         $dbh = null;
