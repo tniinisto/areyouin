@@ -1483,12 +1483,16 @@ function newValidateEmail(mail) {
                 $("#p_dialog_player_new_lastname").removeClass("noshow");
                 $("#p_dialog_player_new_header").removeClass("noshow");
 
-                $("#player_new_validtebutton").addClass("noshow");
+                $("#player_new_validatebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
-            } else {
-                alert('Email address already exists!');
+            }
+            else
+            {
+                //alert('Email address already exists!');
+                getExistingUser(mail);
             }
 
+            totallyNewUser = 0;
         }
     }
 
@@ -1499,6 +1503,79 @@ function newValidateEmail(mail) {
             
 
 }
+
+//Get existing user//////////////////////////////////////////////////////////////
+function getExistingUser(mail) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            var t = xmlhttp.responseText.split(/,/);
+            //alert(t);
+
+            //playerID, hidden
+            document.getElementById("new_dialog_playerid").value = t[0];
+            
+            //firstname
+            $("#p_dialog_player_new_firstname").removeClass("noshow");
+            document.getElementById("dialog_player_new_firstname").value = t[1];
+
+            //lastname
+            $("#p_dialog_player_new_lastname").removeClass("noshow");
+            document.getElementById("dialog_player_new_lastname").value = t[2];
+
+            //show Add player button
+            $("#player_new_add_button").removeClass("noshow");
+            
+            //hide validate button            
+            $("#player_new_validatebutton").addClass("noshow");
+
+        
+        }
+    }
+
+    var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "getExistingUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+//Add existing user to team//////////////////////////////////////////////////////////////
+function addExistingUser(playerid) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //alert(xmlhttp.responseText);
+            updateUserlist();
+            window.location.replace('#close');
+        }
+    }
+
+    var variables = "playerid=" + playerid;
+    //alert(variables);
+    xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
 
 //Add new user for team//////////////////////////////////////////////////////////////
 //Parameters:
