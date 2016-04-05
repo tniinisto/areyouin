@@ -21,7 +21,7 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add player for playerteam: ' . $sql1); }
 
         $stmt1 = $dbh->prepare($sql1);    
-        $stmt1->bindParam(':playerID', $_GET['playerid'], PDO::PARAM_INT);
+        $stmt1->bindParam(':playerid', $_GET['playerid'], PDO::PARAM_INT);
   
         $result1 = $stmt1->execute();                        
 
