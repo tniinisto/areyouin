@@ -342,6 +342,10 @@
                                             echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    
                                                    onclick='newValidateEmail(player_new_email.value)'>";
 
+                                            //Add existing RYouIN user
+                                            echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
+                                                   onclick='addNewUser(player_new_email.value)'>";
+
                                         echo "</div>";
 		                            echo "</form>";
                                 echo "</div>";
@@ -454,8 +458,13 @@
                                                 //echo "</div>";
                                                 
                                                 echo "<div class='buttonHolder' style='margin-top:15px;'>";
-                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
-                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmDelete(" . $player->playerID . ");'/>";
+
+                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+
+                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                                    onclick='confirmDelete(" . $player->playerID . ");'/>";
+
                                                 echo "</div>";
 
 		                                    echo "</form>";
