@@ -1506,10 +1506,11 @@ function newValidateEmail(mail) {
 
                 $("#player_new_validtebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
-            } else {
+            }
+            else
+            {
                 //alert('Email address already exists!');
                 getExistingUser(mail);
-
             }
 
             totallyNewUser = 0;
