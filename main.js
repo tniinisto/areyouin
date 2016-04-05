@@ -1542,7 +1542,7 @@ function getExistingUser(mail) {
             //alert(t);
 
             //playerID, hidden
-            document.getElementById("new_dialog_playerid").value = t[1];
+            document.getElementById("new_dialog_playerid").value = t[0];
             
             //firstname
             $("#p_dialog_player_new_firstname").removeClass("noshow");
