@@ -1558,6 +1558,7 @@ function getExistingUser(mail) {
             //hide validate button            
             $("#player_new_validatebutton").addClass("noshow");
 
+        
         }
     }
 
