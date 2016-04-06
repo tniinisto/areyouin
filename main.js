@@ -1522,6 +1522,8 @@ function newValidateEmail(mail, teamid) {
                     $("#new_dialog_mail_text").addClass("noshow");
                     $("#player_new_validatebutton").addClass("noshow");
                     $("#new_dialog_mail_text").removeClass("mailclass");
+                    $("#p_dialog_player_new_firstname").addClass("noshow");
+                    $("#p_dialog_player_new_lastname").addClass("noshow");
                     
                 }
                 else {                    
