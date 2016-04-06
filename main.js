@@ -1655,18 +1655,20 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
 
 //Reset the modal dialog
 function resetModalUserDialog() {
+ 
+    alert("reset");
 
-        $("#p_dialog_player_new_name").addClass("noshow");
-        $("#p_dialog_player_new_firstname").addClass("noshow");
-        $("#p_dialog_player_new_lastname").addClass("noshow");
-        $("#p_dialog_player_new_header").addClass("noshow");
+    $("#p_dialog_player_new_name").addClass("noshow");
+    $("#p_dialog_player_new_firstname").addClass("noshow");
+    $("#p_dialog_player_new_lastname").addClass("noshow");
+    $("#p_dialog_player_new_header").addClass("noshow");
 
-        $("#player_new_validatebutton").removeClass("noshow");
-        $("#player_new_savebutton").addClass("noshow");
-        $("#p_existing_user_dialog").addClass("noshow");
-        $("#player_new_mail").removeClass("noshow");
-        $("#dialog_player_new_email").removeClass("noshow");       
+    $("#player_new_validatebutton").removeClass("noshow");
+    $("#player_new_savebutton").addClass("noshow");
+    $("#p_existing_user_dialog").addClass("noshow");
+    $("#player_new_mail").removeClass("noshow");
+    $("#dialog_player_new_email").removeClass("noshow");       
 
-        document.getElementById("dialog_player_new_email").value = '';
+    document.getElementById("dialog_player_new_email").value = '';
 
 }
