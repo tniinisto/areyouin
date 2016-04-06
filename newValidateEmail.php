@@ -29,7 +29,7 @@
         
         $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
-        $stmt1->bindParam(':teamid', $_GET['mail'], PDO::PARAM_INT);
+        $stmt1->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
         $stmt1->execute();
         $row1 = $stmt1->fetch();
         
