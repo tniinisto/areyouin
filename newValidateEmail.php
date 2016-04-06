@@ -31,9 +31,9 @@
         $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         $stmt1->execute();
 
-        $teams;
+        $teams = '';
         while($row1 = $stmt1->fetch()) {
-            $teams  = "," . $row['teamID'];
+            $teams  += "," . $row['teamID'];
         }
 
         //Check mail address, return count of matching addresses/////////////////////////////
