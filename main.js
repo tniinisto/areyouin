@@ -1521,6 +1521,7 @@ function newValidateEmail(mail, teamid) {
                     $("#dialog_player_new_email").addClass("noshow");
                     $("#new_dialog_mail_text").addClass("noshow");
                     $("#player_new_validatebutton").addClass("noshow");
+                    $("#new_dialog_mail_text").removeClass("mailclass");
                     
                 }
                 else {                    
@@ -1670,6 +1671,8 @@ function resetModalUserDialog() {
     $("#player_new_savebutton").addClass("noshow");
     $("#p_existing_user_dialog").addClass("noshow");
     $("#player_new_mail").removeClass("noshow");
+    $("#new_dialog_mail_text").addClass("mailclass");
+    
     $("#dialog_player_new_email").removeClass("noshow");       
 
     document.getElementById("dialog_player_new_email").value = '';
