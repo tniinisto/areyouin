@@ -1515,8 +1515,10 @@ function newValidateEmail(mail, teamid) {
                 
                 //User already in the current team, don't allow adding
                 if(teamid == users_teamid) { 
+
                     $("#p_existing_user_dialog").removeClass("noshow");
                     $("#player_new_mail").addClass("noshow");
+                    $("#dialog_player_new_email").addClass("noshow");
                     $("#player_new_validatebutton").addClass("noshow");
                 }
                 else {                    
@@ -1662,6 +1664,9 @@ function resetModalUserDialog() {
         $("#player_new_validatebutton").removeClass("noshow");
         $("#player_new_savebutton").addClass("noshow");
         $("#p_existing_user_dialog").addClass("noshow");
-        $("#player_new_mail").addClass("noshow");
+        $("#player_new_mail").removeClass("noshow");
+        $("#dialog_player_new_email").removeClass("noshow");       
+
+        document.getElementById("dialog_player_new_email").value = '';
 
 }
