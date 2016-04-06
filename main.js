@@ -1666,6 +1666,7 @@ function resetModalUserDialog() {
     $("#p_dialog_player_new_lastname").addClass("noshow");
     $("#p_dialog_player_new_header").addClass("noshow");
     $("#new_dialog_mail_text").removeClass("noshow");
+    $("#player_new_add_button").addClass("noshow");
 
     $("#player_new_validatebutton").removeClass("noshow");
     $("#player_new_savebutton").addClass("noshow");
