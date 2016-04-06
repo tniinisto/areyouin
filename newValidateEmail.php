@@ -31,7 +31,8 @@
         $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         $stmt1->bindParam(':teamid', $_GET['mail'], PDO::PARAM_INT);
         $stmt1->execute();
-
+        $row1 = $stmt1->fetch();
+        
         $teamid_count = 0;
         $teamid_count  = $row1['teamcount'];
 
