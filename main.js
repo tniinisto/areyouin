@@ -1502,7 +1502,7 @@ function newValidateEmail(mail, teamid) {
 
             //teams
             var users_teams = t[1];
-            //users_teams = users_teams.split(/,/);
+            users_teams = users_teams.split(/,/);
 
             //Completely new RYouIN user
             if (totallyNewUser < 1) {
