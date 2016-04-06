@@ -1495,14 +1495,18 @@ function newValidateEmail(mail, teamid) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            //alert("mail check: " + xmlhttp.responseText);
-            var t = xmlhttp.responseText.split(/,/);
+
+            //mails
+            var t = xmlhttp.responseText.split(/:/);
             totallyNewUser = t[0];
-            var users_teamid = t[1];
+
+            //teams
+            var users_teams = t[1];
+            //users_teams = users_teams.split(/,/);
 
             //Completely new RYouIN user
             if (totallyNewUser < 1) {
-                
+
                 $("#p_dialog_player_new_name").removeClass("noshow");
                 $("#p_dialog_player_new_firstname").removeClass("noshow");
                 $("#p_dialog_player_new_lastname").removeClass("noshow");
@@ -1512,9 +1516,9 @@ function newValidateEmail(mail, teamid) {
                 $("#player_new_savebutton").removeClass("noshow");
             }
             else {
-                
-                //User already in the current team, don't allow adding
-                if(teamid == users_teamid) { 
+
+                //User already in the current team
+                if (users_teams.indexOf(teamid)) {
 
                     $("#p_existing_user_dialog").removeClass("noshow");
                     $("#player_new_mail").addClass("noshow");
@@ -1522,11 +1526,11 @@ function newValidateEmail(mail, teamid) {
                     $("#new_dialog_mail_text").addClass("noshow");
                     $("#player_new_validatebutton").addClass("noshow");
                     $("#new_dialog_mail_text").removeClass("mailclass");
-                    $("#p_dialog_player_new_firstname").addClass("noshow");
-                    $("#p_dialog_player_new_lastname").addClass("noshow");
-                    
+                    //$("#p_dialog_player_new_firstname").addClass("noshow");
+                    //$("#p_dialog_player_new_lastname").addClass("noshow");
+
                 }
-                else {                    
+                else {
                     //User exists in another team, allow adding to current team
                     getExistingUser(mail);
                     document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
