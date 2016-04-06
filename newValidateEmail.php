@@ -19,7 +19,24 @@
 
         //Validate the email, does it already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
 
-        //Check mail address, return count of matching addresses
+        //Get users teamIDs///////////////////////////////////////////////////////////////////
+        $sql1 = "SELECT count(t.teamID) as teamcount from players p
+                inner join playerteam pt on p.playerID = pt.Players_playerID
+                inner join team t on t.teamID = pt.Team_teamID
+                where p.mail like :mail and t.teamID = :teamid";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('newValidateEmail users teams: ' . $sql1); }
+        
+        $stmt1 = $dbh->prepare($sql1);
+        $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+        $stmt1->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
+        $stmt1->execute();
+        $row1 = $stmt1->fetch();
+        
+        $teamid_count = 0;
+        $teamid_count = $row1['teamcount'];
+
+        //Check mail address, return count of matching addresses/////////////////////////////
         $sql = "SELECT mail, count(mail) as mailcount, t.teamName, t.teamID from players p
                 inner join playerteam pt on p.playerID = pt.Players_playerID
                 inner join team t on t.teamID = pt.Team_teamID
@@ -35,19 +52,8 @@
         $mailCount = 0;
         while($row = $stmt->fetch()) {
             //Return mailcount, teamid        
-            $mailCount = $row['mailcount'] . "," . $row['teamID'];
+            $mailCount = $row['mailcount'] . "," . $teamid_count;
         }
-
-        
-        ////Check if mail address already in use
-        //if($mailCount > 0) {
-        //    //Return mailCount and team
-        //    //echo $mailCount . "," . $row['t.teamID'];
-        //    echo $mailCount . "," . $row['t.teamID'];
-        //} else {
-        //    //Return mailCount
-        //    echo $mailCount;
-        //}
 
         echo $mailCount;
 
