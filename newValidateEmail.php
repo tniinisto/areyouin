@@ -34,7 +34,7 @@
         $row1 = $stmt1->fetch();
         
         $teamid_count = 0;
-        $teamid_count  = $row1['teamcount'];
+        $teamid_count = $row1['teamcount'];
 
         //Check mail address, return count of matching addresses/////////////////////////////
         $sql = "SELECT mail, count(mail) as mailcount, t.teamName, t.teamID from players p
