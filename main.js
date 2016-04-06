@@ -1518,7 +1518,6 @@ function newValidateEmail(mail, teamid) {
                     $("#p_existing_user_dialog").removeClass("noshow");
                     $("#player_new_mail").addClass("noshow");
                     $("#player_new_validatebutton").addClass("noshow");
-                                    player_new_mail
                 }
                 else {                    
                     //User exists in another team, allow adding to current team
@@ -1648,5 +1647,21 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     xmlhttp.open("GET", "newTeamUser.php?" + variables, true);
     xmlhttp.send();
             
+
+}
+
+
+//Reset the modal dialog
+function resetModalUserDialog() {
+
+        $("#p_dialog_player_new_name").addClass("noshow");
+        $("#p_dialog_player_new_firstname").addClass("noshow");
+        $("#p_dialog_player_new_lastname").addClass("noshow");
+        $("#p_dialog_player_new_header").addClass("noshow");
+
+        $("#player_new_validatebutton").removeClass("noshow");
+        $("#player_new_savebutton").addClass("noshow");
+        $("#p_existing_user_dialog").addClass("noshow");
+        $("#player_new_mail").addClass("noshow");
 
 }

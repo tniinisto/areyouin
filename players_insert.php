@@ -264,7 +264,7 @@
                             echo "<div id='openModal_new' class='modalDialog'>";
 	                            echo "<div>";
 
-		                            echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
+		                            echo "<a id='closer' href='#close' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
                                     echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
 
