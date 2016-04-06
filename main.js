@@ -1495,13 +1495,13 @@ function newValidateEmail(mail, teamid) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            //alert(xmlhttp.responseText);
+            alert(xmlhttp.responseText);
 
             //mails
             var t = xmlhttp.responseText.split(/,/);
             totallyNewUser = t[0];
 
-            //teams
+            //teamcount
             var users_teams = t[1];
 
             //Completely new RYouIN user
