@@ -1498,12 +1498,11 @@ function newValidateEmail(mail, teamid) {
             alert(xmlhttp.responseText);
 
             //mails
-            var t = xmlhttp.responseText.split(/:/);
+            var t = xmlhttp.responseText.split(/,/);
             totallyNewUser = t[0];
 
             //teams
             var users_teams = t[1];
-            //users_teams = users_teams.split(/,/);
 
             //Completely new RYouIN user
             if (totallyNewUser < 1) {
@@ -1519,7 +1518,7 @@ function newValidateEmail(mail, teamid) {
             else {
 
                 //User already in the current team
-                if (users_teams.indexOf(teamid)) {
+                if (users_teams > 0) {
 
                     $("#p_existing_user_dialog").removeClass("noshow");
                     $("#player_new_mail").addClass("noshow");
