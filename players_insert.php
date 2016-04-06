@@ -281,7 +281,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
+                                            echo "<label id='new_dialog_mail_text' style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
                                             echo "<br>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
