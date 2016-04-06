@@ -38,8 +38,10 @@
                     echo "<br>";
 
                     //Add new user
-                    echo "<a href='#openModal_new' class='myButton' style='float: left;'>Add new user</a>";
-
+                    if($row_count < $row[maxPlayers]) {
+                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;'>Add new user</a>";
+                    }
+                    
                     echo "<br>";
                     echo "<br>";
 
