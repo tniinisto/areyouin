@@ -33,7 +33,7 @@
 
         $teams = '';
         while($row1 = $stmt1->fetch()) {
-            $teams  += "," . $row['teamID'];
+            $teams  += "," . $row1['teamID'];
         }
 
         //Check mail address, return count of matching addresses/////////////////////////////
