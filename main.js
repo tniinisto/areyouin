@@ -1483,7 +1483,7 @@ var totallyNewUser = 0;
 
 
 //Validate new players email//////////////////////////////////////////////////////////////
-function newValidateEmail(mail) {
+function newValidateEmail(mail, teamid) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1496,9 +1496,13 @@ function newValidateEmail(mail) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             //alert("mail check: " + xmlhttp.responseText);
-            totallyNewUser = xmlhttp.responseText;
+            var t = xmlhttp.responseText.split(/,/);
+            totallyNewUser = t[0];
+            var users_teamid = t[1];
 
+            //Completely new RYouIN user
             if (totallyNewUser < 1) {
+                
                 $("#p_dialog_player_new_name").removeClass("noshow");
                 $("#p_dialog_player_new_firstname").removeClass("noshow");
                 $("#p_dialog_player_new_lastname").removeClass("noshow");
@@ -1507,13 +1511,21 @@ function newValidateEmail(mail) {
                 $("#player_new_validatebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
             }
-            else
-            {
-                //alert('Email address already exists!');
-                getExistingUser(mail);
+            else {
+                
+                //User already in the current team, don't allow adding
+                if(teamid == users_teamid) { 
+                    $("#p_existing_user_dialog").removeClass("noshow");                
+                }
+                else {                    
+                    //User exists in another team, allow adding to current team
+                    getExistingUser(mail);
+                }
+
             }
 
             totallyNewUser = 0;
+            teamid = 0;
         }
     }
 

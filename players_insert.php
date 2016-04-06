@@ -268,9 +268,10 @@
 
                                     echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
 
-                                        //echo "<p style='margin: 5px;'>";
-                                        //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
-                                        //echo "</p>";
+                                        //User already in the team, give notification
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>User already a member in the team.</label>";
+                                        echo "</p>";
 
                                         //PlayerID, hidden
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
@@ -349,7 +350,7 @@
 
                                             //Add existing RYouIN user
                                             echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
-                                                   onclick='addExistingUser(player_playerid.value)'>";
+                                                   onclick='addExistingUser(player_playerid.value, " . $teamid . ")'>";
 
                                         echo "</div>";
 		                            echo "</form>";

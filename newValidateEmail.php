@@ -23,7 +23,7 @@
         $sql = "SELECT mail, count(mail) as mailcount, t.teamName, t.teamID from players p
                 inner join playerteam pt on p.playerID = pt.Players_playerID
                 inner join team t on t.teamID = pt.Team_teamID
-                where p.mail like :mail";
+                where p.mail like :mail and t.team = " . $_SESSION['myteamid'];
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('newValidateEmail mailcount: ' . $sql); }
         
@@ -34,8 +34,8 @@
         $row;
         $mailCount = 0;
         while($row = $stmt->fetch()) {
-            //print_r($row);
-            $mailCount = $row['mailcount'];
+            //Return mailcount, teamid        
+            $mailCount = $row['mailcount'] . "," . $row['teamID'];
         }
 
         
