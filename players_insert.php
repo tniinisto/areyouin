@@ -255,7 +255,7 @@
                     echo "<br>";
 
                     //Add new user
-                    echo "<a href='#openModal_new' class='myButton' style='float: left;' onclick='$('#dialog_player_new_email').focus();'>Add new user</a>";
+                    echo "<a href='#openModal_new' class='myButton' style='float: left;' onclick='\$('#dialog_player_new_email').focus();'>Add new user</a>";
 
                     echo "<br>";
                     echo "<br>";
