@@ -1657,3 +1657,11 @@ Chat message editor
 
 /*User list************************************/
 
+/*User dialogs mail text*/
+.mailClass {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    font-size: 125%;
+}

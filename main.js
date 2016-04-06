@@ -1462,7 +1462,7 @@ var totallyNewUser = 0;
 
 
 //Validate new players email//////////////////////////////////////////////////////////////
-function newValidateEmail(mail) {
+function newValidateEmail(mail, teamid) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1475,9 +1475,13 @@ function newValidateEmail(mail) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             //alert("mail check: " + xmlhttp.responseText);
-            totallyNewUser = xmlhttp.responseText;
+            var t = xmlhttp.responseText.split(/,/);
+            totallyNewUser = t[0];
+            var users_teamid = t[1];
 
+            //Completely new RYouIN user
             if (totallyNewUser < 1) {
+                
                 $("#p_dialog_player_new_name").removeClass("noshow");
                 $("#p_dialog_player_new_firstname").removeClass("noshow");
                 $("#p_dialog_player_new_lastname").removeClass("noshow");
@@ -1486,13 +1490,28 @@ function newValidateEmail(mail) {
                 $("#player_new_validatebutton").addClass("noshow");
                 $("#player_new_savebutton").removeClass("noshow");
             }
-            else
-            {
-                //alert('Email address already exists!');
-                getExistingUser(mail);
+            else {
+                
+                //User already in the current team, don't allow adding
+                if(teamid == users_teamid) { 
+
+                    $("#p_existing_user_dialog").removeClass("noshow");
+                    $("#player_new_mail").addClass("noshow");
+                    $("#dialog_player_new_email").addClass("noshow");
+                    $("#new_dialog_mail_text").addClass("noshow");
+                    $("#player_new_validatebutton").addClass("noshow");
+                    $("#new_dialog_mail_text").removeClass("mailclass");
+                    
+                }
+                else {                    
+                    //User exists in another team, allow adding to current team
+                    getExistingUser(mail);
+                }
+
             }
 
             totallyNewUser = 0;
+            teamid = 0;
         }
     }
 
@@ -1612,5 +1631,30 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     xmlhttp.open("GET", "newTeamUser.php?" + variables, true);
     xmlhttp.send();
             
+
+}
+
+
+//Reset the modal dialog
+function resetModalUserDialog() {
+ 
+    //alert("reset");
+
+    $("#p_dialog_player_new_name").addClass("noshow");
+    $("#p_dialog_player_new_firstname").addClass("noshow");
+    $("#p_dialog_player_new_lastname").addClass("noshow");
+    $("#p_dialog_player_new_header").addClass("noshow");
+    $("#new_dialog_mail_text").removeClass("noshow");
+    $("#player_new_add_button").addClass("noshow");
+
+    $("#player_new_validatebutton").removeClass("noshow");
+    $("#player_new_savebutton").addClass("noshow");
+    $("#p_existing_user_dialog").addClass("noshow");
+    $("#player_new_mail").removeClass("noshow");
+    $("#new_dialog_mail_text").addClass("mailclass");
+    
+    $("#dialog_player_new_email").removeClass("noshow");       
+
+    document.getElementById("dialog_player_new_email").value = '';
 
 }

@@ -264,13 +264,15 @@
                             echo "<div id='openModal_new' class='modalDialog'>";
 	                            echo "<div>";
 
-		                            echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
+		                            echo "<a id='closer' href='#close' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
                                     echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
 
-                                        //echo "<p style='margin: 5px;'>";
-                                        //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
-                                        //echo "</p>";
+                                        //User already in the team, give notification
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
+                                        echo "<br>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>User already a team member!</label>";
+                                        echo "</p>";
 
                                         //PlayerID, hidden
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
@@ -279,7 +281,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
+                                            echo "<label id='new_dialog_mail_text' class='mailclass'>Enter user's email</label>";
                                             echo "<br>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
@@ -349,7 +351,7 @@
 
                                             //Add existing RYouIN user
                                             echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='dialog_button noshow' style='text-align: center;'    
-                                                   onclick='addExistingUser(player_playerid.value)'>";
+                                                   onclick='addExistingUser(player_playerid.value, " . $teamid . ")'>";
 
                                         echo "</div>";
 		                            echo "</form>";

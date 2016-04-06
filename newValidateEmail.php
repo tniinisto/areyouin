@@ -34,8 +34,8 @@
         $row;
         $mailCount = 0;
         while($row = $stmt->fetch()) {
-            //print_r($row);
-            $mailCount = $row['mailcount'];
+            //Return mailcount, teamid        
+            $mailCount = $row['mailcount'] . "," . $row['teamID'];
         }
 
         
