@@ -1678,4 +1678,6 @@ function resetModalUserDialog() {
 
     document.getElementById("dialog_player_new_email").value = '';
 
+    window.location.replace('');
+
 }
