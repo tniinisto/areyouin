@@ -1515,7 +1515,10 @@ function newValidateEmail(mail, teamid) {
                 
                 //User already in the current team, don't allow adding
                 if(teamid == users_teamid) { 
-                    $("#p_existing_user_dialog").removeClass("noshow");                
+                    $("#p_existing_user_dialog").removeClass("noshow");
+                    $("#player_new_mail").addClass("noshow");
+                    $("#player_new_validatebutton").addClass("noshow");
+                                    player_new_mail
                 }
                 else {                    
                     //User exists in another team, allow adding to current team
