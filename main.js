@@ -1658,7 +1658,7 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
 //Reset the modal dialog
 function resetModalUserDialog() {
  
-    alert("reset");
+    //alert("reset");
 
     $("#p_dialog_player_new_name").addClass("noshow");
     $("#p_dialog_player_new_firstname").addClass("noshow");
