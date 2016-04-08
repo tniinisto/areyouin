@@ -233,8 +233,7 @@
         //Start session checking
         CheckForSession();
 
-        //getEvents();
-        setInterval(getEvents(), 600000);
+        getEvents();
 
         getPlayersInsert();
         getAdminStatus();
@@ -253,13 +252,12 @@
 
         //getWeather();
 
-        //Events update. 3 minute interval, start after 3 minutes
-        //setTimeout(
-        //    setInterval(
-        //        function () {
-        //            getEvents(), 180000
-        //        })
-        //, 360000);
+        //Events update. 10 minute interval, start after 5 minutes
+        setTimeout(function () {
+            //do what you need here
+            alert("start async fetch...");
+            setInterval(getEventsAsync(), 600000); //10 minute interval
+        }, 300000); // 5 minutes before start
 
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {
