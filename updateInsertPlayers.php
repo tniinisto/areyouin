@@ -26,8 +26,6 @@
     $row_index = 1; 
     echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
         
-    //$second = 0;
-        
     while($row = mysql_fetch_array($result))
     {
                     

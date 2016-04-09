@@ -1631,6 +1631,7 @@ function addExistingUser(playerid) {
             //alert(xmlhttp.responseText);
             updateUserlist();
             window.location.replace('#');
+            updateInsertPlayers();
         }
     }
 
@@ -1661,9 +1662,10 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     }
 
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             updateUserlist();
             window.location.replace('#');
+            updateInsertPlayers();
         }
     }
 
