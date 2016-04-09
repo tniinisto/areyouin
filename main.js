@@ -1288,17 +1288,21 @@ function confirmDelete(playerID) {
                 window.location.replace('#');
 
                 //Hide removed player from new game adding////////////////////
-                var player = "p_playerid" + playerID;
-                document.getElementById(player).setAttribute("display", 'none');
+                var player = "#p_playerid" + playerID;
+                //document.getElementById(player).setAttribute("display", 'none');
+                $(player).addClass("noshow");
 
-                var photo = "p_photo" + playerID;
-                document.getElementById(photo).setAttribute("display", 'none');
+                var photo = "#p_photo" + playerID;
+                //document.getElementById(photo).setAttribute("display", 'none');
+                $(photo).addClass("noshow");
 
-                var name = "p_name" + playerID;
-                document.getElementById(name).setAttribute("display", 'none');
+                var name = "#p_name" + playerID;
+                //document.getElementById(name).setAttribute("display", 'none');
+                $(name).addClass("noshow");
 
-                var onoff = "p_switch" + playerID;
-                document.getElementById(onoff).setAttribute("display", 'none');
+                var onoff = "#p_switch" + playerID;
+                //document.getElementById(onoff).setAttribute("display", 'none');
+                $(onoff).addClass("noshow");
 
             }
         }
