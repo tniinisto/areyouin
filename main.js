@@ -1289,16 +1289,16 @@ function confirmDelete(playerID) {
 
                 //Hide removed player from new game adding////////////////////
                 var player = "p_playerid" + playerID;
-                document.getElementById(player).setAttribute("display", none);
+                document.getElementById(player).setAttribute("display", 'none');
 
                 var photo = "p_photo" + playerID;
-                document.getElementById(photo).setAttribute("display", none);
+                document.getElementById(photo).setAttribute("display", 'none');
 
                 var name = "p_name" + playerID;
-                document.getElementById(name).setAttribute("display", none);
+                document.getElementById(name).setAttribute("display", 'none');
 
                 var onoff = "p_switch" + playerID;
-                document.getElementById(onoff).setAttribute("display", none);
+                document.getElementById(onoff).setAttribute("display", 'none');
 
             }
         }
