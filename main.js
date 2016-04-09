@@ -1339,7 +1339,7 @@ function updateUserlist() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
-                window.location.replace('#close');
+                //window.location.replace('#close');
                 //refreshScroll2();
             }
         }
