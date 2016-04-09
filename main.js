@@ -1681,6 +1681,27 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
 
 }
 
+function updateInsertPlayers() {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+            document.getElementById("insertplayers").innerHTML = xmlhttp.responseText;            
+        }
+    }
+
+    //alert(variables);
+    xmlhttp.open("GET", "updateInsertPlayers.php?", true);
+    xmlhttp.send();    
+
+}
+
 
 //Reset the modal dialog
 function resetModalUserDialog() {
