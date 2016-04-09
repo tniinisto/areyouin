@@ -91,33 +91,17 @@
                     echo "</br>";
 
                     $row_index = 1; 
-                    echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
-        
-                    //$second = 0;
-        
-                    while($row = mysql_fetch_array($result))
-                    {
-                            //echo "<div style=\"display: inline-block;\">";
                     
-                                echo "<tr>";
-                                echo "<td id='p_usercount" . $row_count . "' class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
-                                echo "<td id='p_playerid" . $row['playerID'] . "' class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                                echo "<td id='p_photo" . $row['playerID'] . "' class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-                                echo "<td id='p_name" . $row['playerID'] . "' class=\"pcol4\">" . $row['name'] . "</td>";
-                                echo "<td id='p_switch" . $row['playerID'] . "' class=\"pcol5\">";
-                                        echo "<div class=\"onoffswitch\">";
-                                                echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
-                                                echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
-                                                echo "<div class=\"onoffswitch-inner\"></div>";
-                                                echo "<div class=\"onoffswitch-switch\"></div>";
-                                                echo "</label>";
-                                        echo "</div>";
-                                echo "</td>";
+                    echo "<div id='div_insertplayers'>";
+                        echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
+        
+                        //$second = 0;
+        
+                        while($row = mysql_fetch_array($result))
+                        {
+                                //echo "<div style=\"display: inline-block;\">";
                     
-                                if($row = mysql_fetch_array($result))
-                                {
-                                    $row_index = $row_index + 1;
-                                    echo "<td style=\"width: 20px;\"></td>";
+                                    echo "<tr>";
                                     echo "<td id='p_usercount" . $row_count . "' class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                                     echo "<td id='p_playerid" . $row['playerID'] . "' class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
                                     echo "<td id='p_photo" . $row['playerID'] . "' class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
@@ -131,14 +115,34 @@
                                                     echo "</label>";
                                             echo "</div>";
                                     echo "</td>";
-                                }                                      
-                                echo "</tr>";
+                    
+                                    if($row = mysql_fetch_array($result))
+                                    {
+                                        $row_index = $row_index + 1;
+                                        echo "<td style=\"width: 20px;\"></td>";
+                                        echo "<td id='p_usercount" . $row_count . "' class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
+                                        echo "<td id='p_playerid" . $row['playerID'] . "' class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
+                                        echo "<td id='p_photo" . $row['playerID'] . "' class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                                        echo "<td id='p_name" . $row['playerID'] . "' class=\"pcol4\">" . $row['name'] . "</td>";
+                                        echo "<td id='p_switch" . $row['playerID'] . "' class=\"pcol5\">";
+                                                echo "<div class=\"onoffswitch\">";
+                                                        echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
+                                                        echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
+                                                        echo "<div class=\"onoffswitch-inner\"></div>";
+                                                        echo "<div class=\"onoffswitch-switch\"></div>";
+                                                        echo "</label>";
+                                                echo "</div>";
+                                        echo "</td>";
+                                    }                                      
+                                    echo "</tr>";
                 
-                            //echo "</div>";
+                                //echo "</div>";
 
-                            $row_index = $row_index + 1;
-                    }
-                    echo "</table>";
+                                $row_index = $row_index + 1;
+                        }
+                        echo "</table>";
+                    echo "</div>"; 
+
                     echo "</br>";
 
                     //Sendmail credentials
