@@ -1699,7 +1699,7 @@ function updateInsertPlayers() {
     }
 
     //alert(variables);
-    xmlhttp.open("GET", "updateInsertPlayers.php?", true);
+    xmlhttp.open("GET", "updateInsertPlayers.php", true);
     xmlhttp.send();    
 
 }
