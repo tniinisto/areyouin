@@ -92,7 +92,6 @@
 
                     $row_index = 1; 
                     
-                    echo "<div id='div_insertplayers'>";
                         echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
         
                         //$second = 0;
@@ -140,8 +139,7 @@
 
                                 $row_index = $row_index + 1;
                         }
-                        echo "</table>";
-                    echo "</div>"; 
+                        echo "</table>";                 
 
                     echo "</br>";
 

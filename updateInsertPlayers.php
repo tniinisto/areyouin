@@ -24,7 +24,7 @@
 
 
     $row_index = 1; 
-    echo "<table border='0' id='insertplayers' class=\"atable2\">"; 
+    echo "<table border='0' id='insertplayers' class=\"atable2\" class='noshow'>"; 
         
     while($row = mysql_fetch_array($result))
     {

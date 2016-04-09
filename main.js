@@ -1694,7 +1694,7 @@ function updateInsertPlayers() {
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
-            document.getElementById("div_insertplayers").innerHTML = xmlhttp.responseText;            
+            document.getElementById("insertplayers").innerHTML = xmlhttp.responseText;            
         }
     }
 
@@ -1702,6 +1702,10 @@ function updateInsertPlayers() {
     xmlhttp.open("GET", "updateInsertPlayers.php", true);
     xmlhttp.send();    
 
+}
+
+function showInsertPlayers() {
+    $("#insertplayers").removeClass("noshow");
 }
 
 
