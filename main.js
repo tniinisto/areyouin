@@ -1265,6 +1265,24 @@ function confirmDelete(playerID) {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 updateUserlist();
                 window.location.replace('#');
+
+                //Hide removed player from new game adding////////////////////
+                var player = "#p_playerid" + playerID;
+                //document.getElementById(player).setAttribute("display", 'none');
+                $(player).addClass("noshow");
+
+                var photo = "#p_photo" + playerID;
+                //document.getElementById(photo).setAttribute("display", 'none');
+                $(photo).addClass("noshow");
+
+                var name = "#p_name" + playerID;
+                //document.getElementById(name).setAttribute("display", 'none');
+                $(name).addClass("noshow");
+
+                var onoff = "#p_switch" + playerID;
+                //document.getElementById(onoff).setAttribute("display", 'none');
+                $(onoff).addClass("noshow");
+
             }
         }
 
@@ -1592,6 +1610,7 @@ function addExistingUser(playerid) {
             //alert(xmlhttp.responseText);
             updateUserlist();
             window.location.replace('#');
+            updateInsertPlayers();
         }
     }
 
@@ -1622,9 +1641,10 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     }
 
     xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             updateUserlist();
             window.location.replace('#');
+            updateInsertPlayers();
         }
     }
 
@@ -1640,6 +1660,32 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
     xmlhttp.send();
             
 
+}
+
+function updateInsertPlayers() {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+            document.getElementById("insertplayers").innerHTML = xmlhttp.responseText;
+            updateUserlist();           
+        }
+    }
+
+    //alert(variables);
+    xmlhttp.open("GET", "updateInsertPlayers.php", true);
+    xmlhttp.send();    
+
+}
+
+function showInsertPlayers() {
+    $("#insertplayers").removeClass("noshow");
 }
 
 
