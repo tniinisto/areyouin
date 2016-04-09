@@ -100,11 +100,11 @@
                             //echo "<div style=\"display: inline-block;\">";
                     
                                 echo "<tr>";
-                                echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
-                                echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                                echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-                                echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
-                                echo "<td class=\"pcol5\">";
+                                echo "<td id='p_usercount" . $row_count . "' class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
+                                echo "<td id='p_playerid" . $row['playerID'] . "' class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
+                                echo "<td id='p_photo" . $row['playerID'] . "' class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                                echo "<td id='p_name" . $row['playerID'] . "' class=\"pcol4\">" . $row['name'] . "</td>";
+                                echo "<td id='p_switch" . $row['playerID'] . "' class=\"pcol5\">";
                                         echo "<div class=\"onoffswitch\">";
                                                 echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
                                                 echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
@@ -118,11 +118,11 @@
                                 {
                                     $row_index = $row_index + 1;
                                     echo "<td style=\"width: 20px;\"></td>";
-                                    echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
-                                    echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
-                                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
-                                    echo "<td class=\"pcol4\">" . $row['name'] . "</td>";
-                                    echo "<td class=\"pcol5\">";
+                                    echo "<td id='p_usercount" . $row_count . "' class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
+                                    echo "<td id='p_playerid" . $row['playerID'] . "' class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row['playerID'] . "\"></input></td>";
+                                    echo "<td id='p_photo" . $row['playerID'] . "' class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+                                    echo "<td id='p_name" . $row['playerID'] . "' class=\"pcol4\">" . $row['name'] . "</td>";
+                                    echo "<td id='p_switch" . $row['playerID'] . "' class=\"pcol5\">";
                                             echo "<div class=\"onoffswitch\">";
                                                     echo "<input type=\"checkbox\" name=\"ooswitch" . $row_index . "\" class=\"onoffswitch-checkbox\" id=\"myonoff" . $row_index . "\" checked>";
                                                     echo "<label class=\"onoffswitch-label\" for=\"myonoff" . $row_index . "\">";
