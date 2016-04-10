@@ -96,7 +96,7 @@
             echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
             echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-            echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+            echo "<script src=\"https://code.jquery.com/jquery-2.0.0.min.js\"></script>";
             
             echo "<script type='text/javascript' src='js/spin.min.js'></script>";  
 
@@ -203,7 +203,7 @@
         echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
         echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-        echo "<script src=\"http://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+        echo "<script src=\"https://code.jquery.com/jquery-2.0.0.min.js\"></script>";
 
         echo "</head>";
 
