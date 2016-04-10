@@ -39,16 +39,16 @@
         var host_url = document.location.href; //Current url
 
         if (host_url.match(dev)) {
-            var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://dev-areyouin.azurewebsites.net/mobile");
+            var urls = new Array("http://dev-areyouin.azurewebsites.net/", "http://dev-areyouin.azurewebsites.net/mobile/");
         } else
             if (host_url.match(local)) {
-                var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile");
+                var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile/");
             } else
                 if (host_url.match(master)) {
-                    var urls = new Array("http://areyouin.azurewebsites.net/", "http://areyouin.azurewebsites.net/mobile");
+                    var urls = new Array("http://areyouin.azurewebsites.net/", "http://areyouin.azurewebsites.net/mobile/");
                 } else
                     if (host_url.match(realmaster)) {
-                        var urls = new Array("http://r-youin.com/", "http://r-youin.com/mobile");
+                        var urls = new Array("http://r-youin.com/", "http://r-youin.com/mobile/");
                     }
 
         var n = ref.match(urls[0]);
@@ -62,16 +62,16 @@
             if (r == true) {
                 //alert("here we are mobile direct referrer");
                 if (host_url.match(dev)) {
-                    window.location = "https://dev-areyouin.azurewebsites.net/mobile";
+                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/";
                 } else
                     if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile";
+                        window.location = "http://localhost:18502/mobile/";
                     } else
                         if (host_url.match(master)) {
-                            window.location = "https://areyouin.azurewebsites.net/mobile";
+                            window.location = "https://areyouin.azurewebsites.net/mobile/";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "https://r-youin.com/mobile";
+                                window.location = "https://r-youin.com/mobile/";
                             }
             }
             else {
@@ -80,7 +80,7 @@
         }
         else {
             //alert("here we are mobile redirect referrer");
-            window.location = "http://r-youin.com/mobile";
+            window.location = "https://r-youin.com/";
         }
     }
 </script>
