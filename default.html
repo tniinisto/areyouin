@@ -29,9 +29,9 @@
         var ref = document.referrer;
 
         //SITE SPECIFIC
-        var realmaster = "http://r-youin.com/";
-        var master = "http://areyouin.azurewebsites.net/";
-        var dev = "http://dev-areyouin.azurewebsites.net/";
+        var realmaster = "https://r-youin.com/";
+        var master = "https://areyouin.azurewebsites.net/";
+        var dev = "https://dev-areyouin.azurewebsites.net/";
         var local = "http://localhost:18502/"; //LOCAL testing
 
         var host_url = document.location.href; //Current url
@@ -60,16 +60,16 @@
             if (r == true) {
                 //alert("here we are mobile direct referrer");
                 if (host_url.match(dev)) {
-                    window.location = "http://dev-areyouin.azurewebsites.net/mobile";
+                    window.location = "https://dev-areyouin.azurewebsites.net/mobile";
                 } else
                     if (host_url.match(local)) {
                         window.location = "http://localhost:18502/mobile";
                     } else
                         if (host_url.match(master)) {
-                            window.location = "http://areyouin.azurewebsites.net/mobile";
+                            window.location = "https://areyouin.azurewebsites.net/mobile";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "http://r-youin.com/mobile";
+                                window.location = "https://r-youin.com/mobile";
                             }
             }
             else {

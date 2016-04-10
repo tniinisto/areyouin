@@ -115,7 +115,7 @@
                                     echo "<td valign=\"top\">";
                                               echo "<div>";
                                                 echo "<div class='chat-list-left'>";
-                                                    echo "<img width='50' height='50' src='http://areyouin.azurewebsites.net/images/" . $row['photourl'] . "'>";
+                                                    echo "<img width='50' height='50' src='https://areyouin.azurewebsites.net/images/" . $row['photourl'] . "'>";
                                                     echo "<br />";
                                                     echo "<div class='comment-name'>" . $row['name'] . "</div>";
                                                 echo "</div>";
