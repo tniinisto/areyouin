@@ -227,7 +227,7 @@
             $endtime = date("d.m.Y H:i", $time);
 
             $eventInfoArray = array(        
-                'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
+                'subject' => "New event for " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
                                  <div style='background: DimGrey;'>
                                       <div style='display: inline-block; float: right; padding-right: 5px;'>
