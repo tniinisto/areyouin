@@ -237,7 +237,7 @@
                                         <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>Event information</font>
                                       </div>
                                       <div style='display: inline-block; float: right; padding: 10px;'>
-                                        <font style='color: white;  ' size='2' face='Trebuchet MS'>Date</font>
+                                        <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
                                       </div>
                                       <br><br>
   
