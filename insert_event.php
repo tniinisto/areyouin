@@ -230,7 +230,7 @@
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
                                  <div style='background: DimGrey;'>
-                                      <div style='display: inline-block; float: right; padding: 10px;'>
+                                      <div style='display: inline-block; float: right; padding-right: 5px;'>
                                         <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
                                       </div>
 
