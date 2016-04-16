@@ -230,17 +230,17 @@
                 'subject' => "New game for team " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
                                  <div style='background: DimGrey;'>
-  
-                                      <br><br>
-                                      <img style='padding: 10px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
-                                      <div style='display: inline-block;'>  
-                                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>Event information</font>
-                                      </div>
                                       <div style='display: inline-block; float: right; padding: 10px;'>
                                         <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
                                       </div>
+
+                                      <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+
+                                      <div style='display: inline-block;'>  
+                                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
+                                      </div>
+
                                       <br>
-  
                                  </div>
 
                                 <p>	                               
