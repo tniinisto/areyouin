@@ -239,7 +239,7 @@
                                       <div style='display: inline-block; float: right; padding: 10px;'>
                                         <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
                                       </div>
-                                      <br><br>
+                                      <br>
   
                                  </div>
 
