@@ -234,7 +234,7 @@
                                         <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
                                       </div>
 
-                                      <img style='padding-right: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                      <img style='padding: 4px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
 
                                       <div style='display: inline-block;'>  
                                         <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
