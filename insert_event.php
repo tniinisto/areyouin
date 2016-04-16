@@ -232,7 +232,7 @@
                                  <div style='background: DimGrey;'>
   
                                       <br><br>
-                                      <img style='padding-left: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                      <img style='padding: 10px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
                                       <div style='display: inline-block;'>  
                                         <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>Event information</font>
                                       </div>
