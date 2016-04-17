@@ -252,11 +252,13 @@
                                 <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
 	                              </font>
                                 </ul>                                
-                                <p>
-	                                <font size='4' face='Trebuchet MS'>			
-	                                    Roll in at <a href='https://r-youin.com/'>R'YouIN</a> !
-	                                </font>
-                                </p>
+
+                                <div style='text-align: center; background: black; padding: 10px;'>
+                                <font size='4' face='Trebuchet MS' style='color: white;'>			
+                                    Roll in at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                                </font>
+                                </div>
+
                             </html>",
             );
             
