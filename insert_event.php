@@ -248,8 +248,8 @@
                                 <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
 	                              <li><span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
                                 " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
-                                   <li><span style='font-weight: bold;'>Starting:&nbsp</span><span style='color:blue'> " . $starttime . "    </span></li>
-                                   <li><span style='font-weight: bold;'>Ending:&nbsp</span><span style='color:blue'> " . $endtime . "</span></li>
+                                   <li><span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "    </span></li>
+                                   <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
 	                              </font>
                                 </ul>                                
 
