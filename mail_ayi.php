@@ -26,7 +26,7 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventInfo) {
         'subject' => $eventInfo[subject],
         'html' => $eventInfo[content],
         'text' => 'Testing text body txt',
-        'from' => 'RYouIN',
+        'from' => 'RYouIN@puonti.fi',
     );
 
     $request = $url.'api/mail.send.json';
