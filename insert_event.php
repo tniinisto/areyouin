@@ -230,10 +230,12 @@
                 'subject' => "New event for " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
 
-                                 <div style='background: black;'>
-                                    <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
-                                    <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
-                                 </div>
+                                <div style='background: black;'>
+                                   <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                   <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
+                                </div>
+
+                                <br>
 
                                 <ul style='list-style-type:disc'>
                                 <font size='3' face='Trebuchet MS'>                                       		
