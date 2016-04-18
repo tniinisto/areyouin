@@ -229,31 +229,23 @@
             $eventInfoArray = array(        
                 'subject' => "New event for " . $eventInfo['teamName'] . "",                 
                 'content' => "<html>             	
+
                                  <div style='background: black;'>
-                                      <div style='display: inline-block; float: right; padding-right: 5px;'>
-                                        <font style='color: white;  ' size='2' face='Trebuchet MS'>". date("d-m-Y") ."</font>
-                                      </div>
-
-                                      <img style='padding: 4px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
-
-                                      <div style='display: inline-block;'>  
-                                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
-                                      </div>
-
-                                      <br>
+                                    <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                    <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'>New event</font>
                                  </div>
 
                                 <ul style='list-style-type:disc'>
                                 <font size='3' face='Trebuchet MS'>                                       		
                                 <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
 	                              <li><span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
-                                " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
+                                    " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
                                    <li><span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "    </span></li>
                                    <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
 	                              </font>
                                 </ul>                                
 
-                                <div style='text-align: center; background: black; padding: 10px;'>
+                                <div style='text-align: center; background: black; padding: 15px;'>
                                 <font size='4' face='Trebuchet MS' style='color: white;'>			
                                     Roll in at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
                                 </font>
