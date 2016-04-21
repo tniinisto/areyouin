@@ -108,8 +108,10 @@
                 </html>",
             );
 
-            //Send the mail
-            sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
+            //Send the mail for totally new user
+             if($_GET['totallyNew'] == 0) {
+                sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
+             }
 
 
         $dbh = null;
