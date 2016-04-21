@@ -1,6 +1,7 @@
 <?php
     
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    include 'mail_ayi.php';
 
     session_start();
 
@@ -12,6 +13,8 @@
 
   	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+    $password = '';
           
     try {
         $result = 0;
@@ -19,11 +22,11 @@
         if($_GET['totallyNew'] == 0) { //Create new player, if the player is not already in another team
 
             //Create random password, TODO
-            
-            
+            $password = randomPassword();
+        
             //Insert new player
             $photourl = 'player7.png';
-            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl, password) VALUES (:nick, :mail, :first, :last,'" . $photourl ."', 'ca412a4244ea7f113cfeb6c10992f66a')";
+            $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl, password) VALUES (:nick, :mail, :first, :last,'" . $photourl ."', '" . md5($password) ."')";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
         
@@ -69,7 +72,46 @@
         $result1 = $stmt1->execute();                        
 
         //Send mail
+        $newuser_mail = array(        
+                'subject' => "R'YouIN user login information",                 
+                'content' => "
+                
+                  <html>             	
 
+                    <div style='background: black;'>
+                        <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                    </div>
+
+                    <br>
+
+                    <ul style='list-style-type:disc'>
+                    <font size='3' face='Trebuchet MS'>                                       		
+	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
+                        <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+	                    </font>
+                    </ul>                                
+
+                    <br>
+
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    
+                    <br>
+                    <br>
+
+                    <div style='text-align: center; background: black; padding: 15px;'>
+                    <font size='4' face='Trebuchet MS' style='color: white;'>			
+                        Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                    </font>
+                    </div>
+
+                </html>",
+            );
+
+            //Send the mail for totally new user
+             if($_GET['totallyNew'] == 0) {
+                sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
+             }
 
 
         $dbh = null;
@@ -79,6 +121,18 @@
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
     
+
+    //Random password
+    function randomPassword() {
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 6; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
+    }
 ?>
 
 
