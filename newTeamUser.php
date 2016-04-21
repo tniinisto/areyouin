@@ -80,14 +80,13 @@
 
                     <div style='background: black;'>
                         <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Login information</font>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
                     </div>
 
                     <br>
 
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
-                    <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
 	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
                         <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
 	                    </font>
@@ -97,6 +96,7 @@
 
                     <font style='color: black; padding-left: 5px;' size='4' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
+                    <br>
                     <br>
 
                     <div style='text-align: center; background: black; padding: 15px;'>
