@@ -88,6 +88,7 @@
                     <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Welcome as a new R'YouIN user!</font>
                     
                     <br>
+                    <br>
 
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
