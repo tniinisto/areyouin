@@ -85,6 +85,10 @@
 
                     <br>
 
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Welcome as a new R'YouIN user!</font>
+                    
+                    <br>
+
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
 	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
