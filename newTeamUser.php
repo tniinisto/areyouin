@@ -94,7 +94,7 @@
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='4' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
                     <br>
                     <br>
