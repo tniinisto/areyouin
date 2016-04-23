@@ -224,9 +224,9 @@
 
                     echo "<br>";
 
-                    //Location section///////////////////////////////////////////////////////////////////////////
+                    //Locations section///////////////////////////////////////////////////////////////////////////
                     echo "<fieldset id='location_set' style='padding:4px;'>";
-                        echo "<legend style='text-align: left;'><h2>Location</h2></legend>";
+                        echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
