@@ -235,9 +235,9 @@
 
                         echo "<div id='locations_list' class='scrollit2'>";
 
-                            echo "<h2>Test location header...</h2>";
+                            //echo "<h2>Test location header...</h3>";
 
-                            echo "<table border='1' id='locations_table' class=''>";
+                            echo "<table border='0' id='locations_table' class=''>";
                         
                                 mysql_data_seek($result, 0);
                                 $index_locations = 1000;
@@ -251,7 +251,7 @@
                                           echo "<td>";
                                             echo "<div class='edit-listinfo'>";
 
-                                                echo "Location name: " . $row_locations[name] . "";
+                                                echo "" . $row_locations[name] . "";
                                                 echo "<br />";
 
                                             echo "</div>";
@@ -303,7 +303,7 @@
                             echo "</table>";
 
                         echo "</div>"; //Scrollit, end of locations list//////////////////////////////
-
+                        echo "</br>";
                         
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
