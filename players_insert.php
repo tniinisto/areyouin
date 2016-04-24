@@ -265,9 +265,11 @@
                                             echo "</div>";
                                           echo "</td>";
 
-                                          echo "<td id='showlocation'". $index_locations .">
-                                            <a href='#'><img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img></a>
-                                          </td>";
+                                          //echo "<td id='showlocation'". $index_locations ." style='padding-right: 4px;'>
+                                          //  <a href='#'><img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img></a>
+                                          //</td>";
+
+                                          echo "<input type='button' class='' value='Show on map' onclick='placeMarker(". $row_locations[position] . ")'/>";
 
                                           echo "<td id='editrow'". $index_locations .">
                                             <a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a>
