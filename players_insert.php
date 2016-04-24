@@ -233,7 +233,7 @@
                         $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "'";        
                         $result_location = mysql_query($sql_location);
 
-                        echo "<div id='locations_list' class='scrollit2'>";
+                        //echo "<div id='locations_list' class='scrollit2'>";
 
                             //echo "<h2>Test location header...</h3>";
 
@@ -312,7 +312,7 @@
 
                             echo "</table>";
 
-                        echo "</div>"; //Scrollit, end of locations list//////////////////////////////
+                        //echo "</div>"; //Scrollit, end of locations list//////////////////////////////
                         echo "</br>";
                         
                         echo "<div id='Location_map' style='height: 400px;'></div>";
