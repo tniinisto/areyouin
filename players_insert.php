@@ -247,23 +247,14 @@
                                                                 
                                         echo "<tr>";
 
-                                          //Location name///////////
+                                          
                                           echo "<td>";
-                                            echo "<div class=''>";
-
+                                            echo "<div class='edit-listinfo'>";
+                                                //Location name
                                                 echo "" . $row_locations[name] . "";
                                                 echo "<br />";
-
-                                            echo "</div>";
-                                          echo "</td>";                                  
-
-                                          //Posiont
-                                          echo "<td>";
-                                            echo "<div class=''>";
-
+                                                //Position
                                                 echo "" . $row_locations[position] . "";
-                                                echo "<br />";
-
                                             echo "</div>";
                                           echo "</td>";  
 
