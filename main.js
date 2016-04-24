@@ -1137,6 +1137,8 @@ function placeMarker(lon, lat) {
         position: myLatlng, 
         map: map
     });
+
+    marker.setMap(map);
 }
 
 //Message icon, update latest message time to db/////////////////////////////////////////////
