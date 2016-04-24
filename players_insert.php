@@ -224,10 +224,86 @@
 
                     echo "<br>";
 
-                    //Locations section///////////////////////////////////////////////////////////////////////////
+                    //Locations section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    $sql_location="SELECT *
+                           FROM location WHERE teamID = '" . $teamid . "";
+        
+                    $result_location = mysql_query($sql_location);
+
+                    
                     echo "<fieldset id='location_set' style='padding:4px;'>";
                         echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
+                         //Locations list
+                         echo "<div id='locations_list' class='scrollit2'>";
+
+                            echo "<table border='0' id='locations_table' class='usertable'";
+                        
+                                mysql_data_seek($result, 0);
+                                $index_locations = 1000;
+                                while($row_locations = mysql_fetch_array($result_location))
+                                {
+                                                                
+                                        echo "<tr>";
+
+                                            //Locations row///////////
+                                          echo "<td>";
+                                            echo "<div class='edit-listinfo'>";
+
+                                                echo "Location name" . $row_locations[name] . "";
+                                                echo "<br />";
+
+                                            echo "</div>";
+                                          echo "</td>";                                  
+
+                                            //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
+                                            echo "<td id='editrow'". $index_locations ."><a href='#openModalEdit". $index_locations . "'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        
+                                            echo "<td style='display: none;'> teamID: " . $row_locations[teamID] . "</td>";
+                                        
+                                        echo "</tr>";
+               
+                                        //Modal dialog for location information editing///////////////
+                                        echo "<div id='openModalEdit". $index_locations . "' class='modalDialog'>";
+	                                        echo "<div>";
+		                                        echo "<a id='closer_edit". $index_locations . "' href='#close' title='Close' class='close'>X</a>";
+
+
+                                                echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                                    echo "<p style='margin: 10px;'>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit location</label>";
+                                                    echo "</p>";
+
+                                                    echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
+                                                    echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . " required style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    echo "</p>";
+
+                                               
+                                                    echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                                        echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
+                                                            onclick=''/>";
+
+                                                        echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                                        onclick=''/>";
+
+                                                    echo "</div>";
+
+		                                        echo "</form>";
+
+                                        //Modal dialog for player information editing//////////////////               
+                            
+                                        $index_locations++;
+                                }
+
+                            echo "</table>";
+
+                        echo "</div>"; //Scrollit, end of locations list//////////////////////////////
+
+                        
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
@@ -239,7 +315,9 @@
                         //echo "</form>";
                    echo "</fieldset>";
 
-                    //Location section///////////////////////////////////////////////////////////////////////////
+                    //Location section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
                 echo "</div>";
                 //Settings page///////////////////////////////////////////////////////////////////////////
