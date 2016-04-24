@@ -235,6 +235,7 @@
 
 
                         echo "<div id='locations_list' class='scrollit2'>";
+                            echo "<h2>Test location header...</h2>";
 
                          //   echo "<table border='0' id='locations_table' class='usertable'";
                         //
