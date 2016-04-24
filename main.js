@@ -1134,8 +1134,7 @@ function placeMarker(lon, lat) {
     var myLatlng = new google.maps.LatLng(lat,lon);
     
     var marker = new google.maps.Marker({
-        position: myLatlng, 
-        map: map
+        position: myLatlng
     });
 
     marker.setMap(map);
