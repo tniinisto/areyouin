@@ -1129,9 +1129,12 @@ var nlat = 0, nlon = 0;
 
 function placeMarker(lon, lat) {
 
-    var location = '{lat: ' + lat + ', lng: ' + lon + '}';
+    //var location = '{lat: ' + lat + ', lng: ' + lon + '}';
+    
+    var myLatlng = new google.maps.LatLng(lat,lon);
+    
     var marker = new google.maps.Marker({
-        position: location, 
+        position: myLatlng, 
         map: map
     });
 }
