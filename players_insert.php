@@ -244,12 +244,16 @@
 
                                 while($row_locations = mysql_fetch_array($result_location))
                                 {
+
                                                                 
                                         echo "<tr>";
 
                                           echo "<td>";
                                             echo "<div class='edit-listinfo'>";                                                
                                                 
+                                                //Call javacript to add markers on Map
+                                                echo "<script> placeMarker(". $row_locations[position] . "); </script>";
+
                                                 //Location name
                                                 echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
                                                     echo "" . $row_locations[name] . "";
@@ -257,6 +261,7 @@
 
                                                 //Position
                                                 echo "" . $row_locations[position] . "";
+
                                             echo "</div>";
                                           echo "</td>";
 
