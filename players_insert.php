@@ -247,12 +247,14 @@
                                                                 
                                         echo "<tr>";
 
-                                          
                                           echo "<td>";
-                                            echo "<div class='edit-listinfo'>";
+                                            echo "<div class='edit-listinfo'>";                                                
+                                                
                                                 //Location name
-                                                echo "" . $row_locations[name] . "";
-                                                echo "<br />";
+                                                echo "<div style='font-weight: bold;'>";
+                                                    echo "" . $row_locations[name] . "";
+                                                echo "</div>";
+
                                                 //Position
                                                 echo "" . $row_locations[position] . "";
                                             echo "</div>";
