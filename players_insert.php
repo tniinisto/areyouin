@@ -265,8 +265,8 @@
                                             echo "</div>";
                                           echo "</td>";
 
-                                          echo "<td id='showlocation'". $index_locations ." style='padding-right: 4px;'>
-                                            <a href='#'><img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img></a>
+                                          echo "<td id='showlocation'". $index_locations .">
+                                            <a href='#'><img id='showLocation' style='padding-right: 5px;' width='35' height='35' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img></a>
                                           </td>";
 
                                           //echo "<input type='button' class='' value='Show on map' onclick='placeMarker(". $row_locations[position] . ")'/>";
