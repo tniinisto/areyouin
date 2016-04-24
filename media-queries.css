@@ -332,23 +332,24 @@ screens smaller or equal to 480
     .atable2 {
         width: 80%;
     }
-    
+
     .uibutton {
-      margin-left:30px;
+        margin-left: 30px;
     }
 
     .uibutton_event {
-      margin-left:44px;
+        margin-left: 44px;
     }
+
     .comment-image {
-      width: 30px;
-      height: 30px;
+        width: 30px;
+        height: 30px;
     }
 
     .comment-name {
         width: 50px;
     }
-    
+
     #admin_content_id {
         width: 97%;
     }
@@ -356,7 +357,7 @@ screens smaller or equal to 480
     .modalDialog {
         top: -120px;
     }
-    
+
     .event_article.clearfix {
         padding: 1px 5px 18px 5px;
     }
@@ -365,7 +366,7 @@ screens smaller or equal to 480
         width: 96%;
     }
 
-   .divtable {
+    .divtable {
         margin-right: 0px;
     }
 
@@ -377,10 +378,10 @@ screens smaller or equal to 480
         display: none;
     }
 
-    
+
     #userlogin1 {
         /*display: none;*/
-        padding-top: 10px;                
+        padding-top: 10px;
     }
 
     #main-nav {
@@ -390,9 +391,9 @@ screens smaller or equal to 480
     /*chat*/
     .scrollit {
         height: 340px;
-        overflow-x: hidden;        
+        overflow-x: hidden;
         overflow-y: scroll;
-        webkit-overflow-scrolling: touch;    
+        webkit-overflow-scrolling: touch;
     }
 
     .comment-text {
@@ -404,7 +405,7 @@ screens smaller or equal to 480
         height: 40px;
     }
 
-    .commentArea1 {    
+    .commentArea1 {
         background-color: transparent;
         border: 0;
         color: white;
@@ -422,12 +423,12 @@ screens smaller or equal to 480
         word-wrap: break-word;
         width: 80%;
         padding-left: 10px;
-        padding-bottom: 10px;    
+        padding-bottom: 10px;
     }
 
     .chatrow:nth-of-type(odd) {
         /*background-color:rgba(0,0,0,.5);*/
-        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);  
+        background: linear-gradient(-90deg, #b9b9b9, #6a6a6a);
     }
 
     .chatrow:nth-of-type(even) {
@@ -438,7 +439,7 @@ screens smaller or equal to 480
     #comment_input {
         width: 98%;
         resize: none;
-        height: 80px;    
+        height: 80px;
     }
 
     #comments_table {
@@ -447,7 +448,7 @@ screens smaller or equal to 480
 
     #comments_table td:first-child {
         padding: 5px 0px 0px 5px;
-        line-height: 15px;  
+        line-height: 15px;
     }
 
     #comments_table td:nth-child(2) {
@@ -455,7 +456,7 @@ screens smaller or equal to 480
     }
 
     #comments_table td {
-        padding: 0px 0px 0px 10px;      
+        padding: 0px 0px 0px 10px;
     }
 
     .chat-list-left {
@@ -463,75 +464,75 @@ screens smaller or equal to 480
         width: 55px;
     }
 
-	/*.SSEsupport {
+    /*.SSEsupport {
 		HTMLElementObject.disabled: true;
 	}*/
-	
-	/* disable webkit text size adjust (for iPhone) */
-	html {
-		-webkit-text-size-adjust: none;
-	}
 
-	body {
-		padding: 0 5px 0 2px;
-	}
-	
-	article {
-		/*padding: 3% 4%;*/
-		padding: 6% 2% 10% 2%;
-		/*margin: 0 30px 10px 0;*/
-	}
-	
-	.sidebar {
-		display: none;
-	}	
-	
-	td.col3 {
-		width: 18%;
-	}
+    /* disable webkit text size adjust (for iPhone) */
+    html {
+        -webkit-text-size-adjust: none;
+    }
+
+    body {
+        padding: 0 5px 0 2px;
+    }
+
+    article {
+        /*padding: 3% 4%;*/
+        padding: 6% 2% 10% 2%;
+        /*margin: 0 30px 10px 0;*/
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    td.col3 {
+        width: 18%;
+    }
 
     /*pcol - Admin screen*/
     td.pcol3 {
-	    width: 10px;
+        width: 10px;
         display: none;
     }
 
     td.pcol4 {
-	    font-size: small
+        font-size: small;
     }
 
     td.pcol5 {
-	    width: 10px;
+        width: 10px;
     }
 
     #pickall {
         font-size: small;
     }
 
-	td.col4 {
-		width: 51%;
-	}
+    td.col4 {
+        width: 51%;
+    }
 
-	td.col5 {
-		width: 26%;
-		text-align: center;
-	}
+    td.col5 {
+        width: 26%;
+        text-align: center;
+    }
 
-	td.col6 {
-		display: none;
-	}	
-	
-	/*#site-logo font{
+    td.col6 {
+        display: none;
+    }
+
+    /*#site-logo font{
 		font-size: 90%;
 	}*/
-	
-	/* main nav */
-	#main-nav a {
-		font-size: 90%;
-		padding: 10px 8px;
-	}
-	
-	/*#loginsite-logo font {
+
+    /* main nav */
+    #main-nav a {
+        font-size: 90%;
+        padding: 10px 8px;
+    }
+
+    /*#loginsite-logo font {
 		font-size: 30px;
 	}
 	
@@ -541,72 +542,71 @@ screens smaller or equal to 480
         margin-left:auto;
         margin-right:auto;
 	}*/
-	
-	/* login form */
-	#loginform, #loginfailfs {
-		/*position: absolute;
+
+    /* login form */
+    #loginform, #loginfailfs {
+        /*position: absolute;
         margin-left:auto;
         margin-right:auto;         
 		top: 70px;
 		left: 40px;
 		z-index: 100;*/
-		height: auto;
-		width: 215px;
+        height: auto;
+        width: 215px;
         padding: 5px;
-	}
-
-    #loginform input {
-      font-size:12px;
-      width:175px;
-      min-height:20px;
-      display:block;
-      margin-bottom:15px;
-      margin-top:5px;
     }
 
-	/*#login, #password {
+    #loginform input {
+        font-size: 12px;
+        width: 175px;
+        min-height: 20px;
+        display: block;
+        margin-bottom: 15px;
+        margin-top: 5px;
+    }
+
+    /*#login, #password {
 		width: 100px;
 	}
 
 	#loginbutton  {
 		width: 150px;
 	}*/
-	
-	/*#teamradio {
+
+    /*#teamradio {
 		position: absolute;
 		width: 150px;
 	}*/
-	
-	.radioclass {
-		width: 30px;
-		height: 30px;
-	}
-	
-	h6 {
-		font-size: 1em;
-		color: white;
-		line-height: 1em;
-		margin: 0 0 1.2em;	
-	}
-	
-	#submitgame, .button {
-	  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	  border:1px solid #ccc;
-	  font-size:20px;
-	  width:200px;
-	  min-height:30px;
-	  display:block;
-	  margin-bottom:5px;
-	  margin-top:5px;
-	  margin-left:45px;
-	  outline: none;
 
-	  -webkit-border-radius:5px;
-	  -moz-border-radius:5px;
-	  -o-border-radius:5px;
-	  -ms-border-radius:5px;
-	  border-radius:5px;
-	}
+    .radioclass {
+        width: 30px;
+        height: 30px;
+    }
+
+    h6 {
+        font-size: 1em;
+        color: white;
+        line-height: 1em;
+        margin: 0 0 1.2em;
+    }
+
+    #submitgame, .button {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        width: 200px;
+        min-height: 30px;
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        margin-left: 45px;
+        outline: none;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        -ms-border-radius: 5px;
+        border-radius: 5px;
+    }
 
     #update_event {
         /*height: 35px;
@@ -615,61 +615,61 @@ screens smaller or equal to 480
         left: -14px;
         /*top: 4px;*/
         z-index: 1;
-        margin-top: -70%;        
+        margin-top: -70%;
     }
 
-th.col31 {
-	width: 40%;
-    /*height: 40%;*/
-    padding: 5px 0px 0px 6px;
-    border-collapse: collapse;
-    border: none;
-    /* rounded corner */
-	/*-webkit-border-radius: 6px;
+    th.col31 {
+        width: 40%;
+        /*height: 40%;*/
+        padding: 5px 0px 0px 6px;
+        border-collapse: collapse;
+        border: none;
+        /* rounded corner */
+        /*-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
-	border-radius: 6px;*/		
-}
+	border-radius: 6px;*/
+    }
 
-th.col41 {
-	width: 78%;
-    border-collapse: collapse;
-    border: none;
-    /*background-color: blue;*/
+    th.col41 {
+        width: 78%;
+        border-collapse: collapse;
+        border: none;
+        /*background-color: blue;*/
         /* rounded corner */
-	/*-webkit-border-radius: 0px;
+        /*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
-	border-radius: 0px;*/	
-}
+	border-radius: 0px;*/
+    }
 
-th.col51 {
-	width: 9%;
-	text-align: right;
-    border-collapse: collapse;
-    border: none;
+    th.col51 {
+        width: 9%;
+        text-align: right;
+        border-collapse: collapse;
+        border: none;
         /* rounded corner */
-	/*-webkit-border-radius: 0px;
+        /*-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
-	border-radius: 0px;*/	
-}
+	border-radius: 0px;*/
+    }
 
-.spin {
-    position: relative;
-    padding: 20px;
-}
+    .spin {
+        position: relative;
+        padding: 20px;
+    }
 
-/************************************************************************************
+    /************************************************************************************
 User list, edit,...
 *************************************************************************************/
-.edit-listinfo {
-    display: inline-block;
-    width: 130px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    float: left;
-    padding-right: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* border: 2px solid blue; */
+    .edit-listinfo {
+        display: inline-block;
+        width: 130px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        float: left;
+        padding-right: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
