@@ -260,12 +260,11 @@
                                             echo "</div>";
                                           echo "</td>";
 
-                                          echo "<td id='editrow'". $index_locations ."><a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a></td>";
-
-                                            //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
-                                            //echo "<td id='editrow'". $index_locations ."><a href='#openModalEdit". $index_locations . "'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                          echo "<td id='editrow'". $index_locations .">
+                                            <a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a>
+                                          </td>";
                                         
-                                            //echo "<td style='display: none;'> teamID: " . $row_locations[teamID] . "</td>";
+                                          //echo "<td style='display: none;'> teamID: " . $row_locations[teamID] . "</td>";
                                         
                                         echo "</tr>";
                
@@ -283,7 +282,8 @@
 
                                                     echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
-                                                    echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . " required style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
+                                                           required style='margin-bottom: 15px; width: 170px;'></input>";
                                                     echo "</p>";
 
                                                
