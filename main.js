@@ -1140,6 +1140,10 @@ function placeMarker(lat, lon) {
     marker.setMap(map);
 }
 
+function removeMarker() {
+    marker.setMap(null);   
+}
+
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
 
