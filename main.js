@@ -1138,6 +1138,7 @@ function placeMarker(lat, lon) {
     });
 
     marker.setMap(map);
+    map.panTo(marker.getPosition());
 }
 
 function removeMarker() {
