@@ -251,7 +251,7 @@
                                             echo "<div class='edit-listinfo'>";                                                
                                                 
                                                 //Location name
-                                                echo "<div style='font-weight: bold;'>";
+                                                echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
                                                     echo "" . $row_locations[name] . "";
                                                 echo "</div>";
 
