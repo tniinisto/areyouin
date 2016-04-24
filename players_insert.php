@@ -247,7 +247,7 @@
                                                                 
                                         echo "<tr>";
 
-                                            //Locations row///////////
+                                          //Location name///////////
                                           echo "<td>";
                                             echo "<div class='edit-listinfo'>";
 
@@ -256,6 +256,16 @@
 
                                             echo "</div>";
                                           echo "</td>";                                  
+
+                                          //Posiont
+                                          echo "<td>";
+                                            echo "<div class='edit-listinfo'>";
+
+                                                echo "" . $row_locations[position] . "";
+                                                echo "<br />";
+
+                                            echo "</div>";
+                                          echo "</td>";  
 
                                             //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
                                             //echo "<td id='editrow'". $index_locations ."><a href='#openModalEdit". $index_locations . "'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
