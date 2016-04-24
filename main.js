@@ -1060,6 +1060,7 @@ function getWeather() {
 
 
 //Location, google maps////////////////////////////////////////////////////////////////////////////////////
+var map;
 
 function initializeMap() {
 
@@ -1101,7 +1102,7 @@ var nlat = 0, nlon = 0;
         }
     }
 
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions);
 
     //Touch functionality for Maps//
     function MapTouch() {
@@ -1124,16 +1125,14 @@ var nlat = 0, nlon = 0;
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
 
-
-    function placeMarker(location) {
-        var marker = new google.maps.Marker({
-            position: location, 
-            map: map
-        });
-    }
-
 }
 
+function placeMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
+}
 
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
