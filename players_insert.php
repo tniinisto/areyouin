@@ -266,7 +266,7 @@
                                           echo "</td>";
 
                                           echo "<td id='showlocation'". $index_locations .">
-                                            <img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img>
+                                            <a href='#'><img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img></a>
                                           </td>";
 
                                           echo "<td id='editrow'". $index_locations .">
