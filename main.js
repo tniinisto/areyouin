@@ -1120,11 +1120,18 @@ var nlat = 0, nlon = 0;
     });
 
     google.maps.event.addListener(map, 'click', function(event) {
-       placeMarker(event.latLng);
+       placeMarker1(event.latLng);
        alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
     });
 
+}
+
+function placeMarker1(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
 }
 
 function placeMarker(lat, lon) {
