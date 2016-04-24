@@ -230,7 +230,7 @@
                         echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
                          //Locations list sql
-                        $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "";        
+                        $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "'";        
                         $result_location = mysql_query($sql_location);
 
                         echo "<div id='locations_list' class='scrollit2'>";
