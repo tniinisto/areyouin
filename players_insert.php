@@ -234,7 +234,7 @@
                         //$result_location = mysql_query($sql_location);
 
 
-                         //echo "<div id='locations_list' class='scrollit2'>";
+                        echo "<div id='locations_list' class='scrollit2'>";
 
                          //   echo "<table border='0' id='locations_table' class='usertable'";
                         //
@@ -299,7 +299,7 @@
 
                         //    echo "</table>";
 
-                        //echo "</div>"; //Scrollit, end of locations list//////////////////////////////
+                        echo "</div>"; //Scrollit, end of locations list//////////////////////////////
 
                         
                         echo "<div id='Location_map' style='height: 400px;'></div>";
