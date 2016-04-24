@@ -249,10 +249,7 @@
                                         echo "<tr>";
 
                                           echo "<td>";
-                                            echo "<div class='edit-listinfo'>";                                                
-                                                
-                                                //Call javacript to add markers on Map
-                                                echo "<script> placeMarker(". $row_locations[position] . "); </script>";
+                                            echo "<div class='edit-listinfo'>";                                                                                                
 
                                                 //Location name
                                                 echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
@@ -262,8 +259,15 @@
                                                 //Position
                                                 echo "" . $row_locations[position] . "";
 
+                                                //Call javacript to add markers on Map
+                                                echo "<script> placeMarker(". $row_locations[position] . "); </script>";
+
                                             echo "</div>";
                                           echo "</td>";
+
+                                          echo "<td id='showlocation'". $index_locations .">
+                                            <img id='showLocation' width='40' height='40' src='images/GoogleMapsIcon.png' onclick='placeMarker(". $row_locations[position] . ")'></img>
+                                          </td>";
 
                                           echo "<td id='editrow'". $index_locations .">
                                             <a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a>
