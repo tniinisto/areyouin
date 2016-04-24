@@ -269,7 +269,8 @@
                                           list($lon, $lat) = split('[,]', $position);
 
                                           echo "<td id='showlocation'". $index_locations .">
-                                            <a href='#'><img id='showLocation' style='padding-right: 15px;' width='40' height='40' src='images/maps_icon.jpg' onclick='placeMarker(". $lon . "," . $lat .")'></img></a>
+                                            <a href='#'><img id='showLocation' style='padding-right: 15px;' width='40' height='40' src='images/maps_icon.jpg'
+                                            onclick='placeMarker(". $lon . "," . $lat ."," . $row_locations[name] . ")'></img></a>
                                           </td>";
 
                                           //echo "<input type='button' class='' value='Show on map' onclick='placeMarker(". $row_locations[position] . ")'/>";

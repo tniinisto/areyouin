@@ -1127,14 +1127,15 @@ var nlat = 0, nlon = 0;
 
 }
 
-function placeMarker(lat, lon) {
+function placeMarker(lat, lon, name) {
 
     //var location = '{lat: ' + lat + ', lng: ' + lon + '}';
     
     var myLatlng = new google.maps.LatLng(lat,lon);
     
     var marker = new google.maps.Marker({
-        position: myLatlng
+        position: myLatlng,
+        title: name
     });
 
     marker.setMap(map);
