@@ -237,7 +237,7 @@
 
                             //echo "<h2>Test location header...</h3>";
 
-                            echo "<table border='0' id='locations_table' class=''>";
+                            echo "<table border='0' id='locations_table' class='usertable'>";
                         
                                 mysql_data_seek($result, 0);
                                 $index_locations = 1000;
