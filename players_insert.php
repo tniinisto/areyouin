@@ -284,11 +284,11 @@
                                                     
                                                         echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
                                                         echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
-                                                               required style='margin-bottom: 15px; width: 170px; readonly'></input>";
+                                                               style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                                         echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
                                                         echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
-                                                               required style='margin-bottom: 15px; width: 170px;' readonly ></input>";
+                                                               style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                                     echo "</p>";
 
