@@ -249,7 +249,7 @@
 
                                           //Location name///////////
                                           echo "<td>";
-                                            echo "<div class='edit-listinfo'>";
+                                            echo "<div class=''>";
 
                                                 echo "" . $row_locations[name] . "";
                                                 echo "<br />";
@@ -259,7 +259,7 @@
 
                                           //Posiont
                                           echo "<td>";
-                                            echo "<div class='edit-listinfo'>";
+                                            echo "<div class=''>";
 
                                                 echo "" . $row_locations[position] . "";
                                                 echo "<br />";
