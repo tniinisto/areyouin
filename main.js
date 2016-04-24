@@ -1127,7 +1127,7 @@ var nlat = 0, nlon = 0;
 
 }
 
-function placeMarker(lon, lat) {
+function placeMarker(lat, lon) {
 
     //var location = '{lat: ' + lat + ', lng: ' + lon + '}';
     
