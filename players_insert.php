@@ -312,7 +312,7 @@
                                                     
                                                     echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                                echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch". $index_locations . "'>";					            
-                                                        echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index . "' onClick=''>";
+                                                        echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
 						                                    echo "<div class=\"onoffswitch-switch\"></div>";
 						                                echo "</label>";
@@ -322,7 +322,7 @@
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
-                                                        echo "<input type='button' class='dialog_button' style='float: left;' value='Save'
+                                                        echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
                                                         onclick=''/>";
 
                                                         echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
