@@ -1126,7 +1126,7 @@ var nlat = 0, nlon = 0;
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
 
        //Open new modal dialog with position info
-       var url = window.location.href + '#openModalEditNewLocation'
+       var url = window.location.href + 'openModalEditNewLocation'
        location.replace(url);
     });
 
