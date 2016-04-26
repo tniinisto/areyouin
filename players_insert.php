@@ -352,7 +352,7 @@
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
                                         echo "<p style='margin: 10px;'>";
-                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Location</label>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>New location</label>";
                                         echo "</p>";
 
                                         echo "<p style='margin: 0px; padding-top: 10px;'>";
