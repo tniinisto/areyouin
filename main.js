@@ -1130,7 +1130,7 @@ var nlat = 0, nlon = 0;
        var url = window.location.href + 'openModalEditNewLocation'
        location.replace(url);
 
-       document.getElementById("dialog_location_name_new").value = "";       
+       document.getElementById("dialog_location_name_new").value = "test";       
        document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);
 
     });
