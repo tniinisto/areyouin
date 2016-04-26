@@ -439,7 +439,7 @@
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
                                         echo "<br>";
-                                        echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>User is already a team member!</label>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%;'>User is already a team member!</label>";
                                         echo "</p>";
 
                                         //PlayerID, hidden
