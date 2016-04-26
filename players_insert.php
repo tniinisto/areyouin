@@ -286,7 +286,7 @@
                                         //Modal dialog for location information editing///////////////
                                         echo "<div id='openModalEdit". $index_locations . "' class='modalDialog'>";
 	                                        echo "<div>";
-		                                        echo "<a id='closer_edit". $index_locations . "' href='#close' title='Close' class='close'>X</a>";
+		                                        echo "<a id='closer_edit". $index_locations . "' href='#' title='Close' class='close'>X</a>";
 
 
                                                 echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
@@ -347,7 +347,7 @@
                             //Modal dialog for new location information///////////////
                             echo "<div id='openModalEditNewLocation' class='modalDialog'>";
 	                            echo "<div>";
-		                            echo "<a id='closer_newLocation' href='#close' title='Close' class='close' onclick='clearModalFormUrl();'>X</a>";
+		                            echo "<a id='closer_newLocation' href='#' title='Close' class='close' onclick='clearModalFormUrl();'>X</a>";
 
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
@@ -435,7 +435,7 @@
                             echo "<div id='openModal_new' class='modalDialog'>";
 	                            echo "<div>";
 
-		                            echo "<a id='closer' href='#close' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
+		                            echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
                                     echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
 
@@ -586,7 +586,7 @@
                                     //Modal dialog for player information editing///////////////
                                     echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
 	                                    echo "<div>";
-		                                    echo "<a id='closer_edit". $index . "' href='#close' title='Close' class='close'>X</a>";
+		                                    echo "<a id='closer_edit". $index . "' href='#' title='Close' class='close'>X</a>";
 
 
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";

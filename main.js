@@ -1138,11 +1138,10 @@ var nlat = 0, nlon = 0;
 }
 
 function clearModalFormUrl() {
-
+    //window.location.replace('');
     var url = window.location.href;    
     url.substring(0,url.indexOf("#"));
     location.replace(url);
-
 }
 
 function placeMarker1(location) {
