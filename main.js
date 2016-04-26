@@ -1135,8 +1135,6 @@ function placeMarker1(location) {
 }
 
 function placeMarker(lat, lon) {
-
-    //var location = '{lat: ' + lat + ', lng: ' + lon + '}';
     
     var myLatlng = new google.maps.LatLng(lat,lon);
     
@@ -1154,6 +1152,9 @@ function placeMarker(lat, lon) {
 
     //Move to marker on map
     map.panTo(marker.getPosition());
+
+
+
 }
 
 function removeMarker() {
