@@ -347,7 +347,7 @@
                             //Modal dialog for new location information///////////////
                             echo "<div id='openModalEditNewLocation' class='modalDialog'>";
 	                            echo "<div>";
-		                            echo "<a id='closer_newLocation' href='#' title='Close' class='close' onclick='clearModalFormUrl();'>X</a>";
+		                            echo "<a id='closer_newLocation' href='#' title='Close' class='close'>X</a>";
 
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
@@ -359,7 +359,7 @@
                                                     
                                             echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
                                             echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
-                                                    style='margin-bottom: 15px; width: 170px;'></input>";
+                                                    style='margin-bottom: 15px; width: 170px; required'></input>";
                                                     
                                             echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
                                             echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
