@@ -1139,7 +1139,7 @@ var nlat = 0, nlon = 0;
 
 function clearModalFormUrl() {
 
-    var url = window.location.href    
+    var url = window.location.href;    
     url.substring(0,url.indexOf("#"));
     location.replace(url);
 
