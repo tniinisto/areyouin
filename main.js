@@ -1139,12 +1139,9 @@ var nlat = 0, nlon = 0;
 
 function clearModalFormUrl() {
 
- setTimeout(function () {
     var url = window.location.href;    
     url.substring(0,url.indexOf("#"));
     location.replace(url);
-
-    }, 50); // 50 m-seconds
 
 }
 
