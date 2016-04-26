@@ -1122,13 +1122,13 @@ var nlat = 0, nlon = 0;
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker1(event.latLng);
        
-       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
-        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+       //alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+       // ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
 
        //Open new modal dialog with position info///////////////////////////////////
-       document.getElementById("dialog_location_name_new").value = "";       
-       document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);       
-
+       document.getElementById("dialog_location_name_new").text = "";       
+       document.getElementById("dialog_location_pos_new").text =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);       
+       
        var url = window.location.href + 'openModalEditNewLocation'
        location.replace(url);
     });
