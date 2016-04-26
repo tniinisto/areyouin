@@ -347,8 +347,7 @@
                             //Modal dialog for new location information///////////////
                             echo "<div id='openModalEditNewLocation' class='modalDialog'>";
 	                            echo "<div>";
-		                            echo "<a id='closer_newLocation' href='#close' title='Close' class='close'>X</a>";
-
+		                            echo "<a id='closer_newLocation' href='#close' title='Close' class='close' onclick='clearModalFormUrl()'>X</a>";
 
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
