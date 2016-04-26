@@ -382,10 +382,7 @@
                                         //Buttons                                               
                                         echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
-                                            echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
-                                            onclick=''/>";
-
-                                            echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                            echo "<input type='button' class='dialog_button' style='float: center;' value='Save'
                                             onclick=''/>";
 
                                         echo "</div>";
