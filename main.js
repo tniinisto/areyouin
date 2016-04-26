@@ -1127,8 +1127,8 @@ var nlat = 0, nlon = 0;
 
 
        //Open new modal dialog with position info///////////////////////////////////
-       document.getElementById("dialog_location_name_new").text = "";       
-       document.getElementById("dialog_location_pos_new").text =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);       
+       document.getElementById("dialog_location_name_new").value = "";       
+       document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);       
        
        var url = window.location.href + 'openModalEditNewLocation'
        location.replace(url);
