@@ -1121,8 +1121,13 @@ var nlat = 0, nlon = 0;
 
     google.maps.event.addListener(map, 'click', function(event) {
        placeMarker1(event.latLng);
+       
        alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
         ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+
+       //Open new modal dialog with position info
+       var url = window.location.href + '#openModalEditNewLocation'
+       location.replace(url);
     });
 
 }

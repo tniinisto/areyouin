@@ -299,7 +299,7 @@
                                                     
                                                         echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
                                                         echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
-                                                               style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                               style='margin-bottom: 15px; width: 170px;'></input>";
                                                     
                                                         echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
                                                         echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
@@ -343,6 +343,58 @@
                         echo "</div>"; //Scrollit, end of locations list//////////////////////////////
                         
                         echo "</br>";
+
+                            //Modal dialog for new location information///////////////
+                            echo "<div id='openModalEditNewLocation' class='modalDialog'>";
+	                            echo "<div>";
+		                            echo "<a id='closer_newLocation' href='#close' title='Close' class='close'>X</a>";
+
+
+                                    echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
+
+                                        echo "<p style='margin: 10px;'>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Location</label>";
+                                        echo "</p>";
+
+                                        echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    
+                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                            echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px;'></input>";
+                                                    
+                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                            echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    
+                                        echo "</p>";
+
+                                        //Show weather for location
+                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify'>Weather: </h5>";
+                                                    
+                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch_new'>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch_new' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+
+                                        echo "</div>";
+
+                                        //Buttons                                               
+                                        echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                            echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
+                                            onclick=''/>";
+
+                                            echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                            onclick=''/>";
+
+                                        echo "</div>";
+
+		                            echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                        //Modal dialog for new location information///////////////
                         
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
