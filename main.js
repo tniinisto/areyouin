@@ -1809,7 +1809,8 @@ function addNewLocation(position, name, teamid, weather) {
         }
     }
 
-    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
 
     //alert(position); lat, lon
 
@@ -1875,7 +1876,7 @@ function updateLocation(name, locationid, weather) {
         }
     }
 
-    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
     var location = document.getElementById(locationid).value;
     var locationname = document.getElementById(name).value;
     
