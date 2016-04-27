@@ -16,7 +16,7 @@
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID = :teamID";
+            $sql = "SELECT * FROM location WHERE teamid = :teamid";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
