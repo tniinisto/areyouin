@@ -355,7 +355,7 @@
                                                         echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
                                                         onclick='updateLocation(dialog_location_name" . $index_locations . ",
                                                                                 dialog_location_id" . $index_locations  . ",
-                                                                                dialog_weather_switch" . $index_locations . ")'></input>";
+                                                                                " . $index_locations . ")'></input>";
                                                                                                                                                                     
                                                         //Delete
                                                         echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'

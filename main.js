@@ -1881,13 +1881,15 @@ function updateLocation(name, locationid, weather) {
     //var w = weather.split('.')[0];
     //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
     //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
-    
+
+    var w = 'dialog_weather_switch' + weather;
+
     var location = document.getElementById(locationid).value;
     var locationname = document.getElementById(name).value;
     
     var variables = "name=" + locationname
                     + "&locationid=" + location
-                    + "&weather=" + weather;
+                    + "&weather=" + w;
 
     //alert(variables);
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
