@@ -12,38 +12,36 @@
     }
 
 
-    //$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
 
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	    {
-	    die('Could not connect: ' . mysql_error());
-	    }
+    //$con = mysql_connect($dbhost, $dbuser, $dbpass);
+	//if (!$con)
+	//    {
+	//    die('Could not connect: ' . mysql_error());
+	//    }
 
-	mysql_select_db("areyouin", $con);
+	//mysql_select_db("areyouin", $con);
 
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID = '" . $teamid . "'";
-            $result = mysql_query($sql);
+            //$sql = "SELECT * FROM location WHERE teamID = '" . $teamid . "'";          
+            $sql = "SELECT * FROM location WHERE teamID = :teamid";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
-            //$stmt = $dbh->prepare($sql);
-            //$stmt = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-            //$stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
-            //$stmt->execute();
-            ////$data = $stmt->fetchAll();
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
+            $stmt->execute();
+            $data = $stmt->fetchAll();
             
             echo "<table border='0' class='usertable' id='locations_table'>";                     
             $index_locations = 1000;
             
-            //foreach($data as $row_locations) {            
-            //while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
+            //while($row_locations = mysql_fetch_array($result))
 
-            while($row_locations = mysql_fetch_array($result))
+            foreach($data as $row_locations) {            
 	        {
                 echo "<tr>";
 
