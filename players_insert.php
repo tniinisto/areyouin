@@ -251,6 +251,11 @@
                                           echo "<td>";
                                             echo "<div class='edit-listinfo'>";                                                                                                
 
+                                                //locationID
+                                                echo "<div style='display: none;'>";
+                                                    echo "" . $row_locations[locationID] . "";
+                                                echo "</div>";
+
                                                 //Location name
                                                 echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
                                                     echo "" . $row_locations[name] . "";
@@ -295,6 +300,12 @@
                                                     echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Location</label>";
                                                     echo "</p>";
 
+                                                    //LocationID
+                                                    echo "<p>";
+                                                    echo "<input type='text' id='dialog_location_id". $index_locations . "' name='location_id". $index_locations . "' value='". $row_locations[locationID] . "'
+                                                           style='display:none;'></input>";
+                                                    echo "</p>";
+
                                                     echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     
                                                         echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
@@ -322,9 +333,11 @@
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
+                                                        //Save   
                                                         echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
-                                                        onclick=''/>";
+                                                        onclick='updateLocation(location_name_new.value, " . $teamid . ", dialog_weather_switch". $index_locations . ")'/>";
 
+                                                        //Delete
                                                         echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
                                                         onclick=''/>";
 

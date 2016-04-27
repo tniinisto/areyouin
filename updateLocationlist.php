@@ -36,6 +36,11 @@
                     echo "<td>";
                     echo "<div class='edit-listinfo'>";                                                                                                
 
+                        //locationID
+                        echo "<div style='display: none;'>";
+                            echo "" . $row_locations[locationID] . "";
+                        echo "</div>";
+
                         //Location name
                         echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
                             echo "" . $row_locations[name] . "";
@@ -79,6 +84,13 @@
                             echo "<p style='margin: 10px;'>";
                             echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Location</label>";
                             echo "</p>";
+
+                            //LocationID
+                            echo "<p>";
+                            echo "<input type='text' id='dialog_location_id". $index_locations . "' name='location_id". $index_locations . "' value='". $row_locations[locationID] . "'
+                                    style='display:none;'></input>";
+                            echo "</p>";
+
 
                             echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     

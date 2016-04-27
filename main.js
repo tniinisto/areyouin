@@ -1851,3 +1851,38 @@ function updateLocationlist() {
 }
 
 
+function updateLocation(name, locationid, weather) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //Update location list
+            updateLocationlist();
+
+            //Close modal dialog
+            window.location.replace('#');
+
+            //Update event list
+            getEventsAsync(17);
+
+        }
+    }
+
+    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+
+    var variables = "name=" + name
+                    + "&locationid=" + locationid
+                    + "&weather=" + weather1;
+
+    //alert(variables);
+    xmlhttp.open("GET", "updateLocation.php?" + variables, true);
+    xmlhttp.send();          
+
+}
