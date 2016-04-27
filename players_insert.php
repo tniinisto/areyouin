@@ -322,8 +322,9 @@
                                                     echo "<h5 id='dialog_location_weather". $index . "' class='dialog_player_notify'>Weather: </h5>";
                                                     
                                                     echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-			
-            		                                echo "<input type=\"checkbox\" name=\"weatherswitch\" class=\"onoffswitch-checkbox\" id=\"dialog_weather_switch". $index_locations . " \">";					            
+
+                                                    echo "<input type=\"checkbox\" name=\"weatherswitch\" class=\"onoffswitch-checkbox\" id=\"dialog_weather_switch". $index_locations . " \">";
+
                                                         echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
 						                                    echo "<div class=\"onoffswitch-switch\"></div>";
