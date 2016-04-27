@@ -35,6 +35,8 @@
                     echo "<td>";
                     echo "<div class='edit-listinfo'>";                                                                                                
 
+                    if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist loop, locationID: ' . $row_locations[locationID]); }
+
                         //locationID
                         echo "<div style='display: none;'>";
                             echo "" . $row_locations[locationID] . "";
