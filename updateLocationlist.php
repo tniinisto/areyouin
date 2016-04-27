@@ -4,6 +4,8 @@
 
     session_start();
 
+    $teamid=$_SESSION['myteamid'];
+
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
         ChromePhp::log('updateLocationlist.php start');
@@ -24,7 +26,7 @@
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID like " . $_SESSION['myteamid'] . ";";
+            $sql = "SELECT * FROM location WHERE teamID like " . $teamid . ";";
             $result = mysql_query($sql);
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
