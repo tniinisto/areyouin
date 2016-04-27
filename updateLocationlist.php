@@ -41,7 +41,7 @@
             //foreach($data as $row_locations) {            
             //while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
 
-            while($row = mysql_fetch_array($result))
+            while($row_locations = mysql_fetch_array($result))
 	        {
                 echo "<tr>";
 
