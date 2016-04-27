@@ -16,10 +16,11 @@
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID = :teamid;";
+            $sql = "SELECT * FROM areyouin.location WHERE teamID = :teamid;";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
             $stmt->execute();
