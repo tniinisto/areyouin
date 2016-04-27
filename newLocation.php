@@ -24,6 +24,7 @@
             $stmt = $dbh->prepare($sql);
             
             $pos = $_GET['lat'] . ", " . $_GET['lon'];
+            if($_SESSION['ChromeLog']) { ChromePhp::log('position: ' . $pos); }     
             
             $stmt->bindParam(':position', $pos, PDO::PARAM_STR);
             $stmt->bindParam(':name', $_GET['name'], PDO::PARAM_STR);
