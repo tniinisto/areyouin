@@ -322,7 +322,7 @@
                                                     echo "<h5 id='dialog_location_weather". $index . "' class='dialog_player_notify'>Weather: </h5>";
                                                     
                                                     echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-						                                echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch". $index_locations . "'>";					            
+						                                echo "<input type='checkbox' name='weatherswitch' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "'>";					            
                                                         echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
 						                                    echo "<div class=\"onoffswitch-switch\"></div>";
@@ -335,8 +335,10 @@
 
                                                         //Save   
                                                         echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
-                                                        onclick='updateLocation(dialog_location_name". $index_locations . ", dialog_location_id". $index_locations  . ", dialog_weather_switch". $index_locations . ")'/>";
-
+                                                        onclick='updateLocation(dialog_location_name" . $index_locations . ",
+                                                                                dialog_location_id" . $index_locations  . ",
+                                                                                dialog_weather_switch" . $index_locations . ")'/>";
+                                                                                                                                                                    
                                                         //Delete
                                                         echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
                                                         onclick=''/>";
