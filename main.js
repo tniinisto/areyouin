@@ -1511,8 +1511,12 @@ function getEventsAsync(more) {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        more = typeof more !== 'undefined' ? more : 0;
-        var moreid = "more_events_content" + more;
+        if (more != 17) {
+            more = typeof more !== 'undefined' ? more : 0;
+            var moreid = "more_events_content" + more;
+        }
+        else
+            more = 0;
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
