@@ -21,10 +21,14 @@
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newLocation: ' . $sql); }
         
-            $pos = urldecode($_GET['position']);
+            //$pos = urldecode($_GET['position']);
 
             $stmt = $dbh->prepare($sql);
+            
+
+            $pos = $_GET['lat'] . ", " . $_GET['lon'];
             $stmt->bindParam(':position', $pos, PDO::PARAM_STR);
+
             $stmt->bindParam(':name', $_GET['name'], PDO::PARAM_STR);
             $stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
             $stmt->bindParam(':weather', $_GET['weather'], PDO::PARAM_INT);
