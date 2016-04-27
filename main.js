@@ -1852,7 +1852,7 @@ function updateLocationlist() {
 }
 
 
-function updateLocation(name, locationid, weather) {
+function updateLocation(index) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1882,14 +1882,24 @@ function updateLocation(name, locationid, weather) {
     //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
     //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
 
-    var w = 'dialog_weather_switch' + weather;
 
-    var location = document.getElementById(locationid).value;
-    var locationname = document.getElementById(name).value;
+    //dialog_location_name" . $index_locations
+    //dialog_location_id" . $index_locations  . ",
+
+
+
+    var w = 'dialog_weather_switch' + index;
+    var weather1 = ((document.getElementById(w).checked) ? 1 : 0);
+
+    var l = 'dialog_location_id' + index;
+    var location = document.getElementById(l).value;
+
+    var n = 'dialog_location_name' + index;
+    var locationname = document.getElementById(n).value;
     
     var variables = "name=" + locationname
                     + "&locationid=" + location
-                    + "&weather=" + w;
+                    + "&weather=" + weather1;
 
     //alert(variables);
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
