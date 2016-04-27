@@ -17,13 +17,15 @@
         $result = 0;
 
             //Insert new location
-            $sql = "INSERT INTO location (position, name, teamID, showWeather) VALUES (':position', ':name', :teamID, :weather);";
+            $sql = "INSERT INTO location (position, name, teamID, showWeather) VALUES (:position, :name, :teamID, :weather);";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newLocation: ' . $sql); }          
 
             $stmt = $dbh->prepare($sql);
             
-            $pos = $_GET['lat'] . "\, " . $_GET['lon'];
+            //$pos = $_GET['lat'] . ", " . $_GET['lon'];
+            $pos = $_GET['lat'];
+
             if($_SESSION['ChromeLog']) { ChromePhp::log('position: ' . $pos); }     
             
             $stmt->bindParam(':position', $pos, PDO::PARAM_STR);
