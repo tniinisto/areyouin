@@ -17,7 +17,7 @@
         $result = 0;
 
             //Insert new location
-            $sql = "INSERT INTO location ('position', name, teamID, showWeather) VALUES (:position, :name, :teamID, :weather);";
+            $sql = "INSERT INTO location (position, name, teamID, showWeather) VALUES (':position', ':name', :teamID, :weather);";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newLocation: ' . $sql); }          
 
