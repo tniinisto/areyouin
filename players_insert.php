@@ -347,6 +347,8 @@
 
                                                     }
 
+                                                    echo "<p id='weather_text". $index . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+
 
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
