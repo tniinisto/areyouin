@@ -1876,7 +1876,7 @@ function updateLocation(name, locationid, weather) {
         }
     }
 
-    var tmp = weather.split("");
+    var tmp = weather.split(".");
     var weather1 = ((document.getElementById(tmp[0]).checked) ? 1 : 0);
     //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
     
