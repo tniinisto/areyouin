@@ -1801,12 +1801,12 @@ function addNewLocation(position, name, teamID, weather) {
         }
     }
 
-    var weather = ((document.getElementById(weather).checked) ? 1 : 0);
+    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
 
     var variables = "position=" + position
                     + "&name=" + name
                     + "&teamid=" + teamid
-                    + "&weather=" + weather;
+                    + "&weather=" + weather1;
 
     //alert(variables);
     xmlhttp.open("GET", "newLocation.php?" + variables, true);
