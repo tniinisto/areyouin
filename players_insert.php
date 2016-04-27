@@ -382,12 +382,8 @@
                                         //Buttons                                               
                                         echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
-
-                                            $pos_data = "location_pos_new.value";
-                                            list($lat, $lon) = explode(",", $pos_data);
-
                                             echo "<input type='button' class='dialog_button' style='float: center;' value='Save'
-                                            onclick='addNewLocation(". $lat . ", " . $lon. ", location_name_new.value, " . $teamid . ", \"dialog_weather_switch_new\")'/>";
+                                            onclick='addNewLocation(location_pos_new.value, location_name_new.value, " . $teamid . ", \"dialog_weather_switch_new\")'/>";
 
                                         echo "</div>";
 

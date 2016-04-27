@@ -1781,7 +1781,7 @@ function resetModalUserDialog() {
 }
 
 //Location functions/////////////////////////////////////////////////////////////////////////////
-function addNewLocation(lat, lon, name, teamid, weather) {
+function addNewLocation(position, name, teamid, weather) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1804,6 +1804,7 @@ function addNewLocation(lat, lon, name, teamid, weather) {
 
     var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
 
+    alert(position);
 
     var variables = "lat=" + lat
                     + "lon=" + lon
