@@ -383,7 +383,7 @@
                                         echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
                                             echo "<input type='button' class='dialog_button' style='float: center;' value='Save'
-                                            onclick=''/>";
+                                            onclick='addNewLocation(location_pos_new.value, location_name_new.value, " . $teamid . ")'/>";
 
                                         echo "</div>";
 
