@@ -349,7 +349,6 @@
 
                                                     echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
 
-
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
@@ -411,6 +410,8 @@
 						                    echo "</label>";
 
                                         echo "</div>";
+
+                                        echo "<p id='weather_text_new' class='dialog_player_notify'>Weather is shown in the events section.</p>";
 
                                         //Buttons                                               
                                         echo "<div class='buttonHolder' style='margin-top:15px;'>";
