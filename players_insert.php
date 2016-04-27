@@ -323,7 +323,7 @@
                                                     
                                                     echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 
-                                                    echo "<input type=\"checkbox\" name=\"weatherswitch\" class=\"onoffswitch-checkbox\" id=\"dialog_weather_switch". $index_locations . "\">";
+                                                    echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "'>";
 
                                                         echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
