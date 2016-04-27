@@ -23,12 +23,12 @@
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
             $stmt->execute();
-            $data = $stmt->fetchAll();
+            //$data = $stmt->fetchAll();
             
             echo "<table border='0' class='usertable' id='locations_table'>";                     
             $index_locations = 1000;
-
-            foreach($data as $row_locations) {
+            
+            while($row_locations = $stmt->fetch())
                                                                                 
                 echo "<tr>";
 
