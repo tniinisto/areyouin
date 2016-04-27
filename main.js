@@ -1809,8 +1809,8 @@ function addNewLocation(position, name, teamid, weather) {
     var res = position.split(",");
 
 
-    var variables = "lat=" + res[0]
-                    + "&lon=" + res[1]
+    var variables = "lat=" + res[0].trim()
+                    + "&lon=" + res[1].trim()
                     + "&name=" + name
                     + "&teamid=" + teamid
                     + "&weather=" + weather1;
