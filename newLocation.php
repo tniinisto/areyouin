@@ -17,7 +17,7 @@
         $result = 0;
 
             //Insert new location
-            $sql = "INSERT INTO location (position, name, teamID) VALUES (:position, :name, :teamID)";
+            $sql = "INSERT INTO location (position, name, teamID, showWeather) VALUES (:position, :name, :teamID, :weather)";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newLocation: ' . $sql); }
         
@@ -25,6 +25,7 @@
             $stmt->bindParam(':position', $_GET['position'], PDO::PARAM_STR);
             $stmt->bindParam(':name', $_GET['name'], PDO::PARAM_STR);
             $stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
+            $stmt->bindParam(':weather', $_GET['weather'], PDO::PARAM_INT);
         
             $result = $stmt->execute();
             

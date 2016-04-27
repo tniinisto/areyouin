@@ -1780,7 +1780,7 @@ function resetModalUserDialog() {
 }
 
 //Location functions/////////////////////////////////////////////////////////////////////////////
-function addNewLocation(position, name, teamID) {
+function addNewLocation(position, name, teamID, weather) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1801,9 +1801,12 @@ function addNewLocation(position, name, teamID) {
         }
     }
 
+    var weather = ((document.getElementById(weather).checked) ? 1 : 0);
+
     var variables = "position=" + position
                     + "&name=" + name
-                    + "&teamid=" + teamid;
+                    + "&teamid=" + teamid
+                    + "&weather=" + weather;
 
     //alert(variables);
     xmlhttp.open("GET", "newLocation.php?" + variables, true);
