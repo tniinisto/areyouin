@@ -1132,6 +1132,7 @@ var nlat = 0, nlon = 0;
 
        document.getElementById("dialog_location_name_new").value = "";       
        document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);
+       document.getElementById("dialog_weather_switch_new").value = "";
 
     });
 
