@@ -28,8 +28,8 @@
             echo "<table border='0' class='usertable' id='locations_table'>";                     
             $index_locations = 1000;
             
-            while($row_locations = $stmt->fetch())
-                                                                                
+            while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
+                                                                                            
                 echo "<tr>";
 
                     echo "<td>";
