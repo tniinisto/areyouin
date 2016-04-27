@@ -1501,7 +1501,7 @@ function updateLastEventTime() {
 
 //Get events with players for the team
 function getEventsAsync(more) {    
-    if (eventFetchPause == 0 && more != 17) { //Don't run, if pause is on
+    if (eventFetchPause == 0) { //Don't run, if pause is on, lucky number 17 added for location adding, to enable event refresh
         //startSpinner();
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
