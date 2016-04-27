@@ -1826,7 +1826,7 @@ function addNewLocation(position, name, teamid, weather) {
 
 }
 
-//Update location list
+//Update location list, synchronous!
 function updateLocationlist() {
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
