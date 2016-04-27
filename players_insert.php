@@ -319,7 +319,7 @@
                                                     echo "</p>";
 
                                                     //Show weather for location
-                                                    echo "<h5 id='dialog_location_weather". $index . "' class='dialog_player_notify'>Weather: </h5>";
+                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify'>Weather: </h5>";
                                                     
                                                     if($row_locations[showWeather] == 0) {
 
@@ -347,7 +347,7 @@
 
                                                     }
 
-                                                    echo "<p id='weather_text". $index . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
 
 
                                                     //Buttons                                               
