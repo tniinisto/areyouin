@@ -1801,7 +1801,7 @@ function addNewLocation(position, name, teamid, weather) {
             window.location.replace('#');
 
             //Update event list
-            getEventsAsync(17);
+            getEventsAsync();
 
         }
     }
