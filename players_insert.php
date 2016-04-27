@@ -321,7 +321,7 @@
                                                     //Show weather for location
                                                     echo "<h5 id='dialog_location_weather". $index . "' class='dialog_player_notify'>Weather: </h5>";
                                                     
-                                                    if($row_locations[showweather] == 0) {
+                                                    if($row_locations[showWeather] == 0) {
 
                                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
                                                         echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "'>";
@@ -335,7 +335,8 @@
                                                     } else {
 
                                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
-                                            echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "' checked>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox'
+                                                               id='dialog_weather_switch". $index_locations . "' checked>";
 
                                                             echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                                 echo "<div class=\"notifyswitch-inner\"></div>";
