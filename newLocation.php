@@ -1,0 +1,42 @@
+<?php
+    
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+    session_start();
+
+    if($_SESSION['ChromeLog']) {
+        require_once 'ChromePhp.php';
+        ChromePhp::log('newLocation.php start');
+    }
+
+
+  	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+    try {
+        $result = 0;
+
+            //Insert new location
+            $sql = "INSERT INTO location (position, name, teamID) VALUES (:position, :name, :teamID)";
+
+            if($_SESSION['ChromeLog']) { ChromePhp::log('newLocation: ' . $sql); }
+        
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindParam(':position', $_GET['position'], PDO::PARAM_STR);
+            $stmt->bindParam(':name', $_GET['name'], PDO::PARAM_STR);
+            $stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
+        
+            $result = $stmt->execute();
+            
+            if($_SESSION['ChromeLog']) { ChromePhp::log('New location result: ' . $result); }
+
+        $dbh = null;
+
+    }
+    catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+    
+?>
+
+
