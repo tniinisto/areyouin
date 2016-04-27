@@ -323,7 +323,7 @@
                                                     
                                                     echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 
-                                                    echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "'>";
+                                                    echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "_id'>";
 
                                                         echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
@@ -339,7 +339,7 @@
                                                         echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
                                                         onclick='updateLocation(dialog_location_name" . $index_locations . ",
                                                                                 dialog_location_id" . $index_locations  . ",
-                                                                                dialog_weather_switch" . $index_locations . ")'/>";
+                                                                                dialog_weather_switch" . $index_locations . "_id)'/>";
                                                                                                                                                                     
                                                         //Delete
                                                         echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
