@@ -1804,10 +1804,9 @@ function addNewLocation(position, name, teamid, weather) {
 
     var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
 
+    //var pos = decodeURIComponent(position);
 
-    var pos = decodeURIComponent(position);
-
-    var variables = "position=" + pos
+    var variables = "position=" + position
                     + "&name=" + name
                     + "&teamid=" + teamid
                     + "&weather=" + weather1;
