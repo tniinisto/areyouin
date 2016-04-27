@@ -1501,7 +1501,7 @@ function updateLastEventTime() {
 
 //Get events with players for the team
 function getEventsAsync(more) {    
-    if (eventFetchPause == 0) { //Don't run, if pause is on
+    if (eventFetchPause == 0 && more != 17) { //Don't run, if pause is on
         //startSpinner();
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -1800,7 +1800,7 @@ function addNewLocation(position, name, teamid, weather) {
             window.location.replace('#');
 
             //Update event list
-            getEventsAsync();
+            getEventsAsync(17);
 
         }
     }
