@@ -1843,7 +1843,7 @@ function updateLocationlist() {
             }
         }
 
-        xmlhttp.open("GET", "updateLocationlist.php", true);
+        xmlhttp.open("GET", "updateLocationlist.php", false);
         xmlhttp.send();
 
 }
@@ -1899,7 +1899,7 @@ function updateLocation(index) {
                     + "&weather=" + weather1;
 
     //alert(variables);
-    xmlhttp.open("GET", "updateLocation.php?" + variables, false);
+    xmlhttp.open("GET", "updateLocation.php?" + variables, true);
     xmlhttp.send();          
 
 }
