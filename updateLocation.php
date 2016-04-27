@@ -17,7 +17,7 @@
         $result = 0;
 
             //Insert new location
-            $sql = "UPDATE location SET name = :name, showWeather = :weather) WHERE locationID = :locationID";
+            $sql = "UPDATE location SET name = :name, showWeather = :weather WHERE locationID = :locationID";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocation: ' . $sql); }          
 
