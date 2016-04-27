@@ -32,7 +32,7 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
+            $stmt->bindParam(':teamid',  $teamid, PDO::PARAM_INT);        
             $stmt->execute();
             $data = $stmt->fetchAll();
             
