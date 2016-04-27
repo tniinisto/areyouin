@@ -325,7 +325,7 @@
 
                                                     echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "_id'>";
 
-                                                        echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
+                                                        echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "_id' onClick=''>";
                                                             echo "<div class=\"notifyswitch-inner\"></div>";
 						                                    echo "<div class=\"onoffswitch-switch\"></div>";
 						                                echo "</label>";
