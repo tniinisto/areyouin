@@ -1780,7 +1780,7 @@ function resetModalUserDialog() {
 }
 
 //Location functions/////////////////////////////////////////////////////////////////////////////
-function addNewLocation(position, name, teamID, weather) {
+function addNewLocation(position, name, teamid, weather) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
