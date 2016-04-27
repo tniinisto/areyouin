@@ -297,7 +297,7 @@
                                                 echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                     echo "<p style='margin: 10px;'>";
-                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Location</label>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit location</label>";
                                                     echo "</p>";
 
                                                     //LocationID
@@ -321,16 +321,26 @@
                                                     //Show weather for location
                                                     echo "<h5 id='dialog_location_weather". $index . "' class='dialog_player_notify'>Weather: </h5>";
                                                     
-                                                    echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                    if($row_locations[showweather] == 0) {
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "_id'>";
 
-                                                    echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "_id'>";
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "_id' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";
+                                                    } else {
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox' id='dialog_weather_switch". $index_locations . "_id' checked>";
 
-                                                        echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "_id' onClick=''>";
-                                                            echo "<div class=\"notifyswitch-inner\"></div>";
-						                                    echo "<div class=\"onoffswitch-switch\"></div>";
-						                                echo "</label>";
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "_id' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";                                                        
+                                                    }
 
-                                                    echo "</div>";
 
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
