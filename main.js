@@ -1861,14 +1861,15 @@ function updateLocation(index) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+            //Update location list
+            updateLocationlist();
+
             //Close modal dialog
             window.location.replace('#');
 
             //Update event list
             getEventsAsync(17);
 
-            //Update location list
-            updateLocationlist();
         }
     }
 
