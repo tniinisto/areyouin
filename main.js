@@ -1821,7 +1821,7 @@ function addNewLocation(position, name, teamid, weather) {
                     + "&weather=" + weather1;
 
     //alert(variables);
-    xmlhttp.open("GET", "newLocation.php?" + variables, true);
+    xmlhttp.open("GET", "newLocation.php?" + variables, false);
     xmlhttp.send();          
 
 }
