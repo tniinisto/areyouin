@@ -1791,8 +1791,9 @@ function addNewLocation(position, name, teamID) {
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            
+
             //Update location list
+            updateLocationlist();
 
             //Close modal dialog
             window.location.replace('#');
@@ -1806,10 +1807,30 @@ function addNewLocation(position, name, teamID) {
 
     //alert(variables);
     xmlhttp.open("GET", "newLocation.php?" + variables, true);
-    xmlhttp.send();
-            
+    xmlhttp.send();          
 
 }
 
+//Update userlist and close modal dialog
+function updateLocationlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("locations_table").innerHTML = xmlhttp.responseText;
+
+            }
+        }
+
+        xmlhttp.open("GET", "updateLocationlist.php", true);
+        xmlhttp.send();
+
+}
 
 

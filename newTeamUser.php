@@ -21,7 +21,7 @@
 
         if($_GET['totallyNew'] == 0) { //Create new player, if the player is not already in another team
 
-            //Create random password, TODO
+            //Create random password
             $password = randomPassword();
         
             //Insert new player
