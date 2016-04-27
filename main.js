@@ -1039,6 +1039,7 @@ function getWeather() {
 
 
 //Location, google maps////////////////////////////////////////////////////////////////////////////////////
+var map;
 
 function initializeMap() {
 
@@ -1075,12 +1076,12 @@ var nlat = 0, nlon = 0;
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
-            zoom: 6,
+            zoom: 5,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
 
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions);
 
     //Touch functionality for Maps//
     function MapTouch() {
@@ -1098,21 +1099,64 @@ var nlat = 0, nlon = 0;
     });
 
     google.maps.event.addListener(map, 'click', function(event) {
-       placeMarker(event.latLng);
-       alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
-        ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+       placeMarker1(event.latLng);
+       
+       //alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+       // ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+
+
+       //Open new modal dialog with position info///////////////////////////////////    
+       var url = window.location.href + 'openModalEditNewLocation'
+       location.replace(url);
+
+       document.getElementById("dialog_location_name_new").value = "";       
+       document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);
+       document.getElementById("dialog_weather_switch_new").value = "";
+
     });
-
-
-    function placeMarker(location) {
-        var marker = new google.maps.Marker({
-            position: location, 
-            map: map
-        });
-    }
 
 }
 
+function clearModalFormUrl() {
+    //window.location.replace('');
+    var url = window.location.href;    
+    url.substring(0,url.indexOf("#"));
+    location.replace(url);
+}
+
+function placeMarker1(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
+}
+
+function placeMarker(lat, lon) {
+    
+    var myLatlng = new google.maps.LatLng(lat,lon);
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng
+    });
+
+    marker.setMap(map);
+
+    //Scroll to map after marker set
+    $('#Location_map').scrollintoview({duration: 300});
+    setTimeout(function () {
+        box.removeClass('visuallynoshow');
+    }, 20);
+
+    //Move to marker on map
+    map.panTo(marker.getPosition());
+
+
+
+}
+
+function removeMarker() {
+    marker.setMap(null);   
+}
 
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
@@ -1447,7 +1491,8 @@ function getEventsAsync(more) {
         }
 
         more = typeof more !== 'undefined' ? more : 0;
-        var moreid = "more_events_content" + more;
+        
+        //var moreid = "more_events_content" + more;
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -1712,5 +1757,160 @@ function resetModalUserDialog() {
     document.getElementById("dialog_player_new_email").value = '';
     document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
     document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
+
+}
+
+//Location functions/////////////////////////////////////////////////////////////////////////////
+function addNewLocation(position, name, teamid, weather) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //Update location list
+            updateLocationlist();
+
+            //Close modal dialog
+            window.location.replace('#');
+
+            //Update event list
+            getEventsAsync();
+
+        }
+    }
+
+    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
+
+    //alert(position); lat, lon
+
+    var res = position.split(",");
+
+
+    var variables = "lat=" + res[0].trim()
+                    + "&lon=" + res[1].trim()
+                    + "&name=" + name
+                    + "&teamid=" + teamid
+                    + "&weather=" + weather1;
+
+    //alert(variables);
+    xmlhttp.open("GET", "newLocation.php?" + variables, false);
+    xmlhttp.send();          
+
+}
+
+//Update location list, synchronous!
+function updateLocationlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("locations_table").innerHTML = xmlhttp.responseText;
+
+            }
+        }
+
+        xmlhttp.open("GET", "updateLocationlist.php", false);
+        xmlhttp.send();
+
+}
+
+
+function updateLocation(index) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //Update location list
+            updateLocationlist();
+
+            //Close modal dialog
+            window.location.replace('#');
+
+            //Update event list
+            getEventsAsync();
+
+        }
+    }
+
+    //var tmp = weather.split(".");
+    //weather.substring(0, weather.indexOf('.'));
+    //var w = weather.split('.')[0];
+    //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
+
+
+    //dialog_location_name" . $index_locations
+    //dialog_location_id" . $index_locations  . ",
+
+
+
+    var w = 'dialog_weather_switch' + index;
+    var weather1 = ((document.getElementById(w).checked) ? 1 : 0);
+
+    var l = 'dialog_location_id' + index;
+    var location = document.getElementById(l).value;
+
+    var n = 'dialog_location_name' + index;
+    var locationname = document.getElementById(n).value;
+    
+    var variables = "name=" + locationname
+                    + "&locationid=" + location
+                    + "&weather=" + weather1;
+
+    //alert(variables);
+    xmlhttp.open("GET", "updateLocation.php?" + variables, true);
+    xmlhttp.send();          
+
+}
+
+//Delete location
+function deleteLocation(location) {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                
+                //Update location list
+                updateLocationlist();
+
+                //Close modal dialog
+                window.location.replace('#');
+
+                //Update event list
+                getEventsAsync();     
+
+            }
+        }
+
+        var variables = "locationid=" + location;
+
+        xmlhttp.open("GET", "deleteLocation.php?" + variables, false);
+        xmlhttp.send();
 
 }

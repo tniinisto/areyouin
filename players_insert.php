@@ -224,10 +224,208 @@
 
                     echo "<br>";
 
-                    //Location section///////////////////////////////////////////////////////////////////////////
+                    //Locations section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
                     echo "<fieldset id='location_set' style='padding:4px;'>";
-                        echo "<legend style='text-align: left;'><h2>Location</h2></legend>";
+                        echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
+                         //Locations list sql
+                        $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "'";        
+                        $result_location = mysql_query($sql_location);
+
+                        echo "<div id='locations_list' class='scrollit2'>";
+
+                            //echo "<h2>Test location header...</h3>";
+
+                            echo "<table border='0' class='usertable' id='locations_table'>";
+                        
+                                //mysql_data_seek($result, 0);
+                                $index_locations = 1000;
+
+                                while($row_locations = mysql_fetch_array($result_location))
+                                {
+
+                                                                
+                                        echo "<tr>";
+
+                                          echo "<td>";
+                                            echo "<div class='edit-listinfo'>";                                                                                                
+
+                                                //locationID
+                                                echo "<div style='display: none;'>";
+                                                    echo "" . $row_locations[locationID] . "";
+                                                echo "</div>";
+
+                                                //Location name
+                                                echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
+                                                    echo "" . $row_locations[name] . "";
+                                                echo "</div>";
+
+                                                //Position
+                                                echo "" . $row_locations[position] . "";
+
+                                                //Call javacript to add markers on Map
+                                                echo "<script> placeMarker(". $row_locations[position] . "); </script>";
+
+                                            echo "</div>";
+                                          echo "</td>";
+
+                                          $position = $row_locations[position];
+                                          list($lat, $lon) = split('[,]', $position);
+
+                                          echo "<td id='showlocation'". $index_locations .">
+                                            <a href='#'><img id='showLocation' style='padding-right: 15px;' width='40' height='40' src='images/maps_icon.jpg'
+                                            onclick='placeMarker(". $lat . "," . $lon . ")'></img></a>
+                                          </td>";
+
+                                          //echo "<input type='button' class='' value='Show on map' onclick='placeMarker(". $row_locations[position] . ")'/>";
+
+                                          echo "<td id='editrow'". $index_locations .">
+                                            <a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a>
+                                          </td>";
+                                        
+                                          //echo "<td style='display: none;'> teamID: " . $row_locations[teamID] . "</td>";
+                                        
+                                        echo "</tr>";
+               
+                                        //Modal dialog for location information editing///////////////
+                                        echo "<div id='openModalEdit". $index_locations . "' class='modalDialog'>";
+	                                        echo "<div>";
+		                                        echo "<a id='closer_edit". $index_locations . "' href='#' title='Close' class='close'>X</a>";
+
+
+                                                echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                                    echo "<p style='margin: 10px;'>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit location</label>";
+                                                    echo "</p>";
+
+                                                    //LocationID
+                                                    echo "<p>";
+                                                    echo "<input type='text' id='dialog_location_id". $index_locations . "' name='location_id". $index_locations . "' value='". $row_locations[locationID] . "'
+                                                           style='display:none;'></input>";
+                                                    echo "</p>";
+
+                                                    echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    
+                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                                        echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
+                                                               style='margin-bottom: 15px; width: 170px;'></input>";
+                                                    
+                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                                        echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
+                                                               style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    
+                                                    echo "</p>";
+
+                                                    //Show weather for location
+                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify'>Weather: </h5>";
+                                                    
+                                                    if($row_locations[showWeather] == 0) {
+
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox'
+                                                               id='dialog_weather_switch". $index_locations . "'></input>";
+
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";
+
+                                                    } else {
+
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox'
+                                                               id='dialog_weather_switch". $index_locations . "' checked></input>";
+
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";                                                        
+
+                                                    }
+
+                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+
+                                                    //Buttons                                               
+                                                    echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                                        //Save   
+                                                        echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateLocation(" . $index_locations . ")'></input>";
+                                                                                                                                                                    
+                                                        //Delete
+                                                        echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='deleteLocation(" . $row_locations[locationID] . ")'></input>";
+
+                                                    echo "</div>";
+
+		                                        echo "</form>";
+                                            echo "</div>";
+                                        echo "</div>";
+                                        //Modal dialog for location information editing//////////////////               
+                            
+                                        $index_locations++;
+                                }
+
+                            echo "</table>";
+
+                        echo "</div>"; //Scrollit, end of locations list//////////////////////////////
+                        
+                        echo "</br>";
+
+                            //Modal dialog for new location information///////////////
+                            echo "<div id='openModalEditNewLocation' class='modalDialog'>";
+	                            echo "<div>";
+		                            echo "<a id='closer_newLocation' href='#' title='Close' class='close'>X</a>";
+
+                                    echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
+
+                                        echo "<p style='margin: 10px;'>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Set new location</label>";
+                                        echo "</p>";
+
+                                        echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    
+                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                            echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px; required'></input>";
+                                                    
+                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                            echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    
+                                        echo "</p>";
+
+                                        //Show weather for location
+                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify'>Weather: </h5>";
+                                                    
+                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch_new'>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch_new' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+
+                                        echo "</div>";
+
+                                        echo "<p id='weather_text_new' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+
+                                        //Buttons                                               
+                                        echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                            echo "<input type='button' class='dialog_button' style='float: center;' value='Save'
+                                            onclick='addNewLocation(location_pos_new.value, location_name_new.value, " . $teamid . ", \"dialog_weather_switch_new\")'/>";
+
+                                        echo "</div>";
+
+		                            echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                        //Modal dialog for new location information///////////////
+                        
                         echo "<div id='Location_map' style='height: 400px;'></div>";
 
                         //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
@@ -239,7 +437,7 @@
                         //echo "</form>";
                    echo "</fieldset>";
 
-                    //Location section///////////////////////////////////////////////////////////////////////////
+                    //Location section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 echo "</div>";
                 //Settings page///////////////////////////////////////////////////////////////////////////
@@ -268,14 +466,14 @@
                             echo "<div id='openModal_new' class='modalDialog'>";
 	                            echo "<div>";
 
-		                            echo "<a id='closer' href='#close' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
+		                            echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
-                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player' onsubmit='newPlayer();'>";
+                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player'>";
 
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
                                         echo "<br>";
-                                        echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>User already a team member!</label>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%;'>User is already a team member!</label>";
                                         echo "</p>";
 
                                         //PlayerID, hidden
@@ -367,7 +565,7 @@
                     
                     echo "<div id='users_list' class='scrollit2'>";
 
-                        echo "<table border='0' id='users_table' class='usertable'";
+                        echo "<table border='0' id='users_table' class='usertable'>";
                         
                             mysql_data_seek($result, 0);
                             $index = 1;
@@ -419,7 +617,7 @@
                                     //Modal dialog for player information editing///////////////
                                     echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
 	                                    echo "<div>";
-		                                    echo "<a id='closer_edit". $index . "' href='#close' title='Close' class='close'>X</a>";
+		                                    echo "<a id='closer_edit". $index . "' href='#' title='Close' class='close'>X</a>";
 
 
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
