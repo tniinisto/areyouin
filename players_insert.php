@@ -239,7 +239,7 @@
 
                             echo "<table border='0' class='usertable' id='locations_table'>";
                         
-                                mysql_data_seek($result, 0);
+                                //mysql_data_seek($result, 0);
                                 $index_locations = 1000;
 
                                 while($row_locations = mysql_fetch_array($result_location))
