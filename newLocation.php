@@ -28,7 +28,6 @@
 
             $pos = $_GET['lat'] . ", " . $_GET['lon'];
             $stmt->bindParam(':position', $pos, PDO::PARAM_STR);
-
             $stmt->bindParam(':name', $_GET['name'], PDO::PARAM_STR);
             $stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
             $stmt->bindParam(':weather', $_GET['weather'], PDO::PARAM_INT);
