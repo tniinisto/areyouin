@@ -42,7 +42,7 @@
             //while($row_locations = mysql_fetch_array($result))
 
             foreach($data as $row_locations) {            
-	        {
+
                 echo "<tr>";
 
                     echo "<td>";
