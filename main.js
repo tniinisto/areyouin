@@ -1899,7 +1899,7 @@ function updateLocation(index) {
                     + "&weather=" + weather1;
 
     //alert(variables);
-    xmlhttp.open("GET", "updateLocation.php?" + variables, true);
+    xmlhttp.open("GET", "updateLocation.php?" + variables, false);
     xmlhttp.send();          
 
 }
