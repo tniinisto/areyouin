@@ -10,28 +10,39 @@
     }
 
 
-  	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                  
+    //$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
+
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	if (!$con)
+	    {
+	    die('Could not connect: ' . mysql_error());
+	    }
+
+	mysql_select_db("areyouin", $con);
+
     try {
 
             //Select locations
-            $sql = "SELECT * FROM areyouin.location WHERE teamID = :teamid;";
+            $sql = "SELECT * FROM areyouin.location WHERE teamID =  " . $_SESSION['myteamid'] . ";";
+            $result = mysql_query($sql);
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
             //$stmt = $dbh->prepare($sql);
-            $stmt = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
-            $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
-            $stmt->execute();
-            //$data = $stmt->fetchAll();
+            //$stmt = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            //$stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
+            //$stmt->execute();
+            ////$data = $stmt->fetchAll();
             
             echo "<table border='0' class='usertable' id='locations_table'>";                     
             $index_locations = 1000;
             
-            while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
-            //foreach($data as $row_locations) {
-                                                                                            
+            //foreach($data as $row_locations) {            
+            //while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
+
+            while($row = mysql_fetch_array($result))
+	        {
                 echo "<tr>";
 
                     echo "<td>";
