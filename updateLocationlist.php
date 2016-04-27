@@ -26,7 +26,7 @@
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID like " . $teamid . ";";
+            $sql = "SELECT * FROM location WHERE teamID = '" . $teamid . "'";
             $result = mysql_query($sql);
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
