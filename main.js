@@ -1876,9 +1876,10 @@ function updateLocation(name, locationid, weather) {
     }
 
     var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
-
+    var location = document.getElementById(locationid).value;
+    
     var variables = "name=" + name
-                    + "&locationid=" + locationid
+                    + "&locationid=" + location
                     + "&weather=" + weather1;
 
     //alert(variables);
