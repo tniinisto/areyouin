@@ -1501,7 +1501,7 @@ function updateLastEventTime() {
 
 //Get events with players for the team
 function getEventsAsync(more) {    
-    if (eventFetchPause == 0) { //Don't run, if pause is on, lucky number 17 added for location adding, to enable event refresh
+    if (eventFetchPause == 0) { //Don't run, if pause is on
         //startSpinner();
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -1511,12 +1511,9 @@ function getEventsAsync(more) {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
 
-        if (more != 17) {
-            more = typeof more !== 'undefined' ? more : 0;
-            var moreid = "more_events_content" + more;
-        }
-        else
-            more = 0;
+        more = typeof more !== 'undefined' ? more : 0;
+        
+        //var moreid = "more_events_content" + more;
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -1864,15 +1861,14 @@ function updateLocation(index) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            //Update location list
-            updateLocationlist();
-
             //Close modal dialog
             window.location.replace('#');
 
             //Update event list
             getEventsAsync(17);
 
+            //Update location list
+            updateLocationlist();
         }
     }
 
