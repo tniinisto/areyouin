@@ -16,19 +16,20 @@
     try {
 
             //Select locations
-            $sql = "SELECT * FROM location WHERE teamID = :teamid";
+            $sql = "SELECT * FROM location WHERE teamID = :teamid;";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('updateLocationlist: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':teamid',  $_SESSION['myteamid'], PDO::PARAM_INT);        
             $stmt->execute();
-            //$data = $stmt->fetchAll();
+            $data = $stmt->fetchAll();
             
             echo "<table border='0' class='usertable' id='locations_table'>";                     
             $index_locations = 1000;
             
-            while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
+            //while($row_locations = $stmt->fetch(PDO::FETCH_ASSOC))
+            foreach($data as $row_locations) {
                                                                                             
                 echo "<tr>";
 
