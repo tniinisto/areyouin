@@ -1878,8 +1878,8 @@ function updateLocation(name, locationid, weather) {
 
     //var tmp = weather.split(".");
     //weather.substring(0, weather.indexOf('.'));
-    var w = weather.split('.')[0];
-    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var w = weather.split('.')[0];
+    //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
     //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
     
     var location = document.getElementById(locationid).value;
@@ -1887,7 +1887,7 @@ function updateLocation(name, locationid, weather) {
     
     var variables = "name=" + locationname
                     + "&locationid=" + location
-                    + "&weather=" + w;
+                    + "&weather=" + weather;
 
     //alert(variables);
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
