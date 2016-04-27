@@ -1868,7 +1868,7 @@ function updateLocation(index) {
             window.location.replace('#');
 
             //Update event list
-            getEventsAsync(17);
+            getEventsAsync();
 
         }
     }
