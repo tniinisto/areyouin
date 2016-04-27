@@ -156,7 +156,7 @@
                                                                                                                                                                     
                                 //Delete
                                 echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
-                                onclick=''></input>";
+                                onclick='deleteLocation(" . $row_locations[locationID] . ")'></input>";
 
                             echo "</div>";
 

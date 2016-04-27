@@ -1826,7 +1826,7 @@ function addNewLocation(position, name, teamid, weather) {
 
 }
 
-//Update userlist and close modal dialog
+//Update location list
 function updateLocationlist() {
 
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -1901,5 +1901,37 @@ function updateLocation(index) {
     //alert(variables);
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
     xmlhttp.send();          
+
+}
+
+//Delete location
+function deleteLocation(location) {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                
+                //Update location list
+                updateLocationlist();
+
+                //Close modal dialog
+                window.location.replace('#');
+
+                //Update event list
+                getEventsAsync();     
+
+            }
+        }
+
+        var variables = "locationid=" + location;
+
+        xmlhttp.open("GET", "deleteLocation.php?" + variables, false);
+        xmlhttp.send();
 
 }
