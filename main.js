@@ -1773,6 +1773,8 @@ function addNewLocation(position, name, teamid, weather) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+            stopSpinner();
+
             //Update location list
             updateLocationlist();
 
@@ -1800,6 +1802,7 @@ function addNewLocation(position, name, teamid, weather) {
                     + "&weather=" + weather1;
 
     //alert(variables);
+    startSpinner();
     xmlhttp.open("GET", "newLocation.php?" + variables, false);
     xmlhttp.send();          
 
@@ -1819,9 +1822,12 @@ function updateLocationlist() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 document.getElementById("locations_table").innerHTML = xmlhttp.responseText;
 
+                stopSpinner();
+
             }
         }
 
+        startSpinner();
         xmlhttp.open("GET", "updateLocationlist.php", false);
         xmlhttp.send();
 
@@ -1839,6 +1845,8 @@ function updateLocation(index) {
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            stopSpinner();
 
             //Update location list
             updateLocationlist();
@@ -1878,6 +1886,7 @@ function updateLocation(index) {
                     + "&weather=" + weather1;
 
     //alert(variables);
+    startSpinner();
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
     xmlhttp.send();          
 
@@ -1895,7 +1904,9 @@ function deleteLocation(location) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                
+                       
+                stopSpinner();
+                                
                 //Update location list
                 updateLocationlist();
 
@@ -1910,6 +1921,7 @@ function deleteLocation(location) {
 
         var variables = "locationid=" + location;
 
+        startSpinner();
         xmlhttp.open("GET", "deleteLocation.php?" + variables, false);
         xmlhttp.send();
 

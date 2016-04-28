@@ -151,7 +151,7 @@
                                 echo "</h5>";
 
                                 echo "<div class='buttonHolder' style='padding-top: 2px;'>";
-                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton' class='dialog_button'>";
+                                    echo "<input type='submit' value='Save' name='savebutton' id='savebutton' class='myButton'>";
                                 echo "</div>";
 		                    echo "</form>";
                     ?>
