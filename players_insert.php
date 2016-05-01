@@ -50,20 +50,22 @@
                     echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
                     
                     //Location///////////////////////////////////////////
-                    echo "<label><h2>Event location:</h2></label>";
-                    $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
-                    $result2 = mysql_query($sql2);
+                    echo "<div id='locationWrapper'>";
+                        echo "<label><h2>Event location:</h2></label>";
+                        $sql2="SELECT locationID, name FROM location WHERE teamID = '" . $teamid . "'";
+                        $result2 = mysql_query($sql2);
 
-                    echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
+                        echo "<select id=\"location_select\" name=\"location\" form=\"eventform\">";
                     
-                    //Default location when no locations entered to RYouIN
-                    echo "<option value='0'></option>";
-                    //Team's locations
-                    while($row2 = mysql_fetch_array($result2))
-	                {  
-                        echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
-                    }
-                    echo "</select>";
+                        //Default location when no locations entered to RYouIN
+                        echo "<option value='0'></option>";
+                        //Team's locations
+                        while($row2 = mysql_fetch_array($result2))
+	                    {  
+                            echo "<option value=\"" . $row2['locationID'] . "\">" . $row2['name'] . "</option>";
+                        }
+                        echo "</select>";
+                    echo "</div>";
                     //Location///////////////////////////////////////////
 
                     //echo "<h2>Set Time</h2>";
