@@ -1805,6 +1805,9 @@ function addNewLocation(position, name, teamid, weather) {
             //Update event list
             getEventsAsync();
 
+            //Update location to new event insert
+            updateNewEventLocations();
+
         }
     }
 
@@ -1853,7 +1856,6 @@ function updateLocationlist() {
         xmlhttp.send();
 
 }
-
 
 function updateLocation(index) {
 
@@ -1910,6 +1912,30 @@ function updateLocation(index) {
     startSpinner();
     xmlhttp.open("GET", "updateLocation.php?" + variables, true);
     xmlhttp.send();          
+
+}
+
+//Update location to new event insert
+function updateNewEventLocations() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                
+                document.getElementById("locationWrapper").innerHTML = xmlhttp.responseText;
+
+            }
+        }
+
+        startSpinner();
+        xmlhttp.open("GET", "updateNewEventLocations.php", true);
+        xmlhttp.send();
 
 }
 
