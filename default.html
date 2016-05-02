@@ -200,7 +200,7 @@
             <!--Button-->                                               
             <div class='buttonHolder' style='margin-top:15px;'>
 
-                <input type='button' class='myButton' style='float: center;' value='Send' onclick="forgot_password('password_forgotten'.value);"></input>
+                <input type='button' class='myButton' style='float: center;' value='Send' onclick="forgotPassword('password_forgotten'.value);"></input>
 
             </div>
 
@@ -249,6 +249,39 @@
     function startLoginSpinner() {
         var target = document.getElementById('spinnerlogin_id');
         spinnerlogin.spin(target);
+    }
+
+    function stopSpinner() {
+        spinnerlogin.stop();
+    }
+
+    //Forgotten password/////////////////////////////////////////////////////
+    function forgot_password(mail) {
+        
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                    stopSpinner();
+                                                    
+                    //Close modal dialog
+                    window.location.replace('#');
+
+                }
+            }
+
+            var variables = "mail=" + mail;
+
+            startLoginSpinner();
+            xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
+            xmlhttp.send();
+
     }
 
 </script>
