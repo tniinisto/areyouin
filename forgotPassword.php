@@ -41,7 +41,7 @@
 
 
         //Send mail
-        $newuser_mail = array(        
+        $password_mail = array(        
                 'subject' => "R'YouIN new password",                 
                 'content' => "
                 
@@ -81,7 +81,7 @@
                 </html>",
             );
 
-        sendMail($_GET['mail'], $mail_user, $mail_key, $_GET['mail']);  
+        sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
 
     }
     catch(PDOException $e) {
