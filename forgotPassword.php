@@ -15,7 +15,9 @@
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
     $password = '';
-          
+    
+    $mail_param = urldecode($_GET['mail']);
+
     try {
     
             $result = 0;
@@ -29,7 +31,7 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+            $stmt->bindParam(':mail', $mail_param, PDO::PARAM_STR);
         
             $result = $stmt->execute();
             
