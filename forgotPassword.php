@@ -17,7 +17,8 @@
     $password = '';
           
     try {
-        $result = 0;
+    
+            $result = 0;
 
             //Create random password
             $password = randomPassword();
@@ -34,9 +35,11 @@
             
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
 
+
             echo $result;
 
-        $dbh = null;
+            $dbh = null;
+
 
         if($result == 1) {
             //Send mail
