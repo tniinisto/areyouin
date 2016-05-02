@@ -1,6 +1,5 @@
 <?php
     
-
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     include 'mail_ayi.php';
 
