@@ -90,7 +90,7 @@
                     </html>",
                 );
 
-            sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
+            sendMail($mail_param, $mail_user, $mail_key, $password_mail);  
         }
     }
     catch(PDOException $e) {
