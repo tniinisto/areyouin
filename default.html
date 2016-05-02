@@ -161,12 +161,51 @@
 
 	            </fieldset>
 		    </form>
+
+            </br>
+            </br>
+                <a style="color: white; text-decoration: underline;" href='#openModalPassword' id='passwordForgot'>Forgot my password</a>
+            </br>
+            </br>
+                <p style="color:white;">Notice! Application uses cookies.</p>
+
         </div>
     </div>
-    
-
-    
 </div>
+
+
+<!--//Modal dialog for new password change///////////////-->
+<div id='openModalPassword' class='modalDialog'>
+	<div>;
+		<a id='closer_password' href='' title='Close' class='close'>X</a>
+
+        <form id='password_forgot_form' name='passwordForm' method='post' action='' target='frame_player' onsubmit=''>
+
+            <p style='margin: 10px;'>
+                <label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Enter your email address</label>
+            </p>
+
+            <p style='margin: 0px; padding-top: 10px;'>
+                                                    
+                <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>
+                <input type='text' id='forgot_password' name='password_forgotten' value=''
+                        style='margin-bottom: 15px; width: 170px; required'></input>
+                </p>
+
+                <p style="padding-left: 10px;">Email containing your new password will be sent to you in a moment.</p>
+
+            <!--Button-->                                               
+            <div class='buttonHolder' style='margin-top:15px;'>
+
+                <input type='button' class='myButton' style='float: center;' value='Send' onclick="forgotPassword(password_forgotten.value);">
+
+            </div>
+
+		</form>
+    </div>
+</div>
+<!--//Modal dialog for new password change///////////////-->
+
 
 <script type="text/javascript">
     function loginFailed() {
@@ -207,6 +246,44 @@
     function startLoginSpinner() {
         var target = document.getElementById('spinnerlogin_id');
         spinnerlogin.spin(target);
+    }
+
+    function stopSpinner() {
+        spinnerlogin.stop();
+    }
+
+    //Forgotten password/////////////////////////////////////////////////////
+    function forgotPassword(mail) {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                stopSpinner();
+
+                //Close modal dialog
+                window.location.replace('#');
+
+                if (xmlhttp.responseText.indexOf('1') > -1)
+                    alert("Your password has been changed, check your email!");
+                else
+                    alert("Check the mail entered and try again!");
+
+            }
+        }
+
+        startLoginSpinner();
+
+        var variables = "mail=" + mail;
+        xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
+        xmlhttp.send();
+
     }
 
 </script>
