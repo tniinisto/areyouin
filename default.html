@@ -166,16 +166,45 @@
 
             </br>
             </br>
-            <p style="color:white; text-decoration: underline; cursor: pointer;">Forgot your password</p>
+                <a href='#openModalPassword' id='passwordForgot'>Forgot my password</a>
             </br>
-            <p style="color:white;">Notice! Application uses cookies.</p>
+                <p style="color:white;">Notice! Application uses cookies.</p>
 
         </div>
     </div>
     
-
-    
 </div>
+
+
+<!--//Modal dialog for new password change///////////////-->
+<div id='openModalPassword' class='modalDialog'>
+	<div>;
+		<a id='closer_newLocation' href='#' title='Close' class='close'>X</a>
+
+        <form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>
+
+            <p style='margin: 10px;'>
+                <label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Enter your password</label>
+            </p>
+
+            <p style='margin: 0px; padding-top: 10px;'>
+                                                    
+                <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right;'>Password:&nbsp</label>
+                <input type='text' id='dialog_password' name='password_send' value=''
+                        style='margin-bottom: 15px; width: 170px; required'></input>";
+                </p>
+
+            <!--Button-->                                               
+            <div class='buttonHolder' style='margin-top:15px;'>
+
+                <input type='button' class='myButton' style='float: center;' value='Send new password' onclick="">"
+            </div>
+
+		</form>
+    </div>
+</div>
+<!--//Modal dialog for new password change///////////////-->
+
 
 <script type="text/javascript">
     function loginFailed() {

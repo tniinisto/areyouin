@@ -1973,3 +1973,8 @@ function deleteLocation(location) {
         xmlhttp.send();
 
 }
+
+//Forgotten password/////////////////////////////////////////////////////
+function forgot_password() {
+    
+}
