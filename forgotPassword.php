@@ -23,7 +23,7 @@
             $password = randomPassword();
         
             //Insert new password
-            $sql = "UPDATE players SET password = '" . md5($password) ."') WHERE mail like ':mail'";
+            $sql = "UPDATE players SET password = '" . md5($password) ."' WHERE mail LIKE ':mail'";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
@@ -39,50 +39,50 @@
 
         $dbh = null;
 
-
-        //Send mail
-        $password_mail = array(        
-                'subject' => "R'YouIN new password",                 
-                'content' => "
+        if($result == 1) {
+            //Send mail
+            $password_mail = array(        
+                    'subject' => "R'YouIN new password",                 
+                    'content' => "
                 
-                  <html>             	
+                      <html>             	
 
-                    <div style='background: black;'>
-                        <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
-                    </div>
+                        <div style='background: black;'>
+                            <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                            <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                        </div>
 
-                    <br>
+                        <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been renewed.</font>
+                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been renewed.</font>
                     
-                    <br>
-                    <br>
+                        <br>
+                        <br>
 
-                    <ul style='list-style-type:disc'>
-                        <font size='3' face='Trebuchet MS'>                                       		
-                            <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
-	                    </font>
-                    </ul>                                
+                        <ul style='list-style-type:disc'>
+                            <font size='3' face='Trebuchet MS'>                                       		
+                                <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+	                        </font>
+                        </ul>                                
 
-                    <br>
+                        <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
-                    <br>
-                    <br>
+                        <br>
+                        <br>
 
-                    <div style='text-align: center; background: black; padding: 15px;'>
-                    <font size='4' face='Trebuchet MS' style='color: white;'>			
-                        Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
-                    </font>
-                    </div>
+                        <div style='text-align: center; background: black; padding: 15px;'>
+                        <font size='4' face='Trebuchet MS' style='color: white;'>			
+                            Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                        </font>
+                        </div>
 
-                </html>",
-            );
+                    </html>",
+                );
 
-        sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
-
+            sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
+        }
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
