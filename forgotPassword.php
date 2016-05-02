@@ -29,7 +29,7 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+            $stmt->bindParam(':mail',  mysql_real_escape_string($_GET['mail']), PDO::PARAM_STR);
         
             $result = $stmt->execute();
             
