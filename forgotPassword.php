@@ -23,7 +23,8 @@
             $password = randomPassword();
         
             //Insert new password
-            $sql = "UPDATE players SET password = '" . md5($password) ."' WHERE mail LIKE :mail";
+            $sql = "UPDATE players SET password = '" . md5($password) ."' WHERE mail LIKE ':mail';";
+                  //UPDATE players SET password = 'test'                  WHERE mail LIKE 'tuomasniinisto@hotmail.com';
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
