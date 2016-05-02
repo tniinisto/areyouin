@@ -29,7 +29,6 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            //$stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
             $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         
             $result = $stmt->execute();
