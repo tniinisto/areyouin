@@ -55,7 +55,7 @@
 
                         <br>
 
-                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been renewed.</font>
+                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been changed.</font>
                     
                         <br>
                         <br>
