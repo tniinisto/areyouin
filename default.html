@@ -281,7 +281,7 @@
             }
         }
 
-        var variables = "mail=" + encodeURIComponent(mail);
+        var variables = "mail=" + mail;
 
         startLoginSpinner();
         xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
