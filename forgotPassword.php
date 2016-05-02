@@ -23,9 +23,9 @@
             $password = randomPassword();
         
             //Insert new password
-            $sql = "UPDATE players SET password = " . md5($password) ."') WHERE mail = :mail";
+            $sql = "UPDATE players SET password = " . md5($password) ."') WHERE mail like :mail";
 
-            if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
+            if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
             //$stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
