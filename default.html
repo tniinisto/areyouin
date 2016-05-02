@@ -191,7 +191,7 @@
             <p style='margin: 0px; padding-top: 10px;'>
                                                     
                 <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>
-                <input type='text' id='dialog_password' name='password_send' value=''
+                <input type='text' id='forgot_password' name='password_forgotten' value=''
                         style='margin-bottom: 15px; width: 170px; required'></input>
                 </p>
 
@@ -200,7 +200,7 @@
             <!--Button-->                                               
             <div class='buttonHolder' style='margin-top:15px;'>
 
-                <input type='button' class='myButton' style='float: center;' value='Send' onclick="">"
+                <input type='button' class='myButton' style='float: center;' value='Send' onclick="forgot_password(password_forgotten.value)">"
             </div>
 
 		</form>

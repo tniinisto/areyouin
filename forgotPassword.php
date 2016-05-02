@@ -38,6 +38,50 @@
 
         $dbh = null;
 
+
+        //Send mail
+        $newuser_mail = array(        
+                'subject' => "R'YouIN new password",                 
+                'content' => "
+                
+                  <html>             	
+
+                    <div style='background: black;'>
+                        <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                    </div>
+
+                    <br>
+
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been renewed.</font>
+                    
+                    <br>
+                    <br>
+
+                    <ul style='list-style-type:disc'>
+                        <font size='3' face='Trebuchet MS'>                                       		
+                            <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+	                    </font>
+                    </ul>                                
+
+                    <br>
+
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    
+                    <br>
+                    <br>
+
+                    <div style='text-align: center; background: black; padding: 15px;'>
+                    <font size='4' face='Trebuchet MS' style='color: white;'>			
+                        Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                    </font>
+                    </div>
+
+                </html>",
+            );
+
+        sendMail($_GET['mail'], $mail_user, $mail_key, $_GET['mail']);  
+
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
