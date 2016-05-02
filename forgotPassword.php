@@ -35,6 +35,7 @@
             
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
 
+            echo $result;
 
         $dbh = null;
 
