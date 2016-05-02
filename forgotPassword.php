@@ -14,16 +14,8 @@
   	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-    $password = '';
-    $mail_param = '';
-    
-    //$mail_param = urldecode($_GET['mail']);
-
-    if(isset($_POST['mail']))
-    {
-        $mail_param = $_POST['mail'];
-    }
-
+    $password = '12345';
+ 
     try {
     
             $result = 0;
@@ -32,12 +24,12 @@
             $password = randomPassword();
         
             //Insert new password
-            $sql = "UPDATE players SET password = '" . md5($password) . "' WHERE mail LIKE ':mail';";
+            $sql = "UPDATE players SET password = '". md5($password) ."' WHERE mail like :mail";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':mail', $mail_param, PDO::PARAM_STR);
+            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         
             $result = $stmt->execute();
             
@@ -90,7 +82,7 @@
                     </html>",
                 );
 
-            sendMail($mail_param, $mail_user, $mail_key, $password_mail);  
+            sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
         }
     }
     catch(PDOException $e) {
