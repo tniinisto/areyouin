@@ -287,16 +287,22 @@
         //xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
         //xmlhttp.send();
 
+        startLoginSpinner();
+
         $.ajax({
             type: "POST",
             url: 'forgotPassword.php',
             data: "mail=" + mail,
             success: function(data)
             {
-                if (data.indexOf('1') > -1)
+                if (data.indexOf('1') > -1) {
                     alert("Your password has been changed, check your email!");
-                else
+                    stopSpinner();
+                }
+                else {
                     alert("Check the mail entered and try again!");
+                    stopSpinner();
+                }
             }
         });
 
