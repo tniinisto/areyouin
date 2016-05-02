@@ -62,7 +62,7 @@
 
                         <ul style='list-style-type:disc'>
                             <font size='3' face='Trebuchet MS'>                                       		
-                                <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+                                <li><span style='font-weight: bold;'>New password: </span><span style='color:blue'> " . $password . "</span></li>
 	                        </font>
                         </ul>                                
 
