@@ -1986,9 +1986,11 @@ function forgot_password(mail) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                
-                
+                                
                 stopSpinner();
+
+                //Close modal dialog
+                window.location.replace('#');
 
             }
         }
