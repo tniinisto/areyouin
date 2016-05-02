@@ -15,8 +15,14 @@
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
     $password = '';
+    $mail_param = '';
     
-    $mail_param = urldecode($_GET['mail']);
+    //$mail_param = urldecode($_GET['mail']);
+
+    if(isset($_POST['mail']))
+    {
+        $mail_param = $_POST['mail'];
+    }
 
     try {
     
@@ -45,7 +51,7 @@
         if($result == 1) {
             //Send mail
             $password_mail = array(        
-                    'subject' => "R'YouIN new password",                 
+                    'subject' => "R'YouIN password changed",                 
                     'content' => "
                 
                       <html>             	
