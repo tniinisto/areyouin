@@ -1975,6 +1975,27 @@ function deleteLocation(location) {
 }
 
 //Forgotten password/////////////////////////////////////////////////////
-function forgot_password() {
-    
+function forgot_password(mail) {
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                       
+                stopSpinner();
+
+            }
+        }
+
+        var variables = "mail=" + mail;
+
+        startSpinner();
+        xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
+        xmlhttp.send();
+
 }
