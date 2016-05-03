@@ -1311,3 +1311,9 @@ New message icon
     width: 25px;
     height: 25px;
 }
+
+
+/*Toas container*/
+#toast-container > div {
+    opacity: 1;
+}
