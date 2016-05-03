@@ -386,23 +386,23 @@
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
                                         echo "<p style='margin: 10px;'>";
-                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Set new location</label>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Set new location</label>";
                                         echo "</p>";
 
                                         echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     
-                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
                                             echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
                                                     style='margin-bottom: 15px; width: 170px; required'></input>";
                                                     
-                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
                                             echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
                                                     style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                         echo "</p>";
 
                                         //Show weather for location
-                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify'>Weather: </h5>";
+                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
                                                     
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch_new'>";					            
