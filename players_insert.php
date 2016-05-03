@@ -625,11 +625,11 @@
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                 echo "<p style='margin: 10px;'>";
-                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit user status</label>";
+                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit user status</label>";
                                                 echo "</p>";
 
                                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
+                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                    
                                                 echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname . " " . $player->lastname ."' required style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                 echo "</p>";
 
