@@ -225,7 +225,7 @@
     //Cookie
     $(document).ready(function() {
 
-        if ($.cookie('showWelcome')) {
+        if (!$.cookie('noShowWelcome')) {
 
                 //Toaster/////////////////////////////
                 Command: toastr["success"]("Enable cookies on your browser. Used only for application logic.", "Cookies needed")
@@ -250,7 +250,7 @@
                 //Toaster/////////////////////////////
 
                 //Set cookie
-                $.cookie('showWelcome', true);    
+                $.cookie('noShowWelcome', true);    
         }
     });
 
