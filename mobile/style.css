@@ -1314,6 +1314,10 @@ New message icon
 
 
 /*Toas container*/
-#toast-container > div {
+#toast-container.toast-bottom-center>div {
+    opacity: 1;
+}
+
+#toast-container.toast-info {
     opacity: 1;
 }
