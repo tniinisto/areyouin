@@ -228,8 +228,6 @@
         if (!$.cookie('noShowWelcome')) {
 
                 //Toaster/////////////////////////////
-                toastr.info("Enable cookies on your browser. Used only for application logic.", "Cookies needed")
-
                 toastr.options = {
                   "closeButton": true,
                   "debug": false,
@@ -247,6 +245,8 @@
                   "showMethod": "fadeIn",
                   "hideMethod": "fadeOut"
                 }
+
+                toastr.info("Enable cookies on your browser. Used only for application logic.", "Cookies needed")
                 //Toaster/////////////////////////////
 
                 //Set cookie
