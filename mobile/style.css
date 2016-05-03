@@ -1311,3 +1311,13 @@ New message icon
     width: 25px;
     height: 25px;
 }
+
+
+/*Toas container*/
+#toast-container.toast-bottom-center>div {
+    opacity: 1;
+}
+
+#toast-container.toast-info {
+    opacity: 1;
+}

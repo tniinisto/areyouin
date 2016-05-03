@@ -1665,3 +1665,12 @@ Chat message editor
     width: 100%;
     font-size: 125%;
 }
+
+/*Toas container*/
+#toast-container.toast-bottom-center>div {
+    opacity: 1;
+}
+
+#toast-container.toast-info {
+    opacity: 1;
+}
