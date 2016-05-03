@@ -299,7 +299,7 @@
                                                 echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                     echo "<p style='margin: 10px;'>";
-                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit location</label>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit location</label>";
                                                     echo "</p>";
 
                                                     //LocationID
@@ -310,18 +310,18 @@
 
                                                     echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     
-                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
                                                         echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
                                                                style='margin-bottom: 15px; width: 170px;'></input>";
                                                     
-                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
                                                         echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
                                                                style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                                     echo "</p>";
 
                                                     //Show weather for location
-                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify'>Weather: </h5>";
+                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
                                                     
                                                     if($row_locations[showWeather] == 0) {
 
@@ -349,7 +349,7 @@
 
                                                     }
 
-                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather is shown in the events section.</p>";
 
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
