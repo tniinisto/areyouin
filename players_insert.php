@@ -475,7 +475,7 @@
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
                                         echo "<br>";
-                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%;'>User is already a team member!</label>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%; color: black;'>User is already a team member!</label>";
                                         echo "</p>";
 
                                         //PlayerID, hidden
@@ -485,7 +485,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label id='new_dialog_mail_text' class='mailclass'>Enter user's email</label>";
+                                            echo "<label id='new_dialog_mail_text' class='mailclass' style='color: black;'>Enter user's email</label>";
                                             echo "<br>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
@@ -494,13 +494,13 @@
 
                                         //Header
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_header'>";
-                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's info</label>";
+                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%; color: black;'>Enter user's info</label>";
                                         echo "</p>";
                                         echo "<br>";
 
                                         //Nickname
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
-                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
+                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black; color: black;'>Nickname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
                                 
