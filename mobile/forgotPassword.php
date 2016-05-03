@@ -20,70 +20,96 @@
     
             $result = 0;
 
-            //Create random password
-            $password = randomPassword();
-        
-            //Insert new password
-            $sql = "UPDATE players SET password = '". md5($password) ."' WHERE mail like :mail";
+            //Check if the user exists
+            $sql1 = "SELECT playerID FROM players WHERE mail like :mail";
 
-            if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
+            if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql1); }
         
-            $stmt = $dbh->prepare($sql);
-            $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
-        
-            $result = $stmt->execute();
+            $stmt1 = $dbh->prepare($sql1);
+            $stmt1->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+            $stmt1->execute();
+            $data = $stmt1->fetchAll();
             
-            if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
+            $playerID = 0;
 
-            echo $result;
+            foreach($data as $row) {            
+                $playerID = $row[playerID];
+            }
 
-            $dbh = null;
+
+            if($playerID > 0) {
+
+                //Create random password
+                $password = randomPassword();
+        
+                //Insert new password
+                $sql = "UPDATE players SET password = '". md5($password) ."' WHERE mail like :mail";
+
+                if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword: ' . $sql); }
+        
+                $stmt = $dbh->prepare($sql);
+                $stmt->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+        
+                $result = $stmt->execute();
+            
+                if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
+
+                echo $result;
+
+                $dbh = null;
 
 
-        if($result == 1) {
-            //Send mail
-            $password_mail = array(        
-                    'subject' => "R'YouIN password changed",                 
-                    'content' => "
+                if($result == 1) {
+
+                    //Send mail
+                    $password_mail = array(        
+                            'subject' => "R'YouIN password changed",                 
+                            'content' => "
                 
-                      <html>             	
+                              <html>             	
 
-                        <div style='background: black;'>
-                            <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-                            <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
-                        </div>
+                                <div style='background: black;'>
+                                    <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                                    <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                                </div>
 
-                        <br>
+                                <br>
 
-                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been changed.</font>
+                                <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been changed.</font>
                     
-                        <br>
-                        <br>
+                                <br>
+                                <br>
 
-                        <ul style='list-style-type:disc'>
-                            <font size='3' face='Trebuchet MS'>                                       		
-                                <li><span style='font-weight: bold;'>New password: </span><span style='color:blue'> " . $password . "</span></li>
-	                        </font>
-                        </ul>                                
+                                <ul style='list-style-type:disc'>
+                                    <font size='3' face='Trebuchet MS'>                                       		
+                                        <li><span style='font-weight: bold;'>New password: </span><span style='color:blue'> " . $password . "</span></li>
+	                                </font>
+                                </ul>                                
 
-                        <br>
+                                <br>
 
-                        <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                                <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
-                        <br>
-                        <br>
+                                <br>
+                                <br>
 
-                        <div style='text-align: center; background: black; padding: 15px;'>
-                        <font size='4' face='Trebuchet MS' style='color: white;'>			
-                            Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
-                        </font>
-                        </div>
+                                <div style='text-align: center; background: black; padding: 15px;'>
+                                <font size='4' face='Trebuchet MS' style='color: white;'>			
+                                    Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                                </font>
+                                </div>
 
-                    </html>",
-                );
+                            </html>",
+                        );
 
-            sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
-        }
+                    sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
+                }
+            }
+            else {
+                $result = 999;
+                echo $result;
+            }
+                            
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
@@ -103,5 +129,3 @@
     }
 
 ?>
-
-
