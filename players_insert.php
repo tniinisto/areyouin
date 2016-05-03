@@ -299,7 +299,7 @@
                                                 echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                     echo "<p style='margin: 10px;'>";
-                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit location</label>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit location</label>";
                                                     echo "</p>";
 
                                                     //LocationID
@@ -310,18 +310,18 @@
 
                                                     echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     
-                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
                                                         echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
                                                                style='margin-bottom: 15px; width: 170px;'></input>";
                                                     
-                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
                                                         echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
                                                                style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                                     echo "</p>";
 
                                                     //Show weather for location
-                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify'>Weather: </h5>";
+                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
                                                     
                                                     if($row_locations[showWeather] == 0) {
 
@@ -349,7 +349,7 @@
 
                                                     }
 
-                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather is shown in the events section.</p>";
 
                                                     //Buttons                                               
                                                     echo "<div class='buttonHolder' style='margin-top:15px;'>";
@@ -386,23 +386,23 @@
                                     echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
                                         echo "<p style='margin: 10px;'>";
-                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Set new location</label>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Set new location</label>";
                                         echo "</p>";
 
                                         echo "<p style='margin: 0px; padding-top: 10px;'>";
                                                     
-                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                   
+                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
                                             echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
                                                     style='margin-bottom: 15px; width: 170px; required'></input>";
                                                     
-                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right;'>Position:&nbsp</label>";   
+                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
                                             echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
                                                     style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                     
                                         echo "</p>";
 
                                         //Show weather for location
-                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify'>Weather: </h5>";
+                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
                                                     
                                         echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
 						                    echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch_new'>";					            
@@ -475,7 +475,7 @@
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
                                         echo "<br>";
-                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%;'>User is already a team member!</label>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%; color: black;'>User is already a team member!</label>";
                                         echo "</p>";
 
                                         //PlayerID, hidden
@@ -485,7 +485,7 @@
 
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
-                                            echo "<label id='new_dialog_mail_text' class='mailclass'>Enter user's email</label>";
+                                            echo "<label id='new_dialog_mail_text' class='mailclass' style='color: black;'>Enter user's email</label>";
                                             echo "<br>";
                                             echo "<p style='margin: 0px'>";
                                             echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
@@ -494,13 +494,13 @@
 
                                         //Header
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_header'>";
-                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's info</label>";
+                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%; color: black;'>Enter user's info</label>";
                                         echo "</p>";
                                         echo "<br>";
 
                                         //Nickname
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
-                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black;'>Nickname:&nbsp</label>";                    
+                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black; color: black;'>Nickname:&nbsp</label>";                    
                                         echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
                                         echo "</p>";
                                 
@@ -625,11 +625,11 @@
                                             echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                 echo "<p style='margin: 10px;'>";
-                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%;'>Edit user status</label>";
+                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit user status</label>";
                                                 echo "</p>";
 
                                                 echo "<p style='margin: 0px; padding-top: 10px;'>";
-                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Name:&nbsp</label>";                    
+                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                    
                                                 echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname . " " . $player->lastname ."' required style='margin-bottom: 15px; width: 170px;' readonly></input>";
                                                 echo "</p>";
 
