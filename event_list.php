@@ -360,7 +360,7 @@
                 $latlon = explode(", ", $row_weather['position']);
             
                 echo "<article id=\"event_article_id\" class='event_article clearfix'>";
-                    echo "<div style='width=100%;'>";
+                    echo "<div style='width=100%; overflow: hidden;'>";
                         echo "<iframe 
             	            id='forecast_embed'
 	                        type='text/html'
