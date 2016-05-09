@@ -543,8 +543,8 @@ function addRow() {
 
     //$("#chatdiv").scrollTop(0);
 
-    setTimeout(insertComment(comment), 100);
-
+    //setTimeout(insertComment(comment), 100);
+    insertComment(comment);
 
 
 }
