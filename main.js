@@ -512,9 +512,9 @@ function nl2br (str, is_xhtml) {
 function addRow() {
 
     var comment = document.getElementById("comment_input").value;
-    //comment = nl2br(comment, true);
-    comment = comment.replace(/\n/g, "<br />");
 
+    comment = nl2br(comment, true);
+    //comment = comment.replace(/\n/g, "<br />"); //The n2lbr is working fine, but also this regular expression
     //alert("Text: " + comment);
 
     document.getElementById("comment_input").value = "";
