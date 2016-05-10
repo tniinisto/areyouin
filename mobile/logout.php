@@ -8,8 +8,10 @@
 
     //ChromePhp::log("logout.php start, logged_in:", $_SESSION['logged_in']);
 	
-    session_unset(); 	
+    setcookie(session_name(), '', 100);
+    session_unset();
     session_destroy();
+    $_SESSION = array();
 
     //ChromePhp::log("logout.php end, logged_in:", $_SESSION['logged_in']);
 

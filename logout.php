@@ -7,12 +7,11 @@
     }
 
     //ChromePhp::log("logout.php start, logged_in:", $_SESSION['logged_in']);
- 	
-    session_unset(); 	
+
+    setcookie(session_name(), '', 100);
+    session_unset();
     session_destroy();
-    session_write_close();
-    setcookie(session_name(),'',0,'/');
-    session_regenerate_id(true);
+    $_SESSION = array();
 
     //ChromePhp::log("logout.php end, logged_in:", $_SESSION['logged_in']);
 
