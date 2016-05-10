@@ -198,6 +198,9 @@
 
     //Logout
     function logout() {
+        localStorage.clear();
+        sessionStorage.clear();
+
         $.get("logout.php");
     }
 
