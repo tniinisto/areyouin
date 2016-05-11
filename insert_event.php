@@ -222,9 +222,9 @@
 
             //Start- and End-time formating
             $time = strtotime($eventInfo['startTime']);
-            $starttime = date("d.m.Y H:i", $time);
+            $starttime = date("D j.n.Y H:i", $time);
             $time = strtotime($eventInfo['endTime']);
-            $endtime = date("d.m.Y H:i", $time);
+            $endtime = date("D j.n.Y H:i", $time);
 
             $eventInfoArray = array(        
                 'subject' => "New event for " . $eventInfo['teamName'] . "",                 
