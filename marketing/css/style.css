@@ -1052,9 +1052,9 @@
 /* Banner */
 
 	#banner {
-		padding: 16em 0 13em 0;
+		padding: 4em 0 25em 0;
 		background-attachment: fixed;
-		background-image: url("images/overlay.png"), url("../images/kransjka-gora.jpg");
+		background-image: url("images/overlay.png"), url("../images/banner2.jpg");
 		background-position: center top;
 		background-size: cover;
 		line-height: 1.75;
@@ -1102,7 +1102,7 @@
 
 		.wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../images/kransjka-gora.jpg");
+			background-image: url("images/overlay.png"), url("../images/banner2.jpg");
 			background-position: center center;
 			background-size: cover;
 		}
