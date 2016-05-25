@@ -14,7 +14,7 @@
     define('MESSAGE_POLL_MICROSECONDS', 15000000); //15 seconds
 
     // How long to keep the Long Poll open, in seconds
-    define('MESSAGE_TIMEOUT_SECONDS', 360);
+    define('MESSAGE_TIMEOUT_SECONDS', 120);
 
     // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
