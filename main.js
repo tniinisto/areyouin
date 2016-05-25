@@ -1441,7 +1441,8 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                getEventsAsync(0);
+                //getEventsAsync(0);
+                getEvents();
             }
             else {
                 //alert("eventcheck success,json timeout: " + json['timeout']);
@@ -1449,7 +1450,7 @@ function waitForEventUpdate(){
             }
 
 
-            setTimeout('waitForEventUpdate()', 15000);
+            setTimeout('waitForEventUpdate()', 15000); //15 seconds
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
