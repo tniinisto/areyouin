@@ -1435,7 +1435,7 @@ function waitForEventUpdate(){
             //alert("success timestamp: " + json['timestamp']);
             //}
 
-            //Get comments only if php not timed out...
+            //Get events only if php not timed out...
             if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
                 alert("json timestamp: "+ json['timestamp']);
