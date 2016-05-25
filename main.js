@@ -1450,12 +1450,12 @@ function waitForEventUpdate(){
             }
 
 
-            setTimeout('waitForEventUpdate()', 15000); //15 seconds
+            setTimeout('waitForEventUpdate()', 5000); //5 seconds
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 15000);
+            setTimeout('waitForEventUpdate()', 5000);
         }
     });
             

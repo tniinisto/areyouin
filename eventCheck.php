@@ -11,7 +11,7 @@
     }
 
     // How often to poll, in microseconds (1,000,000 μs equals 1 s)
-    define('MESSAGE_POLL_MICROSECONDS', 180000000); //seconds
+    define('MESSAGE_POLL_MICROSECONDS', 15000000); //15 seconds
 
     // How long to keep the Long Poll open, in seconds
     define('MESSAGE_TIMEOUT_SECONDS', 360);
