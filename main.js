@@ -1445,7 +1445,7 @@ function waitForEventUpdate(){
                 //getEvents();
             }
             else {
-                //alert("eventcheck success,json timeout: " + json['timeout']);
+                alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
             }
 
