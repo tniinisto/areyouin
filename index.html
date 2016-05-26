@@ -238,8 +238,8 @@
         //Start session checking
         CheckForSession();
 
-        //getEvents();
-        waitForEventUpdate(); //Comet
+        getEvents();
+        //waitForEventUpdate(); //Comet
 
         getPlayersInsert();
         getAdminStatus();
@@ -250,7 +250,7 @@
         waitForChat();
 
         //Comet for events, affected the whole usability too much, needs more investigation!
-        //setTimeout('waitForEventUpdate()', 5000); //5 seconds after start
+        setTimeout('waitForEventUpdate()', 5000); //5 seconds after start
         //setTimeout('waitForEventUpdate()', 1000); //1 second
 
         //Stop spinner after events have been load
