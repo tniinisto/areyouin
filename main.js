@@ -1414,6 +1414,7 @@ function waitForEventUpdate(){
     //}
 
     //var param = 'timestamp=' + timestamp;
+    alert("timestamp on call: "+ json['timestamp']);
 
     $.ajax({
         type: "GET",
@@ -1448,7 +1449,6 @@ function waitForEventUpdate(){
                 alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
             }
-
 
             setTimeout('waitForEventUpdate()', 300000); //5 mins
         },
