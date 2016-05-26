@@ -1414,7 +1414,6 @@ function waitForEventUpdate(){
     //}
 
     //var param = 'timestamp=' + timestamp;
-    alert("timestamp on call: "+ json['timestamp']);
 
     $.ajax({
         type: "GET",
@@ -1439,14 +1438,14 @@ function waitForEventUpdate(){
             //Get events only if php not timed out...
             if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
-                alert("json timestamp: "+ json['timestamp']);
+                //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
                 getEventsAsync(0);
                 //getEvents();
             }
             else {
-                alert("eventcheck timedout: " + json['timeout']);
+                //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
             }
 
