@@ -58,18 +58,18 @@
     $currentmodif = $row['lastEventUpdate'];
     
     $timeout = 1;
-    $d1 = new DateTime($currentmodif);
-    $d2 = new DateTime($lastmodif); 
+    $db_time = new DateTime($currentmodif); //From database
+    $param_time = new DateTime($lastmodif); //From parameter
 
-    if($d1 <= $d2) {
+    if($db_time <= $param_time) {
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d1: ', $d1); }
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d2: ', $d2); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
 
         // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
         $counter = MESSAGE_TIMEOUT_SECONDS;
 
-        while($d1 <= $d2 && $counter > 0) {
+        while($db_time <= $param_time && $counter > 0) {
                         
             //sleep
             usleep(MESSAGE_POLL_MICROSECONDS);
@@ -82,9 +82,9 @@
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['lastEventUpdate'];
-            $d1 = new DateTime($currentmodif);
+            $db_time = new DateTime($currentmodif);
 
-            if($d1 > $d2) {
+            if($db_time > $param_time) {
                 $timeout = 0;
             }
 

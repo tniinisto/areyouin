@@ -1393,8 +1393,8 @@ function updateUserlist() {
 }
 
 //Asynchronous event update///////////////////////////////////////////////////////////////////
-var eventparameter = null;
-eventparameter = "1900-01-01 10:10:10";
+//var eventparameter = null;
+var eventparameter = "1900-01-01 10:10:10";
 
 //Long polling for event update time
 function waitForEventUpdate(){
