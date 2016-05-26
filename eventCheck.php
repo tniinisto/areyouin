@@ -57,6 +57,8 @@
 
     $currentmodif = $row['lastEventUpdate'];
     
+    mysql_close($con);
+
     $timeout = 1;
     $db_time = new DateTime($currentmodif); //From database
     $param_time = new DateTime($lastmodif); //From parameter
@@ -78,11 +80,15 @@
 
             clearstatcache();
 
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['lastEventUpdate'];
             $db_time = new DateTime($currentmodif);
+            
+            mysql_close($con);
 
             if($db_time > $param_time) {
                 $timeout = 0;
@@ -97,7 +103,8 @@
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
         $currentmodif = $row['time'];
-        $timeout = 0;     
+        $timeout = 0;
+        mysql_close($con);     
     }
 
     $response = array();
