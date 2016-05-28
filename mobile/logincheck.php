@@ -43,9 +43,14 @@
 
     $mymd5 = md5($mypassword);
 
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin
+	//$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin
+ //   FROM areyouin.players p, playerteam m, team t
+ //   WHERE name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
+ //   ORDER BY t.teamID";
+
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
     FROM areyouin.players p, playerteam m, team t
-    WHERE name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
     ORDER BY t.teamID";
 
 	$result=mysql_query($sql);

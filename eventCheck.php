@@ -11,10 +11,10 @@
     }
 
     // How often to poll, in microseconds (1,000,000 μs equals 1 s)
-    define('MESSAGE_POLL_MICROSECONDS', 180000000); //seconds
+    define('MESSAGE_POLL_MICROSECONDS', 30000000); //30 seconds, sleep in while loop
 
     // How long to keep the Long Poll open, in seconds
-    define('MESSAGE_TIMEOUT_SECONDS', 360);
+    define('MESSAGE_TIMEOUT_SECONDS', 300); //5 minutes
 
     // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
@@ -57,19 +57,21 @@
 
     $currentmodif = $row['lastEventUpdate'];
     
+    mysql_close($con);
+
     $timeout = 1;
-    $d1 = new DateTime($currentmodif);
-    $d2 = new DateTime($lastmodif); 
+    $db_time = new DateTime($currentmodif); //From database
+    $param_time = new DateTime($lastmodif); //From parameter
 
-    if($d1 <= $d2) {
+    if($db_time <= $param_time) {
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d1: ', $d1); }
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, d2: ', $d2); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
 
         // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
         $counter = MESSAGE_TIMEOUT_SECONDS;
 
-        while($d1 <= $d2 && $counter > 0) {
+        while($db_time <= $param_time && $counter > 0) {
                         
             //sleep
             usleep(MESSAGE_POLL_MICROSECONDS);
@@ -78,13 +80,17 @@
 
             clearstatcache();
 
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['lastEventUpdate'];
-            $d1 = new DateTime($currentmodif);
+            $db_time = new DateTime($currentmodif);
+            
+            mysql_close($con);
 
-            if($d1 > $d2) {
+            if($db_time > $param_time) {
                 $timeout = 0;
             }
 
@@ -97,7 +103,8 @@
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
         $currentmodif = $row['time'];
-        $timeout = 0;     
+        $timeout = 0;
+        mysql_close($con);     
     }
 
     $response = array();

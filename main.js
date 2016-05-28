@@ -1393,8 +1393,8 @@ function updateUserlist() {
 }
 
 //Asynchronous event update///////////////////////////////////////////////////////////////////
-var eventparameter = null;
-eventparameter = "1900-01-01 10:10:10";
+//var eventparameter = null;
+var eventparameter = "1900-01-01 10:10:10";
 
 //Long polling for event update time
 function waitForEventUpdate(){
@@ -1435,26 +1435,26 @@ function waitForEventUpdate(){
             //alert("success timestamp: " + json['timestamp']);
             //}
 
-            //Get comments only if php not timed out...
+            //Get events only if php not timed out...
             if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
                 getEventsAsync(0);
+                //getEvents();
             }
             else {
-                //alert("eventcheck success,json timeout: " + json['timeout']);
+                //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
             }
 
-
-            setTimeout('waitForEventUpdate()', 15000);
+            setTimeout('waitForEventUpdate()', 300000); //5 mins
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 15000);
+            setTimeout('waitForEventUpdate()', 300000);
         }
     });
             
