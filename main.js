@@ -1271,7 +1271,7 @@ function UpdatePlayer() {
                 var n = currentMail.lastIndexOf(":") + 2;
                 currentMail = currentMail.substr(n);
                 document.getElementById("dialog_player_email").value = currentMail;
-                alert("Duplicate mail address inputted!");
+                alert("The inputted mail address is already in use!");
             }
             else
                 refreshPlayerInfo();
