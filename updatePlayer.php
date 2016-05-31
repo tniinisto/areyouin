@@ -54,7 +54,8 @@
         }
 
     }
-    else { //Mail already exists in R'YouIN for another user, don't allow update!!!
+    //Mail already exists in R'YouIN for another user, don't allow update!!!
+    else if($row2['playerID'] != $_SESSION['myplayerid']) {
         echo "911, mail already in use!";
     }
 
