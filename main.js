@@ -1266,7 +1266,7 @@ function UpdatePlayer() {
 
             stopSpinner();
             var result = xmlhttp.responseText;
-            if (result.indexOf("1062") >= 0) {
+            if (result.indexOf("1062") >= 0 || result.indexOf("911") >= 0 ) {
                 var currentMail = document.getElementById("profile_playerEmail").textContent;
                 var n = currentMail.lastIndexOf(":") + 2;
                 currentMail = currentMail.substr(n);
