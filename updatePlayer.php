@@ -34,7 +34,7 @@
     $row2 = mysql_fetch_array($result2);
     $num_rows = mysql_num_rows($result2);
 
-    //If mail already belongs to the user ok to update information
+    //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
         $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
