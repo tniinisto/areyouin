@@ -28,7 +28,7 @@
         $player_notify = 0;
 
 
-    //Verityi mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
+    //Verify mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
     $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
     $result2 = mysql_query($sql2);
     $row2 = mysql_fetch_array($result2);
@@ -54,8 +54,7 @@
         }
 
     }
-    else {
-        //Mail already exists in R'YouIN for another user, don't allow update!!!
+    else { //Mail already exists in R'YouIN for another user, don't allow update!!!
         echo "911, mail already in use!";
     }
 
