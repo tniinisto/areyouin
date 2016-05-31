@@ -1266,12 +1266,12 @@ function UpdatePlayer() {
 
             stopSpinner();
             var result = xmlhttp.responseText;
-            if (result.indexOf("1062") >= 0) {
+            if (result.indexOf("1062") >= 0 || result.indexOf("911") >= 0 ) {
                 var currentMail = document.getElementById("profile_playerEmail").textContent;
                 var n = currentMail.lastIndexOf(":") + 2;
                 currentMail = currentMail.substr(n);
                 document.getElementById("dialog_player_email").value = currentMail;
-                alert("Duplicate mail address inputted!");
+                alert("The inputted mail address is already in use!");
             }
             else
                 refreshPlayerInfo();
