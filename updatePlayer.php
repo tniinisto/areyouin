@@ -27,23 +27,37 @@
     else    
         $player_notify = 0;
 
-    $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" . mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
-            name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
-            WHERE playerID = " . $_SESSION['myplayerid'] . ";";
 
+    //Verityi mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
+    $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
+    $result2 = mysql_query($sql2);
+    $row2 = mysql_fetch_array($result2);
+    $num_rows = mysql_num_rows($result2);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
+    //If mail already belongs to the user ok to update information
+    if($num_rows > 0 && $row2['playerID'] == $_SESSION['myplayerid']) {
+
+        $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
+                name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
+                WHERE playerID = " . $_SESSION['myplayerid'] . ";";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
         
-    $result = mysql_query($sql);
+        $result = mysql_query($sql);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
     
-    //duplicate key, duplicate mail address
-    if( mysql_errno() == 1062) {
-       // Duplicate key
-       echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
-    }
+        //duplicate key, duplicate mail address
+        if( mysql_errno() == 1062) {
+           // Duplicate key
+           echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
+        }
 
+    }
+    else {
+        //Mail already exists in R'YouIN for another user, don't allow update!!!
+        echo "911, mail already in use!";
+    }
 
     mysql_close($con);
 
