@@ -35,7 +35,7 @@
     $num_rows = mysql_num_rows($result2);
 
     //If mail already belongs to the user ok to update information
-    if($num_rows > 0 && $row2['playerID'] == $_SESSION['myplayerid']) {
+    if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
         $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
                 name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
