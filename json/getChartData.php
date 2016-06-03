@@ -27,7 +27,7 @@
     //
 
     $sql_team_events = 
-    "select CONCAT(YEAR(e.startTime), '/', MONTH(e.endTime)) as time, count(ep.eventPlayerID) as participated, count(t2.eventID) as games
+    "select CONCAT(YEAR(e.startTime), '/', MONTH(e.endTime)) as month, count(ep.eventPlayerID) as participated, count(t2.eventID) as games
     from areyouin.events e, areyouin.eventplayer ep,
     (SELECT e1.eventID, count(e1.eventID) as games
     FROM `areyouin`.`events` e1
