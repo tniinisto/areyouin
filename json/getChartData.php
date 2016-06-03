@@ -33,7 +33,7 @@
     FROM `areyouin`.`events` e1
     where e1.Team_teamID = '" . $teamid . "') t2
     where e.eventID = ep.Events_eventID and e.Team_teamID = '" . $teamid . "' and ep.Players_playerID = '" . $playerid. "' and ep.areyouin = 1
-    group by time;";
+    group by month;";
 
     try {
         //PDO means "PHP Data Objects"
