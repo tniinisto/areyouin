@@ -27,9 +27,9 @@
     //
 
     $sql_team_events = 
-       "SELECT CONCAT(year, '/' ,month) as month1, IFNULL(participated, 0), games
+       "SELECT CONCAT(year, '/' ,month3) as month, IFNULL(participated, 0), games
         FROM
-        (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month, count(e1.eventID) as games
+        (SELECT eventID, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month3, count(e1.eventID) as games
         FROM `areyouin`.`events` e1
         where Team_teamID = '" . $teamid . "'
         GROUP BY YEAR(e1.startTime), MONTH(e1.startTime)) t1
