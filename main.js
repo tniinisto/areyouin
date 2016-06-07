@@ -180,12 +180,12 @@ function getEvents(more) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
                     $('#' + moreid).scrollintoview({ duration: 500 });
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
                 else {
                     stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
             }            
         }
@@ -1525,7 +1525,7 @@ function getEventsAsync(more) {
                 else {
                     //stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
             }
         }
