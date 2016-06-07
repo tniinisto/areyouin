@@ -641,7 +641,7 @@ function getChatComments() {
 	        checkMsgStatus();
 
 	        //Notify on desktop
-	        var theTitle = 'New chat message';
+	        var theTitle = 'Message';
             var theBody = 'New message in team '+ sessionStorage['teamName'];
 	        notifyMe(theTitle, theBody);
 
