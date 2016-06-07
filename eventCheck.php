@@ -48,15 +48,14 @@
 
 	mysql_select_db("areyouin", $con);
     //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
-    $sql = "select max(lastEventUpdate) from playerteam where Team_teamID = " . $teamid . ";";
+    $sql = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['latest']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
-    $currentmodif = 'not_set';
-    $currentmodif = $row['lastEventUpdate'];
+    $currentmodif = $row['last'];
     
     //mysql_close($con);
 
@@ -84,10 +83,10 @@
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
             //mysql_free_result($result);
-            $sql1 = "select max(lastEventUpdate) from playerteam where Team_teamID = " . $teamid . ";";
+            $sql1 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
-            $currentmodif = $row1['lastEventUpdate'];
+            $currentmodif = $row1['last'];
             $db_time = new DateTime($currentmodif1);
             
             //mysql_close($con);
@@ -102,10 +101,10 @@
     }
     else {
         //mysql_free_result($result);
-        $sql2 = "select max(lastEventUpdate) from playerteam where Team_teamID = " . $teamid . ";";
+        $sql2 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
         $result2 = mysql_query($sql2);
         $row2 = mysql_fetch_array($result2);
-        $currentmodif = $row2['lastEventUpdate'];
+        $currentmodif = $row2['last'];
         $timeout = 0;
 
         //mysql_close($con);     

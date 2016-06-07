@@ -249,8 +249,8 @@
         waitForChat();
 
         //Comet for events, affected the whole usability too much, needs more investigation!
-        setTimeout('waitForEventUpdate()', 15000); //15 seconds after start
-        //setTimeout('waitForEventUpdate()', 1000); //1 second
+        //setTimeout('waitForEventUpdate()', 120000); //120 seconds after start
+        setTimeout('waitForEventUpdate()', 10000); //10 seconds
 
         //Stop spinner after events have been load
         stopSpinner();
