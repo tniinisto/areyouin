@@ -82,12 +82,11 @@
 
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-            //mysql_free_result($result);
-            $sql1 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
-            $result1 = mysql_query($sql1);
-            $row1 = mysql_fetch_array($result1);
-            $currentmodif = $row1['last'];
-            $db_time = new DateTime($currentmodif1);
+            mysql_free_result($result);
+            $result = mysql_query($sql);
+            $row = mysql_fetch_array($result);
+            $currentmodif = $row['last'];
+            $db_time = new DateTime($currentmodif);
             
             //mysql_close($con);
 
