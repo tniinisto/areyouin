@@ -1219,7 +1219,7 @@ function checkMsgStatus() {
 
         //Notify on desktop
 	    var theTitle = 'Message';
-        var theBody = 'New message in team '+ sessionStorage['teamName'];
+        var theBody = 'New message in team ' + sessionStorage['teamName'];
 	    notifyMe(theTitle, theBody);
 
     }             
@@ -1989,7 +1989,19 @@ function notifyMe(theTitle, theBody) {
     Notification.requestPermission(function (permission) {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
-        var notification = new Notification("Hi there!");
+        //var notification = new Notification("Hi there!");
+        
+        var options = {
+            body: theBody,
+            icon: 'android-chrome-48x48.png'
+        }
+
+        //Notify on desktop
+	    var theTitle = 'Message';
+        var theBody = 'Notifications are now in use!';
+        var n = new Notification(theTitle, options);
+        setTimeout(n.close.bind(n), 4000);
+
       }
     });
   }
