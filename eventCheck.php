@@ -89,7 +89,7 @@
             $currentmodif1 = $row1['lastEventUpdate'];
             $db_time = new DateTime($currentmodif1);
             
-            mysql_close($con);
+            //mysql_close($con);
 
             if($db_time > $param_time) {
                 $timeout = 0;
@@ -106,7 +106,8 @@
         $row2 = mysql_fetch_array($result2);
         $currentmodif = $row2['lastEventUpdate'];
         $timeout = 0;
-        mysql_close($con);     
+
+        //mysql_close($con);     
     }
 
     $response = array();

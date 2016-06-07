@@ -1455,7 +1455,7 @@ function waitForEventUpdate(){
                 if (first == 0) {
                     //Notify on desktop
                     var theTitle = 'Event';
-                    var theBody = 'Event status has changed in ' + sessionStorage['teamName'];
+                    var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
                     notifyMe(theTitle, theBody);
                 }
                 else
