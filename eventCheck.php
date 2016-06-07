@@ -58,7 +58,7 @@
     $currentmodif = 'not_set';
     $currentmodif = $row['lastEventUpdate'];
     
-    mysql_close($con);
+    //mysql_close($con);
 
     $timeout = 1;
     $db_time = new DateTime($currentmodif); //From database
