@@ -642,9 +642,9 @@ function getChatComments() {
 
 	        //Notify on desktop
 	        var theTitle = 'New chat message';
-            var theBody = 'There is a new chat message!';
-
+            var theBody = 'New message in team '+ sessionStorage['teamName'];
 	        notifyMe(theTitle, theBody);
+
 	    }
 	}
 
