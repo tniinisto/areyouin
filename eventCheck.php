@@ -11,7 +11,7 @@
     }
 
     // How often to poll, in microseconds (1,000,000 μs equals 1 s)
-    define('MESSAGE_POLL_MICROSECONDS', 120000000); //120 seconds / 2 minutes, sleep in while loop
+    define('MESSAGE_POLL_MICROSECONDS', 60000000); //60 seconds / 1 minute, sleep in while loop
 
     // How long to keep the Long Poll open, in seconds
     define('MESSAGE_TIMEOUT_SECONDS', 240); //4 minutes
