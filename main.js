@@ -1465,6 +1465,7 @@ function waitForEventUpdate(){
             else {
                 //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
+                first = 0;
             }
 
             setTimeout('waitForEventUpdate()', 60000); //1 mins
