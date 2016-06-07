@@ -640,11 +640,6 @@ function getChatComments() {
 	        //Update the message icon
 	        checkMsgStatus();
 
-	        //Notify on desktop
-	        var theTitle = 'Message';
-            var theBody = 'New message in team '+ sessionStorage['teamName'];
-	        notifyMe(theTitle, theBody);
-
 	    }
 	}
 
@@ -1221,6 +1216,12 @@ function checkMsgStatus() {
     }
     else {       
         $("#msg_icon").removeClass("noshow");
+
+        //Notify on desktop
+	    var theTitle = 'Message';
+        var theBody = 'New message in team '+ sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
+
     }             
 }
 
