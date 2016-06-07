@@ -1452,7 +1452,7 @@ function waitForEventUpdate(){
                 getEventsAsync(0);
                 //getEvents();
 
-                if (first != 1) {
+                if (first == 0) {
                     //Notify on desktop
                     var theTitle = 'Event';
                     var theBody = 'Event status has changed in ' + sessionStorage['teamName'];
@@ -1460,6 +1460,7 @@ function waitForEventUpdate(){
                 }
                 else
                     first = 0;
+
             }
             else {
                 //alert("eventcheck timedout: " + json['timeout']);
