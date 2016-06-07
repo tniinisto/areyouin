@@ -102,7 +102,7 @@
         mysql_free_result($result);
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
-        $currentmodif = $row['time'];
+        $currentmodif = $row['lastEventUpdate'];
         $timeout = 0;
         mysql_close($con);     
     }
