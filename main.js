@@ -641,7 +641,10 @@ function getChatComments() {
 	        checkMsgStatus();
 
 	        //Notify on desktop
-	        notifyMe();
+	        var theTitle = 'New chat message';
+            var theBody = 'There is a new chat message!';
+
+	        notifyMe(theTitle, theBody);
 	    }
 	}
 
@@ -1960,16 +1963,24 @@ function deleteLocation(location) {
 
 //Notifications/////////////////////////////////////////////////////////////
 
-function notifyMe() {
+function notifyMe(theTitle, theBody) {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
-    alert("This browser does not support desktop notification");
+    //alert("This browser does not support desktop notification");
   }
 
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
-    var notification = new Notification("Hi there!");
+    //var notification = new Notification("Hi there!");
+    
+    var options = {
+        body: theBody,
+        icon: 'android-chrome-48x48.png'
+    }
+
+    var n = new Notification(theTitle, options);
+    setTimeout(n.close.bind(n), 4000);
   }
 
   // Otherwise, we need to ask the user for permission
