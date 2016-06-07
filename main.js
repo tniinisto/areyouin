@@ -1450,6 +1450,11 @@ function waitForEventUpdate(){
                 eventparameter = json['timestamp'];
                 getEventsAsync(0);
                 //getEvents();
+
+                //Notify on desktop
+	            var theTitle = 'Event';
+                var theBody = 'Event status has changed in ' + sessionStorage['teamName'];
+	            notifyMe(theTitle, theBody);
             }
             else {
                 //alert("eventcheck timedout: " + json['timeout']);
