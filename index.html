@@ -249,7 +249,7 @@
         waitForChat();
 
         //Comet for events, affected the whole usability too much, needs more investigation!
-        //setTimeout('waitForEventUpdate()', 5000); //5 seconds after start
+        setTimeout('waitForEventUpdate()', 15000); //15 seconds after start
         //setTimeout('waitForEventUpdate()', 1000); //1 second
 
         //Stop spinner after events have been load
@@ -258,11 +258,11 @@
         //getWeather();
 
         //Events update. 5 minute interval, start after 5 minutes
-        setTimeout(function () {
-            //alert("start async fetch...");
-            //setInterval(getEventsAsync(), 60000);
-            setInterval(function() {getEventsAsync(); }, 300000);
-        }, 300000); // 5 minutes after start
+        //setTimeout(function () {
+        //    //alert("start async fetch...");
+        //    //setInterval(getEventsAsync(), 60000);
+        //    setInterval(function() {getEventsAsync(); }, 300000);
+        //}, 300000); // 5 minutes after start
 
         //Chat new message form/////////////////////////////////
         $("#newChatImg").click(function (event) {
