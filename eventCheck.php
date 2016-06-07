@@ -14,7 +14,7 @@
     define('MESSAGE_POLL_MICROSECONDS', 120000000); //120 seconds / 2 minutes, sleep in while loop
 
     // How long to keep the Long Poll open, in seconds
-    define('MESSAGE_TIMEOUT_SECONDS', 240); //2 minutes
+    define('MESSAGE_TIMEOUT_SECONDS', 240); //4 minutes
 
     // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
