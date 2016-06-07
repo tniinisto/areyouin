@@ -256,12 +256,24 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
         //document.getElementById(switch_id).checked = false;
         ayi = 0;
         value--;
+
+        //Notify on desktop
+	    var theTitle = 'Event status change';
+        var theBody = 'Participant marked out to an event in ' + sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
+
 	}
 	else {
         //alert("ayi 1");
 	    //document.getElementById(switch_id).checked = true;
         ayi = 1;
         value++;
+
+        //Notify on desktop
+	    var theTitle = 'Event status change';
+        var theBody = 'Participant marked in to an event in ' + sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
+
 	}
 
 	var start2 = th.indexOf("/")
