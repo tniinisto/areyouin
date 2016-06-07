@@ -1997,8 +1997,6 @@ function notifyMe(theTitle, theBody) {
         }
 
         //Notify on desktop
-	    var theTitle = 'Message';
-        var theBody = 'Notifications are now in use!';
         var n = new Notification(theTitle, options);
         setTimeout(n.close.bind(n), 5000);
 
