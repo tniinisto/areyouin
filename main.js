@@ -1467,12 +1467,12 @@ function waitForEventUpdate(){
                 eventparameter = json['timestamp'];
             }
 
-            setTimeout('waitForEventUpdate()', 300000); //5 mins
+            setTimeout('waitForEventUpdate()', 60000); //1 mins
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 300000);
+            setTimeout('waitForEventUpdate()', 60000);
         }
     });
             
