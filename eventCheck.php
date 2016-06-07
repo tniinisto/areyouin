@@ -11,10 +11,10 @@
     }
 
     // How often to poll, in microseconds (1,000,000 μs equals 1 s)
-    define('MESSAGE_POLL_MICROSECONDS', 20000000); //20 seconds sleep in while loop
+    define('MESSAGE_POLL_MICROSECONDS', 15000000); //15 seconds sleep in while loop
 
     // How long to keep the Long Poll open, in seconds
-    define('MESSAGE_TIMEOUT_SECONDS', 120); //2 minutes
+    define('MESSAGE_TIMEOUT_SECONDS', 60); //1 minute
 
     // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
@@ -80,16 +80,12 @@
 
             clearstatcache();
 
-            $con = mysql_connect($dbhost, $dbuser, $dbpass);
-
             mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['last'];
             $db_time = new DateTime($currentmodif);
             
-            //mysql_close($con);
-
             if($db_time > $param_time) {
                 $timeout = 0;
             }
@@ -97,18 +93,6 @@
             // Decrement seconds from counter (the interval was set in μs, see above)
             $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
     }
-    
-    //}
-    //else {
-    //    //mysql_free_result($result);
-    //    $sql2 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
-    //    $result2 = mysql_query($sql2);
-    //    $row2 = mysql_fetch_array($result2);
-    //    $currentmodif = $row2['last'];
-    //    $timeout = 0;
-
-    //    //mysql_close($con);     
-    //}
 
     $response = array();
     $response['timestamp'] = $currentmodif;
