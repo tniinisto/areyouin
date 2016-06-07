@@ -63,7 +63,7 @@
     $db_time = new DateTime($currentmodif); //From database
     $param_time = new DateTime($lastmodif); //From parameter
 
-    if($db_time <= $param_time) {
+    //if($db_time <= $param_time) {
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
         if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
@@ -71,7 +71,7 @@
         // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
         $counter = MESSAGE_TIMEOUT_SECONDS;
 
-        while($db_time <= $param_time && $counter > 0) {
+    while($db_time <= $param_time && $counter > 0) {
                         
             //sleep
             usleep(MESSAGE_POLL_MICROSECONDS);
@@ -97,8 +97,9 @@
 
             // Decrement seconds from counter (the interval was set in μs, see above)
             $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
-        }
     }
+    
+    //}
     //else {
     //    //mysql_free_result($result);
     //    $sql2 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
