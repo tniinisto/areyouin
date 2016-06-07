@@ -82,11 +82,12 @@
 
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-            mysql_free_result($result);
-            $result = mysql_query($sql);
-            $row = mysql_fetch_array($result);
-            $currentmodif = $row['lastEventUpdate'];
-            $db_time = new DateTime($currentmodif);
+            //mysql_free_result($result);
+            $sql1 = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . "";
+            $result1 = mysql_query($sql1);
+            $row1 = mysql_fetch_array($result1);
+            $currentmodif1 = $row1['lastEventUpdate'];
+            $db_time = new DateTime($currentmodif1);
             
             mysql_close($con);
 
@@ -99,16 +100,17 @@
         }
     }
     else {
-        mysql_free_result($result);
-        $result = mysql_query($sql);
-        $row = mysql_fetch_array($result);
-        $currentmodif = $row['lastEventUpdate'];
+        //mysql_free_result($result);
+        $sql2 = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . "";
+        $result2 = mysql_query($sql2);
+        $row2 = mysql_fetch_array($result2);
+        $currentmodif = $row2['lastEventUpdate'];
         $timeout = 0;
         mysql_close($con);     
     }
 
     $response = array();
-    $response['msg'] = "test response...";
+    //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
 
