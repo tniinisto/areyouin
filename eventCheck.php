@@ -99,16 +99,16 @@
             $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
         }
     }
-    else {
-        //mysql_free_result($result);
-        $sql2 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
-        $result2 = mysql_query($sql2);
-        $row2 = mysql_fetch_array($result2);
-        $currentmodif = $row2['last'];
-        $timeout = 0;
+    //else {
+    //    //mysql_free_result($result);
+    //    $sql2 = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
+    //    $result2 = mysql_query($sql2);
+    //    $row2 = mysql_fetch_array($result2);
+    //    $currentmodif = $row2['last'];
+    //    $timeout = 0;
 
-        //mysql_close($con);     
-    }
+    //    //mysql_close($con);     
+    //}
 
     $response = array();
     $response['timestamp'] = $currentmodif;
