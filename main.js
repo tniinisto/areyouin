@@ -1981,7 +1981,7 @@ function notifyMe(theTitle, theBody) {
     }
 
     var n = new Notification(theTitle, options);
-    setTimeout(n.close.bind(n), 4000);
+    setTimeout(n.close.bind(n), 5000);
   }
 
   // Otherwise, we need to ask the user for permission
@@ -2000,7 +2000,7 @@ function notifyMe(theTitle, theBody) {
 	    var theTitle = 'Message';
         var theBody = 'Notifications are now in use!';
         var n = new Notification(theTitle, options);
-        setTimeout(n.close.bind(n), 4000);
+        setTimeout(n.close.bind(n), 5000);
 
       }
     });
