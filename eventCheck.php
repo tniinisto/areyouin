@@ -65,11 +65,11 @@
 
     //if($db_time <= $param_time) {
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
-        if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
 
-        // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
-        $counter = MESSAGE_TIMEOUT_SECONDS;
+    // Counter to manually keep track of time elapsed (PHP's set_time_limit() is unrealiable while sleeping)
+    $counter = MESSAGE_TIMEOUT_SECONDS;
 
     while($db_time <= $param_time && $counter > 0) {
                         
@@ -90,8 +90,12 @@
                 $timeout = 0;
             }
 
-            // Decrement seconds from counter (the interval was set in μs, see above)
+            //Decrement seconds from counter (the interval was set in μs, see above)
             $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
+    }
+
+    if($counter > 0) {
+        $timeout = 0;
     }
 
     $response = array();
