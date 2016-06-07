@@ -82,7 +82,7 @@
 
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-            mysql_free_result($result);
+            //mysql_free_result($result);
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['lastEventUpdate'];
@@ -99,7 +99,7 @@
         }
     }
     else {
-        mysql_free_result($result);
+        //mysql_free_result($result);
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
         $currentmodif = $row['lastEventUpdate'];
@@ -108,7 +108,7 @@
     }
 
     $response = array();
-    //$response['msg'] = "test response...";
+    $response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
 
