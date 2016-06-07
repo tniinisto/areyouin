@@ -48,14 +48,14 @@
 
 	mysql_select_db("areyouin", $con);
     //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
-    $sql = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . ";";
+    $sql = "select max(lastEventUpdate) as latest from playerteam where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['lastEventUpdate']); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['latest']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
-    $currentmodif = $row['lastEventUpdate'];
+    $currentmodif = $row['latest'];
     
     mysql_close($con);
 
@@ -83,10 +83,10 @@
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
             //mysql_free_result($result);
-            $sql1 = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . ";";
+            $sql1 = "select max(lastEventUpdate) as latest from playerteam where Team_teamID = " . $teamid . ";";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
-            $currentmodif = $row1['lastEventUpdate'];
+            $currentmodif = $row1['latest'];
             $db_time = new DateTime($currentmodif1);
             
             //mysql_close($con);
@@ -101,20 +101,18 @@
     }
     else {
         //mysql_free_result($result);
-        $sql2 = "select max(lastEventUpdate) as lastEventUpdate from playerteam where Team_teamID = " . $teamid . ";";
+        $sql2 = "select max(lastEventUpdate) as latest from playerteam where Team_teamID = " . $teamid . ";";
         $result2 = mysql_query($sql2);
         $row2 = mysql_fetch_array($result2);
-        $currentmodif = $row2['lastEventUpdate'];
+        $currentmodif = $row2['latest'];
         $timeout = 0;
 
         //mysql_close($con);     
     }
 
     $response = array();
-    //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-
     echo json_encode($response);
 
     mysql_close($con);
