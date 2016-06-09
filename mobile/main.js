@@ -1500,7 +1500,9 @@ function waitForEventUpdate(){
                 getEventsAsync(0);
                 //getEvents();
 
-                if (sessionStorage['firstTimeEvent'] == 0) {
+                //Show notifications after first eventCheck and if another player has done something
+                if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
+                    PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
                     var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
@@ -1511,7 +1513,6 @@ function waitForEventUpdate(){
 
             }
             else {
-                //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
                 sessionStorage['firstTimeEvent'] = 0;
             }
