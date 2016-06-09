@@ -48,7 +48,7 @@
 
 	mysql_select_db("areyouin", $con);
     //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
-    $sql = "select max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
+    $sql = "select players_playerid, max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
@@ -101,7 +101,7 @@
     $response = array();
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-    $response['playerid'] = $playerid;
+    $response['playerid'] = $row['players_playerid'];
     echo json_encode($response);
 
     mysql_close($con);
