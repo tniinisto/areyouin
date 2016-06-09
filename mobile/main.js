@@ -510,46 +510,91 @@ function nl2br (str, is_xhtml) {
 
 //Chat dynamic
 function addRow() {
-
     var comment = document.getElementById("comment_input").value;
-
     comment = nl2br(comment, true);
-    //comment = comment.replace(/\n/g, "<br />"); //The n2lbr is working fine, but also this regular expression
-    //alert("Text: " + comment);
-
-    document.getElementById("comment_input").value = "";
-
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
-
     var table = document.getElementById("comments_table");
-
     var row = table.insertRow(0);
     row.className = "chatrow";
-
-    row.innerHTML = "<td valign=\"top\">" +
-        "<div>" +
-            "<div class='chat-list-left'>" +
-                "<img width='50' height='50' src='images/" + sessionStorage['photoURL'] + "'>" +
-                "<br />" +
-                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
-            "</div>" +
-            "<br />" +
-            "<div class='chat-list-right'>" +
-                "<div class='comment-time'>Just now...</div>" +
-                "<div class='comment-text'>" + comment + "</div>" +
-            "</div>" +
-        "</div>" +
-    "</td>";
-
+    //row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
+    //sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
+    //sessionStorage['playerName'] + "</text></td>" +
+    //"<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
+                                    row.innerHTML = "<td valign=\"top\">" +
+                                        "<div>" +
+                                            "<div class='chat-list-left'>" +
+                                                "<img width='50' height='50' src='http://areyouin.azurewebsites.net/images/" + sessionStorage['photoURL'] + "'>" +
+                                                "<br />" +
+                                                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
+                                            "</div>" +
+                                            "<br />" +
+                                            "<div class='chat-list-right'>" +
+                                                "<div class='comment-time'>Just now...</div>" +
+                                                "<div class='comment-text'>" + comment + "</div>" +
+                                            "</div>" +
+                                        "</div>" +
+                                    "</td>";
     //document.getElementById("comment_input").value = "";    
-
     //$("#chatdiv").scrollTop(0);
-
-    //setTimeout(insertComment(comment), 100);
-    insertComment(comment);
-
-
+    $("#backpacker").trigger("click");
+    setTimeout(insertComment(comment), 100);
 }
+
+function clickBack() {
+    //alert("jou");
+    //document.getElementById('backpacker').click();
+    //$("#backpacker").trigger("click");
+    $('#areyouin-modal-page').dialog('close');
+    //$("#areyouin-modal-page").dialog('destroy').remove();
+    //$( "#modal_comment" ).dialog( "close" );
+    //$(":mobile-pagecontainer").pagecontainer("change", "#areyouin-chat-page", { options });
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: true});
+    //$.mobile.changePage("#areyouin-chat-page");
+    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: false});
+}
+
+////Chat dynamic
+//function addRow() {
+
+//    var comment = document.getElementById("comment_input").value;
+
+//    comment = nl2br(comment, true);
+//    //comment = comment.replace(/\n/g, "<br />"); //The n2lbr is working fine, but also this regular expression
+//    //alert("Text: " + comment);
+
+//    document.getElementById("comment_input").value = "";
+
+//    //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
+
+//    var table = document.getElementById("comments_table");
+
+//    var row = table.insertRow(0);
+//    row.className = "chatrow";
+
+//    row.innerHTML = "<td valign=\"top\">" +
+//        "<div>" +
+//            "<div class='chat-list-left'>" +
+//                "<img width='50' height='50' src='images/" + sessionStorage['photoURL'] + "'>" +
+//                "<br />" +
+//                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
+//            "</div>" +
+//            "<br />" +
+//            "<div class='chat-list-right'>" +
+//                "<div class='comment-time'>Just now...</div>" +
+//                "<div class='comment-text'>" + comment + "</div>" +
+//            "</div>" +
+//        "</div>" +
+//    "</td>";
+
+//    //document.getElementById("comment_input").value = "";    
+
+//    //$("#chatdiv").scrollTop(0);
+
+//    //setTimeout(insertComment(comment), 100);
+//    insertComment(comment);
+
+
+//}
 
 //Clear chat input
 //function clearComment() {
