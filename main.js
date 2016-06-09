@@ -1481,7 +1481,7 @@ function waitForEventUpdate(){
 }
 
 function PlaySound() {
-  var sound = document.getElementById(soundObj);
+  var sound = document.getElementById("soundObj");
   sound.Play();
 }
 
