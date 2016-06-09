@@ -1501,7 +1501,7 @@ function waitForEventUpdate(){
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
-                if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
+                if (sessionStorage['playerID'] != json['playerid']) {
                     PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
