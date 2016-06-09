@@ -1217,6 +1217,7 @@ function checkMsgStatus() {
     else {       
         $("#msg_icon").removeClass("noshow");
 
+        PlaySound();
         //Notify on desktop
 	    var theTitle = 'Chat';
         var theBody = 'New message in team ' + sessionStorage['teamName'];
