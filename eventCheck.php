@@ -52,6 +52,10 @@
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
+    $sql1 = "select players_playerid from playerteam where lastEventUpdate = '" . $row[last] . "'";
+    $result1 = mysql_query($sql1);
+    $row1 = mysql_fetch_array($result1);
+
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, sql time: ', $row['latest']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
@@ -85,6 +89,10 @@
             $row = mysql_fetch_array($result);
             $currentmodif = $row['last'];
             $db_time = new DateTime($currentmodif);
+
+            mysql_free_result($result1);
+            $result1 = mysql_query($sql1);
+            $row1 = mysql_fetch_array($result1);
             
             if($db_time > $param_time) {
                 $timeout = 0;
@@ -101,7 +109,7 @@
     $response = array();
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-    $response['playerid'] = $row['players_playerid'];
+    $response['playerid'] = $row1['players_playerid'];
     echo json_encode($response);
 
     mysql_close($con);
