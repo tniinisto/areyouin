@@ -11,12 +11,14 @@ function getLoginInformation() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("userlogin1").innerHTML = xmlhttp.responseText;
-            document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
+            //document.getElementById("userlogin2").innerHTML = xmlhttp.responseText;
 		}
 	}
+
 	//alert("GET ge7ts called.");
 	//var variables = "p=" + playerID + "&t=" + teamID;
 	//var variables = "p=1&t=1";
@@ -40,11 +42,13 @@ function getAdminStatus() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("linkadmin").innerHTML = xmlhttp.responseText;
 		}
 	}
+
 	//alert("GET ge7ts called.");
 	//var variables = "p=" + playerID + "&t=" + teamID;
 	//var variables = "p=1&t=1";
@@ -56,27 +60,29 @@ function getAdminStatus() {
 }
 
 //Get full player table data
-function showUser(str) {
-	//alert("showUser() gets called.");
-	if (str == "") {
-		document.getElementById("userlogin").innerHTML = "showUser()";
-		return;
-	}
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("atable").innerHTML = xmlhttp.responseText;
-		}
-	}
-	//alert("GET gets called.");
-	xmlhttp.open("GET", "database.php?q=" + str, true);
-	xmlhttp.send();
-}
+//function showUser(str) {
+//	//alert("showUser() gets called.");
+//	if (str == "") {
+//		document.getElementById("userlogin").innerHTML = "showUser()";
+//		return;
+//	}
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
+
+//	xmlhttp.onreadystatechange = function () {
+//		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//			document.getElementById("atable").innerHTML = xmlhttp.responseText;
+//		}
+//	}
+
+//	//alert("GET gets called.");
+//	xmlhttp.open("GET", "database.php?q=" + str, true);
+//	xmlhttp.send();
+//}
 
 //Getting player image & name
 //function getPlayers(teamid) {
@@ -90,11 +96,13 @@ function showUser(str) {
 //	else {// code for IE6, IE5
 //		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 //	}
+
 //	xmlhttp.onreadystatechange = function () {
 //		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 //			document.getElementById("players_short").innerHTML = xmlhttp.responseText;
 //		}
 //	}
+
 //	//alert("GET gets called.");
 //    var variables = "teamid=" + teamid;
 //	xmlhttp.open("GET", "players_short.php?" + variables, false);
@@ -113,17 +121,32 @@ function getPlayersInsert() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
 
+            //Userlist scroll init
+	        //scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        //setTimeout(function () {
+	        //    scroll2.refresh();
+	        //});
+
 		}
 	}
+
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "players_insert.php", false);
 	xmlhttp.send();
 }
+
+//Refresh the users list scrolling
+//function refreshScroll2() {
+//    setTimeout(function(){
+//	    scroll2.refresh();
+//    });    
+//}
 
 //Off&On for the event fetch
 var eventFetchPause = 0;
@@ -140,6 +163,7 @@ function eventFetchOff() {
 function getEvents(more) {    
     if (eventFetchPause == 0) { //Don't run, if pause is on
         startSpinner();
+
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
         }
@@ -155,12 +179,13 @@ function getEvents(more) {
                 if (more != 0) {                    
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
-                    $('#' + moreid).scrollintoview({ duration: 1000 });
-                    
+                    $('#' + moreid).scrollintoview({ duration: 500 });
+                    //updateLastEventTime();
                 }
                 else {
                     stopSpinner();
-                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;                    
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    //updateLastEventTime();
                 }
             }            
         }
@@ -191,6 +216,7 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 {
 	//alert("updateAYI() gets called.");
     //alert(switchid);
+
     if (eventplayerid == "" || ayi == "") {
 		document.getElementById("userlogin").innerHTML = "updateAYI()";
 		return;
@@ -201,21 +227,26 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 	        //alert(xmlhttp.responseText);
 	        //getEvents(); //Update events
+	        updateLastEventTime();
 	    }
 	}
+
 	//Update the summary count to client when in/out switch is clicked///////////////////////////
 	var summary_id = "id_summary" + eventid;
 	var th = document.getElementById(summary_id).innerHTML;
 	//alert(th);
+
 	var start = th.indexOf(":")
 	var end = th.indexOf("/")
 	var value = th.substring(start + 1, end);
 	value = value.trim();
 	//alert(value);
+
 	//alert(ayi);
     var switch_id = "myonoffswitch" + switchid;
 	//var sw = document.getElementById(switch_id).innerHTML;
@@ -232,11 +263,14 @@ function updateAYI(eventplayerid, ayi, eventid, switchid)
         ayi = 1;
         value++;
 	}
+
 	var start2 = th.indexOf("/")
 	var value2 = th.substr(start2 + 1);
 	value2 = value2.trim();
-	document.getElementById(summary_id).innerHTML = "Players IN: " + value + " / " + value2;
+
+	document.getElementById(summary_id).innerHTML = "Event status: " + value + " / " + value2;
     //////////////////////////////////////////////////////////////////////////////////////////////////
+
 	var variables = "event=" + eventplayerid + "&ayi=" + ayi;
 	//alert(variables);
 	xmlhttp.open("GET", "update_inout.php?" + variables, true);
@@ -249,17 +283,22 @@ function setSSE()
 	if(typeof(EventSource)!=="undefined")
 	{
 		var source=new EventSource("events_sse.php");
+
 		source.addEventListener("ayi", function (event) {
 		    var data = event.data;
 		    //var origin = event.origin;
 		    //var lastEventId = event.lastEventId;
+
 		    //Update chat
 		    //getChat();
+
 		    // handle message
 		    //console.log("AYI:" + event.data);
 		    //getEvents(gup('t'), gup('p'));
 		    //getEvents();
+
 		}, false);
+		
 		/*source.onmessage=function(event)
 		{
 			//document.getElementById("result").innerHTML+=event.data + "<br>";
@@ -277,6 +316,9 @@ function setSSE()
 //Update selected event's content
 function updateEvent(eventID)
 {
+    //Set event updating on pause
+    eventFetchPause = 1;
+
 	//alert("updateEvent(eventID) gets called: eventID=" + eventID);
 	if (eventID == "") {
 		document.getElementById("userlogin").innerHTML = "updateEvent(eventID)";
@@ -288,18 +330,20 @@ function updateEvent(eventID)
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-		}
+            updateLastEventTime();		
+        }
 	}
+
 	//alert("GET gets called.");
 	var variables = "eventid=" + eventID;
 	xmlhttp.open("GET", "update_event.php?" + variables, false);
 	xmlhttp.send();	
 }
 
-//Show&hide events players in event list
 //Show&hide events players in event list
 function showPlayers(eventid) {
     //alert(eventid);
@@ -313,11 +357,14 @@ function showPlayers(eventid) {
     var id = "#id_playersfull_" + eventid;
     var box = $(id);
 
-    //var eventarticle = "event_article_" + eventid;
-    
+    //var eventarticle = "#event_article_" + 1 2 3 jne.;
+    //eventarticle = $(eventarticle);
+
     if (box.hasClass('noshow')) {
     
+        //eventarticle.addClass('event_article_animate');
         box.removeClass('noshow');
+        
         $(id).scrollintoview({duration: 300});
         setTimeout(function () {
             box.removeClass('visuallynoshow');
@@ -328,7 +375,7 @@ function showPlayers(eventid) {
         box.addClass('visuallynoshow');
     
         box.one('transitionend', function(e) {
-
+            //eventarticle.removeClass('event_article_animate')
             box.addClass('noshow');
 
         });
@@ -337,57 +384,67 @@ function showPlayers(eventid) {
 
 //New game insert - Set game end time from after start time is set
 function game_start() {
-    //var start = document.getElementById("gamestart_id");
-    //var end = document.getElementById("gameend_id");
-    ////alert(start.value);
-    ////Create date object & add 2 hours
-    //var dt; //Check chrome, iphone & firefox date differences
-    //if(start.value.indexOf("T")){
-    //    dt = start.value.split("T"); //Split date&time        
-    //}
-    //else {
-    //    dt = start.value.split(" "); //Split date&time        
-    //}
-    //var d = dt[0].split("-"); //Spilit year, month, day
-    //var t = dt[1].split(":"); //Split hour,minute
-    //var datetime = new Date(d[0], d[1] - 1, d[2], t[0], t[1], 0); //Create date object
-    //datetime.setHours(datetime.getHours() + 2); //Add 2 hours
-    ////alert(datetime);
-    ////Convert Date object back to string, check values below 10 and insert 0 before (Month: January=0...)
-    //var m, d, h, mm;
-    //if ((datetime.getMonth() + 1) < 10) m = "0" + (datetime.getMonth() + 1); else m = (datetime.getMonth() + 1);
-    //if (datetime.getDate() < 10) d = "0" + datetime.getDate(); else d = datetime.getDate();
-    //if (datetime.getHours() < 10) h = "0" + datetime.getHours(); else h = datetime.getHours();
-    //if (datetime.getMinutes() < 10) mm = "0" + datetime.getMinutes(); else mm = datetime.getMinutes();
-    //var dstring = datetime.getFullYear() + "-" + m + "-" + d + " " + h + ":" + mm;
-    ////alert(dstring);
-    //end.value = dstring;
+    var start_dt = document.getElementById("gamestart_id").value;
+    var end_dt = document.getElementById("gameend_id").value;
+
+    if ((start_dt > end_dt) && end_dt != "") {
+        //alert("Game end time must be after game start...");
+        $("#gametime_notify").removeClass("noshow");
+        document.getElementById("gamestart_id").value = "";
+    }
+    else {
+        $("#gametime_notify").addClass("noshow");
+    }
+    
 }
 
 //New game insert - Check game end time validity
 function game_end() {
-    ////alert("test end");
-    //var start = document.getElementById("gamestart_id")
-    //var end = document.getElementById("gameend_id");
-    //if (start.value > end.value) {
-    //    end.value = start.value;
-    //    //alert("Game's end time must be after start time...");
-    //}
+    var start_dt = document.getElementById("gamestart_id").value;
+    var end_dt = document.getElementById("gameend_id").value;
+
+    if ((start_dt > end_dt) && start_dt != "") {
+        //alert("Game end time must be after game start...");
+        $("#gametime_notify").removeClass("noshow");
+        document.getElementById("gameend_id").value = "";
+    }
+    else {
+        $("#gametime_notify").addClass("noshow");
+    }
+
+}
+
+//Check password change
+function check_pass() {
+
+    if (document.getElementById("dialog_password1").value != document.getElementById("dialog_password2").value) {
+        document.getElementById("dialog_password2").value = "";
+    }
+
+}
+
+//Clear password fields when form opened
+function initPassForm() {
+    document.getElementById("dialog_password1").value = '';
+    document.getElementById("dialog_password2").value = '';
 }
 
 //Player profile
 function getPlayerProfile() {
+
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("profile_content_id").innerHTML = xmlhttp.responseText;
 		}
 	}
+
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
 	xmlhttp.open("GET", "player_profile.php", false);
@@ -402,17 +459,22 @@ function getChat() {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("chat_content_id").innerHTML = xmlhttp.responseText;
+
       //      scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
       //      setTimeout(function(){
 			   // scroll.refresh();
 		    //});
 		}
+
 	}
 
-	xmlhttp.open("GET", "chat.php", false);
+    //This is not synchronous
+	xmlhttp.open("GET", "chat.php", false); //Synchronous
+
 	xmlhttp.send();
 }
 
@@ -425,16 +487,19 @@ function insertComment(comment) {
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
-	        //getChat();
+
 	    }
 	}
+
 	var variables = "comment=" + comment;
 	//alert(variables);
 	//xmlhttp.open("GET", "update_inout.php?" + variables, true);
-	xmlhttp.open("GET", "insertComment.php?" + variables, true);
+
+	xmlhttp.open("GET", "insertComment.php?" + variables, false);
+
 	xmlhttp.send();
 }
 
@@ -445,57 +510,60 @@ function nl2br (str, is_xhtml) {
 
 //Chat dynamic
 function addRow() {
+
     var comment = document.getElementById("comment_input").value;
+
     comment = nl2br(comment, true);
+    //comment = comment.replace(/\n/g, "<br />"); //The n2lbr is working fine, but also this regular expression
+    //alert("Text: " + comment);
+
+    document.getElementById("comment_input").value = "";
+
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
+
     var table = document.getElementById("comments_table");
+
     var row = table.insertRow(0);
     row.className = "chatrow";
-    //row.innerHTML = "<td width=\"80px\" height=\"auto\" align=\"center\"><img width=\"50\" height=\"50\"\" class=\"seen\" src=\"images/" +
-    //sessionStorage['photoURL'] + "\"><br><text style=\"color: white;\">" +
-    //sessionStorage['playerName'] + "</text></td>" +
-    //"<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">Just now...</text><text  maxlength=\"500\" class=\"commentArea2\">" + comment + "</text></td>";
-                                    row.innerHTML = "<td valign=\"top\">" +
-                                        "<div>" +
-                                            "<div class='chat-list-left'>" +
-                                                "<img width='50' height='50' src='http://areyouin.azurewebsites.net/images/" + sessionStorage['photoURL'] + "'>" +
-                                                "<br />" +
-                                                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
-                                            "</div>" +
-                                            "<br />" +
-                                            "<div class='chat-list-right'>" +
-                                                "<div class='comment-time'>Just now...</div>" +
-                                                "<div class='comment-text'>" + comment + "</div>" +
-                                            "</div>" +
-                                        "</div>" +
-                                    "</td>";
-    //document.getElementById("comment_input").value = "";    
-    //$("#chatdiv").scrollTop(0);
-    $("#backpacker").trigger("click");
-    setTimeout(insertComment(comment), 100);
-}
 
-function clickBack() {
-    //alert("jou");
-    //document.getElementById('backpacker').click();
-    //$("#backpacker").trigger("click");
-    $('#areyouin-modal-page').dialog('close');
-    //$("#areyouin-modal-page").dialog('destroy').remove();
-    //$( "#modal_comment" ).dialog( "close" );
-    //$(":mobile-pagecontainer").pagecontainer("change", "#areyouin-chat-page", { options });
-    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: true});
-    //$.mobile.changePage("#areyouin-chat-page");
-    //$.mobile.pageContainer.pagecontainer ("change", "#areyouin-chat-page", {reloadPage: false});
+    row.innerHTML = "<td valign=\"top\">" +
+        "<div>" +
+            "<div class='chat-list-left'>" +
+                "<img width='50' height='50' src='images/" + sessionStorage['photoURL'] + "'>" +
+                "<br />" +
+                "<div class='comment-name'>" + sessionStorage['playerName'] + "</div>" +
+            "</div>" +
+            "<br />" +
+            "<div class='chat-list-right'>" +
+                "<div class='comment-time'>Just now...</div>" +
+                "<div class='comment-text'>" + comment + "</div>" +
+            "</div>" +
+        "</div>" +
+    "</td>";
+
+    //document.getElementById("comment_input").value = "";    
+
+    //$("#chatdiv").scrollTop(0);
+
+    //setTimeout(insertComment(comment), 100);
+    insertComment(comment);
+
+
 }
 
 //Clear chat input
 //function clearComment() {
 //    document.getElementById("comment_input").value = "";
 //}
+
+
 //Chat LongPolling////////////////
 var parameter = null;
 parameter = "1900-01-01 10:10:10";
+
 function waitForChat(){
+
+    
     //if(timestamp != null) {
     //    // Split timestamp into [ Y, M, D, h, m, s ]
     //    //var t = timestamp.split(/[- :]/);
@@ -508,7 +576,9 @@ function waitForChat(){
     //    //timestamp = timestamp.split(' ').join('T');
     //    //alert("1: timestamp: " + timestamp);
     //}
+
     //var param = 'timestamp=' + timestamp;
+    
     $.ajax({
         type: "GET",
         //url: "getChat.php?timestamp=" + parameter,
@@ -521,12 +591,14 @@ function waitForChat(){
         //processData: false,
         success: function (data) {
             var json = eval('(' + data + ')');
+
             //Testing
             //if (json['timestamp'] != "") {
             //    //alert("jep: " + json['msg']);
             //alert("success param timestamp: " + timestamp);
             //alert("success timestamp: " + json['timestamp']);
             //}
+            
             //Get comments only if php not timed out...
             if(json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
@@ -535,38 +607,45 @@ function waitForChat(){
             //else {
             //    alert("success timeout true: " + json['timeout']);
             //}
+
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
         },
+
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
             setTimeout('waitForChat()', 15000);
         }
     });
+            
 }
 
 function getChatComments() {
+    
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
 	else {// code for IE6, IE5
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
-            scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
-            setTimeout(function(){
-			    scroll.refresh();
-		    });
 
-            //Update the message icon
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	        document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+	        scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        setTimeout(function () {
+	            scroll.refresh();
+	        });
+
+	        //Update the message icon
 	        checkMsgStatus();
-		}
+
+	    }
 	}
+
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "comments.php", false);
+	xmlhttp.open("GET", "comments.php", true);
 	xmlhttp.send();
 }
 
@@ -580,24 +659,166 @@ function toLoginPage() {
     var loginURL = window.location.href;
     loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
     loginURL = loginURL + "default.html";
-    
     //alert(loginURL);
 
     window.location.assign(loginURL);
-    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
-    //window.location.assign("http://localhost:18502/default.html")    
 }
 
-function toEvents() {
-    //window.location.assign("<a href=\"#areyouin-events-page\"></>");
-    //$("#main-nav").children().removeClass("current");
-    //$("#linkgames").addClass("current");
-    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
-    //window.location.assign("<a getEvents();\"></a>");
-    //$.mobile.changePage(index.html#areyouin-events-page);
-    getEvents();
-    window.location.assign("index.html");
-    //$("body").pagecontainer("change", "#areyouin-events-page", {reloadPage: true});
+//function sendMail() {
+//    alert("sendMail()");
+//	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+//		xmlhttp = new XMLHttpRequest();
+//	}
+//	else {// code for IE6, IE5
+//		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//	}
+
+//	xmlhttp.onreadystatechange = function () {
+//	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+//	        //document.getElementById("comments_table").innerHTML = xmlhttp.responseText;
+//	        //getChat();
+//	    }
+//	}
+
+//	//var variables = "comment=" + comment;
+//	//alert(variables);
+//	
+//	xmlhttp.open("POST", "mailer.php", false);
+
+//	xmlhttp.send();
+//}
+
+
+//Combined into getPlayerStats() function
+//var playedGamesForTeam = 0;
+//function getAllPlayerGames() {
+
+//    var serviceURL = window.location.href;
+//    serviceURL = serviceURL.replace("index.html", "/json/");
+//    serviceURL = serviceURL.replace("#", '');
+
+//    //alert("getPlayerStats called...url: " + serviceURL);
+
+//    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
+
+//        playedgames = data.items;
+//        playedGamesForTeam = playedgames[0].gamecount;      
+//        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' games ');
+
+//    });
+
+//}
+
+
+function getPlayerStats() {
+    var playedGamesForTeam= 100;
+
+    var serviceURL = window.location.href;
+    serviceURL = serviceURL.replace("index.html", "/json/");
+    serviceURL = serviceURL.replace("#", '');
+
+    //alert("getPlayerStats called...url: " + serviceURL);
+
+    $.getJSON(serviceURL + 'TeamsGames.php', function (data) {
+
+        playedgames = data.items;
+        playedGamesForTeam = playedgames[0].gamecount;      
+        $('#GamesAmount').text('Total of ' + playedGamesForTeam + ' events set');
+
+    });
+    
+    var playerstats;
+
+    $.getJSON(serviceURL + 'getPlayerStatistics.php', function (data) {
+
+        playerstats = data.items;
+
+        $.each(playerstats, function (index, player) {
+            if (player.games > 1) {
+                $('#playerwidget').append(
+                "<div class='list-row'>" +
+                    "<div class='list-left'>" +
+                        "<img width='50' height='50' src='images/" + player.photourl + "'>" +
+                    "</div>" +
+                    "<div class='list-right'>" +
+                        "<span class='list-title'>" + player.name + "</span>" +
+                        "<br />" +
+                        "<span class='gameamountheader'>In for " + player.games + " events</span>" +
+                        "<br />" +
+                        "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
+                        "<br>" +
+                    "</div>" +
+                "</div>"
+                );
+            } else {
+                    $('#playerwidget').append(
+                    "<div class='list-row'>" +
+                        "<div class='list-left'>" +
+                            "<img width='50' height='50' src='images/" + player.photourl + "'>" +
+                        "</div>" +
+                        "<div class='list-right'>" +
+                            "<span class='list-title'>" + player.name + "</span>" +
+                            "<br />" +
+                            "<span class='gameamountheader'>In for " + player.games + " event</span>" +
+                            "<br />" +
+                            "<meter class='gamemeter' value='" + player.games + "' min='0' max='" + playedGamesForTeam + "'></meter>" +
+                            "<br>" +
+                        "</div>" +
+                    "</div>"
+                );    
+            }
+        });
+
+    });
+}
+
+function showTimezone(str) {
+    alert("showTimezone(): " + str);
+
+    if (str.length == 0) { 
+        document.getElementById("txtZone").innerHTML = "No selection";
+        return;
+    } else {
+        //var d = new Date()
+        //var n = d.getTimezoneOffset();
+        
+        document.getElementById("txtZone").innerHTML = str;
+        
+        //UTC difference to local timezone: " + n/60 + " hours";        
+        //document.getElementById("timezone_offset").innerHTML = n/60;
+
+        return;
+    }
+}
+
+
+//Update update timezone
+function updateTimezone(timezone)
+{
+	//alert("updateTimezone() gets called.");
+
+    if (timezone == "") {
+		document.getElementById("txtZone").innerHTML = "updateTimezone() no parameters";
+		return;
+	}
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {       
+            document.getElementById("team_timezone_value").innerHTML = timezone;   
+	    }
+	}
+
+
+	var variables = "timezone=" + timezone;
+	//alert(variables);
+	xmlhttp.open("GET", "update_team.php?" + variables, true);
+	xmlhttp.send();
 }
 
 //Check session expiration
@@ -624,6 +845,137 @@ function CheckForSession() {
         }
     });
 }
+
+/**********************************************************************************
+Google Chart
+**********************************************************************************/
+//Google chart data
+function getChartData() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                dataTable = xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("GET", "chart_data.php", true);
+        xmlhttp.send();
+
+}
+
+//callback function
+function createChart(animate) {
+   
+        chartdata= $.ajax({
+                url: "json/getChartData.php",
+                dataType: "json",
+                async: false
+            }).responseText;
+
+
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('string', 'Month');
+        dataTable.addColumn('number', 'You');
+        dataTable.addColumn('number', 'Events');
+
+        //dataTable.addRow(['Elokuu', 1, 1]);
+
+        var dataArray = $.parseJSON(chartdata);
+        //alert(dataArray[0].month);
+
+        for (i = 0; i < dataArray.length; i++) {
+            //var arr = new Array(chartdata[i].month, chartdata[i].participated, chartdata[i].participated);
+
+            dataTable.addRow([dataArray[i].month, ((dataArray[i].participated != null) ? Number(dataArray[i].participated) : 0) , ((dataArray[i].games != null) ? Number(dataArray[i].games) : 0)]);
+
+            //dataTable.addRow(arr);
+        }
+
+    //dataTable.addRows([
+    //  ['CN', 1324, 9640821],
+    //  ['IN', 1133, 3287263],
+    //  ['US', 304, 9629091],
+    //  ['ID', 232, 1904569],
+    //  ['BR', 187, 8514877]
+    //]);
+
+    //Template
+    //dataTable = google.visualization.arrayToDataTable([
+    //        ['Month', 'Your games', 'Games set'],
+    //        ['2004/05', 565, 614.6],
+    //        ['2005/06', 635, 652],
+    //        ['2006/07', 557, 623],
+    //        ['2007/08', 539, 609.4],
+    //        ['2008/09', 536, 569.6],
+    //        ['2008/10', 536, 569.6],
+    //        ['2008/11', 536, 569.6],
+    //        ['2008/12', 536, 569.6]
+    //    ]);
+
+    //instantiate our chart object
+    var chart = new google.visualization.ComboChart(document.getElementById('profile_chart_content_id'));
+
+    //define options for visualization
+    if (animate == 1) {
+        var options = {
+            //width: 600,
+            //height: 500,
+            is3D: true,
+            title: 'Events & Your activity',
+            vAxis: { title: 'Events' },
+            hAxis: { title: 'Month',
+                     slantedText: 'true', slantedTextAngle: 75 },
+            seriesType: 'bars',
+            series: { 0: { type: 'line'} },
+            legend: { position: 'right' },
+            animation: {
+                duration: 1000,
+                easing: 'out',
+                startup: 'true'
+            },
+            colors:['blue','orange']
+        };
+    } else {
+        var options = {
+            //width: 600,
+            //height: 500,
+            is3D: true,
+            title: 'Events & Your activity',
+            vAxis: { title: 'Events' },
+            hAxis: { title: 'Month',
+                     slantedText: 'true', slantedTextAngle: 75 },
+            seriesType: 'bars',
+            series: { 0: { type: 'line'} },
+            legend: { position: 'rigth' },
+            animation: false,
+            colors:['blue','orange']
+        }
+    }
+
+
+    //draw our chart
+    chart.draw(dataTable, options);
+
+}
+
+
+//Draw the chart with animation
+function drawChart() {
+    document.getElementById('profile_chart_content_id').innerHTML = "";
+
+    setTimeout(function () {
+        createChart(1);
+    }, 200);
+}
+
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
 var spinner;
@@ -666,6 +1018,148 @@ function stopSpinner() {
 }
 
 //Spinner/////////////////////////////////////////////////////////////////////////////////////
+
+
+function getWeather() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("weather_content_id").innerHTML = xmlhttp.responseText;
+            }
+        }
+
+        xmlhttp.open("GET", "weather.php", true);
+        xmlhttp.send();
+
+}
+
+
+//Location, google maps////////////////////////////////////////////////////////////////////////////////////
+var map;
+
+function initializeMap() {
+
+//Geolocation/////////////////////////////////////////////////
+var nlat = 0, nlon = 0;
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } 
+    else {
+      //alert('geolocation not supported');
+    }
+
+    function success(position) {
+        //alert(position.coords.latitude + ', ' + position.coords.longitude);
+        nlat = position.coords.latitude;
+        nlon = position.coords.longitude;
+    }
+
+    function error(msg) {
+      alert('Geolocation error: ' + msg);
+    }
+
+
+    //Google maps/////////////////////////////////////////////////
+    var mapCanvas = document.getElementById('Location_map');
+
+    if (nlat != 0) {
+        var mapOptions = {
+            center: new google.maps.LatLng(nlat, nlon),
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    } else {
+        var mapOptions = {
+            center: new google.maps.LatLng(60,387, 23,134),
+            zoom: 5,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+    }
+
+    map = new google.maps.Map(mapCanvas, mapOptions);
+
+    //Touch functionality for Maps//
+    function MapTouch() {
+        return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+    }
+    
+    if (MapTouch() === true) {
+        navigator = navigator || {};
+        navigator.msMaxTouchPoints = navigator.msMaxTouchPoints || 2;
+    }
+    ///////////////////////////////
+
+    $('#Location_map').on('pageshow', function(){
+        google.maps.event.trigger(canvas-map, "resize");
+    });
+
+    google.maps.event.addListener(map, 'click', function(event) {
+       placeMarker1(event.latLng);
+       
+       //alert('<p>Marker dropped: Current Lat: ' + event.latLng.lat().toFixed(3) +
+       // ' Current Lng: ' + event.latLng.lng().toFixed(3) + '</p>');
+
+
+       //Open new modal dialog with position info///////////////////////////////////    
+       var url = window.location.href + 'openModalEditNewLocation'
+       location.replace(url);
+
+       document.getElementById("dialog_location_name_new").value = "";       
+       document.getElementById("dialog_location_pos_new").value =  event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4);
+       document.getElementById("dialog_weather_switch_new").value = "";
+
+    });
+
+}
+
+function clearModalFormUrl() {
+    //window.location.replace('');
+    var url = window.location.href;    
+    url.substring(0,url.indexOf("#"));
+    location.replace(url);
+}
+
+function placeMarker1(location) {
+    var marker = new google.maps.Marker({
+        position: location, 
+        map: map
+    });
+}
+
+function placeMarker(lat, lon) {
+    
+    var myLatlng = new google.maps.LatLng(lat,lon);
+    
+    var marker = new google.maps.Marker({
+        position: myLatlng
+    });
+
+    marker.setMap(map);
+
+    //Scroll to map after marker set
+    $('#Location_map').scrollintoview({duration: 300});
+    setTimeout(function () {
+        box.removeClass('visuallynoshow');
+    }, 20);
+
+    //Move to marker on map
+    map.panTo(marker.getPosition());
+
+
+
+}
+
+function removeMarker() {
+    marker.setMap(null);   
+}
 
 //Message icon, update latest message time to db/////////////////////////////////////////////
 function updateLastMsgTime() {
@@ -716,18 +1210,812 @@ function checkMsgStatus() {
     //      "\nlast seen: " + document.getElementById("latestSeenMsg").textContent);
 
     //Show icon if there are newer messages and chat view is not active
-    if((msgdatetime <= seenmsgdatetime) || ($.mobile.activePage.attr('id') == 'areyouin-chat-page')) {
-        $("#msg_icon1").addClass("noshow");
-        $("#msg_icon2").addClass("noshow");
+    if((msgdatetime <= seenmsgdatetime) || $("#linkchat").hasClass("current")) {
+    //if((msgdatetime.localeCompare(seenmsgdatetime) == 0) || $("#linkchat").hasClass("current")) {
+        $("#msg_icon").addClass("noshow");
     }
     else {       
-        $("#msg_icon1").removeClass("noshow");
-        $("#msg_icon2").removeClass("noshow");
+        $("#msg_icon").removeClass("noshow");
+
+        //Notify on desktop
+	    var theTitle = 'Chat';
+        var theBody = 'New message in team ' + sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
+
     }             
 }
 
 //Clear icon
 function clearIcon() {
-    $("#msg_icon1").addClass("noshow");
-    $("#msg_icon2").addClass("noshow");
+    $("#msg_icon").addClass("noshow");
+}
+
+
+//Email validation////////////////////////////////////////////////////////////////////////////////
+
+var addresscount;
+
+function validateEmail(mail) {
+    //alert(mail);
+
+    //Get the current mail address, return mail part to field if new one is invalid
+    var currentMail = document.getElementById("profile_playerEmail").textContent;
+    var n = currentMail.lastIndexOf(":") + 2;
+    currentMail = currentMail.substr(n);
+    
+    //Validate entered mail address with regexp
+    if(!checkEmail(mail)) {
+        alert("Invalid email address!");
+        document.getElementById("dialog_player_email").value = currentMail;
+    }
+    
+}
+
+//Validate address 
+function checkEmail(mail) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+
+    return pattern.test(mail);
+}
+
+//Update player data & handle duplicate mail address case
+function UpdatePlayer() {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            stopSpinner();
+            var result = xmlhttp.responseText;
+            if (result.indexOf("1062") >= 0 || result.indexOf("911") >= 0 ) {
+                var currentMail = document.getElementById("profile_playerEmail").textContent;
+                var n = currentMail.lastIndexOf(":") + 2;
+                currentMail = currentMail.substr(n);
+                document.getElementById("dialog_player_email").value = currentMail;
+                alert("The inputted mail address is already in use!");
+            }
+            else
+                refreshPlayerInfo();
+        }
+    }
+
+    var variables;
+    variables = "player_name=" + document.getElementById("dialog_player_name").value
+    + "&player_email=" + document.getElementById("dialog_player_email").value
+    + "&player_phone=" + document.getElementById("dialog_player_phone").value
+    + "&notifyswitch=" + document.getElementById("dialog_notify_switch").value
+    + "&player_firstname=" + document.getElementById("dialog_player_firstname").value
+    + "&player_lastname=" + document.getElementById("dialog_player_lastname").value
+
+    startSpinner();
+    xmlhttp.open("GET", "updatePlayer.php?" + variables, true);
+    xmlhttp.send();
+
+}
+
+//Email validation////////////////////////////////////////////////////////////////////////////////
+
+
+//User delete and confirmation/////////////////////////////////////////////////////////
+function confirmDelete(playerID) {
+    
+    if (confirm("Are you sure you want delete user?")) {
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#');
+
+                //Hide removed player from new game adding////////////////////
+                var player = "#p_playerid" + playerID;
+                //document.getElementById(player).setAttribute("display", 'none');
+                $(player).addClass("noshow");
+
+                var photo = "#p_photo" + playerID;
+                //document.getElementById(photo).setAttribute("display", 'none');
+                $(photo).addClass("noshow");
+
+                var name = "#p_name" + playerID;
+                //document.getElementById(name).setAttribute("display", 'none');
+                $(name).addClass("noshow");
+
+                var onoff = "#p_switch" + playerID;
+                //document.getElementById(onoff).setAttribute("display", 'none');
+                $(onoff).addClass("noshow");
+
+            }
+        }
+
+        var variables = "playerID=" + playerID;
+        xmlhttp.open("GET", "deleteUser.php?" + variables, true);
+        xmlhttp.send();
+
+    }
+    else
+        return false;
+}
+
+//Admin status update/////////////////////////////////////////////////////////////////
+function updateAdminStatus(playerID, admin_checkbox) {
+        
+        //test
+        //updateUserlist();
+        //alert(admin_checkbox);
+        
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                updateUserlist();
+                window.location.replace('#');
+            }
+        }
+
+        var ad = ((document.getElementById(admin_checkbox).checked) ? 1 : 0);
+        var variables = "playerID=" + playerID + "&admin=" + ad;
+        
+        xmlhttp.open("GET", "updateAdminStatus.php?" + variables, true);
+        xmlhttp.send();    
+}
+
+//Update userlist and close modal dialog
+function updateUserlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+                window.location.replace('#');
+                //refreshScroll2();
+            }
+        }
+
+        xmlhttp.open("GET", "updateUserlist.php", true);
+        xmlhttp.send();
+
+}
+
+//Asynchronous event update///////////////////////////////////////////////////////////////////
+//var eventparameter = null;
+var eventparameter = "1900-01-01 10:10:10";
+var first = 1;
+
+//Long polling for event update time
+function waitForEventUpdate(){
+
+    
+    //if(timestamp != null) {
+    //    // Split timestamp into [ Y, M, D, h, m, s ]
+    //    //var t = timestamp.split(/[- :]/);
+    //    // Apply each element to the Date function
+    //    //php_datetime = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+    //    //alert("1: timestamp: " + timestamp + ", formatted: " + php_datetime);
+    //    
+    //    //timestamp.toString();
+    //    //timestamp.replace('%20', "T");
+    //    //timestamp = timestamp.split(' ').join('T');
+    //    //alert("1: timestamp: " + timestamp);
+    //}
+
+    //var param = 'timestamp=' + timestamp;
+
+    $.ajax({
+        type: "GET",
+        //url: "getChat.php?timestamp=" + parameter,
+        url: "eventCheck.php",
+        data: { timestamp: JSON.stringify(eventparameter) },
+        async: true,
+        cache: false,
+        //timeout: 40000,
+        //dataType: 'json',
+        //processData: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+
+            //Testing
+            //if (json['timestamp'] != "") {
+            //    //alert("jep: " + json['msg']);
+            //alert("success param timestamp: " + timestamp);
+            //alert("success timestamp: " + json['timestamp']);
+            //}
+
+            //Get events only if php not timed out...
+            if (json['timeout'] == 0) {
+                //alert("success timeout false: " + json['timeout']);
+                //alert("json timestamp: "+ json['timestamp']);
+                //setTimeout('getEventsAsync()', 100);
+                eventparameter = json['timestamp'];
+                getEventsAsync(0);
+                //getEvents();
+
+                if (first == 0) {
+                    //Notify on desktop
+                    var theTitle = 'Event changed';
+                    var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
+                    notifyMe(theTitle, theBody);
+                }
+                else
+                    first = 0;
+
+            }
+            else {
+                //alert("eventcheck timedout: " + json['timeout']);
+                eventparameter = json['timestamp'];
+                first = 0;
+            }
+
+            setTimeout('waitForEventUpdate()', 60000); //1 mins
+        },
+
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert("error: " + textStatus + " (" + errorThrown + ")");
+            setTimeout('waitForEventUpdate()', 60000);
+        }
+    });
+            
+}
+
+//Updates the event update time for team
+function updateLastEventTime() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //alert("lastEventDatetime updated!");
+            }
+        }
+
+        xmlhttp.open("GET", "updateLastEventTime.php", true);
+        xmlhttp.send();
+}
+
+//Get events with players for the team
+function getEventsAsync(more) {    
+    if (eventFetchPause == 0) { //Don't run, if pause is on
+        //startSpinner();
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        more = typeof more !== 'undefined' ? more : 0;
+        
+        //var moreid = "more_events_content" + more;
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                if (more != 0) {
+                    //document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
+                    ////stopSpinner();
+                    //$('#' + moreid).scrollintoview({ duration: 500 });
+                    //updateLastEventTime();
+                }
+                else {
+                    //stopSpinner();
+                    document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
+                    //updateLastEventTime();
+                }
+            }
+        }
+
+        //alert("GET eventsasync gets called.");
+        var variables = "more=" + more;
+        xmlhttp.open("GET", "event_list.php?" + variables, true);
+        xmlhttp.send();
+    }
+}
+
+
+
+//Used for checking is the player totally new or is she/he already in a team./////////////
+var totallyNewUser = 0;
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+//Validate new players email//////////////////////////////////////////////////////////////
+function newValidateEmail(mail, teamid) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //alert(xmlhttp.responseText);
+
+            //mails
+            var t = xmlhttp.responseText.split(/,/);
+            totallyNewUser = t[0];
+
+            //teamcount
+            var users_teams = t[1];
+
+            //Completely new RYouIN user
+            if (totallyNewUser < 1) {
+
+                $("#p_dialog_player_new_name").removeClass("noshow");
+                $("#p_dialog_player_new_firstname").removeClass("noshow");
+                $("#p_dialog_player_new_lastname").removeClass("noshow");
+                $("#p_dialog_player_new_header").removeClass("noshow");
+
+                $("#player_new_validatebutton").addClass("noshow");
+                $("#player_new_savebutton").removeClass("noshow");
+            }
+            else {
+
+                //User already in the current team
+                if (users_teams > 0) {
+
+                    $("#p_existing_user_dialog").removeClass("noshow");
+                    $("#player_new_mail").addClass("noshow");
+                    $("#dialog_player_new_email").addClass("noshow");
+                    $("#new_dialog_mail_text").addClass("noshow");
+                    $("#player_new_validatebutton").addClass("noshow");
+                    $("#new_dialog_mail_text").removeClass("mailclass");
+                    //$("#p_dialog_player_new_firstname").addClass("noshow");
+                    //$("#p_dialog_player_new_lastname").addClass("noshow");
+
+                }
+                else {
+                    //User exists in another team, allow adding to current team
+                    getExistingUser(mail);
+                    document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
+                    document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
+                }
+
+            }
+
+            totallyNewUser = 0;
+            teamid = 0;
+        }
+    }
+
+    var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "newValidateEmail.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+//Get existing user//////////////////////////////////////////////////////////////
+function getExistingUser(mail) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            var t = xmlhttp.responseText.split(/,/);
+            //alert(t);
+
+            //playerID, hidden
+            document.getElementById("new_dialog_playerid").value = t[0];
+            
+            //firstname
+            $("#p_dialog_player_new_firstname").removeClass("noshow");
+            document.getElementById("dialog_player_new_firstname").value = t[1];
+
+            //lastname
+            $("#p_dialog_player_new_lastname").removeClass("noshow");
+            document.getElementById("dialog_player_new_lastname").value = t[2];
+
+            //show Add player button
+            $("#player_new_add_button").removeClass("noshow");
+            
+            //hide validate button            
+            $("#player_new_validatebutton").addClass("noshow");
+
+        
+        }
+    }
+
+    var variables = "mail=" + mail;
+    //alert(variables);
+    xmlhttp.open("GET", "getExistingUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+//Add existing user to team//////////////////////////////////////////////////////////////
+function addExistingUser(playerid) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            //alert(xmlhttp.responseText);
+            updateUserlist();
+            window.location.replace('#');
+            updateInsertPlayers();
+        }
+    }
+
+    var variables = "playerid=" + playerid;
+    //alert(variables);
+    xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+
+//Add new user for team//////////////////////////////////////////////////////////////
+//Parameters:
+    //$teamid
+    //player_new_email
+    //player_new_name
+    //player_new_firstname
+    //player_new_lastname
+
+function addTeamUser(teamid, mail, nickname, firstname, lastname) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            updateUserlist();
+            window.location.replace('#');
+            updateInsertPlayers();
+        }
+    }
+
+    var variables = "totallynew=" + totallyNewUser
+                    + "&teamid=" + teamid
+                    + "&mail=" + mail
+                    + "&nickname=" + nickname
+                    + "&firstname=" + firstname
+                    + "&lastname=" + lastname;
+
+    //alert(variables);
+    xmlhttp.open("GET", "newTeamUser.php?" + variables, true);
+    xmlhttp.send();
+            
+
+}
+
+function updateInsertPlayers() {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {            
+            document.getElementById("insertplayers").innerHTML = xmlhttp.responseText;
+            updateUserlist();           
+        }
+    }
+
+    //alert(variables);
+    xmlhttp.open("GET", "updateInsertPlayers.php", true);
+    xmlhttp.send();    
+
+}
+
+function showInsertPlayers() {
+    $("#insertplayers").removeClass("noshow");
+}
+
+
+//Reset the modal dialog
+function resetModalUserDialog() {
+ 
+    //alert("reset");
+
+    $("#p_dialog_player_new_name").addClass("noshow");
+    $("#p_dialog_player_new_firstname").addClass("noshow");
+    $("#p_dialog_player_new_lastname").addClass("noshow");
+    $("#p_dialog_player_new_header").addClass("noshow");
+    $("#new_dialog_mail_text").removeClass("noshow");
+    $("#player_new_add_button").addClass("noshow");
+
+    $("#player_new_validatebutton").removeClass("noshow");
+    $("#player_new_savebutton").addClass("noshow");
+    $("#p_existing_user_dialog").addClass("noshow");
+    $("#player_new_mail").removeClass("noshow");
+    $("#new_dialog_mail_text").addClass("mailclass");
+    
+    $("#dialog_player_new_email").removeClass("noshow");       
+
+    document.getElementById("dialog_player_new_email").value = '';
+    document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
+    document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
+
+}
+
+//Location functions/////////////////////////////////////////////////////////////////////////////
+function addNewLocation(position, name, teamid, weather) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            stopSpinner();
+
+            //Update location list
+            updateLocationlist();
+
+            //Close modal dialog
+            window.location.replace('#');
+
+            //Update event list
+            getEventsAsync();
+
+            //Update location to new event insert
+            updateNewEventLocations();
+
+        }
+    }
+
+    var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
+
+    //alert(position); lat, lon
+
+    var res = position.split(",");
+
+
+    var variables = "lat=" + res[0].trim()
+                    + "&lon=" + res[1].trim()
+                    + "&name=" + name
+                    + "&teamid=" + teamid
+                    + "&weather=" + weather1;
+
+    //alert(variables);
+    startSpinner();
+    xmlhttp.open("GET", "newLocation.php?" + variables, false);
+    xmlhttp.send();          
+
+}
+
+//Update location list, synchronous!
+function updateLocationlist() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("locations_table").innerHTML = xmlhttp.responseText;
+
+                stopSpinner();
+
+            }
+        }
+
+        startSpinner();
+        xmlhttp.open("GET", "updateLocationlist.php", false);
+        xmlhttp.send();
+
+}
+
+function updateLocation(index) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+            stopSpinner();
+
+            //Update location list
+            updateLocationlist();
+
+            //Close modal dialog
+            window.location.replace('#');
+
+            //Update event list
+            getEventsAsync();
+
+        }
+    }
+
+    //var tmp = weather.split(".");
+    //weather.substring(0, weather.indexOf('.'));
+    //var w = weather.split('.')[0];
+    //var weather1 = ((document.getElementById(weather).checked) ? 1 : 0);
+    //var weather1 = ((document.getElementById(weather).checked !== 'undefined') ? 1 : 0);
+
+
+    //dialog_location_name" . $index_locations
+    //dialog_location_id" . $index_locations  . ",
+
+
+
+    var w = 'dialog_weather_switch' + index;
+    var weather1 = ((document.getElementById(w).checked) ? 1 : 0);
+
+    var l = 'dialog_location_id' + index;
+    var location = document.getElementById(l).value;
+
+    var n = 'dialog_location_name' + index;
+    var locationname = document.getElementById(n).value;
+    
+    var variables = "name=" + locationname
+                    + "&locationid=" + location
+                    + "&weather=" + weather1;
+
+    //alert(variables);
+    startSpinner();
+    xmlhttp.open("GET", "updateLocation.php?" + variables, true);
+    xmlhttp.send();          
+
+}
+
+//Update location to new event insert
+function updateNewEventLocations() {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                
+                document.getElementById("locationWrapper").innerHTML = xmlhttp.responseText;
+
+            }
+        }
+
+        startSpinner();
+        xmlhttp.open("GET", "updateNewEventLocations.php", true);
+        xmlhttp.send();
+
+}
+
+//Delete location
+function deleteLocation(location) {
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                       
+                stopSpinner();
+                                
+                //Update location list
+                updateLocationlist();
+
+                //Close modal dialog
+                window.location.replace('#');
+
+                //Update event list
+                getEventsAsync();     
+
+            }
+        }
+
+        var variables = "locationid=" + location;
+
+        startSpinner();
+        xmlhttp.open("GET", "deleteLocation.php?" + variables, false);
+        xmlhttp.send();
+
+}
+
+//Notifications/////////////////////////////////////////////////////////////
+
+function notifyMe(theTitle, theBody) {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    //alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    //var notification = new Notification("Hi there!");
+    
+    var options = {
+        body: theBody,
+        icon: 'android-chrome-48x48.png'
+    }
+
+    var n = new Notification(theTitle, options);
+    setTimeout(n.close.bind(n), 15000);
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        //var notification = new Notification("Hi there!");
+        
+        var options = {
+            body: theBody,
+            icon: 'android-chrome-48x48.png'
+        }
+
+        //Notify on desktop
+        var n = new Notification(theTitle, options);
+        setTimeout(n.close.bind(n), 15000);
+
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you 
+  // want to be respectful there is no need to bother them any more.
 }

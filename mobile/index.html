@@ -202,12 +202,15 @@
         //Stop spinner after events have been load
         stopSpinner();
 
-        //Events update
-        setInterval(
-            function () {
-                getEvents();
-            }, 240000
-        ); //refreshes every 4 minutes
+        //Comet for events, affected the whole usability too much, needs more investigation!
+        setTimeout('waitForEventUpdate()', 120000); //120 seconds after start
+        
+        ////Events update
+        //setInterval(
+        //    function () {
+        //        getEvents();
+        //    }, 240000
+        //); //refreshes every 4 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
