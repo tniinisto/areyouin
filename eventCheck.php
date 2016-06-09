@@ -52,7 +52,7 @@
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    $sql1 = "select players_playerid from playerteam where lastEventUpdate = '" . $row[last] . "'";
+    $sql1 = "select players_playerid from playerteam where lastEventUpdate = '" . $row[last] . "';";
     $result1 = mysql_query($sql1);
     $row1 = mysql_fetch_array($result1);
 
