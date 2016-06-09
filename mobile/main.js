@@ -1208,21 +1208,22 @@ function checkMsgStatus() {
     //alert("latest on list:" + msgdatetime + "\nlast seen:" + seenmsgdatetime);
     //alert("latest on list: " + document.getElementById("latestMsg").textContent + 
     //      "\nlast seen: " + document.getElementById("latestSeenMsg").textContent);
-
-    //Show icon if there are newer messages and chat view is not active
-    if((msgdatetime <= seenmsgdatetime) || $("#linkchat").hasClass("current")) {
-    //if((msgdatetime.localeCompare(seenmsgdatetime) == 0) || $("#linkchat").hasClass("current")) {
-        $("#msg_icon").addClass("noshow");
+    
+    //Mobile, Show icon if there are newer messages and chat view is not active
+    if((msgdatetime <= seenmsgdatetime) || ($.mobile.activePage.attr('id') == 'areyouin-chat-page')) {
+        $("#msg_icon1").addClass("noshow");
+        $("#msg_icon2").addClass("noshow");
     }
     else {       
-        $("#msg_icon").removeClass("noshow");
+        $("#msg_icon1").removeClass("noshow");
+        $("#msg_icon2").removeClass("noshow");
 
         //Notify on desktop
 	    var theTitle = 'Chat';
         var theBody = 'New message in team ' + sessionStorage['teamName'];
 	    notifyMe(theTitle, theBody);
 
-    }             
+    }                
 }
 
 //Clear icon
