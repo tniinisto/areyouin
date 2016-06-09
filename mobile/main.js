@@ -1507,10 +1507,10 @@ function waitForEventUpdate(){
                     var theTitle = 'Event changed';
                     var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
                     notifyMe(theTitle, theBody);
+                    sessionStorage['firstTimeEvent'] = 0;
                 }
                 else
                     sessionStorage['firstTimeEvent'] = 0;
-
             }
             else {
                 eventparameter = json['timestamp'];
