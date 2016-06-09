@@ -1481,7 +1481,7 @@ function waitForEventUpdate(){
 }
 
 function PlaySound() {
-    sound = new Audio('images/tone.wav');
+    var sound = new Audio('images/tone.wav');
     sound.Play();
 }
 
