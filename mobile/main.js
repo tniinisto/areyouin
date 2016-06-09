@@ -1528,6 +1528,10 @@ function waitForEventUpdate(){
             
 }
 
+function PlaySound() {
+    document.getElementById('soundObj').play();
+}
+
 //Updates the event update time for team
 function updateLastEventTime() {
 
