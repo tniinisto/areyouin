@@ -101,6 +101,7 @@
     $response = array();
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
+    $response['playerid'] = $playerid;
     echo json_encode($response);
 
     mysql_close($con);

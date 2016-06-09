@@ -1453,7 +1453,8 @@ function waitForEventUpdate(){
                 getEventsAsync(0);
                 //getEvents();
 
-                if (sessionStorage['firstTimeEvent'] == 0) {
+                //Show notifications after first eventCheck and if another player has done something
+                if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
                     PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
