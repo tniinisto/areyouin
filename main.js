@@ -1454,6 +1454,7 @@ function waitForEventUpdate(){
                 //getEvents();
 
                 if (sessionStorage['firstTimeEvent'] == 0) {
+                    PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
                     var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
@@ -1464,7 +1465,6 @@ function waitForEventUpdate(){
 
             }
             else {
-                //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
                 sessionStorage['firstTimeEvent'] = 0;
             }
@@ -1478,6 +1478,11 @@ function waitForEventUpdate(){
         }
     });
             
+}
+
+function PlaySound() {
+  var sound = document.getElementById(soundObj);
+  sound.Play();
 }
 
 //Updates the event update time for team
