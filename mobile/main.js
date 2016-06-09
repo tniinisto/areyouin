@@ -1404,7 +1404,8 @@ function updateUserlist() {
 //Asynchronous event update///////////////////////////////////////////////////////////////////
 //var eventparameter = null;
 var eventparameter = "1900-01-01 10:10:10";
-var first = 1;
+//var first = 1;
+sessionStorage['firstTimeEvent'] = 1;
 
 //Long polling for event update time
 function waitForEventUpdate(){
@@ -1454,20 +1455,20 @@ function waitForEventUpdate(){
                 getEventsAsync(0);
                 //getEvents();
 
-                if (first == 0) {
+                if (sessionStorage['firstTimeEvent'] == 0) {
                     //Notify on desktop
                     var theTitle = 'Event changed';
                     var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
                     notifyMe(theTitle, theBody);
                 }
                 else
-                    first = 0;
+                    sessionStorage['firstTimeEvent'] = 0;
 
             }
             else {
                 //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
-                first = 0;
+                sessionStorage['firstTimeEvent'] = 0;
             }
 
             setTimeout('waitForEventUpdate()', 60000); //1 mins
