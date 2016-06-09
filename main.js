@@ -1481,8 +1481,8 @@ function waitForEventUpdate(){
 }
 
 function PlaySound() {
-  var sound = document.getElementById("soundObj");
-  sound.Play();
+    sound = new Audio('images/tone.wav');
+    sound.Play();
 }
 
 //Updates the event update time for team
