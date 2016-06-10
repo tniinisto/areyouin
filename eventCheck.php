@@ -60,14 +60,11 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, lastmodif: ', $lastmodif); }
 
     $currentmodif = $row['last'];
-    
-    //mysql_close($con);
+    $playeredited = $row1['players_playerid'];
 
     $timeout = 0;
     $db_time = new DateTime($currentmodif); //From database
     $param_time = new DateTime($lastmodif); //From parameter
-
-    //if($db_time <= $param_time) {
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, db_time: ', $db_time); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('eventCheck.php, param_time: ', $param_time); }
@@ -85,15 +82,18 @@
             clearstatcache();
 
             mysql_free_result($result);
+            $sql = "select players_playerid, max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['last'];
             $db_time = new DateTime($currentmodif);
 
             mysql_free_result($result1);
+            $sql1 = "select players_playerid from playerteam where lastEventUpdate = '" . $row[last] . "';";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
-            
+            $playeredited = $row1['players_playerid'];
+
             if($db_time > $param_time) {
                 $timeout = 0;
             }
@@ -109,7 +109,7 @@
     $response = array();
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-    $response['playerid'] = $row1['players_playerid'];
+    $response['playerid'] = $playeredited;
     echo json_encode($response);
 
     mysql_close($con);
