@@ -1471,16 +1471,16 @@ function waitForEventUpdate(){
                 sessionStorage['firstTimeEvent'] = 0;
             }
 
-            setTimeout('waitForEventUpdate()', 60000); //1 mins
+            setTimeout('waitForEventUpdate()', 15000); //15s
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 60000);
+            setTimeout('waitForEventUpdate()', 15000);
         }
     });
             
-}
+}s
 
 function PlaySound() {
     document.getElementById('soundObj').play();
