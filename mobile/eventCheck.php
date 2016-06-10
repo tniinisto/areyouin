@@ -63,7 +63,7 @@
     
     //mysql_close($con);
 
-    $timeout = 1;
+    $timeout = 0;
     $db_time = new DateTime($currentmodif); //From database
     $param_time = new DateTime($lastmodif); //From parameter
 
