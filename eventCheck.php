@@ -62,7 +62,7 @@
     $currentmodif = $row['last'];
     $playeredited = $row1['players_playerid'];
 
-    $timeout = 0;
+    $timeout = 1;
     $db_time = new DateTime($currentmodif); //From database
     $param_time = new DateTime($lastmodif); //From parameter
 
