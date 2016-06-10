@@ -1480,7 +1480,7 @@ function waitForEventUpdate(){
         }
     });
             
-}s
+}
 
 function PlaySound() {
     document.getElementById('soundObj').play();
