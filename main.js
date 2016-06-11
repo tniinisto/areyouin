@@ -602,11 +602,11 @@ function waitForChat(){
             //Get comments only if php not timed out...and latest comment is not from user itself
             if(json['timeout'] == 0 && json['player'] != sessionStorage['playerID']) {
                 //alert("success timeout false: " + json['timeout']);
-                setTimeout('getChatComments()', 100);
+                setTimeout('getChatComments(0)', 100);
             } 
-            //else {
-            //    alert("success timeout true: " + json['timeout']);
-            //}
+            else {
+                setTimeout('getChatComments(1)', 100);
+            }
 
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
@@ -620,7 +620,7 @@ function waitForChat(){
             
 }
 
-function getChatComments() {
+function getChatComments(self) {
     
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -637,8 +637,9 @@ function getChatComments() {
 	            scroll.refresh();
 	        });
 
-	        //Update the message icon
-	        checkMsgStatus();
+            //Update the message icon
+            if(self == 0)
+	            checkMsgStatus();
 
 	    }
 	}
