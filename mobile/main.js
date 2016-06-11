@@ -1499,18 +1499,18 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                //getEventsAsync(0);
+                getEventsAsync(0);
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
                 if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
-                    getEventsAsync(0);
-                    PlaySound();
-                    //Notify on desktop
-                    var theTitle = 'Event changed';
-                    var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
-                    notifyMe(theTitle, theBody);
-                    sessionStorage['firstTimeEvent'] = 0;
+                    //getEventsAsync(0);
+                    //PlaySound();
+                    ////Notify on desktop
+                    //var theTitle = 'Event changed';
+                    //var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
+                    //notifyMe(theTitle, theBody);
+                    //sessionStorage['firstTimeEvent'] = 0;
                 }
                 else
                     sessionStorage['firstTimeEvent'] = 0;
