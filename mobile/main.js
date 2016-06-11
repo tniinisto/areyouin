@@ -1264,11 +1264,11 @@ function checkMsgStatus() {
         $("#msg_icon1").removeClass("noshow");
         $("#msg_icon2").removeClass("noshow");
 
-     //   PlaySound();
-     //   //Notify on desktop
-	    //var theTitle = 'Chat';
-     //   var theBody = 'New message in team ' + sessionStorage['teamName'];
-	    //notifyMe(theTitle, theBody);
+        PlaySound();
+        //Notify on desktop
+	    var theTitle = 'Chat';
+        var theBody = 'New message in team ' + sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
 
     }                
 }
@@ -1499,18 +1499,19 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                getEventsAsync(0);
+                //getEventsAsync(0);
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
                 if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
-                    //getEventsAsync(0);
-                    //PlaySound();
-                    ////Notify on desktop
-                    //var theTitle = 'Event changed';
-                    //var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
-                    //notifyMe(theTitle, theBody);
-                    //sessionStorage['firstTimeEvent'] = 0;
+                    alert('here...');
+                    getEventsAsync(0);
+                    PlaySound();
+                    //Notify on desktop
+                    var theTitle = 'Event changed';
+                    var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
+                    notifyMe(theTitle, theBody);
+                    sessionStorage['firstTimeEvent'] = 0;
                 }
                 else
                     sessionStorage['firstTimeEvent'] = 0;
