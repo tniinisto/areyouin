@@ -600,7 +600,7 @@ function waitForChat(){
             //}
             
             //Get comments only if php not timed out...and latest comment is not from user itself
-            if(json['timeout'] == 0 && json['com_playerid'] != sessionStorage['playerID']) {
+            if(json['timeout'] == 0 && json['player'] != sessionStorage['playerID']) {
                 //alert("success timeout false: " + json['timeout']);
                 setTimeout('getChatComments()', 100);
             } 

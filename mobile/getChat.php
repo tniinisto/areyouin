@@ -116,7 +116,7 @@
     //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-    $response['com_playerid'] = $playerid;
+    $response['player'] = $playerid;
 
     echo json_encode($response);
    
