@@ -40,16 +40,15 @@
     $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
+    $currentmodif = $row['time'];
 
-    $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
+    $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
 	$result1 = mysql_query($sql1);
     $row1 = mysql_fetch_array($result1);
+    $playerid = $row1['Players_playerID'];
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, lastmodif: ', $lastmodif); }
-
-    $currentmodif = $row['time'];
-    $playerid = $row1['Players_playerID'];
     
     $timeout = 1;
 
@@ -83,7 +82,7 @@
             $d1 = new DateTime($currentmodif);
 
             mysql_free_result($result1);
-            $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
+            $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
             $playerid = $row1['Players_playerID'];
@@ -104,7 +103,7 @@
         $currentmodif = $row['time'];
 
         mysql_free_result($result1);
-        $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
+        $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
         $result1 = mysql_query($sql1);
         $row1 = mysql_fetch_array($result1);
         $playerid = $row1['Players_playerID'];
@@ -116,7 +115,7 @@
     //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
-    $response['player'] = 1;
+    $response['player'] = $playerid;
 
     echo json_encode($response);
    
