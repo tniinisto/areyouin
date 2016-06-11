@@ -174,7 +174,7 @@
                     //Background for button on form
                     //echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
                     echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";                    
-                        echo "<input class=\"myButton\" type=\"submit\" value=\"Create Game\" id=\"submitgame1\"></input>"; 
+                        echo "<input class=\"myButton\" type=\"submit\" value=\"Create Game\" id=\"submitgame1\" onclick='updateLastEventTime()'></input>"; 
                     echo "</div>";
 
                     echo "</form>";
