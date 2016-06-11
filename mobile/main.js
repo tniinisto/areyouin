@@ -1499,13 +1499,13 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                //getEventsAsync(0);
+                //getEventsAsync();
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
                 if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
                     alert('here...');
-                    getEventsAsync(0);
+                    getEventsAsync();
                     PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
