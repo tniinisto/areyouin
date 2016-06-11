@@ -1264,11 +1264,11 @@ function checkMsgStatus() {
         $("#msg_icon1").removeClass("noshow");
         $("#msg_icon2").removeClass("noshow");
 
-        PlaySound();
-        //Notify on desktop
-	    var theTitle = 'Chat';
-        var theBody = 'New message in team ' + sessionStorage['teamName'];
-	    notifyMe(theTitle, theBody);
+     //   PlaySound();
+     //   //Notify on desktop
+	    //var theTitle = 'Chat';
+     //   var theBody = 'New message in team ' + sessionStorage['teamName'];
+	    //notifyMe(theTitle, theBody);
 
     }                
 }
