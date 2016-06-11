@@ -19,6 +19,7 @@
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
     $teamid=$_SESSION['myteamid'];
+    $playerid = 0;
 
     // Close the session prematurely to avoid usleep() from locking other requests
     session_write_close();
