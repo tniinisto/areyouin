@@ -31,28 +31,7 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     //}
 
     $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
-    //$lastmodif = isset($_GET['timestamp']) ? $_GET['timestamp'] : 0;
-    //$time = strtotime($lastmodif);
-    //$lastmodif = date("m/d/y g:i A", $time);
-    //if($lastmodif != 0) {
-    //    $lastmodif = date("Y-m-d H:i:s",strtotime($lastmodif));
-    //}
-    
-    //if($lastmodif != "") {
-    //    $date = new DateTime($lastmodif);
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif: ', $lastmodif); }
-    //}
-    //$date2 = 0;
-
-    //if($lastmodif != "") {
-    //    //$date2 = date_create($lastmodif);
-    //    //$formatted = date_format($lastmodif, 'Y-m-d H:i:s');
-    //    //if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif format: ', date_format($lastmodif, 'Y-m-d H:i:s')); }
-    //    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, $lastmodif format: ', date_format($lastmodif, 'Y-m-d H:i:s')); }
-    //}    
-
-
-	
+  
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	{
@@ -60,15 +39,20 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     }
 
 	mysql_select_db("areyouin", $con);
+
     $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
+    $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+	$result1 = mysql_query($sql1);
+    $row1 = mysql_fetch_array($result1);
 
+    if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, sql time: ', $row['time']); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('getChat.php, lastmodif: ', $lastmodif); }
 
     $currentmodif = $row['time'];
+    $playerid = $row1['Players_playerID'];
     
     $timeout = 1;
 
@@ -95,10 +79,17 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
             clearstatcache();
             mysql_free_result($result);
+            $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
             $result = mysql_query($sql);
             $row = mysql_fetch_array($result);
             $currentmodif = $row['time'];
             $d1 = new DateTime($currentmodif);
+
+            mysql_free_result($result1);
+            $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+            $result1 = mysql_query($sql1);
+            $row1 = mysql_fetch_array($result1);
+            $playerid = $row1['Players_playerID'];
 
             if($d1 > $d2) {
                 $timeout = 0;
@@ -110,9 +101,17 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     }
     else {
         mysql_free_result($result);
+        $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
         $result = mysql_query($sql);
         $row = mysql_fetch_array($result);
         $currentmodif = $row['time'];
+
+        mysql_free_result($result1);
+        $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+        $result1 = mysql_query($sql1);
+        $row1 = mysql_fetch_array($result1);
+        $playerid = $row1['Players_playerID'];
+
         $timeout = 0;     
     }
 
@@ -120,9 +119,10 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
     //$response['msg'] = "test response...";
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
+    $response['com_playerid'] = $playerid;
 
     echo json_encode($response);
-
+   
     mysql_close($con);
 
 ?>
