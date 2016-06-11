@@ -9,26 +9,22 @@
         ChromePhp::log('getChat.php, start');
     }
 
-// How often to poll, in microseconds (1,000,000 μs equals 1 s)
-define('MESSAGE_POLL_MICROSECONDS', 15000000);
+    // How often to poll, in microseconds (1,000,000 μs equals 1 s)
+    define('MESSAGE_POLL_MICROSECONDS', 15000000);
 
-// How long to keep the Long Poll open, in seconds
-define('MESSAGE_TIMEOUT_SECONDS', 60);
+    // How long to keep the Long Poll open, in seconds
+    define('MESSAGE_TIMEOUT_SECONDS', 60);
 
-// Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
-define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
+    // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
+    define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
     $teamid=$_SESSION['myteamid'];
 
-// Close the session prematurely to avoid usleep() from locking other requests
-session_write_close();
+    // Close the session prematurely to avoid usleep() from locking other requests
+    session_write_close();
 
-// Automatically die after timeout (plus buffer)
-set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
-
-    //if($_SESSION['ChromeLog']) {
-    //    ChromePhp::log('timestamp: ', $_GET['timestamp']);
-    //}
+    // Automatically die after timeout (plus buffer)
+    set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
     $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
   
@@ -44,7 +40,7 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 	$result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+    $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
 	$result1 = mysql_query($sql1);
     $row1 = mysql_fetch_array($result1);
 
@@ -86,7 +82,7 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
             $d1 = new DateTime($currentmodif);
 
             mysql_free_result($result1);
-            $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+            $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
             $playerid = $row1['Players_playerID'];
@@ -107,7 +103,7 @@ set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
         $currentmodif = $row['time'];
 
         mysql_free_result($result1);
-        $sql1 = "select Players_playerID from comments where publishTime = " . $row['time'] . ";";
+        $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $row['time'] . ";";
         $result1 = mysql_query($sql1);
         $row1 = mysql_fetch_array($result1);
         $playerid = $row1['Players_playerID'];
