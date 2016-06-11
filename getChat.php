@@ -42,7 +42,7 @@
     $row = mysql_fetch_array($result);
     $currentmodif = $row['time'];
 
-    $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
+    $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = '" . $currentmodif . "';";
 	$result1 = mysql_query($sql1);
     $row1 = mysql_fetch_array($result1);
     $playerid = $row1['Players_playerID'];
@@ -82,7 +82,7 @@
             $d1 = new DateTime($currentmodif);
 
             mysql_free_result($result1);
-            $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
+            $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = '" . $currentmodif . "';";
             $result1 = mysql_query($sql1);
             $row1 = mysql_fetch_array($result1);
             $playerid = $row1['Players_playerID'];
@@ -103,7 +103,7 @@
         $currentmodif = $row['time'];
 
         mysql_free_result($result1);
-        $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = " . $currentmodif . ";";
+        $sql1 = "select Players_playerID from comments where Team_teamID = " . $teamid . " and publishTime = '" . $currentmodif . "';";
         $result1 = mysql_query($sql1);
         $row1 = mysql_fetch_array($result1);
         $playerid = $row1['Players_playerID'];
