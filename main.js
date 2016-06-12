@@ -180,12 +180,12 @@ function getEvents(more) {
                     document.getElementById("more_events_content" + more).innerHTML = xmlhttp.responseText;
                     stopSpinner();
                     $('#' + moreid).scrollintoview({ duration: 500 });
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
                 else {
                     stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
             }            
         }
@@ -599,14 +599,14 @@ function waitForChat(){
             //alert("success timestamp: " + json['timestamp']);
             //}
             
-            //Get comments only if php not timed out...
-            if(json['timeout'] == 0) {
+            //Get comments only if php not timed out...and latest comment is not from user itself
+            if(json['timeout'] == 0 && json['player'] != sessionStorage['playerID']) {
                 //alert("success timeout false: " + json['timeout']);
-                setTimeout('getChatComments()', 100);
+                setTimeout('getChatComments(0)', 100);
             } 
-            //else {
-            //    alert("success timeout true: " + json['timeout']);
-            //}
+            else {
+                setTimeout('getChatComments(1)', 100);
+            }
 
             parameter = json['timestamp'];
             setTimeout('waitForChat()', 15000);
@@ -620,7 +620,7 @@ function waitForChat(){
             
 }
 
-function getChatComments() {
+function getChatComments(self) {
     
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
@@ -637,8 +637,10 @@ function getChatComments() {
 	            scroll.refresh();
 	        });
 
-	        //Update the message icon
-	        checkMsgStatus();
+            //Update the message icon
+            if(self == 0)
+	            checkMsgStatus();
+
 	    }
 	}
 
@@ -1215,6 +1217,13 @@ function checkMsgStatus() {
     }
     else {       
         $("#msg_icon").removeClass("noshow");
+
+        PlaySound();
+        //Notify on desktop
+	    var theTitle = 'Chat';
+        var theBody = 'New message in team ' + sessionStorage['teamName'];
+	    notifyMe(theTitle, theBody);
+
     }             
 }
 
@@ -1395,6 +1404,8 @@ function updateUserlist() {
 //Asynchronous event update///////////////////////////////////////////////////////////////////
 //var eventparameter = null;
 var eventparameter = "1900-01-01 10:10:10";
+//var first = 1;
+sessionStorage['firstTimeEvent'] = 1;
 
 //Long polling for event update time
 function waitForEventUpdate(){
@@ -1441,23 +1452,40 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                getEventsAsync(0);
+                //getEventsAsync(0);
                 //getEvents();
+
+                //Show notifications after first eventCheck and if another player has done something
+                if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
+                    getEventsAsync(0);
+                    PlaySound();
+                    //Notify on desktop
+                    var theTitle = 'Event changed';
+                    var theBody = 'An event status has changed in ' + sessionStorage['teamName'];
+                    notifyMe(theTitle, theBody);
+                    sessionStorage['firstTimeEvent'] = 0;
+                }
+                else
+                    sessionStorage['firstTimeEvent'] = 0;
             }
             else {
-                //alert("eventcheck timedout: " + json['timeout']);
                 eventparameter = json['timestamp'];
+                sessionStorage['firstTimeEvent'] = 0;
             }
 
-            setTimeout('waitForEventUpdate()', 300000); //5 mins
+            setTimeout('waitForEventUpdate()', 15000); //15s
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 300000);
+            setTimeout('waitForEventUpdate()', 15000);
         }
     });
             
+}
+
+function PlaySound() {
+    document.getElementById('soundObj').play();
 }
 
 //Updates the event update time for team
@@ -1507,7 +1535,7 @@ function getEventsAsync(more) {
                 else {
                     //stopSpinner();
                     document.getElementById("event_content_id").innerHTML = xmlhttp.responseText;
-                    updateLastEventTime();
+                    //updateLastEventTime();
                 }
             }
         }
@@ -1953,4 +1981,50 @@ function deleteLocation(location) {
         xmlhttp.open("GET", "deleteLocation.php?" + variables, false);
         xmlhttp.send();
 
+}
+
+//Notifications/////////////////////////////////////////////////////////////
+
+function notifyMe(theTitle, theBody) {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    //alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    //var notification = new Notification("Hi there!");
+    
+    var options = {
+        body: theBody,
+        icon: 'android-chrome-48x48.png'
+    }
+
+    var n = new Notification(theTitle, options);
+    setTimeout(n.close.bind(n), 15000);
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        //var notification = new Notification("Hi there!");
+        
+        var options = {
+            body: theBody,
+            icon: 'android-chrome-48x48.png'
+        }
+
+        //Notify on desktop
+        var n = new Notification(theTitle, options);
+        setTimeout(n.close.bind(n), 15000);
+
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you 
+  // want to be respectful there is no need to bother them any more.
 }

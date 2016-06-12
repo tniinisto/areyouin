@@ -50,7 +50,7 @@ function getPlayerInfo() {
         sessionStorage['teamID'] = playerinfo[0].teamID;
         sessionStorage['playerName'] = playerinfo[0].name;
         sessionStorage['photoURL'] = playerinfo[0].photourl;
-
+        sessionStorage['teamName'] = playerinfo[0].teamName;
 
         //$.each(playerinfo, function(index, player) {
         //    alert("playerinfo, name: " + player.name);

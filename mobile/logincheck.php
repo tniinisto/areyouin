@@ -1,4 +1,5 @@
 <?php
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     ////////////////////////////////////////////////////////
     //Uncomment to enable ChromePhp-logging
     //include 'ChromePhp.php';
@@ -19,7 +20,8 @@
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
-	$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
+	
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
 	  die('Could not connect: ' . mysql_error());
@@ -43,11 +45,7 @@
 
     $mymd5 = md5($mypassword);
 
-	//$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin
- //   FROM areyouin.players p, playerteam m, team t
- //   WHERE name = '$myusername' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid
- //   ORDER BY t.teamID";
-
+	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
     FROM areyouin.players p, playerteam m, team t
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
@@ -81,7 +79,9 @@
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
         $_SESSION['myAdmin'] = $row['teamAdmin'];
+        $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
+        //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
@@ -101,9 +101,8 @@
             echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
             echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-            echo "<script src=\"https://code.jquery.com/jquery-2.0.0.min.js\"></script>";
-            
-            echo "<script type='text/javascript' src='js/spin.min.js'></script>";  
+            echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
+            echo "<script type='text/javascript' src='js/spin.min.js'></script>";            
 
             //echo "<script type=\"text/javascript\">";
             //    echo "function goIndex() {";                    
@@ -116,20 +115,19 @@
             echo "</head>";
 
             echo "<body>";
-                echo "<div id=\"pagewrap\">";
-
-                    echo "<div id=\"loginwrapper\">";
-
+                echo "<div id='pagewrap'>";
+                    echo "<div id='loginwrapper'>";
 			            echo "<div>";
-                            echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN <img alt='mobile' width='30' height='30' src='images/icon-mobile.png' align='top'></img></h1>";
+                            echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
                         echo "</div>";
-
+                        //echo "<br />";
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
                         echo "<br />";
-
+                        //echo "<br />";
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
-                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";
+                            
+                            echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";                                
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
@@ -137,9 +135,10 @@
                                     }
                                 echo "</select>";
                                 echo "<br />";
+
                                 echo "<input class='myButton' type='submit' value='Select' id='submit_team' onClick='startLoginSpinner();'></input>";
-                            echo "</form>";
-                            
+                                
+                            echo "</form>";                            
                             echo "<h1></h1>";
                         echo "</fieldset>";
                     echo "</div>";
@@ -149,7 +148,7 @@
                     echo "var spinnerTeamlogin;";
 
                     echo "var opts = {
-                        lines: 15 // The number of lines to draw
+                       lines: 15 // The number of lines to draw
                         , length: 2 // The length of each line
                         , width: 4 // The line thickness
                         , radius: 10 // The radius of the inner circle
@@ -181,11 +180,11 @@
                 echo "</script>";
 
             echo "</body>";
-            echo "</html>";
+        echo "</html>";
             
         } 
         else {
-            header("location:login_success.php");
+            header('Location:login_success.php');
         }
             
         mysql_close($con);
@@ -208,7 +207,7 @@
         echo "<link href=\"media-queries.css\" rel=\"stylesheet\" type=\"text/css\">";
 
         echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
-        echo "<script src=\"https://code.jquery.com/jquery-2.0.0.min.js\"></script>";
+        echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
 
         echo "</head>";
 

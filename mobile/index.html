@@ -164,7 +164,10 @@
             </a>
 	    </div>
     </div> 
-    <!-- /Chat -->  
+    <!-- /Chat -->
+
+    <!--Sound notification-->
+    <audio id="soundObj" src="../images/tone.wav"></audio>
 	
 <!-- scripts -->
 <script>
@@ -202,12 +205,15 @@
         //Stop spinner after events have been load
         stopSpinner();
 
-        //Events update
-        setInterval(
-            function () {
-                getEvents();
-            }, 240000
-        ); //refreshes every 4 minutes
+        //Comet for events, affected the whole usability too much, needs more investigation!
+        setTimeout('waitForEventUpdate()',10000); //10 seconds after start
+        
+        ////Events update
+        //setInterval(
+        //    function () {
+        //        getEvents();
+        //    }, 240000
+        //); //refreshes every 4 minutes
 
         //Main navigation///////////////////////////////////////
         $("#linkgames").click(function (event) {
