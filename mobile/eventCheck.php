@@ -94,9 +94,11 @@
             $row1 = mysql_fetch_array($result1);
             $playeredited = $row1['players_playerid'];
 
-            //if($db_time > $param_time) {
+            $db_time = new DateTime($currentmodif);
+            $param_time = new DateTime($lastmodif);
+            if($db_time > $param_time) {
                 $timeout = 0;
-            //}
+            }
 
             //Decrement seconds from counter (the interval was set in μs, see above)
             $counter -= MESSAGE_POLL_MICROSECONDS / 1000000;
