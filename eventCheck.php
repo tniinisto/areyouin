@@ -112,6 +112,9 @@
     $response['timestamp'] = $currentmodif;
     $response['timeout'] = $timeout;
     $response['playerid'] = $playeredited;
+    //$response['param'] = $param_time;
+    //$response['db'] = $db_time;
+
     echo json_encode($response);
 
     mysql_close($con);
