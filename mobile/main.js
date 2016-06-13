@@ -1493,6 +1493,8 @@ function waitForEventUpdate(){
             //alert("success timestamp: " + json['timestamp']);
             //}
 
+            alert(eventparameter);
+
             //Get events only if php not timed out...
             if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
