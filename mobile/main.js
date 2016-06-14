@@ -1493,18 +1493,20 @@ function waitForEventUpdate(){
             //alert("success timestamp: " + json['timestamp']);
             //}
 
+            //alert(eventparameter);
+
             //Get events only if php not timed out...
             if (json['timeout'] == 0) {
                 //alert("success timeout false: " + json['timeout']);
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                //getEventsAsync();
+                getEventsAsync();
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
                 if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
-                    getEventsAsync();
+                    //getEventsAsync();
                     PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
@@ -1520,12 +1522,12 @@ function waitForEventUpdate(){
                 sessionStorage['firstTimeEvent'] = 0;
             }
 
-            setTimeout('waitForEventUpdate()', 60000); //60s
+            setTimeout('waitForEventUpdate()', 3000); //3s
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 60000);
+            setTimeout('waitForEventUpdate()', 3000);
         }
     });
             
