@@ -1522,12 +1522,12 @@ function waitForEventUpdate(){
                 sessionStorage['firstTimeEvent'] = 0;
             }
 
-            setTimeout('waitForEventUpdate()', 60000); //60s
+            setTimeout('waitForEventUpdate()', 3000); //3s
         },
 
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             //alert("error: " + textStatus + " (" + errorThrown + ")");
-            setTimeout('waitForEventUpdate()', 60000);
+            setTimeout('waitForEventUpdate()', 3000);
         }
     });
             
