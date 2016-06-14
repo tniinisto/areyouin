@@ -1501,12 +1501,12 @@ function waitForEventUpdate(){
                 //alert("json timestamp: "+ json['timestamp']);
                 //setTimeout('getEventsAsync()', 100);
                 eventparameter = json['timestamp'];
-                //getEventsAsync();
+                getEventsAsync();
                 //getEvents();
 
                 //Show notifications after first eventCheck and if another player has done something
                 if (sessionStorage['firstTimeEvent'] == 0 && sessionStorage['playerID'] != json['playerid']) {
-                    getEventsAsync();
+                    //getEventsAsync();
                     PlaySound();
                     //Notify on desktop
                     var theTitle = 'Event changed';
