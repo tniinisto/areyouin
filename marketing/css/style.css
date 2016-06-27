@@ -840,6 +840,7 @@
 		input[type="button"].big,
 		.button.big {
 			font-size: 1.35em;
+            margin-bottom: 4px;
 		}
 
 		input[type="submit"].alt,
@@ -1052,7 +1053,7 @@
 /* Banner */
 
 	#banner {
-		padding: 4em 0 25em 0;
+		padding: 4em 0 18em 0;
 		background-attachment: fixed;
 		background-image: url("images/overlay.png"), url("../images/banner2.jpg");
 		background-position: center top;
@@ -1062,7 +1063,7 @@
 	}
 
 		#banner :last-child {
-			margin-bottom: 0;
+			margin-bottom: 4px;
 		}
 
 		#banner h2 {
