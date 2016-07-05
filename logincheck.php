@@ -78,6 +78,7 @@
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
+        $_SESSION['myteamname'] = $row['teamName'];
         $_SESSION['myAdmin'] = $row['teamAdmin'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
