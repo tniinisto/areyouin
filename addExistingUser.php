@@ -44,7 +44,7 @@
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>You have been added to a new team " . $_SESSION['myteamname'] . "!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>You have been added to a new team: " . $_SESSION['myteamname'] . "</font>
                     
                     <br>
                     <br>
@@ -72,8 +72,8 @@
             );
 
             //Send mail for existing user that has been added to another team
-               sendMail($_GET['mail'], $mail_user, $mail_key, $existinguser_mail);  
-            }
+            sendMail($_GET['mail'], $mail_user, $mail_key, $existinguser_mail);  
+           
 
     }
     catch(PDOException $e) {
