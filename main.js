@@ -1670,7 +1670,7 @@ function getExistingUser(mail) {
 }
 
 //Add existing user to team//////////////////////////////////////////////////////////////
-function addExistingUser(playerid) {
+function addExistingUser(playerid, mail) {
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -1689,7 +1689,9 @@ function addExistingUser(playerid) {
         }
     }
 
-    var variables = "playerid=" + playerid;
+    var variables = "playerid=" + playerid
+                    + "&mail=" + mail;
+
     //alert(variables);
     xmlhttp.open("GET", "addExistingUser.php?" + variables, true);
     xmlhttp.send();
@@ -1723,7 +1725,9 @@ function addTeamUser(teamid, mail, nickname, firstname, lastname) {
         }
     }
 
-    var variables = "totallynew=" + totallyNewUser
+
+    //Note! totallyNewUser always 0
+    var variables = "totallynew=0"
                     + "&teamid=" + teamid
                     + "&mail=" + mail
                     + "&nickname=" + nickname
