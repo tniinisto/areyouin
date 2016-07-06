@@ -57,7 +57,7 @@
                    
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Team selection dialog is presented for you when you login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Team selection dialog is presented when you login!</font>
 
                     <br>
                     <br>
