@@ -141,7 +141,7 @@
    
     mysql_close($con);
 
-    header("location:index.html");    
+    header("location:mobile/index.html");    
   
 
         // echo "<html>";
