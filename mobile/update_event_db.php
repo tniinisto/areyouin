@@ -162,7 +162,7 @@
 			            echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
 
                         echo "<fieldset id=\"loginfailfs\">";
-                            echo "<h1>Game Updated</h1>";
+                            echo "<h1>Event updated</h1>";
                             echo "<br />";
                             echo "<a href=\"javascript:toEvents();\">Back to home</a>";
                             echo "<h1></h1>";
