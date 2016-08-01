@@ -209,12 +209,35 @@
         echo "</br>";
         echo "</br>";
 
-            echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" class='myButton'></input>"; 
+        //     echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" class='myButton'></input>"; 
+        //     echo "</br>";
+        //     echo "<a href='javascript:toEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
+
+        // echo "</form>";
+
+        //Background for buttons on form
+        echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";
+
+            echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+
             echo "</br>";
-            echo "<a href='javascript:toEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
 
-        echo "</form>";
+        
 
+            //Event fetching back on & fetch the events
+            echo "<a href='javascript:eventFetchOn(); javascript:getEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
+
+
+            echo "</form>";
+
+            //Delete event
+            echo "</br>";
+            echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
+                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
+                echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
+            echo "</form>";
+
+        echo "</div>";
         
 
         echo "</article>";
