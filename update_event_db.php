@@ -157,15 +157,15 @@
         $loopFirst = 1;
         for ($m=1; $m<=$playeramount; $m++)
         {
-            if($ooswitch_all == '') //If all players switch is on, add all
-            {
-                if($m == 1)
-                    $playerIdSqlList = $players[$m][1];
-                else
-                    $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
-            }
-            else
-            {
+            // if($ooswitch_all == '') //If all players switch is on, add all
+            // {
+            //     if($m == 1)
+            //         $playerIdSqlList = $players[$m][1];
+            //     else
+            //         $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+            // }
+            // else
+            // {
                 if($players[$m][2] == '') //Check if single player is selected
                 {
                     if($loopFirst == 1) {
