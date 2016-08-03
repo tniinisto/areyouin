@@ -145,7 +145,7 @@
 
                     echo "</br>";
 
-                    //Sendmail credentials
+                    //Sendmail switch
                         echo "<h2>Email notification:</h2>";
                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 						    echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";

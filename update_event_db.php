@@ -10,9 +10,9 @@
     $mailPass=$mail_key;
 
     //Event mail switch
-    //if($_POST['mailswitch'] == '') //OFF
-    //    $mail_event = 0;
-    //else
+    if($_POST['mailswitch'] == '') //OFF
+        $mail_event = 0;
+    else
         $mail_event = 1;
 
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
