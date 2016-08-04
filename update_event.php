@@ -226,7 +226,7 @@
         echo "</div>";
 
         //Sendmail switch
-            echo "<h2>Email notification:</h2>";
+            echo "<h2 style='display: inline-block;'>Email notification:</h2>";
             echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
                 echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
                 echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
