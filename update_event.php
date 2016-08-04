@@ -225,6 +225,8 @@
 			echo "</label>";
         echo "</div>";
 
+        echo "</br>";
+
         //Sendmail switch
             echo "<h2 style='display: inline-block;'>Email notification:</h2>";
             echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
