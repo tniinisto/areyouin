@@ -70,7 +70,7 @@
         //Form - Start & End time/////////////////////
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
-        echo "<h1>Update game</h1>";
+        echo "<h2>Update event</h2>";
         //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";        
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
