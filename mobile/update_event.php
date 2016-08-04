@@ -147,7 +147,7 @@
                     echo "<tr>";
                     echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                     echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row2['playerID'] . "\"></input></td>";
-                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row2['photourl'] . "\"></td>";
+                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"../images/" . $row2['photourl'] . "\"></td>";
                     echo "<td class=\"pcol4\">" . $row2['name'] . "</td>";
                     echo "<td class=\"pcol5\">";
                             if(in_array($row2['playerID'], $eventplayers)) {
@@ -176,7 +176,7 @@
                         echo "<td style=\"width: 20px;\"></td>";
                         echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                         echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row2['playerID'] . "\"></input></td>";
-                        echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row2['photourl'] . "\"></td>";
+                        echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"../images/" . $row2['photourl'] . "\"></td>";
                         echo "<td class=\"pcol4\">" . $row2['name'] . "</td>";
                         echo "<td class=\"pcol5\">";
                             if(in_array($row2['playerID'], $eventplayers)) {
