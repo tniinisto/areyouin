@@ -217,7 +217,7 @@
 
         //Public/Private event switch        
         echo "<h2 style='display: inline-block;'>Private event:&nbsp</h2>";
-        echo "<div class=\"onoffswitch\" style='display: inline-block;'>";
+        echo "<div class=\"onoffswitch\">";
 			if($private_event == 0)
                 echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
             else
@@ -233,7 +233,7 @@
 
         //Sendmail switch
             echo "<h2 style='display: inline-block;'>Email notification:</h2>";
-            echo "<div class=\"onoffswitch\" style='display: inline-block;'>";
+            echo "<div class=\"onoffswitch\">";
                 echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
                 echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
                     echo "<div class=\"onoffswitch-inner\"></div>";
