@@ -243,7 +243,8 @@
 
     //if($result2 && $result3)
     {
-        header("location:index.html");    
+        //header("location:index.html");
+        header("javascript:toEvents();");
     }  
 
 ?>
