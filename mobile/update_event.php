@@ -209,12 +209,6 @@
         echo "</br>";
         echo "</br>";
 
-        //     echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" class='myButton'></input>"; 
-        //     echo "</br>";
-        //     echo "<a href='javascript:toEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
-
-        // echo "</form>";
-
         //Public/Private event switch        
         echo "<h2 style='display: inline-block;'>Private event:&nbsp</h2>";
         echo "<div class=\"onoffswitch notifyswitch\">";
