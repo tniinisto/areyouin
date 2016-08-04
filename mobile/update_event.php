@@ -70,8 +70,8 @@
         //Form - Start & End time/////////////////////
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
-        echo "<h2>Update event</h2>";
-        //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";        
+        echo "<h1 style=\"color: #474747;\">Update event</h1>";
+
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
         //Location///////////////////////////////////////////
