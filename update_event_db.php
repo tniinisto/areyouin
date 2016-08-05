@@ -1,9 +1,20 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    include 'mail_ayi.php';
+
     //include 'ChromePhp.php';
     //ChromePhp::log('Hello console!');
 
-    
+    //SendGrid
+    $mailId=$mail_user;
+    $mailPass=$mail_key;
+
+    //Event mail switch
+    if($_POST['mailswitch'] == '') //OFF
+        $mail_event = 0;
+    else
+        $mail_event = 1;
+
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
     if (!$con)
         {
@@ -137,57 +148,96 @@
                 
         }
     }
-    
 
-    //Get the id for the inserted event
-    //$sql2 = "SELECT MAX(eventID) as eventID FROM events";
-    //echo $sql2;
-    //echo "</br>";
-    //$result2 = mysql_query($sql2);
-    //$row = mysql_fetch_array($result2);        
-        
-    //Insert players which are selected into the event
-    /*$eid = mysql_insert_id(); //Get the just created event id
-    for ($k=1; $k<=$playeramount; $k++)
-    {
-            if($players[$k][2] == '')
-            {
-                    $sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[$k][1] . "', '" .  $eid . "', '0');";
-                    $result3 = mysql_query($sql3);
+
+    //Get players emails which to notify, depending on the notify field's value///////////////////////////////////////
+    if($mailId != '' && $mailPass != '' && $mail_event==1) { //Check if mail credentials are set
+                
+        $playerIdSqlList=''; //PlayerIDs for the sql where statement
+        $loopFirst = 1;
+        for ($m=1; $m<=$playeramount; $m++)
+        {
+            // if($ooswitch_all == '') //If all players switch is on, add all
+            // {
+            //     if($m == 1)
+            //         $playerIdSqlList = $players[$m][1];
+            //     else
+            //         $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+            // }
+            // else
+            // {
+                if($players[$m][2] == '') //Check if single player is selected
+                {
+                    if($loopFirst == 1) {
+                        $loopFirst = 0;
+                        $playerIdSqlList = $players[$m][1];
+                    }
+                    else
+                        $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
+                }
             }
-    }*/        
-        
-    //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
-    //echo $sql3;
-    //echo "</br>";
-    //$result3 = mysql_query($sql3);
-        
-    //echo $result;        
-    /*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
-    echo "</br>";*/
-        
-    /*for ($j=1; $j<=$playeramount; $j++)
-    {
-            echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
-            echo "</br>";
-    }*/
-        
-    //echo "<h1>Your game was inserted, click the browser back button...</h1>";
+        }
 
-    //Success
-    /*$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-    echo "</br>";*/
-        
-    //Sending email notification for the players
-    /*$to      = "tniinisto@gmail.com";
-    $subject = "RYouIN";
-    $message = "New game set";
-    $headers = "From: webmaster@areyouin.net" . "\r\n" .
-            "Reply-To: webmaster@areyouin.net" . "\r\n" .
-            "X-Mailer: PHP/" . phpversion();
+    //Get event info to sendMail function parameter
+    $sql_eventInfo = "select * from areyouin.events
+                inner join areyouin.team on team.teamID = events.Team_teamID
+                inner join areyouin.location on location.locationID = events.Location_locationID
+                where events.eventID = " . $eventid . ";";
+    
+    $r = mysql_query($sql_eventInfo);
+    $eventInfo = mysql_fetch_array($r);
 
-    mail($to, $subject, $message, $headers);*/
+    //Start- and End-time formating
+    $time = strtotime($eventInfo['startTime']);
+    $starttime = date("D j.n.Y H:i", $time);
+    $time = strtotime($eventInfo['endTime']);
+    $endtime = date("D j.n.Y H:i", $time);
+
+    $eventInfoArray = array(        
+        'subject' => "Event updated for " . $eventInfo['teamName'] . "",                 
+        'content' => "<html>             	
+
+                        <div style='background: black;'>
+                            <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                            <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event updated</font>
+                        </div>
+
+                        <br>
+
+                        <ul style='list-style-type:disc'>
+                        <font size='3' face='Trebuchet MS'>                                       		
+                        <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
+                            <li><span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
+                            " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
+                            <li><span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "    </span></li>
+                            <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
+                            </font>
+                        </ul>                                
+
+                        <br>
+
+                        <div style='text-align: center; background: black; padding: 15px;'>
+                        <font size='4' face='Trebuchet MS' style='color: white;'>			
+                            Check your status at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                        </font>
+                        </div>
+
+                    </html>",
+    );
+
+
+    //Get emails where players notify setting is 1(true)
+    $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+    if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
+
+    $result_mail = mysql_query($sql_mail);
+
+    while($row_mail = mysql_fetch_array($result_mail)) {
+        if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
+            if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
+            sendMail($row_mail['mail'], $mailId, $mailPass, $eventInfoArray);   
+        }
+    }
 
     mysql_close($con);
 

@@ -223,7 +223,22 @@
                 echo "<div class=\"notifyswitch-inner\"></div>";
 				echo "<div class=\"onoffswitch-switch\"></div>";
 			echo "</label>";
-        echo "</div>";  
+        echo "</div>";
+
+        echo "</br>";
+
+        //Sendmail switch
+            echo "<h2 style='display: inline-block;'>Email notification:</h2>";
+            echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+                echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
+                echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
+                    echo "<div class=\"notifyswitch-inner\"></div>";
+                    echo "<div class=\"onoffswitch-switch\"></div>";
+                echo "</label>";
+            echo "</div>";  
+        
+        echo "</br>";
+
         
         echo "</br>";
         echo "</br>";

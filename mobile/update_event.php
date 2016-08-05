@@ -70,8 +70,8 @@
         //Form - Start & End time/////////////////////
 
         echo "<article id=\"admin_content_article\" class=\"clearfix \">";
-        echo "<h1>Update game</h1>";
-        //echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\" onsubmit=\"toEvents()\">";        
+        echo "<h1 style=\"color: #474747;\">Update event</h1>";
+
         echo "<form id=\"eventform\" method=\"post\" action=\"update_event_db.php\">";
 
         //Location///////////////////////////////////////////
@@ -147,7 +147,7 @@
                     echo "<tr>";
                     echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                     echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row2['playerID'] . "\"></input></td>";
-                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row2['photourl'] . "\"></td>";
+                    echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"../images/" . $row2['photourl'] . "\"></td>";
                     echo "<td class=\"pcol4\">" . $row2['name'] . "</td>";
                     echo "<td class=\"pcol5\">";
                             if(in_array($row2['playerID'], $eventplayers)) {
@@ -176,7 +176,7 @@
                         echo "<td style=\"width: 20px;\"></td>";
                         echo "<td class=\"pcol1\"><input type=\"number\" name=\"playeramount\" value=\"" . $row_count . "\"></input></td>";
                         echo "<td class=\"pcol2\"><input type=\"number\" name=\"playerid" . $row_index . "\" value=\"" . $row2['playerID'] . "\"></input></td>";
-                        echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"images/" . $row2['photourl'] . "\"></td>";
+                        echo "<td class=\"pcol3\"> <img width=\"40\" height=\"40\" src=\"../images/" . $row2['photourl'] . "\"></td>";
                         echo "<td class=\"pcol4\">" . $row2['name'] . "</td>";
                         echo "<td class=\"pcol5\">";
                             if(in_array($row2['playerID'], $eventplayers)) {
@@ -209,11 +209,36 @@
         echo "</br>";
         echo "</br>";
 
-        //     echo "<input type=\"submit\" value=\"Update Game\" id=\"submitgame\" class='myButton'></input>"; 
-        //     echo "</br>";
-        //     echo "<a href='javascript:toEvents();' class='myButton' style='color: black; text-decoration:none;'>Back to events</a>";
+        //Public/Private event switch        
+        echo "<h2 style='display: inline-block;'>Private event:&nbsp</h2>";
+        echo "<div class=\"onoffswitch notifyswitch\">";
+			if($private_event == 0)
+                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch'>";
+            else
+                echo "<input type='checkbox' name='update_privateswitch' class=\"onoffswitch-checkbox\" id='update_private_switch' checked>";
 
-        // echo "</form>";
+            echo "<label class=\"onoffswitch-label\" for='update_private_switch' onClick=''>";
+                echo "<div class=\"notifyswitch-inner\"></div>";
+				echo "<div class=\"onoffswitch-switch\"></div>";
+			echo "</label>";
+        echo "</div>";
+
+        //Sendmail switch
+            echo "<h2 style='display: inline-block;'>Email notification:</h2>";
+            echo "<div class=\"onoffswitch notifyswitch\">";
+                echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
+                echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
+                    echo "<div class=\"notifyswitch-inner\"></div>";
+                    echo "<div class=\"onoffswitch-switch\"></div>";
+                echo "</label>";
+            echo "</div>";  
+        
+        echo "</br>";
+
+        
+        echo "</br>";
+        echo "</br>";
+        echo "</br>";        
 
         //Background for buttons on form
         echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";
