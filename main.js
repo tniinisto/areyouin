@@ -2032,3 +2032,9 @@ function notifyMe(theTitle, theBody) {
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
 }
+
+//Chat button disable to prevents double clicks
+function freezeButton() {
+    $("#sendbutton").attr("disabled", "disabled");
+    setTimeout('$("#sendbutton").removeAttr("disabled")', 3000);
+}
