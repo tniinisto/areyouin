@@ -510,6 +510,9 @@ function nl2br (str, is_xhtml) {
 
 //Chat dynamic
 function addRow() {
+
+    freezeButton();
+
     var comment = document.getElementById("comment_input").value;
     comment = nl2br(comment, true);
     //alert("addRow(): photo: " + sessionStorage['photoURL'] + ", name: " + sessionStorage['playerName'] + ", comment " + comment);
@@ -2076,4 +2079,10 @@ function notifyMe(theTitle, theBody) {
 
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
+}
+
+//Chat button disable to prevents double clicks
+function freezeButton() {
+    $("#sendbutton").attr("disabled", "disabled");
+    setTimeout('$("#sendbutton").removeAttr("disabled")', 5000);
 }
