@@ -512,7 +512,7 @@ function nl2br (str, is_xhtml) {
 function addRow() {
 
     freezeButton();
-    
+
     var comment = document.getElementById("comment_input").value;
 
     comment = nl2br(comment, true);
@@ -2038,5 +2038,5 @@ function notifyMe(theTitle, theBody) {
 //Chat button disable to prevents double clicks
 function freezeButton() {
     $("#sendbutton").attr("disabled", "disabled");
-    setTimeout('$("#sendbutton").removeAttr("disabled")', 3000);
+    setTimeout('$("#sendbutton").removeAttr("disabled")', 5000);
 }
