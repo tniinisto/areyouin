@@ -511,6 +511,8 @@ function nl2br (str, is_xhtml) {
 //Chat dynamic
 function addRow() {
 
+    freezeButton();
+    
     var comment = document.getElementById("comment_input").value;
 
     comment = nl2br(comment, true);
