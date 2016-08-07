@@ -2040,3 +2040,8 @@ function freezeButton() {
     $("#sendbutton").attr("disabled", "disabled");
     setTimeout('$("#sendbutton").removeAttr("disabled")', 5000);
 }
+
+
+function setSessionTeamName(teamName) {
+    sessionStorage['teamName'] = teamName;   
+}
