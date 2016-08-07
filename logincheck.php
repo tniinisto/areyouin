@@ -137,7 +137,7 @@
                                 echo "</select>";
                                 echo "<br />";
 
-                                echo "<input class='myButton' type='submit' value='Select' id='submit_team' onClick='startLoginSpinner(); setSessionTeamName(" . $_SESSION['myteamname'] . ");></input>";
+                                echo "<input class='myButton' type='submit' value='Select' id='submit_team' onClick='startLoginSpinner(); setSessionTeamName(" . $_SESSION['myteamname'] . ");'></input>";
                                 
                             echo "</form>";                            
                             echo "<h1></h1>";
