@@ -1223,7 +1223,7 @@ function checkMsgStatus() {
         PlaySound();
         //Notify on desktop
 	    var theTitle = 'Chat';
-        var theBody = 'New message in team ' + sessionStorage['teamName'];
+        var theBody = 'New chat message received';
 	    notifyMe(theTitle, theBody);
 
     }             
