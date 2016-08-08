@@ -511,6 +511,8 @@ function nl2br (str, is_xhtml) {
 //Chat dynamic
 function addRow() {
 
+    freezeButton();
+
     var comment = document.getElementById("comment_input").value;
 
     comment = nl2br(comment, true);
@@ -1221,7 +1223,7 @@ function checkMsgStatus() {
         PlaySound();
         //Notify on desktop
 	    var theTitle = 'Chat';
-        var theBody = 'New message in team ' + sessionStorage['teamName'];
+        var theBody = 'New chat message received';
 	    notifyMe(theTitle, theBody);
 
     }             
@@ -2031,4 +2033,14 @@ function notifyMe(theTitle, theBody) {
 
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
+}
+
+//Chat button disable to prevents double clicks
+function freezeButton() {
+    $("#sendbutton").attr("disabled", "disabled");
+    setTimeout('$("#sendbutton").removeAttr("disabled")', 5000);
+}
+
+function setSessionTeamName(teamName) {
+    sessionStorage['teamName'] = teamName;   
 }
