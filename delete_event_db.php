@@ -14,6 +14,10 @@
 
     mysql_select_db("areyouin", $con)or die("cannot select DB");    
 
+    //SendGrid
+    $mailId=$mail_user;
+    $mailPass=$mail_key;
+
    //Get event info to sendMail function parameter
     $sql_eventInfo = "select * from areyouin.events
                 inner join areyouin.team on team.teamID = events.Team_teamID
