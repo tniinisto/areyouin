@@ -227,7 +227,9 @@
 
 
     //Get emails where players notify setting is 1(true)
-    $sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+    //$sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+    $sql_mail = "select mail, notify FROM eventplayer, players WHERE Events_eventID = " . $eventid . " and Players_playerID = playerID;";
+
     if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
 
     $result_mail = mysql_query($sql_mail);
