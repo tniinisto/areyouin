@@ -64,7 +64,7 @@
                         echo "</div>";
                     echo "</legend>";
                     
-                        //echo "PlayerID: " . $player->playerID . "</br>";
+                        //echo "PlayerID: " . $player->playerID . "<br>";
                         echo "<h5 id='profile_playerName' style='margin-top: 10px;'> Nickname: " . $player->name . "</h5>";
                         echo "<h5 id='profile_playerFirstname' style='margin-top: 10px;'> Firstname: " . $player->firstname . "</h5>";
                         echo "<h5 id='profile_playerLastname' style='margin-top: 10px;'> Lastname: " . $player->lastname . "</h5>";
@@ -167,10 +167,10 @@
             //Password change////////////////////////////////////////////////////////////////////////////////////////////////                    
             echo "<fieldset id='playerdata' style='padding: 5px;'>";
             echo "<legend style='text-align: left; color: black;'><h4>Password change</h4></legend>";
-                echo "</br>";
+                echo "<br>";
                 echo "<p id='password_info_id' class='noshow' style='text-align: center; color:red; font-weight: bold;'>Your password is changed</p>";
                 echo "<a href='#openModalPassword' class='myButton' onclick='initPassForm();'>Change password</a>";
-                //echo "</br>";
+                //echo "<br>";
 
                     //Modal dialog for password change/////////////////////////////////////////////////////////
                     echo "<div id='openModalPassword' class='modalDialog'>";
@@ -213,7 +213,7 @@
                 echo "<br />";
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
-                    echo "</br>";
+                    echo "<br>";
                     //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
@@ -221,7 +221,7 @@
                     echo "<br>";
                     echo "<input class=\"myButton\" type=\"submit\"  id=\"submit-btn\" value=\"Upload\" name=\"Uploader\"/>";
                     echo "</form>";
-                    //echo "</br>";
+                    //echo "<br>";
                     echo "<div id=\"progressbox\">";
                         echo "<div id=\"progressbar\"></div >";
                         echo "<div id=\"statustxt\">0%</div>";
