@@ -75,10 +75,10 @@
 
             //        //echo "<form onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"put\" target=\"frame_chat\">";
             //     //       //echo "<label for=\"comment_input\">Comment: </label>";
-            //     //       //echo "</br>";
+            //     //       //echo "<br>";
 		          //     // //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
             //     //       echo "<textarea maxlength=\"500\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-            //     //       echo "</br>";
+            //     //       echo "<br>";
             //     //       echo "<input type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\">";
 	           //     //echo "</form>";
 	           // echo "</div>";
@@ -99,15 +99,15 @@
             echo "<div id='chat_new_id' class='chat_new'>";                
                 echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\"><b>New comment</b></label>";
-                    echo "</br>";
+                    echo "<br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
                     echo "<textarea maxlength=\"480\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-                    echo "</br>";
+                    echo "<br>";
                     echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\" >";
                 echo "</form>";
             echo "</div>";
 
-            //echo "</br>";
+            //echo "<br>";
 
             $lastmsgdatetime = '0';
 

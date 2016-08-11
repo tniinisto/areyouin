@@ -90,7 +90,7 @@
                         echo "</div>
                     </h4>";
 
-                    echo "</br>";
+                    echo "<br>";
 
                     $row_index = 1; 
                     
@@ -143,7 +143,7 @@
                         }
                         echo "</table>";                 
 
-                    echo "</br>";
+                    echo "<br>";
 
                     //Sendmail switch
                         echo "<h2>Email notification:</h2>";
@@ -155,7 +155,7 @@
 						    echo "</label>";
                         echo "</div>";  
                     
-                    echo "</br>";
+                    echo "<br>";
                         
                         //Public/Private event switch
                         echo "<h2>Private event:</h2>";
@@ -167,9 +167,9 @@
 						    echo "</label>";
                         echo "</div>";                    
 
-                    echo "</br>";
-                    echo "</br>";
-                    echo "</br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
 
                     //Background for button on form
                     //echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
@@ -376,7 +376,7 @@
 
                         echo "</div>"; //Scrollit, end of locations list//////////////////////////////
                         
-                        echo "</br>";
+                        echo "<br>";
 
                             //Modal dialog for new location information///////////////
                             echo "<div id='openModalEditNewLocation' class='modalDialog'>";

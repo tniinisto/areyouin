@@ -69,7 +69,7 @@
         $sql = "INSERT INTO events (Location_locationID, EventType_eventTypeID, startTime, endTime, Team_teamID) VALUES (" . $locationId . ", '1', '" . $gamestart. "', '" . $gamesend . "', '" . $teamid . "')";
         
         //echo $sql;
-        //echo "</br>";
+        //echo "<br>";
         $result = mysql_query($sql);
         
         if(!$result)
@@ -83,7 +83,7 @@
         //Get the id for the inserted event
         //$sql2 = "SELECT MAX(eventID) as eventID FROM events";
         //echo $sql2;
-        //echo "</br>";
+        //echo "<br>";
         //$result2 = mysql_query($sql2);
         //$row = mysql_fetch_array($result2);        
         
@@ -113,17 +113,17 @@
         
         //$sql3 = "INSERT INTO eventplayer (Players_playerID, Events_eventID, areyouin) VALUES ('" . $players[1][1] . "', '" . $row[eventID] . "', '0');";
         //echo $sql3;
-        //echo "</br>";
+        //echo "<br>";
         //$result3 = mysql_query($sql3);
         
         //echo $result;        
         /*echo "insert_event.php, playeamount: " . $playeramount . " start: " . $gamestart . " end: " . $gamesend;
-        echo "</br>";*/
+        echo "<br>";*/
         
         /*for ($j=1; $j<=$playeramount; $j++)
         {
                 echo "playerID: " . $players[$j][1] . " checkbox value: " . $players[$j][2] . "";
-                echo "</br>";
+                echo "<br>";
         }*/
         
         //echo "<h1>Your game was inserted, click the browser back button...</h1>";
@@ -131,7 +131,7 @@
         //Success
         //$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
         //echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-        //echo "</br>";
+        //echo "<br>";
         
         //if(isset($_SERVER['HTTP_REFERER'])) {
                 //$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
@@ -144,7 +144,7 @@
         //{
                 //$url = htmlspecialchars($_SERVER['HTTP_REFERER']);
                 //echo "<a href='$url'><h1>Your game was inserted succesfully, click here for R'YouIN!</h1></a>";
-                //echo "</br>";
+                //echo "<br>";
         //}
 
         //Sending email notification for the plyaers
