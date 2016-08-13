@@ -184,7 +184,8 @@
                 //Toaster/////////////////////////////
 
                 //Set cookie
-                $.cookie('noShowWelcome', true);    
+                //$.cookie('noShowWelcome', true);
+                $.cookie('noShowWelcome', true, { expires: 365 , path: '/', secure: true});
         }
     });
 </script>
