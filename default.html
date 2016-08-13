@@ -245,12 +245,11 @@
                 toastr.info("R'YouIN application uses cookies. Please make sure that cookies are enabled on your browser. Thank you!", "Cookies")
                 //Toaster/////////////////////////////
 
-                //Set cookie
-                $.cookie('noShowWelcome', true);    
+                //Set cookie, stay for a year
+                //$.cookie('noShowWelcome', true);
+                $.cookie('noShowWelcome', true, { expires: 365 });
         }
-    });
-
-
+        
     var spinnerlogin;
 
     var opts = {
