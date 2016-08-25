@@ -175,70 +175,72 @@
                     else
                         $playerIdSqlList = $playerIdSqlList . ', ' . $players[$m][1];
                 }
+        }
+
+
+        //Get event info to sendMail function parameter
+        $sql_eventInfo = "select * from areyouin.events
+                    inner join areyouin.team on team.teamID = events.Team_teamID
+                    inner join areyouin.location on location.locationID = events.Location_locationID
+                    where events.eventID = " . $eventid . ";";
+        
+        $r = mysql_query($sql_eventInfo);
+        $eventInfo = mysql_fetch_array($r);
+
+        //Start- and End-time formating
+        $time = strtotime($eventInfo['startTime']);
+        $starttime = date("D j.n.Y H:i", $time);
+        $time = strtotime($eventInfo['endTime']);
+        $endtime = date("D j.n.Y H:i", $time);
+
+        $eventInfoArray = array(        
+            'subject' => "Event updated for " . $eventInfo['teamName'] . "",                 
+            'content' => "<html>             	
+
+                            <div style='background: black;'>
+                                <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event updated</font>
+                            </div>
+
+                            <br>
+
+                            <ul style='list-style-type:disc'>
+                            <font size='3' face='Trebuchet MS'>                                       		
+                            <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
+                                <li><span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
+                                " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
+                                <li><span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "    </span></li>
+                                <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
+                                </font>
+                            </ul>                                
+
+                            <br>
+
+                            <div style='text-align: center; background: black; padding: 15px;'>
+                            <font size='4' face='Trebuchet MS' style='color: white;'>			
+                                Check your status at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                            </font>
+                            </div>
+
+                        </html>",
+        );
+
+
+        //Get emails where players notify setting is 1(true)
+        //$sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
+        $sql_mail = "select mail, notify FROM eventplayer, players WHERE Events_eventID = " . $eventid . " and Players_playerID = playerID;";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
+
+        $result_mail = mysql_query($sql_mail);
+
+        while($row_mail = mysql_fetch_array($result_mail)) {
+            if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
+                if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
+                sendMail($row_mail['mail'], $mailId, $mailPass, $eventInfoArray);   
             }
         }
 
-    //Get event info to sendMail function parameter
-    $sql_eventInfo = "select * from areyouin.events
-                inner join areyouin.team on team.teamID = events.Team_teamID
-                inner join areyouin.location on location.locationID = events.Location_locationID
-                where events.eventID = " . $eventid . ";";
-    
-    $r = mysql_query($sql_eventInfo);
-    $eventInfo = mysql_fetch_array($r);
-
-    //Start- and End-time formating
-    $time = strtotime($eventInfo['startTime']);
-    $starttime = date("D j.n.Y H:i", $time);
-    $time = strtotime($eventInfo['endTime']);
-    $endtime = date("D j.n.Y H:i", $time);
-
-    $eventInfoArray = array(        
-        'subject' => "Event updated for " . $eventInfo['teamName'] . "",                 
-        'content' => "<html>             	
-
-                        <div style='background: black;'>
-                            <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
-                            <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event updated</font>
-                        </div>
-
-                        <br>
-
-                        <ul style='list-style-type:disc'>
-                        <font size='3' face='Trebuchet MS'>                                       		
-                        <li><span style='font-weight: bold;'>Team: </span>" . $eventInfo['teamName'] . "</li>
-                            <li><span style='font-weight: bold;'>Location: </span><a href='https://maps.google.fi/maps?q=
-                            " . $eventInfo['position'] . "&hl=en&sll=" . $eventInfo['position'] . "&sspn=0.002108,0.004367&t=h&z=16' target='_blank'>" . $eventInfo['name'] . "</a></li>
-                            <li><span style='font-weight: bold;'>Starting: </span><span style='color:blue'> " . $starttime . "    </span></li>
-                            <li><span style='font-weight: bold;'>Ending: </span><span style='color:blue'> " . $endtime . "</span></li>
-                            </font>
-                        </ul>                                
-
-                        <br>
-
-                        <div style='text-align: center; background: black; padding: 15px;'>
-                        <font size='4' face='Trebuchet MS' style='color: white;'>			
-                            Check your status at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
-                        </font>
-                        </div>
-
-                    </html>",
-    );
-
-
-    //Get emails where players notify setting is 1(true)
-    //$sql_mail = "SELECT mail, notify FROM players where playerID IN (" . $playerIdSqlList . ");";
-    $sql_mail = "select mail, notify FROM eventplayer, players WHERE Events_eventID = " . $eventid . " and Players_playerID = playerID;";
-
-    if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, $sql_mail: ', $sql_mail); }
-
-    $result_mail = mysql_query($sql_mail);
-
-    while($row_mail = mysql_fetch_array($result_mail)) {
-        if($row_mail['notify'] == 1 && $row_mail['mail'] != '') { //If notity setting is true and player has email in profile
-            if($_SESSION['ChromeLog']) { ChromePhp::log('insert_event.php, sendMail() mail address: ', $row_mail['mail']); }            
-            sendMail($row_mail['mail'], $mailId, $mailPass, $eventInfoArray);   
-        }
     }
 
     mysql_close($con);
