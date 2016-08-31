@@ -51,7 +51,7 @@ $(function(){
             if( $('#password').val() != $('#cpassword').val() ) {
                     $('#first_step input[type=password]').each(function(){
                         $(this).removeClass('valid').addClass('error');
-                        $(this).effect("shake", { times:3 }, 50);
+                        $(this).effect("shake", { times:3 }, 200);
                     });
                     
                     return false;
