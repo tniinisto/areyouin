@@ -23,7 +23,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
 
 #container {
     /*background: url('../images/container.png') no-repeat;*/
-    width: 600px;
+    /*width: 600px;*/
     /*height: 370px;*/
     margin: 20px auto;
     padding: 50px 0;
