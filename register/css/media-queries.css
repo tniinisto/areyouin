@@ -15,7 +15,7 @@ screens smaller or equal to 750
 @media screen and (max-width: 750px) {
 
     #container {
-        width: 500px;
+        width: 400px;
     }
 
 
@@ -27,7 +27,7 @@ screens smaller or equal to 480
 @media screen and (max-width: 480px) {
 
     #container {
-        width: 400px;
+        width: 300px;
     }
 
 }
