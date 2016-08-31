@@ -17,8 +17,10 @@ screens smaller or equal to 750
     #container {
         width: 400px;
     }
-
-
+    
+    #container label {
+       width: 300px;
+    }
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -33,4 +35,13 @@ screens smaller or equal to 480
     #progress_bar { 
         margin-left: 30px;
     }
+
+    #container h1, #container h2 {
+        margin-top: 10px;
+    }
+
+    #container label {
+       width: 240px;
+    }
+        
 }
