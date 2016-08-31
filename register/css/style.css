@@ -30,6 +30,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     overflow: hidden;
     position: relative;
 }
+ 
     #container #first_step, #second_step, #third_step, #fourth_step { display: none; }
     #container #first_step { display: block; }
 
