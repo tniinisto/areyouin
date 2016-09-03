@@ -58,12 +58,14 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         font-size: 14px;
         font-weight: bold;
     }
-        #container table td {
-            padding: 5px 10px;
-        }
-            #container table td:nth-child(2) {
-                color: #a90329;
-            }   
+
+    #container table td {
+        padding: 5px 10px;
+    }
+
+    #container table td:nth-child(2) {
+        color: #a90329;
+    }   
         
     #container input, #container select {
         /*background: url('../images/input.png') no-repeat;*/
@@ -83,38 +85,39 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
     }
-        #container input.submit {
-            background: url('../images/prev_next.png') no-repeat;
-            border: none;
-            cursor: pointer;
-            width: 85px;
-            height: 65px;
-            position: relative;
-            bottom: 2px;
-            -ms-transform: rotate(180deg); /* IE 9 */
-            -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-            transform: rotate(180deg);
-        }
 
-            #submit_first {
-                left: 70%;
-            }
+    #container input.submit {
+        background: url('../images/prev_next.png') no-repeat;
+        border: none;
+        cursor: pointer;
+        width: 85px;
+        height: 65px;
+        position: relative;
+        bottom: 2px;
+        -ms-transform: rotate(180deg); /* IE 9 */
+        -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+        transform: rotate(180deg);
+    }
 
-            #submit_second, #submit_third {
-                left: 60%;
-            }
+    #submit_first {
+        left: 70%;
+    }
 
-            #container input.submit:focus { border: none; }
+    #submit_second, #submit_third {
+        left: 60%;
+    }
+    
+    #container input.submit:focus { border: none; }
+    
+    #container input.send{ background: url('../images/send.png') no-repeat; }
         
-        #container input.send{ background: url('../images/send.png') no-repeat; }
-            
-        #container input.error { border: 1px solid red; }
-        #container input.valid { border: 1px solid #1FFF00; }
-        
-        #container input:focus, #container select:focus {
-            border: 1px solid #a90329;
-            color: #a90329;
-        }
+    #container input.error { border: 1px solid red; }
+    #container input.valid { border: 1px solid #1FFF00; }
+    
+    #container input:focus, #container select:focus {
+        border: 1px solid #a90329;
+        color: #a90329;
+    }
 
     #container select { padding: 5px 0 5px 25px; }
         #container option { padding: 0 15px; }
@@ -142,7 +145,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
 #progress {
     background: url('../images/progress.png') repeat-x;
     width: 0px;
-    height: 23px;
+    height: 23px;    
     
     border-radius: 20px;
     -webkit-border-radius: 20px;

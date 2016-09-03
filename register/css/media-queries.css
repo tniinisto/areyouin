@@ -22,7 +22,7 @@ screens smaller or equal to 750
        width: 300px;
     }
 
-    #submit_second, #submit_third {
+    #submit_second, #submit_third, #submit_fourth {
         left: 50%;
     }
 }
@@ -52,7 +52,7 @@ screens smaller or equal to 480
         left: 35%; 
     }    
 
-    #submit_second, #submit_third {
+    #submit_second, #submit_third, #submit_fourth {
         left: 35%; 
     }    
         
