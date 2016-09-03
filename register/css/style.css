@@ -91,11 +91,18 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
             height: 65px;
             position: relative;
             bottom: 2px;
-            left: 60%; 
             -ms-transform: rotate(180deg); /* IE 9 */
             -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
             transform: rotate(180deg);
         }
+
+            #submit_first {
+                left: 70%;
+            }
+
+            #submit_second, #submit_third {
+                left: 60%;
+            }
 
             #container input.submit:focus { border: none; }
         

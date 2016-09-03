@@ -21,6 +21,10 @@ screens smaller or equal to 750
     #container label {
        width: 300px;
     }
+
+    #submit_second, #submit_third {
+        left: 50%;
+    }
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -43,5 +47,13 @@ screens smaller or equal to 480
     #container label {
        width: 240px;
     }
+
+    #submit_first {
+        left: 35%; 
+    }    
+
+    #submit_second, #submit_third {
+        left: 35%; 
+    }    
         
 }
