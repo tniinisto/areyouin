@@ -7,6 +7,10 @@ screens smaller or equal to 980
     #container {
         width: 600px;
     }
+     
+    #submit_fourth {
+        left: 60%;
+    }
 
 }
 /************************************************************************************
@@ -22,8 +26,12 @@ screens smaller or equal to 750
        width: 300px;
     }
 
-    #submit_second, #submit_third, #submit_fourth {
+    #submit_second, #submit_third {
         left: 50%;
+    }
+
+    #submit_fourth {
+        left: 45%;
     }
 }
 /************************************************************************************
@@ -52,8 +60,11 @@ screens smaller or equal to 480
         left: 35%; 
     }    
 
-    #submit_second, #submit_third, #submit_fourth {
+    #submit_second, #submit_third {
         left: 35%; 
     }    
-        
+
+     #submit_fourth {
+        left: 35%;
+    }   
 }

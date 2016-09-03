@@ -106,6 +106,10 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #submit_second, #submit_third {
         left: 60%;
     }
+
+    #submit_fourth {
+        left: 60%;
+    }
     
     #container input.submit:focus { border: none; }
     
