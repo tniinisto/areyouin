@@ -14,6 +14,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/jquery.inputfocus-0.9.min.js"></script>
     <script type="text/javascript" src="js/jquery.main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	
@@ -27,7 +28,7 @@
                 <div class="form">
                     
                     <label for="username">Your mail address. This is also your userid for the application.</label>
-                    <input type="text" name="username" id="username" value="Mail address" />
+                    <input type="text" name="username" id="username" value="Mail address" onfocus="clear_field('#username');"/>
                     
                     
                     <label for="password">At least 4 characters. Use a mix of upper and lowercase for a strong password.</label>
@@ -53,7 +54,11 @@
                     <input type="text" name="email" id="email" value="email address" />
                     <label for="email">Your email address. We send important administration notices to this address. </label>                    
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
+
+                <input class="submit" type="button" name="submit_prev2" id="submit_prev2" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>
+
                 <input class="submit" type="submit" name="submit_second" id="submit_second" value="" />
+
             </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 
 

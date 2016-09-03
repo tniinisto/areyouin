@@ -84,15 +84,19 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         -webkit-border-radius: 6px;
     }
         #container input.submit {
-            background: url('../images/button.png') no-repeat;
+            background: url('../images/prev_next.png') no-repeat;
             border: none;
             cursor: pointer;
             width: 85px;
-            height: 38px;
+            height: 65px;
             position: relative;
             bottom: 2px;
-            left: 70%;
+            left: 60%; 
+            -ms-transform: rotate(180deg); /* IE 9 */
+            -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+            transform: rotate(180deg);
         }
+
             #container input.submit:focus { border: none; }
         
         #container input.send{ background: url('../images/send.png') no-repeat; }
