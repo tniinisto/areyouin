@@ -40,7 +40,7 @@
     //     GROUP BY YEAR(e2.startTime), MONTH(e2.startTime)) t2
     //     on t1.eventID = t2.eventID;";
 
-    "select concat(YEAR(startTime), '/', MONTH(e.startTime)) as time, sum(case when ep.areyouin = 1 then 1 else 0 end) as participated, t1.events
+    "select concat(YEAR(startTime), '/', MONTH(e.startTime)) as month, sum(case when ep.areyouin = 1 then 1 else 0 end) as participated, t1.events as games
     from events e
     left join
     (SELECT eventid, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month1, count(e1.eventID) as events
