@@ -28,8 +28,8 @@
         $stmt->execute();
 
 
-        //Count TeamMemberCount for the player, discard the null team
-        $sql2 = "select count(players_playerid) as TeamMemberCount from playerteam where players_playerid = :playerID and team_teamID != 0";
+        //Count TeamMemberCount for the player
+        $sql2 = "select count(players_playerid) as TeamMemberCount from playerteam where players_playerid = :playerID";
 
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':playerID', $_GET['playerID'], PDO::PARAM_INT);
