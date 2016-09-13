@@ -1,0 +1,70 @@
+
+/************************************************************************************
+screens smaller or equal to 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+
+    #container {
+        width: 600px;
+    }
+     
+    #submit_fourth {
+        left: 60%;
+    }
+
+}
+/************************************************************************************
+screens smaller or equal to 750
+*************************************************************************************/
+@media screen and (max-width: 750px) {
+
+    #container {
+        width: 400px;
+    }
+    
+    #container label {
+       width: 300px;
+    }
+
+    #submit_second, #submit_third {
+        left: 50%;
+    }
+
+    #submit_fourth {
+        left: 45%;
+    }
+}
+/************************************************************************************
+screens smaller or equal to 480
+*************************************************************************************/
+ /* portrait mode */
+@media screen and (max-width: 480px) {
+
+    #container {
+        width: 300px;
+    }
+    
+    #progress_bar { 
+        margin-left: 30px;
+    }
+
+    #container h1, #container h2 {
+        margin-top: 10px;
+    }
+
+    #container label {
+       width: 240px;
+    }
+
+    #submit_first {
+        left: 35%; 
+    }    
+
+    #submit_second, #submit_third {
+        left: 35%; 
+    }    
+
+     #submit_fourth {
+        left: 35%;
+    }   
+}
