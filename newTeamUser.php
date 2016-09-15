@@ -25,7 +25,7 @@
             $password = randomPassword();
         
             //Insert new player
-            $photourl = 'player7.png';
+            $photourl = 'default_avatar.jpg';
             $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl, password) VALUES (:nick, :mail, :first, :last,'" . $photourl ."', '" . md5($password) ."')";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
