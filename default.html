@@ -216,7 +216,12 @@
     }
 </script>
 
-<script  type="text/javascript">
+<script  type="text/javascript">    
+
+    //Clear session, local storage and php session data
+    localStorage.clear();
+    sessionStorage.clear();
+    $.get("logout.php");
 
     //Cookie
     $(document).ready(function() {
