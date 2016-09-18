@@ -52,7 +52,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #container h2 {
         color: #888;
         font-size: 20px;
-        text-align: left;
+        text-align: center;
         text-shadow: none;
     }
     
