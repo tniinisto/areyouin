@@ -48,8 +48,14 @@ screens smaller or equal to 480
         margin-left: 30px;
     }
 
-    #container h1, #container h2 {
+    #container h1 {
         margin-top: 0px;
+        font-size: 40px;
+    }
+
+    #container h2 {
+        margin-top: 0px;
+        font-size: 20px;
     }
 
     #container label {
