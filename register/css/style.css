@@ -30,6 +30,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     overflow: hidden;
     position: relative;
     background: darkgray;
+    margin-top: 20px;
 }
  
     #container #first_step, #second_step, #third_step, #fourth_step { display: none; }
@@ -43,7 +44,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         text-align: center;
         font-size: 60px;
         /*text-shadow: 1px 1px 2px #222;*/
-        margin-top: 0px;
+        margin-top: -30px;
         font-weight: bold;
         color: #fff;
     }
