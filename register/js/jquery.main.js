@@ -2,12 +2,12 @@ $(function(){
     //original field values
     var field_values = {
             //id        :  value
-            'username'  : 'username',
-            'password'  : 'password',
-            'cpassword' : 'password',
-            'firstname'  : 'first name',
-            'lastname'  : 'last name',
-            'email'  : 'email address'
+            'username'  : '',
+            'password'  : '',
+            'cpassword' : '',
+            'firstname'  : '',
+            'lastname'  : '',
+            'email'  : ''
     };
 
 
