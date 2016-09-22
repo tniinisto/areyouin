@@ -32,12 +32,27 @@ $(function(){
         //remove classes
         $('#first_step input').removeClass('error').removeClass('valid');
 
-        //ckeck if inputs aren't empty
-        var fields = $('#first_step input[type=text], #first_step input[type=password]');
+        //Email check
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+        var fields = $('#first_step input[type=text]');
         var error = 0;
         fields.each(function(){
             var value = $(this).val();
-            if( value.length<4 || value==field_values[$(this).attr('id')] ) {
+            if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
+                $(this).addClass('error');
+                $(this).effect("shake", { times:3 }, 50);
+                
+                error++;
+            } else {
+                $(this).addClass('valid');
+            }
+        });        
+
+        //ckeck if inputs aren't empty
+        var fields = $('#first_step input[type=text]');
+        fields.each(function(){
+            var value = $(this).val();
+            if( value.length<1 || value==field_values[$(this).attr('id')] ) {
                 $(this).addClass('error');
                 $(this).effect("shake", { times:3 }, 50);
                 
@@ -48,14 +63,14 @@ $(function(){
         });        
         
         if(!error) {
-            if( $('#password').val() != $('#cpassword').val() ) {
-                    $('#first_step input[type=password]').each(function(){
-                        $(this).removeClass('valid').addClass('error');
-                        $(this).effect("shake", { times:3 }, 200);
-                    });
+            // if( $('#password').val() != $('#cpassword').val() ) {
+            //         $('#first_step input[type=password]').each(function(){
+            //             $(this).removeClass('valid').addClass('error');
+            //             $(this).effect("shake", { times:3 }, 200);
+            //         });
                     
-                    return false;
-            } else {   
+            //         return false;
+            // } else {   
                 //update progress bar
                 $('#progress_text').html('33% Complete');
                 $('#progress').css('width','113px');
@@ -64,7 +79,7 @@ $(function(){
                 $('#first_step').slideUp();
                 $('#second_step').slideDown();     
             }               
-        } else return false;
+            else return false;
     });
 
     $('#submit_prev2').click(function(){
