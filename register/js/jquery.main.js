@@ -38,29 +38,34 @@ $(function(){
         var fields = $('#first_step input[type=text]');
         var error = 0;
         fields.each(function(){
-            var value = $(this).val();
-            if( value.length<1 && value==field_values[$(this).attr('id')] && ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
-                $(this).addClass('error');
-                $(this).effect("shake", { times:3 }, 50);
-                
-                error++;
-            } else {
-                $(this).addClass('valid');
+            if($(this).attr('id') =='email') {
+
+                var value = $(this).val();
+                //if( value.length<1 && value==field_values[$(this).attr('id')] &&  $(this).attr('id') =='email' && !emailPattern.test(value)  ) {
+                if( value.length<1 || ( $(this).attr('id') == 'email' && !emailPattern.test(value) ) ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:3 }, 50);
+                    
+                    error++;
+                } else {
+                    $(this).addClass('valid');
+                }
             }
         });        
 
         //ckeck if inputs aren't empty
-        //var fields = $('#teamname');
         fields.each(function(){
-            var value = $(this).val();
-            $(this).removeClass('valid');
-            if( value.length<1 && value==field_values[$(this).attr('id')]) {
-                $(this).addClass('error');
-                $(this).effect("shake", { times:3 }, 50);
-                
-                error++;
-            } else {
-                $(this).addClass('valid');
+            if($(this).attr('id') =='teamname'){
+                var value = $(this).val();
+            
+                if( value.length<1 &&  $(this).attr('id') =='teamname') {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:3 }, 50);
+                    
+                    error++;
+                } else {
+                    $(this).addClass('valid');
+                }
             }
         });        
         
