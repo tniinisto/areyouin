@@ -45,7 +45,7 @@ $(function(){
                 //if( value.length<1 && value==field_values[$(this).attr('id')] &&  $(this).attr('id') =='email' && !emailPattern.test(value)  ) {
                 if( value.length<1 || ( $(this).attr('id') == 'email' && !emailPattern.test(value) ) ) {
                     $(this).addClass('error');
-                    $(this).effect("shake", { times:3 }, 50);
+                    $(this).effect("shake", { times:1 }, 50);
                     
                     error++;
                 } else {
@@ -61,7 +61,7 @@ $(function(){
             
                 if( value.length<1 &&  $(this).attr('id') =='teamname') {
                     $(this).addClass('error');
-                    $(this).effect("shake", { times:3 }, 50);
+                    $(this).effect("shake", { times:1 }, 50);
                     
                     error++;
                 } else {
@@ -71,14 +71,6 @@ $(function(){
         });        
         
         if(!error) {
-            // if( $('#password').val() != $('#cpassword').val() ) {
-            //         $('#first_step input[type=password]').each(function(){
-            //             $(this).removeClass('valid').addClass('error');
-            //             $(this).effect("shake", { times:3 }, 200);
-            //         });
-                    
-            //         return false;
-            // } else {   
                 //update progress bar
                 $('#progress_text').html('33% Complete');
                 $('#progress').css('width','113px');
