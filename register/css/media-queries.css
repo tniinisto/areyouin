@@ -26,13 +26,21 @@ screens smaller or equal to 750
        width: 300px;
     }
 
+    #submit_first {
+        left: 40%;
+    }
+
     #submit_second, #submit_third {
-        left: 50%;
+        left: 56%;
     }
 
     #submit_fourth {
         left: 45%;
     }
+
+    #container input.submit {
+        /*left: 75%;*/
+    }    
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -68,10 +76,11 @@ screens smaller or equal to 480
     }    
 
     #submit_second, #submit_third {
-        left: 35%; 
+        left: 45%; 
     }    
 
      #submit_fourth {
         left: 35%;
     }   
+
 }

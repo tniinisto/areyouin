@@ -95,7 +95,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         background: url('../images/prev_next.png') no-repeat;
         border: none;
         cursor: pointer;
-        width: 85px;
+        width: 70px;
         height: 65px;
         position: relative;
         bottom: 2px;
@@ -105,11 +105,11 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     }
 
     #submit_first {
-        left: 70%;
+        left: 80%;
     }
 
     #submit_second, #submit_third {
-        left: 60%;
+        left: 68%;
     }
 
     #submit_fourth {
