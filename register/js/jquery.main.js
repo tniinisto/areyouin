@@ -32,11 +32,12 @@ $(function(){
     $('#submit_first').click(function(){
         //remove classes
         $('#first_step input').removeClass('error').removeClass('valid');
-
-        //Email check
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+  
         var fields = $('#first_step input[type=text]');
         var error = 0;
+
+        //Email check
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         fields.each(function(){
             if($(this).attr('id') =='email') {
 
@@ -53,7 +54,7 @@ $(function(){
             }
         });        
 
-        //ckeck if inputs aren't empty
+        //Teamname check
         fields.each(function(){
             if($(this).attr('id') =='teamname'){
                 var value = $(this).val();
