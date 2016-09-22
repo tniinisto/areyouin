@@ -124,8 +124,8 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #container input.valid { border: 1px solid #1FFF00; }
     
     #container input:focus, #container select:focus {
-        border: 1px solid #a90329;
-        color: #a90329;
+        /*border: 1px solid #a90329;
+        color: #a90329;*/
     }
 
     #container select { padding: 5px 0 5px 25px; }

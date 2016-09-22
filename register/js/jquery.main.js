@@ -7,7 +7,8 @@ $(function(){
             'cpassword' : '',
             'firstname'  : '',
             'lastname'  : '',
-            'email'  : ''
+            'email'  : '',
+            'teamname'  : ''
     };
 
 
@@ -18,7 +19,7 @@ $(function(){
     $('input#lastname').inputfocus({ value: field_values['lastname'] });
     $('input#firstname').inputfocus({ value: field_values['firstname'] });
     $('input#email').inputfocus({ value: field_values['email'] }); 
-
+    $('input#teamname').inputfocus({ value: field_values['teamname'] }); 
 
 
 
@@ -38,7 +39,7 @@ $(function(){
         var error = 0;
         fields.each(function(){
             var value = $(this).val();
-            if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
+            if( value.length<1 && value==field_values[$(this).attr('id')] && ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
                 $(this).addClass('error');
                 $(this).effect("shake", { times:3 }, 50);
                 
@@ -49,10 +50,11 @@ $(function(){
         });        
 
         //ckeck if inputs aren't empty
-        var fields = $('#first_step input[type=text]');
+        //var fields = $('#teamname');
         fields.each(function(){
             var value = $(this).val();
-            if( value.length<1 || value==field_values[$(this).attr('id')] ) {
+            $(this).removeClass('valid');
+            if( value.length<1 && value==field_values[$(this).attr('id')]) {
                 $(this).addClass('error');
                 $(this).effect("shake", { times:3 }, 50);
                 
