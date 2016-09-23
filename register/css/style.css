@@ -36,7 +36,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #container #first_step, #second_step, #third_step, #fourth_step { display: none; }
     #container #first_step { display: block; }
 
-    #container .form { margin: 10px 72px 0 72px; }
+    #container .form { margin: 10px 72px 0 110px; }
     
     #container h1, #container h2 {
         /*font-size: Cantarell, Verdana, sans-serif;*/

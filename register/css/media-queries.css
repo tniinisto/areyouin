@@ -41,6 +41,8 @@ screens smaller or equal to 750
     #container input.submit {
         /*left: 75%;*/
     }    
+
+    #container .form { margin: 10px 72px 0 80px; }
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -82,5 +84,7 @@ screens smaller or equal to 480
      #submit_fourth {
         left: 35%;
     }   
+
+    #container .form { margin: 10px 72px 0 70px; }
 
 }
