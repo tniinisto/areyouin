@@ -59,7 +59,7 @@ $(function(){
             if($(this).attr('id') =='teamname'){
                 var value = $(this).val();
             
-                if( value.length<1 &&  $(this).attr('id') =='teamname') {
+                if( value.length<1 && value.length > 10 &&  $(this).attr('id') =='teamname') {
                     $(this).addClass('error');
                     $(this).effect("shake", { times:1 }, 50);
                     
