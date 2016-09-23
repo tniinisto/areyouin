@@ -59,7 +59,7 @@ $(function(){
             if($(this).attr('id') =='teamname'){
                 var value = $(this).val();
             
-                if( value.length<1 && value.length > 10 &&  $(this).attr('id') =='teamname') {
+                if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
                     $(this).addClass('error');
                     $(this).effect("shake", { times:1 }, 50);
                     
@@ -84,7 +84,8 @@ $(function(){
 
     $('#submit_prev2').click(function(){
         //remove classes
-        $('#second_step input').removeClass('error').removeClass('valid');
+        //$('#second_step input').removeClass('error').removeClass('valid');
+        $('#first_step input').removeClass('error').removeClass('valid');
 
         // var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
         // var fields = $('#second_step input[type=text]');
