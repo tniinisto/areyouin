@@ -122,7 +122,7 @@ $(function(){
         if(!error) {
                 //update progress bar
                 $('#progress_text').html('66% Complete');
-                $('#progress').css('width','226px');
+                $('#progress').css('width','180px');
                 
                 //slide steps
                 $('#second_step').slideUp();
@@ -213,7 +213,7 @@ $(function(){
 
         //progress bar
         $('#progress_text').html('66% Complete');
-        $('#progress').css('width','113px');
+        $('#progress').css('width','180px');
 
     });    
 
