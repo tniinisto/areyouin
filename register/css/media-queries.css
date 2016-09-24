@@ -78,6 +78,7 @@ screens smaller or equal to 480
 
     #container label {
        width: 240px;
+       font-size: 12px;
     }
 
     #submit_first {
