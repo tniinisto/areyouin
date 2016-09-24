@@ -28,6 +28,6 @@ function getTimezones() {
 	//alert(variables);
 	//xmlhttp.open("GET", "logininfo.php?" + variables, false);
 	//alert("jou");
-    xmlhttp.open("GET", "timezones.php", false);
+    xmlhttp.open("GET", "timezones.php", true);
 	xmlhttp.send();
 }
