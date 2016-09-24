@@ -42,7 +42,7 @@
 	}
 
 	startSpinner2();
-    xmlhttp.open("GET", "js/timezones.php", false);
+    xmlhttp.open("GET", "js/timezones.php", true);
 	xmlhttp.send();
 
 function startSpinner2() {
