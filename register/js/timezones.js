@@ -1,14 +1,3 @@
-
-function clear_field (field) {
-    $(field).val('');
-}
-
-function previousStep () {
-    $('#first_step').slideUp();  
-    $('#second_step').slideDown();
-}
-
-function getTimezones() {
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -30,4 +19,4 @@ function getTimezones() {
 	//alert("jou");
     xmlhttp.open("GET", "timezones.php", true);
 	xmlhttp.send();
-}
+    

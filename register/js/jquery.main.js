@@ -1,5 +1,3 @@
-<script type="text/javascript" src="js/main.js"></script>
-
 $(function(){
     //original field values
     var field_values = {
@@ -130,7 +128,8 @@ $(function(){
         }); 
 
         if(!error) {
-                getTimezones();
+                
+                $.getScript('timezones.js', function() { });
 
                 //update progress bar
                 $('#progress_text').html('66% Complete');
