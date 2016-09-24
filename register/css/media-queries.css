@@ -72,7 +72,7 @@ screens smaller or equal to 480
     }
 
     #container h2 {
-        margin-top: 0px;
+        margin-top: -10px;
         font-size: 20px;
     }
 
@@ -82,7 +82,7 @@ screens smaller or equal to 480
 
     #submit_first {
         left: 45%;
-        top: 5px;
+        top: 1px;
     }    
 
     #submit_second , #submit_third {
@@ -98,7 +98,7 @@ screens smaller or equal to 480
     #container input {
         font-size: 12px;
         width: 100%;
-        margin: 12px -20px;
+        margin: 10px -20px;
     }
 
     #container table {
