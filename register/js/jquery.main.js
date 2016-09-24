@@ -108,7 +108,7 @@ $(function(){
             if( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ){
                 var value = $(this).val();
             
-                if( (value.length<1) && $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ) {
+                if( (value.length<1) && ($(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname') ) {
                     $(this).addClass('error');
                     $(this).effect("shake", { times:1 }, 50);
                     
@@ -127,7 +127,8 @@ $(function(){
                 //slide steps
                 $('#second_step').slideUp();
                 $('#third_step').slideDown();     
-        } else return false;
+        }
+        else return false;
 
     });
 
