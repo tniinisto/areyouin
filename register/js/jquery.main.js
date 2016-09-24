@@ -113,6 +113,13 @@ $(function(){
                     $(this).effect("shake", { times:1 }, 50);
                     
                     error++;
+                } else
+                //Nickname
+                if( (value.length>6) &&  $(this).attr('id') == 'nickname') {
+                        $(this).addClass('error');
+                        $(this).effect("shake", { times:1 }, 50);
+
+                        error++;
                 } else {
                     $(this).addClass('valid');
                 }
