@@ -117,7 +117,7 @@ $(function(){
                     error++;
                 } else
                 //Nickname
-                if( (value.length>6) &&  $(this).attr('id') == 'nickname') {
+                if( (value.length>8) &&  $(this).attr('id') == 'nickname') {
                         $(this).addClass('error');
                         $(this).effect("shake", { times:1 }, 50);
 
@@ -177,7 +177,7 @@ $(function(){
             $('#nickname').val(),
             $('#timezone_select').val()              
         );
-        
+
         var tr = $('#fourth_step tr');
         tr.each(function(){
             //alert( fields[$(this).index()] )
