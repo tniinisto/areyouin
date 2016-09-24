@@ -27,11 +27,11 @@ screens smaller or equal to 750
     }
 
     #submit_first {
-        left: 40%;
+        left: 45%;
     }
 
     #submit_second, #submit_third {
-        left: 56%;
+        left: 70%;
     }
 
     #submit_fourth {
@@ -43,6 +43,13 @@ screens smaller or equal to 750
     }    
 
     #container .form { margin: 10px 72px 0 80px; }
+
+    #container input {
+        font-size: 15px;
+        width: 90%;
+        margin: 12px -20px;
+    }
+
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -74,11 +81,12 @@ screens smaller or equal to 480
     }
 
     #submit_first {
-        left: 45%; 
+        left: 45%;
+        top: 5px;
     }    
 
-    #submit_second, #submit_third {
-        left: 45%; 
+    #submit_second , #submit_third {
+        left: 63%;
     }    
 
      #submit_fourth {
