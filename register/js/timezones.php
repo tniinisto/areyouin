@@ -3,7 +3,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
             
     $timezone_identifiers = DateTimeZone::listIdentifiers();
-    echo "<label>Select your timezone</label>";                    
+    echo "<label>Select team's timezone</label>";                    
     //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
     
     echo "<div align='center'>";
