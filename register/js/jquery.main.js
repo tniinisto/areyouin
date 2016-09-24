@@ -134,7 +134,7 @@ $(function(){
                 if(timezones_fetched == 0) {
                     $.getScript('js/timezones.js', function() { });
                     timezones_fetched++;
-                    $('#submit_third').css('visibility', 'visible');
+                    //$('#submit_third').css('visibility', 'visible'); //Do this in timezones.js
                 }
 
                 //update progress bar
