@@ -50,7 +50,7 @@ function startSpinner2() {
     spinner2.spin(target);
 }
 
-function stopSpinner() {
+function stopSpinner2() {
     spinner2.stop();
 }
 
