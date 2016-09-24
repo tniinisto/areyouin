@@ -131,11 +131,9 @@ $(function(){
         if(!error) {
                 
                 //Timezones
-                $('#submit_third').toggle();
                 if(timezones_fetched == 0) {
                     $.getScript('js/timezones.js', function() { });
                     timezones_fetched++;
-                    $('#submit_third').toggle();
                 }
 
                 //update progress bar
