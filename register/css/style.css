@@ -131,6 +131,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #container select {
          padding: 5px 0 5px 25px;
          float: left;
+         width: 100%;
     }
     
     #container option { padding: 0 15px; }
