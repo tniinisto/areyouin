@@ -129,7 +129,7 @@ $(function(){
 
         if(!error) {
                 
-                $.getScript('timezones.js', function() { });
+                $.getScript('js/timezones.js', function() { });
 
                 //update progress bar
                 $('#progress_text').html('66% Complete');
