@@ -7,6 +7,9 @@
 
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			
+			stopSpinner();
+			
 			document.getElementById("timezones").innerHTML = xmlhttp.responseText;
 			
 			document.getElementById("submit_third").style.visibility="visible";
@@ -14,11 +17,7 @@
 		}
 	}
 
-	//alert("GET ge7ts called.");
-	//var variables = "p=" + playerID + "&t=" + teamID;
-	//var variables = "p=1&t=1";
-	//alert(variables);
-	//xmlhttp.open("GET", "logininfo.php?" + variables, false);
-	//alert("jou");
+
+	startSpinner();
     xmlhttp.open("GET", "js/timezones.php", false);
 	xmlhttp.send();
