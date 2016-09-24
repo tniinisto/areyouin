@@ -74,7 +74,7 @@ screens smaller or equal to 480
     }
 
     #submit_first {
-        left: 35%; 
+        left: 45%; 
     }    
 
     #submit_second, #submit_third {
@@ -86,5 +86,11 @@ screens smaller or equal to 480
     }   
 
     #container .form { margin: 10px 72px 0 70px; }
+
+    #container input {
+        font-size: 12px;
+        width: 100%;
+        margin: 12px -20px;
+    }
 
 }
