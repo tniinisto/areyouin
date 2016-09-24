@@ -9,7 +9,7 @@
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("timezones").innerHTML = xmlhttp.responseText;
 			
-			document.getElementById("submit_third").setAttribute("visibilty", "visible");
+			document.getElementById("submit_third").style.visibility="visible";
 
 		}
 	}
