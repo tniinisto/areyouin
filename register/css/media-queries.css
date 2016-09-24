@@ -42,7 +42,7 @@ screens smaller or equal to 750
         /*left: 75%;*/
     }    
 
-    #container .form { margin: 10px 72px 0 80px; }
+    #container .form { margin: 10px 72px 45px; }
 
     #container input {
         font-size: 15px;
@@ -99,6 +99,10 @@ screens smaller or equal to 480
         font-size: 12px;
         width: 100%;
         margin: 12px -20px;
+    }
+
+    #container table {
+        margin: 20px 0px 35px -45px;
     }
 
 }
