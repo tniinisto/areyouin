@@ -172,10 +172,12 @@ $(function(){
         var fields = new Array(
             $('#teamname').val(),
             $('#email').val(),
-            $('#firstname').val() + ' ' + $('#lastname').val(),
+            $('#firstname').val(),
+            $('#lastname').val(),
             $('#nickname').val(),
             $('#timezone_select').val()              
         );
+        
         var tr = $('#fourth_step tr');
         tr.each(function(){
             //alert( fields[$(this).index()] )
