@@ -98,8 +98,26 @@ $(function(){
     });
 
     $('#submit_second').click(function(){
+        var fields = $('#second_step input[type=text]');
+
         //remove classes
         $('#second_step input').removeClass('error').removeClass('valid');
+        var error = 0;
+
+        fields.each(function(){
+            if( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ){
+                var value = $(this).val();
+            
+                if( (value.length<1) && $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
+                    
+                    error++;
+                } else {
+                    $(this).addClass('valid');
+                }
+            }
+        }); 
 
         if(!error) {
                 //update progress bar
