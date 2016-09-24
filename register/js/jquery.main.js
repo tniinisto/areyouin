@@ -27,7 +27,7 @@ $(function(){
     $('#progress').css('width','0');
     $('#progress_text').html('0% Complete');
 
-    //first_step
+    //first_step////////////////////////////////////////////////////
     $('form').submit(function(){ return false; });
     $('#submit_first').click(function(){
         //remove classes
@@ -97,6 +97,7 @@ $(function(){
 
     });
 
+    //second step////////////////////////////////////////////////////
     $('#submit_second').click(function(){
         var fields = $('#second_step input[type=text]');
 
@@ -153,6 +154,7 @@ $(function(){
 
     });
 
+    //third step////////////////////////////////////////////////////
     $('#submit_third').click(function(){
         //update progress bar
         $('#progress_text').html('100% Complete');
