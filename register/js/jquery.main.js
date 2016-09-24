@@ -170,10 +170,10 @@ $(function(){
 
         //prepare the fourth step
         var fields = new Array(
-            $('#username').val(),
-            $('#password').val(),
+            $('#teamname').val(),
             $('#email').val(),
             $('#firstname').val() + ' ' + $('#lastname').val(),
+            $('#nickname').val(),
             $('#timezone_select').val()              
         );
         var tr = $('#fourth_step tr');
