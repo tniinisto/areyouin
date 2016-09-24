@@ -128,8 +128,12 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         color: #a90329;*/
     }
 
-    #container select { padding: 5px 0 5px 25px; }
-        #container option { padding: 0 15px; }
+    #container select {
+         padding: 5px 0 5px 25px;
+         float: left;
+    }
+    
+    #container option { padding: 0 15px; }
 
     #container label {
         color: #fff;
