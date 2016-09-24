@@ -174,9 +174,7 @@ $(function(){
             $('#password').val(),
             $('#email').val(),
             $('#firstname').val() + ' ' + $('#lastname').val(),
-            $('#age').val(),
-            $('#gender').val(),
-            $('#country').val()                       
+            $('#timezone_select').val()              
         );
         var tr = $('#fourth_step tr');
         tr.each(function(){
