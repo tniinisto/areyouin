@@ -26,6 +26,7 @@ $(function(){
     //reset progress bar
     $('#progress').css('width','0');
     $('#progress_text').html('0% Complete');
+    var timezones_fetched = 0;
 
     //first_step////////////////////////////////////////////////////
     $('form').submit(function(){ return false; });
@@ -129,7 +130,11 @@ $(function(){
 
         if(!error) {
                 
-                $.getScript('js/timezones.js', function() { });
+                //Timezones
+                if(timezones_fetched == 0) {
+                    $.getScript('js/timezones.js', function() { });
+                    timezones_fetched++;
+                }
 
                 //update progress bar
                 $('#progress_text').html('66% Complete');
