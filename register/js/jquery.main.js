@@ -56,20 +56,20 @@ $(function(){
         });        
 
         //Teamname check
-        fields.each(function(){
-            if($(this).attr('id') =='teamname'){
-                var value = $(this).val();
+        // fields.each(function(){
+        //     if($(this).attr('id') =='teamname'){
+        //         var value = $(this).val();
             
-                if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
-                    $(this).addClass('error');
-                    $(this).effect("shake", { times:1 }, 50);
+        //         if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
+        //             $(this).addClass('error');
+        //             $(this).effect("shake", { times:1 }, 50);
                     
-                    error++;
-                } else {
-                    $(this).addClass('valid');
-                }
-            }
-        });        
+        //             error++;
+        //         } else {
+        //             $(this).addClass('valid');
+        //         }
+        //     }
+        // });        
         
         if(!error) {
                 //update progress bar
@@ -110,7 +110,7 @@ $(function(){
             if( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ){
                 var value = $(this).val();
             
-                if( (value.length<1) && ($(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname') ) {
+                if( (value.length<1) && ($(this).attr('id') == 'teamname' || $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname') ) {
                     $(this).addClass('error');
                     $(this).effect("shake", { times:1 }, 50);
                     
@@ -122,9 +122,17 @@ $(function(){
                         $(this).effect("shake", { times:1 }, 50);
 
                         error++;
+                } else 
+                //Teamname
+                if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
+                    
+                    error++;
                 } else {
                     $(this).addClass('valid');
-                }
+                }                
+
             }
         }); 
 
