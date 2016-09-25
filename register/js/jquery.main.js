@@ -100,40 +100,48 @@ $(function(){
 
     //second step////////////////////////////////////////////////////
     $('#submit_second').click(function(){
-        var fields = $('#second_step input[type=text]');
 
         //remove classes
         $('#second_step input').removeClass('error').removeClass('valid');
+        
+        var fields = $('#second_step input[type=text]');
         var error = 0;
 
         fields.each(function(){
-            if( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname' ){
+
                 var value = $(this).val();
-            
-                if( (value.length<1) && ($(this).attr('id') == 'teamname' || $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' || $(this).attr('id') == 'nickname') ) {
+
+                //Teamname
+                if( (value.length<1 || value.length>10) && ($(this).attr('id') == 'teamname') ) {
                     $(this).addClass('error');
                     $(this).effect("shake", { times:1 }, 50);
                     
                     error++;
-                } else
+                } else if($(this).attr('id') == 'teamname'){
+                    $(this).addClass('valid');
+                }                 
+
+                if( (value.length<1) && ( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' ) ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
+                    
+                    error++;
+                } else if ( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' ) {
+                    $(this).addClass('valid');
+                } 
+
                 //Nickname
-                if( (value.length>8) &&  $(this).attr('id') == 'nickname') {
+                if( (value.length<1 || value.length>8) &&  ($(this).attr('id') == 'nickname') )  {
                         $(this).addClass('error');
                         $(this).effect("shake", { times:1 }, 50);
 
                         error++;
-                } else 
-                //Teamname
-                if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
-                    $(this).addClass('error');
-                    $(this).effect("shake", { times:1 }, 50);
-                    
-                    error++;
-                } else {
+                } else if($(this).attr('id') == 'nickname'){
                     $(this).addClass('valid');
-                }                
+                } 
 
-            }
+
+            
         }); 
 
         if(!error) {
@@ -142,7 +150,6 @@ $(function(){
                 if(timezones_fetched == 0) {
                     $.getScript('js/timezones.js', function() { });
                     timezones_fetched++;
-                    //$('#submit_third').css('visibility', 'visible'); //Do this in timezones.js
                 }
 
                 //update progress bar
