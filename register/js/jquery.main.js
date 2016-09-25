@@ -54,23 +54,10 @@ $(function(){
                 }
             }
         });        
-
-        //Teamname check
-        // fields.each(function(){
-        //     if($(this).attr('id') =='teamname'){
-        //         var value = $(this).val();
-            
-        //         if( (value.length<1 || value.length>10) &&  $(this).attr('id') =='teamname') {
-        //             $(this).addClass('error');
-        //             $(this).effect("shake", { times:1 }, 50);
-                    
-        //             error++;
-        //         } else {
-        //             $(this).addClass('valid');
-        //         }
-        //     }
-        // });        
         
+        //Check is email already in RYouIN
+        
+
         if(!error) {
                 //update progress bar
                 $('#progress_text').html('33% Complete');
