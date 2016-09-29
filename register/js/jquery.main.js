@@ -56,7 +56,8 @@ $(function(){
         });        
         
         //Check is email already in RYouIN
-        
+        $.getScript('js/checkmail.js', function() { });
+                 
 
         if(!error) {
                 //update progress bar
