@@ -35,14 +35,14 @@
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			
-			stopSpinner3();
+			//stopSpinner3();
 			//document.getElementById("timezones").innerHTML = xmlhttp.responseText;
 			//document.getElementById("submit_third").style.visibility="visible";
 		}
 	}
 
 	startSpinner3();
-    xmlhttp.open("GET", "js/checkmail.php", false);
+    xmlhttp.open("GET", "js/checkmail.php", true);
 	xmlhttp.send();
 
 function startSpinner3() {
