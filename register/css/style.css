@@ -21,10 +21,10 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
 
 .clear { clear: both; }
 
-#spinner_id2, #spinner_id3 {
+/*#spinner_id2, #spinner_id3 {
     position: relative;
     top: 40px;
-} 
+} */
 
 #container {
     /*background: url('../images/container.png') no-repeat;*/
