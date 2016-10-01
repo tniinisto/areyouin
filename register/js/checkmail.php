@@ -20,7 +20,7 @@
     $result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    echo "Amount is: " + $row['count'];
+    echo "Amount is: " . $row['count'];
 
 
     // try {
