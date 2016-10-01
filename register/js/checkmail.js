@@ -36,6 +36,7 @@
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
             //document.getElementById("teamname").value = xmlhttp.responseText;
+            document.getElementById("mailcheck_info").style.visibility="hidden";
 			stopSpinner3();
 
             var res = xmlhttp.responseText.split(",");

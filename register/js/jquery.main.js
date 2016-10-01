@@ -61,7 +61,7 @@ $(function(){
             $.getScript('js/checkmail.js', function() { });
 
             //Wait for mailcheck to finish
-            //while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
+            while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
 
             //update progress bar
             $('#progress_text').html('33% Complete');
