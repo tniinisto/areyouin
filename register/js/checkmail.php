@@ -20,9 +20,11 @@
         $stmt = $dbh->query($sql);  
         $playerinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        foreach($playerinfo as $row) {
-            echo "playercount is: " + $row['count'];
-        }
+        // foreach($playerinfo as $row) {
+        //     echo "playercount is: " + $row['count'];
+        // }
+
+        echo "moro";
 
         $dbh = null;
         //echo '{"items":'. json_encode($playerinfo) .'}'; 
