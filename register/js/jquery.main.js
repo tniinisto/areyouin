@@ -53,21 +53,23 @@ $(function(){
                     $(this).addClass('valid');
                 }
             }
-        });        
-        
-        //Check is email already in RYouIN
-        $.getScript('js/checkmail.js', function() { });
-                 
+        });                         
 
         if(!error) {
-                //update progress bar
-                $('#progress_text').html('33% Complete');
-                $('#progress').css('width','80px');
-                
-                //slide steps
-                $('#first_step').slideUp();
-                $('#second_step').slideDown();     
-            }               
+
+            //Check is email already in RYouIN
+            $.getScript('js/checkmail.js', function() { });
+            //Wait for mailcheck to finish
+            while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
+
+            //update progress bar
+            $('#progress_text').html('33% Complete');
+            $('#progress').css('width','80px');
+            
+            //slide steps
+            $('#first_step').slideUp();
+            $('#second_step').slideDown();     
+        }               
             else return false;
     });
 

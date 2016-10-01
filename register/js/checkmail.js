@@ -35,10 +35,9 @@
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			
-			//stopSpinner3();
-			//document.getElementById("timezones").innerHTML = xmlhttp.responseText;
-			//document.getElementById("submit_third").style.visibility="visible";
-		}
+			stopSpinner3();
+            document.getElementById("mailcheck_info").style.visibility="hidden";	
+	    }
 	}
 
 	document.getElementById("mailcheck_info").style.visibility="visible";
