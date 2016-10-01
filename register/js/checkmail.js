@@ -40,7 +40,7 @@
             var res = xmlhttp.responseText.split(",");
             
             if(res[0] == 1) { //Player found                                
-                document.getElementById("mailcheck_info").style.visibility="visible"; //Show info text
+                document.getElementById("mailcheck_info").style.display = 'block'; //Show info text
 
                 document.getElementById("firstname").value = res[1];
                 document.getElementById("firstname").disabled = true;
