@@ -21,7 +21,7 @@
         $playerinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
 
         foreach($playerinfo as $row) {
-            echo "playercount is: " + $row['count'];;
+            echo "playercount is: " + $row['count'];
         }
 
         $dbh = null;
