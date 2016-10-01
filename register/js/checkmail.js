@@ -35,10 +35,16 @@
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            document.getElementById("teamname").value = xmlhttp.responseText;
-
+            //document.getElementById("teamname").value = xmlhttp.responseText;
 			stopSpinner3();
-	
+
+            var res = xmlhttp.responseText.split(",");
+            
+            if(res[0] == 1) { //Player found                                
+                document.getElementById("firstname").value = res[1];
+                document.getElementById("lastname").value = res[2];
+                document.getElementById("nickname").value = res[3];
+            }
 	    }
 	}
 

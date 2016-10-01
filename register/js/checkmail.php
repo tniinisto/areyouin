@@ -20,8 +20,11 @@
     $result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 
-    echo "Amount is: " . $row['count'];
-
+    if($row['count'] == 1) {
+        echo $row['count'] . "," . $row['firstname'] . "," . $row['lastname'] . "," . $row['name'];    
+    }
+    else
+        echo $row['count'];
 
     // try {
     //     //PDO means "PHP Data Objects"
