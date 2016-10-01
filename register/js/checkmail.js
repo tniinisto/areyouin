@@ -55,7 +55,7 @@
 
     startSpinner3();
 
-    var variables = "mail=" + document.getElementById("email");
+    var variables = "mail=" + document.getElementById("email").value;
     xmlhttp.open("GET", "js/checkmail.php?" + variables, true);
 	xmlhttp.send();
 
