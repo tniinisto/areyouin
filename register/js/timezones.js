@@ -2,9 +2,9 @@
 	var spinner2;        
     var opts = {
         lines: 15 // The number of lines to draw
-        , length: 3 // The length of each line
+        , length: 8 // The length of each line
         , width: 4 // The line thickness
-        , radius: 10 // The radius of the inner circle
+        , radius: 15 // The radius of the inner circle
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#fff' // #rgb or #rrggbb or array of colors
