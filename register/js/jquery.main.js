@@ -64,7 +64,7 @@ $(function(){
             $.getScript('js/checkmail.js', function() { });
             
             for (var start = 1; start < 5; start++)
-                setTimeout(function () { }, 3000);
+                setTimeout(function () { var j = 0;  }, 3000*i);
 
             //slide steps
             $('#first_step').slideUp();
