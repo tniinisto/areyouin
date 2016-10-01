@@ -64,7 +64,7 @@ $(function(){
             $.getScript('js/checkmail.js', function() { });
             
             //slide steps
-            $('#first_step').slideUp();
+            $('#first_step').delay( 1000 ).slideUp();
             $('#second_step').delay( 1000 ).slideDown();
 
             //update progress bar
