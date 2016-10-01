@@ -65,7 +65,7 @@ $(function(){
 
             setTimeout(function() {
                 
-            }, 1000);
+            }, 2000);
 
             //update progress bar
             $('#progress_text').html('33% Complete');
