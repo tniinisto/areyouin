@@ -68,7 +68,7 @@ $(function(){
             $('#progress').css('width','80px');
             
             //slide steps
-            $('#first_step').slideUp();
+            $('#first_step').delay( 1000 ).slideUp();
             $('#second_step').delay( 1000 ).slideDown();     
         }               
             else return false;
