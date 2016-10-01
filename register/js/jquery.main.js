@@ -63,17 +63,13 @@ $(function(){
             //Check is email already in RYouIN
             $.getScript('js/checkmail.js', function() { });
 
-            setTimeout(function() {
-                
-            }, 2000);
-
             //update progress bar
             $('#progress_text').html('33% Complete');
             $('#progress').css('width','80px');
             
             //slide steps
             $('#first_step').slideUp();
-            $('#second_step').slideDown();     
+            $('#second_step').delay( 1000 ).slideDown();     
         }               
             else return false;
     });
