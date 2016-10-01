@@ -13,7 +13,7 @@
     }
     mysql_select_db("areyouin", $con);
 
-    $sql = "select count(playerid) as count, firstname, lastname, name
+    $sql = "select count(playerid) as count, firstname, lastname, name, playerid
             from players
             where mail = '" . $mail . "';";
            
@@ -21,7 +21,7 @@
     $row = mysql_fetch_array($result);
 
     if($row['count'] == 1) {
-        echo $row['count'] . "," . $row['firstname'] . "," . $row['lastname'] . "," . $row['name'];    
+        echo $row['count'] . "," . $row['firstname'] . "," . $row['lastname'] . "," . $row['name'] . "," . $row['playerid'];    
     }
     else
         echo $row['count'];

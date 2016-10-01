@@ -50,6 +50,9 @@
 
                 document.getElementById("nickname").value = res[3];
                 document.getElementById("nickname").disabled = true;
+
+                document.getElementById("playerid").value = res[4]; //PlayerID for team register
+
             }
 	    }
 	}
