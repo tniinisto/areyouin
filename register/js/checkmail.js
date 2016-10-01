@@ -42,8 +42,13 @@
             
             if(res[0] == 1) { //Player found                                
                 document.getElementById("firstname").value = res[1];
+                document.getElementById("firstname").disabled = true;
+
                 document.getElementById("lastname").value = res[2];
+                document.getElementById("lastname").disabled = true;
+
                 document.getElementById("nickname").value = res[3];
+                document.getElementById("nickname").disabled = true;
             }
 	    }
 	}
