@@ -40,7 +40,7 @@
 	//     }
 	// }
 
-	document.getElementById("mailcheck_info").style.visibility="visible";
+	//document.getElementById("mailcheck_info").style.visibility="visible";
     startSpinner3();
 
     var variables = "mail=" + document.getElementById("email").value;
