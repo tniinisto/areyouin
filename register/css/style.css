@@ -118,11 +118,11 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     }
     
     #submit_third {
-        left: 68%;
+        left: 80%;
     }
 
     #submit_fourth {
-        left: 60%;
+        left: 80%;
     }
     
     #container input.submit:focus { border: none; }
