@@ -21,7 +21,7 @@
 
         $dbh = null;
 
-        echo "playercount is: " + $playerinfo[0].count;
+        echo "playercount is: " + $playerinfo[0];
 
         //echo '{"items":'. json_encode($playerinfo) .'}'; 
     }
