@@ -43,7 +43,7 @@
 	//document.getElementById("mailcheck_info").style.visibility="visible";
     startSpinner3();
 
-    var variables = "mail=" + document.getElementById("email").value;
+    var variables = "mail=" + document.getElementById("email");
     $.getJSON("js/checkmail.php?" + variables, function (data) {
 
         playerinfo = data.items;
