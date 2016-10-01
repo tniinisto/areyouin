@@ -35,13 +35,13 @@
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            //document.getElementById("teamname").value = xmlhttp.responseText;
-            //document.getElementById("mailcheck_info").style.visibility="hidden";
 			stopSpinner3();
 
             var res = xmlhttp.responseText.split(",");
             
             if(res[0] == 1) { //Player found                                
+                document.getElementById("mailcheck_info").style.visibility="visible"; //Show info text
+
                 document.getElementById("firstname").value = res[1];
                 document.getElementById("firstname").disabled = true;
 
@@ -53,17 +53,6 @@
             }
 	    }
 	}
-
-	//document.getElementById("mailcheck_info").style.visibility="visible";
-    // var variables = "mail=" + document.getElementById("email");
-    // $.getJSON("js/checkmail.php?" + variables, function (data) {
-
-    //     playerinfo = data.items;
-
-    //     alert("mailcheck count" + playerinfo[0].count);
-        
-    // });
-    //document.getElementById("userlogin1").innerHTML = values...
 
     startSpinner3();
     
