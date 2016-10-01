@@ -56,7 +56,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         #container h1 span { color: #a90329; }
         
     #container h2 {
-        color: #ff9800;
+        color: #fff;
         font-size: 20px;
         text-align: center;
         text-shadow: none;
