@@ -54,8 +54,9 @@
     //document.getElementById("userlogin1").innerHTML = values...
 
     startSpinner3();
-
-    var variables = "mail=" + document.getElementById("email").value;
+    
+    var mail = document.getElementById("email").value;
+    var variables = "mail=" + mail;
     xmlhttp.open("GET", "js/checkmail.php?" + variables, true);
 	xmlhttp.send();
 
