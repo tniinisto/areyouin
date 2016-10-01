@@ -74,7 +74,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     }
 
     #container table td:nth-child(2) {
-        color: #a90329;
+        color: #fff;
     }   
         
     #container input, #container select {
