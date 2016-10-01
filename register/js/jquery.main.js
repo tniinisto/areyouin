@@ -80,8 +80,8 @@ $(function(){
         $('#first_step input').removeClass('error').removeClass('valid');
 
         //slide steps
-        $('#first_step').slideDown();  
-        $('#second_step').slideUp();
+        $('#first_step').delay(1000).slideDown();  
+        $('#second_step').delay(1000).slideUp();
 
         //progress bar
         $('#progress_text').html('0% Complete');
