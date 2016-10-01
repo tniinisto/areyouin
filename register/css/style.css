@@ -184,4 +184,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     display: inline-block;
 }
 
-
+#mailcheck_info {
+    visibility: hidden;
+    text-align: center;
+}
