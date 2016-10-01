@@ -79,7 +79,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         
     #container input, #container select {
         /*background: url('../images/input.png') no-repeat;*/
-        color: #888;
+        color: #000;
         border: 1px solid #ccc;
         font-family: Cantarell, Verdana, sans-serif;
         font-weight: bold;
