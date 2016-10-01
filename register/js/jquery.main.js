@@ -56,12 +56,12 @@ $(function(){
         });                         
 
         if(!error) {
+            
+            //Wait for mailcheck to finish
+            while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
 
             //Check is email already in RYouIN
             $.getScript('js/checkmail.js', function() { });
-
-            //Wait for mailcheck to finish
-            while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
 
             //update progress bar
             $('#progress_text').html('33% Complete');
