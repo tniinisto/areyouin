@@ -5,7 +5,8 @@
     //Ajax url parameter
     $mail=$_GET["mail"];
 
-    $sql = "select count(playerid) as count, firstname, lastname, name from players
+    $sql = "select count(playerid) as count, firstname, lastname, name
+            from players
             where mail = '" . $mail . "';";
 
     try {
@@ -19,8 +20,10 @@
         $stmt = $dbh->query($sql);  
         $playerinfo = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        echo "playercount is: " + $playerinfo['count'];;
-        
+        foreach($playerinfo as $row) {
+            echo "playercount is: " + $row['count'];;
+        }
+
         $dbh = null;
         //echo '{"items":'. json_encode($playerinfo) .'}'; 
     }
