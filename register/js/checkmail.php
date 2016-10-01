@@ -21,14 +21,12 @@
 
 
         $count = 0;
-
-        $dbh = null;
-        foreach($data as $row) {
-            $count = $playerinfo['count'];
+        foreach($playerinfo as $row) {
+            $count = $row['count'];
         }
-
         echo "playercount is: " + $count;
-
+        
+        $dbh = null;
         //echo '{"items":'. json_encode($playerinfo) .'}'; 
     }
     catch(PDOException $e) {
