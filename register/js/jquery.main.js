@@ -63,6 +63,9 @@ $(function(){
             //Check is email already in RYouIN
             $.getScript('js/checkmail.js', function() { });
             
+            for (var start = 1; start < 5; start++)
+                setTimeout(function () { }, 3000);
+
             //slide steps
             $('#first_step').slideUp();
             $('#second_step').slideDown();
