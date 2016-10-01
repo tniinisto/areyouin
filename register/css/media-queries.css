@@ -26,11 +26,11 @@ screens smaller or equal to 750
        width: 300px;
     }
 
-    #submit_first {
+    #submit_first, #submit_second {
         left: 45%;
     }
 
-    #submit_second, #submit_third {
+    #submit_third {
         left: 70%;
     }
 
@@ -81,12 +81,12 @@ screens smaller or equal to 480
        font-size: 12px;
     }
 
-    #submit_first {
+    #submit_first, #submit_second {
         left: 45%;
         top: 1px;
     }    
 
-    #submit_second , #submit_third {
+    #submit_third {
         left: 63%;
     }    
 
