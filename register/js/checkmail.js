@@ -25,25 +25,37 @@
         
     spinner3 = new Spinner(opts);
 
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
+	// if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+	// 	xmlhttp = new XMLHttpRequest();
+	// }
+	// else {// code for IE6, IE5
+	// 	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	// }
 
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	// xmlhttp.onreadystatechange = function () {
+	// 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			
-			stopSpinner3();
-            document.getElementById("mailcheck_info").style.visibility="hidden";	
-	    }
-	}
+	// 		stopSpinner3();
+    //         document.getElementById("mailcheck_info").style.visibility="hidden";	
+	//     }
+	// }
 
 	document.getElementById("mailcheck_info").style.visibility="visible";
     startSpinner3();
-    xmlhttp.open("GET", "js/checkmail.php", true);
-	xmlhttp.send();
+
+    var variables = "mail=" + document.getElementById("email").value;
+    $.getJSON("js/checkmail.php?" + variables, function (data) {
+
+        playerinfo = data.items;
+
+        alert("mailcheck count" + playerinfo[0].count);
+        
+    });
+
+    //document.getElementById("userlogin1").innerHTML = values...
+
+    //xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
+	//xmlhttp.send();
 
 function startSpinner3() {
     var target = document.getElementById('spinner_id3');
