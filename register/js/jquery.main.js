@@ -58,10 +58,14 @@ $(function(){
         if(!error) {
             
             //Wait for mailcheck to finish
-            while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
+            //while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
 
             //Check is email already in RYouIN
             $.getScript('js/checkmail.js', function() { });
+
+            setTimeout(function() {
+                
+            }, 1000);
 
             //update progress bar
             $('#progress_text').html('33% Complete');
