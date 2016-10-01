@@ -36,7 +36,7 @@
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
 			stopSpinner3();
-            document.getElementById("mailcheck_info").style.visibility="hidden";	
+            //document.getElementById("mailcheck_info").style.visibility="hidden";	
 	    }
 	}
 
@@ -52,7 +52,7 @@
     //document.getElementById("userlogin1").innerHTML = values...
 
     startSpinner3();
-    
+
     var variables = "mail=" + document.getElementById("email");
     xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
 	xmlhttp.send();
