@@ -188,3 +188,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     display: none;
     text-align: center;
 }
+
+input[type="text"]:disabled {
+    background: lightgrey;
+}
