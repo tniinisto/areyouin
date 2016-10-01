@@ -41,7 +41,8 @@
 		}
 	}
 
-	startSpinner3();
+	document.getElementById("mailcheck_info").style.visibility="visible";
+    startSpinner3();
     xmlhttp.open("GET", "js/checkmail.php", true);
 	xmlhttp.send();
 
