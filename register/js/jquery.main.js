@@ -64,8 +64,8 @@ $(function(){
             $.getScript('js/checkmail.js', function() { });
             
             //slide steps
-            $('#first_step').slideUp();
-            $('#second_step').slideDown();
+            $('#first_step').delay(1000).slideUp();
+            $('#second_step').delay(1000).slideDown();
 
             //update progress bar
             $('#progress_text').html('33% Complete');
@@ -80,8 +80,8 @@ $(function(){
         $('#first_step input').removeClass('error').removeClass('valid');
 
         //slide steps
-        $('#first_step').delay(1000).slideDown();  
-        $('#second_step').delay(1000).slideUp();
+        $('#first_step').slideDown();  
+        $('#second_step').slideUp();
 
         //progress bar
         $('#progress_text').html('0% Complete');
