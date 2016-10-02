@@ -62,8 +62,10 @@ $(function(){
 
         if(!error) {
             //Check is email already in RYouIN, after input field loses focus
-            $.getScript('js/checkmail.js', function() { });                     
+            //$.getScript('js/checkmail.js', function() { });
+            checkMail();                     
             
+
             //slide steps
             $('#first_step').slideUp();
             $('#second_step').slideDown();
