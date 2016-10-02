@@ -141,10 +141,12 @@ $(function(){
         if(!error) {
                 
                 //Timezones
-                if(timezones_fetched == 0) {
-                    $.getScript('js/timezones.js', function() { });
-                    timezones_fetched++;
-                }
+                // if(timezones_fetched == 0) {
+                //     $.getScript('js/timezones.js', function() { });
+                //     timezones_fetched++;
+                // }
+                getTimezones();
+
 
                 //update progress bar
                 $('#progress_text').html('66% Complete');
