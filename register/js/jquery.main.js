@@ -38,7 +38,7 @@ $(function(){
         var error = 0;
 
         //Check is email already in RYouIN, after input field loses focus
-        $(this).attr('email').focusout(function() {
+        $('email').focusout(function() {
             $.getScript('js/checkmail.js', function() { });
         });
 
