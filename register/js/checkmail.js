@@ -25,40 +25,44 @@
         
     spinner3 = new Spinner(opts);
 
-	// if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-	// 	xmlhttp = new XMLHttpRequest();
-	// }
-	// else {// code for IE6, IE5
-	// 	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	// }
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
 
-	// xmlhttp.onreadystatechange = function () {
-	// 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			
-	// 		stopSpinner3();
-    //         document.getElementById("mailcheck_info").style.visibility="hidden";	
-	//     }
-	// }
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-	//document.getElementById("mailcheck_info").style.visibility="visible";
-    
+        startSpinner3();
+
+            var res = xmlhttp.responseText.split(",");
+            
+            if(res[0] == 1) { //Player found                                
+                document.getElementById("mailcheck_info").style.display = 'block'; //Show info text
+
+                document.getElementById("firstname").value = res[1];
+                document.getElementById("firstname").disabled = true;
+
+                document.getElementById("lastname").value = res[2];
+                document.getElementById("lastname").disabled = true;
+
+                document.getElementById("nickname").value = res[3];
+                document.getElementById("nickname").disabled = true;
+
+                document.getElementById("playerid").value = res[4]; //PlayerID for team register
+
+            }
+	    }
+	}
+
     startSpinner3();
-
-    var variables = "mail=" + document.getElementById("email").value;
-    $.getJSON("js/checkmail.php?" + variables, function (data) {
-
-        playerinfo = data.items;
-
-        alert("mailcheck count" + playerinfo[0].count);
-
-        stopSpinner3();
-
-    });
-
-    //document.getElementById("userlogin1").innerHTML = values...
-
-    //xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
-	//xmlhttp.send();
+    
+    var mail = document.getElementById("email").value;
+    var variables = "mail=" + mail;
+    xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
+	xmlhttp.send();
 
 function startSpinner3() {
     var target = document.getElementById('spinner_id3');
