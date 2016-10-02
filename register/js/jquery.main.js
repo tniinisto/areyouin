@@ -37,6 +37,11 @@ $(function(){
         var fields = $('#first_step input[type=text]');
         var error = 0;
 
+        //Check is email already in RYouIN, after input field loses focus
+        $(this).attr('email').focusout(function() {
+            $.getScript('js/checkmail.js', function() { });
+        });
+
         //Email check
         var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         fields.each(function(){
@@ -56,13 +61,7 @@ $(function(){
         });                         
 
         if(!error) {
-            
-            //Wait for mailcheck to finish
-            //while(document.getElementById("mailcheck_info").style.visibility=="visible") {}
-
-            //Check is email already in RYouIN
-            $.getScript('js/checkmail.js', function() { });
-            
+                     
             //slide steps
             $('#first_step').slideUp();
             $('#second_step').slideDown();
