@@ -22,6 +22,9 @@
 
 	<div id="container">
 
+        <div id="spinner_id2"></div>
+        <div id="spinner_id3"></div>
+
         <form action="#" method="post">
 	
             <!-- #first_step -->
@@ -29,7 +32,6 @@
                 <h1>R'YouIN</h1>
                 <h2>Welcome to setup your team</h2>
 
-                <div id="spinner_id3"></div>
 
                 <div class="form">
                     
@@ -40,8 +42,8 @@
                     <label for="email">Enter your mail address</label>
                     <input type="text" name="email" id="email" value="" />
 
-                    <!--<br>
-                    <label id="mailcheck_info"> Checking if you already are a R'YouIN user</label>-->
+                    <br>
+                    <label id="mailcheck_info"> Checking if you already are a R'YouIN user</label>
 
 
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
@@ -53,13 +55,8 @@
             <!-- #second_step -->
             <div id="second_step">
                 <h1>R'YouIN</h1>
-                
-                <div id="spinner_id2"></div>
 
                 <div class="form">
-                    <label id="mailcheck_info" style="display: none;">You already have a R'YouIN user account, just enter the team's name.</label>
-                    <br>
-
                     <label for="teamname">Enter team's name (max. 10 characters) </label>
                     <input type="text" name="teamname" id="teamname" value="" />
                     <label for="firstname">Enter your first name</label>
@@ -69,13 +66,11 @@
                     <label for="nickname">Enter your nick name (max. 8 characters)</label>
                     <input type="text" name="nickname" id="nickname" value="" />
 
-                    <input type="text" name="playerid" id="playerid" value="" style="display: none"/>
-
                 </div>      
                     
                 <div class="clear"></div>
 
-                <!--<input class="submit" type="button" name="submit_prev2" id="submit_prev2" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
+                <input class="submit" type="button" name="submit_prev2" id="submit_prev2" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>
 
                 <input class="submit" type="submit" name="submit_second" id="submit_second" value="" style="margin-top: 24px;"/>
 
@@ -86,6 +81,8 @@
             <div id="third_step">
                 <h1>R'YouIN</h1>
 
+                <div id="spinner_id2"></div>
+
                 <div class="form">
 
                      <!--Timezone selection-->
@@ -95,7 +92,7 @@
                 
                 <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
                 
-                <!--<input class="submit" type="button" name="submit_prev3" id="submit_prev3" value="" style="float: left; left: 14%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
+                <input class="submit" type="button" name="submit_prev3" id="submit_prev3" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>
 
                 <input class="submit" type="submit" name="submit_third" id="submit_third" value="" style="visibility: hidden;"/>
                 
@@ -118,15 +115,11 @@
                         <tr><td>Nickname</td><td></td></tr>
                         <tr><td>Timezone</td><td></td></tr>
                     </table>
-
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
+                
+                <input class="submit" type="button" name="submit_prev4" id="submit_prev4" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>
 
-                <br>                
-                <h2 id="register_info">Register your team. You will receive email containing your login information. Thank you!</h2>
-
-                <!--<input class="submit" type="button" name="submit_prev4" id="submit_prev4" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
-
-                <input class="submit" type="submit" name="submit_fourth" id="submit_fourth" value="" style="margin-top: 60px; -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"/>
+                <input class="send submit" type="submit" name="submit_fourth" id="submit_fourth" value="" style="margin-top: 60px; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>
 
             </div> <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
             
@@ -139,151 +132,7 @@
         </div>
 
 	</div>
-
-<script> 
-
-    //Mail checking, step 1 ////////////////////////////////////////////////
-
-	var spinner3;        
-    var opts = {
-        lines: 15 // The number of lines to draw
-        , length: 8 // The length of each line
-        , width: 4 // The line thickness
-        , radius: 15 // The radius of the inner circle
-        , scale: 1 // Scales overall size of the spinner
-        , corners: 1 // Corner roundness (0..1)
-        , color: '#fff' // #rgb or #rrggbb or array of colors
-        , opacity: 0.50 // Opacity of the lines
-        , rotate: 0 // The rotation offset
-        , direction: 1 // 1: clockwise, -1: counterclockwise
-        , speed: 1 // Rounds per second
-        , trail: 60 // Afterglow percentage
-        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
-        , zIndex: 2e9 // The z-index (defaults to 2000000000)
-        , className: 'spinner' // The CSS class to assign to the spinner
-        , top: '20px' // Top position relative to parent
-        , left: '50%' // Left position relative to parent
-        , shadow: false // Whether to render a shadow
-        , hwaccel: false // Whether to use hardware acceleration
-        , position: 'relative' // Element positioning
-    }
-        
-    spinner3 = new Spinner(opts);
-
-
-function checkMail() {
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-			stopSpinner3();
-
-            var res = xmlhttp.responseText.split(",");
-            
-            if(res[0] == 1) { //Player found                                
-                document.getElementById("mailcheck_info").style.display = 'block'; //Show info text
-
-                document.getElementById("firstname").value = res[1];
-                document.getElementById("firstname").disabled = true;
-
-                document.getElementById("lastname").value = res[2];
-                document.getElementById("lastname").disabled = true;
-
-                document.getElementById("nickname").value = res[3];
-                document.getElementById("nickname").disabled = true;
-
-                document.getElementById("playerid").value = res[4]; //PlayerID for team register
-
-            }
-	    }
-	}
-
-    startSpinner3();
     
-    var mail = document.getElementById("email").value;
-    var variables = "mail=" + mail;
-    xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
-	xmlhttp.send();
-}
-
-function startSpinner3() {
-    var target = document.getElementById('spinner_id3');
-    spinner3.spin(target);
-}
-
-function stopSpinner3() {
-    spinner3.stop();
-}
-
-
-//Timezone spinner////////////////////////////////////////////
-
-	var spinner2;        
-    var opts = {
-        lines: 15 // The number of lines to draw
-        , length: 8 // The length of each line
-        , width: 4 // The line thickness
-        , radius: 15 // The radius of the inner circle
-        , scale: 1 // Scales overall size of the spinner
-        , corners: 1 // Corner roundness (0..1)
-        , color: '#fff' // #rgb or #rrggbb or array of colors
-        , opacity: 0.50 // Opacity of the lines
-        , rotate: 0 // The rotation offset
-        , direction: 1 // 1: clockwise, -1: counterclockwise
-        , speed: 1 // Rounds per second
-        , trail: 60 // Afterglow percentage
-        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
-        , zIndex: 2e9 // The z-index (defaults to 2000000000)
-        , className: 'spinner' // The CSS class to assign to the spinner
-        , top: '20px' // Top position relative to parent
-        , left: '50%' // Left position relative to parent
-        , shadow: false // Whether to render a shadow
-        , hwaccel: false // Whether to use hardware acceleration
-        , position: 'relative' // Element positioning
-    }
-        
-    spinner2 = new Spinner(opts);
-
-
-    function getTimezones() {
-        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        }
-        else {// code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                
-                stopSpinner2();
-                document.getElementById("timezones").innerHTML = xmlhttp.responseText;
-                document.getElementById("submit_third").style.visibility="visible";
-            }
-        }
-
-        startSpinner2();
-        xmlhttp.open("GET", "js/timezones.php", false);
-        xmlhttp.send();
-    }
-
-function startSpinner2() {
-    var target = document.getElementById('spinner_id2');
-    spinner2.spin(target);
-}
-
-function stopSpinner2() {
-    spinner2.stop();
-}
-
-</script>
-
 </body>
 
 </html>
