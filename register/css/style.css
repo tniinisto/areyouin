@@ -21,6 +21,11 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
 
 .clear { clear: both; }
 
+/*#spinner_id2, #spinner_id3 {
+    position: relative;
+    top: 40px;
+} */
+
 #container {
     /*background: url('../images/container.png') no-repeat;*/
     width: 600px;
@@ -29,32 +34,37 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     padding: 50px 0;
     overflow: hidden;
     position: relative;
-    background: darkgray;
+    background: #8c8989;
+    margin-top: 20px;
 }
  
     #container #first_step, #second_step, #third_step, #fourth_step { display: none; }
     #container #first_step { display: block; }
 
-    #container .form { margin: 66px 72px 0 72px; }
+    #container .form { margin: 10px 72px 0 110px; }
     
     #container h1, #container h2 {
-        font-size: Cantarell, Verdana, sans-serif;
+        /*font-size: Cantarell, Verdana, sans-serif;*/
+        font: .81em/150% Arial, Helvetica, sans-serif;
         text-align: center;
-        font-size: 24px;
-        text-shadow: 1px 1px 2px #222;
-        margin-top: 30px;
+        font-size: 60px;
+        /*text-shadow: 1px 1px 2px #222;*/
+        margin-top: -30px;
+        font-weight: bold;
+        color: #fff;
     }
         #container h1 span { color: #a90329; }
         
     #container h2 {
-        color: #888;
+        color: #fff;
         font-size: 20px;
-        text-align: left;
+        text-align: center;
         text-shadow: none;
+        margin: 0 4px;
     }
     
     #container table {
-        margin: 20px 40px;
+        margin: 20px -20px;
         font-size: 14px;
         font-weight: bold;
     }
@@ -64,12 +74,12 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     }
 
     #container table td:nth-child(2) {
-        color: #a90329;
+        color: #fff;
     }   
         
     #container input, #container select {
         /*background: url('../images/input.png') no-repeat;*/
-        color: #888;
+        color: #000;
         border: 1px solid #ccc;
         font-family: Cantarell, Verdana, sans-serif;
         font-weight: bold;
@@ -77,7 +87,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         width: 70%;
         height: 35px;
         padding: 0 25px;
-        margin: 20px 0;
+        margin: 12px 0;
         /*float: left;*/
         display: block;
         
@@ -90,7 +100,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         background: url('../images/prev_next.png') no-repeat;
         border: none;
         cursor: pointer;
-        width: 85px;
+        width: 70px;
         height: 65px;
         position: relative;
         bottom: 2px;
@@ -100,15 +110,19 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     }
 
     #submit_first {
-        left: 70%;
+        left: 80%;
     }
 
-    #submit_second, #submit_third {
-        left: 60%;
+    #submit_second {
+        left: 80%;
+    }
+    
+    #submit_third {
+        left: 80%;
     }
 
     #submit_fourth {
-        left: 60%;
+        left: 80%;
     }
     
     #container input.submit:focus { border: none; }
@@ -119,16 +133,21 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     #container input.valid { border: 1px solid #1FFF00; }
     
     #container input:focus, #container select:focus {
-        border: 1px solid #a90329;
-        color: #a90329;
+        /*border: 1px solid #a90329;
+        color: #a90329;*/
     }
 
-    #container select { padding: 5px 0 5px 25px; }
-        #container option { padding: 0 15px; }
+    #container select {
+         padding: 5px 0 5px 25px;
+         float: left;
+         width: 100%;
+    }
+    
+    #container option { padding: 0 15px; }
 
     #container label {
-        color: #666;
-        font-size: 12px;
+        color: #fff;
+        font-size: 14px;
         font-weight: bold;
         line-height: 14px;
         /*float: right;*/
@@ -169,4 +188,11 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     display: inline-block;
 }
 
+#mailcheck_info {
+    /*display: none;*/
+    text-align: center;
+}
 
+input[type="text"]:disabled {
+    background: lightgrey;
+}

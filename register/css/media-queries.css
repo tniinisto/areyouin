@@ -9,7 +9,7 @@ screens smaller or equal to 980
     }
      
     #submit_fourth {
-        left: 60%;
+        left: 80%;
     }
 
 }
@@ -26,13 +26,30 @@ screens smaller or equal to 750
        width: 300px;
     }
 
-    #submit_second, #submit_third {
-        left: 50%;
+    #submit_first, #submit_second, #submit_third, #submit_fourth {
+        left: 45%;
+    }
+
+    /*#submit_third {
+        left: 70%;
     }
 
     #submit_fourth {
         left: 45%;
+    }*/
+
+    /*#container input.submit {
+        left: 75%;
+    }*/
+
+    #container .form { margin: 10px 72px 45px; }
+
+    #container input {
+        font-size: 15px;
+        width: 90%;
+        margin: 12px -20px;
     }
+
 }
 /************************************************************************************
 screens smaller or equal to 480
@@ -42,29 +59,51 @@ screens smaller or equal to 480
 
     #container {
         width: 300px;
+        margin-top: 0px;
     }
     
     #progress_bar { 
         margin-left: 30px;
     }
 
-    #container h1, #container h2 {
-        margin-top: 10px;
+    #container h1 {
+        margin-top: -40px;
+        font-size: 40px;
+    }
+
+    #container h2 {
+        margin-top: -10px;
+        font-size: 20px;
     }
 
     #container label {
        width: 240px;
+       font-size: 12px;
     }
 
-    #submit_first {
-        left: 35%; 
+    #submit_first, #submit_second, #submit_third, #submit_fourth {
+        left: 45%;
+        top: 1px;
     }    
 
-    #submit_second, #submit_third {
-        left: 35%; 
-    }    
+    /*#submit_third {
+        left: 64%;
+    }    */
 
-     #submit_fourth {
+     /*#submit_fourth {
         left: 35%;
-    }   
+    }   */
+
+    #container .form { margin: 10px 72px 0 70px; }
+
+    #container input {
+        font-size: 12px;
+        width: 100%;
+        margin: 10px -20px;
+    }
+
+    #container table {
+        margin: 20px 0px 35px -45px;
+    }
+
 }

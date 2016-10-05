@@ -2,12 +2,13 @@ $(function(){
     //original field values
     var field_values = {
             //id        :  value
-            'username'  : 'username',
-            'password'  : 'password',
-            'cpassword' : 'password',
-            'firstname'  : 'first name',
-            'lastname'  : 'last name',
-            'email'  : 'email address'
+            'username'  : '',
+            'password'  : '',
+            'cpassword' : '',
+            'firstname'  : '',
+            'lastname'  : '',
+            'email'  : '',
+            'teamname'  : ''
     };
 
 
@@ -18,83 +19,68 @@ $(function(){
     $('input#lastname').inputfocus({ value: field_values['lastname'] });
     $('input#firstname').inputfocus({ value: field_values['firstname'] });
     $('input#email').inputfocus({ value: field_values['email'] }); 
-
+    $('input#teamname').inputfocus({ value: field_values['teamname'] }); 
 
 
 
     //reset progress bar
     $('#progress').css('width','0');
     $('#progress_text').html('0% Complete');
+    var timezones_fetched = 0;
 
-    //first_step
+    //first_step////////////////////////////////////////////////////
     $('form').submit(function(){ return false; });
     $('#submit_first').click(function(){
         //remove classes
         $('#first_step input').removeClass('error').removeClass('valid');
-
-        //ckeck if inputs aren't empty
-        var fields = $('#first_step input[type=text], #first_step input[type=password]');
+  
+        var fields = $('#first_step input[type=text]');
         var error = 0;
+
+        //Check is email already in RYouIN, after input field loses focus
+        // $('#email').focusout(function() {
+        //     $.getScript('js/checkmail.js', function() { });
+        // });
+
+        //Email check
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         fields.each(function(){
-            var value = $(this).val();
-            if( value.length<4 || value==field_values[$(this).attr('id')] ) {
-                $(this).addClass('error');
-                $(this).effect("shake", { times:3 }, 50);
-                
-                error++;
-            } else {
-                $(this).addClass('valid');
-            }
-        });        
-        
-        if(!error) {
-            if( $('#password').val() != $('#cpassword').val() ) {
-                    $('#first_step input[type=password]').each(function(){
-                        $(this).removeClass('valid').addClass('error');
-                        $(this).effect("shake", { times:3 }, 200);
-                    });
+            if($(this).attr('id') =='email') {
+
+                var value = $(this).val();
+                //if( value.length<1 && value==field_values[$(this).attr('id')] &&  $(this).attr('id') =='email' && !emailPattern.test(value)  ) {
+                if( value.length<1 || ( $(this).attr('id') == 'email' && !emailPattern.test(value) ) ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
                     
-                    return false;
-            } else {   
-                //update progress bar
-                $('#progress_text').html('33% Complete');
-                $('#progress').css('width','113px');
-                
-                //slide steps
-                $('#first_step').slideUp();
-                $('#second_step').slideDown();     
-            }               
-        } else return false;
+                    error++;
+                } else {
+                    $(this).addClass('valid');
+                }
+            }
+        });                         
+
+        if(!error) {
+            //Check is email already in RYouIN, after input field loses focus
+            //$.getScript('js/checkmail.js', function() { });
+            checkMail();                     
+            
+
+            //slide steps
+            $('#first_step').slideUp();
+            $('#second_step').slideDown();
+
+            //update progress bar
+            $('#progress_text').html('33% Complete');
+            $('#progress').css('width','80px');     
+        }               
+            else return false;
     });
 
     $('#submit_prev2').click(function(){
         //remove classes
-        $('#second_step input').removeClass('error').removeClass('valid');
-
-        // var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
-        // var fields = $('#second_step input[type=text]');
-        // var error = 0;
-        // fields.each(function(){
-        //     var value = $(this).val();
-        //     if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
-        //         $(this).addClass('error');
-        //         $(this).effect("shake", { times:3 }, 50);
-                
-        //         error++;
-        //     } else {
-        //         $(this).addClass('valid');
-        //     }
-        // });
-
-        // if(!error) {
-        //         //update progress bar
-        //         $('#progress_text').html('66% Complete');
-        //         $('#progress').css('width','226px');
-                
-        //         //slide steps
-        //         $('#second_step').slideDown();
-        //         $('#first_step').slideUp();     
-        // } else return false;
+        //$('#second_step input').removeClass('error').removeClass('valid');
+        $('#first_step input').removeClass('error').removeClass('valid');
 
         //slide steps
         $('#first_step').slideDown();  
@@ -106,34 +92,71 @@ $(function(){
 
     });
 
+    //second step////////////////////////////////////////////////////
     $('#submit_second').click(function(){
+
         //remove classes
         $('#second_step input').removeClass('error').removeClass('valid');
-
-        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+        
         var fields = $('#second_step input[type=text]');
         var error = 0;
+
         fields.each(function(){
-            var value = $(this).val();
-            if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
-                $(this).addClass('error');
-                $(this).effect("shake", { times:3 }, 50);
-                
-                error++;
-            } else {
-                $(this).addClass('valid');
-            }
-        });
+
+                var value = $(this).val();
+
+                //Teamname
+                if( (value.length<1 || value.length>10) && ($(this).attr('id') == 'teamname') ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
+                    
+                    error++;
+                } else if($(this).attr('id') == 'teamname'){
+                    $(this).addClass('valid');
+                }                 
+
+                if( (value.length<1) && ( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' ) ) {
+                    $(this).addClass('error');
+                    $(this).effect("shake", { times:1 }, 50);
+                    
+                    error++;
+                } else if ( $(this).attr('id') == 'firstname' || $(this).attr('id') == 'lastname' ) {
+                    $(this).addClass('valid');
+                } 
+
+                //Nickname
+                if( (value.length<1 || value.length>8) &&  ($(this).attr('id') == 'nickname') )  {
+                        $(this).addClass('error');
+                        $(this).effect("shake", { times:1 }, 50);
+
+                        error++;
+                } else if($(this).attr('id') == 'nickname'){
+                    $(this).addClass('valid');
+                } 
+
+
+            
+        }); 
 
         if(!error) {
+                
+                //Timezones
+                // if(timezones_fetched == 0) {
+                //     $.getScript('js/timezones.js', function() { });
+                //     timezones_fetched++;
+                // }
+                getTimezones();
+
+
                 //update progress bar
                 $('#progress_text').html('66% Complete');
-                $('#progress').css('width','226px');
+                $('#progress').css('width','160px');
                 
                 //slide steps
                 $('#second_step').slideUp();
                 $('#third_step').slideDown();     
-        } else return false;
+        }
+        else return false;
 
     });
 
@@ -141,41 +164,17 @@ $(function(){
         //remove classes
         $('#second_step input').removeClass('error').removeClass('valid');
 
-        // var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
-        // var fields = $('#second_step input[type=text]');
-        // var error = 0;
-        // fields.each(function(){
-        //     var value = $(this).val();
-        //     if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
-        //         $(this).addClass('error');
-        //         $(this).effect("shake", { times:3 }, 50);
-                
-        //         error++;
-        //     } else {
-        //         $(this).addClass('valid');
-        //     }
-        // });
-
-        // if(!error) {
-        //         //update progress bar
-        //         $('#progress_text').html('66% Complete');
-        //         $('#progress').css('width','226px');
-                
-        //         //slide steps
-        //         $('#second_step').slideDown();
-        //         $('#first_step').slideUp();     
-        // } else return false;
-
         //slide steps
         $('#second_step').slideDown();  
         $('#third_step').slideUp();
 
         //progress bar
         $('#progress_text').html('33% Complete');
-        $('#progress').css('width','113px');
+        $('#progress').css('width','80px');
 
     });
 
+    //third step////////////////////////////////////////////////////
     $('#submit_third').click(function(){
         //update progress bar
         $('#progress_text').html('100% Complete');
@@ -183,14 +182,14 @@ $(function(){
 
         //prepare the fourth step
         var fields = new Array(
-            $('#username').val(),
-            $('#password').val(),
+            $('#teamname').val(),
             $('#email').val(),
-            $('#firstname').val() + ' ' + $('#lastname').val(),
-            $('#age').val(),
-            $('#gender').val(),
-            $('#country').val()                       
+            $('#firstname').val(),
+            $('#lastname').val(),
+            $('#nickname').val(),
+            $('#timezone_select').val()              
         );
+
         var tr = $('#fourth_step tr');
         tr.each(function(){
             //alert( fields[$(this).index()] )
@@ -210,32 +209,8 @@ $(function(){
 
     $('#submit_prev4').click(function(){
         //remove classes
-        $('#second_step input').removeClass('error').removeClass('valid');
+        $('#third_step input').removeClass('error').removeClass('valid');
 
-        // var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
-        // var fields = $('#second_step input[type=text]');
-        // var error = 0;
-        // fields.each(function(){
-        //     var value = $(this).val();
-        //     if( value.length<1 || value==field_values[$(this).attr('id')] || ( $(this).attr('id')=='email' && !emailPattern.test(value) ) ) {
-        //         $(this).addClass('error');
-        //         $(this).effect("shake", { times:3 }, 50);
-                
-        //         error++;
-        //     } else {
-        //         $(this).addClass('valid');
-        //     }
-        // });
-
-        // if(!error) {
-        //         //update progress bar
-        //         $('#progress_text').html('66% Complete');
-        //         $('#progress').css('width','226px');
-                
-        //         //slide steps
-        //         $('#second_step').slideDown();
-        //         $('#first_step').slideUp();     
-        // } else return false;
 
         //slide steps
         $('#third_step').slideDown();  
@@ -243,8 +218,10 @@ $(function(){
 
         //progress bar
         $('#progress_text').html('66% Complete');
-        $('#progress').css('width','113px');
+        $('#progress').css('width','180px');
 
     });    
 
 });
+
+
