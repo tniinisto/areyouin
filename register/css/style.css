@@ -206,7 +206,7 @@ input[type="text"]:disabled {
     animation:spin 4s linear infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(720deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(720deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(720deg); transform:rotate(720deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(2880deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(2880deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(2880deg); transform:rotate(2880deg); } }
 
