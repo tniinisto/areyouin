@@ -61,10 +61,10 @@ $(function(){
         });                         
 
         if(!error) {
-            //Check is email already in RYouIN, after input field loses focus
+            //Check is email already in RYouIN
             //$.getScript('js/checkmail.js', function() { });
+            $('#submit_second').addClass('rotate');
             checkMail();                     
-            
 
             //slide steps
             $('#first_step').slideUp();
