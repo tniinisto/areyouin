@@ -205,15 +205,11 @@ function checkMail() {
 	}
 
     startSpinner3();
-    
-    setTimeout(checkit(), 1000)
 
-    function checkit() {
-        var mail = document.getElementById("email").value;
-        var variables = "mail=" + mail;
-        xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
-        xmlhttp.send();
-    }
+    var mail = document.getElementById("email").value;
+    var variables = "mail=" + mail;
+    xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
+    xmlhttp.send();
 
 }
 
