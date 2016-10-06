@@ -200,7 +200,7 @@ input[type="text"]:disabled {
 
 /*Rotate*/
 
-.rotate {
+.spin {
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
