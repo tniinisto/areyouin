@@ -63,7 +63,7 @@ $(function(){
         if(!error) {
             //Check is email already in RYouIN
             //$.getScript('js/checkmail.js', function() { });
-            $('#submit_first').addClass('spin');
+            //$('#submit_first').addClass('spin');
             checkMail();                     
 
             //slide steps
