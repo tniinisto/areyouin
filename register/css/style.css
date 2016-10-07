@@ -111,6 +111,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
 
     #submit_first {
         left: 80%;
+        width: 150px;
     }
 
     #submit_second {
