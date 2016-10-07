@@ -78,6 +78,7 @@ $(function(){
         }               
         else {
             document.getElementById('submit_first').disabled = false;
+            stopSpinner3();
             return false;
         }
     });
