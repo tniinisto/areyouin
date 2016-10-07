@@ -29,8 +29,6 @@
                 <h1>R'YouIN</h1>
                 <h2>Welcome to setup your team</h2>
 
-                <div id="spinner_id3"></div>
-
                 <div class="form">
                     
                     <label>After registering your team you will receive mail including your login credentials for your team. You can invite members from the application and start the usage!</label>
@@ -45,7 +43,8 @@
 
 
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
-                
+                <div id="spinner_id3"></div>
+
                 <input class="myButton" style="width: 100px; margin: 20px auto;" type="submit" name="submit_first" id="submit_first" value="Next" 
                 onclick="startSpinner3();" />
             </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
@@ -209,7 +208,7 @@ function checkMail() {
 
     var mail = document.getElementById("email").value;
     var variables = "mail=" + mail;
-    xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
+    xmlhttp.open("GET", "js/checkmail.php?" + variables, true);
     xmlhttp.send();
 
 }
