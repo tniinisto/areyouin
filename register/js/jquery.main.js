@@ -64,6 +64,8 @@ $(function(){
             //Check is email already in RYouIN
             //$.getScript('js/checkmail.js', function() { });
             //$('#submit_first').addClass('spin');
+            document.getElementById('submit_first').disabled = true;
+            
             checkMail();                     
 
             //slide steps
