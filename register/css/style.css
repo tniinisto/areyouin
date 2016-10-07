@@ -254,6 +254,6 @@ MYBUTTON
 }
 
 .myButton:active {
-	position:relative;
+	/*position:relative;*/
 	/*top:1px;*/
 }
