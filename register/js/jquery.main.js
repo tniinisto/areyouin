@@ -76,7 +76,10 @@ $(function(){
             $('#progress_text').html('33% Complete');
             $('#progress').css('width','80px');     
         }               
-            else return false;
+        else {
+            document.getElementById('submit_first').disabled = false;
+            return false;
+        }
     });
 
     $('#submit_prev2').click(function(){
