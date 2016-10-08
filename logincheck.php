@@ -46,7 +46,7 @@
     $mymd5 = md5($mypassword);
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg
     FROM areyouin.players p, playerteam m, team t
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
     ORDER BY t.teamID";
@@ -80,6 +80,7 @@
         $_SESSION['myteamid'] = $row['teamID'];
         $_SESSION['myteamname'] = $row['teamName'];
         $_SESSION['myAdmin'] = $row['teamAdmin'];
+        $_SESSION['myRegistrar'] = $row['registrar'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
