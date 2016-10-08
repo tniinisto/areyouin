@@ -94,6 +94,8 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         border-radius: 6px;
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
+
+        font-size: 16px;
     }
 
     #container input.submit {
