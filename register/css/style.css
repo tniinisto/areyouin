@@ -83,7 +83,7 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
         border: 1px solid #ccc;
         font-family: Cantarell, Verdana, sans-serif;
         font-weight: bold;
-        font-size: 15px;
+        /*font-size: 15px;*/
         width: 70%;
         height: 35px;
         padding: 0 25px;
