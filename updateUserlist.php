@@ -160,7 +160,7 @@
                                             echo "</div>";
                                         echo "</td>";                  
 
-                                        //Firstname Lastname, mobile, mail, teamAdmin
+                                        //Firstname Lastname, mobile, mail, teamAdmin, registrar
                                         echo "<td>";
                                             echo "<div class='edit-listinfo'>";
 
