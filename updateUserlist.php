@@ -6,8 +6,9 @@
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
+        $registrar = $_SESSION['myRegistrar'];  
 
-        if($ad==1) //Execute only for admin status
+        if($ad==1 || $registrar==1 ) //Execute for admin and registrar
         {
             
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
