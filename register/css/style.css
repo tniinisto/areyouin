@@ -26,6 +26,10 @@ input[type="submit"]:focus, input[type="button"]:focus { outline : none; }
     top: 40px;
 } */
 
+input {
+    font-size: 16px;
+}
+
 #container {
     /*background: url('../images/container.png') no-repeat;*/
     width: 600px;
