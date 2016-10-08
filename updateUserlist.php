@@ -146,7 +146,7 @@
                             while($row = mysql_fetch_array($result))
                             {
 
-                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin']);
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin'], , $row['registrar']);
                                                                 
                                     echo "<tr>";
 
@@ -164,9 +164,14 @@
                                         echo "<td>";
                                             echo "<div class='edit-listinfo'>";
 
+                                                if($player->registrar == 1) {
+                                                    echo "<div style='font-weight: bold;'>Team Registrar</div>";
+                                                echo "<div id='player_registrar" . $index . "' class='noshow'>".$player->registrar."</div>";
+                                                } else {
                                                 if($player->teamAdmin == 1)
                                                     echo "<div style='font-weight: bold;'>Team Admin</div>";
                                                 echo "<div id='player_admin" . $index . "' class='noshow'>".$player->teamAdmin."</div>";
+                                                }
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<div id='player_firstname" . $index . "' class='noshow'>".$player->firstname."</div>";
@@ -277,8 +282,9 @@
             var $firstname;
             var $lastname;
             var $teamAdmin;
+            var $registrar;
 
-            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin) {
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin, $registrar) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->mail = $mail;
@@ -288,6 +294,7 @@
                 $this->firstname = $firstname;
                 $this->lastname = $lastname;
                 $this->teamAdmin = $teamAdmin;
+                $this->registrar = $registrar;
             }
 
         }
