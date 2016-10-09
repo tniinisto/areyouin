@@ -80,6 +80,7 @@
             mysql_close($con);
 ?>
             <a href="#openModal" class="myButton">Edit information</a>
+            
             <!--<form action="#openModal">
                 <input type="submit" value="Edit information">
             </form>-->
