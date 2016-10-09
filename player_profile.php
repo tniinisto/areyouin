@@ -79,7 +79,7 @@
                         echo "<br />";
             mysql_close($con);
 ?>
-            <a href="#openModal" class="myButton">Edit information onclick="getPlayerProfile();"</a>
+            <a href="#openModal" class="myButton" onclick="getPlayerProfile();">Edit information</a>
             <!--<form action="#openModal">
                 <input type="submit" value="Edit information">
             </form>-->
