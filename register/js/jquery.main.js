@@ -67,9 +67,6 @@ $(function(){
             document.getElementById('submit_first').disabled = true;
             
             checkMail();                     
-            //$mail = document.getElementById("email").value;
-            //var variables = "mail=" + mail;
-            //ajax.get('checkmail.php', {mail: $mail}, function() {});
 
             //slide steps
             $('#first_step').slideUp();
@@ -77,7 +74,10 @@ $(function(){
 
             //update progress bar
             $('#progress_text').html('33% Complete');
-            $('#progress').css('width','80px');     
+            $('#progress').css('width','80px');
+
+            setTimeout(function(){ stopSpinner3(); }, 1000);
+              
         }               
         else {
             document.getElementById('submit_first').disabled = false;
