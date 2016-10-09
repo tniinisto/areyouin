@@ -66,10 +66,10 @@ $(function(){
             //$('#submit_first').addClass('spin');
             document.getElementById('submit_first').disabled = true;
             
-            //checkMail();                     
-            $mail = document.getElementById("email").value;
+            checkMail();                     
+            //$mail = document.getElementById("email").value;
             //var variables = "mail=" + mail;
-            ajax.get('checkmail.php', {mail: $mail}, function() {});
+            //ajax.get('checkmail.php', {mail: $mail}, function() {});
 
             //slide steps
             $('#first_step').slideUp();
