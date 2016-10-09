@@ -694,8 +694,10 @@
                                                     echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
                                                         onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
 
-                                                    echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
-                                                    onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    if($player->registrar == 0) {
+                                                        echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    }
 
                                                 echo "</div>";
 
