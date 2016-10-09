@@ -74,7 +74,10 @@ $(function(){
 
             //update progress bar
             $('#progress_text').html('33% Complete');
-            $('#progress').css('width','80px');     
+            $('#progress').css('width','80px');
+
+            setTimeout(function(){ stopSpinner3(); }, 1000);
+              
         }               
         else {
             document.getElementById('submit_first').disabled = false;
@@ -160,7 +163,9 @@ $(function(){
                 
                 //slide steps
                 $('#second_step').slideUp();
-                $('#third_step').slideDown();     
+                $('#third_step').slideDown();
+
+                setTimeout(function(){ stopSpinner2(); }, 1000);
         }
         else return false;
 
@@ -229,5 +234,4 @@ $(function(){
     });    
 
 });
-
 
