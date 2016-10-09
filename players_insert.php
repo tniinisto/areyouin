@@ -697,7 +697,10 @@
                                                     if($player->registrar == 0) { //Dont let delete Registrar
                                                         echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
                                                         onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    } else {
+                                                        echo "<input type='button' class='myButton' style='visibility: hidden; color: red; float: rigth;' value='Delete'/>";
                                                     }
+
 
                                                 echo "</div>";
 
