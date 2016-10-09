@@ -91,7 +91,7 @@
 		                    <a id="closer" href="#close" title="Close" class="close">X</a>
                     <?php
 
-                            echo "<form id='player_edit' name='player_edit' method='get' target='frame_player' onsubmit='UpdatePlayer();'>";
+                            echo "<form autocomplete='off' id='player_edit' name='player_edit' method='get' target='frame_player' onsubmit='UpdatePlayer();'>";
 
                                 //echo "<p style='margin: 5px;'>";
                                 //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
