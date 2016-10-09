@@ -66,7 +66,7 @@ $(function(){
             //$('#submit_first').addClass('spin');
             document.getElementById('submit_first').disabled = true;
             
-            //checkMail();                     
+            checkMail();                     
 
             //slide steps
             $('#first_step').slideUp();
@@ -230,26 +230,3 @@ $(function(){
 
 });
 
-$(function() {
-
-    // Action on Click
-    $( "#submit_first" ).click(function() {
-
-        $( this ).isLoading();
-
-        // Load data or whatever
-        //$( "#basic .demo p" ).removeClass("alert-success");
-        checkMail();
-
-        // Data Loaded, re-enable event
-        setTimeout( function(){
-
-            // D)eactivate the loading plugin
-            $( "#submit_first" ).isLoading( "hide" );
-
-            // $( "#basic .demo p" ).html( "Content Loaded" )
-            //                .addClass("alert-success"); 
-        }, 1000 );
-    });
-
-});
