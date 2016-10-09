@@ -267,7 +267,8 @@ function stopSpinner3() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 
-                stopSpinner2();
+                //stopSpinner2();
+                
                 document.getElementById("timezones").innerHTML = xmlhttp.responseText;
                 document.getElementById("submit_third").style.visibility="visible";
             }

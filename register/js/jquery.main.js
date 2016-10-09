@@ -163,7 +163,9 @@ $(function(){
                 
                 //slide steps
                 $('#second_step').slideUp();
-                $('#third_step').slideDown();     
+                $('#third_step').slideDown();
+
+                setTimeout(function(){ stopSpinner2(); }, 1000);
         }
         else return false;
 
