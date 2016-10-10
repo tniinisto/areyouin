@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<!-- disable iPhone inital scale -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>R'YouIN</title>
@@ -29,8 +30,6 @@
                 <h1>R'YouIN</h1>
                 <h2>Welcome to setup your team</h2>
 
-                <div id="spinner_id3"></div>
-
                 <div class="form">
                     
                     <label>After registering your team you will receive mail including your login credentials for your team. You can invite members from the application and start the usage!</label>
@@ -45,18 +44,19 @@
 
 
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
-                
-                <input class="submit" type="submit" name="submit_first" id="submit_first" value="" onclick="" />
+
+                <input class="myButton" style="width: 100px; margin: 20px auto;" type="submit" name="submit_first" id="submit_first" value="Next" 
+                onclick="startSpinner3();" />
             </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 
 
             <!-- #second_step -->
             <div id="second_step">
                 <h1>R'YouIN</h1>
-                
-                <div id="spinner_id2"></div>
 
                 <div class="form">
+                    <div id="spinner_id3"></div>
+
                     <label id="mailcheck_info" style="display: none;">You already have a R'YouIN user account, just enter the team's name.</label>
                     <br>
 
@@ -77,7 +77,8 @@
 
                 <!--<input class="submit" type="button" name="submit_prev2" id="submit_prev2" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
 
-                <input class="submit" type="submit" name="submit_second" id="submit_second" value="" style="margin-top: 24px;"/>
+                <input class="myButton" style="width: 100px; margin: 20px auto;" type="submit" name="submit_second" id="submit_second" value="Next" style="margin-top: 24px;"
+                 onclick="startSpinner2();"/>
 
             </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 
@@ -87,6 +88,8 @@
                 <h1>R'YouIN</h1>
 
                 <div class="form">
+                    
+                    <div id="spinner_id2"></div>
 
                      <!--Timezone selection-->
                      <div id='timezones'></div>   
@@ -97,7 +100,8 @@
                 
                 <!--<input class="submit" type="button" name="submit_prev3" id="submit_prev3" value="" style="float: left; left: 14%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
 
-                <input class="submit" type="submit" name="submit_third" id="submit_third" value="" style="visibility: hidden;"/>
+
+                <input class="myButton" style="width: 100px; margin: 20px auto;" type="submit" name="submit_third" id="submit_third" value="Next" style="visibility: hidden;"/>
                 
             </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
             
@@ -122,11 +126,11 @@
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 
                 <br>                
-                <label id="register_info" style="margin-left: 10%; text-align: center;">You have provided all needed information for team's registration! Click next to submit your team. After this you will receice email containing your team info. Thank you!</label>
+                <label id="register_info" style="margin-left: 10%; text-align: center;">You have provided all needed information for team's registration! Click the button to register your team. After this you will receice email containing your team and login info. Thank you!</label>
 
                 <!--<input class="submit" type="button" name="submit_prev4" id="submit_prev4" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
 
-                <input class="submit" type="submit" name="submit_fourth" id="submit_fourth" value="" style="margin-top: 20px; -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"/>
+                <input class="myButton" style="width: 100px; margin: 20px auto; padding-left: 20px;" type="submit" name="submit_fourth" id="submit_fourth" value="Register" style="margin-top: 20px; -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg);"/>
 
             </div> <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
             
@@ -153,7 +157,7 @@
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#fff' // #rgb or #rrggbb or array of colors
-        , opacity: 0.50 // Opacity of the lines
+        , opacity: 0.70 // Opacity of the lines
         , rotate: 0 // The rotation offset
         , direction: 1 // 1: clockwise, -1: counterclockwise
         , speed: 1 // Rounds per second
@@ -182,7 +186,7 @@ function checkMail() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-			stopSpinner3();
+			//stopSpinner3();
 
             var res = xmlhttp.responseText.split(",");
             
@@ -204,16 +208,12 @@ function checkMail() {
 	    }
 	}
 
-    startSpinner3();
-    
-    setTimeout(checkit(), 1000)
+    //startSpinner3();
 
-    function checkit() {
-        var mail = document.getElementById("email").value;
-        var variables = "mail=" + mail;
-        xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
-        xmlhttp.send();
-    }
+    var mail = document.getElementById("email").value;
+    var variables = "mail=" + mail;
+    xmlhttp.open("GET", "js/checkmail.php?" + variables, false);
+    xmlhttp.send();
 
 }
 
@@ -238,7 +238,7 @@ function stopSpinner3() {
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#fff' // #rgb or #rrggbb or array of colors
-        , opacity: 0.50 // Opacity of the lines
+        , opacity: 0.70 // Opacity of the lines
         , rotate: 0 // The rotation offset
         , direction: 1 // 1: clockwise, -1: counterclockwise
         , speed: 1 // Rounds per second
@@ -267,13 +267,14 @@ function stopSpinner3() {
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 
-                stopSpinner2();
+                //stopSpinner2();
+                
                 document.getElementById("timezones").innerHTML = xmlhttp.responseText;
                 document.getElementById("submit_third").style.visibility="visible";
             }
         }
 
-        startSpinner2();
+        //startSpinner2();
         xmlhttp.open("GET", "js/timezones.php", false);
         xmlhttp.send();
     }

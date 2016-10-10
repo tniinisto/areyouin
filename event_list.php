@@ -21,6 +21,7 @@
         $playerid=$_SESSION['myplayerid'];
 	    $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
+        $registrar=$_SESSION['myRegistrar'];
 
         $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    if (!$con)
@@ -80,8 +81,8 @@
 	        $result_private = mysql_query($sql_private);
             $row_private = mysql_fetch_array($result_private);
 
-            //Private event and player selected for game -> show event, public event -> show event, admin sees everything
-            if(($private == 1 && $row_private) || ($private == 0) || ($ad == 1)) {
+            //Private event and player selected for game -> show event, public event -> show event, admin and registrar sees everything
+            if(($private == 1 && $row_private) || ($private == 0) || ($ad == 1) || ($registrar == 1) ) {
             
                 //Check when the event changes, then echo the event basic information/////////////////////////////////////
 		        if($row['Events_eventID'] != $event_check)
@@ -104,8 +105,8 @@
                 
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
-                    //Admin's event update button
-                    if($ad==1)
+                    //Admin & Registrar event update button
+                    if(($ad==1) || ($registrar == 1))
                         echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
                     else
                         echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 

@@ -6,8 +6,9 @@
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
+        $registrar = $_SESSION['myRegistrar'];  
 
-        if($ad==1) //Execute only for admin status
+        if($ad==1 || $registrar==1 ) //Execute for admin and registrar
         {
             
             $con = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -20,9 +21,10 @@
             mysql_select_db("areyouin", $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, t.maxPlayers
-            FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID";
-        
+            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, pt.registrar, t.maxPlayers
+            FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID
+            order by pt.registrar desc, pt.teamAdmin desc";
+
             $result = mysql_query($sql);
             $row_count = mysql_num_rows($result);
 
@@ -144,7 +146,7 @@
                             while($row = mysql_fetch_array($result))
                             {
 
-                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin']);
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin'], $row['registrar']);
                                                                 
                                     echo "<tr>";
 
@@ -158,13 +160,18 @@
                                             echo "</div>";
                                         echo "</td>";                  
 
-                                        //Firstname Lastname, mobile, mail, teamAdmin
+                                        //Firstname Lastname, mobile, mail, teamAdmin, registrar
                                         echo "<td>";
                                             echo "<div class='edit-listinfo'>";
 
+                                                if($player->registrar == 1) {
+                                                    echo "<div style='font-weight: bold;'>Team Registrar</div>";
+                                                echo "<div id='player_registrar" . $index . "' class='noshow'>".$player->registrar."</div>";
+                                                } else {
                                                 if($player->teamAdmin == 1)
                                                     echo "<div style='font-weight: bold;'>Team Admin</div>";
                                                 echo "<div id='player_admin" . $index . "' class='noshow'>".$player->teamAdmin."</div>";
+                                                }
 
                                                 echo "" . $player->firstname . " " . $player->lastname . "";
                                                 echo "<div id='player_firstname" . $index . "' class='noshow'>".$player->firstname."</div>";
@@ -275,8 +282,9 @@
             var $firstname;
             var $lastname;
             var $teamAdmin;
+            var $registrar;
 
-            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin) {
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin, $registrar) {
                 $this->playerID = $playerID;
                 $this->name = $name;
                 $this->mail = $mail;
@@ -286,6 +294,7 @@
                 $this->firstname = $firstname;
                 $this->lastname = $lastname;
                 $this->teamAdmin = $teamAdmin;
+                $this->registrar = $registrar;
             }
 
         }

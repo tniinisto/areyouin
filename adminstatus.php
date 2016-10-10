@@ -2,9 +2,10 @@
 
     session_start();
 
-    $ad=$_SESSION['myAdmin'];  
+    $ad=$_SESSION['myAdmin'];
+    $registrar = $_SESSION['myRegistrar'];  
 
-    if($ad==1)
+    if($ad==1 || $registrar==1 )
         //echo "<li id=\"linkadmin\"><a href=\"#\">Admin</a></li>";
         echo "<a href=\"#\">Admin</a>";
     //else

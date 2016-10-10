@@ -61,10 +61,12 @@ $(function(){
         });                         
 
         if(!error) {
-            //Check is email already in RYouIN, after input field loses focus
+            //Check is email already in RYouIN
             //$.getScript('js/checkmail.js', function() { });
-            checkMail();                     
+            //$('#submit_first').addClass('spin');
+            document.getElementById('submit_first').disabled = true;
             
+            checkMail();                     
 
             //slide steps
             $('#first_step').slideUp();
@@ -72,9 +74,16 @@ $(function(){
 
             //update progress bar
             $('#progress_text').html('33% Complete');
-            $('#progress').css('width','80px');     
+            $('#progress').css('width','80px');
+
+            setTimeout(function(){ stopSpinner3(); }, 1000);
+              
         }               
-            else return false;
+        else {
+            document.getElementById('submit_first').disabled = false;
+            stopSpinner3();
+            return false;
+        }
     });
 
     $('#submit_prev2').click(function(){
@@ -154,7 +163,9 @@ $(function(){
                 
                 //slide steps
                 $('#second_step').slideUp();
-                $('#third_step').slideDown();     
+                $('#third_step').slideDown();
+
+                setTimeout(function(){ stopSpinner2(); }, 1000);
         }
         else return false;
 
@@ -223,5 +234,4 @@ $(function(){
     });    
 
 });
-
 
