@@ -8,4 +8,9 @@ function convertCurrency($amount, $from, $to){
     return round($converted, 3);
 }
 
+//Usage
+//echo convertCurrency(1, "USD", "INR");
+
 ?>
+
+
