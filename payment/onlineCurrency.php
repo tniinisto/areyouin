@@ -9,7 +9,8 @@ function convertCurrency($amount, $from, $to){
 }
 
 //Usage
-//echo convertCurrency(1, "USD", "INR");
+echo convertCurrency(7, "EUR", "USD");
+//EUR, USD, GBP
 
 ?>
 
