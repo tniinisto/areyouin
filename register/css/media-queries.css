@@ -42,7 +42,7 @@ screens smaller or equal to 750
         left: 75%;
     }*/
 
-    #container .form { margin: 10px 72px 45px; }
+    #container .form { margin: 10px 72px 25px; }
 
     #container input {
         font-size: 15px;
