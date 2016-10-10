@@ -5,8 +5,8 @@
     // read the post from PayPal system and add 'cmd'
     $req = 'cmd=_notify‐validate';
     foreach ($_POST as $key => $value) {
-    $value = urlencode(stripslashes($value));
-    $req .= "&$key=$value";
+        $value = urlencode(stripslashes($value));
+        $req .= "&$key=$value";
     }
 
     // post back to PayPal system to validate
@@ -34,7 +34,7 @@
             // PAYMENT INVALID & INVESTIGATE MANUALY!
         }
     }
-    
+
     fclose ($fp);
     }
 
