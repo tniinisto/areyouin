@@ -5,7 +5,7 @@ function convertCurrency($amount, $from, $to){
     $data = file_get_contents($url);
     preg_match("/<span class=bld>(.*)<\/span>/",$data, $converted);
     $converted = preg_replace("/[^0-9.]/", "", $converted[1]);
-    return round($converted, 2);
+    return 'Euros set:' . $amount . ' and result in ' . $to . ': ' .  round($converted, 2);
 }
 
 //Usage
