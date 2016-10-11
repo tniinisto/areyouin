@@ -4,6 +4,7 @@
     session_start();
 
     echo "IPN - Instant Payment Notification service";
+    echo "<br>";
 
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
@@ -48,13 +49,12 @@
         while (!feof($fp)) {
             $res = fgets ($fp, 1024);
             if (strcmp ($res, "VERIFIED") == 0) {
-            // PAYMENT VALIDATED & VERIFIED!
-                alert('IPN verified');
+                // PAYMENT VALIDATED & VERIFIED!
+                echo "Payment validated!";
             }
             else if (strcmp ($res, "INVALID") == 0) {
-            
-            // PAYMENT INVALID & INVESTIGATE MANUALY!
-                alert('IPN invalid');
+                // PAYMENT INVALID & INVESTIGATE MANUALY!
+                echo "Payment invalid!";
         }
     }
 
