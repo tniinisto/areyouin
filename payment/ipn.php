@@ -1,6 +1,22 @@
 <?php
-    mysql_connect("localhost", "user", "password") or die(mysql_error());
-    mysql_select_db("PayPal") or die(mysql_error());
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+    session_start();
+
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	if (!$con)
+	  {
+	  die('Could not connect: ' . mysql_error());
+	  }
+
+	mysql_select_db("areyouin", $con)or die("cannot select DB");
+
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg
+    FROM areyouin.players p, playerteam m, team t
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
+    ORDER BY t.teamID";
+
+	$result=mysql_query($sql);
 
     // read the post from PayPal system and add 'cmd'
     $req = 'cmd=_notify‐validate';
@@ -14,7 +30,11 @@
     $header .= "Content‐Type: application/x‐www‐form‐urlencoded\r\n";
     $header .= "Content‐Length: " . strlen($req) . "\r\n\r\n";
 
-    $fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
+    const VERIFY_URI = 'https://ipnpb.paypal.com/cgi-bin/webscr';
+    const SANDBOX_VERIFY_URI = 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr';
+
+    //$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
+    $fp = fsockopen (SANDBOX_VERIFY_URI, 443, $errno, $errstr, 30);
 
     if (!$fp) {
 
@@ -37,5 +57,7 @@
 
     fclose ($fp);
     }
+
+    mysql_close($con);
 
 ?>
