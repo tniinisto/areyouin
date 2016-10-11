@@ -46,13 +46,13 @@
                 $date = date('Y-m-d H:i:s');
                 
                 //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
-                $sql = "INSERT INTO payments (team_TeamID) VALUES (9)";
+                $sql = "INSERT INTO payments (team_TeamID) VALUES (1)";
                 $result = mysql_query($sql);
             }
             else if (strcmp ($res, "INVALID") == 0) {
                 // PAYMENT INVALID & INVESTIGATE MANUALY!
 
-                $sql = "INSERT INTO payments (team_TeamID) VALUES (99)";
+                $sql = "INSERT INTO payments (team_TeamID) VALUES (1)";
                 $result = mysql_query($sql);
             }
         }
