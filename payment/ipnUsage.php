@@ -1,6 +1,6 @@
-<?php  require("ipn.php");
-use PaypalIPN;
+<?php require("ipn.php");
 
+use PaypalIPN;
 
 $ipn = new PayPalIPN();
 // Use the sandbox endpoint during testing.
