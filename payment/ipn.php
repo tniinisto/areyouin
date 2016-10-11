@@ -106,11 +106,32 @@ class PaypalIPN
         }
         curl_close($ch);
         // Check if paypal verfifes the IPN data, and if so, return true.
-        if ($res == self::VALID) {
-            return true;
-        } else {
-            return false;
-        }
+        // if ($res == self::VALID) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+
+if ($res == self::VALID) {
+  $item_name = $_POST['item_name'];
+  $item_number = $_POST['item_number'];
+  $payment_status = $_POST['payment_status'];
+  $payment_amount = $_POST['mc_gross'];
+  $payment_currency = $_POST['mc_currency'];
+  $txn_id = $_POST['txn_id'];
+  $receiver_email = $_POST['receiver_email'];
+  $payer_email = $_POST['payer_email'];
+  // IPN message values depend upon the type of notification sent.
+  // To loop through the &_POST array and print the NV pairs to the screen:
+  foreach($_POST as $key => $value) {
+    echo $key . " = " . $value . "<br>";
+  }
+  
+} else {
+  // IPN invalid, log for manual investigation
+  echo "The response from IPN was: <b>" .$res ."</b>";
+}
+
     }
 }
 
