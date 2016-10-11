@@ -47,11 +47,12 @@
             $res = fgets ($fp, 1024);
             if (strcmp ($res, "VERIFIED") == 0) {
             // PAYMENT VALIDATED & VERIFIED!
-
+                alert('IPN verified');
             }
             else if (strcmp ($res, "INVALID") == 0) {
             
             // PAYMENT INVALID & INVESTIGATE MANUALY!
+                alert('IPN invalid');
         }
     }
 
