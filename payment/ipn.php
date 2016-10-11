@@ -26,7 +26,8 @@
     $header .= "Content‐Type: application/x‐www‐form‐urlencoded\r\n";
     $header .= "Content‐Length: " . strlen($req) . "\r\n\r\n";
 
-    $fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
+    //$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
+    $fp = fsockopen ('ssl://www.sandbox.paypal.com', 443, $errno, $errstr, 30);
 
     if (!$fp) {
 
