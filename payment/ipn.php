@@ -36,7 +36,7 @@
     const SANDBOX_VERIFY_URI = 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr';
 
     //$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
-    $fp = fsockopen (VERIFY_URI, 443, $errno, $errstr, 30);
+    $fp = fsockopen (SANDBOX_VERIFY_URI, 443, $errno, $errstr, 30);
 
     if (!$fp) {
 
