@@ -1,6 +1,6 @@
 <?php 
 
-require ("ipn.php");
+require ("PaypalIPN.php");
 
 use PaypalIPN;
 
