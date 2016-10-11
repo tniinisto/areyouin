@@ -3,6 +3,8 @@
 
     session_start();
 
+    echo "IPN - Instant Payment Notification service";
+
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
