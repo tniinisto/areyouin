@@ -105,6 +105,7 @@ class PaypalIPN
             throw new Exception("cURL error: [$errno] $errstr");
         }
         curl_close($ch);
+        
         // Check if paypal verfifes the IPN data, and if so, return true.
         if ($res == self::VALID) {
             return true;
