@@ -1,6 +1,5 @@
 <?php
 
-<?php
 class PaypalIPN
 {
     private $use_sandbox = false;
