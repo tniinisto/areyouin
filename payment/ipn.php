@@ -44,7 +44,7 @@
                 
                 // PAYMENT VALIDATED & VERIFIED!
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) 
-                VALUES (" . $_SESSION['myteamid'] . ",'" . date("Y-m-d H:i:s") . "'," .  $_SESSION['myplayerid'] . ", 7)";
+                VALUES (" . $_SESSION['myteamid'] . ",'" . date("Y-m-d H:i:s") . "'," .  $_SESSION['myplayerid'] . ", 7.77)";
 
             }
             else if (strcmp ($res, "INVALID") == 0) {
