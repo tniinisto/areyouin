@@ -44,10 +44,10 @@
                 
                 // PAYMENT VALIDATED & VERIFIED!
                 $date = date('Y-m-d H:i:s');
+                
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) 
-                VALUES ("1", '" . $date . "', 1, 7.77)";
-                //VALUES (" . $_SESSION['myteamid'] . ",'" . $date . "'," .  $_SESSION['myplayerid'] . ", 7.77)";
-
+                VALUES (1, '" . $date . "', 1, 7.77)";
+            
                 $result = mysql_query($sql);
             }
             else if (strcmp ($res, "INVALID") == 0) {
