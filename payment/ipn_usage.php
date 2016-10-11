@@ -1,4 +1,4 @@
-<?php require('ipn.php');
+<?php  require 'ipn.php';
 use PaypalIPN;
 
 
