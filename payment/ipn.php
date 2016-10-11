@@ -1,4 +1,18 @@
 <?php
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+    session_start();
+
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	if (!$con)
+	  {
+	  die('Could not connect: ' . mysql_error());
+	  }
+
+	mysql_select_db("areyouin", $con)or die("cannot select DB");
+
+
+
 
     // read the post from PayPal system and add 'cmd'
     $req = 'cmd=_notify‐validate';
@@ -22,16 +36,20 @@
 
         fputs ($fp, $header . $req);
         while (!feof($fp)) {
+            
             $res = fgets ($fp, 1024);
+
             if (strcmp ($res, "VERIFIED") == 0) {
-            // PAYMENT VALIDATED & VERIFIED!
+                
+                // PAYMENT VALIDATED & VERIFIED!
+                $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) 
+                VALUES (" . $_SESSION['myteamid'] . ",'" . date("Y-m-d H:i:s") . "'," .  $_SESSION['myplayerid'] . ", 7)";
 
             }
             else if (strcmp ($res, "INVALID") == 0) {
-            
-            // PAYMENT INVALID & INVESTIGATE MANUALY!
+                // PAYMENT INVALID & INVESTIGATE MANUALY!
+            }
         }
-    }
     
     fclose ($fp);
     }
