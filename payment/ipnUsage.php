@@ -1,5 +1,7 @@
-<?php require("ipn.php");
+<?php 
 
+//require ("ipn.php");
+include ("ipn.php");
 use PaypalIPN;
 
 $ipn = new PayPalIPN();
