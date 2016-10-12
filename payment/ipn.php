@@ -87,7 +87,7 @@
                 $result = mysql_query($sql);
             }
         
-            if (strcmp (trim($res), "INVALID") == 0) {
+            else if (strcmp (trim($res), "INVALID") == 0) {
                 // PAYMENT INVALID & INVESTIGATE MANUALY!
 
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 9.99)";
