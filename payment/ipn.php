@@ -11,11 +11,11 @@
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
 
-    // read the post from PayPal system and add 'cmd'
+    // read the post from PayPal system and add 'cmd_notify‐validate'
     $req = 'cmd=_notify‐validate';
     foreach ($_POST as $key => $value) {
-    $value = urlencode(stripslashes($value));
-    $req .= "&$key=$value";
+        $value = urlencode(stripslashes($value));
+        $req .= "&$key=$value";
     }
 
     // post back to PayPal system to validate
@@ -40,16 +40,15 @@
             if (strcmp ($res, "VERIFIED") == 0) {
                 
                 // PAYMENT VALIDATED & VERIFIED!
+
                 $date = date('Y-m-d H:i:s');
-                
-                //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
-                $sql = "INSERT INTO payments (team_TeamID) VALUES (1)";
+                $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
                 $result = mysql_query($sql);
             }
             else if (strcmp ($res, "INVALID") == 0) {
                 // PAYMENT INVALID & INVESTIGATE MANUALY!
 
-                $sql = "INSERT INTO payments (team_TeamID) VALUES (1)";
+                $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 9.99)";
                 $result = mysql_query($sql);
             }
         }
