@@ -54,7 +54,7 @@
     // the directory path of the certificate as shown below:
     // curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
     curl_setopt($ch, CURLOPT_CAINFO, __DIR__ . "/cert/cacert.pem");
-    
+
     if ( !($res = curl_exec($ch)) ) {
         // error_log("Got " . curl_error($ch) . " when processing IPN data");
         curl_close($ch);
@@ -81,7 +81,7 @@
         $payer_email = $_POST['payer_email'];
 
         $date = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, debug) VALUES (1, '" . $date . "', 1, 1.11, '" . $res . "')";
         $result = mysql_query($sql);
 
         // IPN message values depend upon the type of notification sent.
