@@ -75,7 +75,7 @@
             // $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 1.11)";
             // $result = mysql_query($sql);
 
-            if (strcmp (trim($res), "VERIFIED") == 0) {    
+            if (strcasecmp  (trim($res), "VERIFIED") == 0) {    
                 // PAYMENT VALIDATED & VERIFIED!
 
                 $date = date('Y-m-d H:i:s');
@@ -83,7 +83,7 @@
                 $result = mysql_query($sql);
             }
         
-            else if (strcmp (trim($res), "INVALID") == 0) {
+            else if (strcasecmp  (trim($res), "INVALID") == 0) {
                 // PAYMENT INVALID & INVESTIGATE MANUALY!
 
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 9.99)";
