@@ -13,7 +13,11 @@ mysql_select_db("areyouin", $con)or die("cannot select DB");
 
 //This test works!
 //$sql = "INSERT INTO payments (team_TeamID) VALUES (3)";
-//$result = mysql_query($sql);
+//
+
+$date = date('Y-m-d H:i:s');
+$sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+$result = mysql_query($sql);
 
 use PaypalIPN;
 
@@ -48,3 +52,5 @@ mysql_close($con);
 // Reply with an empty 200 response to indicate to paypal the IPN was received correctly.
 
 header("HTTP/1.1 200 OK");
+
+?>
