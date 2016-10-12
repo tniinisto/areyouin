@@ -72,7 +72,7 @@
 
             //Test, this comes through
             $date = date('Y-m-d H:i:s');
-            $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, debug) VALUES (1, '" . $date . "', 1, 1.11, " . $res . ")";
+            $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, debug) VALUES (1, '" . $date . "', 1, 1.11, '" . $res . "')";
             $result = mysql_query($sql);
 
             if (strcasecmp  (trim($res), "VERIFIED") == 0) {    
