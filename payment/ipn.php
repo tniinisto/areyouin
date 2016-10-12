@@ -44,7 +44,7 @@
 
 
     // post back to PayPal system to validate
-    $header = "POST /cgi-bin/webscr HTTP/1.1\r\n";
+    $header = "POST /cgi-bin/webscr HTTP/1.0\r\n";
     $header .= "Host: www.sandbox.paypal.com:443\r\n";
     // $header .= "Host: www.paypal.com:443\r\n";
     $header .= "Content-Type: application/x-www-form-urlencoded\r\n";
