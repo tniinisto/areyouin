@@ -62,4 +62,9 @@
     
     mysql_close($con);
 
+//IPN sandbox & production URLs////////////////////////////////////////
+//https://ipnpb.sandbox.paypal.com/cgi-bin/webscr (for Sandbox IPNs)
+//https://ipnpb.paypal.com/cgi-bin/webscr (for live IPNs)
+
 ?>
+
