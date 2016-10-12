@@ -48,6 +48,7 @@
         while (!feof($fp)) {
             
             $res = fgets ($fp, 1024);
+            $res = trim($res);
             //$res = stream_get_contents($fp, 1024);
 
             //Test, this comes through
