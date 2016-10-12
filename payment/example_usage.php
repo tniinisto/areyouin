@@ -79,7 +79,7 @@ $res = curl_exec($ch);
 if (curl_errno($ch) != 0) // cURL error
 	{
 	if(DEBUG == true) {	
-		error_log(date('[Y-m-d H:i e] '). "Can't connect to PayPal to validate IPN message: " . curl_error($ch) . "\r\n", 3, "./ipn.log");
+		error_log(date'[Y-m-d H:i e] '). "Can't connect to PayPal to validate IPN message: " . curl_error($ch) . "\r\n", 3, "./ipn.log");
 	}
 	curl_close($ch);
 
