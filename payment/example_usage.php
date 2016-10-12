@@ -40,12 +40,14 @@ if ($verified) {
     $result = mysql_query($sql);
 
 
-} else {
-
-    $sql = "INSERT INTO payments (team_TeamID) VALUES (2)";
-    $result = mysql_query($sql);
-
 }
+
+// else {
+
+//     $sql = "INSERT INTO payments (team_TeamID) VALUES (2)";
+//     $result = mysql_query($sql);
+
+// }
 
 mysql_close($con);
 
