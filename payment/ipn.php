@@ -1,17 +1,14 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
-    session_start();
+    //session_start();
 
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
 	  die('Could not connect: ' . mysql_error());
 	  }
-
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
-
-
 
 
     // read the post from PayPal system and add 'cmd'
@@ -27,7 +24,7 @@
     $header .= "Content‐Length: " . strlen($req) . "\r\n\r\n";
 
     //$fp = fsockopen ('ssl://www.paypal.com', 443, $errno, $errstr, 30);
-    $fp = fsockopen ('ssl://www.sandbox.paypal.com', 443, $errno, $errstr, 30);
+    $fp = fsockopen ('ssl://ipnpb.sandbox.paypal.com/cgi-bin/webscr', 443, $errno, $errstr, 30);
 
     if (!$fp) {
 
