@@ -11,8 +11,9 @@ if (!$con)
 
 mysql_select_db("areyouin", $con)or die("cannot select DB");
 
-    $sql = "INSERT INTO payments (team_TeamID) VALUES (3)";
-    $result = mysql_query($sql);
+//This test works!
+//$sql = "INSERT INTO payments (team_TeamID) VALUES (3)";
+//$result = mysql_query($sql);
 
 use PaypalIPN;
 
@@ -20,6 +21,7 @@ $ipn = new PayPalIPN();
 // Use the sandbox endpoint during testing.
 $ipn->useSandbox();
 $verified = $ipn->verifyIPN();
+
 if ($verified) {
     /*
      * Process IPN
