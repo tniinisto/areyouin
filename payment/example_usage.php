@@ -15,9 +15,10 @@ mysql_select_db("areyouin", $con)or die("cannot select DB");
 //$sql = "INSERT INTO payments (team_TeamID) VALUES (3)";
 //
 
-$date = date('Y-m-d H:i:s');
-$sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
-$result = mysql_query($sql);
+//This test works! Problem seems to be on the IPN validation sending
+//$date = date('Y-m-d H:i:s');
+//$sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+//$result = mysql_query($sql);
 
 use PaypalIPN;
 
