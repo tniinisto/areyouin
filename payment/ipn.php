@@ -10,6 +10,10 @@
 	  }
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
+    //Test db insert
+    $date = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+    $result = mysql_query($sql);
 
     // read the post from PayPal system and add 'cmd_notify‐validate'
     $req = 'cmd=_notify‐validate';
