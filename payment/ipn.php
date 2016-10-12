@@ -37,15 +37,15 @@
             
             $res = fgets ($fp, 1024);
 
-            if (strcmp ($res, "VERIFIED") == 0) {
-                
+            if (strcmp ($res, "VERIFIED") == 0) {    
                 // PAYMENT VALIDATED & VERIFIED!
 
                 $date = date('Y-m-d H:i:s');
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
                 $result = mysql_query($sql);
             }
-            else if (strcmp ($res, "INVALID") == 0) {
+        
+             if (strcmp ($res, "INVALID") == 0) {
                 // PAYMENT INVALID & INVESTIGATE MANUALY!
 
                 $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 9.99)";
