@@ -37,9 +37,11 @@
 
     if (!$fp) {
 
-        // HTTP ERROR
+         // HTTP ERROR
+         
+         //Test, not stoppping to this
          $date = date('Y-m-d H:i:s');
-         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 1.11)";
          $result = mysql_query($sql);
 
     } else {
