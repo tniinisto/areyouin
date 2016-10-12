@@ -67,9 +67,8 @@
         while (!feof($fp)) {
             
             
-            $res = fgets ($fp, 1024);
-            //$res = stream_get_contents($fp, 1024);
-            //$res = trim($res);
+            //$res = fgets ($fp, 1024);
+            $res = stream_get_contents($fp, 1024);
 
             //Test, this comes through
             // $date = date('Y-m-d H:i:s');
