@@ -11,6 +11,26 @@
 	mysql_select_db("areyouin", $con)or die("cannot select DB");
 
 
+
+    if ( ! count($_POST)) {
+        throw new Exception("Missing POST Data");
+    }
+    $raw_post_data = file_get_contents('php://input');
+    $raw_post_array = explode('&', $raw_post_data);
+    $myPost = [];
+    foreach ($raw_post_array as $keyval) {
+        $keyval = explode('=', $keyval);
+        if (count($keyval) == 2) {
+            // Since we do not want the plus in the datetime string to be encoded to a space, we manually encode it.
+            if ($keyval[0] === 'payment_date') {
+                if (substr_count($keyval[1], '+') === 1) {
+                    $keyval[1] = str_replace('+', '%2B', $keyval[1]);
+                }
+            }
+            $myPost[$keyval[0]] = urldecode($keyval[1]);
+        }
+    }
+
     $req = 'cmd=_notify-validate';
     $get_magic_quotes_exists = false;
     if (function_exists('get_magic_quotes_gpc')) {
