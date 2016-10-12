@@ -97,6 +97,7 @@
 
     mysql_close($con);   
 
+    header("HTTP/1.1 200 OK");
 
     // // Read Post variable pairs
     // if ( ! count($_POST)) {
