@@ -93,9 +93,9 @@
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
     // This is often required if the server is missing a global cert bundle, or is using an outdated one.
-    if ($this->use_local_certs) {
-        curl_setopt($ch, CURLOPT_CAINFO, __DIR__ . "/cert/cacert.pem");
-    }
+
+    curl_setopt($ch, CURLOPT_CAINFO, __DIR__ . "/cert/cacert.pem");
+
     curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Connection: Close']);
@@ -105,12 +105,18 @@
 
     if ($http_code != 200) {
         throw new Exception("PayPal responded with http code $http_code");
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 7.77)";
+        $result = mysql_query($sql);
     }
     if ( ! ($res)) {
         $errno = curl_errno($ch);
         $errstr = curl_error($ch);
         curl_close($ch);
         throw new Exception("cURL error: [$errno] $errstr");
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount) VALUES (1, '" . $date . "', 1, 9.99)";
+        $result = mysql_query($sql);        
     }
     curl_close($ch);
 
