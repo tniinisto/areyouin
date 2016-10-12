@@ -16,11 +16,31 @@
     // $result = mysql_query($sql);
 
     // read the post from PayPal system and add 'cmd_notify‐validate' to the end
-    $req = 'cmd=_notify‐validate';
-    foreach ($_POST as $key => $value) {
-        $value = urlencode(stripslashes($value));
+    // $req = 'cmd=_notify‐validate';
+    // foreach ($_POST as $key => $value) {
+    //     $value = urlencode(stripslashes($value));
+    //     $req .= "&$key=$value";
+    // }
+    $req = 'cmd=_notify-validate';
+    $get_magic_quotes_exists = false;
+    if(function_exists('get_magic_quotes_gpc'))
+    {
+        $get_magic_quotes_exists = true;
+    }
+    // handle escape characters, which depends on setting of magic quotes
+    foreach ($_POST as $key => $value)
+    {
+        if($get_magic_quotes_exists == true && get_magic_quotes_gpc() == 1)
+        {
+            $value = urlencode(stripslashes($value));
+        }
+        else
+        {
+            $value = urlencode($value);
+        }
         $req .= "&$key=$value";
     }
+
 
     // post back to PayPal system to validate
     // $header = "POST /cgi‐bin/webscr HTTP/1.0\r\n";
