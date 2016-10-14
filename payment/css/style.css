@@ -31,3 +31,7 @@ p {
   text-align: center;
 
 }
+
+#currency_select {
+  padding-bottom: 10px;
+}
