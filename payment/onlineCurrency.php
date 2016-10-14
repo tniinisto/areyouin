@@ -29,6 +29,8 @@ echo "<head>";
     
 echo "</head>";
 
+echo "<body>";
+
 echo "<div id='parent-container'>";
 
     echo "<div id='button1' class='child-container'>";
@@ -135,9 +137,7 @@ echo "<div id='parent-container'>";
         echo"</form>";
     
      echo "</div>";  
-
-echo "</html>";    
-    
+ 
     //     //Production
     //     //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
         
@@ -188,5 +188,9 @@ echo "</html>";
     //     //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
     
 echo "</div>";
+
+echo "</body>";
+
+echo "</html>";
 
 ?>
