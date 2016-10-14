@@ -34,7 +34,7 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='EUR'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
-        echo"<label>€ " . $price . " EUR - monthly </label>";
+        echo"<p>€ " . $price . " EUR - monthly </p>";
 
         echo"<table style='display:none;>";
         echo"<tr style='display:none;'><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
