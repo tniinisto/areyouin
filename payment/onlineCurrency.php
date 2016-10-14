@@ -83,7 +83,7 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='USD'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
-        echo"<p>€ " . convertCurrency($price, 'EUR', 'USD') . " USD - monthly </p>";
+        echo"<p>$ " . convertCurrency($price, 'EUR', 'USD') . " USD - monthly </p>";
 
         echo"<table style='display:none;";
         echo"<tr style='display:none;><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
@@ -118,7 +118,7 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='GBP'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
-        echo"<p>€ " . convertCurrency($price, 'EUR', 'GBP') . " GBP - monthly </p>";
+        echo"<p>£ " . convertCurrency($price, 'EUR', 'GBP') . " GBP - monthly </p>";
 
         echo"<table style='display:none;>";
         echo"<tr style='display:none;><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
