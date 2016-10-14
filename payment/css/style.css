@@ -3,19 +3,23 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 
 #parent-container {
-  background-color: #bc5858;
+  background-color: #8c8989;
   width: 100%;
   text-align: center;
   padding: 20px;
 }
 
 .child-container {
-  background-color: #ff933d;
+  background-color: #8c8989;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
   display: inline-block;
   padding: 20px;
-  margin: 0 10px;
+  margin: 5px 10px;
   font-family: helvetica, arial, sans-serif;
   font-weight: 100;
   color: #fff;
   vertical-align: middle;
+
 }
