@@ -17,6 +17,14 @@ function convertCurrency($amount, $from, $to) {
 //Price in Euros
 $price = '7.00';
 
+echo "<html>";
+echo "<head>";	
+	
+	echo "<link rel='stylesheet' type='text/css' href='css/style.css' media='all' />";
+    echo "<link href='css/media-queries.css' rel='stylesheet' type='text/css'>";
+    
+echo "</head>";
+
 echo "<div id='parent-container'>";
 
     echo "<div id='button1' class='child-container'>";
@@ -117,7 +125,8 @@ echo "<div id='parent-container'>";
         echo"</form>";
     
      echo "</div>";  
-    
+
+echo "</html>";    
     
     //     //Production
     //     //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
