@@ -14,6 +14,8 @@ function convertCurrency($amount, $from, $to) {
 // echo "<br>";
 // echo convertCurrency(7, "EUR", "GBP");
 
+$price = 7.00;
+
 echo "<div id='parent-container'>";
 
     echo "<div id='button2' class='child-container'>";
@@ -32,9 +34,9 @@ echo "<div id='parent-container'>";
         echo "<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHosted'>";
         echo "<table>";
         echo "<tr><td id='currency_select'><input type='hidden' name='on0' value='Currency options'>Select currency</td></tr><tr><td><select name='os0'>";
-            echo "<option value='EUR' id='EUR'>EUR : €7.00 EUR - monthly</option>";
-            echo "<option value='USD' id='USD'>USD : $" . convertCurrency(7.00, 'EUR', 'USD') . " USD - monthly</option>";
-            echo "<option value='GBP' id='GBP'>GBP : £" . convertCurrency(7.00, 'EUR', 'GBP') . " GBP - monthly</option>";
+            echo "<option value='EUR' id='EUR'>EUR : € " . $price . " EUR - monthly</option>";
+            echo "<option value='USD' id='USD'>USD : $" . convertCurrency($price, 'EUR', 'USD') . " USD - monthly</option>";
+            echo "<option value='GBP' id='GBP'>GBP : £" . convertCurrency($price, 'EUR', 'GBP') . " GBP - monthly</option>";
         echo "</select> </td></tr>";
         echo "</table>";
         echo "<br>";
