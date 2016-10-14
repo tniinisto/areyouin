@@ -80,15 +80,15 @@
         <input type="hidden" name="bn" value="PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHosted">
         <table>
         <tr><td id="currency_select"><input type="hidden" name="on0" value="Currency options">Select currency</td></tr><tr><td><select name="os0">
-            <option value="EUR">EUR : €1.00 EUR - monthly</option>
-            <option value="USD">USD : €2.00 EUR - monthly</option>
-            <option value="GBP">GBP : €3.00 EUR - monthly</option>
+            <option value="EUR" id="EUR">EUR : €7.00 EUR - monthly</option>
+            <option value="USD" id="USD">USD : €2.00 EUR - monthly</option>
+            <option value="GBP" id="GBP">GBP : €3.00 EUR - monthly</option>
         </select> </td></tr>
         </table>
         <br>
         <input type="hidden" name="currency_code" value="EUR">
         <input type="hidden" name="option_select0" value="EUR">
-        <input type="hidden" name="option_amount0" value="1.00">
+        <input type="hidden" name="option_amount0" value="7.00">
         <input type="hidden" name="option_period0" value="M">
         <input type="hidden" name="option_frequency0" value="1">
         <input type="hidden" name="option_select1" value="USD">
@@ -104,8 +104,38 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
         </form>
     </div>
-
-
 </div>
 
+
+<script>
+
+	//alert("showUser() gets called.");
+	//if (playerID == "" || teamID == "") {
+	//	document.getElementById("userlogin").innerHTML = "getLoginInformation";
+	//	return;
+	//}
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(strcmp(xmlhttp.responseText, 'USD') > 0)
+			    document.getElementById("USD").innerHTML = xmlhttp.responseText;
+            if(strcmp(xmlhttp.responseText, 'GBP') > 0)
+                document.getElementById("GBP").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	var variables = "amount=7.00"  + "&from=EUR" + "&from=USD";
+	xmlhttp.open("GET", "onlineCurrency.php?" + variables, true);
+	xmlhttp.send();
+
+
+</script>
+
 </body>
+
