@@ -11,15 +11,33 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
     <link href="css/media-queries.css" rel="stylesheet" type="text/css">
 	
-        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/jquery.inputfocus-0.9.min.js"></script>
-        <script type="text/javascript" src="js/jquery.main.js"></script>
-        <script type="text/javascript" src="../main.js"></script>
-        <script type="text/javascript" src="js/spin.min.js"></script>-->
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    
 </head>
 <body>
+
+
+<script>
+    
+function CurrencyConvertor(amount, from, to) {
+    var result = '';
+    var url = "https://www.google.com/finance/converter?a=" + amount + "&from=" + from + "&to=" + to;
+    $.ajaxSetup({async: false});
+    $.get(url,
+        function (data) {
+            var startPos = data.search('<div id=currency_converter_result>');
+            var endPos = data.search('<input type=submit value="Convert">');
+            if (startPos > 0) {
+                result = data.substring(startPos, endPos);
+                result = result.replace('<div id=currency_converter_result>', '');
+                result = result.replace('<span class=bld>', '');
+                result = result.replace('</span>', '');
+            }
+    })
+ 
+    return result;
+}
+</script>    
 
 <div id="parent-container">
 
@@ -81,7 +99,7 @@
         <table>
         <tr><td id="currency_select"><input type="hidden" name="on0" value="Currency options">Select currency</td></tr><tr><td><select name="os0">
             <option value="EUR" id="EUR">EUR : €7.00 EUR - monthly</option>
-            <option value="USD" id="USD">USD : €2.00 EUR - monthly</option>
+            <option value="USD" id="USD">USD : <script>CurrencyConvertor(7.00, 'EUR', 'USD')</script> EUR - monthly</option>
             <option value="GBP" id="GBP">GBP : €3.00 EUR - monthly</option>
         </select> </td></tr>
         </table>
@@ -106,54 +124,7 @@
     </div>
 </div>
 
-
-<script>
-
-	//alert("showUser() gets called.");
-	//if (playerID == "" || teamID == "") {
-	//	document.getElementById("userlogin").innerHTML = "getLoginInformation";
-	//	return;
-	//}
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp = new XMLHttpRequest();
-	}
-	else {// code for IE6, IE5
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if(strcmp(xmlhttp.responseText, 'USD') > 0)
-			    document.getElementById("USD").innerHTML = xmlhttp.responseText;
-            if(strcmp(xmlhttp.responseText, 'GBP') > 0)
-                document.getElementById("GBP").innerHTML = xmlhttp.responseText;
-		}
-	}
-
-	var variables = "amount=7.00"  + "&from=EUR" + "&from=USD";
-	xmlhttp.open("GET", "onlineCurrency.php?" + variables, true);
-	xmlhttp.send();
-
-
-</script>
-
-
-<?php
-
-    $amount=$_GET["amount"];
-    $from=$_GET["from"];
-    $to=$_GET["to"];
-
-    function convertCurrency($amount, $from, $to){
-        $url  = "https://www.google.com/finance/converter?a=$amount&from=$from&to=$to";
-        $data = file_get_contents($url);
-        preg_match("/<span class=bld>(.*)<\/span>/",$data, $converted);
-        $converted = preg_replace("/[^0-9.]/", "", $converted[1]);
-        //return 'Euros set:' . $amount . ' and result in ' . $to . ': ' .  round($converted, 2);
-        return  round($converted, 2) . ',' .  $to;
-    }
-
-?>
-
 </body>
+
+</html>
 
