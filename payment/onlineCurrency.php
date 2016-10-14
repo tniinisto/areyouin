@@ -34,11 +34,14 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='EUR'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
-        echo"<table>";
-        echo"<tr><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
-        echo"	<option value='Option 1'>Option 1 : € " . $price . " EUR - monthly</option>";
-        echo"</select> </td></tr>";
-        echo"</table>";
+        echo"<label>€ " . $price . " EUR - monthly </label>";
+
+        echo"<table style='display:none;>";
+        echo"<tr style='display:none;'><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
+        echo"	<option value='Option 1' style='display:none;>Option 1 : € " . $price . " EUR - monthly</option>";
+        echo"</select style='display:none;> </td></tr>";
+        echo"</table style='display:none;>";
+
         echo"<input type='hidden' name='currency_code' value='EUR'>";
         echo"<input type='hidden' name='option_select0' value='Option 1'>";
         echo"<input type='hidden' name='option_amount0' value='" . $price . "'>";
