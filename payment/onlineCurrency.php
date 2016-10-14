@@ -43,7 +43,7 @@ echo "<div id='parent-container'>";
         echo "<br>";
         echo "<input type='hidden' name='currency_code' value='EUR'>";
         echo "<input type='hidden' name='option_select0' value='EUR'>";
-        echo "<input type='hidden' name='option_amount0' value='7.00'>";
+        echo "<input type='hidden' name='option_amount0' value='" . $price . "'>";
         echo "<input type='hidden' name='option_period0' value='M'>";
         echo "<input type='hidden' name='option_frequency0' value='1'>";
         echo "<input type='hidden' name='option_select1' value='USD'>";
