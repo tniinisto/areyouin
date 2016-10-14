@@ -20,7 +20,12 @@ $price = '7.00';
 echo "<div id='parent-container'>";
 
     echo "<div id='button2' class='child-container'>";
-        echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+        //Production
+        //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+        
+        //Sandbox
+        echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+
         echo "<input type='hidden' name='cmd' value='_xclick-subscriptions'>";
         echo "<input type='hidden' name='business' value='J6PTBF3GND9CL'>";
         echo "<input type='hidden' name='lc' value='FI'>";
