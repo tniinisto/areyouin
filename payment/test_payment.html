@@ -11,32 +11,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
     <link href="css/media-queries.css" rel="stylesheet" type="text/css">
 	
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>-->
     
 </head>
 <body>
-
-
-<script>  
-function CurrencyConvertor(amount, from, to) {
-    var result = '';
-    var url = "https://www.google.com/finance/converter?a=" + amount + "&from=" + from + "&to=" + to;
-    $.ajaxSetup({async: false});
-    $.get(url,
-        function (data) {
-            var startPos = data.search('<div id=currency_converter_result>');
-            var endPos = data.search('<input type=submit value="Convert">');
-            if (startPos > 0) {
-                result = data.substring(startPos, endPos);
-                result = result.replace('<div id=currency_converter_result>', '');
-                result = result.replace('<span class=bld>', '');
-                result = result.replace('</span>', '');
-            }
-    })
- 
-    return result;
-}
-</script>    
 
 <div id="parent-container">
 
@@ -98,7 +76,7 @@ function CurrencyConvertor(amount, from, to) {
         <table>
         <tr><td id="currency_select"><input type="hidden" name="on0" value="Currency options">Select currency</td></tr><tr><td><select name="os0">
             <option value="EUR" id="EUR">EUR : €7.00 EUR - monthly</option>
-            <option value="USD" id="USD">USD : <script>CurrencyConvertor('7.00', 'EUR', 'USD')</script> EUR - monthly</option>
+            <option value="USD" id="USD">USD : €6.00 EUR - monthly</option>
             <option value="GBP" id="GBP">GBP : €3.00 EUR - monthly</option>
         </select> </td></tr>
         </table>
