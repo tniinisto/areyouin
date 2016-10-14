@@ -6,7 +6,7 @@ function convertCurrency($amount, $from, $to) {
     preg_match("/<span class=bld>(.*)<\/span>/",$data, $converted);
     $converted = preg_replace("/[^0-9.]/", "", $converted[1]);
     //return 'Euros set:' . $amount . ' and result in ' . $to . ': ' .  round($converted, 2);
-    return  round($converted, 2) . ',' .  $to;
+    return  round($converted, 2);
 }
 
 //Usage
@@ -44,11 +44,11 @@ echo "<div id='parent-container'>";
         echo "<input type='hidden' name='option_period0' value='M'>";
         echo "<input type='hidden' name='option_frequency0' value='1'>";
         echo "<input type='hidden' name='option_select1' value='USD'>";
-        echo "<input type='hidden' name='option_amount1' value='2.00'>";
+        echo "<input type='hidden' name='option_amount1' value='" . convertCurrency(7.00, 'EUR', 'USD') . "'>";
         echo "<input type='hidden' name='option_period1' value='M'>";
         echo "<input type='hidden' name='option_frequency1' value='1'>";
         echo "<input type='hidden' name='option_select2' value='GBP'>";
-        echo "<input type='hidden' name='option_amount2' value='3.00'>";
+        echo "<input type='hidden' name='option_amount2' value='" . convertCurrency(7.00, 'EUR', 'GBP') . "'>";
         echo "<input type='hidden' name='option_period2' value='M'>";
         echo "<input type='hidden' name='option_frequency2' value='1'>";
         echo "<input type='hidden' name='option_index' value='0'>";
