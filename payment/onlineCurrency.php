@@ -100,7 +100,7 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
         echo"<table>";
         echo"<tr><td><input type='hidden' name='on0' value=''></td></tr><tr><td><select name='os0'>";
-        echo"	<option value='Option 1'>Option 1 : " . convertCurrency($price, 'EUR', 'GBP') . " USD - monthly</option>";
+        echo"	<option value='Option 1'>Option 1 : " . convertCurrency($price, 'EUR', 'GBP') . " GBP - monthly</option>";
         echo"</select> </td></tr>";
         echo"</table>";
         echo"<input type='hidden' name='currency_code' value='GBP'>";
