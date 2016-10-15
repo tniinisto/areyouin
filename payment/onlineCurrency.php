@@ -22,7 +22,7 @@ echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
 echo "<head>";	
 	echo "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>";
 	echo "<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />";
-    echo "<title>R\'YouIN</title>";    
+    echo "<title>R'YouIN</title>";    
     
     echo "<link rel='stylesheet' type='text/css' href='css/style.css' media='all' />";
     echo "<link href='css/media-queries.css' rel='stylesheet' type='text/css'>";
