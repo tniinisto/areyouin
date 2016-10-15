@@ -62,6 +62,8 @@
     }
     curl_close($ch);
 
+    date_default_timezone_set("Europe/Helsinki");
+
     // inspect IPN validation result and act accordingly
     if (strcmp ($res, "VERIFIED") == 0) {
         // The IPN is verified, process it:
