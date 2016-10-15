@@ -81,6 +81,7 @@
         $payer_email = $_POST['payer_email'];
         
 
+        date_default_timezone_set("UTC");
         $date = date('Y-m-d H:i:s');
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, debug) VALUES (1, '" . $date . "', 1, " . $payment_amount . ", '" . $res . "')";
         $result = mysql_query($sql);
