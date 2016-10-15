@@ -62,6 +62,9 @@
     }
     curl_close($ch);
 
+
+    date_default_timezone_set("Europe/Helsinki");
+
     // inspect IPN validation result and act accordingly
     if (strcmp ($res, "VERIFIED") == 0) {
         // The IPN is verified, process it:
@@ -81,8 +84,6 @@
         $payer_email = $_POST['payer_email'];
         $payment_date = $_POST['payment_date'];
         
-
-        date_default_timezone_set("UTC");
         $date = date('Y-m-d H:i:s');
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, currency, payment_date, debug) VALUES (1, '" . $date . "', 1, " . $payment_amount . ", " . $payment_currency . ", " . $payment_date . ", '" . $res . "')";
         $result = mysql_query($sql);
@@ -95,7 +96,11 @@
 
     } else if (strcmp ($res, "INVALID") == 0) {
         // IPN invalid, log for manual investigation
-        echo "The response from IPN was: <b>" .$res ."</b>";
+        //echo "The response from IPN was: <b>" .$res ."</b>";
+
+        $date = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, currency, payment_date, debug) VALUES (2, '" . $date . "', 1, " . $payment_amount . ", " . $payment_currency . ", " . $payment_date . ", '" . $res . "')";
+        $result = mysql_query($sql);
     }
 
     mysql_close($con);   
