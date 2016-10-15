@@ -32,6 +32,8 @@ echo "</head>";
 
 echo "<body>";
 
+echo "<p>The team from session: " .  $_SESSION['myteamname'] . "</p>";
+
 echo "<div id='parent-container'>";
 
     echo "<div id='button1' class='child-container'>";
