@@ -79,11 +79,12 @@
         $txn_id = $_POST['txn_id'];
         $receiver_email = $_POST['receiver_email'];
         $payer_email = $_POST['payer_email'];
+        $payment_date = $_POST['payment_date'];
         
 
         date_default_timezone_set("UTC");
         $date = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, debug) VALUES (1, '" . $date . "', 1, " . $payment_amount . ", '" . $res . "')";
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, currency, payment_date, debug) VALUES (1, '" . $date . "', 1, " . $payment_amount . ", " . $payment_currency . ", " . $payment_date . ", '" . $res . "')";
         $result = mysql_query($sql);
 
         // IPN message values depend upon the type of notification sent.
