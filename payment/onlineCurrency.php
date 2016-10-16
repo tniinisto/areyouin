@@ -37,7 +37,7 @@ echo "<body>";
 //Subscription buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "<div id='parent-container1' class='parent-container'>";
 
-    echo "<p>Make recurring monthly subscription</p>";
+    echo "<p>Make a monthly recurring subscription</p>";
 
     echo "<div id='button1' class='child-container'>";
 
@@ -158,7 +158,7 @@ echo "</div>";
 //Single pay buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "<div id='parent-container1' class='parent-container'>";
     
-    echo "<p>Make single month payment</p>";
+    echo "<p>Make a single month payment</p>";
 
     echo "<div id='button4' class='child-container'>";
 
