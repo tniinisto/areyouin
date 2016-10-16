@@ -215,8 +215,8 @@ $(function(){
 
     $('#submit_fourth').click(function(){
         //Check if existing or new user
-        var player = $('#playerid').val;
-        if($('#playerid').val != 0)
+        var player = document.getElementById("playerid").value;
+        if(player != 0)
             alert('Existing user: ' + player);            
         else
             alert('New user: ' + player);
