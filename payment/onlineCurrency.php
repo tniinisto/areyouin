@@ -37,7 +37,7 @@ echo "<body>";
 echo "<div id='parent-container'>";
 
     echo "<p>Make recurring monthly subscription.</p>";
-
+    
     echo "<div id='button1' class='child-container'>";
 
         echo"<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
