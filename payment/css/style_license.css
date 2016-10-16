@@ -6,13 +6,13 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	background: #313131;
 }*/
 
-/*p {
+.license_p {
   font-family: helvetica, arial, sans-serif;
   font-weight: 100;
   color: #fff;
   text-align: center;
   margin-bottom: 10px;
-}*/
+}
 
 .parent-container {
   background-color: #8c8989;
