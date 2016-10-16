@@ -40,6 +40,7 @@
 				    echo "<li id='link_admingame' class='current2' onclick='showInsertPlayers();'><a href='#'>New event</a></li>";
                     echo "<li id='link_adminmembers'><a href='#'>Users</a></li>";
                     echo "<li id='link_adminsettings' onClick='setTimeout(function(){ initializeMap(); }, 100);'><a href='#'>Settings</a></li>";
+                    echo "<li id='link_license'><a href='#'>License</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
