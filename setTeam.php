@@ -13,9 +13,12 @@
     header("Cache-Control: no-cache");
     header("Pragma: no-cache");
 
-    //Set team to session
-    $teamid=$_POST['teamselect'];
-    $_SESSION['myteamid'] = $teamid;
+    //Set team info to session, id and name
+    //$teamid=$_POST['teamselect'];
+    //$_SESSION['myteamid'] = $teamid;
+    $teaminfo = explode("_", $_POST['teamselect']);
+    $_SESSION['myteamid'] = $teaminfo[0];
+    $_SESSION['myteamname'] = $teaminfo[1];
 
 
   	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
