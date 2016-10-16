@@ -89,6 +89,9 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='USD'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
+        //Custonm field, send: "teamid | playerid"
+        echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+        
         echo"<p>$ " . convertCurrency($price, 'EUR', 'USD') . " USD - monthly </p>";
 
         echo"<table style='display:none;";
@@ -124,6 +127,9 @@ echo "<div id='parent-container'>";
         echo"<input type='hidden' name='src' value='1'>";
         echo"<input type='hidden' name='currency_code' value='GBP'>";
         echo"<input type='hidden' name='bn' value='PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest'>";
+        //Custonm field, send: "teamid | playerid"
+        echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+
         echo"<p>£ " . convertCurrency($price, 'EUR', 'GBP') . " GBP - monthly </p>";
 
         echo"<table style='display:none;>";
