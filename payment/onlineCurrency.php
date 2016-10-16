@@ -171,6 +171,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='item_name' value='R'YouIN Test'>";
             echo "<input type='hidden' name='amount' value=' € " . $price . " EUR'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='0'>";
             echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
