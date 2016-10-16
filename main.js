@@ -2046,7 +2046,6 @@ function setSessionTeamName(teamName) {
 }
 
 //Start Paypal IPN
-//Get events with players for the team
 function startIPN() {    
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -2058,12 +2057,11 @@ function startIPN() {
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+            alert("IPN started");
         }            
     }
     
-    xmlhttp.open("GET", "payment/ipn.php", true);
-    
+    xmlhttp.open("GET", "payment/ipn.php", true);   
     xmlhttp.send();
 }
 
