@@ -1,7 +1,7 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
-    //session_start();
+    session_start();
 
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
@@ -86,8 +86,8 @@
         $date = date('Y-m-d H:i:s');
         $date .= " EET";
 
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (1, '" . $date . "', 1, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $_SESSION['myteamid'] . ", '" . $date . "'," . $_SESSION['myplayerid'] . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+        //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (1, '" . $date . "', 1, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $_SESSION['myteamid'] . ", '" . $date . "'," . $_SESSION['myplayerid'] . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $result = mysql_query($sql);
 
         // IPN message values depend upon the type of notification sent.
@@ -102,7 +102,7 @@
 
         $date = date('Y-m-d H:i:s');
         $date .= " EET";
-        
+
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (9999, '" . $date . "', 9999, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $result = mysql_query($sql);
     }
