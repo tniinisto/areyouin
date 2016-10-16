@@ -14,7 +14,7 @@ p {
   margin-bottom: 10px;
 }
 
-#parent-container {
+.parent-container {
   background-color: #8c8989;
   /*width: 100%;*/
   text-align: center;
