@@ -214,12 +214,12 @@ $(function(){
 
 
     $('#submit_fourth').click(function(){
+        
         //Check if existing or new user
-        var player = document.getElementById("playerid").value;
-        if(player != 0)
-            alert('Existing user: ' + player);            
+        if(document.getElementById("playerid").value != 0)
+            alert('Existing user: ' + document.getElementById("playerid").value);            
         else
-            alert('New user: ' + player);
+            alert('New user: ' + document.getElementById("playerid").value);
 
         
         //send information to server
