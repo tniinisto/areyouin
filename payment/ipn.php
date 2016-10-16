@@ -84,7 +84,7 @@
         $payment_date = $_POST['payment_date'];
         
         $date = date('Y-m-d H:i:s');
-        $date .= ' EET';
+        //$date .= " EET";
 
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (1, '" . $date . "', 1, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $_SESSION['myteamid'] . ", '" . $date . "'," . $_SESSION['myplayerid'] . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
