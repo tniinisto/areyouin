@@ -168,7 +168,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='cmd' value='_xclick'>";
             echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
             echo "<input type='hidden' name='lc' value='FI'>";
-            echo "<input type='hidden' name='item_name' value='R'YouIN Test'>";
+            echo "<input type='hidden' name='item_name' value='R'YouIN single subscription'>";
             echo "<input type='hidden' name='amount' value=' € " . $price . " EUR'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
@@ -176,6 +176,10 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
             echo "<input type='hidden' name='no_shipping' value='2'>";            
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
+        
+            //Custonm field, send: "teamid | playerid"
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
