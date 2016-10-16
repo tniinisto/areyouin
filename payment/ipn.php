@@ -89,7 +89,7 @@
         $myuserid = $teaminfo[1];
 
         $date = date('Y-m-d H:i:s');
-        $date .= " EET";
+        $date .= " UTC";
 
         //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (1, '" . $date . "', 1, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
