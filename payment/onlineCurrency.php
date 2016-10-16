@@ -18,19 +18,19 @@ session_start();
 //Price in Euros
 $price = '7.00';
 
-echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
-echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
-echo "<head>";	
-	echo "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>";
-	echo "<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />";
-    echo "<title>R'YouIN license</title>";    
+// echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
+// echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
+// echo "<head>";	
+// 	echo "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>";
+// 	echo "<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />";
+//     echo "<title>R'YouIN license</title>";    
     
-    echo "<link rel='stylesheet' type='text/css' href='css/style_license.css' media='all' />";
-    echo "<link href='css/media-queries_license.css' rel='stylesheet' type='text/css'>";
+//     echo "<link rel='stylesheet' type='text/css' href='css/style_license.css' media='all' />";
+//     echo "<link href='css/media-queries_license.css' rel='stylesheet' type='text/css'>";
     
-echo "</head>";
+// echo "</head>";
 
-echo "<body>";
+// echo "<body>";
 
 //echo "<p>The team from session: " .  $_SESSION['myteamname'] . "</p>";
 
@@ -242,7 +242,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 echo "</div>";
 
 
-echo "</body>";
-echo "</html>";
+// echo "</body>";
+// echo "</html>";
 
 ?>
