@@ -1674,3 +1674,35 @@ Chat message editor
 #toast-container.toast-info {
     opacity: 1;
 }
+
+
+/************************************************************************************
+License part styling
+*************************************************************************************/
+
+.parent-container {
+  background-color: #8c8989;
+  /*width: 100%;*/
+  text-align: center;
+  padding: 20px;
+}
+
+.child-container {
+  background-color: #8c8989;
+  border-style: solid;
+  border-width: 5px;
+  border-color: darkgrey;
+  display: inline-block;
+  padding: 20px;
+  margin: 5px 10px;
+  font-family: helvetica, arial, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+#currency_select {
+  padding-bottom: 10px;
+}
