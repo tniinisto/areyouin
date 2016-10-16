@@ -25,8 +25,8 @@ echo "<head>";
 	echo "<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />";
     echo "<title>R'YouIN license</title>";    
     
-    echo "<link rel='stylesheet' type='text/css' href='css/style.css' media='all' />";
-    echo "<link href='css/media-queries.css' rel='stylesheet' type='text/css'>";
+    echo "<link rel='stylesheet' type='text/css' href='css/style_license.css' media='all' />";
+    echo "<link href='css/media-queries_license.css' rel='stylesheet' type='text/css'>";
     
 echo "</head>";
 
