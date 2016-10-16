@@ -214,7 +214,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
     echo "<div id='button6' class='child-container'>";
 
-         echo"<p>$ " . convertCurrency($price, 'EUR', 'GBP') . " USD</p>";
+         echo"<p>$ " . convertCurrency($price, 'EUR', 'GBP') . " GBP</p>";
 
          echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
             echo "<input type='hidden' name='cmd' value='_xclick'>";
@@ -222,7 +222,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
             echo "<input type='hidden' name='amount' value=" . convertCurrency($price, 'EUR', 'GBP') . ">";
-            echo "<input type='hidden' name='currency_code' value='USD'>";
+            echo "<input type='hidden' name='currency_code' value='GBP'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='0'>";
             echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
