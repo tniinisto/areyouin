@@ -13,9 +13,7 @@
     header("Cache-Control: no-cache");
     header("Pragma: no-cache");
 
-    //Set team info to session, id and name
-    //$teamid=$_POST['teamselect'];
-    //$_SESSION['myteamid'] = $teamid;
+    //Set team info to session from select POST, get teamid and teamname
     $teaminfo = explode("|", $_POST['teamselect']);
     $_SESSION['myteamid'] = $teaminfo[0];
     $_SESSION['myteamname'] = $teaminfo[1];
