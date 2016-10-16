@@ -727,6 +727,10 @@
                     
                     echo "<h2>License coming here</h2>";
 
+                    ob_start(); // begin collecting output
+                    include 'payment/onlineCurrency.php';
+                    $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+
                 echo "</div>";
 
             echo "</article>";
