@@ -133,7 +133,7 @@
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
-                                            echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
+                                            echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
                                 echo "<br />";

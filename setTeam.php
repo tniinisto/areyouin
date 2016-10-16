@@ -16,7 +16,7 @@
     //Set team info to session, id and name
     //$teamid=$_POST['teamselect'];
     //$_SESSION['myteamid'] = $teamid;
-    $teaminfo = explode("_", $_POST['teamselect']);
+    $teaminfo = explode("|", $_POST['teamselect']);
     $_SESSION['myteamid'] = $teaminfo[0];
     $_SESSION['myteamname'] = $teaminfo[1];
 
