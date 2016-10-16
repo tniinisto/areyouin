@@ -169,7 +169,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
-            echo "<input type='hidden' name='amount' value=' € " . $price . " EUR'>";
+            echo "<input type='hidden' name='amount' value='" . $price . "'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='0'>";
