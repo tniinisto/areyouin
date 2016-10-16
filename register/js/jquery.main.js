@@ -214,8 +214,15 @@ $(function(){
 
 
     $('#submit_fourth').click(function(){
+        //Check if existing or new user
+        if($('#playerid').val != 0)
+            alert('Existing user: ' + $('#playerid').val);            
+        else
+            alert('New user: ' + $('#playerid').val);
+
+        
         //send information to server
-        alert('Data sent');
+        //alert('Data sent');
     });
 
     $('#submit_prev4').click(function(){
