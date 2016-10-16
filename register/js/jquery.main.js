@@ -215,10 +215,11 @@ $(function(){
 
     $('#submit_fourth').click(function(){
         //Check if existing or new user
+        var player = $('#playerid').val;
         if($('#playerid').val != 0)
-            alert('Existing user: ' + $('#playerid').val);            
+            alert('Existing user: ' + player);            
         else
-            alert('New user: ' + $('#playerid').val);
+            alert('New user: ' + player);
 
         
         //send information to server
