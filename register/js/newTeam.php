@@ -83,8 +83,8 @@
             $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($_GET['timezone']), new DateTime() ); 
             $offset = round($daylight_savings_offset_in_seconds/3600); //Hours
             
-            //$sql3 = "INSERT INTO team (teamid, teamname, timezone, utcoffset, maxplayers, inuse) VALUES (:teamid, :teamname, :timezone, :utcoffset, :maxplayers, :inuse)";
-            $sql3 = "INSERT INTO team (teamid, teamname) VALUES (:teamid, :teamname)";
+            $sql3 = "INSERT INTO team (teamid, teamname, utcoffset, maxplayers, inuse) VALUES (:teamid, :teamname, :utcoffset, :maxplayers, :inuse)";
+            //$sql3 = "INSERT INTO team (teamid, teamname) VALUES (:teamid, :teamname)"; //Works!
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
             
@@ -92,7 +92,7 @@
             $stmt3->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
             $stmt3->bindParam(':teamname', $_GET['teamname'], PDO::PARAM_STR);
             //$stmt3->bindParam(':timezone', $_GET['timezone'], PDO::PARAM_STR);
-            //$stmt3->bindParam(':utcoffset', $offset, PDO::PARAM_INT);
+            $stmt3->bindParam(':utcoffset', $offset, PDO::PARAM_INT);
             // $stmt3->bindParam(':maxplayers', 20, PDO::PARAM_INT);
             // $stmt3->bindParam(':inuse', 1, PDO::PARAM_INT);        
             
