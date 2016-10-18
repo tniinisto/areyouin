@@ -315,6 +315,7 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
     var timezone_split = timezone.split("/");
     var continent = timezone_split[0];
     var country = timezone_split[1];
+ alert(continent + '...' + country );
 
     var variables = "teamname=" + teamname
                     + "&continent=" + continent
