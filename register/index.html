@@ -319,10 +319,9 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
                     + "&playerid=" + playerid;
 
 
-    alert(variables);
-    var res = encodeURIComponent(variables);
+    //alert(variables);
 
-    xmlhttp.open("GET", 'js/newTeam.php?' + res, true);
+    xmlhttp.open("GET", 'js/newTeam.php?' + variables, true);
     xmlhttp.send();
            
 
