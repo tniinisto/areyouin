@@ -42,22 +42,22 @@
             if($_SESSION['ChromeLog']) { ChromePhp::log('New player result: ' . $result); }
         } 
 
-        // $playerid = 0;
-        // //Get the playerID by mail address////////////////////////////////////////////////           
-        // $sql2 = "SELECT playerID from players WHERE mail = :mail";
+        $playerid = 0;
+        //Get the playerID by mail address////////////////////////////////////////////////           
+        $sql2 = "SELECT playerID from players WHERE mail = :mail";
 
-        // if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
         
-        // $stmt2 = $dbh->prepare($sql2);
-        // $stmt2->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
         
-        // $result2 = $stmt2->execute();   
-        // $row2;
+        $result2 = $stmt2->execute();   
+        $row2;
 
-        // while($row2 = $stmt2->fetch()) {
-        //     //print_r($row);
-        //     $playerid = $row2['playerID'];
-        // }
+        while($row2 = $stmt2->fetch()) {
+            //print_r($row);
+            $playerid = $row2['playerID'];
+        }
         
         // //Create team/////////////////////////////////////////////////////////////////////
         
