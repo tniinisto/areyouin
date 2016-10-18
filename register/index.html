@@ -321,7 +321,9 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
     variables = encodeURI(variables);
     alert(variables);
 
-    xmlhttp.open("GET", "js/newTeam.php?" + variables, true);
+    var uri = encodeURI(js/newTeam.php?" + variables);
+
+    xmlhttp.open("GET", uri, true);
     xmlhttp.send();
            
 
