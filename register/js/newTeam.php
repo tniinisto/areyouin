@@ -64,7 +64,7 @@
 
             //Select max teamid
             $teamid_max = 0;
-            $sql6 = "SELECT max(teamID) from team";
+            $sql6 = "SELECT max(teamID) as teamID from team";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql6); }
         
