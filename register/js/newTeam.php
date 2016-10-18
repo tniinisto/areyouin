@@ -106,7 +106,7 @@
 
 
         //Add user as registrar to the team//////////////////////////////////////////////////////////
-        $sql5 = "INSERT INTO playerteam (Players_playerID, Team_teamID, registrar) VALUES (:playerid, :teamid , :registrar)";
+        $sql5 = "INSERT INTO playerteam (players_playerID, team_teamID, registrar) VALUES (:playerid, :teamid , :registrar)";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
         
