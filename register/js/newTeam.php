@@ -41,13 +41,8 @@
             
             if($_SESSION['ChromeLog']) { ChromePhp::log('New player result: ' . $result); }
         } 
-        else 
-        { //Existing R'YouIn user
 
-        }
-
-
-        //Get the playerID////////////////////////////////////////////////////////////////           
+        //Get the playerID by mail address////////////////////////////////////////////////           
         $sql2 = "SELECT playerID from players WHERE mail like :mail";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
@@ -65,13 +60,16 @@
 
         
         //Create team/////////////////////////////////////////////////////////////////////
-        $sql3 = "INSERT INTO team (Players_playerID, Team_teamID, teamAdmin) VALUES (" . $playerid . "," . $_SESSION['myteamid'] . ", 0)";
+        $sql3 = "INSERT INTO team (teamname, timezone, utcoffset, maxplayers, inuse) VALUES (:teamname, :timezone, :utcoffset, :maxplayers, :inuse)";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
         
         $stmt3 = $dbh->prepare($sql3);
-        $stmt3->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
-        $stmt3->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
+        $stmt3->bindParam(':teamname', $_GET['teamname'], PDO::PARAM_STR);
+        $stmt3->bindParam(':timezone', $_GET['timezone'], PDO::PARAM_STR);
+        $stmt3->bindParam(':utcoffset', 3, PDO::PARAM_INT);
+        $stmt3->bindParam(':maxplayers', 20, PDO::PARAM_INT);
+        $stmt3->bindParam(':inuse', 1, PDO::PARAM_INT);        
         
         $result1 = $stmt1->execute();  
 
