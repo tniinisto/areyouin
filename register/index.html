@@ -320,7 +320,7 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
                     + "&firstname=" + firstname
                     + "&lastname=" + lastname;
 
-    //alert(variables);
+    alert(variables);
     xmlhttp.open("GET", "newTeam.php?" + variables, true);
     xmlhttp.send();
            
