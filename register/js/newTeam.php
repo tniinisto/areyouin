@@ -66,7 +66,7 @@
             $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($_GET['timezone']), new DateTime() ); 
             $offset = round($daylight_savings_offset_in_seconds/3600); //Hours
             
-            $sql3 = "INSERT INTO team (teamname, timezone, utcoffset, maxplayers, inuse) VALUES (:teamname, :timezone, :utcoffset, 20, 1)";
+            $sql3 = "INSERT INTO team (teamname, timezone, utcoffset, maxplayers, inuse) VALUES (:teamname, :timezone, :utcoffset, '20', '1')";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
             
