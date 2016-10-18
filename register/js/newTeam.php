@@ -61,8 +61,7 @@
         
         //Create team/////////////////////////////////////////////////////////////////////
         
-
-            //Select max teamid
+            //Select max teamid and make the new team's id++
             $teamid_max = 0;
             $sql6 = "SELECT max(teamID) as team_max from team";
 
@@ -76,7 +75,8 @@
                 //print_r($row);
                 $teamid_max = $row6['team_max'];
             }
-            $teamid_max++;
+            
+            $teamid_max++; //The new team's ID
 
             //Calculate offset to UTC//////////////////////
             //$timezone_all = $_GET['continent'] . "/" . $_GET['country'];
@@ -97,43 +97,23 @@
             $stmt3->bindParam(':teamname', $_GET['teamname'], PDO::PARAM_STR);
             $stmt3->bindParam(':timezone', $timezone, PDO::PARAM_STR);
             $stmt3->bindParam(':utcoffset', $offset, PDO::PARAM_INT);
-            //$stmt3->bindParam(':maxplayers', 20, PDO::PARAM_INT);
-            //$stmt3->bindParam(':inuse', '1', PDO::PARAM_INT);        
+            //$stmt3->bindParam(':maxplayers', 20, PDO::PARAM_INT); //DB default
+            //$stmt3->bindParam(':inuse', '1', PDO::PARAM_INT); //DB default       
             
             $result3 = $stmt3->execute();
 
 
-            // //Get the team////////////////////////////////////////////////
-            // $teamid = 0;           
-            // $sql4 = "SELECT teamID from team WHERE teamname like :teamname and timezone like :timezone";
+            //Add player to the team//////////////////////////////////////////////////////////
+            $sql5 = "INSERT INTO playerteam (Players_playerID, Team_teamID, teamAdmin, registrar) VALUES (:playerid, :teamid , 0, 1)";
 
-            // if($_SESSION['ChromeLog']) { ChromePhp::log('select team: ' . $sql4); }
+            if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
             
-            // $stmt4 = $dbh->prepare($sql4);
-            // $stmt4->bindParam(':teamname', $_GET['teamname'], PDO::PARAM_STR);
-            // $stmt4->bindParam(':timezone', $_GET['timezone'], PDO::PARAM_STR);
+            $stmt5 = $dbh->prepare($sql5);
             
-            // $result4 = $stmt4->execute();   
-
-            // $row4;         
-            // while($row4 = $stmt4->fetch()) {
-            //     //print_r($row);
-            //     $teamid= $row4['teamID'];
-            // }        
-
-
-        // //Add player to the team//////////////////////////////////////////////////////////
-        // $sql5 = "INSERT INTO playerteam (Players_playerID, Team_teamID, teamAdmin, registrar) VALUES (:playerid, :teamid , 0, 1)";
-
-        // if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
-        
-        // $stmt5 = $dbh->prepare($sql5);
-        
-        // $stmt5->bindParam(':playerid', $playerid, PDO::PARAM_INT);
-        // $stmt5->bindParam(':teamID', $teamid, PDO::PARAM_INT);
-        
-        // $result5 = $stmt5->execute();                        
-
+            $stmt5->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+            $stmt5->bindParam(':teamID', $teamid_max, PDO::PARAM_INT);
+            
+            $result5 = $stmt5->execute();                        
 
 
         // //Send the mail for totally new user//////////////////////////////////////////////
