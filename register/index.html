@@ -318,7 +318,9 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
                     + "&firstname=" + firstname
                     + "&lastname=" + lastname;
 
+    variables = encodeURI(variables);
     alert(variables);
+    
     xmlhttp.open("GET", "js/newTeam.php?" + variables, true);
     xmlhttp.send();
            
