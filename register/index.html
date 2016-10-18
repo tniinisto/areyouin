@@ -312,14 +312,13 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
 
     
     //Split timezone
-    var timezone_split = timezone.split("/");
-    var continent = timezone_split[0];
-    var country = timezone_split[1];
- alert("tz" + continent + '...' + country);
+    //var timezone_split = timezone.split("/");
+    //var continent = timezone_split[0];
+    //var country = timezone_split[1];
+    //alert("tz: " + continent + '...' + country);
 
     var variables = "teamname=" + teamname
-                    + "&continent=" + continent
-                    + "&country=" + country
+                    + "&timezone=" + timezone
                     + "&mail=" + mail
                     + "&nickname=" + nickname
                     + "&firstname=" + firstname
