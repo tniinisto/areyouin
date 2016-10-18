@@ -310,17 +310,17 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
         }
     }
 
-    var variables = "playerid=" + playerid
-                    + "&teamname=" + teamname
+    var variables = "&teamname=" + teamname
                     + "&timezone=" + timezone
                     + "&mail=" + mail
                     + "&nickname=" + nickname
                     + "&firstname=" + firstname
-                    + "&lastname=" + lastname;
+                    + "&lastname=" + lastname
+                    + "&playerid=" + playerid;
 
     variables = encodeURI(variables);
     alert(variables);
-    
+
     xmlhttp.open("GET", "js/newTeam.php?" + variables, true);
     xmlhttp.send();
            
