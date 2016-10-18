@@ -79,7 +79,7 @@
             $teamid_max++;
 
             //Calculate offset to UTC//////////////////////
-            $timezone_all = $_GET['continent'] . "/" . $_GET['country']; 
+            $timezone_all = $_GET['continent'] . "//" . $_GET['country']; 
             date_default_timezone_set( "UTC" );    
             $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone_all), new DateTime() ); 
             $offset = round($daylight_savings_offset_in_seconds/3600); //Hours
