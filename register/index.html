@@ -306,9 +306,7 @@ function createTeam(teamname, timezone, mail, nickname, firstname, lastname, pla
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            updateUserlist();
-            window.location.replace('#');
-            updateInsertPlayers();
+            alert('Back from team creation successfully!');
         }
     }
 
