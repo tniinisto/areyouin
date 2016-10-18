@@ -223,7 +223,12 @@ $(function(){
 
         //Create the team and add registrar for it (team, timezone, mail, nickname, firstname, lastnamem, playerid)
         createTeam( $('#teamname').val(), $('#timezone_select').val(), $('#email').val(), $('#nickname').val(), $('#firstname').val(), $('#lastname').val(), $('#playerid').val() );
+        
+        //Disable button
+        document.getElementById('submit_fourth').disabled = true;
 
+        //Show info on succeeded team creation and incomming mail
+        //TODO
 
         //send information to server
         //alert('Data sent');
