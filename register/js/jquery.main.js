@@ -216,12 +216,15 @@ $(function(){
     $('#submit_fourth').click(function(){
         
         //Check if existing or new user
-        if(document.getElementById("playerid").value != 0)
-            alert('Existing user: ' + document.getElementById("playerid").value);            
-        else
-            alert('New user: ' + document.getElementById("playerid").value);
+        // if(document.getElementById("playerid").value != 0)
+        //     alert('Existing user: ' + document.getElementById("playerid").value);            
+        // else
+        //     alert('New user: ' + document.getElementById("playerid").value);
 
-        
+        //Create the team and add registrar for it (team, timezone, mail, nickname, firstname, lastnamem, playerid)
+        createTeam( $('#teamname').val(), $('#timezone_select').val(), $('#email').val(), $('#nickname').val(), $('#firstname').val(), $('#lastname').val(), $('#playerid').val() );
+
+
         //send information to server
         //alert('Data sent');
     });

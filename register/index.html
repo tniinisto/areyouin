@@ -293,6 +293,41 @@ function stopSpinner2() {
     spinner2.stop();
 }
 
+//Create new team and add registrar to it///////////////////////////////////////////////////
+//Parameter: playerid, 0=new team user, 1=existing R'youIN user
+function createTeam(teamname, timezone, mail, nickname, firstname, lastname, playerid) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            updateUserlist();
+            window.location.replace('#');
+            updateInsertPlayers();
+        }
+    }
+
+    var variables = "playerid=" + playerid
+                    + "&teamname=" + teamname
+                    + "&timezone=" + timezone
+                    + "&mail=" + mail
+                    + "&nickname=" + nickname
+                    + "&firstname=" + firstname
+                    + "&lastname=" + lastname;
+
+    //alert(variables);
+    xmlhttp.open("GET", "newTeam.php?" + variables, true);
+    xmlhttp.send();
+           
+
+}
+
+
 </script>
 
 </body>
