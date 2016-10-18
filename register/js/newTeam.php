@@ -70,11 +70,11 @@
         
             $stmt6 = $dbh->prepare($sql6);
             $result6 = $stmt6->execute();   
-            $row6;
 
-            while($row6 = $stmt2->fetch()) {
+            $row6;
+            while($row6 = $stmt6->fetch()) {
                 //print_r($row);
-                $teamid_max = $row2['teamID'];
+                $teamid_max = $row6['teamID'];
             }
             $teamid_max++;
 
