@@ -44,7 +44,7 @@
 
         $playerid = 0;
         //Get the playerID by mail address////////////////////////////////////////////////           
-        $sql2 = "SELECT playerID from players WHERE mail like :mail";
+        $sql2 = "SELECT playerID from players WHERE mail = :mail";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
         
@@ -129,7 +129,7 @@
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your created team's name: " . $_GET['teamname'] . "</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
                     
                     <br>
                     <br>
@@ -178,7 +178,7 @@
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your R'YouIN team has been created!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
                     
                     <br>
                     <br>
@@ -186,7 +186,7 @@
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
 	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
-                        <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+                        <li><span style='font-weight: bold;'>Your password for R'YouIN is the same as before</li>
 	                    </font>
                     </ul>                                
 
