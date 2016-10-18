@@ -77,7 +77,7 @@
             $stmt3->bindParam(':maxplayers', 20, PDO::PARAM_INT);
             $stmt3->bindParam(':inuse', 1, PDO::PARAM_INT);        
             
-            $result1 = $stmt1->execute();
+            $result3 = $stmt3->execute();
 
 
             //Get the team////////////////////////////////////////////////
@@ -91,8 +91,8 @@
             $stmt4->bindParam(':timezone', $_GET['timezone'], PDO::PARAM_STR);
             
             $result4 = $stmt4->execute();   
-            $row4;
-           
+
+            $row4;         
             while($row4 = $stmt4->fetch()) {
                 //print_r($row);
                 $teamid= $row4['teamID'];
