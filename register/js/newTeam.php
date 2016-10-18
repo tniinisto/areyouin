@@ -5,10 +5,10 @@
 
     session_start();
 
-    if($_SESSION['ChromeLog']) {
-        require_once 'ChromePhp.php';
-        ChromePhp::log('newTeamUser.php start');
-    }
+    //if($_SESSION['ChromeLog']) {
+        require_once  $_SERVER['DOCUMENT_ROOT'] . 'ChromePhp.php';
+        ChromePhp::log('newTeam.php start');
+    //}
 
 
   	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
