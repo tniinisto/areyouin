@@ -123,14 +123,14 @@
         if($_GET['playerid'] == 0) {                
             //Mail content, totally new user
             $newuser_mail = array(        
-                'subject' => "R'YouIN new team info",                 
+                'subject' => "R'YouIN team created",                 
                 'content' => "
                 
                   <html>             	
 
                     <div style='background: black;'>
                         <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> New team information</font>
                     </div>
 
                     <br>
@@ -140,6 +140,7 @@
                     <br>
                     <br>
 
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your login information</font>
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
 	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
@@ -172,7 +173,7 @@
 
             //Mail content, totally new user
             $newuser_mail = array(        
-                'subject' => "R'YouIN new team info",                 
+                'subject' => "R'YouIN team created",                 
                 'content' => "
                 
                   <html>             	
@@ -192,13 +193,13 @@
                     <ul style='list-style-type:disc'>
                     <font size='3' face='Trebuchet MS'>                                       		
 	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
-                        <li><span style='font-weight: bold;'>Your password for R'YouIN is the same as before</li>
+                        <li><span style='font-weight: bold;'>Your password stays the same</li>
 	                    </font>
                     </ul>                                
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Add users from the application and start setting events!</font>
                     
                     <br>
                     <br>
