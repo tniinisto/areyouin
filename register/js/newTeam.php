@@ -111,10 +111,11 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
         
         $stmt5 = $dbh->prepare($sql5);
-        
+
+        $registrar = 1;        
         $stmt5->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt5->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
-        $stmt5->bindParam(':registrar', $playerid, PDO::PARAM_INT);
+        $stmt5->bindParam(':registrar', $registrar, PDO::PARAM_INT);
         
         $result5 = $stmt5->execute();                        
 
