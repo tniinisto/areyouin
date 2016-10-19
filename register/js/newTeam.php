@@ -120,102 +120,102 @@
 
 
         // //Send the mail for totally new user//////////////////////////////////////////////
-        // if($_GET['playerid'] == 0) {                
-        //     //Mail content, totally new user
-        //     $newuser_mail = array(        
-        //         'subject' => "R'YouIN new team info",                 
-        //         'content' => "
+        if($_GET['playerid'] == 0) {                
+            //Mail content, totally new user
+            $newuser_mail = array(        
+                'subject' => "R'YouIN new team info",                 
+                'content' => "
                 
-        //           <html>             	
+                  <html>             	
 
-        //             <div style='background: black;'>
-        //                 <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-        //                 <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
-        //             </div>
+                    <div style='background: black;'>
+                        <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
+                    </div>
 
-        //             <br>
+                    <br>
 
-        //             <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
                     
-        //             <br>
-        //             <br>
+                    <br>
+                    <br>
 
-        //             <ul style='list-style-type:disc'>
-        //             <font size='3' face='Trebuchet MS'>                                       		
-	    //                 <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
-        //                 <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
-	    //                 </font>
-        //             </ul>                                
+                    <ul style='list-style-type:disc'>
+                    <font size='3' face='Trebuchet MS'>                                       		
+	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
+                        <li><span style='font-weight: bold;'>Password: </span><span style='color:blue'> " . $password . "</span></li>
+	                    </font>
+                    </ul>                                
 
-        //             <br>
+                    <br>
 
-        //             <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
-        //             <br>
-        //             <br>
+                    <br>
+                    <br>
 
-        //             <div style='text-align: center; background: black; padding: 15px;'>
-        //             <font size='4' face='Trebuchet MS' style='color: white;'>			
-        //                 Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
-        //             </font>
-        //             </div>
+                    <div style='text-align: center; background: black; padding: 15px;'>
+                    <font size='4' face='Trebuchet MS' style='color: white;'>			
+                        Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                    </font>
+                    </div>
 
-        //         </html>",
-        //     );
+                </html>",
+            );
 
 
-        //     sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
-        // }
+            sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
+        }
 
-        // //Send the mail existing user//////////////////////////////////////////////
-        // if($_GET['playerid'] != 0) {
+        //Send the mail existing user//////////////////////////////////////////////
+        if($_GET['playerid'] != 0) {
 
-        //     //Mail content, totally new user
-        //     $newuser_mail = array(        
-        //         'subject' => "R'YouIN new team info",                 
-        //         'content' => "
+            //Mail content, totally new user
+            $newuser_mail = array(        
+                'subject' => "R'YouIN new team info",                 
+                'content' => "
                 
-        //           <html>             	
+                  <html>             	
 
-        //             <div style='background: black;'>
-        //                 <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
-        //                 <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> New team information</font>
-        //             </div>
+                    <div style='background: black;'>
+                        <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                        <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> New team information</font>
+                    </div>
 
-        //             <br>
+                    <br>
 
-        //             <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your team <span style='color:blue'>" . $_GET['teamname'] . "</span> has been created!</font>
                     
-        //             <br>
-        //             <br>
+                    <br>
+                    <br>
 
-        //             <ul style='list-style-type:disc'>
-        //             <font size='3' face='Trebuchet MS'>                                       		
-	    //                 <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
-        //                 <li><span style='font-weight: bold;'>Your password for R'YouIN is the same as before</li>
-	    //                 </font>
-        //             </ul>                                
+                    <ul style='list-style-type:disc'>
+                    <font size='3' face='Trebuchet MS'>                                       		
+	                    <li><span style='font-weight: bold;'>User ID: </span><span style='color:blue'> " . $_GET['mail'] . "    </span></li>
+                        <li><span style='font-weight: bold;'>Your password for R'YouIN is the same as before</li>
+	                    </font>
+                    </ul>                                
 
-        //             <br>
+                    <br>
 
-        //             <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
                     
-        //             <br>
-        //             <br>
+                    <br>
+                    <br>
 
-        //             <div style='text-align: center; background: black; padding: 15px;'>
-        //             <font size='4' face='Trebuchet MS' style='color: white;'>			
-        //                 Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
-        //             </font>
-        //             </div>
+                    <div style='text-align: center; background: black; padding: 15px;'>
+                    <font size='4' face='Trebuchet MS' style='color: white;'>			
+                        Login at <a href='https://r-youin.com/' style='color: white;'>R'YouIN</a>!
+                    </font>
+                    </div>
 
-        //         </html>",
-        //     );
+                </html>",
+            );
                             
-        //     sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
-        // }  
+            sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
+        }  
 
-        // $dbh = null;
+        $dbh = null;
 
     }
     catch(PDOException $e) {
