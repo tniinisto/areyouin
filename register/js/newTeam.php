@@ -119,8 +119,26 @@
         
         $result5 = $stmt5->execute();                        
 
+        //Add first chat comment to team////////////////////////////////////////////////////////////
+        date_default_timezone_set($timezone);
+        $insertDate = date("Y-n-j H:i:s");
 
-        // //Send the mail for totally new user//////////////////////////////////////////////
+        $sql7 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamid, :insertdate)";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
+        
+        $stmt7 = $dbh->prepare($sql7);
+
+        $comment = mysql_real_escape_string('Welcome to your chat!');
+        $stmt7->bindParam(':comment', $comment, PDO::PARAM_STR);
+        $stmt7->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
+        $stmt7->bindParam(':playerid', $registrar, PDO::PARAM_INT);
+        $stmt7->bindParam(':insertdate', $insertDate, PDO::PARAM_STR);
+
+        $result7 = $stmt7->execute();   
+
+
+        // //Send the mail for totally new user/////////////////////////////////////////////////////
         if($_GET['playerid'] == 0) {                
             //Mail content, totally new user
             $newuser_mail = array(        
