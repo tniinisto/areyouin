@@ -129,7 +129,7 @@
         
         $stmt7 = $dbh->prepare($sql7);
 
-        $comment = mysql_real_escape_string('Welcome to your chat!');
+        $comment = "Welcome to your chat!";
         $stmt7->bindParam(':comment', $comment, PDO::PARAM_STR);
         $stmt7->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
         $stmt7->bindParam(':playerid', $registrar, PDO::PARAM_INT);
