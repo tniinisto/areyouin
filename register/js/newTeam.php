@@ -1,7 +1,7 @@
 <?php
     
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-    include( $_SERVER['DOCUMENT_ROOT'] . 'mail_ayi.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] . '/mail_ayi.php' );
 
     session_start();
 
