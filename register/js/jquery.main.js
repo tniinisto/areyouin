@@ -188,8 +188,8 @@ $(function(){
     //third step////////////////////////////////////////////////////
     $('#submit_third').click(function(){
         //update progress bar
-        $('#progress_text').html('100% Complete');
-        $('#progress').css('width','250px');
+        $('#progress_text').html('99% Complete');
+        $('#progress').css('width','240px');
 
         //prepare the fourth step
         var fields = new Array(
@@ -228,9 +228,14 @@ $(function(){
         document.getElementById('submit_fourth').disabled = true;
 
         //Show info on succeeded team creation and incomming mail
-        //TODO
+        $('#summary_table').addClass('noshow');
+        $('#register_info').addClass('noshow');
+        $('#register_info3').removelass('noshow');
 
-        //send information to server
+        
+        $('#progress_text').html('100% Complete');
+        $('#progress').css('width','250px');
+        
         //alert('Data sent');
     });
 
