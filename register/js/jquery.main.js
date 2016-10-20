@@ -226,13 +226,14 @@ $(function(){
         
         //Disable button
         document.getElementById('submit_fourth').disabled = true;
+        document.getElementById("submit_fourth").style.display = 'none';
+
 
         //Show info on succeeded team creation and incomming mail
         $('#fourth_step_header').text("Registration completed");
         $('#summary_table').html("<br>");       
-        $('#register_info').text("Your team registration is completed. Email containing your login information has been sent to the mail address you provided in registration. Thank you!");
-         
-        document.getElementById("submit_fourth").style.display = 'none';
+        $('#register_info').text("Your team registration is completed. Email containing your login information has been sent to the mail address you provided in registration. Thank you!") 
+        document.getElementById("register_info").style.marginBottom = '20px';
 
         $('#progress_text').html('100% Complete');
         $('#progress').css('width','250px');
