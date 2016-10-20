@@ -231,9 +231,8 @@ $(function(){
         $('#fourth_step_header').text("Registration completed");
         $('#summary_table').html("<br>");       
         $('#register_info').text("Your team registration is completed. Email containing your login information has been sent to the mail address you provided in registration. Thank you!");
-        
-        $('#submit_fourth').removeClass("myButton"); 
-        $('#submit_fourth').addClass("noshow");
+         
+        $('#submit_fourth').html("<br>");
         
         $('#progress_text').html('100% Complete');
         $('#progress').css('width','250px');
