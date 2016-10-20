@@ -40,6 +40,7 @@
 				    echo "<li id='link_admingame' class='current2' onclick='showInsertPlayers();'><a href='#'>New event</a></li>";
                     echo "<li id='link_adminmembers'><a href='#'>Users</a></li>";
                     echo "<li id='link_adminsettings' onClick='setTimeout(function(){ initializeMap(); }, 100);'><a href='#'>Settings</a></li>";
+                    echo "<li id='link_license'><a href='#'>License</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
@@ -210,7 +211,7 @@
                         //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
                         echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
                             $timezone_identifiers = DateTimeZone::listIdentifiers();
-                            echo "<label><h3 style='text-align: center;'>Set timezone:</h3></label>";                    
+                            echo "<label><h3 style='text-align: center;'>Set new timezone:</h3></label>";                    
                             //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
                             
                             echo "<div align='center'>";
@@ -691,16 +692,16 @@
                                                 
                                                 echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
-                                                    echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
+                                                    if($player->registrar == 0) { //Dont let delete Registrar
+                                                        echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
                                                         onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
 
-                                                    if($player->registrar == 0) { //Dont let delete Registrar
                                                         echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
                                                         onclick='confirmDelete(" . $player->playerID . ");'/>";
                                                     } else {
-                                                        echo "<input type='button' class='myButton' style='visibility: hidden; color: red; float: rigth;' value='Delete'/>";
+                                                        echo "<input type='button' class='myButton' style='float: center; margin-left: 90px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
                                                     }
-
 
                                                 echo "</div>";
 
@@ -719,10 +720,24 @@
                 //Members page///////////////////////////////////////////////////////////////////////////////
                 /////////////////////////////////////////////////////////////////////////////////////////////
 
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                //License page///////////////////////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                echo "<div id='license_content_id' class='noshow'>";
+                    
+                    echo "<h2>License</h2>";
+
+                    ob_start(); // begin collecting output
+                    include 'payment/onlineCurrency.php';
+                    $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+                    echo $result;
+
+                echo "</div>";
+
             echo "</article>";
             //Article////////////////////////////////////////////////////////////////////////////////////
             /////////////////////////////////////////////////////////////////////////////////////////////
-        
+
             echo "<iframe name=\"frame_local\" style='display: none'></iframe>";
 
             mysql_close($con);

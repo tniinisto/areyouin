@@ -69,7 +69,7 @@
                     <label for="nickname">Enter your nick name (max. 8 characters)</label>
                     <input type="text" name="nickname" id="nickname" value="" />
 
-                    <input type="text" name="playerid" id="playerid" value="" style="display: none"/>
+                    <input type="text" name="playerid" id="playerid" value="0" style="display: none"/>
 
                 </div>      
                     
@@ -90,9 +90,14 @@
                 <div class="form">
                     
                     <div id="spinner_id2"></div>
-
-                     <!--Timezone selection-->
-                     <div id='timezones'></div>   
+                    
+                    <label id="timezone_info">
+                    Choose your timezone. You can also change it in the application afterwards.
+                    </label>
+                    <br>
+ 
+                    <!--Timezone selection-->
+                    <div id='timezones'></div>   
 
                 </div>     
                 
@@ -109,9 +114,9 @@
             <!-- #fourth_step -->
             <div id="fourth_step">
                 <h1>R'YouIN</h1>
-                <h2>Registration summary</h2>
+                <h2 id="fourth_step_header">Registration summary</h2>
 
-                <div class="form">
+                <div id="summary_table" class="form">
                     
                     
                     <table>
@@ -126,7 +131,7 @@
                 </div>      <!-- clearfix --><div class="clear"></div><!-- /clearfix -->
 
                 <br>                
-                <label id="register_info" style="margin-left: 10%; text-align: center;">You have provided all needed information for team's registration! Click the button to register your team. After this you will receice email containing your team and login info. Thank you!</label>
+                <label id="register_info" style="margin-left: 10%; text-align: center;">You have provided all needed information for team's registration! Click the button to register your team. After this you will receice email containing your team and login info.</label>
 
                 <!--<input class="submit" type="button" name="submit_prev4" id="submit_prev4" value="" style="float: left; left: 10%; -ms-transform: rotate(0deg); -webkit-transform: rotate(0deg); transform: rotate(0deg);"/>-->
 
@@ -287,6 +292,48 @@ function startSpinner2() {
 function stopSpinner2() {
     spinner2.stop();
 }
+
+//Create new team and add registrar to it///////////////////////////////////////////////////
+//Parameter: playerid, 0=new team user, 1=existing R'youIN user
+function createTeam(teamname, timezone, mail, nickname, firstname, lastname, playerid) {
+
+    if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    }
+    else {// code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //alert('Back from team creation successfully!');
+        }
+    }
+
+    
+    //Split timezone
+    //var timezone_split = timezone.split("/");
+    //var continent = timezone_split[0];
+    //var country = timezone_split[1];
+    //alert("tz: " + continent + '...' + country);
+
+    var variables = "teamname=" + teamname
+                    + "&timezone=" + timezone
+                    + "&mail=" + mail
+                    + "&nickname=" + nickname
+                    + "&firstname=" + firstname
+                    + "&lastname=" + lastname
+                    + "&playerid=" + playerid;
+
+
+    //alert(variables);
+
+    xmlhttp.open("GET", 'js/newTeam.php?' + variables, true);
+    xmlhttp.send();
+           
+
+}
+
 
 </script>
 

@@ -173,6 +173,8 @@ input {
     height: 24px;
     margin: 0 auto;
     position: relative;
+    padding-left: 1px;
+    padding-top: 1px;
 }
 
 #progress {
@@ -266,3 +268,7 @@ MYBUTTON
   transform: translateY(4px);
 }
 
+.noshow
+{
+	display: none;
+}

@@ -59,6 +59,17 @@
                                         //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
                                         //echo "</p>";
 
+                                        //User already in the team, give notification
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
+                                        echo "<br>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%; color: black;'>User is already a team member!</label>";
+                                        echo "</p>";
+                                        
+                                        //PlayerID, hidden
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
+                                        echo "<input type='text' id='new_dialog_playerid' name='player_playerid' value='' style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
                                         //Mail & UserID
                                         echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
                                             echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%;'>Enter user's email</label>";
@@ -122,12 +133,17 @@
                                         echo "<div class='buttonHolder' style='padding-top: 2px;'>";
 
                                             //Insert the player for the team, send mail for the new user
-                                            echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='dialog_button noshow'
+                                            echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='myButton noshow'
                                                    onclick='addTeamUser(" . $teamid . ", player_new_email.value, player_new_name.value, player_new_firstname.value, player_new_lastname.value)'>";
 
-                                            //Validate the email entered, does email already exist, is user already in the team. If already in another team, show name and ask if this should be insterted for the team
-                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validtebutton' class='dialog_button' style='text-align: center;'    
+                                            //Validate the email entered, does email already exist, is user already in the team.
+                                            //If already in another team, show name and ask if this should be insterted for the team
+                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validatebutton' class='myButton' style='text-align: center;'    
                                                    onclick='newValidateEmail(player_new_email.value)'>";
+
+                                            //Add existing RYouIN user
+                                            echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='myButton noshow' style='text-align: center;'    
+                                                   onclick='addExistingUser(player_playerid.value, player_new_email.value)'>";
 
                                         echo "</div>";
 		                            echo "</form>";
@@ -246,8 +262,18 @@
                                                 //echo "</div>";
                                                 
                                                 echo "<div class='buttonHolder' style='margin-top:15px;'>";
-                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
-                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmDelete(" . $player->playerID . ");'/>";
+
+                                                    if($player->registrar == 0) { //Dont let delete Registrar
+                                                        echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+
+                                                        echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    } else {
+                                                        echo "<input type='button' class='myButton' style='float: center; margin-left: 90px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+                                                    }
+
                                                 echo "</div>";
 
 		                                    echo "</form>";

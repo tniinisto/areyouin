@@ -188,8 +188,8 @@ $(function(){
     //third step////////////////////////////////////////////////////
     $('#submit_third').click(function(){
         //update progress bar
-        $('#progress_text').html('100% Complete');
-        $('#progress').css('width','250px');
+        $('#progress_text').html('99% Complete');
+        $('#progress').css('width','240px');
 
         //prepare the fourth step
         var fields = new Array(
@@ -214,8 +214,31 @@ $(function(){
 
 
     $('#submit_fourth').click(function(){
-        //send information to server
-        alert('Data sent');
+        
+        //Check if existing or new user
+        // if(document.getElementById("playerid").value != 0)
+        //     alert('Existing user: ' + document.getElementById("playerid").value);            
+        // else
+        //     alert('New user: ' + document.getElementById("playerid").value);
+
+        //Create the team and add registrar for it (team, timezone, mail, nickname, firstname, lastnamem, playerid)
+        createTeam( $('#teamname').val(), $('#timezone_select').val(), $('#email').val(), $('#nickname').val(), $('#firstname').val(), $('#lastname').val(), $('#playerid').val() );
+        
+        //Disable button
+        document.getElementById('submit_fourth').disabled = true;
+        document.getElementById("submit_fourth").style.display = 'none';
+
+
+        //Show info on succeeded team creation and incomming mail
+        $('#fourth_step_header').text("Registration completed");
+        $('#summary_table').html("<br>");       
+        $('#register_info').text("Your team registration is completed. Email containing your login information has been sent to the mail address you provided in registration. Thank you!") 
+        document.getElementById("register_info").style.marginBottom = '20px';
+
+        $('#progress_text').html('100% Complete');
+        $('#progress').css('width','250px');
+        
+        //alert('Data sent');
     });
 
     $('#submit_prev4').click(function(){
