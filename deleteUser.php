@@ -18,7 +18,7 @@
     try {
 
         //Update the removed player teamID to nullTeam, teamId = 0, player can be in multiple teams
-        $sql = "UPDATE playerteam SET Team_teamID = '0' WHERE Players_playerID =  :playerID AND Team_teamid = :teamID";
+        $sql = "UPDATE playerteam SET Team_teamID = '0' WHERE Players_playerID = :playerID AND Team_teamid = :teamID";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('delete player: ' . $sql); }
         
@@ -48,9 +48,8 @@
         $max_mail = $row3['maxi'];
         $max_mail++;
         
-
         //If player is only in one team -> Clear email value, so same email can be used when making a new player for the same mail in future
-        if($teamCount < 2) {
+        if(!$teamCount > 0) {
             $sql1 = "UPDATE players SET mail = '" . $max_mail . "' WHERE playerID = :playerID";
         
             $stmt1 = $dbh->prepare($sql1);
