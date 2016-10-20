@@ -262,8 +262,17 @@
                                                 //echo "</div>";
                                                 
                                                 echo "<div class='buttonHolder' style='margin-top:15px;'>";
-                                                    echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save' onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
-                                                    echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete' onclick='confirmDelete(" . $player->playerID . ");'/>";
+
+                                                    echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+
+                                                    if($player->registrar == 0) { //Dont let delete Registrar
+                                                        echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    } else {
+                                                        echo "<input type='button' class='myButton' style='visibility: hidden; color: red; float: rigth;' value='Delete'/>";
+                                                    }
+
                                                 echo "</div>";
 
 		                                    echo "</form>";
