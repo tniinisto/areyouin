@@ -1320,8 +1320,8 @@ function confirmDelete(playerID) {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                updateUserlist();
-                //window.location.replace('#');
+                window.location.replace('#');
+                updateUserlist();                
 
                 //Hide removed player from new game adding////////////////////
                 var player = "#p_playerid" + playerID;
