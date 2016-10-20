@@ -232,6 +232,8 @@ $(function(){
         $('#summary_table').html("<br>");       
         $('#register_info').text("Your team registration is completed. Email containing your login information has been sent to the mail address you provided in registration. Thank you!");
         
+        $('#submit_fourth').addClass("noshow");
+        
         $('#progress_text').html('100% Complete');
         $('#progress').css('width','250px');
         
