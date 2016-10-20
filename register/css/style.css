@@ -8,12 +8,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
    src: local('Cantarell'), url('../fonts/Cantarell-Regular.ttf') format('truetype');
 }
 
-.noshow
-{
-	display: none;
-    
-}
-
 body {
     background-color: #3d4047;
     color: #222;
@@ -272,3 +266,7 @@ MYBUTTON
   transform: translateY(4px);
 }
 
+.noshow
+{
+	display: none;
+}
