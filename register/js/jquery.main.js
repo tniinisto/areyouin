@@ -228,9 +228,8 @@ $(function(){
         document.getElementById('submit_fourth').disabled = true;
 
         //Show info on succeeded team creation and incomming mail
-        $('#summary_table').addClass('noshow');
-        $('#register_info').addClass('noshow');
-        $('#register_info3').removelass('noshow');
+        $('#summary_table').value("");       
+        $('#register_info').value("Your team registration has been sent. Email has been sent to the mail address you provided in registration. Thank you!");
 
         
         $('#progress_text').html('100% Complete');
