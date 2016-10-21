@@ -105,7 +105,7 @@
                     echo "<textarea maxlength=\"480\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
                     echo "<br>";
                     echo "<input class='myButton' type='button' value='Send' name='sendbutton' id='sendbutton'                   
-                            onclick='addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\"'/>";
+                            onclick='addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')'/>";
                 echo "</form>";
             echo "</div>";
 
