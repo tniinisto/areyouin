@@ -43,7 +43,7 @@
         //Set rest of team specific session variables/////////////////////////////////////////////////////////////
         $sql2 = "SELECT teamID, teamName, timezone, utcOffset, registrar, lastMsg
                 FROM playerteam m, team t
-                WHERE m.Team_teamID = t.teamid AND t.teamID = :teamid;";
+                WHERE m.Team_teamID = t.teamid AND teamID = :teamid;";
 
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql2); }
