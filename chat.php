@@ -98,7 +98,7 @@
 
             echo "<div id='chat_new_id' class='chat_new'>";                
                 //echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
-                echo "<form id='chatsubmitform' id=\"chatform\" name=\"chatform\" target=\"frame_chat\">";
+                echo "<form id='chatsubmitform' id=\"chatform\" name=\"chatform\" method=\"get\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\"><b>New comment</b></label>";
                     echo "<br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
