@@ -97,13 +97,15 @@
             echo "<img id='newChatImg' width='40' height='40' src='images/edit.png'>";
 
             echo "<div id='chat_new_id' class='chat_new'>";                
-                echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                //echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
+                echo "<form id='chatsubmitform' id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";
                     echo "<label for=\"comment_input\"><b>New comment</b></label>";
                     echo "<br>";
 			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
                     echo "<textarea maxlength=\"480\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
                     echo "<br>";
-                    echo "<input class=\"myButton\" type=\"submit\" value=\"Send\" name=\"sendbutton\" id=\"sendbutton\"  class=\"button\" >";
+                    echo "<input class='myButton' type='button' value='Send' name='sendbutton' id='sendbutton'                   
+                            onclick='addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\"'/>";
                 echo "</form>";
             echo "</div>";
 
