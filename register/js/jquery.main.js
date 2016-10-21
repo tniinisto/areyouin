@@ -236,7 +236,7 @@ $(function(){
         document.getElementById("register_info").style.marginBottom = '20px';
 
         $('#progress_text').html('100% Complete');
-        $('#progress').css('width','250px');
+        $('#progress').css('width','249px');
         
         //alert('Data sent');
     });
