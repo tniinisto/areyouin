@@ -105,7 +105,7 @@
         $result3 = $stmt3->execute();
 
 
-        //Add user as registrar to the team//////////////////////////////////////////////////////////
+        //Add user as registrar to the playerteam//////////////////////////////////////////////////////////
         $sql5 = "INSERT INTO playerteam (players_playerID, team_teamID, registrar) VALUES (:playerid, :teamid, :registrar)";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
@@ -129,14 +129,37 @@
         
         $stmt7 = $dbh->prepare($sql7);
 
-        $comment = "Welcome to your chat!";
+        $ryouin_player = 0;
+        $comment = "Welcome to R'YouIN chat! This is an automatic message from the team's registration.";
         $stmt7->bindParam(':comment', $comment, PDO::PARAM_STR);
-        $stmt7->bindParam(':playerid', $registrar, PDO::PARAM_INT);
+        $stmt7->bindParam(':playerid', $ryouin_player, PDO::PARAM_INT);
         $stmt7->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
         $stmt7->bindParam(':insertdate', $insertDate, PDO::PARAM_STR);
 
-        $result7 = $stmt7->execute();   
+        $result7 = $stmt7->execute();
 
+
+        //Insert team data to registration table, use UTC for datetime information//////////////////
+        date_default_timezone_set("UTC");
+        $registrationDate = date("Y-n-j H:i:s");
+
+        $start = new DateTimeImmutable($registrationDate);
+        $valid = $start->modify('+30 day');
+        $valid = $valid->format('Y-m-d H:i:s');
+
+        $sql8 = "INSERT INTO registration (registered, players_playerid, team_teamid, licensevalid) VALUES (:registered, :playerid, :teamid, :licensevalid)";
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
+        
+        $stmt8 = $dbh->prepare($sql8);
+
+        $stmt8->bindParam(':registered', $registrationDate, PDO::PARAM_STR);
+        $stmt8->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+        $stmt8->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
+        $stmt8->bindParam(':licensevalid', $valid, PDO::PARAM_STR);
+
+        $result8 = $stmt8->execute();          
+        
 
         // //Send the mail for totally new user/////////////////////////////////////////////////////
         if($_GET['playerid'] == 0) {                
@@ -169,7 +192,7 @@
 
                     <br>
 
-                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Add users from the application and start setting events! Please remember to change your own password from the Profile section after login!</font>
                     
                     <br>
                     <br>

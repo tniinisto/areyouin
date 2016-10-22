@@ -24,8 +24,8 @@
 
     try {
 
-        //Check & set team admin status for user
-        $sql1 = "SELECT teamAdmin FROM playerteam where Team_teamID = :teamid AND Players_playerID = :player";
+        //Check & set team admin status for user////////////////////////////////////////////////////////////////
+        $sql1 = "SELECT teamAdmin FROM playerteam, team where Team_teamID = :teamid AND Players_playerID = :player";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql1); }
         
@@ -38,6 +38,26 @@
         //Set chosen teams admin status  to session
         $_SESSION['myAdmin'] = $row1['teamAdmin'];
 
+
+
+        //Set rest of team specific session variables/////////////////////////////////////////////////////////////
+        $sql2 = "SELECT teamID, teamName, timezone, utcOffset, registrar, lastMsg
+                FROM playerteam m, team t
+                WHERE m.Team_teamID = t.teamid AND teamID = :teamid;";
+
+
+        if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql2); }
+        
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
+        $stmt2->execute();
+        $row2 = $stmt2->fetch();        
+
+        $_SESSION['myteamid'] = $row2['teamID'];
+        $_SESSION['myteamname'] = $row2['teamName'];
+        $_SESSION['myRegistrar'] = $row2['registrar'];
+        $_SESSION['mytimezone'] = $row2['timezone'];
+        $_SESSION['myoffset'] = $row2['utcOffset'];        
 
         header('Location:login_success.php');
     }

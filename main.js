@@ -2008,7 +2008,7 @@ function notifyMe(theTitle, theBody) {
     }
 
     var n = new Notification(theTitle, options);
-    setTimeout(n.close.bind(n), 15000);
+    setTimeout(n.close.bind(n), 5000);
   }
 
   // Otherwise, we need to ask the user for permission
@@ -2025,7 +2025,7 @@ function notifyMe(theTitle, theBody) {
 
         //Notify on desktop
         var n = new Notification(theTitle, options);
-        setTimeout(n.close.bind(n), 15000);
+        setTimeout(n.close.bind(n), 5000);
 
       }
     });
