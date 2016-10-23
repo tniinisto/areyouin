@@ -130,7 +130,7 @@
         $stmt7 = $dbh->prepare($sql7);
 
         $ryouin_player = 0;
-        $comment = "Welcome to R'YouIN chat! This is an automatic message from the team's registration.";
+        $comment = "Welcome to use R'YouIN! This is an automatic message from the team's registration.";
         $stmt7->bindParam(':comment', $comment, PDO::PARAM_STR);
         $stmt7->bindParam(':playerid', $ryouin_player, PDO::PARAM_INT);
         $stmt7->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
