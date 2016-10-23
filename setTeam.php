@@ -49,7 +49,7 @@
         
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
-        $stmt1->bindParam(':player', $_SESSION['myplayerid'], PDO::PARAM_INT);
+        $stmt2->bindParam(':player', $_SESSION['myplayerid'], PDO::PARAM_INT);
         $stmt2->execute();
         $row2 = $stmt2->fetch();        
 
