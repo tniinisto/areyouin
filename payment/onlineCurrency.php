@@ -46,7 +46,7 @@ echo "<div id='parent-container1' class='parent-container'>";
         echo"<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
 
             echo "<input type='hidden' name='cmd' value='_s-xclick'>";
-            //echo "<input type="hidden" name="hosted_button_id" value="DPPYDAYQTDA8A">
+            echo "<input type='hidden' name='business' value='DPPYDAYQTDA8A'>";
             echo "<table>";
             echo "<tr><td><input type='hidden' name='on0' value='License options'>License options</td></tr><tr><td><select name='os0'>";
                 echo "<option value='30 days'>30 days " . $price . " EUR</option>";
