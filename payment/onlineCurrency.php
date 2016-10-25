@@ -359,7 +359,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
     echo "<div id='button6' class='child-container'>";
 
-         echo"<p>$ " . convertCurrency($price, 'EUR', 'GBP') . " GBP</p>";
+         echo"<p>£ " . convertCurrency($price, 'EUR', 'GBP') . " GBP</p>";
 
          echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
             echo "<input type='hidden' name='cmd' value='_xclick'>";
