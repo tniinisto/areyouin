@@ -65,7 +65,7 @@
     date_default_timezone_set("UTC");
 
     // inspect IPN validation result and act accordingly
-    if (strcmp ($res, "VERIFIED") == 0) {
+    //if (strcmp ($res, "VERIFIED") == 0) {
         // The IPN is verified, process it:
         // check whether the payment_status is Completed
         // check that txn_id has not been previously processed
@@ -101,16 +101,16 @@
         //     echo $key . " = " . $value . "<br>";
         // }
 
-    } else if (strcmp ($res, "INVALID") == 0) {
-        // IPN invalid, log for manual investigation
-        //echo "The response from IPN was: <b>" .$res ."</b>";
+    // } else if (strcmp ($res, "INVALID") == 0) {
+    //     // IPN invalid, log for manual investigation
+    //     //echo "The response from IPN was: <b>" .$res ."</b>";
 
-        $date = date('Y-m-d H:i:s');
-        $date .= " EET";
+    //     $date = date('Y-m-d H:i:s');
+    //     $date .= " EET";
 
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        $result = mysql_query($sql);
-    }
+    //     $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+    //     $result = mysql_query($sql);
+    // }
 
     mysql_close($con);   
 
