@@ -41,6 +41,37 @@ echo "<div id='parent-container1' class='parent-container'>";
     echo "<p class='license_p'>Purchase license</p>";
 
 
+// <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+// <input type="hidden" name="cmd" value="_xclick">
+// <input type="hidden" name="business" value="8RLTCNLYYQKLQ">
+// <input type="hidden" name="lc" value="FI">
+// <input type="hidden" name="item_name" value="RYouIN license">
+// <input type="hidden" name="button_subtype" value="services">
+// <input type="hidden" name="no_note" value="1">
+// <input type="hidden" name="no_shipping" value="1">
+// <input type="hidden" name="rm" value="1">
+// <input type="hidden" name="return" value="https://www.mystore.com/success">
+// <input type="hidden" name="cancel_return" value="https://www.mystore.com/cancel">
+// <input type="hidden" name="currency_code" value="EUR">
+// <input type="hidden" name="tax_rate" value="24.000">
+// <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
+// <table>
+// <tr><td><input type="hidden" name="on0" value="License options">License options</td></tr><tr><td><select name="os0">
+// 	<option value="30 days">30 days €7.00 EUR</option>
+// 	<option value="90 days">90 days €18.00 EUR</option>
+// </select> </td></tr>
+// </table>
+// <input type="hidden" name="currency_code" value="EUR">
+// <input type="hidden" name="option_select0" value="30 days">
+// <input type="hidden" name="option_amount0" value="7.00">
+// <input type="hidden" name="option_select1" value="90 days">
+// <input type="hidden" name="option_amount1" value="18.00">
+// <input type="hidden" name="option_index" value="0">
+// <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+// <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+// </form>
+
+
     //EUR/////////////////////////////////////////////////////
     echo "<div id='button11' class='child-container'>";
         //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
@@ -58,7 +89,8 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
             echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";            
+            echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";            
             echo "<table>";
             echo "<tr><td><input type='hidden' name='on0' value='License options'>License options</td></tr><tr><td><select name='os0'>";
                 echo "<option value='30 days'>30 days " . $price . " EUR</option>";
@@ -70,7 +102,6 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='option_amount0' value='" . $price . "'>";
             echo "<input type='hidden' name='option_select1' value='90 days'>";
             echo "<input type='hidden' name='option_amount1' value='" . $price2 . "'>";
-            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
             echo "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
         echo "</form>";
