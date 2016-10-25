@@ -76,15 +76,14 @@ echo "<div id='parent-container1' class='parent-container'>";
     echo "<div id='button11' class='child-container'>";
         //echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
         echo"<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
-
             echo "<input type='hidden' name='cmd' value='_xclick'>";
             echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='License options'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
-            echo "<input type='hidden' name='no_note' value='1'>";
-            echo "<input type='hidden' name='no_shipping' value='1'>";
-            echo "<input type='hidden' name='rm' value='1'>";
+            echo "<input type='hidden' name='no_note' value='0'>";
+            //echo "<input type='hidden' name='no_shipping' value='2'>";
+            //echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
