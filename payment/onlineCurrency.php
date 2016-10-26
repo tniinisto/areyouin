@@ -130,7 +130,6 @@ echo "<div id='parent-container1' class='parent-container'>";
 
     echo "</div>";
 
-    echo "<br>";
     echo "<p class='license_p'>Purchase half year - 180 day license</p>";
 
     echo "<div id='button4' class='child-container'>";
@@ -145,9 +144,9 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='amount' value='" . $price2 . "'>";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
-            // echo "<input type='hidden' name='no_note' value='0'>";
-            // echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
-            // echo "<input type='hidden' name='no_shipping' value='2'>";            
+            echo "<input type='hidden' name='no_note' value='0'>";
+            echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
+            echo "<input type='hidden' name='no_shipping' value='2'>";            
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
