@@ -110,16 +110,18 @@
 
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $result = mysql_query($sql);
-    } else {
-        // IPN invalid, log for manual investigation
-        //echo "The response from IPN was: <b>" .$res ."</b>";
+    } 
+    
+    // else { //Debugging IPN/////////////////////////////////////////////////////
+    //     // IPN invalid, log for manual investigation
+    //     //echo "The response from IPN was: <b>" .$res ."</b>";
 
-        $date = date('Y-m-d H:i:s');
-        $date .= " EET";
+    //     $date = date('Y-m-d H:i:s');
+    //     $date .= " EET";
 
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        $result = mysql_query($sql);
-    }
+    //     $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+    //     $result = mysql_query($sql);
+    // }
 
     mysql_close($con);   
 
