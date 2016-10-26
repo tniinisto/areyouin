@@ -41,7 +41,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 // //Single pay buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 // echo "<div id='parent-container1' class='parent-container'>";
     
-    echo "<p class='license_p'>Purchase a one month - 30 day license</p>";
+    echo "<p class='license_p'>Purchase one month - 30 day license</p>";
 
     echo "<div id='button4' class='child-container'>";
 
@@ -130,7 +130,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
     echo "</div>";
 
-    echo "<p class='license_p'>Purchase half a year - 180 day license</p>";
+    echo "<p class='license_p'>Purchase half year - 180 day license</p>";
 
     echo "<div id='button4' class='child-container'>";
 
