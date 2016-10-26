@@ -130,6 +130,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
     echo "</div>";
 
+    echo "<br>";
     echo "<p class='license_p'>Purchase half year - 180 day license</p>";
 
     echo "<div id='button4' class='child-container'>";
