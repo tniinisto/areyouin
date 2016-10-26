@@ -17,7 +17,7 @@ session_start();
 
 //Price in Euros
 $price = '7.00';
-$price2 = '18.00';
+$price2 = '30.00';
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
@@ -41,7 +41,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 // //Single pay buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 // echo "<div id='parent-container1' class='parent-container'>";
     
-    echo "<p class='license_p'>Purchase 30 day license</p>";
+    echo "<p class='license_p'>Purchase a one month - 30 day license</p>";
 
     echo "<div id='button4' class='child-container'>";
 
@@ -127,6 +127,96 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
+
+
+    echo "<p class='license_p'>Purchase half a year - 180 day license</p>";
+
+    echo "<div id='button4' class='child-container'>";
+
+         echo "<p>€ " . $price2 . " EUR</p>";
+
+         echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+            echo "<input type='hidden' name='cmd' value='_xclick'>";
+            echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
+            echo "<input type='hidden' name='lc' value='FI'>";
+            echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
+            echo "<input type='hidden' name='amount' value=" . $price2 . ">";
+            echo "<input type='hidden' name='currency_code' value='EUR'>";
+            echo "<input type='hidden' name='button_subtype' value='services'>";
+            echo "<input type='hidden' name='no_note' value='0'>";
+            echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
+            echo "<input type='hidden' name='no_shipping' value='2'>";            
+            echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
+            echo "<input type='hidden' name='tax_rate' value='24.000'>";
+            echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
+        
+            //Custonm field, send: "teamid | playerid"
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+
+            echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
+            echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
+         echo "</form>";
+
+    echo "</div>";
+
+    echo "<div id='button5' class='child-container'>";
+
+         echo"<p>$ " . convertCurrency($price2, 'EUR', 'USD') . " USD</p>";
+
+         echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+            echo "<input type='hidden' name='cmd' value='_xclick'>";
+            echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
+            echo "<input type='hidden' name='lc' value='FI'>";
+            echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
+            echo "<input type='hidden' name='amount' value=" . convertCurrency($price2, 'EUR', 'USD') . ">";
+            echo "<input type='hidden' name='currency_code' value='USD'>";
+            echo "<input type='hidden' name='button_subtype' value='services'>";
+            echo "<input type='hidden' name='no_note' value='0'>";
+            echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
+            echo "<input type='hidden' name='no_shipping' value='2'>";            
+            echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
+            echo "<input type='hidden' name='tax_rate' value='24.000'>";
+            echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";            
+        
+            //Custonm field, send: "teamid | playerid"
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+
+            echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
+            echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
+         echo "</form>";
+
+    echo "</div>";
+
+    echo "<div id='button6' class='child-container'>";
+
+         echo"<p>£ " . convertCurrency($price2, 'EUR', 'GBP') . " GBP</p>";
+
+         echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+            echo "<input type='hidden' name='cmd' value='_xclick'>";
+            echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
+            echo "<input type='hidden' name='lc' value='FI'>";
+            echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
+            echo "<input type='hidden' name='amount' value=" . convertCurrency($price2, 'EUR', 'GBP') . ">";
+            echo "<input type='hidden' name='currency_code' value='GBP'>";
+            echo "<input type='hidden' name='button_subtype' value='services'>";
+            echo "<input type='hidden' name='no_note' value='0'>";
+            echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
+            echo "<input type='hidden' name='no_shipping' value='2'>";            
+            echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
+            echo "<input type='hidden' name='tax_rate' value='24.000'>";
+            echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
+                    
+            //Custonm field, send: "teamid | playerid"
+            echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . "'>";
+
+            echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
+            echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
+         echo "</form>";
+
+
 
     echo "</div>";
 
