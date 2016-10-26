@@ -216,8 +216,6 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
 
-
-
     echo "</div>";
 
 //     echo "<p class='license_p'>Purchase license</p>";
