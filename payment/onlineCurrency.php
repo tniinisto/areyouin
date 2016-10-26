@@ -16,8 +16,8 @@ function convertCurrency($amount, $from, $to) {
 session_start();
 
 //Price in Euros
-$price = '7.00';
-$price2 = '35.00';
+$price = '1.00';
+$price2 = '2.00';
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
