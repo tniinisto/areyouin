@@ -16,8 +16,8 @@ function convertCurrency($amount, $from, $to) {
 session_start();
 
 //Price in Euros
-$price = '1.00';
-$price2 = '30.00';
+$price = '1';
+$price2 = '30';
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
@@ -170,7 +170,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='RYouIN half year subscription'>";
-            echo "<input type='hidden' name='amount' value=" . convertCurrency($price2, 'EUR', 'USD') . ">";
+            echo "<input type='hidden' name='amount' value='" . convertCurrency($price2, 'EUR', 'USD') . "'>";
             echo "<input type='hidden' name='currency_code' value='USD'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='0'>";
@@ -199,7 +199,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='RYouIN half year subscription'>";
-            echo "<input type='hidden' name='amount' value=" . convertCurrency($price2, 'EUR', 'GBP') . ">";
+            echo "<input type='hidden' name='amount' value='" . convertCurrency($price2, 'EUR', 'GBP') . "'>";
             echo "<input type='hidden' name='currency_code' value='GBP'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='0'>";
