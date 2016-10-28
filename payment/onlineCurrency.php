@@ -99,7 +99,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
         
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
@@ -128,7 +128,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";            
         
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
@@ -157,7 +157,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
                     
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
@@ -188,7 +188,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
         
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
@@ -217,7 +217,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";            
         
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
@@ -246,7 +246,7 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
                     
-            //Custonm field, send: "teamid | playerid"
+            //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";

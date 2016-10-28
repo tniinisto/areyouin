@@ -104,6 +104,20 @@
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        //Select current team registration info for team
+        $sql1 = "select * from registration WHERE Team_teamID = :teamID";
+        $stmt1 = $dbh->prepare($sql1);
+        $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+        $result1 = $stmt1->execute();   
+        $row1 = $stmt1->fetch();
+
+        $currentRenewed = new DateTime($row1['licenseRenewed']);
+        $currentValid = new DateTime($row1['licenseValid']);
+        $currentDate = new DateTime(date("Y-n-j H:i:s"));
+
+
+
+        //Update register table
         $licenseRenewed = date("Y-n-j H:i:s");
         $licenseValid = new DateTimeImmutable($licenseRenewed);        
         $licenseValid = $licenseValid->modify($licensedays);
