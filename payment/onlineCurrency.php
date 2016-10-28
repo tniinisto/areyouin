@@ -1,5 +1,8 @@
 <?php
 
+include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+
 function convertCurrency($amount, $from, $to) {
     $url  = "https://www.google.com/finance/converter?a=$amount&from=$from&to=$to";
     $data = file_get_contents($url);
@@ -8,16 +11,46 @@ function convertCurrency($amount, $from, $to) {
     //return 'Euros set:' . $amount . ' and result in ' . $to . ': ' .  round($converted, 2);
     return  round($converted, 2);
 }
-//Usage
-// echo convertCurrency(7, "EUR", "USD");
-// echo "<br>";
-// echo convertCurrency(7, "EUR", "GBP");
 
 session_start();
+
+$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 //Price in Euros
 $price = '5.00';
 $price2 = '25.00';
+
+//Get price from db
+    try {
+
+        $sql2 = "SELECT * from EuroPrices";        
+        $stmt2 = $dbh->prepare($sql2);       
+        $result2 = $stmt2->execute();   
+        
+        $row2;
+        while($row2 = $stmt2->fetch()) {
+        
+           switch ($row2['licensedays']) {
+
+            case "30":
+                $price = $row2['europrice'];
+                break;
+
+            case "180":
+                $price2 = $row2['europrice'];
+                break;
+
+            // default:
+            //     $price = $row2['europrice']
+             }
+        }
+    }
+    catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
