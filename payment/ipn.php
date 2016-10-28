@@ -106,7 +106,6 @@
         $licenseValid = $licenseValid->modify($licensedays);
         $licenseValid = $licenseValid->format('Y-m-d H:i:s');
 
-
         $sql8 = "UPDATE registration SET licenseRenewed = :licenseRenewed, licensevalid = :licensevalid WHERE team_teamID = :teamID";
         $stmt8 = $dbh->prepare($sql8);
         
