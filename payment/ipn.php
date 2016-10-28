@@ -87,6 +87,8 @@
         $teaminfo = explode("|", $_POST['custom']);
         $myteamid = $teaminfo[0];
         $myuserid = $teaminfo[1];
+        $licensedays = $teaminfo[2];
+        $licensedays = '+' . $licensedays . ' day'; //eg. +30 day
 
         $date = date('Y-m-d H:i:s');
         $date .= " UTC";
@@ -94,6 +96,26 @@
         //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (1, '" . $date . "', 1, '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $result = mysql_query($sql);
+
+        //PDO, add license days for the team, update registration table////////////////////////////////////
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $licenseRenewed = date("Y-n-j H:i:s");
+        $licenseValid = new DateTimeImmutable($licenseRenewed);        
+        $licenseValid = $licenseValid->modify($licensedays);
+        $licenseValid = $licenseValid->format('Y-m-d H:i:s');
+
+
+        $sql8 = "UPDATE registration SET licenseRenewed = :licenseRenewed, licensevalid = :licensevalid WHERE team_teamID = :teamID";
+        $stmt8 = $dbh->prepare($sql8);
+        
+        $stmt8->bindParam(':licenseRenewed', $licenseRenewed, PDO::PARAM_STR);
+        $stmt8->bindParam(':licenseValid', $licenseValid, PDO::PARAM_STR);
+        $stmt8->bindParam(':teamid', $myteamid, PDO::PARAM_INT);
+
+        $result8 = $stmt8->execute();   
+        //////////////////////////////////////////////////////////////////////////////////////////////
 
         // IPN message values depend upon the type of notification sent.
         // To loop through the &_POST array and print the NV pairs to the screen:
