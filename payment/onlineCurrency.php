@@ -32,25 +32,26 @@ $price2 = '25.00';
         $row2;
         while($row2 = $stmt2->fetch()) {
         
-           switch ($row2['licensedays']) {
+           switch ($row2['licenseDays']) {
 
             case "30":
-                $price = $row2['europrice'];
+                $price = $row2['euroPrice'];
                 break;
 
             case "180":
-                $price2 = $row2['europrice'];
+                $price2 = $row2['euroPrice'];
                 break;
 
             // default:
             //     $price = $row2['europrice']
-             }
+            }
         }
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
+$dbh = null;
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
