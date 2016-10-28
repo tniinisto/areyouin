@@ -36,10 +36,12 @@ $price2 = '25.00';
 
             case "30":
                 $price = $row2['euroPrice'];
+                $price = round($price, 2);
                 break;
 
             case "180":
                 $price2 = $row2['euroPrice'];
+                $price2 = round($price2, 2);
                 break;
 
             // default:
