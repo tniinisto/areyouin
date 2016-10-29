@@ -101,15 +101,15 @@
         //try {
 
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
-                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
+                VALUES (:teamid, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
     
         $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+        $stmt->bindParam(':teamid', $myteamid, PDO::PARAM_INT);
         $stmt->bindParam(':date', $date, PDO::PARAM_STR);
         $stmt->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
         $stmt->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
         $stmt->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
-        $stmt->bindParam(':paymentDate', $payment_date, PDO::PARAM_STR);
+        $stmt->bindParam(':paymentdate', $payment_date, PDO::PARAM_STR);
         $stmt->bindParam(':result', $res, PDO::PARAM_STR);
 
         $result = $stmt->execute();
