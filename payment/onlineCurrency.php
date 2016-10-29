@@ -79,18 +79,21 @@ $price2 = '25.00';
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
         $result3 = $stmt3->execute();           
-        $row3 = $stmt2->fetch();
+        $row3 = $stmt3->fetch();
 
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
+    $licenseValidDate = new DateTime($row3['licenseValid']);
+    $licenseValidDate = $licenseValidDate->format('Y-m-d');
+
     echo "<fieldset id='license_info'>";
         echo "<legend style='text-align: left;'><h2>License info</h2></legend>";
         echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
             echo "<h3 id='team_license' style='text-align: center;'>License valid to:</h3>";
-            echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $row3['licenseValid'] . "</h4>";
+            echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
         echo "</div>";
     echo "</fieldset>";        
 
