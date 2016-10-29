@@ -98,7 +98,6 @@
         $result = mysql_query($sql);
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
         //Add license days for the team, update registration table, implemented with PDO///////////////////////////////////////////////////////////////////
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -170,7 +169,9 @@
     //     $result = mysql_query($sql);
     // }
 
+    
     mysql_close($con);   
+    $dbh = null;
 
     header("HTTP/1.1 200 OK");
  

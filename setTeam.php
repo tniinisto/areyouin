@@ -66,4 +66,6 @@
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
   
+    $dbh = null;
+    
 ?>
