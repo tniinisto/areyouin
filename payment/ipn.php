@@ -166,8 +166,22 @@
         $date = date('Y-m-d H:i:s');
         $date .= " EET";
 
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        $result = mysql_query($sql);
+        //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+        //$result = mysql_query($sql);
+
+        $sql11 = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
+                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
+    
+        $stmt11 = $dbh->prepare($sql11);
+        $stmt11->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+        $stmt11->bindParam(':date', $date, PDO::PARAM_STR);
+        $stmt11->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
+        $stmt11->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
+        $stmt11->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
+        $stmt11->bindParam(':paymentDate', $payment_date, PDO::PARAM_STR);
+        $stmt11->bindParam(':result', $res, PDO::PARAM_STR);
+
+        $result = $stmt11->execute();
     } 
     
     // else { //Debugging IPN/////////////////////////////////////////////////////
