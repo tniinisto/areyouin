@@ -98,7 +98,8 @@
         //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         //$result = mysql_query($sql);
 
-        //try {
+
+    try {
 
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
                 VALUES (:teamid, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
@@ -150,7 +151,12 @@
         $stmt8->bindParam(':licenseValid', $licenseValid, PDO::PARAM_STR);
         $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
 
-        $result8 = $stmt8->execute();   
+        $result8 = $stmt8->execute();
+
+    }
+        catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }               
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // IPN message values depend upon the type of notification sent.
@@ -169,19 +175,27 @@
         //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         //$result = mysql_query($sql);
 
-        $sql11 = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
-                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentDate, :result)";
+        try {
     
-        $stmt11 = $dbh->prepare($sql11);
-        $stmt11->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
-        $stmt11->bindParam(':date', $date, PDO::PARAM_STR);
-        $stmt11->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
-        $stmt11->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
-        $stmt11->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
-        $stmt11->bindParam(':paymentDate', $payment_date, PDO::PARAM_STR);
-        $stmt11->bindParam(':result', $res, PDO::PARAM_STR);
+            $sql11 = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
+                    VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentDate, :result)";
+        
+            $stmt11 = $dbh->prepare($sql11);
+            $stmt11->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+            $stmt11->bindParam(':date', $date, PDO::PARAM_STR);
+            $stmt11->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
+            $stmt11->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
+            $stmt11->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
+            $stmt11->bindParam(':paymentDate', $payment_date, PDO::PARAM_STR);
+            $stmt11->bindParam(':result', $res, PDO::PARAM_STR);
 
-        $result = $stmt11->execute();
+            $result = $stmt11->execute();
+
+        }
+        catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }
+
     } 
     
     // else { //Debugging IPN/////////////////////////////////////////////////////
