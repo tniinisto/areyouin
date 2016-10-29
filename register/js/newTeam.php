@@ -258,8 +258,6 @@
             sendMail($_GET['mail'], $mail_user, $mail_key, $newuser_mail);  
         }  
 
-        $dbh = null;
-
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
@@ -277,6 +275,9 @@
         }
         return implode($pass); //turn the array into a string
     }
+
+    $dbh = null;
+
 ?>
 
 
