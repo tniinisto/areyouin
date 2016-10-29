@@ -1716,3 +1716,7 @@ License part styling
 #currency_select {
   padding-bottom: 10px;
 }
+
+#license_info {
+  margin-bottom: 20px;
+}
