@@ -3,15 +3,16 @@
 
     session_start();
 
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	  {
-	  die('Could not connect: ' . mysql_error());
-	  }
-	mysql_select_db("areyouin", $con)or die("cannot select DB");
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
+	//   {
+	//   die('Could not connect: ' . mysql_error());
+	//   }
+	// mysql_select_db("areyouin", $con)or die("cannot select DB");
 
-
-
+    //PDO///////////////////////////////////////////////////////////////////
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // STEP 1: read POST data
     // Reading POSTed data directly from $_POST causes serialization issues with array data in the POST.
@@ -94,13 +95,25 @@
         $date .= " UTC";
 
         //Add payment rowdata to db///////////////////////////////////////////////////////////////////////////
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        $result = mysql_query($sql);
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
+        //$result = mysql_query($sql);
 
-        //Add license days for the team, update registration table, implemented with PDO///////////////////////////////////////////////////////////////////
-        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //try {
+
+        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
+                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
+    
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+        $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+        $stmt->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
+        $stmt->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
+        $stmt->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
+        $stmt->bindParam(':paymentDate', $payment_date, PDO::PARAM_STR);
+        $stmt->bindParam(':result', $res, PDO::PARAM_STR);
+
+        $result = $stmt->execute();
+
 
         //Get current team registration info /////////////////////////////////////
         $sql1 = "select * from registration WHERE Team_teamID = :teamID";
