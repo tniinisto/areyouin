@@ -170,7 +170,7 @@
         //$result = mysql_query($sql);
 
         $sql11 = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
-                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
+                VALUES (:teamID, :date, :myuserid, :payment, :currency, :paymentDate, :result)";
     
         $stmt11 = $dbh->prepare($sql11);
         $stmt11->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
