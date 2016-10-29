@@ -87,42 +87,51 @@
         $teaminfo = explode("|", $_POST['custom']);
         $myteamid = $teaminfo[0];
         $myuserid = $teaminfo[1];
-        $licensedays = $teaminfo[2];
-        $licensedays = '+' . $licensedays . ' day'; //eg. +30 day
+        $licensedays = $teaminfo[2]; //How many days has been payed
+        $licensedays = '+' . $licensedays . ' day'; //eg. +30 day, format that can be used with datetime modify()
 
         $date = date('Y-m-d H:i:s');
         $date .= " UTC";
 
-
-        //Add payment data to db///////////////////////////////////////////////////////////////////////////
+        //Add payment rowdata to db///////////////////////////////////////////////////////////////////////////
         $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
         $result = mysql_query($sql);
         ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        //PDO, add license days for the team, update registration table////////////////////////////////////
+        //Add license days for the team, update registration table, implemented with PDO///////////////////////////////////////////////////////////////////
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        //Select current team registration info for team
+        //Get current team registration info /////////////////////////////////////
         $sql1 = "select * from registration WHERE Team_teamID = :teamID";
         $stmt1 = $dbh->prepare($sql1);
         $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
         $result1 = $stmt1->execute();   
         $row1 = $stmt1->fetch();
 
-        $currentRenewed = new DateTime($row1['licenseRenewed']);
-        $currentValid = new DateTime($row1['licenseValid']);
-        $currentDate = new DateTime(date("Y-n-j H:i:s"));
+        //$currentRenewed = new DateTime($row1['licenseRenewed']); //Last license update date
+        $currentValid = new DateTime($row1['licenseValid']); //Current license valid date
+        $currentDate = new DateTime(date("Y-n-j H:i:s")); //Now
 
+        //LOGIC for license
+        $licenseValid = ''; //New license valid until date
+        $licenseRenewed = date("Y-n-j H:i:s"); //TimeStamp to db, when license is updated
 
+        if($currentDate >= $currentValid) { //If current license has already expired, add days to now()
+
+            $licenseValid = $currentDate->modify($licensedays);
+            $licenseValid = $licenseValid->format('Y-m-d H:i:s');
+
+        }
+        else { //Current license still valid, add days to that
+
+            $licenseValid = $currentValid->modify($licensedays);
+            $licenseValid = $licenseValid->format('Y-m-d H:i:s');
+
+        }
 
         //Update register table
-        $licenseRenewed = date("Y-n-j H:i:s");
-        $licenseValid = new DateTimeImmutable($licenseRenewed);        
-        $licenseValid = $licenseValid->modify($licensedays);
-        $licenseValid = $licenseValid->format('Y-m-d H:i:s');
-
         $sql8 = "UPDATE registration SET licenseRenewed = :licenseRenewed, licenseValid = :licenseValid WHERE Team_teamID = :teamID";
         $stmt8 = $dbh->prepare($sql8);
         
@@ -131,7 +140,7 @@
         $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
 
         $result8 = $stmt8->execute();   
-        //////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // IPN message values depend upon the type of notification sent.
         // To loop through the &_POST array and print the NV pairs to the screen:
