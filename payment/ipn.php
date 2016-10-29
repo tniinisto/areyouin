@@ -3,13 +3,6 @@
 
     session_start();
 
-    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	// if (!$con)
-	//   {
-	//   die('Could not connect: ' . mysql_error());
-	//   }
-	// mysql_select_db("areyouin", $con)or die("cannot select DB");
-
     //PDO///////////////////////////////////////////////////////////////////
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -94,76 +87,66 @@
         $date = date('Y-m-d H:i:s');
         $date .= " UTC";
 
-        //Add payment rowdata to db///////////////////////////////////////////////////////////////////////////
-        //$sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "'," . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-        //$result = mysql_query($sql);
+        try { //Add payment into & update team registration info to db
 
-
-    try {
-
-        $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
-                VALUES (:teamid, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
-    
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':teamid', $myteamid, PDO::PARAM_INT);
-        $stmt->bindParam(':date', $date, PDO::PARAM_STR);
-        $stmt->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
-        $stmt->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
-        $stmt->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
-        $stmt->bindParam(':paymentdate', $payment_date, PDO::PARAM_STR);
-        $stmt->bindParam(':result', $res, PDO::PARAM_STR);
-
-        $result = $stmt->execute();
-
-
-        //Get current team registration info /////////////////////////////////////
-        $sql1 = "select * from registration WHERE Team_teamID = :teamID";
-        $stmt1 = $dbh->prepare($sql1);
-        $stmt1->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
-        $result1 = $stmt1->execute();   
-        $row1 = $stmt1->fetch();
-
-        $currentValid = new DateTime($row1['licenseValid']); //Current license valid date
-        $currentDate = new DateTime(date("Y-n-j H:i:s")); //Now
-
-        //LOGIC for license
-        $licenseValid = ''; //New license valid until date
-        $licenseRenewed = date("Y-n-j H:i:s"); //TimeStamp to db, when license is updated
-
-        if($currentDate >= $currentValid) { //If current license has already expired, add days to now()
-
-            $licenseValid = $currentDate->modify($licensedays);
-            $licenseValid = $licenseValid->format('Y-m-d H:i:s');
-
-        }
-        else { //Current license still valid, add days to that
-
-            $licenseValid = $currentValid->modify($licensedays);
-            $licenseValid = $licenseValid->format('Y-m-d H:i:s');
-
-        }
-
-        //Update register table
-        $sql8 = "UPDATE registration SET licenseRenewed = :licenseRenewed, licenseValid = :licenseValid WHERE Team_teamID = :teamID";
-        $stmt8 = $dbh->prepare($sql8);
+            $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) 
+                    VALUES (:teamid, :date, :myuserid, :payment, :currency, :paymentdate, :result)";
         
-        $stmt8->bindParam(':licenseRenewed', $licenseRenewed, PDO::PARAM_STR);
-        $stmt8->bindParam(':licenseValid', $licenseValid, PDO::PARAM_STR);
-        $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindParam(':teamid', $myteamid, PDO::PARAM_INT);
+            $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+            $stmt->bindParam(':myuserid', $myuserid, PDO::PARAM_INT);
+            $stmt->bindParam(':payment', $payment_amount, PDO::PARAM_STR);
+            $stmt->bindParam(':currency', $payment_currency, PDO::PARAM_STR);
+            $stmt->bindParam(':paymentdate', $payment_date, PDO::PARAM_STR);
+            $stmt->bindParam(':result', $res, PDO::PARAM_STR);
 
-        $result8 = $stmt8->execute();
+            $result = $stmt->execute();
 
-    }
+
+            //Get current team registration info /////////////////////////////////////
+            $sql1 = "select * from registration WHERE Team_teamID = :teamID";
+            $stmt1 = $dbh->prepare($sql1);
+            $stmt1->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+            $result1 = $stmt1->execute();   
+            $row1 = $stmt1->fetch();
+
+            $currentValid = new DateTime($row1['licenseValid']); //Current license valid date
+            $currentDate = new DateTime(date("Y-n-j H:i:s")); //Now
+
+            //LOGIC for license
+            $licenseValid = ''; //New license valid until date
+            $licenseRenewed = date("Y-n-j H:i:s"); //TimeStamp to db, when license is updated
+
+            if($currentDate >= $currentValid) { //If current license has already expired, add days to now()
+
+                $licenseValid = $currentDate->modify($licensedays);
+                $licenseValid = $licenseValid->format('Y-m-d H:i:s');
+
+            }
+            else { //Current license still valid, add days to that
+
+                $licenseValid = $currentValid->modify($licensedays);
+                $licenseValid = $licenseValid->format('Y-m-d H:i:s');
+
+            }
+
+            //Update register table with new license information
+            $sql8 = "UPDATE registration SET licenseRenewed = :licenseRenewed, licenseValid = :licenseValid WHERE Team_teamID = :teamID";
+            $stmt8 = $dbh->prepare($sql8);
+            
+            $stmt8->bindParam(':licenseRenewed', $licenseRenewed, PDO::PARAM_STR);
+            $stmt8->bindParam(':licenseValid', $licenseValid, PDO::PARAM_STR);
+            $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+
+            $result8 = $stmt8->execute();
+
+        }
         catch(PDOException $e) {
-	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-    }               
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        }               
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // IPN message values depend upon the type of notification sent.
-        // To loop through the &_POST array and print the NV pairs to the screen:
-        // foreach($_POST as $key => $value) {
-        //     echo $key . " = " . $value . "<br>";
-        // }
 
     } else if (strcmp ($res, "INVALID") == 0) {
         // IPN invalid, log for manual investigation
@@ -197,20 +180,7 @@
         }
 
     } 
-    
-    // else { //Debugging IPN/////////////////////////////////////////////////////
-    //     // IPN invalid, log for manual investigation
-    //     //echo "The response from IPN was: <b>" .$res ."</b>";
-
-    //     $date = date('Y-m-d H:i:s');
-    //     $date .= " EET";
-
-    //     $sql = "INSERT INTO payments (team_TeamID, time, payer, amount, payment_currency, payment_date, debug) VALUES (" . $myteamid . ", '" . $date . "', " . $myuserid . ", '" . $payment_amount . "', '" . $payment_currency . "', '" . $payment_date . "', '" . $res . "')";
-    //     $result = mysql_query($sql);
-    // }
-
-    
-    //mysql_close($con);   
+       
     $dbh = null;
 
     header("HTTP/1.1 200 OK");
