@@ -110,7 +110,7 @@
         $result1 = $stmt1->execute();   
         $row1 = $stmt1->fetch();
 
-        //$currentRenewed = new DateTime($row1['licenseRenewed']); //Last license update date
+        //NOT NEEDED, this is only the timestamp set on update $currentRenewed = new DateTime($row1['licenseRenewed']); //Last license update date
         $currentValid = new DateTime($row1['licenseValid']); //Current license valid date
         $currentDate = new DateTime(date("Y-n-j H:i:s")); //Now
 
