@@ -196,7 +196,7 @@
     // }
 
     
-    mysql_close($con);   
+    //mysql_close($con);   
     $dbh = null;
 
     header("HTTP/1.1 200 OK");
