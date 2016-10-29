@@ -74,20 +74,22 @@ $price2 = '25.00';
 
 //License info/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    $licenseValidDate = 'Not available';
     try {
         $sql3 = "SELECT * from registration where team_teamid = :teamid";        
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
         $result3 = $stmt3->execute();           
-        $row3 = $stmt3->fetch();
-
+        
+        if($row3 = $stmt3->fetch()) {
+            $licenseValidDate = new DateTime($row3['licenseValid']);
+            $licenseValidDate = $licenseValidDate->format('Y-m-d');
+        }
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
-    $licenseValidDate = new DateTime($row3['licenseValid']);
-    $licenseValidDate = $licenseValidDate->format('Y-m-d');
 
     echo "<fieldset id='license_info'>";
         echo "<legend style='text-align: left;'><h2>License info</h2></legend>";
