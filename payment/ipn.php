@@ -118,11 +118,10 @@
         //Get current team registration info /////////////////////////////////////
         $sql1 = "select * from registration WHERE Team_teamID = :teamID";
         $stmt1 = $dbh->prepare($sql1);
-        $stmt8->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
+        $stmt1->bindParam(':teamID', $myteamid, PDO::PARAM_INT);
         $result1 = $stmt1->execute();   
         $row1 = $stmt1->fetch();
 
-        //NOT NEEDED, this is only the timestamp set on update $currentRenewed = new DateTime($row1['licenseRenewed']); //Last license update date
         $currentValid = new DateTime($row1['licenseValid']); //Current license valid date
         $currentDate = new DateTime(date("Y-n-j H:i:s")); //Now
 
