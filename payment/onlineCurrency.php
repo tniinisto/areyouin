@@ -22,7 +22,7 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $price = '5.00';
 $price2 = '25.00';
 
-//Get price from db
+    //Get price from db
     try {
 
         $sql2 = "SELECT * from EuroPrices";        
@@ -53,7 +53,7 @@ $price2 = '25.00';
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
-$dbh = null;
+
 
 // echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>";
 // echo "<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en'>";
@@ -70,6 +70,30 @@ $dbh = null;
 // echo "<body>";
 
 //echo "<p>The team from session: " .  $_SESSION['myteamname'] . "</p>";
+
+
+//License info/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    try {
+        $sql3 = "SELECT * from registration where team_teamid = :teamid";        
+        $stmt3 = $dbh->prepare($sql3);
+        $stmt3->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
+        $result3 = $stmt3->execute();           
+        $row3 = $stmt2->fetch();
+
+    }
+    catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+
+    echo "<fieldset id='license_info'>";
+        echo "<legend style='text-align: left;'><h2>License info</h2></legend>";
+        echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
+            echo "<h3 id='team_license' style='text-align: center;'>License valid to:</h3>";
+            echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $row3['licenseValid'] . "</h4>";
+        echo "</div>";
+    echo "</fieldset>";        
+
 
 //Subscription buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 echo "<div id='parent-container1' class='parent-container'>";
@@ -516,6 +540,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
 echo "</div>";
 
+$dbh = null;
 
 // echo "</body>";
 // echo "</html>";
