@@ -19,9 +19,11 @@ echo "</head>";
 
 echo "<body>";
 
+echo "<article id='license_expried_article' class='clearfix'>";
+
     echo "<div id='license_content_id' class=''>";
         
-        //echo "<h2>License</h2>";
+        echo "<h2>License</h2>";
 
         ob_start(); // begin collecting output
         include 'payment/onlineCurrency.php';
@@ -29,6 +31,10 @@ echo "<body>";
         echo $result;
 
     echo "</div>";
+
+echo "</article>";    
+
+
 
 echo "</body>";
 echo "</html>";
