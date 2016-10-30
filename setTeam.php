@@ -49,8 +49,8 @@
         
         //UTC//
         $licenseValid = new DateTime($_SESSION['mylicense']);
-        $licenseValid = $licenseValid->format('Y-m-d');
-        $currentDate = new DateTime(date("Y-m-d")); //Now
+        $licenseValid = $licenseValid->format('Y-n-j');
+        $currentDate = new DateTime(date("Y-n-j")); //Now
 
         if($currentDate > $licenseValid)
             header('Location:licenseExpired.php');    
