@@ -51,9 +51,9 @@
         date_default_timezone_set("UTC");
 
         $licenseValid = new DateTime($row2['licenseValid']);
-        //$licenseValid = $licenseValid->format('Y-n-j');
+        $licenseValid = $licenseValid->format('Y-n-j');
         $currentDate = new DateTime('now');
-        //$currentDate = $currentDate->format('Y-n-j');
+        $currentDate = $currentDate->format('Y-n-j');
 
         if($currentDate > $licenseValid)
             header('Location:licenseExpired.php');    
