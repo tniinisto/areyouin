@@ -48,7 +48,9 @@
         //Check license status/////////////////////////////////
         
         //UTC//
-        $licenseValid = new DateTime($_SESSION['mylicense']);
+        date_default_timezone_set("UTC");
+        
+        $licenseValid = new DateTime($row2['licensevalid']);
         $licenseValid = $licenseValid->format('Y-n-j');
         $currentDate = new DateTime('now');
         $currentDate = $currentDate->format('Y-n-j');
