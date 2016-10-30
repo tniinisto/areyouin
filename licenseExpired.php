@@ -19,7 +19,7 @@ echo "</head>";
 
 echo "<body>";
 
-    echo "<div id='license_content_id' class='noshow'>";
+    echo "<div id='license_content_id' class=''>";
         
         //echo "<h2>License</h2>";
 
