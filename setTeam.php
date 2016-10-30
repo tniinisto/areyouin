@@ -45,8 +45,8 @@
         $_SESSION['mytimezone'] = $row2['timezone'];
         $_SESSION['myoffset'] = $row2['utcOffset'];        
 
-        //Check license///////////////////////////////////////////////
-        
+        //Check license status///////////////////////////////////////////////
+
 
         header('Location:login_success.php');
     }
