@@ -43,14 +43,14 @@
         $_SESSION['myRegistrar'] = $row2['registrar'];
         $_SESSION['mytimezone'] = $row2['timezone'];
         $_SESSION['myoffset'] = $row2['utcOffset'];
-        $_SESSION['mylicense'] = $row2['licensevalid'];
+        $_SESSION['mylicense'] = $row2['licenseValid'];
 
         //Check license status/////////////////////////////////
         
         //UTC//
         date_default_timezone_set("UTC");
 
-        $licenseValid = new DateTime($row2['licensevalid']);
+        $licenseValid = new DateTime($row2['licenseValid']);
         //$licenseValid = $licenseValid->format('Y-n-j');
         $currentDate = new DateTime('now');
         //$currentDate = $currentDate->format('Y-n-j');
