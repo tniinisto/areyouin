@@ -45,6 +45,9 @@
         $_SESSION['mytimezone'] = $row2['timezone'];
         $_SESSION['myoffset'] = $row2['utcOffset'];        
 
+        //Check license///////////////////////////////////////////////
+        
+
         header('Location:login_success.php');
     }
     catch(PDOException $e) {
