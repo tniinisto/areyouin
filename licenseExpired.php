@@ -23,7 +23,7 @@ echo "<article id='license_expried_article' class='clearfix'>";
 
     echo "<div id='license_content_id' class=''>";
         
-        echo "<h2>License</h2>";
+        echo "<h1 style='text-align: center;'>License expired</h1>";
 
         ob_start(); // begin collecting output
         include 'payment/onlineCurrency.php';
