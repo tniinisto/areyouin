@@ -4,7 +4,8 @@ echo "<html lang='en()'>";
 echo "<head>";
 echo "<meta charset='utf-8'>";
 
-echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+//echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+echo "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />";
 
 echo "<title>R'YouIN</title>";
 
@@ -19,7 +20,7 @@ echo "</head>";
 
 echo "<body>";
 
-echo "<article id='license_expried_article' class='clearfix'>";
+echo "<article id='license_expried_article' class='clearfix license_exp'>";
 
     echo "<div id='license_content_id' class=''>";
         
