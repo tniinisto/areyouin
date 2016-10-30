@@ -92,7 +92,7 @@ $price2 = '25.00';
 
 
     echo "<fieldset id='license_info'>";
-        echo "<legend style='text-align: left;'><h2>License info</h2></legend>";
+        echo "<legend style='text-align: left;'><h2>Current license info</h2></legend>";
         echo "<div style='background-color: #b9b9b9; margin: 5px; padding-top: 5px; padding-bottom: 15px;' >";
             echo "<h3 id='team_license' style='text-align: center;'>License valid to:</h3>";
             echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
