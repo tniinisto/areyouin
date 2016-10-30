@@ -688,4 +688,8 @@ User list, edit,...
         width: 87%;    
     }
 
+    .child-container {
+          padding: 10px;
+    }
+
 }
