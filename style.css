@@ -1686,6 +1686,7 @@ License part styling
   color: #fff;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 1.5em;
 }
 
@@ -1714,4 +1715,9 @@ License part styling
 
 #currency_select {
   padding-bottom: 10px;
+}
+
+#license_info {
+  margin-bottom: 20px;
+  margin-top: 10px;
 }

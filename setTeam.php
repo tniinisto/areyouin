@@ -24,21 +24,6 @@
 
     try {
 
-        //Check & set team admin status for user////////////////////////////////////////////////////////////////
-        // $sql1 = "SELECT teamAdmin FROM playerteam, team where Team_teamID = :teamid AND Players_playerID = :player";
-
-        // if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql1); }
-        
-        // $stmt1 = $dbh->prepare($sql1);
-        // $stmt1->bindParam(':player', $_SESSION['myplayerid'], PDO::PARAM_INT);
-        // $stmt1->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
-        // $stmt1->execute();
-        // $row1 = $stmt1->fetch();
-
-        // //Set chosen teams admin status  to session
-        // $_SESSION['myAdmin'] = $row1['teamAdmin'];
-
-
         //Set player & team specific session variables/////////////////////////////////////////////////////////////
         $sql2 = "SELECT teamAdmin, teamID, teamName, timezone, utcOffset, registrar, lastMsg
                 FROM playerteam m, team t
@@ -66,4 +51,6 @@
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
   
+    $dbh = null;
+    
 ?>
