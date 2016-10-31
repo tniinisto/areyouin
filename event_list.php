@@ -38,6 +38,28 @@
         $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
                
+        //Display notification for admins & registrar on the license payment, 7 days before///////////////////////////////////
+        if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
+
+            $licenseValid = new DateTime($_SESSION['mylicense']);            
+            $licenseValid = $licenseValid->modify('-3 day');
+
+            $currentDate = new DateTime('now');            
+
+            $interval = $currentDate->diff(new DateTime($_SESSION['mylicense']))->days + 1;
+
+            if($licenseValid < $currentDate) {
+                echo "<article id='event_article_licens_id' class='event_article clearfix'>";
+                    echo "<div>";
+
+                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $interval .  " days. You can purchase a new license through the Admin - License menu.</h3>";
+
+                    echo "</div>";
+                echo "</article>";
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
                        where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $team_offset . " HOUR) > now()
@@ -57,7 +79,7 @@
         $rows_total = mysql_query($sql_total);
         $total = mysql_fetch_array($rows_total);
         $totalrows = $total['total'];                        
-                
+
         //Get events with players
         $sql = 
         "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
@@ -320,9 +342,7 @@
 
                 echo "</div>";
             echo "</article>";
-
         }
-
 
         //More events info///////////////////////////////////////////////////////////////////        
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
