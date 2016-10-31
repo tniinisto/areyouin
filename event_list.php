@@ -322,14 +322,14 @@
             echo "</article>";
 
         //Display notification for admins & registrar on the license payment, 7 days before///////////////////////////////////
-
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $currentDate = new DateTime('now');
+            $currentDate = $currentDate->modify('-7 day');
             $currentDate = $currentDate->format('Y-n-j');
 
             $licenseValid = new DateTime($_SESSION['mylicense']);
-            $licenseValid = $licenseValid->modify('+7 day');
+            
             $licenseValid = $licenseValid->format('Y-n-j');
 
             if($licenseValid >= $currentDate) {
