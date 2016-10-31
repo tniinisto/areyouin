@@ -49,7 +49,7 @@
             //$currentDate = $currentDate->format('Y-n-j'); 
 
             $theDate = new DateTime('now');
-            $interval = $theDate->diff($licenseValid)->days;
+            $interval = $theDate->diff($licenseValid);
 
 
             if($licenseValid >= $currentDate) {
