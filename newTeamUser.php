@@ -86,6 +86,7 @@
                     <br>
 
                     <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Welcome as a new R'YouIN user!</font>
+                    <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>You have been invited to team: " . $_SESSION['myteamname'] . "</font>
                     
                     <br>
                     <br>
