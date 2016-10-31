@@ -326,10 +326,10 @@
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $currentDate = new DateTime('now');
-            $currentDate = $currentDate->modify('-7 day');
             $currentDate = $currentDate->format('Y-n-j');
 
             $licenseValid = $_SESSION['mylicense'];
+            $licenseValid = $licenseValid->modify('+7 day');
             $licenseValid = $licenseValid->format('Y-n-j');
 
             if($licenseValid >= $currentDate) {
