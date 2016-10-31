@@ -56,7 +56,7 @@
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
                     echo "<div>";
 
-                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $interval->format('%a') . " days. Purchase a new license from the Admin - License menu.</h3>";
+                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $interval . " days. Purchase a new license from the Admin - License menu.</h3>";
 
                     echo "</div>";
                 echo "</article>";
