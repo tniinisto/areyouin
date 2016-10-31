@@ -43,15 +43,10 @@
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
             $licenseValid = $licenseValid->modify('-5 day');
-            //$licenseValid = $licenseValid->format('Y-n-j');
 
             $currentDate = new DateTime('now');            
-            //$currentDate = $currentDate->format('Y-n-j'); 
 
-            // $theDate = new DateTime('now');
-            // $theDate = $theDate->format('Y-n-j');
-
-            $interval = $currentDate->diff(new DateTime($_SESSION['mylicense']))->days;
+            $interval = $currentDate->diff(new DateTime($_SESSION['mylicense']))->days + 1;
 
             if($licenseValid < $currentDate) {
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
