@@ -328,7 +328,7 @@
             $currentDate = new DateTime('now');
             $currentDate = $currentDate->format('Y-n-j');
 
-            $licenseValid = $_SESSION['mylicense'];
+            $licenseValid = new DateTime($_SESSION['mylicense']);
             $licenseValid = $licenseValid->modify('+7 day');
             $licenseValid = $licenseValid->format('Y-n-j');
 
