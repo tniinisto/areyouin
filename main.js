@@ -1647,11 +1647,13 @@ function getExistingUser(mail) {
             
             //firstname
             $("#p_dialog_player_new_firstname").removeClass("noshow");
-            document.getElementById("dialog_player_new_firstname").value = t[1];
+            document.getElementById("dialog_player_new_firstname").value = t[1];            
+            document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
 
             //lastname
             $("#p_dialog_player_new_lastname").removeClass("noshow");
             document.getElementById("dialog_player_new_lastname").value = t[2];
+            document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
 
             //show Add player button
             $("#player_new_add_button").removeClass("noshow");
@@ -1795,8 +1797,8 @@ function resetModalUserDialog() {
     document.getElementById("dialog_player_new_firstname").value = '';
     document.getElementById("dialog_player_new_lastname").value = '';
 
-    //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
-    //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
+    document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
+    document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
 
 }
 
