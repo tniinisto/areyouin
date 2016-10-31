@@ -42,7 +42,7 @@
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
-            $licenseValid = $licenseValid->modify('-5 day');
+            $licenseValid = $licenseValid->modify('-3 day');
 
             $currentDate = new DateTime('now');            
 
