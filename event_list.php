@@ -54,7 +54,7 @@
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
                     echo "<div>";
 
-                        echo "<h3 style=\"text-align: center;\">Your R'YouIN license is ending in " . $theDate->diff($licenseValid)->days . " days. Purchase a new license from the Admin's License page.</h3>";
+                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $theDate->diff($licenseValid)->days . " days. Purchase a new license from the Admin's License page.</h3>";
 
                     echo "</div>";
                 echo "</article>";
