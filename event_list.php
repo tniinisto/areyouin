@@ -42,11 +42,11 @@
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
-            $licenseValid = $licenseValid->format('Y-n-j');
+            //$licenseValid = $licenseValid->format('Y-n-j');
 
             $currentDate = new DateTime('now');
             $currentDate = $currentDate->modify('-7 day');
-            $currentDate = $currentDate->format('Y-n-j'); 
+            //$currentDate = $currentDate->format('Y-n-j'); 
 
             $theDate = new DateTime('now');
 
@@ -60,6 +60,7 @@
                 echo "</article>";
             }
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
