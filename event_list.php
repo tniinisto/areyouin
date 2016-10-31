@@ -42,10 +42,10 @@
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
+            $licenseValid = $licenseValid->modify('-7 day');
             $licenseValid = $licenseValid->format('Y-n-j');
 
-            $currentDate = new DateTime('now');
-            $currentDate = $currentDate->modify('-7 day');
+            $currentDate = new DateTime('now');            
             $currentDate = $currentDate->format('Y-n-j'); 
 
             // $theDate = new DateTime('now');
