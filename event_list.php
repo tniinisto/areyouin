@@ -48,16 +48,16 @@
             $currentDate = $currentDate->modify('-7 day');
             $currentDate = $currentDate->format('Y-n-j'); 
 
-            $theDate = new DateTime('now');
-            $theDate = $theDate->format('Y-n-j');
+            // $theDate = new DateTime('now');
+            // $theDate = $theDate->format('Y-n-j');
 
-            $interval = $theDate->diff($licenseValid)->days;
+            // $interval = $theDate->diff($licenseValid)->days;
 
             if($licenseValid >= $currentDate) {
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
                     echo "<div>";
 
-                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $interval . " days. Purchase a new license from the Admin - License menu.</h3>";
+                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in few days. Purchase a new license through the Admin - License menu.</h3>";
 
                     echo "</div>";
                 echo "</article>";
