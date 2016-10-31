@@ -175,7 +175,7 @@ HEADER
     margin-right:auto;*/      
 }
 
-#loginsite-logo {
+#loginsite-logo, #loginsite_logo_success {
 	color: #fff;
 	text-decoration: none;
     margin-left:auto;
@@ -202,7 +202,7 @@ HEADER
 }
 
 /* loginform */
-#loginform, #loginfailfs, #loginwrapper {
+#loginform, #loginfailfs, #loginwrapper, #succes_fieldset {
 	/*position: absolute;*/
 	/*left: 50px;
 	top: 100px;*/
@@ -298,12 +298,12 @@ select {
     padding: 10px;
 }
 
-#loginfailfs h1, #loginfailfs h2 {
+#loginfailfs h1, #loginfailfs h2, #succes_fieldset h1, #succes_fieldset h2 {
     color: white;
 }
 
 
-#loginfailfs a {
+#loginfailfs a, #succes_fieldset a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:28px; 
     color: #FFD800;
