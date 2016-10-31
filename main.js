@@ -1607,8 +1607,8 @@ function newValidateEmail(mail, teamid) {
                 else {
                     //User exists in another team, allow adding to current team
                     getExistingUser(mail);
-                    document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
-                    document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
+                    //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
+                    //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
                 }
 
             }
@@ -1647,11 +1647,13 @@ function getExistingUser(mail) {
             
             //firstname
             $("#p_dialog_player_new_firstname").removeClass("noshow");
-            document.getElementById("dialog_player_new_firstname").value = t[1];
+            document.getElementById("dialog_player_new_firstname").value = t[1];            
+            //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
 
             //lastname
             $("#p_dialog_player_new_lastname").removeClass("noshow");
             document.getElementById("dialog_player_new_lastname").value = t[2];
+            //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
 
             //show Add player button
             $("#player_new_add_button").removeClass("noshow");
@@ -1791,8 +1793,12 @@ function resetModalUserDialog() {
     $("#dialog_player_new_email").removeClass("noshow");       
 
     document.getElementById("dialog_player_new_email").value = '';
-    document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
-    document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
+    document.getElementById("dialog_player_new_name").value = '';
+    document.getElementById("dialog_player_new_firstname").value = '';
+    document.getElementById("dialog_player_new_lastname").value = '';
+
+    //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
+    //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
 
 }
 
