@@ -1791,6 +1791,10 @@ function resetModalUserDialog() {
     $("#dialog_player_new_email").removeClass("noshow");       
 
     document.getElementById("dialog_player_new_email").value = '';
+    document.getElementById("dialog_player_new_name").value = '';
+    document.getElementById("dialog_player_new_firstname").value = '';
+    document.getElementById("dialog_player_new_lastname").value = '';
+
     document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
     document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
 
