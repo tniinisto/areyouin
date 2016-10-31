@@ -49,12 +49,14 @@
             //$currentDate = $currentDate->format('Y-n-j'); 
 
             $theDate = new DateTime('now');
+            $interval = $theDate->diff($licenseValid)->days;
+
 
             if($licenseValid >= $currentDate) {
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
                     echo "<div>";
 
-                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $theDate->diff($licenseValid)->days . " days. Purchase a new license from the Admin's License page.</h3>";
+                        echo "<h3 style=\"text-align: center;\">R'YouIN license is ending in " . $interval->$interval->format("%a") . " days. Purchase a new license from the Admin - License menu.</h3>";
 
                     echo "</div>";
                 echo "</article>";
