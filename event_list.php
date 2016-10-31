@@ -321,6 +321,26 @@
                 echo "</div>";
             echo "</article>";
 
+        //Display notification for admins & registrar on the license payment, 7 days before///////////////////////////////////
+
+        if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
+
+            $currentDate = new DateTime('now');
+            $currentDate = $currentDate->modify('-7 day');
+            $currentDate = $currentDate->format('Y-n-j');
+
+            $licenseValid = $_SESSION['mylicense'];
+            $licenseValid = $licenseValid->format('Y-n-j');
+
+            if($licenseValid >= $currentDate) {
+                echo "<article id='event_article_licens_id' class='event_article clearfix'>";
+                    echo "<div>";
+
+                        echo "<h3 style=\"text-align: center;\">Your R'YouIN license is ending in few days. Purchase a new license from the Admin's License page.</h3>";
+
+                    echo "</div>";
+                echo "</article>";
+            }
         }
 
 
