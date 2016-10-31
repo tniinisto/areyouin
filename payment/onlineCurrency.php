@@ -90,12 +90,18 @@ $price2 = '25.00';
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
+    $currentDate = new DateTime('now');
+    $currentDate = $currentDate->format('Y-m-d');
 
     echo "<fieldset id='license_info'>";
-        echo "<legend style='text-align: left;'><h2>License info</h2></legend>";
+        echo "<legend style='text-align: left;'><h2>Current license info</h2></legend>";
         echo "<div style='background-color: #b9b9b9; margin: 5px; padding-top: 5px; padding-bottom: 15px;' >";
             echo "<h3 id='team_license' style='text-align: center;'>License valid to:</h3>";
-            echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
+            if($currentDate > $licenseValidDate)
+                echo "<h4 id='team_license_value' style='color: darkred; text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
+            else
+                echo "<h4 id='team_license_value' style='text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
+
         echo "</div>";
     echo "</fieldset>";        
 

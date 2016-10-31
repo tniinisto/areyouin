@@ -1721,3 +1721,8 @@ License part styling
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
+.license_exp {
+    margin: 20px 20px 20px 20px;
+    width: 94%;    
+}

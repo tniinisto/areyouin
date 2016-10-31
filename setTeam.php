@@ -25,10 +25,9 @@
     try {
 
         //Set player & team specific session variables/////////////////////////////////////////////////////////////
-        $sql2 = "SELECT teamAdmin, teamID, teamName, timezone, utcOffset, registrar, lastMsg
-                FROM playerteam m, team t
-                WHERE m.Team_teamID = t.teamid AND teamID = :teamid AND Players_playerID = :player;";
-
+        $sql2 = "SELECT teamAdmin, teamID, teamName, timezone, utcOffset, registrar, lastMsg, licenseValid
+                FROM playerteam m, team t, registration r
+                WHERE m.Team_teamID = t.teamid AND teamID = :teamid AND m.Players_playerID = :player AND r.team_teamid = t.teamid;";
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql2); }
         
@@ -43,9 +42,24 @@
         $_SESSION['myteamname'] = $row2['teamName'];
         $_SESSION['myRegistrar'] = $row2['registrar'];
         $_SESSION['mytimezone'] = $row2['timezone'];
-        $_SESSION['myoffset'] = $row2['utcOffset'];        
+        $_SESSION['myoffset'] = $row2['utcOffset'];
+        $_SESSION['mylicense'] = $row2['licenseValid'];
 
-        header('Location:login_success.php');
+        //Check license status/////////////////////////////////
+        
+        //UTC//
+        date_default_timezone_set("UTC");
+
+        $licenseValid = new DateTime($row2['licenseValid']);
+        $licenseValid = $licenseValid->format('Y-n-j');
+        $currentDate = new DateTime('now');
+        $currentDate = $currentDate->format('Y-n-j');
+
+        if($currentDate > $licenseValid)
+            header('Location:licenseExpired.php');    
+        else
+            header('Location:login_success.php');        
+
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 

@@ -72,6 +72,12 @@ screens smaller or equal to 980
         width: 80px;
         overflow: hidden;
     }*/
+
+    .license_exp {
+        margin: 20px 20px 20px 20px;
+        width: 87%;    
+    }
+
 }
 
     .chatrow:nth-of-type(odd) {
@@ -83,7 +89,6 @@ screens smaller or equal to 980
         /*background-color:#474747;*/
         background: linear-gradient(-90deg, #121111, #474747);
     }
-
 
 /************************************************************************************
 screens smaller or equal to 750
@@ -310,6 +315,11 @@ screens smaller or equal to 750
     .modalDialog {
         top: -135px;
     }
+
+    .license_exp {
+        margin: 20px 20px 20px 20px;
+        width: 87%;    
+    }    
 
 }
 
@@ -672,4 +682,14 @@ User list, edit,...
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    .license_exp {
+        margin: 20px 20px 20px 20px;
+        width: 87%;    
+    }
+
+    .child-container {
+          padding: 10px;
+    }
+
 }
