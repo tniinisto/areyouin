@@ -42,15 +42,16 @@
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
-            //$licenseValid = $licenseValid->format('Y-n-j');
+            $licenseValid = $licenseValid->format('Y-n-j');
 
             $currentDate = new DateTime('now');
             $currentDate = $currentDate->modify('-7 day');
-            //$currentDate = $currentDate->format('Y-n-j'); 
+            $currentDate = $currentDate->format('Y-n-j'); 
 
             $theDate = new DateTime('now');
-            $interval = $theDate->diff($licenseValid);
+            $theDate = $theDate->format('Y-n-j');
 
+            $interval = $theDate->diff($licenseValid)->days;
 
             if($licenseValid >= $currentDate) {
                 echo "<article id='event_article_licens_id' class='event_article clearfix'>";
