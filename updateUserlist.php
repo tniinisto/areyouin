@@ -41,7 +41,7 @@
 
                     //Add new user
                     if($row_count < $row[maxPlayers]) {
-                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;'>Add new user</a>";
+                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;' onclick='resetModalUserDialog()'>Add new user</a>";                    
                     }
                     
                     echo "<br>";
