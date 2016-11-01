@@ -1607,8 +1607,8 @@ function newValidateEmail(mail, teamid) {
                 else {
                     //User exists in another team, allow adding to current team
                     getExistingUser(mail);
-                    //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", true);
-                    //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", true);
+                    document.getElementById("dialog_player_new_firstname").disabled = true;
+                    document.getElementById("dialog_player_new_lastname").disabled = true;;
                 }
 
             }
@@ -1797,8 +1797,8 @@ function resetModalUserDialog() {
     document.getElementById("dialog_player_new_firstname").value = '';
     document.getElementById("dialog_player_new_lastname").value = '';
 
-    //document.getElementById("dialog_player_new_firstname").setAttribute("disabled", false);
-    //document.getElementById("dialog_player_new_lastname").setAttribute("disabled", false);
+    document.getElementById("dialog_player_new_firstname").disabled = false;
+    document.getElementById("dialog_player_new_lastname").disabled = false;; 
 
 }
 

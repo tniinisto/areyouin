@@ -41,7 +41,7 @@
 
                     //Add new user
                     if($row_count < $row[maxPlayers]) {
-                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;'>Add new user</a>";
+                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;' onclick='resetModalUserDialog()'>Add new user</a>";                    
                     }
                     
                     echo "<br>";
@@ -54,7 +54,7 @@
 		                            //echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
                                     echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
-                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player'>";
+                                    echo "<form autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
 
                                         //echo "<p style='margin: 5px;'>";
                                         //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
