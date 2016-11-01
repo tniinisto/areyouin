@@ -483,7 +483,7 @@
 
 		                            echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
-                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player'>";
+                                    echo "<form autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
 
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";

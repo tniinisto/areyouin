@@ -54,7 +54,7 @@
 		                            //echo "<a id='closer' href='#close' title='Close' class='close'>X</a>";
                                     echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
-                                    echo "<form id='player_new' name='player_new' method='get' target='frame_player'>";
+                                    echo "<form autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
 
                                         //echo "<p style='margin: 5px;'>";
                                         //echo "<label style='display: block; text-align: center; weight: bold; width: 110%; font-size: 125%;'>Edit your information</label>";
