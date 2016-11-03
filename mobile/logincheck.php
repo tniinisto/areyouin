@@ -46,9 +46,9 @@
     $mymd5 = md5($mypassword);
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
-    FROM areyouin.players p, playerteam m, team t
-    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    FROM areyouin.players p, playerteam m, team t, registration r
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
 
 	$result=mysql_query($sql);
@@ -78,9 +78,13 @@
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
+        $_SESSION['myteamname'] = $row['teamName'];
         $_SESSION['myAdmin'] = $row['teamAdmin'];
+        $_SESSION['myRegistrar'] = $row['registrar'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
+        $_SESSION['mylicense'] = $row['licensevalid'];
+
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
@@ -131,7 +135,7 @@
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
-                                            echo "<option value=\"" . $row['teamID'] . "\">" . $row['teamName'] . "</option>";                               
+                                            echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
                                 echo "<br />";
@@ -184,7 +188,19 @@
             
         } 
         else {
-            header('Location:login_success.php');
+            
+            //Check license status/////////////////////////////////
+            
+            //UTC//
+            $licenseValid = new DateTime($_SESSION['mylicense']);
+            $licenseValid = $licenseValid->format('Y-n-j');
+            $currentDate = new DateTime('now');
+            $currentDate = $currentDate->format('Y-n-j');
+
+            if($currentDate > $licenseValid)
+                header('Location:../licenseExpired.php');    
+            else
+                header('Location:login_success.php');
         }
             
         mysql_close($con);
