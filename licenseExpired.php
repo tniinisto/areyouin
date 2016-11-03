@@ -28,8 +28,10 @@ echo "<article id='license_expried_article' class='clearfix license_exp'>";
 
         echo "<p style='text-align: center; font-size: initial; font-weight: bold; margin-bottom: 40px;'>Your R'YouIN usage license has expired. You can purhcase a new license and continue usage immediately after the payment.</p>";
         
-        echo "<div style='display: inline-block; text-align: center;'>";
-            echo "<a style='color: #474747; font-size: large; font-weight: bold;' href='default.html'>Back to login</a>";
+        echo "<div id='wrapper_login' style='text-align: center'>";  
+            echo "<div style='display: inline-block; text-align: center; text-decoration: underline;'>";
+                echo "<a style='color: #0167cd; font-size: large; font-weight: bold;' href='default.html'>Back to login</a>";
+            echo "</div>";
         echo "</div>";
 
         ob_start(); // begin collecting output
