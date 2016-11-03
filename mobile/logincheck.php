@@ -198,7 +198,7 @@
             $currentDate = $currentDate->format('Y-n-j');
 
             if($currentDate > $licenseValid)
-                header('Location:licenseExpired.php');    
+                header('Location:../licenseExpired.php');    
             else
                 header('Location:login_success.php');
         }
