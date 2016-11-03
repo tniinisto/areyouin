@@ -27,6 +27,8 @@ echo "<article id='license_expried_article' class='clearfix license_exp'>";
         echo "<h1 style='text-align: center;'>License expired</h1>";
 
         echo "<p style='text-align: center; font-size: initial; font-weight: bold; margin-bottom: 40px;'>Your R'YouIN usage license has expired. You can purhcase a new license and continue usage immediately after the payment.</p>";
+        
+        echo "<a href='default.html'>Back to login</a>";
 
         ob_start(); // begin collecting output
         include 'payment/onlineCurrency.php';
