@@ -247,7 +247,7 @@
         //Background for buttons on form
         echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";
 
-            echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn();'></input>"; 
+            echo "<input class='myButton' type='submit' value='Update event' id='submitgame2' onClick='eventFetchOn(); updateLastEventTime();'></input>"; 
 
             echo "<br>";
 
@@ -262,7 +262,7 @@
             //Delete event
             echo "<br>";
             echo "<form id='event_delete_form' method='post' action='delete_event_db.php' style='width: 100%;'>";
-                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn();'></input>";
+                echo "<input class='myButton' style='color: red;' type='submit' value='Delete event' id='deletegame' onClick='eventFetchOn(); updateLastEventTime();'></input>";
                 echo "<input id='delete_eventid' name='delete_eventid' type='number' value='" . $eventid .  "' style='display:none;'></label>";
             echo "</form>";
 
