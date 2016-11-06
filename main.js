@@ -137,7 +137,7 @@ function getPlayersInsert() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "players_insert.php", false);
+	xmlhttp.open("GET", "players_insert.php", true);
 	xmlhttp.send();
 }
 
