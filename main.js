@@ -1768,7 +1768,6 @@ function updateInsertPlayers() {
 }
 
 function showInsertPlayers() {
-    getPlayersInsert();
     $("#insertplayers").removeClass("noshow");
 }
 
