@@ -126,6 +126,26 @@ function getPlayersInsert() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("admin_content_id").innerHTML = xmlhttp.responseText;
 
+        $("#link_admingame").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_admingame").addClass("current2");
+        });
+
+        $("#link_adminsettings").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminsettings").addClass("current2");
+        });
+
+        $("#link_adminmembers").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_adminmembers").addClass("current2");
+        });
+
+        $("#link_license").click(function (event) {
+            $("#admin-nav").children().removeClass("current2");
+            $("#link_license").addClass("current2");
+        });
+        
             //Userlist scroll init
 	        //scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
 	        //setTimeout(function () {
