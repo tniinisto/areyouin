@@ -1,0 +1,614 @@
+<?php
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+        session_start();
+        
+        //$teamid=1;
+        $teamid=$_SESSION['myteamid'];
+        $ad=$_SESSION['myAdmin'];
+        $registrar=$_SESSION['myRegistrar'];
+
+        //include 'ChromePhp.php';        
+        //ChromePhp::log("players_insert, admin:", $ad);
+
+        if(($ad==1) || ($registrar==1) ) //Execute only for admin and registrar status
+        {
+            
+            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+
+            if (!$con)
+              {
+              die('Could not connect: ' . mysql_error());
+              }
+
+            mysql_select_db("areyouin", $con);
+
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                //Settings page///////////////////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+                $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
+                $res_team = mysql_query($sql_team);
+                $row_team = mysql_fetch_array($res_team);
+
+
+                echo "<div id=\"team_content_id\" class=\"noshow\">";
+                    
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    echo "<br>";
+                    echo "<fieldset id='timezone_set'>";
+                        echo "<legend style='text-align: left;'><h2>Timezone</h2></legend>";
+                        
+                        echo "<div style='background-color: #b9b9b9; margin: 5px;'>";
+                            echo "<h3 id='team_timezone' style='text-align: center;'>Current timezone:</h3>";
+                            echo "<h4 id='team_timezone_value' style='text-align: center; margin-top: 0px;'>" . $row_team['timezone'] . "</h4>";
+                        echo "</div>";
+
+                        //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
+                        echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
+                            $timezone_identifiers = DateTimeZone::listIdentifiers();
+                            echo "<label><h3 style='text-align: center;'>Set new timezone:</h3></label>";                    
+                            //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+                            
+                            echo "<div align='center'>";
+                            echo "<select id='timezone_select' name='timezone_select' form='timezones' style='text-align: center;'>";
+                                for ($i=0; $i < sizeof($timezone_identifiers); $i++) {
+	                                echo "<option value=\"" . $timezone_identifiers[$i] . "\">" . $timezone_identifiers[$i] . "</option>";
+                                }
+                            echo "</select>";
+                            echo "</div>";
+
+                            //echo "<input type='text' name='timezone_offset' id='timezone_offset' value=''></input>";
+                            echo "<input type='submit' class='myButton' value='Save' id='submit_timezone'></input>";                                         
+                        echo "</form>";
+                        echo "<br>";
+                        echo "<p><span id='txtZone'></span></p>";                
+                    echo "</fieldset>";
+                    
+                    //Timezone section///////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+
+                    echo "<br>";
+
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+                    //Locations section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+
+                    echo "<fieldset id='location_set' style='padding:4px;'>";
+                        echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
+
+                         //Locations list sql
+                        $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "'";        
+                        $result_location = mysql_query($sql_location);
+
+                        echo "<div id='locations_list' class='scrollit2'>";
+
+                            //echo "<h2>Test location header...</h3>";
+
+                            echo "<table border='0' class='usertable' id='locations_table'>";
+                        
+                                //mysql_data_seek($result, 0);
+                                $index_locations = 1000;
+
+                                while($row_locations = mysql_fetch_array($result_location))
+                                {
+
+                                                                
+                                        echo "<tr>";
+
+                                          echo "<td>";
+                                            echo "<div class='edit-listinfo'>";                                                                                                
+
+                                                //locationID
+                                                echo "<div style='display: none;'>";
+                                                    echo "" . $row_locations[locationID] . "";
+                                                echo "</div>";
+
+                                                //Location name
+                                                echo "<div style='font-weight: bold; overflow: hidden; text-overflow: ellipsis;'>";
+                                                    echo "" . $row_locations[name] . "";
+                                                echo "</div>";
+
+                                                //Position
+                                                echo "" . $row_locations[position] . "";
+
+                                                //Call javacript to add markers on Map
+                                                echo "<script> placeMarker(". $row_locations[position] . "); </script>";
+
+                                            echo "</div>";
+                                          echo "</td>";
+
+                                          $position = $row_locations[position];
+                                          list($lat, $lon) = split('[,]', $position);
+
+                                          echo "<td id='showlocation'". $index_locations .">
+                                            <a href='#'><img id='showLocation' style='padding-right: 15px;' width='40' height='40' src='images/maps_icon.jpg'
+                                            onclick='placeMarker(". $lat . "," . $lon . ")'></img></a>
+                                          </td>";
+
+                                          //echo "<input type='button' class='' value='Show on map' onclick='placeMarker(". $row_locations[position] . ")'/>";
+
+                                          echo "<td id='editrow'". $index_locations .">
+                                            <a href='#openModalEdit". $index_locations . "'><img id='editLocation' width='40' height='40' src='images/edit.png'></img></a>
+                                          </td>";
+                                        
+                                          //echo "<td style='display: none;'> teamID: " . $row_locations[teamID] . "</td>";
+                                        
+                                        echo "</tr>";
+               
+                                        //Modal dialog for location information editing///////////////
+                                        echo "<div id='openModalEdit". $index_locations . "' class='modalDialog'>";
+	                                        echo "<div>";
+		                                        echo "<a id='closer_edit". $index_locations . "' href='#' title='Close' class='close'>X</a>";
+
+
+                                                echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                                    echo "<p style='margin: 10px;'>";
+                                                    echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit location</label>";
+                                                    echo "</p>";
+
+                                                    //LocationID
+                                                    echo "<p>";
+                                                    echo "<input type='text' id='dialog_location_id". $index_locations . "' name='location_id". $index_locations . "' value='". $row_locations[locationID] . "'
+                                                           style='display:none;'></input>";
+                                                    echo "</p>";
+
+                                                    echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    
+                                                        echo "<label for='location_name". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
+                                                        echo "<input type='text' id='dialog_location_name". $index_locations . "' name='location_name". $index_locations . "' value='". $row_locations[name] . "'
+                                                               style='margin-bottom: 15px; width: 170px;'></input>";
+                                                    
+                                                        echo "<label for='location_pos". $index_locations . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
+                                                        echo "<input type='text' id='dialog_location_pos". $index_locations . "' name='location_pos". $index_locations . "' value='". $row_locations[position] . "'
+                                                               style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    
+                                                    echo "</p>";
+
+                                                    //Show weather for location
+                                                    echo "<h5 id='dialog_location_weather". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
+                                                    
+                                                    if($row_locations[showWeather] == 0) {
+
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox'
+                                                               id='dialog_weather_switch". $index_locations . "'></input>";
+
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";
+
+                                                    } else {
+
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+                                                        echo "<input type='checkbox' name='weatherswitch". $index_locations . "' class='onoffswitch-checkbox'
+                                                               id='dialog_weather_switch". $index_locations . "' checked></input>";
+
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch". $index_locations . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";                                                        
+
+                                                    }
+
+                                                    echo "<p id='weather_text". $index_locations . "' class='dialog_player_notify' style='color: black;'>Weather is shown in the events section.</p>";
+
+                                                    //Buttons                                               
+                                                    echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                                        //Save   
+                                                        echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateLocation(" . $index_locations . ")'></input>";
+                                                                                                                                                                    
+                                                        //Delete
+                                                        echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='deleteLocation(" . $row_locations[locationID] . ")'></input>";
+
+                                                    echo "</div>";
+
+		                                        echo "</form>";
+                                            echo "</div>";
+                                        echo "</div>";
+                                        //Modal dialog for location information editing//////////////////               
+                            
+                                        $index_locations++;
+                                }
+
+                            echo "</table>";
+
+                        echo "</div>"; //Scrollit, end of locations list//////////////////////////////
+                        
+                        echo "<br>";
+
+                            //Modal dialog for new location information///////////////
+                            echo "<div id='openModalEditNewLocation' class='modalDialog'>";
+	                            echo "<div>";
+		                            echo "<a id='closer_newLocation' href='#' title='Close' class='close'>X</a>";
+
+                                    echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
+
+                                        echo "<p style='margin: 10px;'>";
+                                        echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Set new location</label>";
+                                        echo "</p>";
+
+                                        echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                    
+                                            echo "<label for='location_name_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                   
+                                            echo "<input type='text' id='dialog_location_name_new' name='location_name_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px; required'></input>";
+                                                    
+                                            echo "<label for='location_pos_new' style='display: inline-block; width: 60px; text-align: right; color: black;'>Position:&nbsp</label>";   
+                                            echo "<input type='text' id='dialog_location_pos_new' name='location_pos_new' value=''
+                                                    style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                    
+                                        echo "</p>";
+
+                                        //Show weather for location
+                                        echo "<h5 id='dialog_location_weather_new' class='dialog_player_notify' style='color: black;'>Weather: </h5>";
+                                                    
+                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                    echo "<input type='checkbox' name='weatherswitch' class=\"onoffswitch-checkbox\" id='dialog_weather_switch_new'>";					            
+                                            echo "<label class=\"onoffswitch-label\" for='dialog_weather_switch_new' onClick=''>";
+                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                    echo "</label>";
+
+                                        echo "</div>";
+
+                                        echo "<p id='weather_text_new' class='dialog_player_notify'>Weather is shown in the events section.</p>";
+
+                                        //Buttons                                               
+                                        echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                            echo "<input type='button' class='myButton' style='float: center;' value='Save'
+                                            onclick='addNewLocation(location_pos_new.value, location_name_new.value, " . $teamid . ", \"dialog_weather_switch_new\")'/>";
+
+                                        echo "</div>";
+
+		                            echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                        //Modal dialog for new location information///////////////
+                        
+                        echo "<div id='Location_map' style='height: 400px;'></div>";
+
+                        //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
+                        //    $timezone_identifiers = DateTimeZone::listIdentifiers();
+                        //    echo "<label><h3 style='text-align: center;'>Location form</h3></label>";                    
+                        //    //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
+
+                        //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
+                        //echo "</form>";
+                   echo "</fieldset>";
+
+                    //Location section//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    /////////////////////////////////////////////////////////////////////////////////////////////
+
+                echo "</div>";
+                //Settings page///////////////////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+                //Members/Users page///////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+                echo "<div id='member_content_id' class='noshow'>";
+                    
+                    //echo "<h2>User managing stuff new, delete ok, edit ok...</h2>";
+
+                    mysql_data_seek($result, 0);
+                    $row = mysql_fetch_array($result);
+                    echo "<h2>Users: " . $row_count . " / " . $row[maxPlayers] . "</h2>";
+
+                    echo "<br>";
+
+                    //Add new user
+                    if($row_count < $row[maxPlayers]) {
+                        echo "<a href='#openModal_new' id='addUserButton' class='myButton' style='float: left;' onclick='resetModalUserDialog()'>Add new user</a>";
+                    }
+
+                    echo "<br>";
+                    echo "<br>";
+
+                            //Modal dialog for new user/////////////////////////////////////////////////////////
+                            echo "<div id='openModal_new' class='modalDialog'>";
+	                            echo "<div>";
+
+		                            echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
+
+                                    echo "<form autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
+
+                                        //User already in the team, give notification
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
+                                        echo "<br>";
+                                        echo "<label style='display: block; text-align: center; margin-left:-10px; weight: bold; width: 110%; font-size: 125%; color: black;'>User is already a team member!</label>";
+                                        echo "</p>";
+
+                                        //PlayerID, hidden
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_new_dialog_playerid'>";
+                                        echo "<input type='text' id='new_dialog_playerid' name='player_playerid' value='' style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
+                                        //Mail & UserID
+                                        echo "<div id='player_new_mail' style='text-align: center; margin: auto; display: inline-block; width: 100%; padding-top: 5px;'>";
+                                            echo "<label id='new_dialog_mail_text' class='mailclass' style='color: black;'>Enter user's email</label>";
+                                            echo "<br>";
+                                            echo "<p style='margin: 0px'>";
+                                            echo "<input type='text' id='dialog_player_new_email' name='player_new_email' value='" . $player->email ."' required
+                                                   style='margin-bottom: 15px; width: 210px;' onblur='validateEmail(this.value);'></input>";                                            
+                                        echo "</div>";
+
+                                        //Header
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_header'>";
+                                        echo "<label style='display: block; text-align: center; font-weight: bold; width: 100%; font-size: 125%; color: black;'>Enter user's info</label>";
+                                        echo "</p>";
+                                        echo "<br>";
+
+                                        //Nickname
+                                        echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_dialog_player_new_name'>";
+                                        echo "<label for='player_new_name' style='display: inline-block; width: 60px; text-align: right; color:black; color: black;'>Nickname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_name' name='player_new_name' value='" . $player->name ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+                                
+                                        //Fullname
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_firstname'>";
+                                        echo "<label for='player_new_firstname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Firstname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_firstname' name='player_new_firstname' value='" . $player->firstname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
+                                        //Lastname
+                                        echo "<p style='margin: 0px; padding-top: 0px; margin-top: -5px;' class='noshow' id='p_dialog_player_new_lastname'>";
+                                        echo "<label for='player_new_lastname' style='display: inline-block; width: 60px; text-align: right; color:black;'>Lastname:&nbsp</label>";                    
+                                        echo "<input type='text' id='dialog_player_new_lastname' name='player_new_lastname' value='" . $player->lastname ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        echo "</p>";
+
+                                        //Phone
+                                        //echo "<p style='margin: 0px; padding-top: 0px; padding-bottom: 2px; margin-top: -5px;' class='noshow'>";
+                                        //echo "<label for='player_new_phone' style='display: inline-block; width: 60px; text-align: right; color:black;'>Phone:&nbsp</label>";
+                                        //echo "<input type='text' id='dialog_player_new_phone' name='player_new_phone' value='" . $player->phone ."' required style='margin-bottom: 15px; width: 180px;'></input>";
+                                        //echo "</p>";
+
+
+                                  //      echo "<h5 id='dialog_player_new_notify' class='noshow' style='color:black; font-weight: normal;'>Mail notifications:</h5>";
+                                  //          if( $player->notify == '1') {
+                                  //              echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
+						                            //echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch' checked>";					            
+                                  //                  echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
+                                  //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                            //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                            //echo "</label>";
+                                  //              echo "</div>";
+                                  //          } else {
+                                  //              echo "<div class='onoffswitch notifyswitch noshow' style='display: inline-block;'>";
+						                            //echo "<input type='checkbox' name='notifyswitch' class='onoffswitch-checkbox noshow' id='dialog_player_new_notify_switch'>";
+                                  //                  echo "<label class='onoffswitch-label noshow' for='dialog_player_new_notify_switch' onClick=''>";
+                                  //                      echo "<div class=\"notifyswitch-inner\"></div>";
+						                            //    echo "<div class=\"onoffswitch-switch\"></div>";
+						                            //echo "</label>";
+                                  //              echo "</div>";                            
+                                  //          }
+                                  //      echo "</h5>";
+
+                                        echo "<div class='buttonHolder' style='padding-top: 2px;'>";
+
+                                            //Insert the player for the team, send mail for the new user
+                                            echo "<input type='button' value='Save' name='player_new_savebutton' id='player_new_savebutton' class='myButton noshow'
+                                                   onclick='addTeamUser(" . $teamid . ", player_new_email.value, player_new_name.value, player_new_firstname.value, player_new_lastname.value)'>";
+
+                                            //Validate the email entered, does email already exist, is user already in the team.
+                                            //If already in another team, show name and ask if this should be insterted for the team
+                                            echo "<input type='button' value='Validate' name='player_new_validatebutton' id='player_new_validatebutton' class='myButton' style='text-align: center;'    
+                                                   onclick='newValidateEmail(player_new_email.value)'>";
+
+                                            //Add existing RYouIN user
+                                            echo "<input type='button' value='Add user' name='player_new_add' id='player_new_add_button' class='myButton noshow' style='text-align: center;'    
+                                                   onclick='addExistingUser(player_playerid.value, player_new_email.value)'>";
+
+                                        echo "</div>";
+		                            echo "</form>";
+                                echo "</div>";
+                            echo "</div>";
+                            //Modal dialog for new user//////////////////////////////////////////////////////////////////
+                            /////////////////////////////////////////////////////////////////////////////////////////////
+
+                    echo "<br>";
+                    
+                    echo "<div id='users_list' class='scrollit2'>";
+
+                        echo "<table border='0' id='users_table' class='usertable'>";
+                        
+                            mysql_data_seek($result, 0);
+                            $index = 1;
+                            while($row = mysql_fetch_array($result))
+                            {
+
+                                    $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin'], $row['registrar']);
+                                                                
+                                    echo "<tr>";
+
+                                        //Image & Nickname
+                                        echo "<td>";
+                                            echo "<div class='chat-list-left' style='width: 50px;'>";
+                                                echo "<img width='40' height='40' src='images/" . $player->photourl . "'>";
+                                                echo "<br />";
+                                                echo "<div class='comment-name' style='color: #474747; text-align: left; padding-left: 2px; font-weight: bold; width: 55px;'>" . $player->name . "</div>";
+                                                 echo "<div id='player_name" . $index . "' class='noshow'>".$player->name."</div>";
+                                            echo "</div>";
+                                        echo "</td>";                  
+
+                                        //Firstname Lastname, mobile, mail, teamAdmin, registrar
+                                        echo "<td>";
+                                            echo "<div class='edit-listinfo'>";
+
+                                                if($player->registrar == 1) {
+                                                    echo "<div style='font-weight: bold;'>Team Registrar</div>";
+                                                echo "<div id='player_registrar" . $index . "' class='noshow'>".$player->registrar."</div>";
+                                                } else {
+                                                if($player->teamAdmin == 1)
+                                                    echo "<div style='font-weight: bold;'>Team Admin</div>";
+                                                echo "<div id='player_admin" . $index . "' class='noshow'>".$player->teamAdmin."</div>";
+                                                }
+
+                                                echo "" . $player->firstname . " " . $player->lastname . "";
+                                                echo "<div id='player_firstname" . $index . "' class='noshow'>".$player->firstname."</div>";
+                                                echo "<div id='playerlastname" . $index . "' class='noshow'>".$player->lastname."</div>";
+                                                echo "<br />";
+                                                echo "" . $player->mobile . "";
+                                                echo "<div id='player_modile" . $index . "' class='noshow'>".$player->mobile."</div>";
+                                                echo "<br />";
+                                                echo "" . $player->mail . "";
+                                                echo "<div id='player_mail" . $index . "' class='noshow'>".$player->mail."</div>";
+
+                                            echo "</div>";
+                                        echo "</td>";                  
+
+                                        //echo "<td class=''> <a href='#openModalEdit' class='myButton'>Edit</a></td>";
+                                        echo "<td id='editrow'". $index ."><a href='#openModalEdit". $index . "'><img id='editPlayer' width='40' height='40' src='images/edit.png'></img></a></td>"; 
+                                        
+                                        echo "<td style='display: none;'> ID: " . $player->playerID . "</td>";
+                                        
+                                    echo "</tr>";
+               
+                                    /////////////////////////////////////////////////////////////////////////////////////////////
+                                    //Modal dialog for player information editing///////////////
+                                    /////////////////////////////////////////////////////////////////////////////////////////////
+                                    echo "<div id='openModalEdit". $index . "' class='modalDialog'>";
+	                                    echo "<div>";
+		                                    echo "<a id='closer_edit". $index . "' href='#' title='Close' class='close'>X</a>";
+
+
+                                            echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+
+                                                echo "<p style='margin: 10px;'>";
+                                                echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit user status</label>";
+                                                echo "</p>";
+
+                                                echo "<p style='margin: 0px; padding-top: 10px;'>";
+                                                echo "<label for='player_name". $index . "' style='display: inline-block; width: 60px; text-align: right; color: black;'>Name:&nbsp</label>";                    
+                                                echo "<input type='text' id='dialog_player_name". $index . "' name='player_name". $index . "' value='". $player->firstname . " " . $player->lastname ."' required style='margin-bottom: 15px; width: 170px;' readonly></input>";
+                                                echo "</p>";
+
+                                                //echo "<p style='margin: 0px'>";
+                                                //echo "<label for='player_email". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Email:&nbsp</label>";
+                                                //echo "<input type='text' id='dialog_player_email". $index . "' name='player_email". $index . "' value='". $player->mail ."' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                                //echo "</p>";
+
+                                                //echo "<p style='margin: 0px'>";
+                                                //echo "<label for='player_phone". $index . "' style='display: inline-block; width: 60px; text-align: right;'>Phone:&nbsp</label>";
+                                                //echo "<input type='text' id='dialog_player_phone". $index . "' name='player_phone". $index . "' value='" . $player->mobile . "' required style='margin-bottom: 15px; width: 190px;'></input>";
+                                                //echo "</p>";
+
+
+                                                echo "<h5 id='dialog_player_notify". $index . "' class='dialog_player_notify'>Team Admin: </h5>";
+                                                    if( $player->teamAdmin == 1) {
+                                                        echo "<div class='onoffswitch notifyswitch' style='display: inline-block;'>";
+						                                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "' checked>";					            
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";
+                                                    } else {
+                                                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+						                                    echo "<input type='checkbox' name='adminswitch' class=\"onoffswitch-checkbox\" id='dialog_admin_switch". $index . "'>";
+                                                            echo "<label class=\"onoffswitch-label\" for='dialog_admin_switch". $index . "' onClick=''>";
+                                                                echo "<div class=\"notifyswitch-inner\"></div>";
+						                                        echo "<div class=\"onoffswitch-switch\"></div>";
+						                                    echo "</label>";
+                                                        echo "</div>";                            
+                                                    }
+                                                echo "</h5>";
+
+                                                //echo "<div class='buttonHolder'>";
+                                                //    echo "<input type='submit' value='Save' name='savebutton' id='savebutton_edit' class='dialog_button'>";
+                                                //echo "</div>";
+                                                
+                                                echo "<div class='buttonHolder' style='margin-top:15px;'>";
+
+                                                    if($player->registrar == 0) { //Dont let delete Registrar
+                                                        echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+
+                                                        echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
+                                                        onclick='confirmDelete(" . $player->playerID . ");'/>";
+                                                    } else {
+                                                        echo "<input type='button' class='myButton' style='float: center; margin-left: 90px;' value='Save'
+                                                        onclick='updateAdminStatus(" . $player->playerID . ", \"dialog_admin_switch". $index . "\");'/>";
+                                                    }
+
+                                                echo "</div>";
+
+		                                    echo "</form>";
+
+                                    //Modal dialog for player information editing//////////////////               
+                            
+                                    $index++;
+                            }
+
+                        echo "</table>";
+
+                    echo "</div>"; //Scrollit
+
+                echo "</div>"; //Member content
+                //Members page///////////////////////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                //License page///////////////////////////////////////////////////////////////////////////////
+                /////////////////////////////////////////////////////////////////////////////////////////////
+                echo "<div id='license_content_id' class='noshow'>";
+                    
+                    //echo "<h2>License</h2>";
+
+                    ob_start(); // begin collecting output
+                    include 'payment/onlineCurrency.php';
+                    $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+                    echo $result;
+
+                echo "</div>";
+
+            echo "</article>";
+            //Article////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////
+
+            echo "<iframe name=\"frame_local\" style='display: none'></iframe>";
+
+            mysql_close($con);
+
+        } //Admin
+
+
+
+        class PlayerEdit {
+            var $playerID;
+            var $name;
+            var $mobile;
+            var $mail;
+            var $photourl;
+            var $notify;
+            var $firstname;
+            var $lastname;
+            var $teamAdmin;
+            var $registrar;
+
+            function PlayerEdit($playerID, $name, $mobile, $mail, $photourl, $notify, $firstname, $lastname, $teamAdmin, $registrar) {
+                $this->playerID = $playerID;
+                $this->name = $name;
+                $this->mail = $mail;
+                $this->mobile = $mobile;
+                $this->photourl = $photourl;
+                $this->notify = $notify;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+                $this->teamAdmin = $teamAdmin;
+                $this->registrar = $registrar;
+            }
+
+        }
+
+?>
