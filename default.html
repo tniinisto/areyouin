@@ -44,8 +44,9 @@
         var host_url = document.location.href; //Current url
 
         if (host_url.match(dev)) {
-            var urls = new Array("https://dev-areyouin.azurewebsites.net/", "https://dev-areyouin.azurewebsites.net/mobile/");
-        } else
+            var urls = new Array("https://dev-areyouin.azurewebsites.net/index.html", "https://dev-areyouin.azurewebsites.net/mobile/index.html");
+        } 
+        //else
             // if (host_url.match(local)) {
             //     var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile/");
             // } else
@@ -53,14 +54,14 @@
           //          var urls = new Array("https://areyouin.azurewebsites.net/default.html", "https://areyouin.azurewebsites.net/mobile/default.html");
           //      } else
         if (host_url.match(realmaster)) {
-            var urls = new Array("https://r-youin.com/", "https://r-youin.com/mobile/");
+            var urls = new Array("https://r-youin.com/index.html", "https://r-youin.com/mobile/index.html");
         }
 
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
         if ((m !== null) || (n !== null)) {
             //alert("stop");
-            stop;
+            //stop;
         }
         else if (ref == '') {
             var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for a lighter R'YouIN application. Both can be used, you can choose which you prefer!");
@@ -69,18 +70,18 @@
                 if (host_url.match(dev)) {
                     window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.html";
                 } else
-                    if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile/default.html";
-                    } else
+                    // if (host_url.match(local)) {
+                    //     window.location = "http://localhost:18502/mobile/default.html";
+                    // } else
                     //    if (host_url.match(master)) {
                     //        window.location = "https://areyouin.azurewebsites.net/mobile/default.html";
                     //    } else
-                            if (host_url.match(realmaster)) {
-                                window.location = "https://r-youin.com/mobile/default.html";
-                            }
+                if (host_url.match(realmaster)) {
+                    window.location = "https://r-youin.com/mobile/default.html";
+                }
             }
             else {
-                stop;
+                //stop;
             }
         }
         else {
