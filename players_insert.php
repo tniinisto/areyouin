@@ -185,14 +185,27 @@
                 //New game///////////////////////////////////////////////////////////////////////////
 
 
+                //Page inits/////////////////////////////////////////////////////////////////////////
+
+                //Team users
+                echo "<div id=\"member_content_id\" class=\"noshow\">";
+                    echo "<h3 style='text-align: center;'Team members</h3>";
+                echo "</div>";
+
+                //Team settings
+                echo "<div id=\"team_content_id\" class=\"noshow\">";
+                    echo "<h3 style='text-align: center;'Team settings</h3>";
+                echo "</div>";
+
+                //Team license
+                echo "<div id=\"license_content_id\" class=\"noshow\">";
+                    echo "<h3 style='text-align: center;'Team license</h3>";
+                echo "</div>";
+                
+
             //     /////////////////////////////////////////////////////////////////////////////////////////////
             //     //Settings page///////////////////////////////////////////////////////////////////////////
             //     /////////////////////////////////////////////////////////////////////////////////////////////
-
-                echo "<div id=\"team_content_id\" class=\"noshow\">";
-                    echo "<h3 style='text-align: center;'Team users...:</h3>";
-                echo "</div>";
-
             //     $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
             //     $res_team = mysql_query($sql_team);
             //     $row_team = mysql_fetch_array($res_team);
