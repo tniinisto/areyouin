@@ -41,7 +41,7 @@
                     echo "<li id='link_adminmembers' onClick='getAdminTeamMembers();'><a href='#'>Users</a></li>";
                     echo "<li id='link_adminsettings' onClick='getAdminSettings(); setTimeout(function(){ initializeMap(); }, 100);'><a href='#'>Settings</a></li>";
                     //echo "<li id='link_adminsettings'><a href='#'>Settings</a></li>";
-                    echo "<li id='link_license'><a href='#'>License</a></li>";
+                    echo "<li id='link_license' onClick='getAdminLicense();'><a href='#'>License</a></li>";
 			    echo "</ul>";
 		    echo "</nav>";
             //Navigation///////////////////////////////////////////////////////////////////////////
