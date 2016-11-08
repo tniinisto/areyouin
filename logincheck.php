@@ -86,9 +86,9 @@
         $_SESSION['mylicense'] = $row['licensevalid'];
 
         //Admin page loading, 0 means not loaded
-        $_SESSION['adminMembersPage'] = 0;
-        $_SESSION['adminSettingsPage'] = 0;
-        $_SESSION['adminLicensePage'] = 0;
+        // $_SESSION['adminMembersPage'] = 0;
+        // $_SESSION['adminSettingsPage'] = 0;
+        // $_SESSION['adminLicensePage'] = 0;
 
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 

@@ -11,9 +11,9 @@
         //include 'ChromePhp.php';        
         //ChromePhp::log("players_insert, admin:", $ad);
 
-    if($_SESSION['adminMembersPage'] == 0) { //Load page only once per session
+    // if($_SESSION['adminMembersPage'] == 0) { //Load page only once per session
             
-        $_SESSION['adminMembersPage'] = 1;
+    //     $_SESSION['adminMembersPage'] = 1;
 
         if(($ad==1) || ($registrar==1) ) //Execute only for admin and registrar status
         {
@@ -300,7 +300,7 @@
 
         } //Admin
 
-    } //Page loaded in session
+    //} //Page loaded in session
 
 
      class PlayerEdit {
