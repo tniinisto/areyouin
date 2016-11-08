@@ -141,6 +141,73 @@ function getPlayersInsert() {
 	xmlhttp.send();
 }
 
+//Getting team members for admin page
+function getAdminTeamMembers() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "admin_team_members.php", true);
+	xmlhttp.send();
+}
+
+//Getting team members for admin page
+function getAdminSettings() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("team_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "admin_team_settings.php", false);
+	xmlhttp.send();
+}
+
+//Getting team members for admin page
+function getAdminLicense() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("license_content_id").innerHTML = xmlhttp.responseText;
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "admin_team_license.php", true);
+	xmlhttp.send();
+}
+
+
 //Refresh the users list scrolling
 //function refreshScroll2() {
 //    setTimeout(function(){
@@ -1149,9 +1216,9 @@ function placeMarker(lat, lon) {
 
     //Scroll to map after marker set
     $('#Location_map').scrollintoview({duration: 300});
-    setTimeout(function () {
-        box.removeClass('visuallynoshow');
-    }, 20);
+    // setTimeout(function () {
+    //     box.removeClass('visuallynoshow');
+    // }, 20);
 
     //Move to marker on map
     map.panTo(marker.getPosition());

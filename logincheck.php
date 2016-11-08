@@ -85,6 +85,11 @@
         $_SESSION['myoffset'] = $row['utcOffset'];
         $_SESSION['mylicense'] = $row['licensevalid'];
 
+        //Admin page loading, 0 means not loaded
+        // $_SESSION['adminMembersPage'] = 0;
+        // $_SESSION['adminSettingsPage'] = 0;
+        // $_SESSION['adminLicensePage'] = 0;
+
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
@@ -97,7 +102,7 @@
             echo "<head>";
             echo "<meta charset=\"utf-8\">";
 
-            echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">";
+            echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\">";
 
             echo "<title>R'YouIN</title>";
 
