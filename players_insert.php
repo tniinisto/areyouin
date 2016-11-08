@@ -189,6 +189,10 @@
             //     //Settings page///////////////////////////////////////////////////////////////////////////
             //     /////////////////////////////////////////////////////////////////////////////////////////////
 
+                echo "<div id=\"team_content_id\" class=\"noshow\">";
+                    echo "<h3 style='text-align: center;'Team users...:</h3>";
+                echo "</div>";
+
             //     $sql_team="SELECT timezone, utcOffset FROM team WHERE teamID = '" . $teamid . "'";
             //     $res_team = mysql_query($sql_team);
             //     $row_team = mysql_fetch_array($res_team);
