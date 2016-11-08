@@ -170,6 +170,35 @@ function getAdminTeamMembers() {
 	xmlhttp.send();
 }
 
+//Getting team members for admin page
+function getAdminSettings() {
+
+	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp = new XMLHttpRequest();
+	}
+	else {// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("team_content_id").innerHTML = xmlhttp.responseText;
+
+            //Userlist scroll init
+	        //scroll2 = new iScroll('users_list', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        //setTimeout(function () {
+	        //    scroll2.refresh();
+	        //});
+
+		}
+	}
+
+	//alert("GET gets called.");
+	//var variables = "teamid=" + teamid;
+	xmlhttp.open("GET", "admin_team_settings.php", false);
+	xmlhttp.send();
+}
+
 
 //Refresh the users list scrolling
 //function refreshScroll2() {
