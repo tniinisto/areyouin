@@ -190,21 +190,21 @@
 
                 //Team users
                 echo "<div id='member_content_id' class='noshow'>";
-                    echo "<div>class='signal'";
+                    echo "<div class='signal'>";
                         //echo "<h3 style='text-align: center;'>Team members</h3>";
                     echo "</div>";        
                 echo "</div>";
 
                 //Team settings
                 echo "<div id='team_content_id' class='noshow'>";
-                    echo "<div>class='signal'";
+                    echo "<div class='signal'>";
                         //echo "<h3 style='text-align: center;'>Team settings</h3>";
                     echo "</div>";
                 echo "</div>";
 
                 //Team license
                 echo "<div id='license_content_id' class='noshow'>";
-                    echo "<div>class='signal'";
+                    echo "<div class='signal'>";
                         //echo "<h3 style='text-align: center;'>Team license</h3>";
                     echo "</div>";
                 echo "</div>";
