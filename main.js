@@ -143,7 +143,7 @@ function getPlayersInsert() {
 
 //Getting team members for admin page
 function getAdminTeamMembers() {
-    startSpinner();
+
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -154,7 +154,6 @@ function getAdminTeamMembers() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
-            stopSpinner();
 		}
 	}
 
@@ -166,7 +165,7 @@ function getAdminTeamMembers() {
 
 //Getting team members for admin page
 function getAdminSettings() {
-    startSpinner();
+
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -177,7 +176,6 @@ function getAdminSettings() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("team_content_id").innerHTML = xmlhttp.responseText;
-            stopSpinner();
 		}
 	}
 
@@ -189,7 +187,7 @@ function getAdminSettings() {
 
 //Getting team members for admin page
 function getAdminLicense() {
-    startSpinner();
+
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp = new XMLHttpRequest();
 	}
@@ -200,7 +198,6 @@ function getAdminLicense() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("license_content_id").innerHTML = xmlhttp.responseText;
-            stopSpinner();
 		}
 	}
 
