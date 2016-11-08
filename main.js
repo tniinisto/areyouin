@@ -181,7 +181,7 @@ function getAdminSettings() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "admin_team_settings.php", true);
+	xmlhttp.open("GET", "admin_team_settings.php", false);
 	xmlhttp.send();
 }
 
