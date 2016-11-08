@@ -1208,9 +1208,9 @@ function placeMarker(lat, lon) {
 
     //Scroll to map after marker set
     $('#Location_map').scrollintoview({duration: 300});
-    setTimeout(function () {
-        box.removeClass('visuallynoshow');
-    }, 20);
+    // setTimeout(function () {
+    //     box.removeClass('visuallynoshow');
+    // }, 20);
 
     //Move to marker on map
     map.panTo(marker.getPosition());
