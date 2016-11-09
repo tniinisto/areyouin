@@ -175,13 +175,15 @@ function getAdminSettings() {
 
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            //setTimeout(function(){ initializeMap(); }, 100);
 			document.getElementById("team_content_id").innerHTML = xmlhttp.responseText;
+            initializeMap();
 		}
 	}
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "admin_team_settings.php", false);
+	xmlhttp.open("GET", "admin_team_settings.php", true);
 	xmlhttp.send();
 }
 
