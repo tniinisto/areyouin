@@ -28,12 +28,12 @@
             
             if($_SESSION['ChromeLog']) { ChromePhp::log('deleteLocation result: ' . $result); }
 
-        $dbh = null;
-
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
+
+    $dbh = null;
     
 ?>
 
