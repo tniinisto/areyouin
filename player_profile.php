@@ -216,6 +216,9 @@
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
                     echo "<br>";
+                        echo "<div id='toobig' style='padding-top: 35px;'>";
+                            
+                        echo "</div>";                    
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
                     echo "<br>";

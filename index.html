@@ -404,7 +404,7 @@
 
                 //Allowed file size is less than 5 MB (5048576)
                 if (fsize > 2042880) {
-                    $("#output").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 2 MB.");
+                    $("#toobig").html("<b>" + bytesToSize(fsize) + "</b> Too big file! <br />File is too big, it should be less than 2 MB.");
                     return false
                 }
 
