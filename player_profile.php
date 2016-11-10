@@ -59,7 +59,7 @@
                 echo "<fieldset id='playerdata' style='padding-left: 5px; padding-bottom: 5px; margin-top: -15px;'>";
                     //echo "<br />";
                     echo "<legend style='text-align: left; color: black;'>";
-                        echo "<div id=\"output\" style='padding-top: 35px;'>";
+                        echo "<div id='output' style='padding-top: 35px;'>";
                             echo "<img width=\"50\" height=\"50\"\" src=\"images/" . $player->photourl . "\">";
                         echo "</div>";
                     echo "</legend>";
@@ -216,7 +216,9 @@
                 echo "<fieldset id='playerdata' style='padding: 5px;'>";
                 echo "<legend style='text-align: left; color: black;'><h4>Upload new photo (Max size 2MB)</h4></legend>";
                     echo "<br>";
-                    //echo "<form action=\"" . $_SERVER[PHP_SELF] . "\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
+                        echo "<div id='toobig' style='padding-top: 35px;'>";
+                            
+                        echo "</div>";                    
                     echo "<form action=\"processupload.php\" method=\"post\" enctype=\"multipart/form-data\" id=\"MyUploadForm\" target=\"frame\">";
                     echo "<input name=\"FileInput\" id=\"FileInput\" type=\"file\"/>";
                     echo "<br>";
