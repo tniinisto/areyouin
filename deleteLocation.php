@@ -16,7 +16,15 @@
     try {
         $result = 0;
 
-            //delete location
+            //If location is in existing event, update event's location id to 0 (0 = location not selected) ////////
+            $sql8 = "UPDATE events SET location_locationID = 0 WHERE location_locationID = :locationID";
+            $stmt8 = $dbh->prepare($sql8);
+            
+            $stmt8->bindParam(':locationID', $_GET['locationid'], PDO::PARAM_INT);
+            $result8 = $stmt8->execute();
+
+
+            //delete location///////////////////////////////////////////////////////////////////////////
             $sql = "DELETE FROM location WHERE locationID = :locationID";
 
             if($_SESSION['ChromeLog']) { ChromePhp::log('deleteLocation: ' . $sql); }          
