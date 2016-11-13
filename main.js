@@ -1897,6 +1897,9 @@ function addNewLocation(position, name, teamid, weather) {
 
             //Update event list
             getEventsAsync();
+
+            //Update the settings page
+            getAdminSettings();
         }
     }
 
