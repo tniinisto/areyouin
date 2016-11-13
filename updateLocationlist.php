@@ -15,13 +15,13 @@
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
 
-    //$con = mysql_connect($dbhost, $dbuser, $dbpass);
-	//if (!$con)
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
 	//    {
 	//    die('Could not connect: ' . mysql_error());
 	//    }
 
-	//mysql_select_db("areyouin", $con);
+	// mysql_select_db("areyouin", $con);
 
     try {
 
@@ -152,11 +152,11 @@
                             echo "<div class='buttonHolder' style='margin-top:15px;'>";
 
                                 //Save   
-                                echo "<input type='button' class='dialog_button' style='float: left; margin-left: 30px;' value='Save'
+                                echo "<input type='button' class='myButton' style='float: left; margin-left: 30px;' value='Save'
                                 onclick='updateLocation(" . $index_locations . ")'></input>";
                                                                                                                                                                     
                                 //Delete
-                                echo "<input type='button' class='dialog_button' style='color: red; float: rigth;' value='Delete'
+                                echo "<input type='button' class='myButton' style='color: red; float: rigth;' value='Delete'
                                 onclick='deleteLocation(" . $row_locations[locationID] . ")'></input>";
 
                             echo "</div>";
@@ -171,15 +171,13 @@
 
         echo "</table>";
 
-
-
-        $dbh = null;
-
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
-    
+
+    $dbh = null;
+
 ?>
 
 

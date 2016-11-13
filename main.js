@@ -1884,20 +1884,19 @@ function addNewLocation(position, name, teamid, weather) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            stopSpinner();
-
             //Update location list
             updateLocationlist();
 
             //Close modal dialog
             window.location.replace('#');
 
-            //Update event list
-            getEventsAsync();
-
             //Update location to new event insert
             updateNewEventLocations();
 
+            //Update event list
+            getEventsAsync(0);
+
+            stopSpinner();
         }
     }
 
@@ -1959,8 +1958,6 @@ function updateLocation(index) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            stopSpinner();
-
             //Update location list
             updateLocationlist();
 
@@ -1969,6 +1966,8 @@ function updateLocation(index) {
 
             //Update event list
             getEventsAsync();
+
+            stopSpinner();
 
         }
     }
@@ -2017,7 +2016,7 @@ function updateNewEventLocations() {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                
+                stopSpinner();
                 document.getElementById("locationWrapper").innerHTML = xmlhttp.responseText;
 
             }
