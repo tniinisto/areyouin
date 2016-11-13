@@ -1958,8 +1958,6 @@ function updateLocation(index) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            stopSpinner();
-
             //Update location list
             updateLocationlist();
 
@@ -1968,6 +1966,8 @@ function updateLocation(index) {
 
             //Update event list
             getEventsAsync();
+
+            stopSpinner();
 
         }
     }
