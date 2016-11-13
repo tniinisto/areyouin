@@ -1893,7 +1893,7 @@ function addNewLocation(position, name, teamid, weather) {
             window.location.replace('#');
 
             //Update event list
-            //getEventsAsync();
+            getEventsAsync();
 
             //Update location to new event insert
             updateNewEventLocations();
