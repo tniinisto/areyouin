@@ -12,16 +12,16 @@
     }
 
 
-    // $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);                
 
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	   {
-	   die('Could not connect: ' . mysql_error());
-	   }
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
+	//    {
+	//    die('Could not connect: ' . mysql_error());
+	//    }
 
-	mysql_select_db("areyouin", $con);
+	// mysql_select_db("areyouin", $con);
 
     try {
 
