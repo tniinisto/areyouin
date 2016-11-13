@@ -45,12 +45,12 @@
                 echo "</select>";
             echo "</div>";
 
-        $dbh = null;
-
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
+
+    $dbh = null;
     
 ?>
 
