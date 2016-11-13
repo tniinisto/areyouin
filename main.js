@@ -1884,8 +1884,6 @@ function addNewLocation(position, name, teamid, weather) {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
-            stopSpinner();
-
             //Update location list
             updateLocationlist();
 
@@ -1898,6 +1896,7 @@ function addNewLocation(position, name, teamid, weather) {
             //Update event list
             getEventsAsync(0);
 
+            stopSpinner();
         }
     }
 
