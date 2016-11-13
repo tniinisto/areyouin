@@ -1964,6 +1964,9 @@ function updateLocation(index) {
             //Close modal dialog
             window.location.replace('#');
 
+            //Update location to new event insert
+            updateNewEventLocations();
+
             //Update event list
             getEventsAsync();
 
@@ -2048,6 +2051,9 @@ function deleteLocation(location) {
 
                 //Close modal dialog
                 window.location.replace('#');
+
+                //Update location to new event insert
+                updateNewEventLocations();
 
                 //Update event list
                 getEventsAsync();     
