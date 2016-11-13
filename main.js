@@ -1896,7 +1896,7 @@ function addNewLocation(position, name, teamid, weather) {
             getEventsAsync();
 
             //Update location to new event insert
-            updateNewEventLocations();
+            //updateNewEventLocations();
 
         }
     }
