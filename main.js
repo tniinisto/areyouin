@@ -2026,7 +2026,7 @@ function updateNewEventLocations() {
         }
 
         startSpinner();
-        xmlhttp.open("GET", "updateNewEventLocations.php", true);
+        xmlhttp.open("GET", "updateNewEventLocations.php", false);
         xmlhttp.send();
 
 }
