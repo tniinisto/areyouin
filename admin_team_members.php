@@ -61,7 +61,7 @@
 
 		                            echo "<a id='closer' href='#' title='Close' class='close' onclick='resetModalUserDialog()'>X</a>";
 
-                                    echo "<form autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
+                                    echo "<form user-scalable='0' autocomplete='off' id='player_new' name='player_new' method='get' target='frame_player'>";
 
                                         //User already in the team, give notification
                                         echo "<p style='margin: 0px; padding-top: 0px;' class='noshow' id='p_existing_user_dialog'>";
@@ -222,7 +222,7 @@
 		                                    echo "<a id='closer_edit". $index . "' href='#' title='Close' class='close'>X</a>";
 
 
-                                            echo "<form id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                                            echo "<form user-scalable='0' id='player_edit". $index . "' name='player_edit". $index . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                 echo "<p style='margin: 10px;'>";
                                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit user status</label>";

@@ -58,7 +58,7 @@
                     echo "</div>";
 
                     //echo "<form id='timezones' method='post' action='update_team.php' target='frame_local' onsubmit=\"showTimezone('Timezone set to:' + timezone_select.value)\"";
-                    echo "<form id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
+                    echo "<form user-scalable='0' id='timezones' method='get' target='frame_local' onsubmit='updateTimezone(timezone_select.value)'";
                         $timezone_identifiers = DateTimeZone::listIdentifiers();
                         echo "<label><h3 style='text-align: center;'>Set new timezone:</h3></label>";                    
                         //echo "<select id='timezone_select' name='timezone_select' form='timezones' onchange=showTimezone(this.value)>";
@@ -155,7 +155,7 @@
                                             echo "<a id='closer_edit". $index_locations . "' href='#' title='Close' class='close'>X</a>";
 
 
-                                            echo "<form id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
+                                            echo "<form user-scalable='0' id='player_edit". $index_locations . "' name='player_edit". $index_locations . "' method='post' action='' target='frame_player' onsubmit='refreshPlayerInfo();'>";
 
                                                 echo "<p style='margin: 10px;'>";
                                                 echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Edit location</label>";
@@ -242,7 +242,7 @@
                             echo "<div>";
                                 echo "<a id='closer_newLocation' href='#' title='Close' class='close'>X</a>";
 
-                                echo "<form id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
+                                echo "<form user-scalable='0' id='new_location_form' name='newLocationForm' method='post' action='' target='frame_player' onsubmit=''>";
 
                                     echo "<p style='margin: 10px;'>";
                                     echo "<label style='display: block; text-align: center; weight: bold; width: 100%; font-size: 125%; color: black;'>Set new location</label>";

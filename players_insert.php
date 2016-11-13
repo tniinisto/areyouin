@@ -51,7 +51,7 @@
                 echo "<div id=\"newgame_id\">";
                     echo "<h1>Enter new event</h1>";
                     
-                    echo "<form id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
+                    echo "<form user-scalable='0' id=\"eventform\" method=\"post\" action=\"insert_event.php\">";
                     
                     //Location///////////////////////////////////////////
                     echo "<div id='locationWrapper'>";
