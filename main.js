@@ -1892,12 +1892,11 @@ function addNewLocation(position, name, teamid, weather) {
             //Close modal dialog
             window.location.replace('#');
 
-            //Update event list
-            getEventsAsync();
-
             //Update location to new event insert
             updateNewEventLocations();
 
+            //Update event list
+            getEventsAsync();
         }
     }
 
