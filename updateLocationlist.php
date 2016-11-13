@@ -171,14 +171,12 @@
 
         echo "</table>";
 
-
-
-        $dbh = null;
-
     }
     catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
+
+    $dbh = null;
     
 ?>
 
