@@ -2017,7 +2017,7 @@ function updateNewEventLocations() {
 
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                
+                stopSpinner();
                 document.getElementById("locationWrapper").innerHTML = xmlhttp.responseText;
 
             }
