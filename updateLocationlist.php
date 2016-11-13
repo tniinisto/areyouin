@@ -178,10 +178,10 @@
 
     // $dbh = null;
     
-                echo "<fieldset id='location_set' style='padding:4px;'>";
-                    echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
+                // echo "<fieldset id='location_set' style='padding:4px;'>";
+                //     echo "<legend style='text-align: left;'><h2>Locations</h2></legend>";
 
-                        //Locations list sql
+                    //Locations list sql
                     $sql_location="SELECT * FROM location WHERE teamID = '" . $teamid . "'";        
                     $result_location = mysql_query($sql_location);
 
@@ -378,7 +378,7 @@
                         echo "</div>";
                     //Modal dialog for new location information///////////////
                     
-                    echo "<div id='Location_map' style='height: 400px;'></div>";
+                    //echo "<div id='Location_map' style='height: 400px;'></div>";
 
                     //echo "<form id='locationform' method='get' target='frame_local' onsubmit=''";
                     //    $timezone_identifiers = DateTimeZone::listIdentifiers();
@@ -387,7 +387,7 @@
 
                     //    echo "<input type='submit' class='myButton' value='Save' id='submit_locstion'></input>";                                         
                     //echo "</form>";
-                echo "</fieldset>";    
+                // echo "</fieldset>";    
 ?>
 
 
