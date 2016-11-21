@@ -159,7 +159,7 @@ function getAdminTeamMembers() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "admin_team_members.php", false);
+	xmlhttp.open("GET", "admin_team_members.php", true);
 	xmlhttp.send();
 }
 
@@ -183,7 +183,7 @@ function getAdminSettings() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "admin_team_settings.php", false);
+	xmlhttp.open("GET", "admin_team_settings.php", true);
 	xmlhttp.send();
 }
 
@@ -205,7 +205,7 @@ function getAdminLicense() {
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
-	xmlhttp.open("GET", "admin_team_license.php", false);
+	xmlhttp.open("GET", "admin_team_license.php", true);
 	xmlhttp.send();
 }
 
