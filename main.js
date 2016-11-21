@@ -154,11 +154,18 @@ function getAdminTeamMembers() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("member_content_id").innerHTML = xmlhttp.responseText;
+            $("#link_adminmembers").removeClass("not-active");
+            $("#link_adminsettings").removeClass("not-active");
+            $("#link_license").removeClass("not-active");
 		}
 	}
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
+    $("#link_adminmembers").addClass("not-active");
+    $("#link_adminsettings").addClass("not-active");
+    $("#link_license").addClass("not-active");
+
 	xmlhttp.open("GET", "admin_team_members.php", true);
 	xmlhttp.send();
 }
@@ -178,11 +185,19 @@ function getAdminSettings() {
             //setTimeout(function(){ initializeMap(); }, 100);
 			document.getElementById("team_content_id").innerHTML = xmlhttp.responseText;
             initializeMap();
+            $("#link_adminmembers").removeClass("not-active");
+            $("#link_adminsettings").removeClass("not-active");
+            $("#link_license").removeClass("not-active");
+
 		}
 	}
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
+    $("#link_adminmembers").addClass("not-active");
+    $("#link_adminsettings").addClass("not-active");
+    $("#link_license").addClass("not-active");
+
 	xmlhttp.open("GET", "admin_team_settings.php", true);
 	xmlhttp.send();
 }
@@ -200,11 +215,19 @@ function getAdminLicense() {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("license_content_id").innerHTML = xmlhttp.responseText;
+            $("#link_adminmembers").removeClass("not-active");
+            $("#link_adminsettings").removeClass("not-active");
+            $("#link_license").removeClass("not-active");
+
 		}
 	}
 
 	//alert("GET gets called.");
 	//var variables = "teamid=" + teamid;
+    $("#link_adminmembers").addClass("not-active");
+    $("#link_adminsettings").addClass("not-active");
+    $("#link_license").addClass("not-active");
+
 	xmlhttp.open("GET", "admin_team_license.php", true);
 	xmlhttp.send();
 }
