@@ -1758,3 +1758,9 @@ License part styling
       opacity: 0;
     }
 }
+
+/*Disable href*/
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
