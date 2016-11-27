@@ -8,7 +8,7 @@
 	      die('Could not connect: ' . mysql_error());
 	      }
 
-	    mysql_select_db("areyouin", $con);
+	    mysql_select_db($dbname, $con);
 
         //Weather info///////////////////////////////////////////////////////////////////        
         $sql_weather = "select distinct name, position from location l, team t where l.teamID = " . $_SESSION['myteamid'] . " and t.showWeather = 1 and l.teamID = t.teamID";

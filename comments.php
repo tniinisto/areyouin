@@ -24,7 +24,7 @@
 	        die('Could not connect: ' . mysql_error());
 	        }
 
-	    mysql_select_db("areyouin", $con);
+	    mysql_select_db($dbname, $con);
 
         //Get current users lastseen datetime & update to session
         $sql5 = "SELECT pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";

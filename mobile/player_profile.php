@@ -79,7 +79,7 @@
 	          die('Could not connect: ' . mysql_error());
 	          }
 
-	        mysql_select_db("areyouin", $con);
+	        mysql_select_db($dbname, $con);
 
             $sql = "SELECT * FROM players WHERE playerID = " . $playerid . "";
             $result = mysql_query($sql);
