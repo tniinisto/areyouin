@@ -118,9 +118,11 @@ echo "<div id='parent-container1' class='parent-container'>";
 
          echo "<p>€ " . $price . " EUR</p>";
 
-         echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
+         //echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top'>"; //Sandbox
+         echo "<form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_top'>";
             echo "<input type='hidden' name='cmd' value='_xclick'>";
-            echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>";
+            //echo "<input type='hidden' name='business' value='8RLTCNLYYQKLQ'>"; //Sandbox
+            echo "<input type='hidden' name='business' value='J6PTBF3GND9CL'>";
             echo "<input type='hidden' name='lc' value='FI'>";
             echo "<input type='hidden' name='item_name' value='RYouIN single month subscription'>";
             echo "<input type='hidden' name='amount' value=" . $price . ">";
@@ -131,14 +133,17 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='no_shipping' value='2'>";            
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://dev-areyouin.azurewebsites.net/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://dev-areyouin.azurewebsites.net/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
         
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
-            echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
-            echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
+            //Sandbox
+            //echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
+            //echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
+            echo "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
+            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
 
     echo "</div>";
