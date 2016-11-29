@@ -22,7 +22,7 @@
 	    die('Could not connect: ' . mysql_error());
 	    }
 
-	mysql_select_db("areyouin", $con);
+	mysql_select_db($dbname, $con);
 
     //Insert new comment to comments table
     $insertDate = date("Y-n-j H:i:s");

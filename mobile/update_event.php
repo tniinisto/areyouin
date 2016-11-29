@@ -22,7 +22,7 @@
           die('Could not connect: ' . mysql_error());
           }
 
-        mysql_select_db("areyouin", $con)or die("cannot select DB");
+        mysql_select_db($dbname, $con)or die("cannot select DB");
 
         /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
         $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep

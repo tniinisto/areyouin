@@ -46,7 +46,7 @@
 	    die('Could not connect: ' . mysql_error());
     }
 
-	mysql_select_db("areyouin", $con);
+	mysql_select_db($dbname, $con);
     //$sql = "select lastEventUpdate from playerteam where Team_teamID = " . $teamid . " and players_playerId = " . $playerid . " ;";
     $sql = "select players_playerid, max(lastEventUpdate) as last from playerteam where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);

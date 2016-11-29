@@ -27,7 +27,7 @@
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db("areyouin", $con)or die("cannot select DB");
+	mysql_select_db($dbname, $con)or die("cannot select DB");
    
 
     //For session expiration checking
@@ -47,7 +47,7 @@
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-    FROM areyouin.players p, playerteam m, team t, registration r
+    FROM players p, playerteam m, team t, registration r
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
 

@@ -21,7 +21,7 @@
     	die('Could not connect: ' . mysql_error());
 	}
 
-	mysql_select_db("areyouin", $con);
+	mysql_select_db($dbname, $con);
 
     $sql3 = "UPDATE playerteam SET lastMsg = '" . $lastmsgdate  . "' WHERE Players_playerID = '" . $playerid . "' AND Team_teamID = '" . $teamid . "'";
         

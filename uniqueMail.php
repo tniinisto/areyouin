@@ -17,7 +17,7 @@
 	//    die('Could not connect: ' . mysql_error());
 	//}
 
- //   mysql_select_db("areyouin", $con);    
+ //   mysql_select_db($dbname, $con);    
 
 
  //   $sql = "SELECT count(mail) as mailcount from players WHERE mail like '" . $mail . "'";

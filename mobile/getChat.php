@@ -35,7 +35,7 @@
 	    die('Could not connect: ' . mysql_error());
     }
 
-	mysql_select_db("areyouin", $con);
+	mysql_select_db($dbname, $con);
 
     $sql = "select max(publishTime) as time from comments where Team_teamID = " . $teamid . ";";
 	$result = mysql_query($sql);

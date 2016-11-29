@@ -12,7 +12,7 @@
           die('Could not connect: ' . mysql_error());
           }
 
-        mysql_select_db("areyouin", $con);
+        mysql_select_db($dbname, $con);
 
         //$sql="SELECT * FROM players WHERE playerID = '".$q."'";
         $sql= "UPDATE eventplayer SET areyouin = '" . $areyouin . "' WHERE EventPlayerID = '".$eventplayerid."'";

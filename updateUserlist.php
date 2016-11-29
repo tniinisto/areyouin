@@ -18,7 +18,7 @@
               die('Could not connect: ' . mysql_error());
               }
 
-            mysql_select_db("areyouin", $con);
+            mysql_select_db($dbname, $con);
 
             //$sql="SELECT p.playerID, p.name, p.photourl FROM players p, team t where t.teamID = '1'";
             $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, pt.registrar, t.maxPlayers

@@ -19,7 +19,7 @@
 	    die('Could not connect: ' . mysql_error());
 	    }
 
-	mysql_select_db("areyouin", $con);
+	mysql_select_db($dbname, $con);
 
     $insertDate = date("Y-n-j H:i:s");
     $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";

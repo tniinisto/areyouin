@@ -9,7 +9,7 @@ if (!$con)
     die('Could not connect: ' . mysql_error());
     }
 
-mysql_select_db("areyouin", $con)or die("cannot select DB");
+mysql_select_db($dbname, $con)or die("cannot select DB");
 
 //This test works!
 //$sql = "INSERT INTO payments (team_TeamID) VALUES (3)";

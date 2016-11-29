@@ -27,7 +27,7 @@
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db("areyouin", $con)or die("cannot select DB");
+	mysql_select_db($dbname, $con)or die("cannot select DB");
    
 
     //For session expiration checking

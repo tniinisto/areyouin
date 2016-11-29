@@ -11,7 +11,7 @@
     {
         die('Could not connect here: ' . mysql_error());
     }
-    mysql_select_db("areyouin", $con);
+    mysql_select_db($dbname, $con);
 
     $sql = "select count(playerid) as count, firstname, lastname, name, playerid
             from players
