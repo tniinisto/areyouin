@@ -128,9 +128,9 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='amount' value=" . $price . ">";
             echo "<input type='hidden' name='currency_code' value='EUR'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
-            echo "<input type='hidden' name='no_note' value='0'>";
+            echo "<input type='hidden' name='no_note' value='1'>"; //Value set to 1 in production
             echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
-            echo "<input type='hidden' name='no_shipping' value='1'>";            
+            echo "<input type='hidden' name='no_shipping' value='1'>"; //Value set to 1 in production           
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
