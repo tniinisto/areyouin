@@ -565,7 +565,7 @@ function getChat() {
 	}
 
     //This is not synchronous
-	xmlhttp.open("GET", "chat.php", false); //Synchronous
+	xmlhttp.open("GET", "chat.php", false); //Synchronous33
 
 	xmlhttp.send();
 }
@@ -582,7 +582,7 @@ function insertComment(comment) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            updateLastMsgTime();
+            //updateLastMsgTime(); Not good
 	    }
 	}
 
