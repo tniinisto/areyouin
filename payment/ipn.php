@@ -33,8 +33,8 @@
     }
 
     // Step 2: POST IPN data back to PayPal to validate
-    //$ch = curl_init('https://www.paypal.com/cgi-bin/webscr'); //Production
-    $ch = curl_init('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr'); //Sandbox    
+    $ch = curl_init('https://www.paypal.com/cgi-bin/webscr'); //Production
+    //$ch = curl_init('https://ipnpb.sandbox.paypal.com/cgi-bin/webscr'); //Sandbox    
     curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
