@@ -36,16 +36,16 @@
         var ref = document.referrer;
 
         //SITE SPECIFIC
-        var realmaster = "https://r-youin.com/";
+        var realmaster = "https://r-youin.com/default.html;
         //var master = "https://areyouin.azurewebsites.net/";
-        var dev = "https://dev-areyouin.azurewebsites.net/";
+        var dev = "https://dev-areyouin.azurewebsites.net/default.html";
         var local = "http://localhost:18502/"; //LOCAL testing
 
         var host_url = document.location.href; //Current url
         var urls;
 
         if (host_url.match(dev)) {
-            urls = new Array("https://dev-areyouin.azurewebsites.net/", "https://dev-areyouin.azurewebsites.net/mobile/");
+            urls = new Array("https://dev-areyouin.azurewebsites.net/index.html", "https://dev-areyouin.azurewebsites.net/mobile/index.html");
         } 
         //else
             // if (host_url.match(local)) {
@@ -55,7 +55,7 @@
           //          var urls = new Array("https://areyouin.azurewebsites.net/default.html", "https://areyouin.azurewebsites.net/mobile/default.html");
           //      } else
         if (host_url.match(realmaster)) {
-            urls = new Array("https://r-youin.com/", "https://r-youin.com/mobile/");
+            urls = new Array("https://r-youin.com/index.html", "https://r-youin.com/mobile/index.html");
         }
 
         var n = ref.match(urls[0]);
