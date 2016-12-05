@@ -14,5 +14,6 @@
 
                 echo "</div>";
 
+                echo "<div><<label>24% VAT is added to prices on payment. Separated on the receipt.</label> </div>";
 ?>
 
