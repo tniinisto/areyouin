@@ -38,7 +38,7 @@
         $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
                
-        //Display notification for admins & registrar on the license payment, 7 days before///////////////////////////////////
+        //Display notification for admins & registrar on the license payment, 3 days before///////////////////////////////////
         if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
