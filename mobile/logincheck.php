@@ -46,7 +46,7 @@
     $mymd5 = md5($mypassword);
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licenseValid
     FROM players p, playerteam m, team t, registration r
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
@@ -83,7 +83,7 @@
         $_SESSION['myRegistrar'] = $row['registrar'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
-        $_SESSION['mylicense'] = $row['licensevalid'];
+        $_SESSION['mylicense'] = $row['licenseValid'];
 
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
@@ -192,13 +192,18 @@
             //Check license status/////////////////////////////////
             
             //UTC//
-            $licenseValid = new DateTime($_SESSION['mylicense']);
-            $licenseValid = $licenseValid->format('Y-n-j');
-            $currentDate = new DateTime('now');
-            $currentDate = $currentDate->format('Y-n-j');
+            date_default_timezone_set("UTC");
 
-            if($currentDate > $licenseValid)
+            $licenseValid = new DateTime($_SESSION['mylicense']);
+            //$licenseValid = $licenseValid->format('Ymd');
+            $currentDate = new DateTime('now');
+            //$currentDate = $currentDate->format('Ymd');
+
+            if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
                 header('Location:../licenseExpired.php');    
+                // echo "Now: " . $currentDate;
+                // echo "License: " . $licenseValid;    
+            }
             else
                 header('Location:login_success.php');
         }
