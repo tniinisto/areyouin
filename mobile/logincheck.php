@@ -198,7 +198,6 @@
             $currentDate = $currentDate->format('Y-m-d');
 
             if($currentDate > $licenseValid) {
-                //header('Location:../licenseExpired.php');
                 echo "Now: " . $currentDate;
                 echo "License: " . $licenseValid;    
             }
