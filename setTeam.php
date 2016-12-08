@@ -49,14 +49,17 @@
         
         //UTC//
         date_default_timezone_set("UTC");
-
-        $licenseValid = new DateTime($row2['licenseValid']);
-        $licenseValid = $licenseValid->format('Y-n-j');
+    
+        $licenseValid = new DateTime($_SESSION['mylicense']);
+        //$licenseValid = $licenseValid->format('Ymd');
         $currentDate = new DateTime('now');
-        $currentDate = $currentDate->format('Y-n-j');
+        //$currentDate = $currentDate->format('Ymd');
 
-        if($currentDate > $licenseValid)
-            header('Location:licenseExpired.php');    
+        if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
+            header('Location:../licenseExpired.php');    
+            // echo "Now: " . $currentDate;
+            // echo "License: " . $licenseValid;    
+        }
         else
             header('Location:login_success.php');        
 

@@ -56,9 +56,9 @@
         //$currentDate = $currentDate->format('Ymd');
 
         if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
-            //header('Location:../licenseExpired.php');    
-             echo "Now: " . $currentDate;
-             echo "License: " . $licenseValid;    
+            header('Location:../licenseExpired.php');    
+            // echo "Now: " . $currentDate;
+            // echo "License: " . $licenseValid;    
         }
         else
             header('Location:login_success.php');  
