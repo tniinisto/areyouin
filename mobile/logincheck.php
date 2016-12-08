@@ -199,7 +199,7 @@
             $currentDate = new DateTime('now');
             //$currentDate = $currentDate->format('Ymd');
 
-            if($currentDate->format('Y-n-j') > $licenseValid->format('Y-n-j')) {
+            if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
                 header('Location:../licenseExpired.php');    
                 // echo "Now: " . $currentDate;
                 // echo "License: " . $licenseValid;    
