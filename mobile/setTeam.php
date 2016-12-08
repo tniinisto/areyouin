@@ -55,10 +55,10 @@
         $currentDate = new DateTime('now');
         //$currentDate = $currentDate->format('Ymd');
 
-        if($currentDate->format('Y-n-j') > $licenseValid->format('Y-n-j')) {
-            header('Location:../licenseExpired.php');    
-            // echo "Now: " . $currentDate;
-            // echo "License: " . $licenseValid;    
+        if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
+            //header('Location:../licenseExpired.php');    
+             echo "Now: " . $currentDate;
+             echo "License: " . $licenseValid;    
         }
         else
             header('Location:login_success.php');  
