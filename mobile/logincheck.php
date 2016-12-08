@@ -195,11 +195,11 @@
             date_default_timezone_set("UTC");
 
             $licenseValid = new DateTime($_SESSION['mylicense']);
-            $licenseValid = $licenseValid->format('Ymd');
+            //$licenseValid = $licenseValid->format('Ymd');
             $currentDate = new DateTime();
-            $currentDate = $currentDate->format('Ymd');
+            //$currentDate = $currentDate->format('Ymd');
 
-            if($currentDate > $licenseValid) {
+            if($currentDate->format('Ymd') > $licenseValid->format('Ymd')) {
                 header('Location:../licenseExpired.php');    
                 // echo "Now: " . $currentDate;
                 // echo "License: " . $licenseValid;    
