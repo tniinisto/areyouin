@@ -194,7 +194,7 @@
             //UTC//
             $licenseValid = new DateTime($_SESSION['mylicense']);
             $licenseValid = $licenseValid->format('Y-m-d');
-            $currentDate = new DateTime('now');
+            $currentDate = new DateTime();
             $currentDate = $currentDate->format('Y-m-d');
 
             if($currentDate > $licenseValid) {
