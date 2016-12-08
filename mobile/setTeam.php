@@ -50,15 +50,20 @@
         //UTC//
         date_default_timezone_set("UTC");
 
-        $licenseValid = new DateTime($row2['licenseValid']);
-        $licenseValid = $licenseValid->format('Y-n-j');
-        $currentDate = new DateTime('now');
-        $currentDate = $currentDate->format('Y-n-j');
+    
+        $licenseValid = new DateTime($_SESSION['mylicense']);
+        $licenseValid = $licenseValid->format('Ymd');
+        $currentDate = new DateTime();
+        $currentDate = $currentDate->format('Ymd');
 
-        if($currentDate > $licenseValid)
+        if($currentDate > $licenseValid) {
             header('Location:../licenseExpired.php');    
+            // echo "Now: " . $currentDate;
+            // echo "License: " . $licenseValid;    
+        }
         else
-            header('Location:login_success.php');        
+            header('Location:login_success.php');
+        }     
 
     }
     catch(PDOException $e) {
