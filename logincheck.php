@@ -196,13 +196,11 @@
             
             //Check license status/////////////////////////////////
             
-            //UTC//
-            date_default_timezone_set('Europe/London');
-            
+            //UTC// 
             $licenseValid = new DateTime($_SESSION['mylicense']);
-            $licenseValid = $licenseValid->format('Y-n-j');
+            //$licenseValid = $licenseValid->format('Y-n-j');
             $currentDate = new DateTime('now');
-            $currentDate = $currentDate->format('Y-n-j');
+            //$currentDate = $currentDate->format('Y-n-j');
 
             if($currentDate > $licenseValid)
                 header('Location:licenseExpired.php');    
