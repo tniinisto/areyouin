@@ -196,7 +196,7 @@
 
             $licenseValid = new DateTime($_SESSION['mylicense']);
             //$licenseValid = $licenseValid->format('Ymd');
-            $currentDate = new DateTime();
+            $currentDate = new DateTime('now');
             //$currentDate = $currentDate->format('Ymd');
 
             if($currentDate->format('Y-n-j') > $licenseValid->format('Y-n-j')) {
