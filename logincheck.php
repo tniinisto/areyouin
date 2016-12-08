@@ -197,6 +197,8 @@
             //Check license status/////////////////////////////////
             
             //UTC//
+            date_default_timezone_set('Europe/London');
+            
             $licenseValid = new DateTime($_SESSION['mylicense']);
             $licenseValid = $licenseValid->format('Y-n-j');
             $currentDate = new DateTime('now');
