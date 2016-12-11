@@ -39,7 +39,7 @@
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
                
         //Display notification for admins & registrar on the license payment, 3 days before///////////////////////////////////
-        if($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) {         
+        if( ($moreevents == 0) && ($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) ) {         
 
             $licenseValid = new DateTime($_SESSION['mylicense']);            
             $licenseValid = $licenseValid->modify('-3 day');
