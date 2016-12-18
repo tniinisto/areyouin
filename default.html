@@ -58,11 +58,10 @@
 
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
-        if ((m !== null) || (n !== null)) {
-            //alert("stop");
-            stop;
+        if ( ((m !== null) || (n !== null)) || (host_url.match('back') != null) ) {
+
         }
-        else if ((m == null) && (n == null)) {
+        else if ( (ref == '') || ((m == null) && (n == null)) ) {
             var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for a lighter R'YouIN application. Both can be used, you can choose which you prefer!");
             if (r == true) {
                 //alert("here we are mobile direct referrer");
@@ -80,7 +79,7 @@
                             }
             }
             else {
-                stop;
+                
             }
         }
         else {
