@@ -54,6 +54,7 @@
 	$result=mysql_query($sql);
 
 	// Mysql_num_row is counting table row
+    $count = 0;
 	$count=mysql_num_rows($result);
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
@@ -213,7 +214,7 @@
                 header('Location:login_success.php');
         }
             
-        mysql_close($con);
+        //mysql_close($con);
 
         
 	}
