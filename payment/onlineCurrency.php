@@ -97,6 +97,7 @@ $price2 = '25.00';
         echo "<legend style='text-align: left;'><h2>Current license info</h2></legend>";
         echo "<div style='background-color: #b9b9b9; margin: 5px; padding-top: 5px; padding-bottom: 15px;' >";
             echo "<h3 id='team_license' style='text-align: center;'>License valid</h3>";
+            echo "<h3 id='team_license_dateformat' style='text-align: center;'>(Year-Month-Day)</h3>";
             if($currentDate > $licenseValidDate)
                 echo "<h4 id='team_license_value' style='color: darkred; text-align: center; margin-top: 0px;'>" . $licenseValidDate . "</h4>";
             else
