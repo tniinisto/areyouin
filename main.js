@@ -1168,13 +1168,13 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 7,
+            zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
         var mapOptions = {
             center: new google.maps.LatLng(60,387, 23,134),
-            zoom: 7,
+            zoom: 8,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     }
