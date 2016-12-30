@@ -144,7 +144,7 @@
         $registrationDate = date("Y-n-j H:i:s");
 
         $start = new DateTimeImmutable($registrationDate);
-        $valid = $start->modify('+30 day');
+        $valid = $start->modify('+14 day');
         $valid = $valid->format('Y-m-d H:i:s');
 
         $sql8 = "INSERT INTO registration (registered, players_playerid, team_teamid, licensevalid) VALUES (:registered, :playerid, :teamid, :licensevalid)";
