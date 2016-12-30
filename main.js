@@ -1168,7 +1168,7 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 6,
+            zoom: 7,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
