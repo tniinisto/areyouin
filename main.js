@@ -487,7 +487,14 @@ function game_start() {
     else {
         $("#gametime_notify").addClass("noshow");
     }
-    
+
+    //Set end date +1 hour automatically
+    if ((start_dt != "") && (end_dt == "")) {
+        var d = new Date(start_dt);
+        d.setHours(d.getHours() + 1);
+        
+        document.getElementById("gameend_id") = d.toISOString();
+    }
 }
 
 //New game insert - Check game end time validity
