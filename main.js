@@ -493,7 +493,7 @@ function game_start() {
         var d = new Date(start_dt);
         d.setHours(d.getHours() + 1);
         
-        document.getElementById("gameend_id") = d.toISOString();
+        document.getElementById("gameend_id").value = d.toISOString();
     }
 }
 
