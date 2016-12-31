@@ -493,7 +493,9 @@ function game_start() {
         var d = new Date(start_dt);
         d.setHours(d.getHours() + 1);
         
-        document.getElementById("gameend_id").value = d.toISOString();
+        var str =  d.toISOString();
+        str = str.substring(0, str.length - 1);
+        document.getElementById("gameend_id").value = str;
     }
 }
 
