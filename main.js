@@ -488,15 +488,16 @@ function game_start() {
         $("#gametime_notify").addClass("noshow");
     }
 
+    //Kind of works but usability not good
     //Set end date +1 hour automatically
-    if ((start_dt != "") && (end_dt == "")) {
-        var d = new Date(start_dt);
-        d.setHours(d.getHours() + 1);
+    // if ((start_dt != "") && (end_dt == "")) {
+    //     var d = new Date(start_dt);
+    //     d.setHours(d.getHours() + 1);
         
-        var str =  d.toISOString();
-        str = str.substring(0, str.length - 1);
-        document.getElementById("gameend_id").value = str;
-    }
+    //     var str =  d.toISOString();
+    //     str = str.substring(0, str.length - 1);
+    //     document.getElementById("gameend_id").value = str;
+    // }
 }
 
 //New game insert - Check game end time validity
