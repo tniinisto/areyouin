@@ -131,11 +131,11 @@
                 
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
-                    //Admin & Registrar event update button
-                    if(($ad==1) || ($registrar == 1))
-                        echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
-                    else
-                        echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
+                    //Admin & Registrar event update button - DONT SHOW EVENT UPDATE BUTTON ON MOBILE VIEW
+                    // if(($ad==1) || ($registrar == 1))
+                    //     echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
+                    // else
+                    //     echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
 			
                     //Event summary info, Invited players
                     $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " AND
