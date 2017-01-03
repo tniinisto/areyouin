@@ -127,15 +127,15 @@
 
                     //Unique event id
                     $eventID_unique = 'event_article_' . $row_index;
-			        echo "<article id='". $eventID_unique ."' class='event_article clearfix'>";
+			        echo "<article id='". $eventID_unique ."' style='padding: 1px 5px 18px 5px;' class='event_article clearfix'>";
                 
                     echo "<div class=\"divtable\">&nbsp"; //Background for the header part
             
-                    //Admin & Registrar event update button
-                    if(($ad==1) || ($registrar == 1))
-                        echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
-                    else
-                        echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
+                    //Admin & Registrar event update button - DONT SHOW EVENT UPDATE BUTTON ON MOBILE VIEW
+                    // if(($ad==1) || ($registrar == 1))
+                    //     echo "<img id=\"update_event\" onClick=\"eventFetchOff(); updateEvent(" . $event_check . ");\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"cursor: pointer;\"></img>";
+                    // else
+                    //     echo "<img id=\"update_event\" width=\"40\" height=\"40\" src=\"images/edit.png\" style=\"visibility:hidden;\"></img>"; 
 			
                     //Event summary info, Invited players
                     $sql4 = "SELECT count(*) as player_amount FROM eventplayer WHERE Events_eventID = " . $row['Events_eventID'] . " AND
@@ -190,7 +190,7 @@
                                 //Dont show location icon for "No location"
                                 if($row['location'] != 'No location set') {
                                     echo "<a style='text-decoration: none;' href=\"https://maps.google.fi/maps?q=" . $row['pos'] . "\" target='_blank'>
-                                        <img style='vertical-align: middle;' src='images/GoogleMapsIcon.png' alt='maps' height='18' width='18' style='padding-top: 0px;'>
+                                        <img style='vertical-align: middle;' src='../images/GoogleMapsIcon.png' alt='maps' height='18' width='18' style='padding-top: 0px;'>
                                     </a>";
                                 }
 
@@ -229,9 +229,9 @@
 				                //echo "<th class=\"col21\">" . $row3['playerid'] . "</th>";
                                 echo "<th class=\"col21\">" . $playerid . "</th>";
 				                if($row3['seen'] == 1)
-					                echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+					                echo "<th class=\"col31\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"../images/" . $row3['photourl'] . "\"></th>";
 				                else
-					                echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"images/" . $row3['photourl'] . "\"></th>";
+					                echo "<th class=\"col31\"><img class=\"unseensummary\" width=\"40\" height=\"40\" src=\"../images/" . $row3['photourl'] . "\"></th>";
 				                echo "<th class=\"col41\">" . $row3['name'] . "</th>";
 								        
 					            if($row3['areyouin'] == 0) {
@@ -303,9 +303,9 @@
 				            echo "<td class=\"col1\">" . $row['eventplayerid'] . "</td>";
 				            echo "<td class=\"col2\">" . $row['playerid'] . "</td>";
 				            if($row['seen'] == 1)
-					            echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+					            echo "<td class=\"col3\"><img class=\"seen\" width=\"40\" height=\"40\" src=\"../images/" . $row['photourl'] . "\"></td>";
 				            else
-					            echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
+					            echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"../images/" . $row['photourl'] . "\"></td>";
 				            echo "<td class=\"col4\">" . $row['name'] . "</td>";
 				
 				            //Show on/off switch only for the user
