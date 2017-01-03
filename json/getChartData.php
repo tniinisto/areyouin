@@ -44,7 +44,7 @@
     from events e
     left join
     (SELECT eventid, YEAR(e1.startTime) as year, MONTH(e1.startTime) as month1, count(e1.eventID) as events
-    FROM `areyouin`.`events` e1
+    FROM events e1
     where Team_teamID = '" . $teamid . "'
     GROUP BY year, month1) t1
     on e.eventid = t1.eventID
