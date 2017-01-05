@@ -95,11 +95,11 @@
     //echo $gamestart;
 
     /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
-    $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.name location from areyouin.eventplayer ep
-    inner join areyouin.events e on e.eventID = ep.Events_eventID
-    inner join areyouin.team t on teamID = e.Team_teamID
-    inner join areyouin.players p on playerID = ep.Players_playerID
-    inner join areyouin.location l on l.locationID = e.Location_locationID
+    $sql = "select e.eventID, p.playerID, p.name, e.startTime, e.endTime, l.name location from eventplayer ep
+    inner join events e on e.eventID = ep.Events_eventID
+    inner join team t on teamID = e.Team_teamID
+    inner join players p on playerID = ep.Players_playerID
+    inner join location l on l.locationID = e.Location_locationID
     where e.eventID = " . $eventid . " and t.teamID = " . $teamid . ";";
         
     $result = mysql_query($sql);
@@ -179,9 +179,9 @@
         }
 
     //Get event info to sendMail function parameter
-    $sql_eventInfo = "select * from areyouin.events
-                inner join areyouin.team on team.teamID = events.Team_teamID
-                inner join areyouin.location on location.locationID = events.Location_locationID
+    $sql_eventInfo = "select * from events
+                inner join team on team.teamID = events.Team_teamID
+                inner join location on location.locationID = events.Location_locationID
                 where events.eventID = " . $eventid . ";";
     
     $r = mysql_query($sql_eventInfo);
