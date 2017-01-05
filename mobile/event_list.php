@@ -408,8 +408,8 @@
     function minParticipantsCount($ev) {
 
         	$sql10 =
-            "select * from areyouin.events e
-            inner join areyouin.eventtype t on t.eventTypeID = e.EventType_eventTypeID
+            "select * from events e
+            inner join eventtype t on t.eventTypeID = e.EventType_eventTypeID
             where eventID = ". $ev . ";";	 	
 
 	        $result10 = mysql_query($sql10);

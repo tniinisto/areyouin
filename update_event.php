@@ -26,11 +26,11 @@
         mysql_select_db($dbname, $con)or die("cannot select DB");
 
         /*Eventin tiedot ja siinä jo olevat tiimin pelaajat*/
-        $sql = "select e.eventID, e.private, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from areyouin.eventplayer ep
-        inner join areyouin.events e on e.eventID = ep.Events_eventID
-        inner join areyouin.team t on teamID = e.Team_teamID
-        inner join areyouin.players p on playerID = ep.Players_playerID
-        inner join areyouin.location l on l.locationID = e.Location_locationID
+        $sql = "select e.eventID, e.private, p.playerID, p.name, e.startTime, e.endTime, l.locationID location from eventplayer ep
+        inner join events e on e.eventID = ep.Events_eventID
+        inner join team t on teamID = e.Team_teamID
+        inner join players p on playerID = ep.Players_playerID
+        inner join location l on l.locationID = e.Location_locationID
         where e.eventID = " . $eventid . " and t.teamID = " . $teamid . "";
         
         $result = mysql_query($sql);

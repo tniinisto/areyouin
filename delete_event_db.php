@@ -19,9 +19,9 @@
     $mailPass=$mail_key;
 
    //Get event info to sendMail function parameter
-    $sql_eventInfo = "select * from areyouin.events
-                inner join areyouin.team on team.teamID = events.Team_teamID
-                inner join areyouin.location on location.locationID = events.Location_locationID
+    $sql_eventInfo = "select * from events
+                inner join team on team.teamID = events.Team_teamID
+                inner join location on location.locationID = events.Location_locationID
                 where events.eventID = " . $_POST['delete_eventid'] . ";";
     
     $r = mysql_query($sql_eventInfo);

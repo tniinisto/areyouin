@@ -12,9 +12,9 @@ $pl=$_SESSION['myplayerid'];
 $team=$_SESSION['myteamid'];
 
 $sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
-        from areyouin.players p
-        inner join areyouin.playerteam m on p.playerID = m.Players_playerID
-        inner join areyouin.team t on m.Team_teamID = t.teamid
+        from players p
+        inner join playerteam m on p.playerID = m.Players_playerID
+        inner join team t on m.Team_teamID = t.teamid
 	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";
 	
 try {
