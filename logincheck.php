@@ -11,10 +11,14 @@
 
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
-    $included_files = get_included_files();
-    foreach ($included_files as $filename) {
-        if(strpos($filename,'ChromePhp') !== false)
-            $_SESSION['ChromeLog'] = TRUE;
+    if($_SESSION['ChromeLog'] == TRUE) {
+
+        $included_files = get_included_files();
+        foreach ($included_files as $filename) {
+            if(strpos($filename,'ChromePhp') !== false)
+                $_SESSION['ChromeLog'] = TRUE;
+        }
+
     }
     ////////////////////////////////////////////////////
 
