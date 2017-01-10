@@ -69,15 +69,15 @@
 
     //The count
     $count = 0;
-    
+
     try {
         $sql = "SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
-        WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
+        WHERE (name = :name OR mail = :name) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
 
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
-        $stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
+        //$stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
         $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
 
         $result = $stmt->execute(); 
