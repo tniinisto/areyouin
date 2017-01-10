@@ -195,7 +195,7 @@
                                     //mysql_data_seek($result, 0);                            
                                     //while($row = mysql_fetch_array($result)){
                                     while($row2 = $stmt2->fetch()) {
-                                            echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
+                                            echo "<option value='" . $row2['teamID'] . " | " . $row2['teamName'] . "'>" . $row2['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
                                 echo "<br />";
