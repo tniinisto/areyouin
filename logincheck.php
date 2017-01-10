@@ -78,10 +78,10 @@
     $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
     $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
 
-    $result2 = $stmt2->execute();   
-
     $count = 0;
     $count = $stmt2->rowCount();
+
+    $result2 = $stmt2->execute();   
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
