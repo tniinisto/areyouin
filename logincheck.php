@@ -69,7 +69,7 @@
 
     //The count
     $sql = "SELECT count(*) as count
-    FROM FROM players p, playerteam m, team t, registration r
+    FROM players p, playerteam m, team t, registration r
     WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
 
     $stmt = $dbh->prepare($sql);
