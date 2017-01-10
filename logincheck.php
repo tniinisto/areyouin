@@ -25,17 +25,17 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
 	//OLD//////////////////////////////////////////////////////////////////////////
-    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	// if (!$con)
-	//   {
-	//   die('Could not connect: ' . mysql_error());
-	//   }
+    $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	if (!$con)
+	  {
+	  die('Could not connect: ' . mysql_error());
+	  }
 
-	// mysql_select_db($dbname, $con)or die("cannot select DB");
+	mysql_select_db($dbname, $con) or die("cannot select DB");
 
     //PDO//////////////////////////////////////////////////////////////////////////
-    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
@@ -116,7 +116,7 @@
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
-		$row = mysql_fetch_array($result);
+		// $row = mysql_fetch_array($result);
         //$row = $stmt2->fetch();                 
 		
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
