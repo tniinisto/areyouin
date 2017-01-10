@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     ////////////////////////////////////////////////////////
     //Uncomment to enable ChromePhp-logging
-    //include 'ChromePhp.php';
+    include 'ChromePhp.php';
     ////////////////////////////////////////////////////////
 
     //ini_set('default_charset', 'UTF-8');
@@ -10,7 +10,7 @@
     session_start();
 
     //For PHP LOGGING enable/disable////////////////////////
-    $_SESSION['ChromeLog'] = FALSE;
+    $_SESSION['ChromeLog'] = TRUE;
     if($_SESSION['ChromeLog'] == TRUE) {
 
         $included_files = get_included_files();
