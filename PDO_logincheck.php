@@ -24,15 +24,18 @@
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
-	
+	//OLD//////////////////////////////////////////////////////////////////////////
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db($dbname, $con)or die("cannot select DB");
-   
+	mysql_select_db($dbname, $con) or die("cannot select DB");
+
+    //PDO//////////////////////////////////////////////////////////////////////////
+    //$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
@@ -49,7 +52,8 @@
 
     $mymd5 = md5($mypassword);
 
-	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
+    //OLD//////////////////////////////////////////////////////////////////////////
+	$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
     FROM players p, playerteam m, team t, registration r
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
@@ -57,9 +61,50 @@
 
 	$result=mysql_query($sql);
 
-	// Mysql_num_row is counting table row
     $count = 0;
 	$count=mysql_num_rows($result);
+
+    //PDO//////////////////////////////////////////////////////////////////////////
+
+    //The count
+    // $count = 0;
+
+    // try {
+    //     $sql = "SELECT count(*) as count
+    //     FROM players p, playerteam m, team t, registration r
+    //     WHERE (name = :name OR mail = :name) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
+
+    //     $stmt = $dbh->prepare($sql);
+    //     $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
+    //     //$stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
+    //     $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+
+    //     $result = $stmt->execute(); 
+    //     $count = $stmt->fetchColumn();
+    // }
+    //     catch(PDOException $e) {
+	//     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    // }
+
+    // //Actual data
+    // try {
+    //     $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    //     FROM players p, playerteam m, team t, registration r
+    //     WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    //     ORDER BY t.teamID";
+
+    //     if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
+        
+    //     $stmt2 = $dbh->prepare($sql2);
+    //     $stmt2->bindParam(':name', $myusername, PDO::PARAM_STR);
+    //     $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
+    //     $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+
+    //     $result2 = $stmt2->execute();   
+    // }
+    //     catch(PDOException $e) {
+	//     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    // }
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
@@ -72,6 +117,7 @@
 		//session_register("myusername");
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
+        //$row = $stmt2->fetch();                 
 		
         if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
@@ -145,6 +191,7 @@
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
+                                    //while($row2 = $stmt2->fetch()) {
                                             echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
