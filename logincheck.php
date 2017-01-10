@@ -66,6 +66,23 @@
 	// $count=mysql_num_rows($result);
 
     //PDO//////////////////////////////////////////////////////////////////////////
+
+    //The count
+    $sql = "SELECT count(*)
+    FROM FROM players p, playerteam m, team t, registration r
+    WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    ORDER BY t.teamID";
+
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
+    $stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
+    $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+
+    $result = $stmt->execute(); 
+    $count = 0;
+    $count = $stmt->fetch(PDO::FETCH_NUM);
+
+    //Actual data
     $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
     FROM players p, playerteam m, team t, registration r
     WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
@@ -77,9 +94,6 @@
     $stmt2->bindParam(':name', $myusername, PDO::PARAM_STR);
     $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
     $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
-
-    $count = 0;
-    $count = $stmt2->rowCount();
 
     $result2 = $stmt2->execute();   
 
