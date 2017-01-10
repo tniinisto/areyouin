@@ -68,35 +68,45 @@
     //PDO//////////////////////////////////////////////////////////////////////////
 
     //The count
-    $sql = "SELECT count(*) as count
-    FROM players p, playerteam m, team t, registration r
-    WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
+    try {
+        $sql = "SELECT count(*) as count
+        FROM players p, playerteam m, team t, registration r
+        WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
 
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
-    $stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
-    $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
+        $stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
+        $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
 
-    $result = $stmt->execute(); 
-    $count = 0;
-    while($row = $stmt->fetch()) {
-        $count = $row['count'];
+        $result = $stmt->execute(); 
+        $count = 0;
+        while($row = $stmt->fetch()) {
+            $count = $row['count'];
+        }
+    }
+        catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 
     //Actual data
-    $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-    FROM players p, playerteam m, team t, registration r
-    WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-    ORDER BY t.teamID";
+    try {
+        $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+        FROM players p, playerteam m, team t, registration r
+        WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+        ORDER BY t.teamID";
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
-    
-    $stmt2 = $dbh->prepare($sql2);
-    $stmt2->bindParam(':name', $myusername, PDO::PARAM_STR);
-    $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
-    $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+        if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
+        
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->bindParam(':name', $myusername, PDO::PARAM_STR);
+        $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
+        $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
 
-    $result2 = $stmt2->execute();   
+        $result2 = $stmt2->execute();   
+    }
+        catch(PDOException $e) {
+	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
