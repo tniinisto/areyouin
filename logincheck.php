@@ -82,6 +82,7 @@
         $count = 0;
         while($row = $stmt->fetch()) {
             $count = $row['count'];
+            echo $count;
         }
     }
         catch(PDOException $e) {
