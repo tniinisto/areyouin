@@ -183,7 +183,7 @@
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     //mysql_data_seek($result, 0);                            
                                     //while($row = mysql_fetch_array($result)){
-                                    while($row = $stmt2->fetch()) {
+                                    while($row2 = $stmt2->fetch()) {
                                             echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
