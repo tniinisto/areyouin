@@ -68,7 +68,7 @@
     //PDO//////////////////////////////////////////////////////////////////////////
 
     //The count
-    $sql = "SELECT count(*)
+    $sql = "SELECT count(*) as count
     FROM FROM players p, playerteam m, team t, registration r
     WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
@@ -80,7 +80,9 @@
 
     $result = $stmt->execute(); 
     $count = 0;
-    $count = $stmt->fetch(PDO::FETCH_NUM);
+    while($row = $stmt->fetch()) {
+        $count = $row['count'];
+    }
 
     //Actual data
     $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
