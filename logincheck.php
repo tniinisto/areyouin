@@ -68,6 +68,8 @@
     //PDO//////////////////////////////////////////////////////////////////////////
 
     //The count
+    $count = 0;
+    
     try {
         $sql = "SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
@@ -79,11 +81,7 @@
         $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
 
         $result = $stmt->execute(); 
-        $count = 0;
-        while($row = $stmt->fetch()) {
-            $count = $row['count'];
-            echo $count;
-        }
+        $count = $stmt->fetchColumn();
     }
         catch(PDOException $e) {
 	    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
