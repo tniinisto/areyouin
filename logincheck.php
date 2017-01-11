@@ -72,7 +72,7 @@
 
 	if($count>=1){
 
-        echo "alert('count 1');";
+        //echo "alert('count 1');";
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
 
@@ -118,7 +118,14 @@
 
         //User belogns to multiple teams
         if($count > 1) {
-            echo "alert('count > 1');";
+            //echo "alert('count > 1');";
+            $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+            FROM players p, playerteam m, team t, registration r
+            WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+            ORDER BY t.teamID";
+        
+            $result=mysql_query($sql);        
+            $row = mysql_fetch_array($result);            
 
             echo "<html lang=\"en()\">";
             echo "<head>";
@@ -134,14 +141,6 @@
             echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
             echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
             echo "<script type='text/javascript' src='js/spin.min.js'></script>";            
-
-            //echo "<script type=\"text/javascript\">";
-            //    echo "function goIndex() {";                    
-            //        echo "var e = document.getElementById('team_select');";
-            //        echo "var teamID = e.options[e.selectedIndex].value;";
-            //        echo "alert('teamid: ' + teamID);";                
-            //    echo "}";
-            //echo "</script>";
 
             echo "</head>";
 
@@ -240,7 +239,7 @@
         
 	}
 	else { //Login failed
-        echo "alert('count 0');";
+        //echo "alert('count 0');";
         //header("location:default.html");
 
         echo "<html lang=\"en()\">";
