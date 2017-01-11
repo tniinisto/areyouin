@@ -72,7 +72,7 @@
 
 	if($count>=1){
 
-        alert("count 1");
+        echo "alert('count 1');";
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
 
@@ -82,11 +82,11 @@
         ORDER BY t.teamID";
 	
         $result=mysql_query($sql);        
+		$row = mysql_fetch_array($result);
 
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
-		$row = mysql_fetch_array($result);
 		
         //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
@@ -118,7 +118,8 @@
 
         //User belogns to multiple teams
         if($count > 1) {
-            alert("count > 1");
+            echo "alert('count > 1');";
+
             echo "<html lang=\"en()\">";
             echo "<head>";
             echo "<meta charset=\"utf-8\">";
@@ -239,7 +240,7 @@
         
 	}
 	else { //Login failed
-        alert("count 0");
+        echo "alert('count 0');";
         //header("location:default.html");
 
         echo "<html lang=\"en()\">";
