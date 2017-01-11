@@ -22,7 +22,7 @@
     }
     ////////////////////////////////////////////////////
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
 	
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -61,7 +61,7 @@
     $count = 0;
 	$count=mysql_num_rows($result);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
 	if($count>=1){
 
@@ -73,13 +73,13 @@
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
 		
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
 		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
         $_SESSION['myusername'] = $myusername;        
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
@@ -97,7 +97,7 @@
 
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
