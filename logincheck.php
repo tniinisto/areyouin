@@ -11,20 +11,19 @@
 
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
-    if($_SESSION['ChromeLog'] == TRUE) {
+    // if($_SESSION['ChromeLog'] == TRUE) {
 
-        $included_files = get_included_files();
-        foreach ($included_files as $filename) {
-            if(strpos($filename,'ChromePhp') !== false)
-                $_SESSION['ChromeLog'] = TRUE;
-        }
+    //     $included_files = get_included_files();
+    //     foreach ($included_files as $filename) {
+    //         if(strpos($filename,'ChromePhp') !== false)
+    //             $_SESSION['ChromeLog'] = TRUE;
+    //     }
 
-    }
+    // }
     ////////////////////////////////////////////////////
 
     //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
-	
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
@@ -33,7 +32,6 @@
 
 	mysql_select_db($dbname, $con)or die("cannot select DB");
    
-
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
 
