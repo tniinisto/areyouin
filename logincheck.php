@@ -49,22 +49,30 @@
 
     $mymd5 = md5($mypassword);
 
+    $sql2 = "SELECT count(*) as count
+    FROM players p, playerteam m, team t, registration r
+    WHERE name = 'rico' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid;";
+
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
     FROM players p, playerteam m, team t, registration r
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
-
-	$result=mysql_query($sql);
+	//$result=mysql_query($sql);
 
 	// Mysql_num_row is counting table row
+	//$count=mysql_num_rows($result);
+
     $count = 0;
-	$count=mysql_num_rows($result);
+  	$result2=mysql_query($sql2);
+    $row2 = mysql_fetch_array($result2);
+    $count =  $row2['count'];
 
     //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
 	if($count>=1){
 
+        alert("count 1");
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
 
@@ -103,6 +111,7 @@
 
         //User belogns to multiple teams
         if($count > 1) {
+            alert("count > 1");
             echo "<html lang=\"en()\">";
             echo "<head>";
             echo "<meta charset=\"utf-8\">";
@@ -223,7 +232,7 @@
         
 	}
 	else { //Login failed
-
+        alert("count 0");
         //header("location:default.html");
 
         echo "<html lang=\"en()\">";
