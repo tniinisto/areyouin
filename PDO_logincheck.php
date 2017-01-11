@@ -11,27 +11,32 @@
 
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
-    // if($_SESSION['ChromeLog'] == TRUE) {
+    if($_SESSION['ChromeLog'] == TRUE) {
 
-    //     $included_files = get_included_files();
-    //     foreach ($included_files as $filename) {
-    //         if(strpos($filename,'ChromePhp') !== false)
-    //             $_SESSION['ChromeLog'] = TRUE;
-    //     }
+        $included_files = get_included_files();
+        foreach ($included_files as $filename) {
+            if(strpos($filename,'ChromePhp') !== false)
+                $_SESSION['ChromeLog'] = TRUE;
+        }
 
-    // }
+    }
     ////////////////////////////////////////////////////
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
+    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
+	//OLD//////////////////////////////////////////////////////////////////////////
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db($dbname, $con)or die("cannot select DB");
-   
+	mysql_select_db($dbname, $con) or die("cannot select DB");
+
+    //PDO//////////////////////////////////////////////////////////////////////////
+    //$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
 
@@ -47,52 +52,80 @@
 
     $mymd5 = md5($mypassword);
 
-    $sql2 = "SELECT count(*) as count
+    //OLD//////////////////////////////////////////////////////////////////////////
+	$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
+	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
     FROM players p, playerteam m, team t, registration r
-    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid;";
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    ORDER BY t.teamID";
 
-	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	// $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-    // FROM players p, playerteam m, team t, registration r
-    // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-    // ORDER BY t.teamID";
-	//$result=mysql_query($sql);
-
-	// Mysql_num_row is counting table row
-	//$count=mysql_num_rows($result);
+	$result=mysql_query($sql);
 
     $count = 0;
-  	$result2=mysql_query($sql2);
-    $row2 = mysql_fetch_array($result2);
-    $count =  $row2['count'];
+	$count=mysql_num_rows($result);
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
+    //PDO//////////////////////////////////////////////////////////////////////////
+
+    //The count
+    // $count = 0;
+
+    // try {
+    //     $sql = "SELECT count(*) as count
+    //     FROM players p, playerteam m, team t, registration r
+    //     WHERE (name = :name OR mail = :name) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
+
+    //     $stmt = $dbh->prepare($sql);
+    //     $stmt->bindParam(':name', $myusername, PDO::PARAM_STR);
+    //     //$stmt->bindParam(':mail', $myusername, PDO::PARAM_STR);
+    //     $stmt->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+
+    //     $result = $stmt->execute(); 
+    //     $count = $stmt->fetchColumn();
+    // }
+    //     catch(PDOException $e) {
+	//     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    // }
+
+    // //Actual data
+    // try {
+    //     $sql2 = "SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    //     FROM players p, playerteam m, team t, registration r
+    //     WHERE (name = :name OR mail = :mail ) and password = :passmd5 and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    //     ORDER BY t.teamID";
+
+    //     if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
+        
+    //     $stmt2 = $dbh->prepare($sql2);
+    //     $stmt2->bindParam(':name', $myusername, PDO::PARAM_STR);
+    //     $stmt2->bindParam(':mail', $myusername, PDO::PARAM_STR);
+    //     $stmt2->bindParam(':passmd5', $mymd5, PDO::PARAM_STR);
+
+    //     $result2 = $stmt2->execute();   
+    // }
+    //     catch(PDOException $e) {
+	//     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    // }
+
+    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
 	if($count>=1){
 
-        //echo "alert('count 1');";
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
-
-	    $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-        FROM players p, playerteam m, team t, registration r
-        WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-        ORDER BY t.teamID";
-	
-        $result=mysql_query($sql);        
-		$row = mysql_fetch_array($result);
 
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
+		$row = mysql_fetch_array($result);
+        //$row = $stmt2->fetch();                 
 		
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
 		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
         $_SESSION['myusername'] = $myusername;        
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
@@ -110,21 +143,12 @@
 
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
         //User belogns to multiple teams
         if($count > 1) {
-            //echo "alert('count > 1');";
-            $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-            FROM players p, playerteam m, team t, registration r
-            WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-            ORDER BY t.teamID";
-        
-            $result=mysql_query($sql);        
-            $row = mysql_fetch_array($result);            
-
             echo "<html lang=\"en()\">";
             echo "<head>";
             echo "<meta charset=\"utf-8\">";
@@ -139,6 +163,14 @@
             echo "<script type=\"text/javascript\" src=\"main.js\"> </script>";
             echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
             echo "<script type='text/javascript' src='js/spin.min.js'></script>";            
+
+            //echo "<script type=\"text/javascript\">";
+            //    echo "function goIndex() {";                    
+            //        echo "var e = document.getElementById('team_select');";
+            //        echo "var teamID = e.options[e.selectedIndex].value;";
+            //        echo "alert('teamid: ' + teamID);";                
+            //    echo "}";
+            //echo "</script>";
 
             echo "</head>";
 
@@ -159,6 +191,7 @@
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
                                     mysql_data_seek($result, 0);                            
                                     while($row = mysql_fetch_array($result)){
+                                    //while($row2 = $stmt2->fetch()) {
                                             echo "<option value='" . $row['teamID'] . " | " . $row['teamName'] . "'>" . $row['teamName'] . "</option>";                               
                                     }
                                 echo "</select>";
@@ -237,7 +270,7 @@
         
 	}
 	else { //Login failed
-        //echo "alert('count 0');";
+
         //header("location:default.html");
 
         echo "<html lang=\"en()\">";
