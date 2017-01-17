@@ -22,8 +22,6 @@
     // }
     ////////////////////////////////////////////////////
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
-
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	  {
@@ -66,29 +64,10 @@
 
 	if($count>=1){
 
-        //echo "alert('count 1');";
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
 
-	    // $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-        // FROM players p, playerteam m, team t, registration r
-        // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-        // ORDER BY t.teamID";
-	
-        //$result=mysql_query($sql);        
-		//$row = mysql_fetch_array($result);
-
-		// Register $myusername, $mypassword and redirect to file "index.html"
-		//session_register("myusername");
-		//session_register("mypassword");
-		
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
-
-		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
-		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
-
         $_SESSION['myusername'] = $myusername;        
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
         $_SESSION['mypassword'] = md5($mypassword);
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
@@ -99,27 +78,8 @@
         $_SESSION['myoffset'] = $row['utcOffset'];
         $_SESSION['mylicense'] = $row['licensevalid'];
 
-        //Admin page loading, 0 means not loaded
-        // $_SESSION['adminMembersPage'] = 0;
-        // $_SESSION['adminSettingsPage'] = 0;
-        // $_SESSION['adminLicensePage'] = 0;
-
-        //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
-
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
-
-        //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
-
         //User belogns to multiple teams
         if($count > 1) {
-            //echo "alert('count > 1');";
-            // $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-            // FROM players p, playerteam m, team t, registration r
-            // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-            // ORDER BY t.teamID";
-        
-            //$result=mysql_query($sql);        
-            //$row = mysql_fetch_array($result);            
 
             echo "<html lang=\"en()\">";
             echo "<head>";
@@ -194,7 +154,6 @@
                         , position: 'fixed' // Element positioning
                     };";
 
-                    //echo "var target = document.getElementById('spinnerteamlogin_id');";
                     echo "spinnerTeamlogin = new Spinner(opts);";
 
                     echo "function startLoginSpinner() {";
@@ -227,14 +186,9 @@
             else
                 header('Location:login_success.php');
         }
-            
-        //mysql_close($con);
-
-        
+                    
 	}
 	else { //Login failed
-        //echo "alert('count 0');";
-        //header("location:default.html");
 
         echo "<html lang=\"en()\">";
         echo "<head>";
