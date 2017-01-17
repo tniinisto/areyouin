@@ -60,8 +60,6 @@
     $row = mysql_fetch_array($result);
     $count =  $row['count'];
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
-
 	if($count>=1){
 
         //For session expiration checking
