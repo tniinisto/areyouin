@@ -47,9 +47,19 @@
 
     $mymd5 = md5($mypassword);
 
-    $sql2 = "SELECT count(*) as count
-    FROM players p, playerteam m, team t, registration r
-    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid;";
+    // $sql2 = "SELECT count(*) as count
+    // FROM players p, playerteam m, team t, registration r
+    // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid;";
+
+	$sql="SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    FROM players p, playerteam m, team t, registration r, 
+        
+        (SELECT count(*) as count
+        FROM players p, playerteam m, team t, registration r
+        WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
+
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    ORDER BY t.teamID";
 
 	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
 	// $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
@@ -62,25 +72,25 @@
 	//$count=mysql_num_rows($result);
 
     $count = 0;
-  	$result2=mysql_query($sql2);
-    $row2 = mysql_fetch_array($result2);
-    $count =  $row2['count'];
+  	$result=mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    $count =  $row['count'];
 
     //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
-	if($count>=1){
+	if($count==1){
 
         //echo "alert('count 1');";
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
 
-	    $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-        FROM players p, playerteam m, team t, registration r
-        WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-        ORDER BY t.teamID";
+	    // $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+        // FROM players p, playerteam m, team t, registration r
+        // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+        // ORDER BY t.teamID";
 	
-        $result=mysql_query($sql);        
-		$row = mysql_fetch_array($result);
+        //$result=mysql_query($sql);        
+		//$row = mysql_fetch_array($result);
 
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
@@ -117,13 +127,13 @@
         //User belogns to multiple teams
         if($count > 1) {
             //echo "alert('count > 1');";
-            $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-            FROM players p, playerteam m, team t, registration r
-            WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
-            ORDER BY t.teamID";
+            // $sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+            // FROM players p, playerteam m, team t, registration r
+            // WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+            // ORDER BY t.teamID";
         
-            $result=mysql_query($sql);        
-            $row = mysql_fetch_array($result);            
+            //$result=mysql_query($sql);        
+            //$row = mysql_fetch_array($result);            
 
             echo "<html lang=\"en()\">";
             echo "<head>";
