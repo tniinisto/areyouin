@@ -3,10 +3,10 @@
 
     session_start();
 
-    if($_SESSION['ChromeLog']) {
-        require_once 'ChromePhp.php';
-        ChromePhp::log('setTeam.php start');
-    }
+    // if($_SESSION['ChromeLog']) {
+    //     require_once 'ChromePhp.php';
+    //     ChromePhp::log('setTeam.php start');
+    // }
 
     // No cache
     // header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -29,7 +29,7 @@
                 FROM playerteam m, team t, registration r
                 WHERE m.Team_teamID = t.teamid AND teamID = :teamid AND m.Players_playerID = :player AND r.team_teamid = t.teamid;";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql2); }
+        // if($_SESSION['ChromeLog']) { ChromePhp::log('set admin status: ' . $sql2); }
         
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':teamid', $_SESSION['myteamid'], PDO::PARAM_INT);
