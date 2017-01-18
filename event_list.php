@@ -391,8 +391,8 @@
 	                        type='text/html'
 	                        frameborder='0'
 	                        height='245'
-	                        width='100%'
-	                        src='https://forecast.io/embed/#lat=" . str_replace(' ', '', $latlon[0]) . "&lon=" . str_replace(' ', '', $latlon[1]) . "&name=" . $row_weather['name'] . "&color=#00aaff&font=Georgia&units=si'>         
+	                        width='100%'                                 
+                            src='https://api.darksky.net/forecast/22ac181d8916748f7264629775d8aa2d/" . str_replace(' ', '', $latlon[0]) . "," . str_replace(' ', '', $latlon[1])'
                         </iframe>";
                     echo "</div>";
                 echo "</article>";         	    
