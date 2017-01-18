@@ -1,6 +1,8 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
+    header("Access-Control-Allow-Origin: https://forecast.io");
+
     session_start();
 
     //Maximum number of events listed at once
