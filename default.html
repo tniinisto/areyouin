@@ -286,15 +286,15 @@
     spinnerlogin = new Spinner(opts);
 
     function startLoginSpinner() {
-        // var target = document.getElementById('spinnerlogin_id');
-        // spinnerlogin.spin(target);
+        var target = document.getElementById('spinnerlogin_id');
+        spinnerlogin.spin(target);
         
-        $("#logincheckSpinner").addClass("login_signal");
+        //$("#logincheckSpinner").addClass("login_signal");
     }
 
     function stopSpinner() {
-        //spinnerlogin.stop();
-        $("#logincheckSpinner").removeClass("login_signal");
+        spinnerlogin.stop();
+        //$("#logincheckSpinner").removeClass("login_signal");
     }
 
     //Forgotten password/////////////////////////////////////////////////////
