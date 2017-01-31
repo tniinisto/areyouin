@@ -105,7 +105,7 @@
                         //echo "<br />";
                         //echo "<div id='spinnerteamlogin_id' class='spin'></div>";
 
-                        echo "<div class='login_signal'>";
+                        echo "<div id='loginchekSpinner' class='login_signal visuallynoshow'>";
                         echo "</div>"; 
 
                         echo "<br />";
