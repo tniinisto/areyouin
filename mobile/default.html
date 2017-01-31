@@ -228,14 +228,12 @@
         // var target = document.getElementById('spinnerlogin_id');
         // spinnerlogin.spin(target);
         
-        if ($("#loginchekSpinner").hasClass('visuallynoshow')) 
-            $("#loginchekSpinner").removeClass("visuallynoshow");
-
+        $("#loginchekSpinner").addClass("login_signal");
     }
 
     function stopSpinner() {
         //spinnerlogin.stop();
-        $("#loginchekSpinner").addClass("visuallynoshow");
+        $("#loginchekSpinner").addClass("login_signal");
     }
 
     //Forgotten password/////////////////////////////////////////////////////
