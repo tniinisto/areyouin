@@ -28,7 +28,7 @@
 	  die('Could not connect: ' . mysql_error());
 	  }
 
-	mysql_select_db($dbname, $con)or die("cannot select DB");
+	mysql_select_db($dbname, $con); //or die("cannot select DB");
    
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
@@ -102,10 +102,13 @@
 			            echo "<div>";
                             echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
                         echo "</div>";
-                        //echo "<br />";
+                        
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
+
+                        //echo "<div id='logincheckSpinner'></div>"; 
+
                         echo "<br />";
-                        //echo "<br />";
+
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             

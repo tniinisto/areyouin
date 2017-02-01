@@ -227,10 +227,13 @@
     function startLoginSpinner() {
         var target = document.getElementById('spinnerlogin_id');
         spinnerlogin.spin(target);
+        
+        //$("#loginchekSpinner").addClass("login_signal");
     }
 
     function stopSpinner() {
         spinnerlogin.stop();
+        //$("#loginchekSpinner").removeClass("login_signal");
     }
 
     //Forgotten password/////////////////////////////////////////////////////
