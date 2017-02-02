@@ -240,7 +240,7 @@
         if($con == ''){
             $i=0;
 
-            while(!$con && $i!=3){
+            while($con == '' && $i!=3){
                 $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
                 
                 if($con != '')
@@ -250,7 +250,7 @@
                 $i++;
             }
 
-            if(!$con){
+            if($con == ''){
                 //Connection error, back to login with message...
                 header('Location:default.html'); 
             }
