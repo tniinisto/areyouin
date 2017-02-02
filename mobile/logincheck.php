@@ -22,14 +22,33 @@
     // }
     ////////////////////////////////////////////////////
 
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	  {
-	  die('Could not connect: ' . mysql_error());
-	  }
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
+	//   {
+	//   die('Could not connect: ' . mysql_error());
+	//   }
 
-	mysql_select_db($dbname, $con)or die("cannot select DB");
+	// mysql_select_db($dbname, $con)or die("cannot select DB");
    
+    //More sustainable db connection
+    $con = 0;
+    if($con == 0){
+        $i=0;
+
+        while($con == 0 && $i!=3){
+            $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
+            mysql_select_db($dbname, $con);
+            
+            sleep(1);
+            $i++;
+        }
+
+        if($con == 0){
+            //Connection error, back to login with message...
+            header('Location:default.html'); 
+        }        
+    }
+
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
 
