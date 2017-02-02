@@ -46,7 +46,8 @@
         if($con == 0){
             //Connection error, back to login with message...
             header('Location:default.html'); 
-        }        
+        } else
+            mysql_select_db($dbname, $con);       
     }
 
     //For session expiration checking
