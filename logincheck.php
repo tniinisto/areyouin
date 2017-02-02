@@ -36,7 +36,7 @@
         $i=0;
 
         while($con == 0 && $i!=3){
-            $con = mysql_connect('jepa', $dbuser, $dbpass, true);
+            $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
             mysql_select_db($dbname, $con);
             
             sleep(1);
