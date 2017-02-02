@@ -36,9 +36,7 @@
         $i=0;
 
         while($con == 0 && $i!=3){
-            $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
-            mysql_select_db($dbname, $con);
-            
+            $con = mysql_connect($dbhost, $dbuser, $dbpass, true);            
             sleep(1);
             $i++;
         }
@@ -46,7 +44,8 @@
         if($con == 0){
             //Connection error, back to login with message...
             header('Location:default.html'); 
-        }        
+        } else
+            mysql_select_db($dbname, $con);        
     }
 
     //For session expiration checking
