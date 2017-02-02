@@ -31,7 +31,7 @@
 	// mysql_select_db($dbname, $con); //or die("cannot select DB");
    
     //More sustainable db connection
-    $con = '';
+    $con = 0;
     $con = dbConnect();
 
     //For session expiration checking
@@ -237,20 +237,18 @@
 
     //Try connection 3 times
     function dbConnect() {
-        if($con == ''){
+        if($con == 0){
             $i=0;
 
-            while($con == '' && $i!=3){
+            while(!$con && $i!=3){
                 $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
-                
-                if($con != '')
-                    mysql_select_db($dbname, $con);
+                mysql_select_db($dbname, $con);
                 
                 sleep(1);
                 $i++;
             }
 
-            if($con == ''){
+            if(!$con){
                 //Connection error, back to login with message...
                 header('Location:default.html'); 
             }
