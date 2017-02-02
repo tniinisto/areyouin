@@ -248,10 +248,10 @@
                 $i++;
             }
 
-            if(!$con){
-                //Connection error, back to login with message...
-                header('Location:default.html'); 
-            }
+            // if(!$con){
+            //     //Connection error, back to login with message...
+            //     header('Location:default.html'); 
+            // }
         }
     }    
 
