@@ -6,6 +6,10 @@
     ////////////////////////////////////////////////////////
 
     //ini_set('default_charset', 'UTF-8');
+	
+    // username and password sent from form
+	$myusername=$_POST['ayiloginName'];
+	$mypassword=$_POST['ayipassword'];
 
     session_start();
 
@@ -28,7 +32,7 @@
 	//   die('Could not connect: ' . mysql_error());
 	//   }
 
-	// mysql_select_db($dbname, $con)or die("cannot select DB");
+	// mysql_select_db($dbname, $con) or die("cannot select DB");
    
     //More sustainable db connection
     $con = 0;
@@ -52,10 +56,6 @@
 
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
-
-	// username and password sent from form
-	$myusername=$_POST['ayiloginName'];
-	$mypassword=$_POST['ayipassword'];
 
 	// To protect MySQL injection
 	$myusername = stripslashes($myusername);
