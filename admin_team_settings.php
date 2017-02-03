@@ -96,7 +96,7 @@
 
                     echo "<div id='locations_list' class='scrollit2'>";
 
-                        echo "<p>Save new location by clicking/tapping on the map. You can set the location's name and choose if weather info is to be presented.</p>";
+                        echo "<p style='text-align: center;'>Save new location by clicking/tapping on the map. You can set the location's name and choose if weather info is to be presented.</p>";
 
                         echo "<table border='0' class='usertable' id='locations_table'>";
                     
