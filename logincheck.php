@@ -14,8 +14,8 @@
     //     header('Location:default.html'); 
     // }
     // else {
-        $myusername=$_POST['ayiloginName'];
-	    $mypassword=$_POST['ayipassword'];
+    //    $myusername=$_POST['ayiloginName'];
+	//    $mypassword=$_POST['ayipassword'];
     //}
 
     //For PHP LOGGING enable/disable////////////////////////
@@ -55,6 +55,10 @@
     
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
+
+	// username and password sent from form
+	$myusername=$_POST['ayiloginName'];
+	$mypassword=$_POST['ayipassword'];    
 	
     // To protect MySQL injection
 	$myusername = stripslashes($myusername);
