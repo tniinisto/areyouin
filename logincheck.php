@@ -7,9 +7,18 @@
     //ini_set('default_charset', 'UTF-8');
     
     // username and password sent from form
+    $myusername = '';
+    $mypassword = '';
+
 	$myusername=$_POST['ayiloginName'];
 	$mypassword=$_POST['ayipassword'];
+
+    if($myusername == '' || $mypassword == ''){    
+        header('Location:default.html'); 
+    }
+
     session_start();
+
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
     // if($_SESSION['ChromeLog'] == TRUE) {
@@ -34,7 +43,9 @@
         while($con == 0 && $i!=3){
             $con = mysql_connect($dbhost, $dbuser, $dbpass, true);            
             sleep(1);
-            $i++;
+            $i++;        if($con == 0){
+            //Connection error, back to login with message...
+            header('Location:default.html'); 
         }
         if($con == 0){
             //Connection error, back to login with message...
