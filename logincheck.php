@@ -7,13 +7,13 @@
     //ini_set('default_charset', 'UTF-8');
     
     // username and password sent from form
-    $myusername = '';
-    $mypassword = '';
+    $myusername = 0;
+    $mypassword = 0;
 
 	$myusername=$_POST['ayiloginName'];
 	$mypassword=$_POST['ayipassword'];
 
-    if($myusername == '' || $mypassword == ''){    
+    if($myusername == 0 || $mypassword == 0){    
         header('Location:default.html'); 
     }
 
