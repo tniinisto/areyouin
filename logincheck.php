@@ -90,7 +90,9 @@
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
-		$row = mysql_fetch_array($result);
+
+		mysql_data_seek($result, 0);       
+        $row = mysql_fetch_array($result);
 		
         //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
@@ -98,8 +100,7 @@
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
 
         $_SESSION['myusername'] = $myusername;        
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $_SESSION[\'myusername\']: ', $_SESSION['myusername']); }
-        $_SESSION['mypassword'] = md5($mypassword);
+        $_SESSION['mypassword'] = $mymd5;
         $_SESSION['myplayerid'] = $row['playerID'];
         $_SESSION['myteamid'] = $row['teamID'];
         $_SESSION['myteamname'] = $row['teamName'];

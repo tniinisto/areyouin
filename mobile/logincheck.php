@@ -90,7 +90,9 @@
 		// Register $myusername, $mypassword and redirect to file "index.html"
 		//session_register("myusername");
 		//session_register("mypassword");
-		$row = mysql_fetch_array($result);
+		
+   		mysql_data_seek($result, 0);       
+        $row = mysql_fetch_array($result);
 		
         //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
