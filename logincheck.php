@@ -7,13 +7,13 @@
     //ini_set('default_charset', 'UTF-8');
     
     // username and password sent from form
-    if($_POST['ayiloginName'] == '' || $_POST['ayipassword'] == ''){    
-        header('Location:default.html'); 
-    }
-    else {
+    // if($_POST['ayiloginName'] == '' || $_POST['ayipassword'] == ''){    
+    //     header('Location:default.html'); 
+    // }
+    // else {
         $myusername=$_POST['ayiloginName'];
 	    $mypassword=$_POST['ayipassword'];
-    }
+    //}
 
     session_start();
 
