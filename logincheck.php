@@ -42,26 +42,31 @@
         } else
             mysql_select_db($dbname, $con);        
     }
+    
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
-	// To protect MySQL injection
+	
+    // To protect MySQL injection
 	$myusername = stripslashes($myusername);
 	$mypassword = stripslashes($mypassword);
 	$myusername = mysql_real_escape_string($myusername);
 	$mypassword = mysql_real_escape_string($mypassword);
+
     $mymd5 = md5($mypassword);
-	$sql="SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
-    FROM players p, playerteam m, team t, registration r, 
-        
+	
+    $sql="SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    FROM players p, playerteam m, team t, registration r,     
         (SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
         WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
     WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamID";
+
     $count = 0;
   	$result=mysql_query($sql);
     $row = mysql_fetch_array($result);
     $count =  $row['count'];
+
 	if($count>=1){
         //For session expiration checking
         $_SESSION['logged_in'] = TRUE;
@@ -75,6 +80,7 @@
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
         $_SESSION['mylicense'] = $row['licensevalid'];
+
         //User belogns to multiple teams
         if($count > 1) {
             echo "<html lang=\"en()\">";
@@ -116,6 +122,9 @@
                         echo "</fieldset>";
                     echo "</div>";
                 echo "</div>";
+    
+                mysql_close($con);
+
                 echo "<script  type='text/javascript'>";
                     echo "var spinnerTeamlogin;";
                     echo "var opts = {
@@ -153,7 +162,8 @@
         else {
             
             //Check license status/////////////////////////////////
-            
+            mysql_close($con);
+    
             //UTC//
             date_default_timezone_set("UTC");
             $licenseValid = new DateTime($_SESSION['mylicense']);
@@ -167,8 +177,7 @@
             }
             else
                 header('Location:login_success.php');
-        }
-                    
+        }               
 	}
 	else { //Login failed
         echo "<html lang=\"en()\">";
@@ -197,23 +206,9 @@
         echo "</body>";
         echo "</html>";
     
+
+        mysql_close($con);
+
     }
-    mysql_close($con);
-    // //Try connection 3 times
-    // function dbConnect() {
-    //     if($con == 0){
-    //         $i=0;
-    //         while(!$con && $i!=3){
-    //             $con = mysql_connect($dbhost, $dbuser, $dbpass, true);
-    //             mysql_select_db($dbname, $con);
-                
-    //             sleep(1);
-    //             $i++;
-    //         }
-    //         // if(!$con){
-    //         //     //Connection error, back to login with message...
-    //         //     header('Location:default.html'); 
-    //         // }
-    //     }
-    // }    
+        
 ?>
