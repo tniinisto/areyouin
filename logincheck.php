@@ -88,7 +88,7 @@
         $_SESSION['logged_in'] = TRUE;
 
 		// Register $myusername, $mypassword and redirect to file "index.html"
-		//session_register("myusername");
+		session_register("myusername");
 		//session_register("mypassword");
 
 		mysql_data_seek($result, 0);       
