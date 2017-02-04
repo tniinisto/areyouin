@@ -70,7 +70,8 @@
         (SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
         WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
-    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid";
+    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    ORDER BY t.teamName";
 
 	$result=mysql_query($sql);
 
@@ -105,10 +106,11 @@
         $_SESSION['myAdmin'] = $row['teamAdmin'];
         $_SESSION['mytimezone'] = $row['timezone'];
         $_SESSION['myoffset'] = $row['utcOffset'];
+        $_SESSION['mylicense'] = $row['licensevalid'];
+        $_SESSION['myRegistrar'] = $row['registrar'];
+
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
-
         //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
-
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
         //User belogns to multiple teams
@@ -208,7 +210,18 @@
             
         } 
         else {
-            header('Location:login_success.php');
+
+            //Check license status/////////////////////////////////           
+            $licenseValid = new DateTime($_SESSION['mylicense']);
+            $licenseValid = $licenseValid->format('Y-n-j');
+            $currentDate = new DateTime('now');
+            $currentDate = $currentDate->format('Y-n-j');
+
+            if($currentDate > $licenseValid)
+                header('Location:licenseExpired.php');    
+            else
+                header('Location:login_success.php');            
+
         }
             
         mysql_close($con);
