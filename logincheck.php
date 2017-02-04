@@ -11,24 +11,38 @@
 
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
-    $included_files = get_included_files();
-    foreach ($included_files as $filename) {
-        if(strpos($filename,'ChromePhp') !== false)
-            $_SESSION['ChromeLog'] = TRUE;
-    }
+    // $included_files = get_included_files();
+    // foreach ($included_files as $filename) {
+    //     if(strpos($filename,'ChromePhp') !== false)
+    //         $_SESSION['ChromeLog'] = TRUE;
+    // }
     ////////////////////////////////////////////////////
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
 
-	
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	  {
-	  die('Could not connect: ' . mysql_error());
-	  }
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
+	//   {
+	//   die('Could not connect: ' . mysql_error());
+	//   }
 
-	mysql_select_db("areyouin", $con)or die("cannot select DB");
+	// mysql_select_db("areyouin", $con)or die("cannot select DB");
    
+    //More sustainable db connection
+    $con = 0;
+    if($con == 0){
+        $i=0;
+        while($con == 0 && $i!=3){
+            $con = mysql_connect($dbhost, $dbuser, $dbpass, true);            
+            sleep(1);
+            $i++;
+        }
+        if($con == 0){
+            //Connection error, back to login with message...
+            header('Location:default.html'); 
+        } else
+            mysql_select_db($dbname, $con);        
+    }
 
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
