@@ -90,11 +90,6 @@
 		mysql_data_seek($result, 0);       
         $row = mysql_fetch_array($result);
 		
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
-
-		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
-		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
-
         $_SESSION['myusername'] = $myusername;        
         $_SESSION['mypassword'] = $mymd5;
         $_SESSION['myplayerid'] = $row['playerID'];
