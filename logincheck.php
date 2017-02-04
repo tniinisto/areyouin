@@ -16,8 +16,12 @@
 	//    $mypassword=$_POST['ayipassword'];
     //}
 
+    // username and password sent from form
+	$myusername=$_POST['ayiloginName'];
+	$mypassword=$_POST['ayipassword'];    
+
     session_start();
-    
+
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
     // if($_SESSION['ChromeLog'] == TRUE) {
@@ -55,10 +59,6 @@
     
     //For session expiration checking
     $_SESSION['logged_in'] = FALSE;
-
-	// username and password sent from form
-	$myusername=$_POST['ayiloginName'];
-	$mypassword=$_POST['ayipassword'];    
 	
     // To protect MySQL injection
 	$myusername = stripslashes($myusername);
