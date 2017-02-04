@@ -65,18 +65,21 @@
 
     $mymd5 = md5($mypassword);
 
-	//$sql="SELECT * FROM players WHERE name='$myusername' and password='$mymd5'";
-	$sql="SELECT p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.lastMsg
-    FROM areyouin.players p, playerteam m, team t
-    WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0
-    ORDER BY t.teamID";
+	$sql="SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, t.timezone, t.utcOffset, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+    FROM players p, playerteam m, team t, registration r, 
+        
+        (SELECT count(*) as count
+        FROM players p, playerteam m, team t, registration r
+        WHERE (name = '$myusername' OR mail = '$myusername') and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x";
 
 	$result=mysql_query($sql);
 
-	// Mysql_num_row is counting table row
-	$count=mysql_num_rows($result);
+	$count=0;
+    $result=mysql_query($sql);
+    $row = mysql_fetch_array($result);
+    $count =  $row['count'];
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
+    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
 
 	if($count>=1){
 
@@ -88,7 +91,7 @@
 		//session_register("mypassword");
 		$row = mysql_fetch_array($result);
 		
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, mysql_fetch_array()'); }
 
 		//header("location:index.html?userid=" . $row[playerID] . "&username=$myusername&teamid=" . $row[teamID] . "&teamname=" . $row[teamName]);
 		//header("location:index.html?p=" . $row[playerID] . "&t=" . $row[teamID]);
@@ -104,7 +107,7 @@
         $_SESSION['myoffset'] = $row['utcOffset'];
         //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
 
         //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
 
