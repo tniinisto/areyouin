@@ -1,5 +1,8 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+    session_start();
+
     ////////////////////////////////////////////////////////
     //Uncomment to enable ChromePhp-logging
     //include 'ChromePhp.php';
@@ -14,8 +17,6 @@
         $myusername=$_POST['ayiloginName'];
 	    $mypassword=$_POST['ayipassword'];
     //}
-
-    session_start();
 
     //For PHP LOGGING enable/disable////////////////////////
     $_SESSION['ChromeLog'] = FALSE;
