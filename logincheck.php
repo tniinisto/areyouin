@@ -48,8 +48,14 @@
     $_SESSION['logged_in'] = FALSE;
 
 	// username and password sent from form
-	$myusername=$_POST['ayiloginName'];
+	$myusername = '';
+    $mypassword = '';
+    $myusername=$_POST['ayiloginName'];
 	$mypassword=$_POST['ayipassword'];
+
+    if($myusername == '' || $mypassword == ''){    
+        header('Location:default.html'); 
+    }    
 
 	// To protect MySQL injection
 	$myusername = stripslashes($myusername);
