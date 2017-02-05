@@ -5,8 +5,6 @@
     //include 'ChromePhp.php';
     ////////////////////////////////////////////////////////
 
-    //ini_set('default_charset', 'UTF-8');
-
     session_start();
 
     //For PHP LOGGING enable/disable////////////////////////
@@ -17,17 +15,7 @@
     //         $_SESSION['ChromeLog'] = TRUE;
     // }
     ////////////////////////////////////////////////////
-
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, start'); }
-
-    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	// if (!$con)
-	//   {
-	//   die('Could not connect: ' . mysql_error());
-	//   }
-
-	// mysql_select_db("areyouin", $con)or die("cannot select DB");
-   
+  
     //More sustainable db connection
     $con = 0;
     if($con == 0){
@@ -80,8 +68,6 @@
     $row = mysql_fetch_array($result);
     $count =  $row['count'];
 
-    //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $count: ', $count); }
-
 	if($count>=1){
 
         //For session expiration checking
@@ -101,10 +87,6 @@
         $_SESSION['mylicense'] = $row['licensevalid'];
         $_SESSION['myRegistrar'] = $row['registrar'];
 
-        //$_SESSION['mylastmsg'] = $row['lastMsg']; //Works only when user in 1 team, this is re-evaluated after words to cover case when multiple teams...
-        //if($_SESSION['ChromeLog']) { ChromePhp::log('logincheck.php, $playerid: ', $row['playerID']); }
-        //ChromePhp::log("logincheck.php, logged_in:", $_SESSION['logged_in']);
-
         //User belogns to multiple teams
         if($count > 1) {
             echo "<html lang=\"en()\">";
@@ -122,14 +104,6 @@
             echo "<script src=\"js/jquery-2.0.0.min.js\"></script>";
             echo "<script type='text/javascript' src='js/spin.min.js'></script>";            
 
-            //echo "<script type=\"text/javascript\">";
-            //    echo "function goIndex() {";                    
-            //        echo "var e = document.getElementById('team_select');";
-            //        echo "var teamID = e.options[e.selectedIndex].value;";
-            //        echo "alert('teamid: ' + teamID);";                
-            //    echo "}";
-            //echo "</script>";
-
             echo "</head>";
 
             echo "<body>";
@@ -138,10 +112,10 @@
 			            echo "<div>";
                             echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
                         echo "</div>";
-                        //echo "<br />";
+
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
                         echo "<br />";
-                        //echo "<br />";
+
                         echo "<fieldset id=\"loginfailfs\">";
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
@@ -188,7 +162,6 @@
                         , position: 'fixed' // Element positioning
                     };";
 
-                    //echo "var target = document.getElementById('spinnerteamlogin_id');";
                     echo "spinnerTeamlogin = new Spinner(opts);";
 
                     echo "function startLoginSpinner() {";
@@ -221,8 +194,6 @@
         
 	}
 	else { //Login failed
-
-        //header("location:default.html");
 
         echo "<html lang=\"en()\">";
         echo "<head>";
