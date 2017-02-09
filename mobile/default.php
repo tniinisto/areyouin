@@ -76,7 +76,7 @@
 <body>
 
     <!--Check the php wakeness-->
-    <!--<?php-->
+    <!-- ?php -->
     
         // include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
@@ -106,7 +106,7 @@
 
         // if($result == 0)
         //     header('Location:/mobile/default.php'); 
-    // ?>
+     <!--?>-->
 
 
 <div id="pagewrap">
