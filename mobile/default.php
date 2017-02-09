@@ -8,14 +8,22 @@
   <meta http-equiv="pragma" content="no-cache">
 
 <!-- disable iPhone inital scale -->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
-
-<title>R'YouIN</title>
-<!--<meta name="keywords" content="events, participants, team, group">
-<meta name="description" content="Event management and participation">-->
 <meta name="author" content="Tuomas Niinistö">
+
+<!--Title-->
+<title>R'YouIN</title>
+
+<!-- Scripts main, jquery-->
+<script type="text/javascript" charset="utf-8" src="main.js"> </script>
+<!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
+
+<!--<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<script src="js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="../js/spin.min.js"></script>
 
 <!-- main css -->
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -23,16 +31,10 @@
 <!-- media queries css -->
 <link href="media-queries.css" rel="stylesheet" type="text/css">
 
-<!-- Scripts main, jquery 2.0.0-->
-<script type="text/javascript" charset="utf-8" src="main.js"> </script>
-<!--<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>-->
-<script src="js/jquery-2.0.0.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-
 <!--Toaster-->
-<link href="js/toastr.min.css" rel="stylesheet"/>
-<script src="js/toastr.min.js"></script>
-<script src="js/jquery.cookie.js"></script>
+<link href="../js/toastr.min.css" rel="stylesheet"/>
+<script src="../js/toastr.min.js"></script>
+<script src="../js/jquery.cookie.js"></script>
 
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
