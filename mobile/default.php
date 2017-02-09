@@ -107,7 +107,7 @@
         // if($result == 0)
         //     header('Location:/mobile/default.php'); 
      <!--?>-->
-
+<!---->
 
 <div id="pagewrap">
 
