@@ -34,60 +34,6 @@
 <script src="js/toastr.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
 
-<script type="text/javascript">
-    if (screen.width < 574) {
-        var ref = document.referrer;
-        //SITE SPECIFIC
-        var realmaster = "https://r-youin.com/";
-        var master = "https://areyouin.azurewebsites.net/";
-        var dev = "https://dev-areyouin.azurewebsites.net/";
-        var local = "http://localhost:18502/"; //LOCAL testing
-        var host_url = document.location.href; //Current url
-        if (host_url.match(dev)) {
-            var urls = new Array("https://dev-areyouin.azurewebsites.net/", "https://dev-areyouin.azurewebsites.net/mobile/");
-        } else
-            if (host_url.match(local)) {
-                var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile/");
-            } else
-                if (host_url.match(master)) {
-                    var urls = new Array("https://areyouin.azurewebsites.net/", "https://areyouin.azurewebsites.net/mobile/");
-                } else
-                    if (host_url.match(realmaster)) {
-                        var urls = new Array("https://r-youin.com/", "https://r-youin.com/mobile/");
-                    }
-        var n = ref.match(urls[0]);
-        var m = ref.match(urls[1]);
-        if ( ((m !== null) || (n !== null)) || (host_url.match('back') != null) ) {
-        }
-        else if ( (ref == '') || ((m == null) && (n == null)) ) {
-            var r = confirm("You seem to be on a mobile device.\nClick \"OK\" for a lighter R'YouIN application. Both can be used, you can choose which you prefer!");
-            if (r == true) {
-                //alert("here we are mobile direct referrer");
-                if (host_url.match(dev)) {
-                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.php";
-                } else
-                    if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile/default.php";
-                    } else
-                        if (host_url.match(master)) {
-                            window.location = "https://areyouin.azurewebsites.net/mobile/default.php";
-                        } else
-                            if (host_url.match(realmaster)) {
-                                window.location = "https://r-youin.com/mobile/default.php";
-                            }
-            }
-            else {
-                
-            }
-        }
-        else {
-            //alert("here we are mobile redirect referrer");
-            window.location = "https://r-youin.com/";
-        }
-    }
-</script>
-
-
 <!-- html5.js for IE less than 9 -->
 <!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
