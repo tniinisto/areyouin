@@ -18,18 +18,18 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
         //SITE SPECIFIC
         if (strpos($_SERVER['HTTP_HOST'], 'dev-') !== false) { //Dev
-            header('Location:https://dev-areyouin.azurewebsites.net/default.html');  
+            header('Location:https://dev-areyouin.azurewebsites.net/default.php');  
         } else
         if (strpos($_SERVER['HTTP_HOST'], 'areyouin') !== false) { //Mobile
-            header('Location:http://areyouin.azurewebsites.net/default.html');  
+            header('Location:http://areyouin.azurewebsites.net/default.php');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) { //Localhost
-            header('Location:http://localhost:48595/default.html');  
+            header('Location:http://localhost:48595/default.php');  
         } else 
         if (strpos($_SERVER['HTTP_HOST'], 'www.r-youin.com') !== false) { //Production, www, for https on custom domain a certificate is needed
-            header('Location:https://www.r-youin.com/default.html');
+            header('Location:https://www.r-youin.com/default.php');
         } else { //Production
-            header('Location:https://r-youin.com/default.html');
+            header('Location:https://r-youin.com/default.php');
         }
     }
     else {

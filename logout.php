@@ -39,6 +39,6 @@
     
     //ChromePhp::log("logout.php end, logged_in:", $_SESSION['logged_in']);
 
-    //header("location:default.html");
+    //header("location:default.php");
 
 ?>

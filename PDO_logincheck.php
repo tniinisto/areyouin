@@ -271,7 +271,7 @@
 	}
 	else { //Login failed
 
-        //header("location:default.html");
+        //header("location:default.php");
 
         echo "<html lang=\"en()\">";
         echo "<head>";
@@ -300,7 +300,7 @@
                         echo "<h1>Login failed</h1>";
                         echo "<h2>Check your username & password</h2>";
                         echo "<br>";
-                        echo "<a href='default.html'>Back to login</a>";
+                        echo "<a href='default.php'>Back to login</a>";
                         echo "<h1></h1>";
                     echo "</fieldset>";
                 echo "</div>";
