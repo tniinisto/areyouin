@@ -129,8 +129,8 @@
 
 <body>
 
-<!--Check the php wakeness-->
-<?php
+    <!--Check the php wakeness-->
+    <?php
     
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
@@ -153,7 +153,10 @@
             $result = $row2['teamName'];
         }
 
-?>
+        if($result == 0)
+            header('Location:default.php'); 
+    ?>
+
 
 <div id="pagewrap">
 
@@ -166,7 +169,7 @@
         <div id="spinnerlogin_id" class="spin"></div>
         
         <div>
-            <form id="loginform" name="loginform" method="post" action="https://r-youin.com/logincheck.php">
+            <form id="loginform" name="loginform" method="post" action="logincheck.php">
             
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
