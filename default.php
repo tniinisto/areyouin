@@ -129,6 +129,32 @@
 
 <body>
 
+<!--Check the php wakeness-->
+<?php
+    
+    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+    //session_start();
+
+  	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          
+    try {
+        $result = 0;
+
+        $sql2 = "SELECT teamName from team WHERE teamID = 0";
+        
+        $stmt2 = $dbh->prepare($sql2);        
+        $result2 = $stmt2->execute();   
+        $row2;
+
+        while($row2 = $stmt2->fetch()) {
+            //print_r($row);
+            $result = $row2['teamName'];
+        }
+
+?>
+
 <div id="pagewrap">
 
     <div id="loginwrapper">
@@ -140,7 +166,7 @@
         <div id="spinnerlogin_id" class="spin"></div>
         
         <div>
-            <form id="loginform" name="loginform" method="post" action="logincheck.php">
+            <form id="loginform" name="loginform" method="post" action="https://r-youin.com/logincheck.php">
             
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
