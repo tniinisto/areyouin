@@ -84,7 +84,7 @@
 
         session_start();
 
-        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+        $dbh = new PDO("mysql:host='eu-cdbr-azure-north-a.cloudapp.net';dbname='areyouin'", 'bd3d44ed2e1c4a', '8ffac735');	
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
         try {
