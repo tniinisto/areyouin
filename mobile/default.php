@@ -103,11 +103,11 @@
         }
         catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-            //header('Location:default.php'); 
+            header('Location:/mobile/default.php'); 
         }
 
         if($result == 0)
-            //header('Location:default.php'); 
+            header('Location:/mobile/default.php'); 
     ?>
 
 <div id="pagewrap">
