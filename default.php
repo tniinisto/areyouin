@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 
+  <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+  <meta http-equiv="expires" content="-1">
+  <meta http-equiv="pragma" content="no-cache">
+
 <!-- disable iPhone inital scale -->
 <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -60,7 +64,7 @@
             if (r == true) {
                 //alert("here we are mobile direct referrer");
                 if (host_url.match(dev)) {
-                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default_dev.html";
+                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.php";
                 } else
                     if (host_url.match(local)) {
                         window.location = "http://localhost:18502/mobile/default.php";
@@ -125,6 +129,40 @@
 
 <body>
 
+    <!--Check the php wakeness-->
+    <?php
+    
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+        //session_start();
+
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+        try {
+            $result = 0;
+
+            $sql2 = "SELECT teamName from team WHERE teamID = 0";
+            
+            $stmt2 = $dbh->prepare($sql2);        
+            $result2 = $stmt2->execute();   
+            $row2;
+
+            while($row2 = $stmt2->fetch()) {
+                //print_r($row);
+                $result = $row2['teamName'];
+            }
+        }
+        catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+            header('Location:default.php'); 
+        }
+
+        if($result == 0)
+            header('Location:default.php'); 
+    ?>
+
+
 <div id="pagewrap">
 
     <div id="loginwrapper">
@@ -136,7 +174,8 @@
         <div id="spinnerlogin_id" class="spin"></div>
         
         <div>
-		    <form id="loginform" name="loginform" method="post" action="https://dev-areyouin.azurewebsites.net/logincheck.php">
+            <form id="loginform" name="loginform" method="post" action="logincheck.php">
+            
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
                     <!--<font color="white" size="3">-->

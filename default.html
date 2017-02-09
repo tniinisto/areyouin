@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 
   <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
-  <meta http-equiv="expires" content="Sat, 31 Oct 2014 00:00:00 GMT">
+  <meta http-equiv="expires" content="-1">
   <meta http-equiv="pragma" content="no-cache">
 
 <!-- disable iPhone inital scale -->
@@ -64,16 +64,16 @@
             if (r == true) {
                 //alert("here we are mobile direct referrer");
                 if (host_url.match(dev)) {
-                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.html";
+                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.php";
                 } else
                     if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile/default.html";
+                        window.location = "http://localhost:18502/mobile/default.php";
                     } else
                         if (host_url.match(master)) {
-                            window.location = "https://areyouin.azurewebsites.net/mobile/default.html";
+                            window.location = "https://areyouin.azurewebsites.net/mobile/default.php";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "https://r-youin.com/mobile/default.html";
+                                window.location = "https://r-youin.com/mobile/default.php";
                             }
             }
             else {
@@ -140,8 +140,12 @@
         <div id="spinnerlogin_id" class="spin"></div>
         
         <div>
+<<<<<<< HEAD
 
             <form id="loginform" name="loginform" method="post" action="https://r-youin.com/logincheck.php">
+=======
+            <form id="loginform" name="loginform" method="post" action="logincheck.php">
+>>>>>>> refs/remotes/origin/d30
             
 
                 <fieldset id="loginfs">

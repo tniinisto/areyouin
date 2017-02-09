@@ -107,7 +107,7 @@
 
                     <div style='text-align: center; background: black; padding: 15px;'>
                     <font size='4' face='Trebuchet MS' style='color: white;'>			
-                        Login at <a href='https://r-youin.com/default.html' style='color: white;'>R'YouIN</a>!
+                        Login at <a href='https://r-youin.com/default.php' style='color: white;'>R'YouIN</a>!
                     </font>
                     </div>
 
