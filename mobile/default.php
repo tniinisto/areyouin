@@ -76,38 +76,39 @@
 <body>
 
     <!--Check the php wakeness-->
-    <!-- ?php -->
+    <?php 
     
-        // include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
-        // //session_start();
+        //session_start();
 
-        // $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-        // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
-        // try {
-        //     $result = 0;
+        try {
+            $result = 0;
 
-        //     $sql2 = "SELECT teamName from team WHERE teamID = 0";
+            $sql2 = "SELECT teamName from team WHERE teamID = 0";
             
-        //     $stmt2 = $dbh->prepare($sql2);        
-        //     $result2 = $stmt2->execute();   
-        //     $row2;
+            $stmt2 = $dbh->prepare($sql2);        
+            $result2 = $stmt2->execute();   
+            $row2;
 
-        //     while($row2 = $stmt2->fetch()) {
-        //         //print_r($row);
-        //         $result = $row2['teamName'];
-        //     }
-        // }
-        // catch(PDOException $e) {
-        //     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-        //     header('Location:/mobile/default.php'); 
-        // }
+            while($row2 = $stmt2->fetch()) {
+                //print_r($row);
+                $result = $row2['teamName'];
+            }
+        }
+        catch(PDOException $e) {
+            echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+            header('Location:/mobile/default.php'); 
+        }
 
-        // if($result == 0)
-        //     header('Location:/mobile/default.php'); 
-     <!--?>-->
-<!---->
+        if($result == 0)
+            header('Location:/mobile/default.php');
+
+     ?>
+
 
 <div id="pagewrap">
 
