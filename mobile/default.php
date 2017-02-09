@@ -80,7 +80,7 @@
     <!--Check the php wakeness-->
     <?php 
     
-        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+        include( '/config/config.php' );
 
         session_start();
 
