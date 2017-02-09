@@ -114,13 +114,13 @@
     <div id="loginwrapper">
 
 		<div>
-        <h1 id="loginsite-logo" style="margin-top: 10px;">R'YouIN</h1>			
+        <h1 id="loginsite-logo" style="margin-top: 10px;">R'YouIN <img alt="mobile" width="30" height="30" src="images/icon-mobile.png" align="top"></h1>            			
         </div>
 
         <div id="spinnerlogin_id" class="spin"></div>
-        
+
         <div>
-            <form id="loginform" name="loginform" method="post" action="logincheck.php">
+		    <form id="loginform" name="loginform" method="post" action="/mobile/logincheck.php">
             
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
@@ -149,7 +149,6 @@
             <br>
                 <a style="color: white; text-decoration: underline;" href='#openModalPassword' id='passwordForgot'>Forgot my password</a>
 
-
         </div>
     </div>
 </div>
@@ -168,9 +167,9 @@
 
             <p style='margin: 0px; padding-top: 10px;'>
                                                     
-                <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right; color: black;'>Email:&nbsp</label>
+                <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right; color: black; margin-left: -10px;'>Email:&nbsp</label>
                 <input type='text' id='forgot_password' name='password_forgotten' value=''
-                        style='margin-bottom: 15px; width: 170px; required'></input>
+                        style='margin-bottom: 15px; width: 160px; required'></input>
                 </p>
 
                 <p style="padding-left: 10px; color: black;">Email containing your new password will be sent to you in a moment.</p>
@@ -187,21 +186,23 @@
 </div>
 <!--//Modal dialog for new password change///////////////-->
 
-
 <script type="text/javascript">
     function loginFailed() {
         $("#checklogin").removeClass("noshow");
     }
 </script>
 
-<script  type="text/javascript">    
-    //Clear session, local storage and php session data
-    localStorage.clear();
-    sessionStorage.clear();
-    $.get("logout.php");
+<script  type="text/javascript">
     //Cookie
     $(document).ready(function() {
+
+        //Clear session, local storage and php session data
+        localStorage.clear();
+        sessionStorage.clear();
+        $.get("logout.php");        
+
         if (!$.cookie('noShowWelcome')) {
+
                 //Toaster/////////////////////////////
                 toastr.options = {
                   "closeButton": true,
@@ -220,15 +221,20 @@
                   "showMethod": "fadeIn",
                   "hideMethod": "fadeOut"
                 }
+
                 toastr.info("R'YouIN application uses cookies. Please make sure that cookies are enabled on your browser. Thank you!", "Cookies")
                 //Toaster/////////////////////////////
-                //Set cookie, stay for a year
+
+                //Set cookie
                 //$.cookie('noShowWelcome', true);
                 $.cookie('noShowWelcome', true, { expires: 30, path: '/', secure: true});
         }
     });
-    
+</script>
+
+<script  type="text/javascript">
     var spinnerlogin;
+
     var opts = {
         lines: 15 // The number of lines to draw
         , length: 2 // The length of each line
@@ -237,7 +243,7 @@
         , scale: 1 // Scales overall size of the spinner
         , corners: 1 // Corner roundness (0..1)
         , color: '#fff' // #rgb or #rrggbb or array of colors
-        , opacity: 0.70 // Opacity of the lines
+        , opacity: 0.25 // Opacity of the lines
         , rotate: 0 // The rotation offset
         , direction: 1 // 1: clockwise, -1: counterclockwise
         , speed: 1 // Rounds per second
@@ -251,53 +257,56 @@
         , hwaccel: false // Whether to use hardware acceleration
         , position: 'fixed' // Element positioning
     }
+
     //var target = document.getElementById('spinnerlogin_id');
     spinnerlogin = new Spinner(opts);
+
     function startLoginSpinner() {
         var target = document.getElementById('spinnerlogin_id');
         spinnerlogin.spin(target);
         
-        //$("#logincheckSpinner").addClass("login_signal");
+        //$("#loginchekSpinner").addClass("login_signal");
     }
+
     function stopSpinner() {
         spinnerlogin.stop();
-        //$("#logincheckSpinner").removeClass("login_signal");
+        //$("#loginchekSpinner").removeClass("login_signal");
     }
+
     //Forgotten password/////////////////////////////////////////////////////
     function forgotPassword(mail) {
-        //Validate entered mail address with regexp
-        if(!checkForgotEmail(mail)) {
-            alert("Check entered mail address format!");
+
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
         }
-        else {
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            }
-            else {// code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    stopSpinner();
-                    //Close modal dialog
-                    window.location.replace('#');
-                    if (xmlhttp.responseText.indexOf('1') > -1)
-                        alert("Your password has been changed, check your email!");
-                    else
-                        alert("R'YouIN did not find your mail from the system! Check the mail you entered and try again.");
-                }
-            }
-            startLoginSpinner();
-            var variables = "mail=" + mail;
-            xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
-            xmlhttp.send();
+        else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
+
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                stopSpinner();
+
+                //Close modal dialog
+                window.location.replace('#');
+
+                if (xmlhttp.responseText.indexOf('1') > -1)
+                    alert("Your password has been changed, check your email!");
+                else
+                    alert("R'YouIN did not find your mail from the system! Check the mail you entered and try again.");
+
+            }
+        }
+
+        startLoginSpinner();
+
+        var variables = "mail=" + mail;
+        xmlhttp.open("GET", "forgotPassword.php?" + variables, true);
+        xmlhttp.send();
+
     }
-    //Validate address 
-    function checkForgotEmail(mail) {
-        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-        return pattern.test(mail);
-    }
+
 </script>
 
 </body>
