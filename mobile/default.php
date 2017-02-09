@@ -120,7 +120,7 @@
         <div id="spinnerlogin_id" class="spin"></div>
 
         <div>
-		    <form id="loginform" name="loginform" method="post" action="/mobile/logincheck.php">
+		    <form id="loginform" name="loginform" method="post" action="logincheck.php">
             
                 <fieldset id="loginfs">
                     <legend style="text-align: left; color: white;">Login</legend>
