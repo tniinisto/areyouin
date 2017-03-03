@@ -340,7 +340,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
 echo "</div>";
 
-//echo "<div style='text-align: center'><label>24% VAT is added to prices on payment. Tax is separated on the receipt.</label> </div>";
+echo "<div style='text-align: center'><label>Value added tax (VAT) is added on prices where applicable. Tax is separated on the receipt.</label> </div>";
 
 $dbh = null;
 
