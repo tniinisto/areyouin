@@ -22,7 +22,7 @@
         // echo $index;
 
         ob_start(); // begin collecting output
-        include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
+        include('index.html');
         $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
         echo $result;
 
