@@ -15,6 +15,8 @@
 
         //header("location:index.html");
 
+        include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
+
         //$index = file_get_contents('index.html');
         //echo $index;
 
@@ -23,14 +25,14 @@
         // $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
         // echo $result;       <html>
 
-        echo "<head>";
-        echo "    <script type='text/javascript'>";
-        echo "        window.location.href = 'file:///index.html';";
-        echo "    </script>";
-        echo "</head>";
-        echo "<body>";
-        echo "</body>";
-        echo "</html>";
+        // echo "<head>";
+        // echo "    <script type='text/javascript'>";
+        // echo "        window.location.href = 'file:///index.html';";
+        // echo "    </script>";
+        // echo "</head>";
+        // echo "<body>";
+        // echo "</body>";
+        // echo "</html>";
 
     }
 
