@@ -184,8 +184,11 @@
 
             if($currentDate > $licenseValid)
                 header('Location:licenseExpired.php');    
-            else
-                header('Location:login_success.php');            
+            else {
+                //header('Location:login_success.php');
+                echo "jepaa..";    
+            }
+                            
 
         }
             
