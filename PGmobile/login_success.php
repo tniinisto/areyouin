@@ -18,13 +18,13 @@
         //Directs to browser
         //include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
 
-        $index = file_get_contents('$_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html');
-        echo $index;
+        // $index = file_get_contents('$_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html');
+        // echo $index;
 
-        // ob_start(); // begin collecting output
-        // include 'index.html';
-        // $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
-        // echo $result;       <html>
+        ob_start(); // begin collecting output
+        include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
+        $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+        echo $result;       <html>
 
         // echo "<head>";
         // echo "    <script type='text/javascript'>";
