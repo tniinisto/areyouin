@@ -15,10 +15,11 @@
 
         //header("location:index.html");
 
-        include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
+        //Directs to browser
+        //include($_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html");
 
-        //$index = file_get_contents('index.html');
-        //echo $index;
+        $index = file_get_contents('$_SERVER['DOCUMENT_ROOT']."/pgmobile/index.html');
+        echo $index;
 
         // ob_start(); // begin collecting output
         // include 'index.html';
