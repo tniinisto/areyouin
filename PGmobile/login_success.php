@@ -19,9 +19,13 @@
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
 
         //header("location:index.html");
-        $index = file_get_contents('index.html');
-        echo $index;
-        
+        // $index = file_get_contents('index.html');
+        // echo $index;
+
+        ob_start(); // begin collecting output
+        include 'index.html';
+        $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+        echo $result;       
     }
 
 ?>
