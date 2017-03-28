@@ -25,7 +25,7 @@
 
         echo "<head>";
         echo "    <script type='text/javascript'>";
-        echo "        window.location.href = 'index.html';";
+        echo "        window.location.href = 'file:///index.html';";
         echo "    </script>";
         echo "</head>";
         echo "<body>";
