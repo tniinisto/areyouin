@@ -13,13 +13,15 @@
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
 
-        header("location:default.php");
+        //header("location:default.php");
     }
     else {
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, session_is_registered'); }
 
-        header("location:index.html");
-
+        //header("location:index.html");
+        $index = file_get_contents('index.html');
+        echo $index;
+        
     }
 
 ?>
