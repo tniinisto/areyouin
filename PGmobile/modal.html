@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"> 
+	<title>Chat</title> 
+	<!--<link rel="stylesheet"  href="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.css" />-->  
+	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4/jquery.mobile-1.0a4.min.js"></script>--> 
+
+    <!--Jquery mobile 1.4.5-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="main.js"> </script>
+ 
+    <!--<script type="text/javascript" src="../js/jquery.validate.min.js"></script>-->
+
+    <!-- main css -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+    
+    <body>
+
+        <!--<div data-role="page">-->
+	    <div data-role="page" id="areyouin-modal-page" data-theme="c" data-url="areyouin-modal-page" data-rel="dialog" data-close-btn="none">
+        <!--</div> data-close-btn="none">-->
+		    <div data-role="header" data-theme="b" data-position="inline">
+			    <h1>New comment</h1>
+		    </div>
+
+		    <div data-role="content" data-theme="c">
+			    <!--<h1>Write new comment</h1>
+			    <p>This is a regular page, styled as a dialog. To create a dialog, just link to a normal page and include a transition and <code>data-rel="dialog"</code> attribute.</p>-->
+
+                <form id="chatform" class="validate-form" onsubmit="addRow();" name="chatform" method="GET" target="frame_chat">
+                    
+                    <div data-role="fieldcontainer">
+                        <label for="comment_input">Comment: </label>
+                        <textarea maxlength="500" id="comment_input" name="comment_input" placeholder="" style="height:  100px;" required></textarea>
+                    </div>
+                    
+                    <input type="submit" value="Send" name="sendbutton" id="sendbutton"/>
+                    
+                    <!--<input type="submit" value="Send" name="sendbutton" id="sendbutton" onclick="history.go(-1)"  class="button">-->
+                    <!--<button id="comment_submit" type="submit" name="send">Send</button>-->
+                    <!--<button id="comment_submit" type="submit" name="send" value="send" onclick="$('#backpacker').trigger('click');">Send</button>-->
+                    <!--<button id="comment_submit" type="submit" name="send" value="send" data-rel="back" onclick="$('.ui-dialog').dialog('close');">Send</button>-->
+                    <!--<a id="backpacker2" href="index.html" type="submit" data-rel="back" data-role="button" onclick="$('#sendbutton').trigger('click');">Send</a>-->
+                </form>
+                
+                <!--<script>
+                    $("#chatform").validate();
+                </script>-->
+
+                <iframe name="frame_chat" style="display: none;"></iframe>                    
+			    
+                <a id="backpacker" href="index.html" data-role="button" data-rel="back" data-theme="b">Back</a>
+
+		    </div>
+	    </div>
+
+        <script>
+            //$('#sendbutton').addClass('ui-disabled');
+
+            //Document ready
+            //jQuery(document).ready(function () {
+            //    //document.getElementById('sendbutton').disabled = true;
+            //    $('input[type="submit"]').prop('disabled', true);
+            //    $('input[type="text"]').keyup(function () {
+            //        if ($(this).val() != '') {
+            //            $('input[type="submit"]').prop('disabled', false);
+            //        }
+            //    });
+            //});
+
+            //$(document).on("click", "#sendbutton", function () {
+            //    alert("test");
+            //    //$("#chatform").submit();
+            //});
+
+            //$("#comment_submit").click(function (event) {
+            //    //alert("test");
+            //    //event.stopImmediatePropagation();
+            //    //event.preventDefault();
+            //    $.mobile.dialog.active = null;
+            //    delete $.mobile.dialog.active;
+            //});
+
+            //$(document).on('comment_submit', '[data-rel=back]', function (e) {
+            // e.stopImmediatePropagation();
+            // e.preventDefault();
+            // var back = $.mobile.activePage.prev('[data-role=page]');
+            //  $.mobile.changePage(back, { 
+            //    transition: 'slide',
+            //    reverse: true });
+            //});
+
+            //function goBack() {                
+            //    $("#backpacker").trigger("click");
+            //}
+
+            //function closeform() {
+            //    alert("close!");
+            //    //addRow();
+            //    //$('.ui-dialog').dialog('close');
+            //    //$("#areyouin-modal-page").dialog("close");
+            //    //window.history.back();
+            //    return false;
+            //}
+
+            //$('#chatform').on('submit', function () {
+            //    alert('Form submitted!');
+            //    return false;
+            //});
+
+            //$("#chatform").bind('ajax:complete', function() {
+            //    alert("close this!");
+            //    // tasks to do 
+            //});
+
+            //Form validation
+            $('#chatform').validate({
+                rules: {
+                    comment_input: {
+                        required: true,
+                        minlength: 1
+                    }
+                },
+                messages: {
+                    comment_input: {
+                        required: "Enter chat comment"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent().prev());
+                },
+                submitHandler: function (form) {
+                    $(':mobile-pagecontainer').pagecontainer('change', '#success', {
+                        reload: false
+                    });
+                    return false;
+                }
+            });
+
+
+            //$("#comment_input").keyup(function (e) {
+            //    var value = document.getElementById('comment_input').value;
+            //    if (value.length > 1) {
+            //        document.getElementById('sendbutton').disabled = false;
+            //    }
+            //});
+
+
+        </script>
+
+    </body>
+
+</html>
