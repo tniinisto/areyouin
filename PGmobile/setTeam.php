@@ -60,8 +60,16 @@
             // echo "Now: " . $currentDate;
             // echo "License: " . $licenseValid;    
         }
-        else
-            header('Location:login_success.php');  
+            else {
+                //header('Location:login_success.php');
+                //echo "jepaa..";
+
+                ob_start(); // begin collecting output
+                include('index.html');
+                $result = ob_get_clean(); // retrieve output from myfile.php, stop buffering
+                echo $result;
+
+            }
 
     }
     catch(PDOException $e) {
