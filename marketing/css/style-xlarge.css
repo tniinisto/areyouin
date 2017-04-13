@@ -9,3 +9,12 @@
 	body, input, select, textarea {
 		font-size: 11pt;
 	}
+
+
+/*logo image	*/
+
+	#h1_logo {
+		vertical-align: middle;
+		display: inline-block;
+		padding-right: 1em;
+	} 
