@@ -43,3 +43,12 @@
 	.wrapper.style3 header.major {
 		margin-bottom: 2em;
 	}
+
+/*logo image	*/
+
+	#h1_logo {
+		vertical-align: middle;
+		display: inline-block;
+		padding-right: 1em;
+	} 
+	

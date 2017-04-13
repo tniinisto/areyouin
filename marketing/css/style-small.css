@@ -69,3 +69,11 @@
 		#footer .icons {
 			font-size: 1em;
 		}
+
+/*logo image	*/
+
+	#h1_logo {
+		vertical-align: middle;
+		display: inline-block;
+		padding-right: 1em;
+	} 
