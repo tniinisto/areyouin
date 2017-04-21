@@ -705,7 +705,10 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    location.href = 'default.html';
+    
+    navigator.app.exitApp();
+    
+    //location.href = 'default.html';
 
     // var loginURL = window.location.href;
     // loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
