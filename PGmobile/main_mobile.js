@@ -577,15 +577,18 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    var loginURL = window.location.href;
-    loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-    loginURL = loginURL + "default.php";
-    
-    //alert(loginURL);
 
-    window.location.assign(loginURL);
-    //window.location.assign("http://m-areyouin.azurewebsites.net/default.php");
-    //window.location.assign("http://localhost:18502/default.php")    
+    navigator.app.exitApp();
+
+    // var loginURL = window.location.href;
+    // loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+    // loginURL = loginURL + "default.php";
+    
+    // //alert(loginURL);
+
+    // window.location.assign(loginURL);
+    // //window.location.assign("http://m-areyouin.azurewebsites.net/default.php");
+    // //window.location.assign("http://localhost:18502/default.php")    
 }
 
 function toEvents() {
