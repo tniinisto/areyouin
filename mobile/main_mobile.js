@@ -577,13 +577,19 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    var loginURL = window.location.href;
-    loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-    loginURL = loginURL + "default.php";
     
-    //alert(loginURL);
+    if (navigator.app && navigator.app.exitApp) {
+        navigator.app.exitApp();
+    } else if (navigator.device && navigator.device.exitApp) {
+        navigator.device.exitApp();
+    } else {
 
-    window.location.assign(loginURL);
+        var loginURL = window.location.href;
+        loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+        loginURL = loginURL + "default.php";
+    
+        window.location.assign(loginURL);           
+    //alert(loginURL);
     //window.location.assign("http://m-areyouin.azurewebsites.net/default.php");
     //window.location.assign("http://localhost:18502/default.php")    
 }
