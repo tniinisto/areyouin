@@ -578,7 +578,12 @@ function refreshScroll() {
 
 function toLoginPage() {
 
-    navigator.app.exitApp();
+
+    if (navigator.app && navigator.app.exitApp) {
+        navigator.app.exitApp();
+    } else if (navigator.device && navigator.device.exitApp) {
+        navigator.device.exitApp();
+    }
 
     // var loginURL = window.location.href;
     // loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
