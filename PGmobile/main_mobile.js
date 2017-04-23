@@ -578,12 +578,18 @@ function refreshScroll() {
 
 function toLoginPage() {
 
-
     if (navigator.app && navigator.app.exitApp) {
         navigator.app.exitApp();
     } else if (navigator.device && navigator.device.exitApp) {
         navigator.device.exitApp();
-    }
+    } else {
+
+        var loginURL = window.location.href;
+        loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+        loginURL = loginURL + "default.php";
+    
+        window.location.assign(loginURL);      
+    }  
 
     // var loginURL = window.location.href;
     // loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
