@@ -705,17 +705,20 @@ function refreshScroll() {
 }
 
 function toLoginPage() {
-    
-    navigator.app.exitApp();
-    
-    //location.href = 'default.html';
 
-    // var loginURL = window.location.href;
-    // loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-    // loginURL = loginURL + "default.php";
-    // //alert(loginURL);
+    if (navigator.app && navigator.app.exitApp) {
+        navigator.app.exitApp();
+    } else if (navigator.device && navigator.device.exitApp) {
+        navigator.device.exitApp();
+    } else {
 
-    // window.location.assign(loginURL);
+        var loginURL = window.location.href;
+        loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
+        loginURL = loginURL + "default.php";
+    
+        window.location.assign(loginURL);      
+    }  
+    
 }
 
 //function sendMail() {
