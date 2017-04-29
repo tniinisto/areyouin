@@ -6,6 +6,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 // $pl=$_SESSION['myplayerid'];
 // $team=$_SESSION['myteamid'];
 
+//Test
 $pl=$_SESSION['1'];
 $team=$_SESSION['1'];
 
@@ -28,7 +29,7 @@ try {
 
 	$dbh = null;
 
-	echo '{"items":'. json_encode($playerinfo) .'}'; 
+ 	echo '{"items":'. json_encode($playerinfo) .'}'; 
 }
 catch(PDOException $e) {
 	echo '{"error":{"text":'. $e->getMessage() .'}}'; 
