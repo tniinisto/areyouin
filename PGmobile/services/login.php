@@ -7,8 +7,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 // $team=$_SESSION['myteamid'];
 
 //Test
-$pl=$_SESSION['1'];
-$team=$_SESSION['1'];
+$pl=1;
+$team=1;
 
 
 $sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
