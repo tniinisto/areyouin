@@ -30,7 +30,7 @@ $sql = "SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin, m
         WHERE name = '$name' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
     WHERE name = '$name' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamName;";		
-*/
+
 
 try {
     //PDO means "PHP Data Objects"
