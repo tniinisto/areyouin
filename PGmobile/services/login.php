@@ -7,14 +7,14 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 // $team=$_SESSION['myteamid'];
 
 //Test////////////////////////////////////////////////////////////////////////////////////
-// $pl=1;
-// $team=1;
+ $pl=1;
+ $team=1;
 
-/*$sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
+$sql = "SELECT p.playerID, p.name, p.photourl, t.teamID, t.teamName, m.teamAdmin
         from players p
         inner join playerteam m on p.playerID = m.Players_playerID
         inner join team t on m.Team_teamID = t.teamid
-	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";*/
+	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";
 //Test////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -29,6 +29,7 @@ $sql = "SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin, m
         WHERE name = '$name' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
     WHERE name = '$name' and password = '$mymd5' and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamName;";		
+*/
 
 try {
     //PDO means "PHP Data Objects"
@@ -48,8 +49,5 @@ try {
 catch(PDOException $e) {
 	echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 }
-*/
-
-echo "Jeeesssh";
 
 ?>
