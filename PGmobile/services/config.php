@@ -1,11 +1,11 @@
 <?php
-	//Production Database credentials 
+	//Database credentials for development
     $dbhost = 'eu-cdbr-azure-north-a.cloudapp.net';
 	$dbuser = 'bd3d44ed2e1c4a';
 	$dbpass = '8ffac735';
 	$dbname = 'areyouin';
 	
-	//Dev Database credentials
+	//"Dev" Database credentials, Production areyouin
 	//$dbhost = 'eu-cdbr-azure-north-e.cloudapp.net';
 	//$dbuser = 'b4d91392f2a7cb';
 	//$dbpass = '7ff800ca';
