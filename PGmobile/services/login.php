@@ -17,7 +17,7 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 	    where p.playerID = '" . $pl . "' and t.teamID = '" . $team . "'";*/
 //Test////////////////////////////////////////////////////////////////////////////////////
 
-$name=$_POST['ayiloginid'];
+$name=$_POST['ayiloginname'];
 $password=$_POST['ayipassword'];
 $mymd5 = md5($password);
 
