@@ -56,7 +56,7 @@
                     echo "</select>";
                     //Location///////////////////////////////////////////
 
-                    //echo "<h2>Set Time</h2>";
+                    //echo "<h2>Set Time</h2>"; Testing
                     echo "<label><h2>Game start:</h2></label>";
                     echo "<input type=\"datetime\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
                     required></input>";
