@@ -1594,6 +1594,10 @@ function PlaySound() {
     document.getElementById('soundObj').play();
 }
 
+function submitNewGameForm() {
+    $("#eventform").submit();
+}
+
 //Updates the event update time for team
 function updateLastEventTime() {
 
