@@ -83,6 +83,7 @@
                     //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\" required></input>";
                     echo "<input type='datetime-local' id='gameend_id' name='gamesend' required onchange='game_end()' </input>";
 
+                    //Players...
                     echo "<label><h2>Pick participants:</h2></label>";
                     echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
