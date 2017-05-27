@@ -74,12 +74,12 @@
 
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Start time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
                     required></input>";
                     
                     echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
                     echo "<label><h2>End time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
+                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
                     required></input>";
 
 
