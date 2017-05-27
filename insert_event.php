@@ -68,7 +68,7 @@
         //echo $gamestart;
         $gamesend = stripslashes($gamesend);
 
-        //Handle date format from 2013-05-29T01:01 -> 2013-07-27 17:30:00
+        //Handle date format from (length 16) no seconds 2013-05-29T01:01 --> 2013-07-27 17:30:00
         if(stripos($gamestart,"T") && strlen($gamestart) < 17)
         {
                 $gamestart = str_replace("T", " ", $gamestart);
@@ -80,7 +80,7 @@
                 $gamesend = $gamesend . ":00";
         }
 
-        //iPhone has seconds -> 2013-07-27 17:30:00
+        //iPhone has (lenght 19) seconds included 2017-05-29T01:01:30 --> 2013-07-27 17:30:30
         if(stripos($gamestart,"T") && strlen($gamestart) > 17)
         {
                 $gamestart = str_replace("T", " ", $gamestart);

@@ -74,15 +74,19 @@
 
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Start time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"
-                    required></input>";
+                    //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                    
+                    //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
                     
                     echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
+                    
                     echo "<label><h2>End time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"
-                    required></input>";
+                    //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";
+                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
+                    //echo "<input type='datetime-local' id='gameend_id' name='gamesend' required onchange='game_end()' value='" . date('Y-m-d HH:00:00.123'), strtotime('+1 hours') . "' </input>";
 
-
+                    //Players...
                     echo "<label><h2>Pick participants:</h2></label>";
                     echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
@@ -178,7 +182,7 @@
                     //Background for button on form
                     //echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
                     echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";                    
-                        echo "<input class=\"myButton\" type=\"submit\" value=\"Create Event\" id=\"submitgame1\" onclick='updateLastEventTime();'></input>"; 
+                        echo "<input class=\"myButton\" type=\"button\" value=\"Create Event\" id=\"submitgame1\" onclick='submitNewGameForm(); updateLastEventTime();'></input>"; 
                     echo "</div>";
 
                     echo "</form>";
