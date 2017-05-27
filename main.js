@@ -479,6 +479,8 @@ function game_start() {
     var start_dt = document.getElementById("gamestart_id").value;
     var end_dt = document.getElementById("gameend_id").value;
 
+alert('start:' + start_dt + ' ,end': end_dt);
+
     if ((start_dt > end_dt) && end_dt != "") {
         //alert("Game end time must be after game start...");
         $("#gametime_notify").removeClass("noshow");
