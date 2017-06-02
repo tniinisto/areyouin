@@ -1,4 +1,4 @@
-<?php
+ <?php
         include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
         session_start();
@@ -179,14 +179,19 @@
                     echo "<br>";
                     echo "<br>";
 
-                    //Background for button on form
-                    //echo "<div style='background: linear-gradient(-90deg, #121111, #474747); margin: 5px; padding: 10px;'>";
+                
+                //Safari form submit check
+                if(strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Safari")) <= 0 ){ // if not Safari
+                    echo "<input class=\"myButton\" type=\"submit\" value=\"Create Event\" id=\"submitgame1\" onclick='updateLastEventTime();'></input>";
+                } else {
                     echo "<div style='background: #b9b9b9; margin: 5px; padding: 10px;'>";                    
                         echo "<input class=\"myButton\" type=\"button\" value=\"Create Event\" id=\"submitgame1\" onclick='submitNewGameForm(); updateLastEventTime();'></input>"; 
                     echo "</div>";
-
+                }
+ 
                     echo "</form>";
                 echo "</div>";
+
                 //New game///////////////////////////////////////////////////////////////////////////
 
 
