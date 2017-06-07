@@ -23,7 +23,7 @@ $name=$_POST['ayiloginname'];
 $password=$_POST['ayipassword'];
 $mymd5 = md5($password);
 
-$sql = "SELECT x.count, p.playerID, p.name, t.teamID, t.teamName, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
+$sql = "SELECT x.count, p.playerID, p.name, p.mail, t.teamID, t.teamName, m.teamAdmin, m.registrar, m.lastMsg, r.licensevalid
     FROM players p, playerteam m, team t, registration r,         
         (SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
