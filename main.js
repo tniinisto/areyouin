@@ -1157,7 +1157,7 @@ function initializeMap() {
 var nlat = 0, nlon = 0;
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error, {maximumAge:Infinity, timeout:5000});
+        navigator.geolocation.getCurrentPosition(success, error, {maximumAge:Infinity, timeout:5000, nableHighAccuracy: true});
     } 
     else {
       //alert('geolocation not supported');
