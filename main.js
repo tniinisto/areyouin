@@ -1180,7 +1180,7 @@ var nlat = 0, nlon = 0;
     if (nlat != 0) {
         var mapOptions = {
             center: new google.maps.LatLng(nlat, nlon),
-            zoom: 9,
+            zoom: 11,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
     } else {
