@@ -1170,7 +1170,8 @@ var nlat = 0, nlon = 0;
     }
 
     function error(msg) {
-      alert('Geolocation error: ' + msg);
+      //alert('Geolocation error: ' + msg);
+      console.warn(`ERROR(${msg.code}): ${msg}`);
     }
 
 
