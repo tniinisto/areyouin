@@ -1157,32 +1157,21 @@ function initializeMap() {
 var nlat = 0, nlon = 0;
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function success(position) {
-            //alert(position.coords.latitude + ', ' + position.coords.longitude);
-            nlat = position.coords.latitude;
-            nlon = position.coords.longitude;
-        },     
-        function error(msg) {
-            alert('Geolocation error: ' + msg);
-        },
-        {timeout: 30000, enableHighAccuracy: true, maximumAge: 75000}
-    );
+        navigator.geolocation.getCurrentPosition(success, error);
+    } 
+    else {
+      //alert('geolocation not supported');
+    }
 
-    // } 
-    // else {
-    //   //alert('geolocation not supported');
-    // }
+    function success(position) {
+        //alert(position.coords.latitude + ', ' + position.coords.longitude);
+        nlat = position.coords.latitude;
+        nlon = position.coords.longitude;
+    }
 
-    // function success(position) {
-    //     //alert(position.coords.latitude + ', ' + position.coords.longitude);
-    //     nlat = position.coords.latitude;
-    //     nlon = position.coords.longitude;
-    // }
-
-    // function error(msg) {
-    //   alert('Geolocation error: ' + msg);
-    // }
+    function error(msg) {
+      alert('Geolocation error: ' + msg);
+    }
 
 
     //Google maps/////////////////////////////////////////////////
