@@ -25,6 +25,10 @@
 
 	    mysql_select_db($dbname, $con);
 
+mysql_query("SET NAMES 'utf8'");
+mysql_query("SET CHARACTER SET utf8");
+mysql_query("SET COLLATION_CONNECTION = 'utf8_unicode_ci'");        
+
         //Get current users info
         $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
 	    $result5 = mysql_query($sql5);
