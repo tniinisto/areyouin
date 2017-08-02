@@ -12,7 +12,6 @@
 
 	$teamid=$_SESSION['myteamid'];
     $playerid=$_SESSION['myplayerid'];
-	$teamid=$_SESSION['myteamid'];
 
         //PDO - UTF-8
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
