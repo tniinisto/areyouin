@@ -36,11 +36,11 @@
         // $row5 = mysql_fetch_array($result5);
         // $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
-        //PDO. utf-9, Get current users info///////////////////////////////////////////////////        
+        //PDO. utf-8, Get current users info///////////////////////////////////////////////////        
         $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-        $stmt1 = $dbh->prepare($sql1);
         $GLOBALS['MYPLAYER'] = $stmt1->execute();
 
         getComments($teamid);
@@ -48,13 +48,18 @@
         function getComments($p_teamid) {                                
             //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
             //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
-        
+                    
             //PDO//////////////////////////////////////////////////////////////////////////////
             $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
-            $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
             $stmt2 = $dbh->prepare($sql2);
+            $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
             
-            $GLOBALS['commentsresult'] = $stmt2->execute();
+            $result2 = $stmt2->execute();
+   
+            $row2;
+            while($row2 = $stmt2->fetch()) {
+                $GLOBALS['chatresult'] += $row2;
+            }
 
             //$GLOBALS['commentsresult'] = mysql_query($sql);
             //$GLOBALS['row'] = mysql_fetch_array($result);
