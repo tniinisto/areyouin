@@ -60,7 +60,7 @@
             
             $result2 = $stmt2->execute();
 
-            $GLOBALS['chatresult'] = $stmt2->fetchAll();
+            $GLOBALS['chatresult'] = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
             // while($row2 = $stmt2->fetch()) {
             //     $GLOBALS['chatresult'] += $row2;
@@ -142,10 +142,13 @@
                 
                 echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
-                        $limit=30;
-                        $i=0;
+                    $limit=30;
+                    $i=0;
 
-                        while($row = $GLOBALS['chatresult'][$i])) {
+                    //while($row = $GLOBALS['chatresult'][$i])) {
+                    foreach($GLOBALS['chatresult'] as $row){
+
+                        foreach($row as $key=>$value){    
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
