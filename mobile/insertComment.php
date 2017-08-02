@@ -29,7 +29,7 @@
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Insert new comment to comments table
-    //$insertDate = date("Y-n-j H:i:s");
+    $insertDate = date("Y-n-j H:i:s");
     //$sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . $insertDate . "')";
 
     $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamID, :insertDate)";
@@ -37,7 +37,7 @@
     $stmt3->bindParam(':comment', $comment, PDO::PARAM_STR);
     $stmt3->bindParam(':playerid', $playerid, PDO::PARAM_INT);
     $stmt3->bindParam(':teamID', $teamid, PDO::PARAM_INT);
-    $stmt3->bindParam(':insertDate', $date("Y-n-j H:i:s"), PDO::PARAM_STR);
+    $stmt3->bindParam(':insertDate', date("Y-n-j H:i:s"), PDO::PARAM_STR);
     $result3 = $stmt3->execute();
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('Insert comment: ' . $sql3); }
@@ -45,7 +45,7 @@
     //Update the seen date for the commenter to playerteam table
     $sql = "UPDATE playerteam SET lastMsg = :insertdate WHERE Players_playerID = :playerid AND Team_teamID = :teamID";            
     $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(':insertdate', $date("Y-n-j H:i:s"), PDO::PARAM_STR);
+    $stmt->bindParam(':insertdate', date("Y-n-j H:i:s"), PDO::PARAM_STR);
     $stmt->bindParam(':playerid', $playerid, PDO::PARAM_INT);
     $stmt->bindParam(':teamID', $teamid, PDO::PARAM_INT);
     $result = $stmt->execute();
