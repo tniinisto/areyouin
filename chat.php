@@ -45,7 +45,7 @@
         $row1;
         while($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
             $GLOBALS['MYPLAYER'] = $row1;
-            $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];      
+            //$_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];      
         }       
 
         //getComments($teamid, $dbh);
@@ -189,7 +189,7 @@
                     echo "</table>";
 
                 echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-                echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+                echo "<div id='latestSeenMsg' style='display: none;'>" .  $GLOBALS['MYPLAYER']['lastMsg'] . "</div>"; //Latest message datetime user has seen
                     
 
                 echo "</div>";
