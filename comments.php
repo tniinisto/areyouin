@@ -49,9 +49,9 @@
             $GLOBALS['MYPLAYER'] = $row1;
         }
 
-        getComments($teamid);
+        //getComments($teamid);
 
-        function getComments($p_teamid) {                                
+        // function getComments($p_teamid) {                                
             //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
             //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
                     
@@ -70,7 +70,7 @@
             //$GLOBALS['commentsresult'] = mysql_query($sql);
             //$GLOBALS['row'] = mysql_fetch_array($result);
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
-        }
+        // }
 
         $lastmsgdatetime;
 
