@@ -56,13 +56,12 @@
             //PDO//////////////////////////////////////////////////////////////////////////////
             $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
             $stmt2 = $dbh->prepare($sql2);
-            $stmt2->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-            
+            $stmt2->bindParam(':teamid', $teamid, PDO::PARAM_INT);           
             $result2 = $stmt2->execute();
 
-            $GLOBALS['chatresult'] = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+            // $GLOBALS['chatresult'] = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
-            while ($row = $stmt2->fetch(PDO::FETCH_ASSOC))
+            // while ($row = $stmt2->fetch(PDO::FETCH_ASSOC))
 
             // while($row2 = $stmt2->fetch()) {
             //     $GLOBALS['chatresult'] += $row2;
