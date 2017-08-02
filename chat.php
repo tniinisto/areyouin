@@ -41,10 +41,10 @@
         $stmt1 = $dbh->prepare($sql1);
         $result1 = $stmt1->execute();
 
-        $row1;
-        while($row1 = $stmt1->fetch()) {
-            $GLOBALS['MYPLAYER'] = $row1;
-        }
+        // $row1;
+        // while($row1 = $stmt1->fetch()) {
+        //     $GLOBALS['MYPLAYER'] = $row1;
+        // }
    
         //getComments($teamid);
 
