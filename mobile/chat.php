@@ -101,9 +101,10 @@
             //echo "<a href=\"modal.html\" data-role=\"button\" data-inline=\"true\" data-rel=\"dialog\" data-transition=\"pop\" data-theme=\"b\">Open dialog</a>";
 
             //<a class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" data-transition="pop" data-rel="dialog" data-inline="true" data-role="button" href="dialog.html" data-theme="c">
-            echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
+            echo "<div id=\"chatdiv\" class=\"scrollit\">";
+                echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
             
-            $lastmsgdatetime = '0';
+                $lastmsgdatetime = '0';
 
                 while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             if($i < $limit) {                        
