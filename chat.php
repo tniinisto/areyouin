@@ -54,7 +54,7 @@
             $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
             $stmt2 = $dbh->prepare($sql2);
             
-            $GLOBALS['chatresult'] = $stmt1->execute();
+            $GLOBALS['chatresult'] = $stmt2->execute();
         }
 
 
