@@ -61,10 +61,11 @@
             $result2 = $stmt2->execute();
 
 
-            $row2;
-            while($row2 = $stmt2->fetch()) {
-                $GLOBALS['chatresult'] += $row2;
-            }
+            $GLOBALS['chatresult'] = $stmt2->fetchAll();
+
+            // while($row2 = $stmt2->fetch()) {
+            //     $GLOBALS['chatresult'] = $row2;
+            // }
    
         }
 
