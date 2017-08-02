@@ -36,15 +36,16 @@
 
         //PDO. utf-9, Get current users info///////////////////////////////////////////////////        
         $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-        $stmt1 = $dbh->prepare($sql1);
+
         $result1 = $stmt1->execute();
 
-        // $row1;
-        // while($row1 = $stmt1->fetch()) {
-        //     $GLOBALS['MYPLAYER'] = $row1;
-        // }
+        $row1;
+        while($row1 = $stmt1->fetch()) {
+            $GLOBALS['MYPLAYER'] = $row1;
+        }
    
         //getComments($teamid);
 
