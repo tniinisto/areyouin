@@ -41,7 +41,12 @@
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
         $stmt1 = $dbh->prepare($sql1);
-        $GLOBALS['MYPLAYER'] = $stmt1->execute();
+        $result1 = $stmt1->execute();
+
+        $row1;
+        while($row1 = $stmt1->fetch()) {
+            $GLOBALS['MYPLAYER'] = $row1;
+        }
    
         getComments($teamid);
 
