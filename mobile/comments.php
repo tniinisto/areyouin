@@ -67,7 +67,7 @@
             $limit=30;
             $i=0;
 
-            while($row = mysql_fetch_array($GLOBALS['commentsresult'])) {
+           while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                 if($i < $limit) {                        
                     $published = new DateTime($row['publishTime']);
 
