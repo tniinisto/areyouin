@@ -1,4 +1,3 @@
-<script src="js/iscroll.js"></script>
 
 //Get users name & team name
 function getLoginInformation() {
