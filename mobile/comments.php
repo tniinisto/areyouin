@@ -33,7 +33,8 @@
 
         $row1;
         while($row1 = $stmt1->fetch()) {
-            $GLOBALS['MYPLAYER'] = $row1;
+            //$GLOBALS['MYPLAYER'] = $row1;
+            $_SESSION['mylastmsg'] = $row1['lastMsg'];
         }
 
         //getComments($teamid);
