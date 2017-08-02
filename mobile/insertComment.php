@@ -1,5 +1,6 @@
 <?php      
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    
     session_start();
     
     if($_SESSION['ChromeLog']) {
@@ -14,25 +15,39 @@
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
-	//$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
-    $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	if (!$con)
-	    {
-	    die('Could not connect: ' . mysql_error());
-	    }
+	
+    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	// if (!$con)
+	//     {
+	//     die('Could not connect: ' . mysql_error());
+	//     }
 
-	mysql_select_db($dbname, $con);
+	// mysql_select_db($dbname, $con);
 
+    //PDO - UTF-8
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //Insert new comment to comments table
     $insertDate = date("Y-n-j H:i:s");
-    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . date("Y-n-j H:i:s") . "')";
-        
+    //$sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . $insertDate . "')";
+
+    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamID, :insertDate)";
+    $stmt3 = $dbh->prepare($sql3);
+    $stmt3->bindParam(':comment', $comment, PDO::PARAM_STR);
+    $stmt3->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+    $stmt3->bindParam(':teamID', $teamid, PDO::PARAM_INT);
+    $stmt3->bindParam(':insertDate', $insertDate, PDO::PARAM_STR);
+    $result3 = $stmt3->execute();
+
     if($_SESSION['ChromeLog']) { ChromePhp::log('Insert comment: ' . $sql3); }
     
-    $result3 = mysql_query($sql3);
-
     //Update the seen date for the commenter to playerteam table
-    $sql = "UPDATE playerteam SET lastMsg = '" . $insertDate . "' WHERE Players_playerID = '" . $playerid . "' AND Team_teamID = '" . $teamid . "'";            
-    $result = mysql_query($sql);
+    $sql = "UPDATE playerteam SET lastMsg = :insertdate WHERE Players_playerID = :playerid AND Team_teamID = :teamID";            
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':insertdate', $insertDate, PDO::PARAM_STR);
+    $stmt->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+    $stmt->bindParam(':teamID', $teamid, PDO::PARAM_INT);
+    $result = $stmt->execute();
 
-    mysql_close($con);  
 ?>

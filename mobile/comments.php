@@ -14,43 +14,51 @@
     $playerid=$_SESSION['myplayerid'];
 	$teamid=$_SESSION['myteamid'];
 
-    ////Check session expiration & logged_in status
-    //if(!isset($_SESSION['logged_in'])) {
-    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-    //    ob_end_clean();
-    //    header("location:default.php");
-    //}
-    //else if($_SESSION['logged_in'] == TRUE) {
-	    //$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');
-        $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	    if (!$con)
-	        {
-	        die('Could not connect: ' . mysql_error());
-	        }
-
-	    mysql_select_db($dbname, $con);
+        //PDO - UTF-8
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Get current users lastseen datetime & update to session
-        $sql5 = "SELECT pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
-	    $result5 = mysql_query($sql5);
-        $row5 = mysql_fetch_array($result5);
-        $_SESSION['mylastmsg'] = $row5['lastMsg'];
+        // $sql5 = "SELECT pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
+	    // $result5 = mysql_query($sql5);
+        // $row5 = mysql_fetch_array($result5);
+        // $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('sql lastmsg: ' . $sql5); }
-    if($_SESSION['ChromeLog']) { ChromePhp::log('Latest seen msg time: ' . $row5['lastMsg']); }
+        //PDO. utf-8, Get current users info///////////////////////////////////////////////////        
+        $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $stmt1 = $dbh->prepare($sql1);
+        $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+        $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+    
+        $result1 = $stmt1->execute();
 
-        getComments($teamid);
+        $row1;
+        while($row1 = $stmt1->fetch()) {
+            $GLOBALS['MYPLAYER'] = $row1;
+        }
 
-        function getComments($p_teamid) {                                
+        //getComments($teamid);
+
+        // function getComments($p_teamid) {                                
             //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
-            $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
-        
-            //ChromePhp::log("sql: ", $sql);
+            //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
+                    
+            //PDO//////////////////////////////////////////////////////////////////////////////
+            $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
+            $stmt2 = $dbh->prepare($sql2);
+            $stmt2->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+            
+            $result2 = $stmt2->execute();
+   
+            // $row2;
+            // while($row2 = $stmt2->fetch()) {
+            //     $GLOBALS['chatresult'] += $row2;
+            // }
 
-            $GLOBALS['commentsresult'] = mysql_query($sql);
+            //$GLOBALS['commentsresult'] = mysql_query($sql);
             //$GLOBALS['row'] = mysql_fetch_array($result);
             //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
-        }
+        // }
 
         $lastmsgdatetime;
 
@@ -66,6 +74,7 @@
                     //Save the newest comment's datetime to session
                     if($i == 0) {
                         $lastmsgdatetime = $row['publishTime'];
+                        $_SESSION['mylastmsg'] = $row1['lastMsg'];
                     }
 
                     echo "<tr class=\"chatrow\">";
