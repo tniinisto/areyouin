@@ -32,7 +32,7 @@
     $insertDate = date("Y-n-j H:i:s");
     //$sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (\"" . mysql_real_escape_string($comment) . "\",'" . $playerid . "','" . $teamid . "','" . $insertDate . "')";
 
-    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamID, :insertDate)";
+    $sql3 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamID, ':insertDate')";
     $stmt3 = $dbh->prepare($sql3);
     $stmt3->bindParam(':comment', $comment, PDO::PARAM_STR);
     $stmt3->bindParam(':playerid', $playerid, PDO::PARAM_INT);
