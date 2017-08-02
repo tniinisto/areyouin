@@ -1,8 +1,6 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-    //header('Content-Type: text/html; charset=utf-8');
     session_start();
-
 
     //date_default_timezone_set('UTC');
     
@@ -13,12 +11,12 @@
 	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
-    if(!isset($_SESSION['logged_in'])) {
-       //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-       ob_end_clean();
-       header("location:default.php");
-    }
-    else if($_SESSION['logged_in'] == TRUE) {	    
+    // if(!isset($_SESSION['logged_in'])) {
+    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
+    //    ob_end_clean();
+    //    header("location:default.php");
+    // }
+    // else if($_SESSION['logged_in'] == TRUE) {	    
         // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    // if (!$con)
 	    //     {
@@ -50,17 +48,17 @@
    
         //getComments($teamid);
 
-        function getComments($p_teamid) {                                
+        // function getComments($p_teamid) {                                
         
-            //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
+        //     //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
         
-            //PDO//////////////////////////////////////////////////////////////////////////////
-            $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
-            $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
-            $stmt2 = $dbh->prepare($sql2);
+        //     //PDO//////////////////////////////////////////////////////////////////////////////
+        //     $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
+        //     $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
+        //     $stmt2 = $dbh->prepare($sql2);
             
-            $GLOBALS['chatresult'] = $stmt2->execute();
-        }
+        //     $GLOBALS['chatresult'] = $stmt2->execute();
+        // }
 
 
         //function sendComment($playerid, $teamid) {
@@ -201,6 +199,6 @@
 
         //ob_end_flush;
             
-    }
+    //}
                       
 ?>
