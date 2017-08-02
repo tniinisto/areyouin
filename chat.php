@@ -47,7 +47,7 @@
             $GLOBALS['MYPLAYER'] = $row1;
         }
    
-        getComments($teamid);
+        //getComments($teamid);
 
         function getComments($p_teamid) {                                
         
