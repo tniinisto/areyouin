@@ -150,10 +150,10 @@
                             if($i < $limit) {                        
                                 $published = new DateTime($row['publishTime']);
 
-                                Save the newest chat comment's datetime and update the last seen message to session
+                                //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
-                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
+                                    $_SESSION['mylastmsg'] = $row['lastMsg'];
                                 }
 
                                 echo "<tr class=\"chatrow\">";
