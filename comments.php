@@ -37,7 +37,7 @@
         // $_SESSION['mylastmsg'] = $row5['lastMsg'];
 
         //PDO. utf-8, Get current users info///////////////////////////////////////////////////        
-        $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $sql1 = "SELECT name, photourl, pt.lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
         $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
@@ -124,7 +124,7 @@
 
         
         echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-        echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+        echo "<div id='latestSeenMsg' style='display: none;'>" .  $GLOBALS['MYPLAYER']['lastMsg'] . "</div>"; //Latest message datetime user has seen
 
         //mysql_close($con);
         $dbh = null;

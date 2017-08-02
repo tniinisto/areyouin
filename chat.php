@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
 
-    //date_default_timezone_set('UTC');
+    date_default_timezone_set('UTC');
     
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
@@ -35,7 +35,7 @@
         // $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
         //PDO. utf-9, Get current users info///////////////////////////////////////////////////        
-        $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $sql1 = "SELECT name, photourl, pt.lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
         $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
@@ -43,11 +43,11 @@
         $result1 = $stmt1->execute();
 
         $row1;
-        while($row1 = $stmt1->fetch()) {
+        while($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
             $GLOBALS['MYPLAYER'] = $row1;
-            $_SESSION['mylastmsg'] = $row1['lastMsg'];
-        }
-   
+            //$_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];      
+        }       
+
         //getComments($teamid, $dbh);
 
         //function getComments($p_teamid, $dbh) {                                
@@ -189,7 +189,7 @@
                     echo "</table>";
 
                 echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
-                echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
+                echo "<div id='latestSeenMsg' style='display: none;'>" .  $GLOBALS['MYPLAYER']['lastMsg'] . "</div>"; //Latest message datetime user has seen
                     
 
                 echo "</div>";
