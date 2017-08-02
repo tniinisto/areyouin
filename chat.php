@@ -40,12 +40,12 @@
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
 
-        $GLOBALS['MYPLAYER'] = $stmt1->execute();
+        $result1 = $stmt1->execute();
 
-        // $row1;
-        // while($row1 = $stmt1->fetch()) {
-        //     $GLOBALS['MYPLAYER'] = $row1;
-        // }
+        $row1;
+        while($row1 = $stmt1->fetch()) {
+            $GLOBALS['MYPLAYER'] = $row1;
+        }
    
         getComments($teamid);
 
