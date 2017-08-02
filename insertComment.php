@@ -50,6 +50,11 @@
     $stmt->bindParam(':teamID', $teamid, PDO::PARAM_INT);
     $result = $stmt->execute();
 
+    //update session last seen msg time
+     $_SESSION['mylastmsg'] =  $insertDate;
+
+    
+
     $dbh = null;
 
 ?>
