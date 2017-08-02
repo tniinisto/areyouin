@@ -19,31 +19,42 @@
     //    header("location:default.php");
     //}
     //else if($_SESSION['logged_in'] == TRUE) {	    
-        $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	    if (!$con)
-	        {
-	        die('Could not connect: ' . mysql_error());
-	        }
+        // $con = mysql_connect($dbhost, $dbuser, $dbpass);
+	    // if (!$con)
+	    //     {
+	    //     die('Could not connect: ' . mysql_error());
+	    //     }
 
-	    mysql_select_db($dbname, $con);     
+	    // mysql_select_db($dbname, $con);     
+
+        //PDO - UTF-8
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         //Get current users info
-        $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
-	    $result5 = mysql_query($sql5);
-        $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
+        // $sql5 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = " . $playerid . " AND pt.Team_teamID = " . $teamid . " AND playerID = pt.Players_playerID";
+	    // $result5 = mysql_query($sql5);
+        // $GLOBALS['MYPLAYER'] = mysql_fetch_array($result5);
 
-
+        //PDO. utf-9, Get current users info///////////////////////////////////////////////////        
+        $sql1 = "SELECT name, photourl, pt.lastMsg as lastMsg FROM players, playerteam pt WHERE playerID = :playerid AND pt.Team_teamID = :teamid AND playerID = pt.Players_playerID";
+        $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+        $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+        $stmt1 = $dbh->prepare($sql1);
+        $GLOBALS['MYPLAYER'] = $stmt1->execute();
+   
         getComments($teamid);
 
         function getComments($p_teamid) {                                
-            //$sql = "SELECT * FROM comments WHERE team_teamID = " . $p_teamid . "";
-            $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
         
-            //ChromePhp::log("sql: ", $sql);
-
-            $GLOBALS['chatresult'] = mysql_query($sql);
-            //$GLOBALS['row'] = mysql_fetch_array($result);
-            //ChromePhp::log("select: ",  $GLOBALS['row']['comment']);
+            //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
+        
+            //PDO//////////////////////////////////////////////////////////////////////////////
+            $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
+            $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
+            $stmt2 = $dbh->prepare($sql2);
+            
+            $GLOBALS['chatresult'] = $stmt1->execute();
         }
 
 
@@ -179,8 +190,9 @@
 
         //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
  
-        mysql_close($con);
-        
+        //mysql_close($con);
+        $dbh = null;
+
         //ob_end_flush;
             
     //}
