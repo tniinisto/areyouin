@@ -106,6 +106,9 @@
             
                 $lastmsgdatetime = '0';
 
+                $limit=30;
+                $i=0;
+
                 while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             if($i < $limit) {                        
                                 
