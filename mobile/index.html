@@ -49,7 +49,10 @@
     //});
 
 	$(document).on("pageshow","#areyouin-chat-page",function(){
-  		//scroll.refresh(); ???
+  		    scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar:false, hScroll: false });
+            setTimeout(function(){
+			    scroll.refresh();
+		    });
 	});
 
 </script>
