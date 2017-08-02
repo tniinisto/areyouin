@@ -152,7 +152,7 @@
                                 //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
-                                    //$_SESSION['mylastmsg'] = $row['lastMsg']; ???
+                                    $_SESSION['mylastmsg'] = $row1['lastMsg'];
                                 }
 
                                 // echo "<tr class=\"chatrow\">";
