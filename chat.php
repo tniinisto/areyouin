@@ -40,26 +40,26 @@
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
         $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
 
-        $result1 = $stmt1->execute();
+        $GLOBALS['MYPLAYER'] = $stmt1->execute();
 
-        $row1;
-        while($row1 = $stmt1->fetch()) {
-            $GLOBALS['MYPLAYER'] = $row1;
-        }
-   
-        //getComments($teamid);
-
-        // function getComments($p_teamid) {                                
-        
-        //     //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
-        
-        //     //PDO//////////////////////////////////////////////////////////////////////////////
-        //     $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
-        //     $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
-        //     $stmt2 = $dbh->prepare($sql2);
-            
-        //     $GLOBALS['chatresult'] = $stmt2->execute();
+        // $row1;
+        // while($row1 = $stmt1->fetch()) {
+        //     $GLOBALS['MYPLAYER'] = $row1;
         // }
+   
+        getComments($teamid);
+
+        function getComments($p_teamid) {                                
+        
+            //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
+        
+            //PDO//////////////////////////////////////////////////////////////////////////////
+            $sql2 = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
+            $stmt2 = $dbh->prepare($sql2);
+            $stmt2->bindParam(':teamid', $p_teamid, PDO::PARAM_INT);
+            
+            $GLOBALS['chatresult'] = $stmt2->execute();
+        }
 
 
         //function sendComment($playerid, $teamid) {
@@ -114,71 +114,71 @@
 
             // echo "<img id='newChatImg' width='40' height='40' src='images/edit.png'>";
 
-            // echo "<div id='chat_new_id' class='chat_new'>";                
-            //     echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";                
-            //         echo "<label for=\"comment_input\"><b>New comment</b></label>";
-            //         echo "<br>";
-			//         //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
-            //         echo "<textarea maxlength=\"480\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
-            //         echo "<br>";
-            //         echo "<input class='myButton' type='submit' value='Send' name='sendbutton' id='sendbutton'/>";                   
-            //         //onclick='addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')'/>";
-            //     echo "</form>";
-            // echo "</div>";
+            echo "<div id='chat_new_id' class='chat_new'>";                
+                echo "<form id='chatsubmitform' onsubmit=\"addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')\" id=\"chatform\" name=\"chatform\" method=\"post\" target=\"frame_chat\">";                
+                    echo "<label for=\"comment_input\"><b>New comment</b></label>";
+                    echo "<br>";
+			        //echo "<input type=\"text\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required>";
+                    echo "<textarea maxlength=\"480\" id=\"comment_input\" name=\"comment_input\" placeholder=\"\" required></textarea>";
+                    echo "<br>";
+                    echo "<input class='myButton' type='submit' value='Send' name='sendbutton' id='sendbutton'/>";                   
+                    //onclick='addRow('" . $GLOBALS['MYPLAYER']['photourl'] . "', '" . $GLOBALS['MYPLAYER']['name'] . "')'/>";
+                echo "</form>";
+            echo "</div>";
 
             //echo "<br>";
 
             $lastmsgdatetime = '0';
 
-            //echo "<p><b>Comments</b></p>";
-            // echo "<div id=\"chatdiv\" class=\"scrollit\">";
+            echo "<p><b>Comments</b></p>";
+            echo "<div id=\"chatdiv\" class=\"scrollit\">";
                 
-            //     echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
+                echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
-            //             $limit=30;
-            //             $i=0;
+                        $limit=30;
+                        $i=0;
 
-            //             while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
-            //                 if($i < $limit) {                        
-            //                     $published = new DateTime($row['publishTime']);
+                        while($row = mysql_fetch_array($GLOBALS['chatresult'])) {
+                            if($i < $limit) {                        
+                                $published = new DateTime($row['publishTime']);
 
-            //                     //Save the newest chat comment's datetime and update the last seen message to session
-            //                     if($i == 0) {
-            //                         $lastmsgdatetime = $row['publishTime'];                                    
-            //                         $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
-            //                     }
+                                //Save the newest chat comment's datetime and update the last seen message to session
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
+                                }
 
-            //                     //echo "<tr class=\"chatrow\">";
-            //                     //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-            //                     //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-            //                     //echo "</tr>";
+                                //echo "<tr class=\"chatrow\">";
+                                //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+                                //echo "</tr>";
 
-            //                     echo "<tr class=\"chatrow\">";
+                                echo "<tr class=\"chatrow\">";
 
-            //                         echo "<td valign=\"top\">";
-            //                                   echo "<div>";
-            //                                     echo "<div class='chat-list-left'>";
-            //                                         echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
-            //                                         echo "<br />";
-            //                                         echo "<div class='comment-name'>" . $row['name'] . "</div>";
-            //                                     echo "</div>";
-            //                                     echo "<br />";
-            //                                     echo "<div class='chat-list-right'>";
-            //                                         echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
-            //                                         echo "<div class='comment-text'>" . $row['comment'] . "</div>";
-            //                                     echo "</div>";
-            //                                 echo "</div>";
-            //                         echo "</td>";
+                                    echo "<td valign=\"top\">";
+                                              echo "<div>";
+                                                echo "<div class='chat-list-left'>";
+                                                    echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
+                                                    echo "<br />";
+                                                    echo "<div class='comment-name'>" . $row['name'] . "</div>";
+                                                echo "</div>";
+                                                echo "<br />";
+                                                echo "<div class='chat-list-right'>";
+                                                    echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                                    echo "<div class='comment-text'>" . $row['comment'] . "</div>";
+                                                echo "</div>";
+                                            echo "</div>";
+                                    echo "</td>";
                     
-            //                     echo "</tr>";
+                                echo "</tr>";
 
-            //                     $i++;
-            //                 }
-            //                 else {
-            //                     break;
-            //                 }
-            //             }
-            //         echo "</table>";
+                                $i++;
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                    echo "</table>";
 
                     echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
                     echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
