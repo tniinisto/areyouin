@@ -43,7 +43,7 @@
     if($_SESSION['ChromeLog']) { ChromePhp::log('Insert comment: ' . $sql3); }
     
     //Update the seen date for the commenter to playerteam table
-    $sql = "UPDATE playerteam SET lastMsg = :insertdate WHERE Players_playerID = :playerid AND Team_teamID = :teamID";            
+    $sql = "UPDATE playerteam SET lastMsg = ':insertdate' WHERE Players_playerID = :playerid AND Team_teamID = :teamID";            
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':insertdate', $insertDate, PDO::PARAM_STR);
     $stmt->bindParam(':playerid', $playerid, PDO::PARAM_INT);
