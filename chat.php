@@ -46,9 +46,7 @@
         while($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
             $GLOBALS['MYPLAYER'] = $row1;
             $_SESSION['mylastmsg'] = $row1['lastMsg'];      
-        }
-
-       
+        }       
 
         //getComments($teamid, $dbh);
 
