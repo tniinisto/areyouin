@@ -1,5 +1,6 @@
 <?php      
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    header('Content-Type: text/html; charset=utf-8');
     
     session_start();
     
