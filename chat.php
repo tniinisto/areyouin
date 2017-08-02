@@ -60,12 +60,11 @@
             
             $result2 = $stmt2->execute();
 
+            $GLOBALS['chatresult'] = $stmt2->fetchAll();
 
-            //$GLOBALS['chatresult'] = $stmt2->fetchAll();
-
-            while($row2 = $stmt2->fetch()) {
-                $GLOBALS['chatresult'] += $row2;
-            }
+            // while($row2 = $stmt2->fetch()) {
+            //     $GLOBALS['chatresult'] += $row2;
+            // }
    
         }
 
@@ -141,52 +140,52 @@
             echo "<p><b>Comments</b></p>";
             echo "<div id=\"chatdiv\" class=\"scrollit\">";
                 
-                // echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
+                echo "<table id=\"comments_table\" class=\"atable\" border=\"0\">";
                     
-                //         $limit=30;
-                //         $i=0;
+                        $limit=30;
+                        $i=0;
 
-                //         while($row = $GLOBALS['chatresult'][$i])) {
-                //             if($i < $limit) {                        
-                //                 $published = new DateTime($row['publishTime']);
+                        while($row = $GLOBALS['chatresult'][$i])) {
+                            if($i < $limit) {                        
+                                $published = new DateTime($row['publishTime']);
 
-                //                 //Save the newest chat comment's datetime and update the last seen message to session
-                //                 if($i == 0) {
-                //                     $lastmsgdatetime = $row['publishTime'];                                    
-                //                     $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
-                //                 }
+                                Save the newest chat comment's datetime and update the last seen message to session
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];
+                                }
 
-                //                 //echo "<tr class=\"chatrow\">";
-                //                 //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                //                 //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-                //                 //echo "</tr>";
+                                echo "<tr class=\"chatrow\">";
+                                   echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                   echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+                                echo "</tr>";
 
-                //                 echo "<tr class=\"chatrow\">";
+                                echo "<tr class=\"chatrow\">";
 
-                //                     echo "<td valign=\"top\">";
-                //                               echo "<div>";
-                //                                 echo "<div class='chat-list-left'>";
-                //                                     echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
-                //                                     echo "<br />";
-                //                                     echo "<div class='comment-name'>" . $row['name'] . "</div>";
-                //                                 echo "</div>";
-                //                                 echo "<br />";
-                //                                 echo "<div class='chat-list-right'>";
-                //                                     echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
-                //                                     echo "<div class='comment-text'>" . $row['comment'] . "</div>";
-                //                                 echo "</div>";
-                //                             echo "</div>";
-                //                     echo "</td>";
+                                    echo "<td valign=\"top\">";
+                                              echo "<div>";
+                                                echo "<div class='chat-list-left'>";
+                                                    echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
+                                                    echo "<br />";
+                                                    echo "<div class='comment-name'>" . $row['name'] . "</div>";
+                                                echo "</div>";
+                                                echo "<br />";
+                                                echo "<div class='chat-list-right'>";
+                                                    echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                                    echo "<div class='comment-text'>" . $row['comment'] . "</div>";
+                                                echo "</div>";
+                                            echo "</div>";
+                                    echo "</td>";
                     
-                //                 echo "</tr>";
+                                echo "</tr>";
 
-                //                 $i++;
-                //             }
-                //             else {
-                //                 break;
-                //             }
-                //         }
-                //     echo "</table>";
+                                $i++;
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                    echo "</table>";
 
                     echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
                     echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] . "</div>"; //Latest message datetime user has seen
