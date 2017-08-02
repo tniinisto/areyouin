@@ -155,7 +155,8 @@
 
         //echo "<iframe name=\"frame_chat\" style=\"display: none;\"></iframe>";
  
-        mysql_close($con);
+        //mysql_close($con);
+        $dbh = null;
         
         //ob_end_flush;
             

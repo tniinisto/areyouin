@@ -108,7 +108,7 @@
         echo "<div id='latestMsg' style='display: none;'>" . $lastmsgdatetime . "</div>"; //Latest message datetime on chat list
         echo "<div id='latestSeenMsg' style='display: none;'>" . $_SESSION['mylastmsg'] .  "</div>"; //Latest message datetime user has seen
 
-        mysql_close($con);
+        $dbh = null;
 
         //ob_end_flush;    
     //}

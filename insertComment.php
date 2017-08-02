@@ -50,4 +50,6 @@
     $stmt->bindParam(':teamID', $teamid, PDO::PARAM_INT);
     $result = $stmt->execute();
 
+    $dbh = null;
+
 ?>
