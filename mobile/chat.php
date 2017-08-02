@@ -112,6 +112,7 @@
                 while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             if($i < $limit) {                        
                                 
+                                echo "test test test";
                                 //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
