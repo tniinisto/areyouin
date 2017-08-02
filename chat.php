@@ -47,7 +47,7 @@
             $GLOBALS['MYPLAYER'] = $row1;
         }
    
-        //getComments($teamid);
+        getComments($teamid);
 
         function getComments($p_teamid) {                                
         
@@ -61,11 +61,11 @@
             $result2 = $stmt2->execute();
 
 
-            $GLOBALS['chatresult'] = $stmt2->fetchAll();
+            //$GLOBALS['chatresult'] = $stmt2->fetchAll();
 
-            // while($row2 = $stmt2->fetch()) {
-            //     $GLOBALS['chatresult'] = $row2;
-            // }
+            while($row2 = $stmt2->fetch()) {
+                $GLOBALS['chatresult'] += $row2;
+            }
    
         }
 
