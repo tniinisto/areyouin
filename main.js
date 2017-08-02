@@ -708,10 +708,10 @@ function waitForChat(){
             //Get comments only if php not timed out...and latest comment is not from user itself
             if(json['timeout'] == 0 && json['player'] != sessionStorage['playerID']) {
                 //alert("success timeout false: " + json['timeout']);
-                //setTimeout('getChatComments(0)', 100);
+                setTimeout('getChatComments(0)', 100);
             } 
             else {
-                //setTimeout('getChatComments(1)', 100);
+                setTimeout('getChatComments(1)', 100);
             }
 
             parameter = json['timestamp'];

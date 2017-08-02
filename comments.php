@@ -62,10 +62,10 @@
             
             $result2 = $stmt2->execute();
    
-            $row2;
-            while($row2 = $stmt2->fetch()) {
-                $GLOBALS['chatresult'] += $row2;
-            }
+            // $row2;
+            // while($row2 = $stmt2->fetch()) {
+            //     $GLOBALS['chatresult'] += $row2;
+            // }
 
             //$GLOBALS['commentsresult'] = mysql_query($sql);
             //$GLOBALS['row'] = mysql_fetch_array($result);
@@ -79,41 +79,46 @@
             $limit=30;
             $i=0;
 
-            while($row = mysql_fetch_array($GLOBALS['commentsresult'])) {
-                if($i < $limit) {                        
-                    $published = new DateTime($row['publishTime']);
+           while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+                            if($i < $limit) {                        
+                                
+                                //Save the newest chat comment's datetime and update the last seen message to session
+                                if($i == 0) {
+                                    $lastmsgdatetime = $row['publishTime'];                                    
+                                    $_SESSION['mylastmsg'] = $row1['lastMsg'];
+                                }
 
-                    //Save the newest comment's datetime to session
-                    if($i == 0) {
-                        $lastmsgdatetime = $row['publishTime'];
-                    }
-                        
-                    echo "<tr class=\"chatrow\">";
+                                // echo "<tr class=\"chatrow\">";
+                                //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
+                                //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
+                                // echo "</tr>";
 
-                        echo "<td valign=\"top\">";
-                                  echo "<div>";
-                                    echo "<div class='chat-list-left'>";
-                                        echo "<img class='comment-image' src='images/" . $row['photourl'] . "'>";
-                                        echo "<br />";
-                                        echo "<div class='comment-name'>" . $row['name'] . "</div>";
-                                    echo "</div>";
-                                    echo "<br />";
-                                    echo "<div class='chat-list-right'>";
-                                        echo "<div class='comment-time'>" . $published->format("D j.n.Y H:i") . "</div>";         
-                                        echo "<div class='comment-text'>" . $row['comment'] . "</div>";
-                                    echo "</div>";
-                                echo "</div>";
-                        echo "</td>";
+                                echo "<tr class=\"chatrow\">";
 
-                    echo "</tr>";
-  
+                                    echo "<td valign=\"top\">";
+                                              echo "<div>";
+                                                echo "<div class='chat-list-left'>";
+                                                    echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
+                                                    echo "<br />";
+                                                    echo "<div class='comment-name'>" . $row['name'] . "</div>";
+                                                echo "</div>";
+                                                echo "<br />";
+                                                echo "<div class='chat-list-right'>";
+                                                    $published = new DateTime($row['publishTime']);       
+                                                    echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                                    echo "<div class='comment-text'>" . $row['comment'] . "</div>";
+                                                echo "</div>";
+                                            echo "</div>";
+                                    echo "</td>";
+                    
+                                echo "</tr>";
 
-                    $i++;
-                }
-                else {
-                    break;
-                }
-            }
+                                $i++;
+                            }
+                            else {
+                                break;
+                            }
+                        }
 
         echo "</table>";
 
