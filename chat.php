@@ -45,6 +45,7 @@
         $row1;
         while($row1 = $stmt1->fetch()) {
             $GLOBALS['MYPLAYER'] = $row1;
+            $_SESSION['mylastmsg'] = $row1['lastMsg'];
         }
    
         //getComments($teamid, $dbh);
@@ -152,7 +153,6 @@
                                 //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
-                                    $_SESSION['mylastmsg'] = $row1['lastMsg'];
                                 }
 
                                 // echo "<tr class=\"chatrow\">";
