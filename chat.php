@@ -162,21 +162,21 @@
 
                                 echo "<tr class=\"chatrow\">";
 
-                                    // echo "<td valign=\"top\">";
-                                    //           echo "<div>";
-                                    //             echo "<div class='chat-list-left'>";
-                                    //                 echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
-                                    //                 echo "<br />";
-                                    //                 echo "<div class='comment-name'>" . $row['name'] . "</div>";
-                                    //             echo "</div>";
-                                    //             echo "<br />";
-                                    //             echo "<div class='chat-list-right'>";
-                                    //                 $published = new DateTime($row['publishTime']);       
-                                    //                 echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
-                                    //                 echo "<div class='comment-text'>" . $row['comment'] . "</div>";
-                                    //             echo "</div>";
-                                    //         echo "</div>";
-                                    // echo "</td>";
+                                    echo "<td valign=\"top\">";
+                                              echo "<div>";
+                                                echo "<div class='chat-list-left'>";
+                                                    echo "<img width='30' height='30' src='images/" . $row['photourl'] . "'>";
+                                                    echo "<br />";
+                                                    echo "<div class='comment-name'>" . $row['name'] . "</div>";
+                                                echo "</div>";
+                                                echo "<br />";
+                                                echo "<div class='chat-list-right'>";
+                                                    $published = new DateTime($row['publishTime']);       
+                                                    echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
+                                                    echo "<div class='comment-text'>" . $row['comment'] . "</div>";
+                                                echo "</div>";
+                                            echo "</div>";
+                                    echo "</td>";
                     
                                 echo "</tr>";
 
