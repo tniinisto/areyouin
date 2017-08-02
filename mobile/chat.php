@@ -111,18 +111,12 @@
 
                 while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                             if($i < $limit) {                        
-                                
-                                echo "test test test";
+                            
                                 //Save the newest chat comment's datetime and update the last seen message to session
                                 if($i == 0) {
                                     $lastmsgdatetime = $row['publishTime'];                                    
                                     $_SESSION['mylastmsg'] = $row1['lastMsg'];
                                 }
-
-                                // echo "<tr class=\"chatrow\">";
-                                //    echo "<td width=\"80px\" height=\"auto\" align=\"center\"><img class=\"seenchat\" src=\"images/" . $row['photourl'] . "\"><br><text class=\"chatname\" style=\"color: white;\">" . $row['name'] . "</text></td>";
-                                //    echo "<td width=\"500px\" height=\"auto\"><text class=\"commentArea1\">" . $published->format("j.n.Y H:i") . "</text><textarea maxlength=\"500\" readonly class=\"commentArea2\" id=\"area" . $i ."\">" . $row['comment'] . "</textarea></td>";
-                                // echo "</tr>";
 
                                 echo "<tr class=\"chatrow\">";
 
