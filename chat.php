@@ -1,6 +1,6 @@
 <?php
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-    header('Content-Type: text/html; charset=utf-8');
+    //header('Content-Type: text/html; charset=utf-8');
     session_start();
 
 
@@ -13,12 +13,12 @@
 	$teamid=$_SESSION['myteamid'];
 
     ////Check session expiration & logged_in status
-    //if(!isset($_SESSION['logged_in'])) {
-    //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
-    //    ob_end_clean();
-    //    header("location:default.php");
-    //}
-    //else if($_SESSION['logged_in'] == TRUE) {	    
+    if(!isset($_SESSION['logged_in'])) {
+       //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
+       ob_end_clean();
+       header("location:default.php");
+    }
+    else if($_SESSION['logged_in'] == TRUE) {	    
         // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    // if (!$con)
 	    //     {
@@ -195,6 +195,6 @@
 
         //ob_end_flush;
             
-    //}
+    }
                       
 ?>
