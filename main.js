@@ -708,10 +708,10 @@ function waitForChat(){
             //Get comments only if php not timed out...and latest comment is not from user itself
             if(json['timeout'] == 0 && json['player'] != sessionStorage['playerID']) {
                 //alert("success timeout false: " + json['timeout']);
-                setTimeout('getChatComments(0)', 100);
+                //setTimeout('getChatComments(0)', 100);
             } 
             else {
-                setTimeout('getChatComments(1)', 100);
+                //setTimeout('getChatComments(1)', 100);
             }
 
             parameter = json['timestamp'];
@@ -737,11 +737,11 @@ function getChatComments(self) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        // document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
-	        // scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
-	        // setTimeout(function () {
-	        //     scroll.refresh();
-	        //});
+	        document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+	        scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        setTimeout(function () {
+	            scroll.refresh();
+	        });
 
             //Update the message icon
             if(self == 0)
