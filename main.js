@@ -741,7 +741,7 @@ function getChatComments(self) {
 	        // scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
 	        // setTimeout(function () {
 	        //     scroll.refresh();
-	        });
+	        //});
 
             //Update the message icon
             if(self == 0)
