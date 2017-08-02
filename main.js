@@ -737,10 +737,10 @@ function getChatComments(self) {
 
 	xmlhttp.onreadystatechange = function () {
 	    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	        document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
-	        scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
-	        setTimeout(function () {
-	            scroll.refresh();
+	        // document.getElementById("chatdiv").innerHTML = xmlhttp.responseText;
+	        // scroll = new iScroll('chatdiv', { vScrollbar: false, hScrollbar: false, hScroll: false });
+	        // setTimeout(function () {
+	        //     scroll.refresh();
 	        });
 
             //Update the message icon
