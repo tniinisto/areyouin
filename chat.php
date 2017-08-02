@@ -2,7 +2,7 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     session_start();
 
-    //date_default_timezone_set('UTC');
+    date_default_timezone_set('UTC');
     
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
@@ -45,7 +45,7 @@
         $row1;
         while($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)) {
             $GLOBALS['MYPLAYER'] = $row1;
-            $_SESSION['mylastmsg'] = $row1['lastMsg'];      
+            $_SESSION['mylastmsg'] = $GLOBALS['MYPLAYER']['lastMsg'];      
         }       
 
         //getComments($teamid, $dbh);
