@@ -68,11 +68,11 @@
 
            while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
                 if($i < $limit) {                        
+                    $published = new DateTime($row['publishTime']);     
 
                     //Save the newest comment's datetime to session
                     if($i == 0) {
                         $lastmsgdatetime = $row['publishTime'];
-                        $_SESSION['mylastmsg'] = $row1['lastMsg'];
                     }
 
                     echo "<tr class=\"chatrow\">";
@@ -86,7 +86,6 @@
                                     echo "</div>";
                                     echo "<br />";
                                     echo "<div class='chat-list-right'>";
-                                        $published = new DateTime($row['publishTime']);
                                         echo "<div class='comment-time'>" . $published->format("j.n.Y H:i") . "</div>";                        
                                         echo "<div class='comment-text'>" . $row['comment'] . "</div>";
                                     echo "</div>";
