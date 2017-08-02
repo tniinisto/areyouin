@@ -47,9 +47,9 @@
             $GLOBALS['MYPLAYER'] = $row1;
         }
    
-        getComments($teamid);
+        getComments($teamid, $dbh);
 
-        function getComments($p_teamid) {                                
+        function getComments($p_teamid, $dbh) {                                
         
             //$sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = " . $p_teamid . " order by c.publishTime desc";
         
