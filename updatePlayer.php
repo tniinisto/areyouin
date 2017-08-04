@@ -67,7 +67,7 @@
 
         //ChromePhp::log('updatePlayerSQL: ' . $sql2);
 
-        $result2 = $stmt2->execute();
+        //$result2 = $stmt2->execute();
 
     //     if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
     
