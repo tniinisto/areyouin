@@ -7,8 +7,6 @@
         ChromePhp::log('updatePlayer.php start');
     }
 
-require_once 'ChromePhp.php';
-    
     // $con = mysql_connect($dbhost, $dbuser, $dbpass);
     // if (!$con)
     //     {
@@ -55,7 +53,10 @@ require_once 'ChromePhp.php';
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
         // PDO. utf-8 //////////////////////////////////////////////////        
-        $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid";
+        $sql2 = "UPDATE players 
+                 SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname 
+                 WHERE playerid = :playerid";
+
         $stmt2 = $dbh->prepare($sql2);
 
         $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
@@ -66,7 +67,7 @@ require_once 'ChromePhp.php';
         $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
         $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
 
-ChromePhp::log('updatePlayerSQL: ' . $sql2);
+        //ChromePhp::log('updatePlayerSQL: ' . $sql2);
 
         $result2 = $stmt2->execute();
 
