@@ -1396,7 +1396,7 @@ function UpdatePlayer() {
 
 
     var eswitch;
-    if(document.getElementById(dialog_notify_switch).checked == false)
+    if(document.getElementById("dialog_notify_switch").checked == false)
         eswitch = 0;
     else
         eswitch = 1;
