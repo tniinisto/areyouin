@@ -52,21 +52,12 @@
     //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
-    //     // $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
-    //     //         name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
-    //     //         WHERE playerID = " . $_SESSION['myplayerid'] . ";";
-
-    //     // if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
-        
-    //     // $result = mysql_query($sql);
-
-    // //     // // PDO. utf-8 //////////////////////////////////////////////////        
-        //$sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid";
-        $sql2 = "UPDATE players SET mail = :mail WHERE playerID = :playerid";
+        // PDO. utf-8 //////////////////////////////////////////////////        
+        $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid";
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
         $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_STR);
+        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
         $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
         $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
         $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
