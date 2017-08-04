@@ -57,12 +57,12 @@ $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, nam
 $stmt2 = $dbh->prepare($sql2);
 
 $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
-$stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-$stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
-$stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
-$stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
-$stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
-$stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+// $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
+// $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
+// $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
+// $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
+// $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
+// $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
 // $result2 = $stmt2->execute();
 
 
