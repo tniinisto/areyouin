@@ -30,8 +30,8 @@
     $playerid = $_SESSION['myplayerid'];
 
     //PDO - UTF-8
-    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+    // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Verify mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
     // $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
@@ -39,14 +39,14 @@
     // $row2 = mysql_fetch_array($result2);
     // $num_rows = mysql_num_rows($result2);
 
-        // PDO. utf-8 //////////////////////////////////////////////////        
-        $sql1 ="SELECT playerID from players WHERE mail = :mail";
-        $stmt1 = $dbh->prepare($sql1);
-        $stmt1->bindParam(':mail', $player_email, PDO::PARAM_STR);
-        $result1 = $stmt1->execute();
+        // // PDO. utf-8 //////////////////////////////////////////////////        
+        // $sql1 = "SELECT playerID from players WHERE mail = :mail";
+        // $stmt1 = $dbh->prepare($sql1);
+        // $stmt1->bindParam(':mail', $player_email, PDO::PARAM_STR);
+        // $result1 = $stmt1->execute();
         
-        $num_rows = $stmt1->rowCount();
-        $row2 = $stmt1->fetch(PDO::FETCH_ASSOC)
+        // $num_rows = $stmt1->rowCount();
+        // $row2 = $stmt1->fetch(PDO::FETCH_ASSOC)
 
 
     //If mail already belongs to the user or is new one then it is ok to update information
