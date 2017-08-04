@@ -45,47 +45,47 @@
         $stmt1->bindParam(':mail', $player_email, PDO::PARAM_STR);
         $result1 = $stmt1->execute();
         
-        // $num_rows = $stmt1->rowCount();
-        // $row2 = $stmt1->fetch(PDO::FETCH_ASSOC)
+        $num_rows = $stmt1->rowCount();
+        $row2 = $stmt1->fetch(PDO::FETCH_ASSOC);
 
 
     //If mail already belongs to the user or is new one then it is ok to update information
-    // if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
+    if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
-    //     // $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
-    //     //         name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
-    //     //         WHERE playerID = " . $_SESSION['myplayerid'] . ";";
+        // $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
+        //         name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
+        //         WHERE playerID = " . $_SESSION['myplayerid'] . ";";
 
-    //     // if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
+        // if($_SESSION['ChromeLog']) { ChromePhp::log('Update player: ' . $sql); }
         
-    //     // $result = mysql_query($sql);
+        // $result = mysql_query($sql);
 
-    //     // // PDO. utf-8 //////////////////////////////////////////////////        
-    //     $sql2 ="UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid";
-    //     $stmt2 = $dbh->prepare($sql2);
-    //     $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
-    //     $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-    //     $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
-    //     $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
-    //     $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
-    //     $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
-    //     $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+        // // PDO. utf-8 //////////////////////////////////////////////////        
+        $sql2 ="UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid";
+        $stmt2 = $dbh->prepare($sql2);
+        $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
+        $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
+        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
+        $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
+        $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
+        $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
+        $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
 
-    //     $result2 = $stmt2->execute();
+        $result2 = $stmt2->execute();
 
-    //     if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
+        if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
     
-    //     //duplicate key, duplicate mail address
-    //     // if( mysql_errno() == 1062) {
-    //     //    // Duplicate key
-    //     //    echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
-    //     // }
+        //duplicate key, duplicate mail address
+        // if( mysql_errno() == 1062) {
+        //    // Duplicate key
+        //    echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
+        // }
 
-    // }
-    // //Mail already exists in R'YouIN for another user, don't allow update!!!
-    // else if($row2['playerID'] != $_SESSION['myplayerid']) {
-    //     echo "911, mail already in use!";
-    // }
+    }
+    //Mail already exists in R'YouIN for another user, don't allow update!!!
+    else if($row2['playerID'] != $_SESSION['myplayerid']) {
+        echo "911, mail already in use!";
+    }
 
     //mysql_close($con);
     $dbh = null;
