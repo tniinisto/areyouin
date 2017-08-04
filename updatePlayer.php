@@ -65,7 +65,7 @@
         $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
         $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
 
-        echo sql2;
+        echo $sql2;
 
         //ChromePhp::log('updatePlayerSQL: ' . $sql2);
 
