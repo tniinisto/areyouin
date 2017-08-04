@@ -51,25 +51,22 @@
 
     //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
-
-        // PDO utf8 //////////////////////////////////////////////////
         
-        $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
+$sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
 
-        $stmt2 = $dbh->prepare($sql2);
+$stmt2 = $dbh->prepare($sql2);
 
-        $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
-        $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
-        $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
-        $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
-        $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
-        $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
-        $result2 = $stmt2->execute();
-        
+$stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
+$stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
+$stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
+$stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
+$stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
+$stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
+$stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+$result2 = $stmt2->execute();
+
 
     //     if($_SESSION['ChromeLog']) { ChromePhp::log('Duplicate mail address, mysql_errno: ' . mysql_errno()); }
-    
     //     //duplicate key, duplicate mail address
     //     // if( mysql_errno() == 1062) {
     //     //    // Duplicate key
