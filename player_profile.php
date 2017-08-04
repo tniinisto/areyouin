@@ -37,7 +37,6 @@
             include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
             $playerid=$_SESSION['myplayerid'];
-            $teamid=$_SESSION['myteamid'];
 	        
             // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
@@ -61,12 +60,11 @@
         $sql1 ="SELECT * FROM players WHERE playerID = :playerid";
         $stmt1 = $dbh->prepare($sql1);
         $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
-        $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
 
         $result1 = $stmt1->execute();
 
         $row;
-        while($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {    
+        while($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {    }
 
             $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
 
@@ -96,7 +94,6 @@
                         echo "<br />";
             //mysql_close($con);
             $dbh = null;
-        }
         
 ?>
             <a href="#openModal" class="myButton">Edit information</a>
