@@ -50,7 +50,7 @@
 
 
     //If mail already belongs to the user or is new one then it is ok to update information
-    // if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
+    if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
 
     //     // $sql = "UPDATE players SET mail = '" . mysql_real_escape_string($player_email) ."', mobile = '" .       mysql_real_escape_string($player_phone) . "', notify = '" . $player_notify . "',
     //     //         name = '" . mysql_real_escape_string($player_name) . "', firstname = '" . mysql_real_escape_string($player_firstname) . "', lastname = '" . mysql_real_escape_string($player_lastname) . "'
@@ -81,11 +81,11 @@
     //     //    echo (mysql_affected_rows() > 0 ) ? 1 : "error: 1062, " . $player_email;
     //     // }
 
-    // }
-    // //Mail already exists in R'YouIN for another user, don't allow update!!!
-    // else if($row2['playerID'] != $_SESSION['myplayerid']) {
-    //     echo "911, mail already in use!";
-    // }
+    }
+    //Mail already exists in R'YouIN for another user, don't allow update!!!
+    else if($row2['playerID'] != $_SESSION['myplayerid']) {
+        echo "911, mail already in use!";
+    }
 
     //mysql_close($con);
     $dbh = null;
