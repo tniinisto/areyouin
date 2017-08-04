@@ -15,9 +15,6 @@
 
     // mysql_select_db($dbname, $con)or die("cannot select DB");
 
-    //PDO - UTF-8
-    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $player_name=$_GET['player_name'];
     $player_email=$_GET['player_email'];
@@ -31,6 +28,10 @@
     else    
         $player_notify = 0;
 
+
+    //PDO - UTF-8
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Verify mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
     // $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
