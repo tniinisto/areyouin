@@ -6,6 +6,8 @@
         require_once 'ChromePhp.php';
         ChromePhp::log('updatePlayer.php start');
     }
+
+require_once 'ChromePhp.php';
     
     // $con = mysql_connect($dbhost, $dbuser, $dbpass);
     // if (!$con)
@@ -58,11 +60,13 @@
 
         $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
         $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_BOOL);
+        $stmt2->bindParam(':notify', $player_notify PDO::PARAM_INT);
         $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
         $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
         $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
         $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+
+ChromePhp::log('updatePlayerSQL: ' . $sql2);
 
         $result2 = $stmt2->execute();
 
