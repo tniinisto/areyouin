@@ -53,7 +53,7 @@
     //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
         
-$sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
+$sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = 0, name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
 
 
 $stmt2 = $dbh->prepare($sql2);
