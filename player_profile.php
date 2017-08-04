@@ -1,5 +1,5 @@
 <?php  
-
+        //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
         require_once('ImageManipulator.php');
         $player;
 
@@ -35,21 +35,35 @@
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
             include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-
             $playerid=$_SESSION['myplayerid'];
 	        
-            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+            // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-	        if (!$con)
-	        {
-    	        die('Could not connect here: ' . mysql_error());
-	        }
+	        // if (!$con)
+	        // {
+    	    //     die('Could not connect here: ' . mysql_error());
+	        // }
 
-	        mysql_select_db($dbname, $con);
+	        // mysql_select_db($dbname, $con);
 
-            $sql = "SELECT * FROM players WHERE playerID = " . $playerid . "";
-            $result = mysql_query($sql);
-            $row = mysql_fetch_array($result);
+            // $sql = "SELECT * FROM players WHERE playerID = " . $playerid . "";
+            // $result = mysql_query($sql);
+            // $row = mysql_fetch_array($result);
+
+        //PDO - UTF-8
+        $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        //Get current users info
+        // PDO. utf-8 //////////////////////////////////////////////////        
+        $sql1 ="SELECT * FROM players WHERE playerID = :playerid";
+        $stmt1 = $dbh->prepare($sql1);
+        $stmt1->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+
+        $result1 = $stmt1->execute();
+
+        $row;
+        while($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {    
 
             $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
 
@@ -77,7 +91,10 @@
 
 
                         echo "<br />";
-            mysql_close($con);
+            //mysql_close($con);
+            $dbh = null;
+        }
+        
 ?>
             <a href="#openModal" class="myButton">Edit information</a>
             
