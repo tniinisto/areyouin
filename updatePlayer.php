@@ -52,17 +52,15 @@
 
     //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
+        
+$sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = :pnotify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
 
-if($player_notify == 1)        
-    $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = '1', name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";
-else
-    $sql2 = "UPDATE players SET mail = :mail, mobile = :phone, notify = '0', name = :name, firstname = :firstname, lastname = :lastname WHERE playerid = :playerid";    
 
 $stmt2 = $dbh->prepare($sql2);
 
 $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
 $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
-//$stmt2->bindParam(':pnotify', $player_notify, PDO::PARAM_INT);
+$stmt2->bindParam(':pnotify', $player_notify, PDO::PARAM_INT);
 $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
 $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
 $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
