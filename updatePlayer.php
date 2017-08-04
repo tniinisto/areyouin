@@ -61,9 +61,9 @@ $stmt2 = $dbh->prepare($sql2);
 $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
 $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
 if($player_notify == 'on')
-    $stmt2->bindParam(':notify', 1, PDO::PARAM_INT);
+    $stmt2->bindParam(':notify', '1', PDO::PARAM_INT);
 else    
-    $stmt2->bindParam(':notify', 0, PDO::PARAM_INT);
+    $stmt2->bindParam(':notify', '0', PDO::PARAM_INT);
 $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
 $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
 $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
