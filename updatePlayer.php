@@ -28,6 +28,7 @@
     else    
         $player_notify = 0;
 
+    $playerid = $_SESSION['myplayerid']
 
     //PDO - UTF-8
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
@@ -61,9 +62,7 @@
         // $result = mysql_query($sql);
 
         // PDO. utf-8 //////////////////////////////////////////////////        
-        $sql2 ="UPDATE players SET mail = :mail, mobile = :phone, notify = :notify,
-                name = :name, firstname = :firstname, lastname = :lastname
-                WHERE playerID = :playerid;"
+        $sql2 ="UPDATE players SET mail = :mail, mobile = :phone, notify = :notify, name = :name, firstname = :firstname, lastname = :lastname WHERE playerID = :playerid"
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':mail', $player_email, PDO::PARAM_STR);
         $stmt2->bindParam(':phone', $player_phone, PDO::PARAM_STR);
@@ -71,7 +70,7 @@
         $stmt2->bindParam(':name', $player_name, PDO::PARAM_STR);
         $stmt2->bindParam(':firstname', $player_firstname, PDO::PARAM_STR);
         $stmt2->bindParam(':lastname', $player_lastname, PDO::PARAM_STR);
-        $stmt2->bindParam(':playerid', $_SESSION['myplayerid'], PDO::PARAM_INT);
+        $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
 
         $result2 = $stmt2->execute();
 
