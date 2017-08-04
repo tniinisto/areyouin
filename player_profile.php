@@ -1,5 +1,5 @@
 <?php  
-        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+        //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
         require_once('ImageManipulator.php');
         $player;
 
@@ -34,7 +34,7 @@
 
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
-
+            include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
             $playerid=$_SESSION['myplayerid'];
 	        
             // $con = mysql_connect($dbhost, $dbuser, $dbpass);
