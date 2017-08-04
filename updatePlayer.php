@@ -22,7 +22,7 @@
     $player_firstname=$_GET['player_firstname'];
     $player_lastname=$_GET['player_lastname'];
 
-    $notify;
+    $notify = 0;
     if($player_notify == 'on')
         $notify = 1;
     else    
