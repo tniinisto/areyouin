@@ -39,11 +39,11 @@
     // $row2 = mysql_fetch_array($result2);
     // $num_rows = mysql_num_rows($result2);
 
-        // // PDO. utf-8 //////////////////////////////////////////////////        
-        // $sql1 = "SELECT playerID from players WHERE mail = :mail";
-        // $stmt1 = $dbh->prepare($sql1);
-        // $stmt1->bindParam(':mail', $player_email, PDO::PARAM_STR);
-        // $result1 = $stmt1->execute();
+        // PDO. utf-8 //////////////////////////////////////////////////        
+        $sql1 = "SELECT playerID from players WHERE mail = :mail";
+        $stmt1 = $dbh->prepare($sql1);
+        $stmt1->bindParam(':mail', $player_email, PDO::PARAM_STR);
+        $result1 = $stmt1->execute();
         
         // $num_rows = $stmt1->rowCount();
         // $row2 = $stmt1->fetch(PDO::FETCH_ASSOC)
