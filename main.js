@@ -1397,9 +1397,9 @@ function UpdatePlayer() {
 
     var eswitch;
     if(document.getElementById("dialog_notify_switch").checked == false)
-        eswitch = 0;
+        eswitch = "off";
     else
-        eswitch = 1;
+        eswitch = "on";
 
     var variables;
     variables = "player_name=" + document.getElementById("dialog_player_name").value
