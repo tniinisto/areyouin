@@ -31,7 +31,6 @@
     else    
         $player_notify = 0;
 
-
     //Verify mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
     // $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
     // $result2 = mysql_query($sql2);
@@ -46,6 +45,7 @@
         
         $num_rows = $stmt1->rowCount();
         $row2 = $stmt1->fetch(PDO::FETCH_ASSOC)
+
 
     //If mail already belongs to the user or is new one then it is ok to update information
     if($num_rows == 0 || $row2['playerID'] == $_SESSION['myplayerid']) {
