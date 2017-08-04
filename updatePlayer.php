@@ -31,6 +31,7 @@
     else    
         $player_notify = 0;
 
+
     //Verify mail uniqueness, before update is allowed, check if it is already used by the user, so then it is ok.    
     // $sql2 = "SELECT playerID from players WHERE mail =  '" . mysql_real_escape_string($player_email) ."'";
     // $result2 = mysql_query($sql2);
