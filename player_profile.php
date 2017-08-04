@@ -1,5 +1,5 @@
 <?php  
-
+        include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
         require_once('ImageManipulator.php');
         $player;
 
@@ -34,7 +34,6 @@
 
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
-            include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
             $playerid=$_SESSION['myplayerid'];
 	        
@@ -51,7 +50,7 @@
             // $result = mysql_query($sql);
             // $row = mysql_fetch_array($result);
 
-       //PDO - UTF-8
+        //PDO - UTF-8
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
 	    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -64,7 +63,7 @@
         $result1 = $stmt1->execute();
 
         $row;
-        while($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {    }
+        while($row = $stmt1->fetch(PDO::FETCH_ASSOC)) {    
 
             $player = new Player($row['playerID'], $row['name'], $row['mail'], $row['mobile'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname']);
 
@@ -94,6 +93,7 @@
                         echo "<br />";
             //mysql_close($con);
             $dbh = null;
+        }
         
 ?>
             <a href="#openModal" class="myButton">Edit information</a>
