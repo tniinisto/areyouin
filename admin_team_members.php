@@ -18,31 +18,44 @@
         if(($ad==1) || ($registrar==1) ) //Execute only for admin and registrar status
         {
             
-            $con = mysql_connect($dbhost, $dbuser, $dbpass);
+            // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
-            if (!$con)
-            {
-              die('Could not connect: ' . mysql_error());
-            }
+            // if (!$con)
+            // {
+            //   die('Could not connect: ' . mysql_error());
+            // }
 
-            mysql_select_db($dbname, $con);
+            // mysql_select_db($dbname, $con);
 
-            $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, pt.registrar, t.maxPlayers
-            FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID
-            order by pt.registrar desc, pt.teamAdmin desc";
+            // $sql="SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, pt.registrar, t.maxPlayers
+            // FROM players p, playerteam pt, team t WHERE t.teamID = '" . $teamid . "' AND pt.team_teamID = '" . $teamid . "' AND pt.players_playerID = p.playerID
+            // order by pt.registrar desc, pt.teamAdmin desc";
         
-            $result = mysql_query($sql);
-            $row_count = mysql_num_rows($result);
+            // $result = mysql_query($sql);
+            // $row_count = mysql_num_rows($result);
 
+    //PDO - UTF-8
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // PDO. utf-8 //////////////////////////////////////////////////        
+    $sql1 = "SELECT p.playerID, p.name, p.mobile, p.mail, p.photourl, p.notify, p.firstname, p.lastname, pt.teamAdmin, pt.registrar, t.maxPlayers
+        FROM players p, playerteam pt, team t WHERE t.teamID = :teamid AND pt.team_teamID = :teamid AND pt.players_playerID = p.playerID
+        order by pt.registrar desc, pt.teamAdmin desc";
+    $stmt1 = $dbh->prepare($sql1);
+    $stmt1->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+    $result = $stmt1->execute();
+    
+    $row_count = $stmt1->rowCount();
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////
                 //Members/Users page///////////////////////////////////////////////////////////////////////////
                 ///////////////////////////////////////////////////////////////////////////////////////////////
                 echo "<div id='member_content_id' class=''>";
                     
-
-                    mysql_data_seek($result, 0);
-                    $row = mysql_fetch_array($result);
+                    $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+                    //mysql_data_seek($result, 0);
+                    //$row = mysql_fetch_array($result);
                     echo "<h2>Users: " . $row_count . " / " . $row[maxPlayers] . "</h2>";
 
                     echo "<br>";
@@ -162,9 +175,11 @@
 
                         echo "<table border='0' id='users_table' class='usertable'>";
                         
-                            mysql_data_seek($result, 0);
+                            //mysql_data_seek($result, 0);
+                            $result = $stmt1->execute();
+                           
                             $index = 1;
-                            while($row = mysql_fetch_array($result))
+                            while( $row = $stmt1->fetch(PDO::FETCH_ASSOC))
                             {
 
                                     $player = new PlayerEdit($row['playerID'], $row['name'], $row['mobile'], $row['mail'], $row['photourl'], $row['notify'], $row['firstname'], $row['lastname'], $row['teamAdmin'], $row['registrar']);
