@@ -502,6 +502,20 @@ function game_start() {
     // }
 }
 
+//When selecting all players, hide the individual player switches
+function selectAllPlayers() {
+
+    if ($("#myonoff_all").is(':checked')) {
+        
+        $("#insertplayers").addClass("noshow");                
+    }
+    else {
+        $("#insertplayers").removeClass("noshow");
+    }
+
+} 
+
+
 //New game insert - Check game end time validity
 function game_end() {
     var start_dt = document.getElementById("gamestart_id").value;
