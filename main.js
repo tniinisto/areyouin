@@ -507,11 +507,11 @@ function selectAllPlayers() {
 
     if ($("#myonoff_all").is(':checked')) {
         
-        $("#insertplayers").removeClass("noshow");
+        $("#insertplayers").addClass("noshow");
         
     }
     else {
-        $("#insertplayers").addClass("noshow");
+        $("#insertplayers").removeClass("noshow");
     }
 
 } 
