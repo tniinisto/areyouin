@@ -505,14 +505,60 @@ function game_start() {
 //When selecting all players, hide the individual player switches
 function selectAllPlayers() {
 
+    var box = $('#insertplayersid');
+    
     if ($("#myonoff_all").is(':checked')) {
+                
+            if (box.hasClass('noshow')) {
+            
+                //eventarticle.addClass('event_article_animate');
+                box.removeClass('noshow');
+                
+                $(id).scrollintoview({duration: 300});
+                setTimeout(function () {
+                    box.removeClass('visuallynoshow');
+                }, 20);
         
-        $("#insertplayers").addClass("noshow");
+            } else {
+            
+                box.addClass('visuallynoshow');
+            
+                box.one('transitionend', function(e) {
+                    //eventarticle.removeClass('event_article_animate')
+                    box.addClass('noshow');
         
+                });
+            }        
+
     }
     else {
         $("#insertplayers").removeClass("noshow");
+
+        
+            if (box.hasClass('noshow')) {
+            
+                //eventarticle.addClass('event_article_animate');
+                box.removeClass('noshow');
+                
+                $(id).scrollintoview({duration: 300});
+                setTimeout(function () {
+                    box.removeClass('visuallynoshow');
+                }, 20);
+        
+            } else {
+            
+                box.addClass('visuallynoshow');
+            
+                box.one('transitionend', function(e) {
+                    //eventarticle.removeClass('event_article_animate')
+                    box.addClass('noshow');
+        
+                });
+            }        
+        
     }
+
+
 
 } 
 
