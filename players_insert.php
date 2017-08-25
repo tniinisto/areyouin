@@ -91,7 +91,7 @@
                     echo "<h4>Select all: ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
-                            echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\">";
+                            echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\"  onClick='selectAllPlayers();'>";
                             echo "<div class=\"onoffswitch-inner\"></div>";
                             echo "<div class=\"onoffswitch-switch\"></div>";
                             echo "</label>";
