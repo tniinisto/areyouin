@@ -4,7 +4,7 @@
         session_start();
 
         
-        echo "$('#datetimepicker1').datetimepicker();";
+        echo "$('#gamestart_id').datetimepicker();";
 
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
@@ -78,13 +78,9 @@
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Start time:</h2></label>";
                     //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                    //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
                     
-                    echo "<div class='form-group1'>";
-                        echo "<div class='input-group date' id='datetimepicker1'>":
-                            echo "<input type='text' class='form-control' />	<span class='input-group-addon'><span class='glyphicon-calendar glyphicon'></span></span>";
-                        echo "</div>";
-                    echo "</div>";                    
+                    echo "<input type='text' class='form-control' id='gamestart_id'/>";
 
                     //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
                     
