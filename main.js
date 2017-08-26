@@ -2206,3 +2206,13 @@ function startIPN() {
     xmlhttp.send();
 }
 
+function ff_datetime() {
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+        jQuery(function($){ //on document.ready
+            $('#gamestart_id').datepicker();
+        })
+    }
+}
+
+
+
