@@ -72,17 +72,21 @@
                     echo "</div>";
                     //Location///////////////////////////////////////////
 
-        
-                    //Start time /////////////////////
-                    echo "<label><h2>Start time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    
-                    echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
-        
-                    //End time //////////////////////
-                    echo "<label><h2>End time:</h2></label>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
-   
+                    //Start and end times
+                    if(strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Gecko")) <= 0 ){ // if not Firefox
+                        //Start time /////////////////////
+                        echo "<label><h2>Start time:</h2></label>";
+                        echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                        
+                        echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
+            
+                        //End time //////////////////////
+                        echo "<label><h2>End time:</h2></label>";
+                        echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
+                    }
+                    else {
+                        alert("Gecko found!")
+                    }
 
                     //Players...
                     echo "<label><h2>Pick participants:</h2></label>";
