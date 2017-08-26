@@ -72,21 +72,17 @@
                     echo "</div>";
                     //Location///////////////////////////////////////////
 
-                    //echo "<h2>Set Time</h2>";
+        
+                    //Start time /////////////////////
                     echo "<label><h2>Start time:</h2></label>";
-                    //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    
-                    echo "<input type='text' class='form-control' id='gamestart_id'/>";
-
-                    //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
                     
                     echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
-                    
+        
+                    //End time //////////////////////
                     echo "<label><h2>End time:</h2></label>";
-                    //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";
                     echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
-                    //echo "<input type='datetime-local' id='gameend_id' name='gamesend' required onchange='game_end()' value='" . date('Y-m-d HH:00:00.123'), strtotime('+1 hours') . "' </input>";
+   
 
                     //Players...
                     echo "<label><h2>Pick participants:</h2></label>";
