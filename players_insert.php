@@ -87,8 +87,10 @@
                     else {
                         
                         $now = new DateTime();
-                        $end = new DateTime("Y-m-d H:i", strtotime('+1 hours', strtotime($now)));
-                        
+                                                
+                        $end = new DateTime();
+                        $end->modify("+1 hours");
+
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
                         echo "Time format must be [YYYY-MM-DD hh:mm] Use Chrome or Edge browser for better usability!";
