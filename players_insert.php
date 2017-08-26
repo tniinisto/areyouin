@@ -87,7 +87,7 @@
                     else {
                         
                         $now = new DateTime();
-                        $end = date("Y-m-d H:i", strtotime('+1 hours', strtotime($now)));
+                        $end = new DateTime("Y-m-d H:i", strtotime('+1 hours', strtotime($now)));
                         
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
