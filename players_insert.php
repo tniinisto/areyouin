@@ -2,7 +2,7 @@
         include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
         session_start();
-        
+
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
@@ -72,19 +72,37 @@
                     echo "</div>";
                     //Location///////////////////////////////////////////
 
-                    //echo "<h2>Set Time</h2>";
-                    echo "<label><h2>Start time:</h2></label>";
-                    //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    
-                    //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
-                    
-                    echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
-                    
-                    echo "<label><h2>End time:</h2></label>";
-                    //echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";
-                    echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
-                    //echo "<input type='datetime-local' id='gameend_id' name='gamesend' required onchange='game_end()' value='" . date('Y-m-d HH:00:00.123'), strtotime('+1 hours') . "' </input>";
+                    //Start and end times
+                    if(strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Firefox")) <= 0 ){ // if not Firefox
+                        //Start time /////////////////////
+                        echo "<label><h2>Start time:</h2></label>";
+                        echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                        
+                        echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
+            
+                        //End time //////////////////////
+                        echo "<label><h2>End time:</h2></label>";
+                        echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
+                    }
+                    else {
+                        
+                        $now = new DateTime();
+                                                
+                        $end = new DateTime();
+                        $end->modify("+1 hours");
+
+                        //Start time /////////////////////
+                        echo "<label><h2>Start time:</h2></label>";
+                        echo "<p>Time format must be <strong>[YYYY-MM-DD hh:mm]</strong> Please use Chrome or Edge browser for better usability!</p>";
+                        echo "<input type=\"text\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $now->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_start()\"</input>";
+                        
+                        echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
+            
+                        //End time //////////////////////
+                        echo "<label><h2>End time:</h2></label>";
+                        echo "<p>Time format must be <strong>[YYYY-MM-DD hh:mm]</strong> Please use Chrome or Edge browser for better usability!</p>";
+                        echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $end->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
+                    }
 
                     //Players...
                     echo "<label><h2>Pick participants:</h2></label>";
