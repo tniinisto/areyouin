@@ -88,7 +88,7 @@
                         //echo "Firefox found!";
 
                         $now = new DateTime();
-                        $expire = date(new DateTime(), strtotime('+1 hour'));
+                        //$expire = date(new DateTime(), strtotime('+1 hour'));
 
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
@@ -98,7 +98,7 @@
             
                         //End time //////////////////////
                         echo "<label><h2>End time:</h2></label>";
-                        echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $expire->format('Y-m-dTH:i:s') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
+                        echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $now->format('Y-m-dTH:i:s') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
                     }
 
                     //Players...
