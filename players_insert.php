@@ -3,9 +3,6 @@
 
         session_start();
 
-        
-        echo "$('#gamestart_id').datetimepicker();";
-
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
