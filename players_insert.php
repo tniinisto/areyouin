@@ -92,13 +92,13 @@
 
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
-                        echo "<input type=\"text\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $now->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}' onchange=\"game_start()\"</input>";
+                        echo "<input type=\"text\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . $now->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_start()\"</input>";
                         
                         echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
             
                         //End time //////////////////////
                         echo "<label><h2>End time:</h2></label>";
-                        echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $now->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
+                        echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $now->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
                     }
 
                     //Players...
