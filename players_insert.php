@@ -73,7 +73,7 @@
                     //Location///////////////////////////////////////////
 
                     //Start and end times
-                    if(strlen(strstr($_SERVER['HTTP_USER_AGENT'],"firefox")) <= 0 ){ // if not Firefox
+                    if(strlen(strstr($_SERVER['HTTP_USER_AGENT'],"Firefox")) <= 0 ){ // if not Firefox
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
                         echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
@@ -85,7 +85,7 @@
                         echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
                     }
                     else {
-                        echo "firefox found!";
+                        echo "Firefox found!";
                     }
 
                     //Players...
