@@ -75,7 +75,7 @@
                     //echo "<h2>Set Time</h2>";
                     echo "<label><h2>Start time:</h2></label>";
                     //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
-                    echo "<input type=\"datetime\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
+                    echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
                     
                     //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
                     
