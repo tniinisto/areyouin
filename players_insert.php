@@ -88,7 +88,7 @@
                         //echo "Firefox found!";
 
                         $now = new DateTime();
-                        $expire = date($now, strtotime('+1 hour'));
+                        //$expire = date($now, strtotime('+1 hour'));
 
                         //Start time /////////////////////
                         echo "<label><h2>Start time:</h2></label>";
