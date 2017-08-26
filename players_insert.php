@@ -85,7 +85,7 @@
                         echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
                     }
                     else {
-                        alert("Gecko found!");
+                        echo "alert('Gecko found!');";
                     }
 
                     //Players...
