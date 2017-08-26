@@ -2,7 +2,10 @@
         include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
         session_start();
+
         
+        echo "$('#datetimepicker1').datetimepicker();";
+
         //$teamid=1;
         $teamid=$_SESSION['myteamid'];
         $ad=$_SESSION['myAdmin'];
@@ -77,6 +80,12 @@
                     //echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('Y-m-d H:00'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
                     echo "<input type=\"datetime-local\" id=\"gamestart_id\" name=\"gamestart\" required value=\"" . date(('YYYY-MM-DDThh:mm'), strtotime('-1 hours')) . "\" onchange=\"game_start()\"</input>";
                     
+                    echo "<div class='form-group1'>";
+                        echo "<div class='input-group date' id='datetimepicker1'>":
+                            echo "<input type='text' class='form-control' />	<span class='input-group-addon'><span class='glyphicon-calendar glyphicon'></span></span>";
+                        echo "</div>";
+                    echo "</div>";                    
+
                     //echo "<input type='datetime-local' id='gamestart_id' name='gamestart' required onchange='game_start()' value='" . date(('Y-m-d HH:00:00.123'), strtotime('-1 hours')) . "' </input>";
                     
                     echo "<label><h4 id='gametime_notify' class='noshow' style='color: red;'> * Game start time must be before the end time...</h4></label>";
