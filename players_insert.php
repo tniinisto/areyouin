@@ -85,7 +85,7 @@
                         echo "<input type=\"datetime-local\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . date(('YYYY-MM-DDThh:mm:ss.ms'), strtotime('-1 hours')) . "\" onchange=\"game_end()\"</input>";                    
                     }
                     else {
-                        //echo "Firefox found!";
+                        echo "Time format must be YYYY-MM-DD hh:mm This works better on Chrome and Edge browsers!";
 
                         $now = new DateTime();
                         //$expire = date(new DateTime(), strtotime('+1 hour'));
