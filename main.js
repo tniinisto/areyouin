@@ -2211,30 +2211,48 @@ function startIPN() {
 Modal help dialog
 *************************************************************************************/
 function getAdminModalHelps() {
-    // Get the modal
+
+    // Get the modal for mail
     var modalMail = document.getElementById('myModalMail');
+    // Get the modal for private
+    var modalPrivate = document.getElementById('myModalPrivate');
 
-    // Get the icon that opens the modal
+    // Get the icon that opens the mail modal
     var btn = document.getElementById("MailHelp");
-
-    // Get the <span> element that closes the modal
+    // Get the icon that opens the private modal
+    var btn_private = document.getElementById("PrivateHelp");
+    
+    // Get the <span> element that closes the mail modal
     var span = document.getElementById("closeMailHelp");
+    // Get the <span> element that closes the privaete modal
+    var span = document.getElementById("closePrivatelHelp");
+     
 
-    // When the user clicks the button, open the modal 
+    // When the user clicks the button, open the mails modal 
     btn.onclick = function() {
         modalMail.style.display = "block";
     }
+    // When the user clicks the button, open the private modal 
+    btn_private.onclick = function() {
+        modalPrivate.style.display = "block";
+    }
 
-    // When the user clicks on <span> (x), close the modal
-
+    // When the user clicks on <span> (x), close the mail modal
     span.onclick = function() {
         modalMail.style.display = "none";
+    }
+    // When the user clicks on <span> (x), close the private modal
+    span.onclick = function() {
+        modalPrivate.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modalMail) {
             modalMail.style.display = "none";
+        }
+        if (event.target == modalPrivate) {
+            modalPrivate.style.display = "none";
         }
     }
 
