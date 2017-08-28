@@ -185,7 +185,7 @@
                     echo"<div id='myModalMail' class='modal'>";                    
                         echo"<div class='modal-content'>";
                             echo"<span id='closeMailHelp' class='closeMail'>&times;</span>";
-                            echo"<p>Choose if participants selected for the event will get an mail notification for it.</p>";
+                            echo"<p>Choose if participants selected for the event will get a mail notification for it.</p>";
                         echo"</div>";                    
                     echo"</div>";
 
@@ -205,7 +205,7 @@
                     echo"<div id='myModalPrivate' class='modal'>";                    
                         echo"<div class='modal-content'>";
                             echo"<span id='closePrivatelHelp' class='closeMail'>&times;</span>";
-                            echo"<p>Only the team members selected for the event see it. Otherwise all team members see the event.</p>";
+                            echo"<p>Only the team members selected for the event see it if private switch is on. Otherwise all team members see the event.</p>";
                         echo"</div>";                    
                     echo"</div>";                    
 
