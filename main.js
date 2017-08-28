@@ -2217,7 +2217,7 @@ function getAdminModalHelps() {
     // Get the modal for private
     var modalPrivate = document.getElementById('myModalPrivate');
     // Get the modal for players
-//    var modalPlayers = document.getElementById('myModalPlayers');
+    var modalPlayers = document.getElementById('myModalPlayers');
     
 
     // Get the icon that opens the mail modal
@@ -2225,7 +2225,7 @@ function getAdminModalHelps() {
     // Get the icon that opens the private modal
     var btn_private = document.getElementById("PrivateHelp");
     // Get the icon that opens the players modal
- //   var btn_players = document.getElementById("PlayersHelp");
+    var btn_players = document.getElementById("PlayersHelp");
         
     
     // Get the <span> element that closes the mail modal
@@ -2233,7 +2233,7 @@ function getAdminModalHelps() {
     // Get the <span> element that closes the private modal
     var spanPrivate = document.getElementById("closePrivatelHelp");
     // Get the <span> element that closes the players modal
- //   var spanPlayers = document.getElementById("closePlayersHelp");
+    var spanPlayers = document.getElementById("closePlayersHelp");
 
 
     // When the user clicks the button, open the mails modal 
@@ -2245,9 +2245,9 @@ function getAdminModalHelps() {
         modalPrivate.style.display = "block";
     }
     // When the user clicks the button, open the players modal 
-    // btn_players.onclick = function() {
-    //     modalPlayers.style.display = "block";
-    // }
+    btn_players.onclick = function() {
+        modalPlayers.style.display = "block";
+    }
     
 
     // When the user clicks on <span> (x), close the mail modal
@@ -2259,9 +2259,9 @@ function getAdminModalHelps() {
         modalPrivate.style.display = "none";
     }
     // When the user clicks on <span> (x), close the players modal
-    // spanPlayers.onclick = function() {
-    //     modalPlayers.style.display = "none";
-    // }
+    spanPlayers.onclick = function() {
+        modalPlayers.style.display = "none";
+    }
 
 
     // When the user clicks anywhere outside of the modal, close it
@@ -2272,9 +2272,9 @@ function getAdminModalHelps() {
         if (event.target == modalPrivate) {
             modalPrivate.style.display = "none";
         }
-        // if (event.target == modalPlayers) {
-        //     modalPlayers.style.display = "none";
-        // }
+        if (event.target == modalPlayers) {
+            modalPlayers.style.display = "none";
+        }
     }
 
 } 
