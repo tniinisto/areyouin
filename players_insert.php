@@ -181,7 +181,7 @@
                     echo"</div>";
 
                     //Sendmail switch
-                        echo "<h2>Email notification <img id='MailHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
+                        echo "<h2>id='MailHelp' Email notification <img width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 						    echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
                             echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
