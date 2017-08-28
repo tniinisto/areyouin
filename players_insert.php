@@ -171,8 +171,17 @@
 
                     echo "<br>";
 
+                    
+                    //Help icon for sendmail
+                    echo"<div id='myModalMail' class='modal'>";                    
+                        echo"<div class='modal-content'>";
+                            echo"<span class='close'>&times;</span>";
+                            echo"<p>All invited participants will get a mail notification for the event.</p>";
+                        echo"</div>";                    
+                    echo"</div>";
+
                     //Sendmail switch
-                        echo "<h2>Email notification <img width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
+                        echo "<h2>Email notification <img id='MailHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 						    echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
                             echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
