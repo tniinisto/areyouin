@@ -1811,7 +1811,7 @@ Modal help dialog
 /* The Close Button */
 .closeMail {
     color: #aaaaaa;
-    float: right;
+    /* float: right; */
     font-size: 28px;
     font-weight: bold;
 }
