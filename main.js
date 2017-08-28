@@ -2218,7 +2218,7 @@ function getAdminModalHelps() {
     var btn = document.getElementById("MailHelp");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("closeMail")[0];
+    var span = document.getElementById("closeMailHelp");
 
     // When the user clicks the button, open the modal 
     btn.onclick = function() {
@@ -2226,9 +2226,10 @@ function getAdminModalHelps() {
     }
 
     // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() {
-    //     modalMail.style.display = "none";
-    // }
+
+    span.onclick = function() {
+        modalMail.style.display = "none";
+    }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
