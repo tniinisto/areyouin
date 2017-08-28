@@ -104,9 +104,17 @@
                         echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $end->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
                     }
 
+                   //Help icon for players switch
+                   echo"<div id='myModalPlayers' class='modal'>";                    
+                        echo"<div class='modal-content'>";
+                            echo"<span id='closePlayersHelp' class='closeMail'>&times;</span>";
+                            echo"<p>Select all players or individual players for the event.</p>";
+                        echo"</div>";                    
+                    echo"</div>";     
+
                     //Players...
-                    echo "<label><h2>Pick participants:</h2></label>";
-                    echo "<h4>Select all: ";
+                    echo "<label><h2>Pick participants <img id='PlayersHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2></label>";
+                    echo "<h4>Select all ";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
                             echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\"  onClick='selectAllPlayers();'>";
