@@ -2233,7 +2233,7 @@ function getAdminModalHelps() {
     // Get the <span> element that closes the private modal
     var spanPrivate = document.getElementById("closePrivatelHelp");
     // Get the <span> element that closes the players modal
-    var spanPrivate = document.getElementById("closePlayersHelp");
+    var spanPlayers = document.getElementById("closePlayersHelp");
 
 
     // When the user clicks the button, open the mails modal 
@@ -2259,7 +2259,7 @@ function getAdminModalHelps() {
         modalPrivate.style.display = "none";
     }
     // When the user clicks on <span> (x), close the players modal
-    spanPrivate.onclick = function() {
+    spanPlayers.onclick = function() {
         modalPlayers.style.display = "none";
     }
 
