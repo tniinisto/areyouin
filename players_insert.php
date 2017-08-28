@@ -175,7 +175,7 @@
                     //Help icon for sendmail
                     echo"<div id='myModalMail' class='modal'>";                    
                         echo"<div class='modal-content'>";
-                            echo"<span id='closeMailHelp' class='close'>&times;</span>";
+                            echo"<span id='closeMailHelp' class='closeMail'>&times;</span>";
                             echo"<p>All invited participants will get a mail notification for the event.</p>";
                         echo"</div>";                    
                     echo"</div>";
