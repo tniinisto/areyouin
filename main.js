@@ -2207,5 +2207,75 @@ function startIPN() {
 }
 
 
+/************************************************************************************
+Modal help dialog
+*************************************************************************************/
+function getAdminModalHelps() {
 
+    // Get the modal for mail
+    var modalMail = document.getElementById('myModalMail');
+    // Get the modal for private
+    var modalPrivate = document.getElementById('myModalPrivate');
+    // Get the modal for players
+    var modalPlayers = document.getElementById('myModalPlayers');
+    
+
+    // Get the icon that opens the mail modal
+    var btn = document.getElementById("MailHelp");
+    // Get the icon that opens the private modal
+    var btn_private = document.getElementById("PrivateHelp");
+    // Get the icon that opens the players modal
+    var btn_players = document.getElementById("PlayersHelp");
+        
+    
+    // Get the <span> element that closes the mail modal
+    var spanMail = document.getElementById("closeMailHelp");
+    // Get the <span> element that closes the private modal
+    var spanPrivate = document.getElementById("closePrivatelHelp");
+    // Get the <span> element that closes the players modal
+    var spanPlayers = document.getElementById("closePlayersHelp");
+
+
+    // When the user clicks the button, open the mails modal 
+    btn.onclick = function() {
+        modalMail.style.display = "block";
+    }
+    // When the user clicks the button, open the private modal 
+    btn_private.onclick = function() {
+        modalPrivate.style.display = "block";
+    }
+    // When the user clicks the button, open the players modal 
+    btn_players.onclick = function() {
+        modalPlayers.style.display = "block";
+    }
+    
+
+    // When the user clicks on <span> (x), close the mail modal
+    spanMail.onclick = function() {
+        modalMail.style.display = "none";
+    }
+    // When the user clicks on <span> (x), close the private modal
+    spanPrivate.onclick = function() {
+        modalPrivate.style.display = "none";
+    }
+    // When the user clicks on <span> (x), close the players modal
+    spanPlayers.onclick = function() {
+        modalPlayers.style.display = "none";
+    }
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modalMail) {
+            modalMail.style.display = "none";
+        }
+        if (event.target == modalPrivate) {
+            modalPrivate.style.display = "none";
+        }
+        if (event.target == modalPlayers) {
+            modalPlayers.style.display = "none";
+        }
+    }
+
+} 
 

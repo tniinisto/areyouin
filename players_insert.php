@@ -104,9 +104,18 @@
                         echo "<input type=\"text\" id=\"gameend_id\" name=\"gamesend\" required value=\"" . $end->format('Y-m-d H:i') . "\" pattern='[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}' onchange=\"game_end()\"</input>";    
                     }
 
-                    //Players...
-                    echo "<label><h2>Pick participants:</h2></label>";
-                    echo "<h4>Select all: ";
+                   //Help icon for players switch
+                   echo"<div id='myModalPlayers' class='modal'>";                    
+                        echo"<div class='modal-content'>";
+                            echo"<span id='closePlayersHelp' class='closeMail'>&times;</span>";
+                            echo"<p>Select all or individual team members for the event.</p>";
+                        echo"</div>";                    
+                    echo"</div>";     
+
+                    //Players selection switch
+                    echo "<h2>Pick participants <img id='PlayersHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
+
+                    echo "<h4>Select all";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
                             echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\"  onClick='selectAllPlayers();'>";
@@ -171,8 +180,17 @@
 
                     echo "<br>";
 
+                    
+                    //Help icon for sendmail
+                    echo"<div id='myModalMail' class='modal'>";                    
+                        echo"<div class='modal-content'>";
+                            echo"<span id='closeMailHelp' class='closeMail'>&times;</span>";
+                            echo"<p>Choose if participants selected for the event will get a mail notification for it.</p>";
+                        echo"</div>";                    
+                    echo"</div>";
+
                     //Sendmail switch
-                        echo "<h2>Email notification:</h2>";
+                        echo "<h2>Email notification <img id='MailHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
                         echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
 						    echo "<input type='checkbox' name='mailswitch' class=\"onoffswitch-checkbox\" id='event_mail_switch'>";
                             echo "<label class=\"onoffswitch-label\" for='event_mail_switch' onClick=''>";
@@ -182,16 +200,24 @@
                         echo "</div>";  
                     
                     echo "<br>";
-                        
-                        //Public/Private event switch
-                        echo "<h2>Private event:</h2>";
-                        echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
-						    echo "<input type='checkbox' name='privateswitch' class=\"onoffswitch-checkbox\" id='event_private_switch'>";
-                            echo "<label class=\"onoffswitch-label\" for='event_private_switch' onClick=''>";
-                                echo "<div class=\"notifyswitch-inner\"></div>";
-						        echo "<div class=\"onoffswitch-switch\"></div>";
-						    echo "</label>";
-                        echo "</div>";                    
+                    
+                    //Help icon for private switch
+                    echo"<div id='myModalPrivate' class='modal'>";                    
+                        echo"<div class='modal-content'>";
+                            echo"<span id='closePrivatelHelp' class='closeMail'>&times;</span>";
+                            echo"<p>Only the team members selected for the event see it if private switch is on. Otherwise all team members see the event.</p>";
+                        echo"</div>";                    
+                    echo"</div>";                    
+
+                    //Public/Private event switch
+                    echo "<h2>Private event <img id='PrivateHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
+                    echo "<div class=\"onoffswitch notifyswitch\" style='display: inline-block;'>";
+                        echo "<input type='checkbox' name='privateswitch' class=\"onoffswitch-checkbox\" id='event_private_switch'>";
+                        echo "<label class=\"onoffswitch-label\" for='event_private_switch' onClick=''>";
+                            echo "<div class=\"notifyswitch-inner\"></div>";
+                            echo "<div class=\"onoffswitch-switch\"></div>";
+                        echo "</label>";
+                    echo "</div>";                    
 
                     echo "<br>";
                     echo "<br>";
