@@ -113,8 +113,8 @@
                     echo"</div>";     
 
                     //Players...
-                    echo "<label><h2>Pick participants <img id='PlayersHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2></label>";
-                    echo "<h4>Select all ";
+                    echo "<h2>Pick participants <img id='PlayersHelp' width='30' height='30' src='images/help-icon.png' style='vertical-align: middle;'></h2>";
+                    echo "<h4>Select all";
                         echo "<div class=\"onoffswitch\" style=\"display: inline-block; vertical-align: middle;\">";
                             echo "<input type=\"checkbox\" name=\"ooswitch_all\" class=\"onoffswitch-checkbox\" id=\"myonoff_all\" checked>";
                             echo "<label class=\"onoffswitch-label\" for=\"myonoff_all\"  onClick='selectAllPlayers();'>";
