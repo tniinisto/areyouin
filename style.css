@@ -1784,6 +1784,7 @@ License part styling
 /************************************************************************************
 Modal help dialog
 *************************************************************************************/
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -1806,6 +1807,7 @@ Modal help dialog
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
+    margin-top: 20%;
 }
 
 /* The Close Button */
