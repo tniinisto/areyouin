@@ -1055,7 +1055,7 @@
 	#banner {
 		padding: 4em 0 18em 0;
 		background-attachment: fixed;
-		background-image: url("images/overlay.png"), url("../images/banner2.jpg");
+		background-image: url("images/overlay.png"), url("../images/ny3.jpg");
 		background-position: center top;
 		background-size: cover;
 		line-height: 1.75;
@@ -1103,7 +1103,7 @@
 
 		.wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../images/banner2.jpg");
+			background-image: url("images/overlay.png"), url("../images/ny1.jpg");
 			background-position: center center;
 			background-size: cover;
 		}
