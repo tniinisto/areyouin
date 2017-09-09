@@ -33,9 +33,9 @@ try {
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid', $teamid, PDO::PARAM_INT);
 
-    $stmt = $dbh->query($sql);  
+    //$stmt = $dbh->query($sql);  
 
-	$event_info = $stmt->fetchAll(PDO::FETCH_OBJ);  
+	$event_info = $stmt->fetchAll(PDO::FETCH_OBJ);
 
     $dbh = null;
 
