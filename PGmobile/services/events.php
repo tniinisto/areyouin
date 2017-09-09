@@ -30,11 +30,6 @@ try {
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);		
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // $stmt = $dbh->prepare($sql);
-    // $stmt->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-    // $stmt = $dbh->query($sql);
-    // $event_info = $stmt->fetchAll(PDO::FETCH_OBJ);
-
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid',  $teamid, PDO::PARAM_INT);        
     $stmt->execute();
