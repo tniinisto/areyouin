@@ -6,8 +6,8 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 // $pl=$_SESSION['myplayerid'];
 // $team=$_SESSION['myteamid'];
 
-
 $teamid=$_POST['teamid'];
+//$userid=$_POST['userid'];
 
 $sql = "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
 p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
