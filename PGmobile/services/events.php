@@ -28,11 +28,12 @@ try {
     //STH means "Statement Handle"
 
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
-
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-    $stmt = $dbh->query($sql);  
+
+    $result = $stmt1->execute();
 	$event_info = $stmt->fetchAll(PDO::FETCH_OBJ);  
 
     $dbh = null;
