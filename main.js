@@ -2183,10 +2183,10 @@ function freezeButton() {
 }
 
 //Register button disable to prevents double clicks
-function freezeRegistrationButton() {
-    $("#submit_fourth").attr("disabled", "disabled");
-    setTimeout('$("#submit_fourth").removeAttr("disabled")', 5000);
-}
+// function freezeRegistrationButton() {
+//     $("#submit_fourth").attr("disabled", "disabled");
+//     setTimeout('$("#submit_fourth").removeAttr("disabled")', 5000);
+// }
 
 function setSessionTeamName(teamName) {
     sessionStorage['teamName'] = teamName;   
