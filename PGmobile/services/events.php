@@ -32,6 +32,7 @@ try {
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+    $result = $stmt->execute();
     
     $event_info = $stmt->fetchAll(PDO::FETCH_OBJ);
 
