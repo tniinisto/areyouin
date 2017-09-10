@@ -9,11 +9,15 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 $teamid=$_POST['teamid'];
 //$userid=$_POST['userid'];
 
-$sql = "SELECT x.count, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+$sql = "SELECT x.rowcount, y.eventcount, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
 p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
-FROM (SELECT count(*) as count
+FROM
+(SELECT count(*) as rowcount
+ FROM events ex, team t, eventplayer ep
+ where ep.Events_eventID = ex.eventID and t.teamID = '3' and ex.endTime > now()) as x,
+(SELECT count(*) as eventcount
  FROM events ex, team t
- where ex.team_teamID = :teamid and ex.Team_teamID = t.teamID and ex.endTime > now()) as x,
+ where t.teamID = '3' and ex.endTime > now()) as y,
 events e
 inner join location l on l.locationID = e.Location_locationID
 inner join eventplayer ep on ep.Events_eventID = e.eventID
