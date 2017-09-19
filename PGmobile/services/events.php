@@ -26,7 +26,7 @@ inner join playerteam pt on pt.Players_playerID = p.playerID
 inner join team t on t.teamID = pt.Team_teamID
 where t.teamID = :teamid and e.Team_teamID = t.teamID
 and e.endTime > now()
-order by e.startTime desc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";		
+order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";		
 
 
 try {
