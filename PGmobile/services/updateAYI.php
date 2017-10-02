@@ -15,12 +15,12 @@ try {
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // $sql = "UPDATE eventplayer SET areyouin = :ayi WHERE eventplayerid = :eventplayerid";		   
-    // $stmt = $dbh->prepare($sql);
+    $sql = "UPDATE eventplayer SET areyouin = :ayi WHERE eventplayerid = :eventplayerid";		   
+    $stmt = $dbh->prepare($sql);
     
-    // $stmt->bindParam(':ayi', $ayi, PDO::PARAM_INT);
-    // $stmt->bindParam(':eventplayerid', $eventplayerid, PDO::PARAM_INT);
-    // $result = $stmt->execute();
+    $stmt->bindParam(':ayi', $ayi, PDO::PARAM_INT);
+    $stmt->bindParam(':eventplayerid', $eventplayerid, PDO::PARAM_INT);
+    $result = $stmt->execute();
 
 	$dbh = null;
 
