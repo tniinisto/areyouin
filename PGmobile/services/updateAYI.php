@@ -24,10 +24,13 @@ try {
 
 	$dbh = null;
 
- 	//echo '{"items":'. json_encode($playerinfo) .'}'; 
+    echo '{"items":'. json_encode('200') .'}'; 
+     
 }
+
 catch(PDOException $e) {
-	echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    
 }
 
 ?>
