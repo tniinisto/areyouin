@@ -28,7 +28,7 @@ $sql = "SELECT x.count, p.playerID, p.name, p.mail, p.photourl, t.teamID, t.team
         (SELECT count(*) as count
         FROM players p, playerteam m, team t, registration r
         WHERE (name = :name OR mail = :name) and password = :password and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid) as x
-    WHERE (name = :name' OR mail = :name) and password = :password and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
+    WHERE (name = :name OR mail = :name) and password = :password and p.playerID = m.Players_playerID and m.Team_teamID = t.teamid and t.teamid <> 0 and r.team_teamid = t.teamid
     ORDER BY t.teamName;";		
 
 
