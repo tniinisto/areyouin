@@ -28,15 +28,15 @@ try {
     $result = $stmt->execute();
 
 
-//Update last event update time
-$updateDateTime = date("Y-n-j H:i:s");
+    //Update last event update time
+    $updateDateTime = date("Y-n-j H:i:s");
 
-$sql2 = "UPDATE playerteam SET lastEventUpdate = :updatetime where Team_teamID = :teamid and players_playerId = :playerid ;";
-$stmt2 = $dbh->prepare($sql2);
-$stmt2->bindParam(':updatetime', $updateDateTime, PDO::PARAM_STR);
-$stmt2->bindParam(':teamid', $teamid, PDO::PARAM_INT);
-$stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
-$result2 = $stmt2->execute();
+    $sql2 = "UPDATE playerteam SET lastEventUpdate = :updatetime where Team_teamID = :teamid and players_playerId = :playerid ;";
+    $stmt2 = $dbh->prepare($sql2);
+    $stmt2->bindParam(':updatetime', $updateDateTime, PDO::PARAM_STR);
+    $stmt2->bindParam(':teamid', $teamid, PDO::PARAM_INT);
+    $stmt2->bindParam(':playerid', $playerid, PDO::PARAM_INT);
+    $result2 = $stmt2->execute();
 
 	$dbh = null;
 
