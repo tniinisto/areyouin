@@ -23,10 +23,9 @@ try {
     $sql = "UPDATE eventplayer SET areyouin = :ayi WHERE eventplayerid = :eventplayerid";		   
     $stmt = $dbh->prepare($sql);
     
-    $stmt->bindParam(':ayi', $ayi', PDO::PARAM_INT);
+    $stmt->bindParam(':ayi', $ayi, PDO::PARAM_INT);
     $stmt->bindParam(':eventplayerid', $eventplayerid, PDO::PARAM_INT);
     $result = $stmt->execute();
-
 
     //Update last event update time
     $updateDateTime = date("Y-n-j H:i:s");
