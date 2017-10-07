@@ -9,6 +9,9 @@ $ayi=$_POST['ayi'];
 $playerid=$_POST['playerid'];
 $teamid=$_POST['teamid'];
 
+$timezone=$_POST['timezone'];
+date_default_timezone_set($timezone);
+
 try {
     //PDO means "PHP Data Objects"
     //dbh meand "Database handle"
