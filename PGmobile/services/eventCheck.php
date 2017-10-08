@@ -4,6 +4,7 @@
     session_start();
 
     //date_default_timezone_set($_SESSION['mytimezone']);
+    //Get parameter used with phonegap
     $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
     date_default_timezone_set($timezone);
   
@@ -22,8 +23,11 @@
     // Timeout padding in seconds, to avoid a premature timeout in case the last call in the loop is taking a while
     define('MESSAGE_TIMEOUT_SECONDS_BUFFER', 5);
         
-    $teamid=$_SESSION['myteamid'];
-    $playerid=$_SESSION['myplayerid'];
+    ////Get parameter used with phonegap
+    // $teamid=$_SESSION['myteamid'];
+    // $playerid=$_SESSION['myplayerid'];
+    $teamid=isset($_GET['teamid']) ? json_decode($_GET['teamid']) : 0;
+    $playerid=isset($_GET['playerid']) ? json_decode($_GET['playerid']) : 0;
 
     if($_SESSION['ChromeLog']) { ChromePhp::log('player: ', $playerid); }
     if($_SESSION['ChromeLog']) { ChromePhp::log('team: ', $teamid); }
