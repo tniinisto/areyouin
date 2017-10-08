@@ -2,9 +2,11 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
     session_start();
-        
-    date_default_timezone_set($_SESSION['mytimezone']);
 
+    //date_default_timezone_set($_SESSION['mytimezone']);
+    $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
+    date_default_timezone_set($timezone);
+  
     if($_SESSION['ChromeLog']) {
         require_once 'ChromePhp.php';
         ChromePhp::log('eventCheck.php, start');
