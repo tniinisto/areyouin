@@ -1,13 +1,8 @@
 <?php
+
 include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 
-//session_start();
-        
-// $pl=$_SESSION['myplayerid'];
-// $team=$_SESSION['myteamid'];
-
 $teamid=$_POST['teamid'];
-//$userid=$_POST['userid'];
 
 $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc";
 
@@ -32,7 +27,5 @@ try {
 catch(PDOException $e) {
     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 }
-
-
 
 ?>
