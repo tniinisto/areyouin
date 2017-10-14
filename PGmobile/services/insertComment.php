@@ -12,7 +12,9 @@
     $playerid=$_GET['playerid'];
 	$teamid=$_GET['teamid'];
 
-    date_default_timezone_set($_SESSION['mytimezone']);
+    //date_default_timezone_set($_SESSION['mytimezone']);
+    $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
+    date_default_timezone_set($timezone);
 
     //PDO - UTF-8
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
