@@ -43,7 +43,7 @@
     $result = $stmt->execute();
 
     //update session last seen msg time
-     $_SESSION['mylastmsg'] =  $insertDate;
+    //$_SESSION['mylastmsg'] =  $insertDate;
 
     
 
