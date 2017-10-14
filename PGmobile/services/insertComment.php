@@ -16,6 +16,8 @@
     $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
     date_default_timezone_set($timezone);
 
+try {    
+
     //PDO - UTF-8
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -42,11 +44,15 @@
     $stmt->bindParam(':teamID', $teamid, PDO::PARAM_INT);
     $result = $stmt->execute();
 
-    //update session last seen msg time
-    //$_SESSION['mylastmsg'] =  $insertDate;
-
-    
-
     $dbh = null;
+
+    echo '{"items":'. json_encode('200') .'}'; 
+
+}
+
+catch(PDOException $e) {
+    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    
+}
 
 ?>
