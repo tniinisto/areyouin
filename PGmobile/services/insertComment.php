@@ -9,20 +9,10 @@
     }
         
     $comment=$_GET["comment"];
-    
+    $playerid=$_GET['playerid'];
+	$teamid=$_GET['teamid'];
+
     date_default_timezone_set($_SESSION['mytimezone']);
-
-    $playerid=$_SESSION['myplayerid'];
-	$teamid=$_SESSION['myteamid'];
-
-	
-    // $con = mysql_connect($dbhost, $dbuser, $dbpass);
-	// if (!$con)
-	//     {
-	//     die('Could not connect: ' . mysql_error());
-	//     }
-
-	// mysql_select_db($dbname, $con);
 
     //PDO - UTF-8
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
