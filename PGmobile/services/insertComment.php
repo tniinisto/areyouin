@@ -13,7 +13,8 @@
 	$teamid=$_GET['teamid'];
 
     //date_default_timezone_set($_SESSION['mytimezone']);
-    $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 'Europe/Helsinki';
+    //$timezone = isset($_GET['timezone']) ? $_GET['timezone'] : 0;
+    $timezone = $_GET['timezone'];
     date_default_timezone_set($timezone);
 
 try {    
