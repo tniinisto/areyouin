@@ -3,8 +3,8 @@
     //session_start();
 
     //date_default_timezone_set($_SESSION['mytimezone']);
-    //$timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
-    $timezone = $_GET['timezone'];
+    $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
+    
     date_default_timezone_set($timezone);
         
     // if($_SESSION['ChromeLog']) {
@@ -26,8 +26,8 @@
     ////Get parameter used with phonegap
     // $teamid=$_SESSION['myteamid'];
     // $playerid=$_SESSION['myplayerid'];
-    $teamid=$_GET['teamid'];
-    $playerid=$_GET['playerid'];
+    $teamid=isset($_GET['teamid']) ? json_decode($_GET['teamid']) : 0;
+    $playerid=isset($_GET['playerid']) ? json_decode($_GET['playerid']) : 0;
 
     // Close the session prematurely to avoid usleep() from locking other requests
     session_write_close();
@@ -35,9 +35,8 @@
     // Automatically die after timeout (plus buffer)
     set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
-    //$lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
-    $lastmodif = $_GET['timestamp'];
-
+    $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
+  
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	{
