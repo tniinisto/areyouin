@@ -35,8 +35,9 @@
     // Automatically die after timeout (plus buffer)
     set_time_limit(MESSAGE_TIMEOUT_SECONDS+MESSAGE_TIMEOUT_SECONDS_BUFFER);
 
-    $lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
-  
+    //$lastmodif = isset($_GET['timestamp']) ? json_decode($_GET['timestamp']) : 0;
+    $lastmodif = $_GET['timestamp'];
+
     $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	if (!$con)
 	{
