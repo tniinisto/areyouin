@@ -3,7 +3,7 @@
     //session_start();
 
     //date_default_timezone_set($_SESSION['mytimezone']);
-    $timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
+    //$timezone = isset($_GET['timezone']) ? json_decode($_GET['timezone']) : 0;
     $timezone = $_GET['timezone'];
     date_default_timezone_set($timezone);
         
