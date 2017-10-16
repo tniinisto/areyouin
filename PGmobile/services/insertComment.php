@@ -47,7 +47,7 @@ try {
 
     $dbh = null;
 
-    echo '{"items":'. json_encode($insertDate) .'}'; 
+    echo '{"timestamp":'. json_encode($insertDate) .'}'; 
 
 }
 
