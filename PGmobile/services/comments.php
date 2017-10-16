@@ -12,7 +12,7 @@ try {
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);		
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT c.*, p.photourl, p.name, pt.lastMsg FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID LEFT JOIN playerteam pt ON pt.Players_playerID = p.playerID WHERE c.team_teamID = :teamid order by c.publishTime desc LIMIT 20";
+    $sql = "SELECT c.*, p.photourl, p.name FROM comments c LEFT JOIN players p ON c.Players_playerID = p.playerID  WHERE c.team_teamID = :teamid order by c.publishTime desc LIMIT 20";
 
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid',  $teamid, PDO::PARAM_INT);        
