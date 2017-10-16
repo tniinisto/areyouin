@@ -47,7 +47,7 @@ try {
 
     $dbh = null;
 
-    echo '{"items":'. json_encode('200') .'}'; 
+    echo '{"items":'. json_encode('insertdate:' + $insertDate) .'}'; 
 
 }
 
