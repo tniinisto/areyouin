@@ -3,12 +3,12 @@
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     include 'mail_ayi.php';
 
-    session_start();
+    // session_start();
 
-    if($_SESSION['ChromeLog']) {
-        require_once 'ChromePhp.php';
-        ChromePhp::log('forgotPassword.php start');
-    }
+    // if($_SESSION['ChromeLog']) {
+    //     require_once 'ChromePhp.php';
+    //     ChromePhp::log('forgotPassword.php start');
+    // }
 
 
   	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
@@ -52,7 +52,7 @@
         
                 $result = $stmt->execute();
             
-                if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
+                // if($_SESSION['ChromeLog']) { ChromePhp::log('forgotPassword result: ' . $result); }
 
                 echo $result;
 
@@ -102,12 +102,14 @@
                             </html>",
                         );
 
-                    sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);  
+                    sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);
+
+                    echo '{mail_sent:200}'; 
                 }
             }
             else {
                 $result = 999;
-                echo $result;
+                echo '{"error": {"mail_not_sent:"' . $result . '}}'; 
             }
                             
     }
