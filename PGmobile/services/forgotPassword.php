@@ -104,7 +104,7 @@
 
                     sendMail($_GET['mail'], $mail_user, $mail_key, $password_mail);
 
-                    echo '{200}'; 
+                    echo '{"success": {"mail_sent:"' . $result . '}}'; 
                 }
             }
             else {
