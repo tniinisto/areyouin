@@ -42,7 +42,7 @@
     $mypassword=$_POST['ayipassword'];
     
     //Phonegap passing parameters with GET
-    if($myusername = '' || $mypassword == '') {
+    if($myusername == '' || $mypassword == '') {
         $myusername=$_GET['ayiloginName'];
         $mypassword=$_GET['ayipassword'];           
     }
