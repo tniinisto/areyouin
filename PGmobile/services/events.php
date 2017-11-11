@@ -20,7 +20,7 @@ FROM
  where ep.Events_eventID = ex.eventID and t.teamID = :teamid and ex.endTime > now()) as x,
 (SELECT count(*) as eventcount
  FROM events ex, team t
- where t.teamID = :teamid and ex.endTime > now()) as y,
+ where t.teamID = :teamid and ex.startTime > now()) as y,
 events e
 inner join location l on l.locationID = e.Location_locationID
 inner join eventplayer ep on ep.Events_eventID = e.eventID
