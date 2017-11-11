@@ -11,7 +11,7 @@ $teamid=$_POST['teamid'];
 
 $timezone=$_POST['timezone'];
 //date_default_timezone_set($timezone);
-$tz = (new DateTime('now', new DateTimeZone($timezone))->format('P');
+//$tz = (new DateTime('now', new DateTimeZone($timezone))->format('P');
 
 $sql = "SELECT x.rowcount, y.eventcount, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
 p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
@@ -41,7 +41,7 @@ try {
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $dbh->exec("SET time_zone='$tz';");
+    //$dbh->exec("SET time_zone='$tz';");
     
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid',  $teamid, PDO::PARAM_INT);        
