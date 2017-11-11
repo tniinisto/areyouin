@@ -9,6 +9,9 @@ include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
 $teamid=$_POST['teamid'];
 //$userid=$_POST['userid'];
 
+$timezone=$_POST['timezone'];
+date_default_timezone_set($timezone);
+
 $sql = "SELECT x.rowcount, y.eventcount, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
 p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
 FROM
