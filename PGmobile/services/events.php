@@ -38,9 +38,9 @@ try {
     //dbh meand "Database handle"
     //STH means "Statement Handle"
 
-    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);		
+    $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass, [PDO::MYSQL_ATTR_INIT_COMMAND =>"SET time_zone = '$timezone'"]);	
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->exec("SET time_zone='$tz';");
+    //$dbh->exec("SET time_zone='$tz';");
     
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':teamid',  $teamid, PDO::PARAM_INT);        
