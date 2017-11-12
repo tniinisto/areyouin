@@ -21,6 +21,8 @@ try {
 
     //PDO - UTF-8
     $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname;charset=utf8", $dbuser, $dbpass);	
+    $dbh->exec("SET time_zone = '{$timezone}'");
+
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Insert new comment to comments table
