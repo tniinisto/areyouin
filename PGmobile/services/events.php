@@ -18,10 +18,10 @@ p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.tea
 FROM
 (SELECT count(*) as rowcount
  FROM events ex, team t, eventplayer ep
- where ep.Events_eventID = ex.eventID and t.teamID = :teamid and ex.startTime > now()) as x,
+ where ep.Events_eventID = ex.eventID and t.teamID = :teamid and ex.endTime > now()) as x,
 (SELECT count(*) as eventcount
  FROM events ex, team t
- where t.teamID = :teamid and ex.startTime > now()) as y,
+ where t.teamID = :teamid and ex.endtime > now()) as y,
 events e
 inner join location l on l.locationID = e.Location_locationID
 inner join eventplayer ep on ep.Events_eventID = e.eventID
@@ -29,7 +29,7 @@ inner join players p on ep.Players_playerID = p.playerID
 inner join playerteam pt on pt.Players_playerID = p.playerID
 inner join team t on t.teamID = pt.Team_teamID
 where t.teamID = :teamid and e.Team_teamID = t.teamID
-and e.startTime > now()
+and e.endTime > now()
 order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";		
 
 
