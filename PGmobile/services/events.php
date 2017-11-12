@@ -10,8 +10,8 @@ $teamid=$_POST['teamid'];
 //$userid=$_POST['userid'];
 
 $timezone=$_POST['timezone'];
-//date_default_timezone_set($timezone);
-date_default_timezone_set( "UTC" );
+date_default_timezone_set($timezone);
+//date_default_timezone_set( "UTC" );
 
 //$tz = (new DateTime('now', new DateTimeZone($timezone))->format('P');
 
