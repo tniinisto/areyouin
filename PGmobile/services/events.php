@@ -10,7 +10,7 @@ $teamid=$_POST['teamid'];
 //$userid=$_POST['userid'];
 
 $timezone=$_POST['timezone'];
-//date_default_timezone_set($timezone);
+date_default_timezone_set($timezone);
 //$tz = (new DateTime('now', new DateTimeZone($timezone))->format('P');
 
 $sql = "SELECT x.rowcount, y.eventcount, e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
