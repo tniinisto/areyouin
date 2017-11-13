@@ -40,18 +40,18 @@
 
         //DST offset logic
         $dst = 0;
-        $dst_offset = 0;
-        if (date('I', time()))
-        {
-            //echo 'We’re in DST!';
-            $dst = 1;
-            $dst_offset = $_SESSION['myoffset'] - 1;
-        }
-        else
-        {
-            //echo 'We’re not in DST!';
-            $dst = 0;
-        }        
+        $dst_offset = -1;
+        // if (date('I', time()))
+        // {
+        //     //echo 'We’re in DST!';
+        //     $dst = 1;
+        //     $dst_offset = $_SESSION['myoffset'] - 1;
+        // }
+        // else
+        // {
+        //     //echo 'We’re not in DST!';
+        //     $dst = 0;
+        // }        
                
         //Display notification for admins & registrar on the license payment, 3 days before///////////////////////////////////
         if( ($moreevents == 0) && ($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) ) {         
@@ -107,7 +107,7 @@
             inner join playerteam pt on pt.Players_playerID = p.playerID
             inner join team t on t.teamID = pt.Team_teamID
             where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-            and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+            and (e.endTime - INTERVAL " . $dst_offset . " HOUR) > now()
             and ep.Events_eventID IN (". $eventIDs .")
             order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
         } else { //DST valid
