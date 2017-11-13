@@ -38,21 +38,8 @@
         $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
 
-        //DST offset logic
-        // $dst = 0;
-        // $dst_offset = -1;
-        // if (date('I', time()))
-        // {
-        //     //echo 'We’re in DST!';
-        //     $dst = 1;
-        //     $dst_offset = $_SESSION['myoffset'] - 1;
-        // }
-        // else
-        // {
-        //     //echo 'We’re not in DST!';
-        //     $dst = 0;
-        // }        
-               
+        date_default_timezone_set($timezone);
+                       
         //Display notification for admins & registrar on the license payment, 3 days before///////////////////////////////////
         if( ($moreevents == 0) && ($_SESSION['myAdmin'] == 1 || $_SESSION['myRegistrar'] == 1) ) {         
 
@@ -75,7 +62,7 @@
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
-                       where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $team_offset . " HOUR) > now()
+                       where e.Team_teamID = '" . $teamid  . "' and e.endTime > now()
                        order by e.startTIme asc
                        LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         $rows_events = mysql_query($sql_events);        
@@ -104,7 +91,7 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL " . ($_SESSION['myoffset'] . " HOUR) > now()
+        and e.endTime > now()
         and ep.Events_eventID IN (". $eventIDs .")
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
 
