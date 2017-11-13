@@ -92,7 +92,7 @@
 
         //Check DST
         if($dst == 0) {
-            console.warn('DST off'); 
+
             //Get events with players
             $sql = 
             "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
@@ -108,7 +108,7 @@
             and ep.Events_eventID IN (". $eventIDs .")
             order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
         } else { //DST valid
-            console.warn('DST on'); 
+
             //Get events with players
             $sql = 
             "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
