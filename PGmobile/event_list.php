@@ -75,7 +75,7 @@
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
-                       where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . ($team_offset - 1) . " HOUR) > now()
+                       where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $team_offset . " HOUR) > now()
                        order by e.startTIme asc
                        LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         $rows_events = mysql_query($sql_events);        
