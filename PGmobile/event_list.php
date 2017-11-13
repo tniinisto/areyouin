@@ -34,7 +34,7 @@
 
         //Count timezone offset to support daylight savings
         $timezone=$_SESSION['mytimezone']; 
-        date_default_timezone_set( "UTC" );    
+
         $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
                
