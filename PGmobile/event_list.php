@@ -39,8 +39,8 @@
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
 
         //DST offset logic
-        $dst = 0;
-        $dst_offset = -1;
+        // $dst = 0;
+        // $dst_offset = -1;
         // if (date('I', time()))
         // {
         //     //echo 'We’re in DST!';
@@ -93,40 +93,20 @@
         $total = mysql_fetch_array($rows_total);
         $totalrows = $total['total'];                        
 
-        //Check DST
-        if($dst == 0) {
-
-            //Get events with players
-            $sql = 
-            "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
-            p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
-            FROM events e
-            inner join location l on l.locationID = e.Location_locationID
-            inner join eventplayer ep on ep.Events_eventID = e.eventID
-            inner join players p on ep.Players_playerID = p.playerID
-            inner join playerteam pt on pt.Players_playerID = p.playerID
-            inner join team t on t.teamID = pt.Team_teamID
-            where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-            and (e.endTime - INTERVAL " . $dst_offset . " HOUR) > now()
-            and ep.Events_eventID IN (". $eventIDs .")
-            order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
-        } else { //DST valid
-
-            //Get events with players
-            $sql = 
-            "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
-            p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
-            FROM events e
-            inner join location l on l.locationID = e.Location_locationID
-            inner join eventplayer ep on ep.Events_eventID = e.eventID
-            inner join players p on ep.Players_playerID = p.playerID
-            inner join playerteam pt on pt.Players_playerID = p.playerID
-            inner join team t on t.teamID = pt.Team_teamID
-            where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-            and (e.endTime - INTERVAL " . $dst_offset . " HOUR) > now()
-            and ep.Events_eventID IN (". $eventIDs .")
-            order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";            
-        }
+        //Get events with players
+        $sql = 
+        "SELECT e.private, ep.Events_eventID, l.name as location, l.position as pos, e.startTime, e.endTime, p.playerid, p.name,
+        p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.teamAdmin
+        FROM events e
+        inner join location l on l.locationID = e.Location_locationID
+        inner join eventplayer ep on ep.Events_eventID = e.eventID
+        inner join players p on ep.Players_playerID = p.playerID
+        inner join playerteam pt on pt.Players_playerID = p.playerID
+        inner join team t on t.teamID = pt.Team_teamID
+        where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
+        and (e.endTime - INTERVAL " . ($_SESSION['myoffset'] . " HOUR) > now()
+        and ep.Events_eventID IN (". $eventIDs .")
+        order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
 
 	    //Go through events & players
         $result = mysql_query($sql);
