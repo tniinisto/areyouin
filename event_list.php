@@ -66,7 +66,7 @@
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
-                       where e.Team_teamID = '" . $teamid  . "' and DATE(e.endTime) > " . $now->format('Y-m-d H:i:s') . "
+                       where e.Team_teamID = '" . $teamid  . "' and DATETIME(e.endTime) > " . $now->format('Y-m-d H:i:s') . "
                        order by e.startTIme asc
                        LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         $rows_events = mysql_query($sql_events);        
@@ -95,7 +95,7 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and DATE(e.endTime) > " . $now->format('Y-m-d H:i:s') . "
+        and DATETIME(e.endTime) > " . $now->format('Y-m-d H:i:s') . "
         and ep.Events_eventID IN (". $eventIDs .")
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
                     
