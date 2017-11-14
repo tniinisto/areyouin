@@ -35,7 +35,7 @@
         //Count timezone offset to support daylight savings
         $timezone=$_SESSION['mytimezone']; 
 
-        date_default_timezone_set(" .  $timezone . ");
+        date_default_timezone_set($timezone);
 
         //Local date
         $now = new DateTime(null, new DateTimeZone($timezone));    
