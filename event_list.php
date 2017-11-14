@@ -342,7 +342,7 @@
                 echo "<div>";
 
                     echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
-                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+                    echo "<h3 style=\"text-align: center;\">" . $now->format('Y-m-d H:i:s') . "</h3>";
 
                 echo "</div>";
             echo "</article>";
