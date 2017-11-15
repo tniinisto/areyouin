@@ -34,7 +34,12 @@
 
         //Count timezone offset to support daylight savings
         $timezone=$_SESSION['mytimezone']; 
-        date_default_timezone_set( "UTC" );    
+
+        date_default_timezone_set($timezone);
+
+       //Local date
+       $now = new DateTime(null, new DateTimeZone($timezone));    
+
         $daylight_savings_offset_in_seconds = timezone_offset_get( timezone_open($timezone), new DateTime() ); 
         $team_offset = round($daylight_savings_offset_in_seconds/3600); //Hours        
                
@@ -60,7 +65,7 @@
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
-                       where e.Team_teamID = '" . $teamid  . "' and (e.endTime - INTERVAL " . $team_offset . " HOUR) > now()
+                       where e.Team_teamID = '" . $teamid  . "' and e.endTime > '" . $now->format('Y-m-d H:i:s') . "'
                        order by e.startTIme asc
                        LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
         $rows_events = mysql_query($sql_events);        
@@ -89,7 +94,7 @@
         inner join playerteam pt on pt.Players_playerID = p.playerID
         inner join team t on t.teamID = pt.Team_teamID
         where t.teamID = '" . $teamid  . "' and e.Team_teamID = t.teamID
-        and (e.endTime - INTERVAL " . $_SESSION['myoffset'] . " HOUR) > now()
+        and e.endTime > '" . $now->format('Y-m-d H:i:s') . "'
         and ep.Events_eventID IN (". $eventIDs .")
         order by e.startTime asc, ep.Events_eventID asc, ep.areyouin desc, ep.seen desc;";
                     

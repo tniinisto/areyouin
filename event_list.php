@@ -342,7 +342,7 @@
                 echo "<div>";
 
                     echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
-                    echo "<h3 style=\"text-align: center;\">" . $now->format('Y-m-d H:i:s') . "</h3>";
+                    //echo "<h3 style=\"text-align: center;\">" . $now->format('Y-m-d H:i:s') . "</h3>";
 
                 echo "</div>";
             echo "</article>";
