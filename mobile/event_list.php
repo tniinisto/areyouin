@@ -336,16 +336,16 @@
         }
 
         //Display no event scheduled info if there are no events
-        if($event_check == 0) {
-            echo "<article id='event_article_id' class='event_article clearfix'>";
-                echo "<div>";
+        // if($event_check == 0) {
+        //     echo "<article id='event_article_id' class='event_article clearfix'>";
+        //         echo "<div>";
 
-                    echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
-                    //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
+        //             echo "<h3 style=\"text-align: center;\">No events currently scheduled...</h3>";
+        //             //echo "<h3 style=\"text-align: center;\">Kenttä paketissa kauden 2014 osalta, kiitokset peleistä!</h3>";
 
-                echo "</div>";
-            echo "</article>";
-        }
+        //         echo "</div>";
+        //     echo "</article>";
+        // }
 
         //More events info///////////////////////////////////////////////////////////////////        
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
