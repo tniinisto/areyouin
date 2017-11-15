@@ -335,6 +335,7 @@
             echo "</article>";
         }
 
+        
         //Display no event scheduled info if there are no events
         // if($event_check == 0) {
         //     echo "<article id='event_article_id' class='event_article clearfix'>";
@@ -346,6 +347,7 @@
         //         echo "</div>";
         //     echo "</article>";
         // }
+
 
         //More events info///////////////////////////////////////////////////////////////////        
         if($totalrows > (($moreevents + 1) * MAX_NRO_EVENTS)) {
