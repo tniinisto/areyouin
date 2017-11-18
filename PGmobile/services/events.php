@@ -23,10 +23,10 @@ p.photourl, ep.EventPlayerID, ep.areyouin, ep.seen, t.teamID, t.teamName, pt.tea
 FROM
 (SELECT count(*) as rowcount
  FROM events ex, team t, eventplayer ep
- where ep.Events_eventID = ex.eventID and t.teamID = :teamid and ex.endTime > '" . $now->format('Y-m-d H:i:s') . "' ) as x,
+ where ep.Events_eventID = ex.eventID and ex.Team_teamID = t.teamID and  t.teamID = :teamid and ex.endTime > '" . $now->format('Y-m-d H:i:s') . "' ) as x,
 (SELECT count(*) as eventcount
  FROM events ex, team t
- where t.teamID = :teamid and ex.endtime > now()) as y,
+ where ex.Team_teamID = t.teamID and t.teamID = :teamid and ex.endtime > '" . $now->format('Y-m-d H:i:s') . "' ) as y,
 events e
 inner join location l on l.locationID = e.Location_locationID
 inner join eventplayer ep on ep.Events_eventID = e.eventID
