@@ -2243,45 +2243,49 @@ function getAdminModalHelps() {
 
 
     // When the user clicks the button, open the mails modal 
-    btn.onclick = function() {
-        modalMail.style.display = "block";
-    }
-    // When the user clicks the button, open the private modal 
-    btn_private.onclick = function() {
-        modalPrivate.style.display = "block";
-    }
-    // When the user clicks the button, open the players modal 
-    btn_players.onclick = function() {
-        modalPlayers.style.display = "block";
-    }
-    
+    if(btn != null) {
+		btn.onclick = function() {
+			modalMail.style.display = "block";
+		}
+		// When the user clicks the button, open the private modal
+		btn_private.onclick = function() {
+			modalPrivate.style.display = "block";
+		}
+		// When the user clicks the button, open the players modal
+		btn_players.onclick = function() {
+			modalPlayers.style.display = "block";
+		}
+	}
 
     // When the user clicks on <span> (x), close the mail modal
-    spanMail.onclick = function() {
-        modalMail.style.display = "none";
-    }
-    // When the user clicks on <span> (x), close the private modal
-    spanPrivate.onclick = function() {
-        modalPrivate.style.display = "none";
-    }
-    // When the user clicks on <span> (x), close the players modal
-    spanPlayers.onclick = function() {
-        modalPlayers.style.display = "none";
-    }
-
+	if(btn != null) {
+		spanMail.onclick = function () {
+			modalMail.style.display = "none";
+		}
+		// When the user clicks on <span> (x), close the private modal
+		spanPrivate.onclick = function () {
+			modalPrivate.style.display = "none";
+		}
+		// When the user clicks on <span> (x), close the players modal
+		spanPlayers.onclick = function () {
+			modalPlayers.style.display = "none";
+		}
+	}
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modalMail) {
-            modalMail.style.display = "none";
-        }
-        if (event.target == modalPrivate) {
-            modalPrivate.style.display = "none";
-        }
-        if (event.target == modalPlayers) {
-            modalPlayers.style.display = "none";
-        }
-    }
+	if(btn != null) {
+		window.onclick = function (event) {
+			if (event.target == modalMail) {
+				modalMail.style.display = "none";
+			}
+			if (event.target == modalPrivate) {
+				modalPrivate.style.display = "none";
+			}
+			if (event.target == modalPlayers) {
+				modalPlayers.style.display = "none";
+			}
+		}
+	}
 
 } 
 
