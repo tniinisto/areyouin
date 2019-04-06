@@ -1825,3 +1825,19 @@ Modal help dialog
     cursor: pointer;
 }
 
+/* Login container */
+#container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 260px;
+	height: 260px;
+	border-radius: 5px;
+	background: rgba(3,3,3,0.25);
+	box-shadow: 1px 1px 50px #000;
+	display: none;
+}
+
