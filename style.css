@@ -34,9 +34,11 @@ GENERAL STYLING
 *************************************************************************************/
 
 body {
-	background: #313131;
+	/*background: #313131;*/
+	background-image: url(images/overlay.png), url(../images/ny3.jpg);
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
+	background-image: url(images/overlay.png), url(../images/ny3.jpg);
     
     /*background: url(images/carbon.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -1836,8 +1838,24 @@ Modal help dialog
 	width: 260px;
 	height: 260px;
 	border-radius: 5px;
-	background: rgba(3,3,3,0.25);
+	/*background: rgba(3,3,3,0.25);*/
+	background: rgba(58, 76, 105, 0.85);
 	box-shadow: 1px 1px 50px #000;
-	display: none;
 }
+
+.container{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 260px;
+	height: 260px;
+	border-radius: 5px;
+	/*background: rgba(3,3,3,0.25);*/
+	background: rgba(58, 76, 105, 0.85);
+	box-shadow: 1px 1px 50px #000;
+}
+
 
