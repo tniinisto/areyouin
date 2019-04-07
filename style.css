@@ -58,7 +58,7 @@ body {
 
 .index_bgr {
 	background-image: url(../images/puonti_landscape.jpg);
-	background-color: linear-gradient(#0b0b02, #141706);
+	background-color: #f5f5f5;
 }
 
 a {
