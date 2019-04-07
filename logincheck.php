@@ -106,8 +106,8 @@
 
             echo "</head>";
 
-            echo "<body>";
-                echo "<div id='pagewrap'>";
+            echo "<body class=\"index_bgr\">";
+                echo "<div id='pagewrap' class=\"container\">";
                     echo "<div id='loginwrapper'>";
 			            echo "<div>";
                             echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
@@ -116,7 +116,7 @@
                         echo "<div id='spinnerteamlogin_id' class='spin'></div>";
                         echo "<br />";
 
-                        echo "<fieldset id=\"loginfailfs\">";
+                        /*echo "<fieldset id=\"loginfailfs\">";*/
                             echo "<h2 style='margin: 5px 0 .5em;'>Select your Team</h2>";
                             
                             echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";                                
@@ -132,7 +132,7 @@
                                 
                             echo "</form>";                            
                             echo "<h1></h1>";
-                        echo "</fieldset>";
+/*                        echo "</fieldset>";*/
                     echo "</div>";
                 echo "</div>";
 
@@ -211,20 +211,20 @@
 
         echo "</head>";
 
-        echo "<body>";
-            echo "<div id=\"pagewrap\">";
+        echo "<body class=\"index_bgr\">";
+            echo "<div id=\"pagewrap\" class=\"container\">";
 
                 echo "<div id=\"loginwrapper\">";
 
 			        echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
 
-                    echo "<fieldset id=\"loginfailfs\">";
+                    /*echo "<fieldset id=\"loginfailfs\">";*/
                         echo "<h1>Login failed</h1>";
                         echo "<h2>Check your username & password</h2>";
                         echo "<br>";
                         echo "<a href='default.php'>Back to login</a>";
                         echo "<h1></h1>";
-                    echo "</fieldset>";
+                    /*echo "</fieldset>";*/
                 echo "</div>";
             echo "</div>";
 
