@@ -57,10 +57,10 @@ body {
 }
 
 .index_bgr {
-	background-image: url(../images/puonti_landscape.jpg);
-	background-color: #f5f5f5;
-	background-size: cover;
-	background-size: 100% 200%;
+	/*background-image: url(../images/puonti_landscape.jpg);*/
+	background-color: rgba(12, 53, 80, 0.46);
+	/*background-size: cover;
+	background-size: 100% 200%;*/
 }
 
 a {
