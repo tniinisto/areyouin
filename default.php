@@ -173,10 +173,10 @@
 
         <div id="spinnerlogin_id" class="spin"></div>
         
-        <div>
+        <div class="container">
             <form id="loginform" name="loginform" method="post" action="logincheck.php">
             
-                <fieldset id="loginfs">
+                <!--<fieldset id="loginfs">-->
                     <legend style="text-align: left; color: white;">Login</legend>
                     <!--<font color="white" size="3">-->
 			    
@@ -196,7 +196,7 @@
                         <br>
                     </div>
 
-	            </fieldset>
+	            <!--</fieldset>-->
 		    </form>
 
             <br>
