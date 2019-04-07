@@ -54,7 +54,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	/*position: absolute;*/
-	background-size: 100% 100%;
+	background-size: 100% 200%;
 }
 
 .index_bgr {
@@ -64,7 +64,7 @@ body {
 	background-size: cover;
 	background-blend-mode: difference;
 	/*position: absolute;*/
-	background-size: 100% 100%;
+	background-size: 100% 150%;
 }
 
 a {
