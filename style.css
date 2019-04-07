@@ -1859,7 +1859,7 @@ Modal help dialog
 	height: 260px;*/
 	border-radius: 5px;
 	/*background: rgba(3,3,3,0.25);*/
-	background: rgba(58, 76, 105, 0.85);
+	background: rgba(58, 76, 105, 0.75);
 	box-shadow: 1px 1px 50px #000;
 }
 
@@ -1876,7 +1876,7 @@ Modal help dialog
 	*/
 	border-radius: 5px;
 	/*background: rgba(3,3,3,0.25);*/
-	background: rgba(58, 76, 105, 0.85);
+	background: rgba(58, 76, 105, 0.30);
 	box-shadow: 1px 1px 50px #000;
 	margin-top: 50px;
 }
