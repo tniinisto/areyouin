@@ -1836,8 +1836,8 @@ Modal help dialog
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	width: 260px;
-	height: 260px;
+/*	width: 260px;
+	height: 260px;*/
 	border-radius: 5px;
 	/*background: rgba(3,3,3,0.25);*/
 	background: rgba(58, 76, 105, 0.85);
@@ -1851,8 +1851,10 @@ Modal help dialog
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	/*
 	width: 260px;
 	height: 260px;
+	*/
 	border-radius: 5px;
 	/*background: rgba(3,3,3,0.25);*/
 	background: rgba(58, 76, 105, 0.85);
