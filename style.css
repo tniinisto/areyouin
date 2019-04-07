@@ -35,10 +35,10 @@ GENERAL STYLING
 
 body {
 	/*background: #313131;*/
-	background-image: url(images/overlay.png), url(../images/ny3.jpg);
+	/*background-image: url(images/overlay.png), url(../images/ny3.jpg);*/
+	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
 	font: .81em/150% Arial, Helvetica, sans-serif;
 	color: #666;
-	background-image: url(images/overlay.png), url(../images/ny3.jpg);
     
     /*background: url(images/carbon.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -1829,7 +1829,7 @@ Modal help dialog
 
 /* Login container */
 #container{
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	left: 0;
 	right: 0;
@@ -1844,7 +1844,7 @@ Modal help dialog
 }
 
 .container{
-	position: absolute;
+	/*position: absolute;*/
 	top: 0;
 	left: 0;
 	right: 0;
