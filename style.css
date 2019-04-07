@@ -50,20 +50,16 @@ body {
 }
 
 .default_bgr {
-	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
+	background-image: url(../images/puonti_landscape.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	/*position: absolute;*/
 	background-size: 100% 200%;
 }
 
 .index_bgr {
-	/*background: linear-gradient( rgba(58, 76, 105, 0.8), rgba(58, 76, 105, 0.8) ), url(../images/puonti_landscape.jpg);*/
-	/*background-image: url(../images/puonti_landscape.jpg);*/
-	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
-	/*background-repeat: repeat-y;*/
+	background-image: url(../images/puonti_landscape.jpg);
 	background-size: cover;
-	/*background-size: 100% 100%;*/
+	background-color: #0b0b02;
 }
 
 a {
