@@ -208,7 +208,7 @@ screens smaller or equal to 750
 
 
     #loginwrapper {
-        width: 75%;
+        /*width: 75%;*/
         margin: 0 auto;
     }
 
