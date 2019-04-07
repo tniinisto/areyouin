@@ -163,7 +163,7 @@
     ?>
 
 
-<div id="pagewrap">
+<div id="pagewrap" class="default_bgr">
 
     <div id="loginwrapper">
 
