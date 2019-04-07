@@ -58,7 +58,8 @@ body {
 
 .index_bgr {
 	/*background-image: url(../images/puonti_landscape.jpg);*/
-	background-color: rgba(12, 53, 80, 0.46);
+	/*background-color: rgba(12, 53, 80, 0.46);*/
+	background-color: #535e6d;
 	/*background-size: cover;
 	background-size: 100% 200%;*/
 	/*background: linear-gradient(to bottom, #003399 0%, #33ccff 100%);*/
