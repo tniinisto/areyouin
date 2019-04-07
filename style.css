@@ -52,7 +52,7 @@ body {
 .default_bgr {
 	background-image: url(../images/puonti_landscape.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
+	/*background-size: cover;*/
 }
 
 .index_bgr {
