@@ -51,10 +51,14 @@ body {
 
 .default_bgr {
 	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .index_bgr {
 	background: linear-gradient( rgba(58, 76, 105, 0.8), rgba(58, 76, 105, 0.8) ), url(../images/puonti_landscape.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 a {
