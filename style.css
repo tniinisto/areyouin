@@ -56,9 +56,11 @@ body {
 }
 
 .index_bgr {
-	background: linear-gradient( rgba(58, 76, 105, 0.8), rgba(58, 76, 105, 0.8) ), url(../images/puonti_landscape.jpg);
+	/*background: linear-gradient( rgba(58, 76, 105, 0.8), rgba(58, 76, 105, 0.8) ), url(../images/puonti_landscape.jpg);*/
+	background-image: url(../images/puonti_landscape.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-blend-mode: difference;
 }
 
 a {
