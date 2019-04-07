@@ -53,6 +53,8 @@ body {
 	background-image: url(../images/puonti_landscape.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	position: absolute;
+	background-size: 100% 100%;
 }
 
 .index_bgr {
@@ -61,6 +63,8 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-blend-mode: difference;
+	position: absolute;
+	background-size: 100% 100%;
 }
 
 a {
