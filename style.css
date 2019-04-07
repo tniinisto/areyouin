@@ -36,7 +36,7 @@ GENERAL STYLING
 body {
 	/*background: #313131;*/
 	/*background-image: url(images/overlay.png), url(../images/ny3.jpg);*/
-	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
+	/*background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);*/
 	/*background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/puonti_landscape.jpg);*/
 	background-repeat: no-repeat;
 	font: .81em/150% Arial, Helvetica, sans-serif;
@@ -47,6 +47,14 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;*/    
+}
+
+.default_bgr {
+	background-image: url(images/overlay.png), url(../images/puonti_landscape.jpg);
+}
+
+.index_bgr {
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/puonti_landscape.jpg);
 }
 
 a {
