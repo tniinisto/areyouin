@@ -117,7 +117,7 @@
                         echo "<br />";
 
                         /*echo "<fieldset id=\"loginfailfs\">";*/
-                            echo "<h2 style='margin: 5px 0 .5em; color: #FFFFFF'>Select your Team</h2>";
+                            echo "<h2 style='margin: -20px 0 .5em; color: #FFFFFF'>Select your Team</h2>";
                             
                             echo "<form id=\"teamform\" method=\"post\" action=\"setTeam.php\">";                                
                                 echo "<select id=\"team_select\" name=\"teamselect\" form=\"teamform\">";                                
