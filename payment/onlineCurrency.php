@@ -109,7 +109,7 @@ $price2 = '25.00';
 
 
 //Subscription buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
-echo "<div id='parent-container1' class='parent-container'>";
+/*echo "<div id='parent-container1' class='parent-container'>";
 
 // //Single pay buttons////////////////////////////////////////////////////////////////////////////////////////////////////////
 // echo "<div id='parent-container1' class='parent-container'>";
@@ -133,12 +133,12 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='no_note' value='1'>"; //Value set to 1 in production
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
             echo "<input type='hidden' name='no_shipping' value='1'>"; //Value set to 1 in production
-            echo "<input type='hidden' name='rm' value='1'>";           
+            echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
             echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
-        
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
@@ -167,13 +167,13 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='1'>";
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
-            echo "<input type='hidden' name='no_shipping' value='1'>"; 
-            echo "<input type='hidden' name='rm' value='1'>";           
+            echo "<input type='hidden' name='no_shipping' value='1'>";
+            echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";            
-        
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
@@ -202,12 +202,12 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='no_note' value='1'>";
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
             echo "<input type='hidden' name='no_shipping' value='1'>";
-            echo "<input type='hidden' name='rm' value='1'>";                
+            echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";    
-                    
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
 
@@ -236,20 +236,20 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='1'>";
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
-            echo "<input type='hidden' name='no_shipping' value='1'>";   
-            echo "<input type='hidden' name='rm' value='1'>";         
+            echo "<input type='hidden' name='no_shipping' value='1'>";
+            echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>"; 
-        
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             //echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             //echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
             echo "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
-            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";            
+            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
 
     echo "</div>";
@@ -270,19 +270,19 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='no_note' value='1'>";
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
             echo "<input type='hidden' name='no_shipping' value='1'>";
-            echo "<input type='hidden' name='rm' value='1'>";              
+            echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";             
-        
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             //echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             //echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
             echo "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
-            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";              
+            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
 
     echo "</div>";
@@ -302,19 +302,19 @@ echo "<div id='parent-container1' class='parent-container'>";
             echo "<input type='hidden' name='button_subtype' value='services'>";
             echo "<input type='hidden' name='no_note' value='1'>";
             //echo "<input type='hidden' name='cn' value='Add special instructions to the seller:'>";
-            echo "<input type='hidden' name='no_shipping' value='1'>";            
+            echo "<input type='hidden' name='no_shipping' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
             echo "<input type='hidden' name='return' value='https://r-youin.com/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";            
-                    
+            echo "<input type='hidden' name='cancel_return' value='https://r-youin.com/payment/cancel.html'>";
+
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
 
             //echo "<input type='image' src='https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
             //echo "<img alt='' border='0' src='https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
             echo "<input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'>";
-            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";            
+            echo "<img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1' height='1'>";
          echo "</form>";
 
     echo "</div>";
@@ -341,7 +341,7 @@ echo "<div id='parent-container1' class='parent-container'>";
 
 echo "</div>";
 
-echo "<div style='text-align: center'><label>Value added tax (VAT) is added on prices where applicable. Tax is separated on the receipt.</label> </div>";
+echo "<div style='text-align: center'><label>Value added tax (VAT) is added on prices where applicable. Tax is separated on the receipt.</label> </div>";*/
 
 $dbh = null;
 
