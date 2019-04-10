@@ -28,9 +28,9 @@ table {
 GENERAL STYLING
 *************************************************************************************/
 body {
-	background: #313131;  /*url(images/BV-background.jpg) no-repeat center center fixed;*/
+	/*background: #313131;  !*url(images/BV-background.jpg) no-repeat center center fixed;*!*/
 	font: .81em/150% Arial, Helvetica, sans-serif;
-	color: #666;
+	/*color: #666;*/
 }
 a {
 	color: #026acb;
