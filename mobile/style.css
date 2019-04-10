@@ -1193,7 +1193,7 @@ vertical-align: middle;
 .menu-layout {
     border-width: 0px;
     width: auto;
-    background-color: #333;     
+    background-color: #1e1d1d;
 }
 .ui-icon-bars:after {
     background-image: url(/images/menu-icon.png);
@@ -1422,4 +1422,8 @@ New message icon
 	/*background-size: cover;*/
 	background-size: 100% 300%;
 	/*background: linear-gradient(to bottom, #003399 0%, #33ccff 100%);*/
+}
+
+.ui-panel-inner {
+	background: #1e1d1d;
 }
