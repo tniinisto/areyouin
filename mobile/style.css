@@ -1405,3 +1405,21 @@ New message icon
 	width: 100%;
 	height: 100%;
 }
+
+.default_bgr {
+	background-image: url(../images/puonti_landscape.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-size: 100% 200%;
+}
+
+.index_bgr {
+	/*background-image: url(../images/puonti_landscape.jpg);*/
+	/*background-image: linear-gradient(#303235, #948d94);*/
+	background-image: linear-gradient(#1d293c, #ffffff);
+	/*background-color: rgba(12, 53, 80, 0.46);*/
+	/*background-color: #535e6d;*/
+	/*background-size: cover;*/
+	background-size: 100% 300%;
+	/*background: linear-gradient(to bottom, #003399 0%, #33ccff 100%);*/
+}
