@@ -75,7 +75,8 @@
 
 </head>
 
-<body>
+<body class="default_bgr">
+    >
 
     <!--Check the php wakeness-->
     <?php
