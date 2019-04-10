@@ -110,7 +110,7 @@
             //header('Location:default.php'); ERRORS!
     ?>
 
-<div id="pagewrap" class="container\">
+<div id="pagewrap" class="container">
 
     <div id="loginwrapper">
 
