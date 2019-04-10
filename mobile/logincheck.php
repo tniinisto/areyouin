@@ -106,8 +106,8 @@
 
             echo "</head>";
 
-            echo "<body>";
-                echo "<div id='pagewrap'>";
+            echo "<body class=\"default_bgr\">";
+                echo "<div id='pagewrap' class=\"container\">";
                     echo "<div id='loginwrapper'>";
 			            echo "<div>";
                             echo "<h1 id='loginsite-logo' style='margin-top: 10px;'>R'YouIN</h1>";
