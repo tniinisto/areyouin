@@ -201,7 +201,7 @@
 
                     <div style='text-align: center; background: black; padding: 15px;'>
                     <font size='4' face='Trebuchet MS' style='color: white;'>			
-                        Login at <a href='https://areyouin.azurewebsites.net/default.php' style='color: white;'>R'YouIN</a>!
+                        Login at <a href='https://areyouin.azurewebsites.net/default.html' style='color: white;'>R'YouIN</a>!
                     </font>
                     </div>
 
@@ -250,7 +250,7 @@
 
                     <div style='text-align: center; background: black; padding: 15px;'>
                     <font size='4' face='Trebuchet MS' style='color: white;'>			
-                        Login at <a href='https://areyouin.azurewebsites.net/default.php' style='color: white;'>R'YouIN</a>!
+                        Login at <a href='https://areyouin.azurewebsites.net/default.html' style='color: white;'>R'YouIN</a>!
                     </font>
                     </div>
 
