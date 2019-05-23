@@ -123,7 +123,7 @@
                                     echo "<td valign=\"top\">";
                                               echo "<div>";
                                                 echo "<div class='chat-list-left'>";
-                                                    echo "<img width='30' height='30' src='https://r-youin.com/images/" . $row['photourl'] . "'>";
+                                                    echo "<img width='30' height='30' src='https://ryouin.co/images/" . $row['photourl'] . "'>";
                                                     echo "<br />";
                                                     echo "<div class='comment-name'>" . $row['name'] . "</div>";
                                                 echo "</div>";

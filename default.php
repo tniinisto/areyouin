@@ -38,7 +38,7 @@
     if (screen.width < 574) {
         var ref = document.referrer;
         //SITE SPECIFIC
-        var realmaster = "https://r-youin.com/";
+        var realmaster = "https://ryouin.co/";
         var master = "https://ryouin.co/";
         var dev = "https://dev-areyouin.azurewebsites.net/";
         var local = "http://localhost:18502/"; //LOCAL testing
@@ -53,7 +53,7 @@
                     var urls = new Array("https://ryouin.co/", "https://ryouin.co/mobile/");
                 } else
                     if (host_url.match(realmaster)) {
-                        var urls = new Array("https://r-youin.com/", "https://r-youin.com/mobile/");
+                        var urls = new Array("https://ryouin.co/", "https://ryouin.co/mobile/");
                     }
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
@@ -73,7 +73,7 @@
                             window.location = "https://ryouin.co/mobile/default.php";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "https://r-youin.com/mobile/default.php";
+                                window.location = "https://ryouin.co/mobile/default.php";
                             }
             }
             else {
@@ -82,7 +82,7 @@
         }
         else {
             //alert("here we are mobile redirect referrer");
-            window.location = "https://r-youin.com/";
+            window.location = "https://ryouin.co/";
         }
     }
 </script>
