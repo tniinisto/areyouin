@@ -219,10 +219,10 @@
 			        echo "<h1 id=\"loginsite-logo\">R'YouIN</h1>";
 
                     /*echo "<fieldset id=\"loginfailfs\">";*/
-                        echo "<h1>Login failed</h1>";
-                        echo "<h2>Check your username & password</h2>";
+                        echo "<h1 style="color: white;">Login failed</h1>";
+                        echo "<h2 style="color: white;">Check your username & password</h2>";
                         echo "<br>";
-                        echo "<a href='default.html'>Back to login</a>";
+                        echo "<a style="color: white;" href='default.html'>Back to login</a>";
                         echo "<h1></h1>";
                     /*echo "</fieldset>";*/
                 echo "</div>";
