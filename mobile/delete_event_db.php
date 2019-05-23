@@ -38,7 +38,7 @@
         'content' => "<html>             	
 
                         <div style='background: black;'>
-                            <img style='padding: 5px;' src='https://r-youin.com/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                            <img style='padding: 5px;' src='https://ryouin.co/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
                             <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event cancelled</font>
                         </div>
 
@@ -58,7 +58,7 @@
 
                         <div style='text-align: center; background: black; padding: 15px;'>
                         <font size='4' face='Trebuchet MS' style='color: white;'>			
-                            Check events at <a href='https://r-youin.com/default.php' style='color: white;'>R'YouIN</a>!
+                            Check events at <a href='https://ryouin.co/default.php' style='color: white;'>R'YouIN</a>!
                         </font>
                         </div>
 
