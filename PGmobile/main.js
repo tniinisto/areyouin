@@ -714,7 +714,7 @@ function toLoginPage() {
 
         var loginURL = window.location.href;
         loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-        loginURL = loginURL + "default.php";
+        loginURL = loginURL + "default.html";
     
         window.location.assign(loginURL);      
     }  

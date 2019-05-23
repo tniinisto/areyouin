@@ -30,7 +30,7 @@ echo "<article id='license_expried_article' class='clearfix license_exp'>";
         
         echo "<div id='wrapper_login' style='text-align: center'>";  
             echo "<div style='display: inline-block; text-align: center; text-decoration: underline;'>";
-                echo "<a style='color: #0167cd; font-size: large; font-weight: bold;' href='default.php'>Back to login</a>";
+                echo "<a style='color: #0167cd; font-size: large; font-weight: bold;' href='default.html'>Back to login</a>";
             echo "</div>";
         echo "</div>";
 

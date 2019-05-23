@@ -779,7 +779,7 @@ function refreshScroll() {
 function toLoginPage() {
     var loginURL = window.location.href;
     loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-    /*loginURL = loginURL + "default.php#back";*/
+    /*loginURL = loginURL + "default.html#back";*/
 	loginURL = loginURL + "default.html";
     //alert(loginURL);
 
