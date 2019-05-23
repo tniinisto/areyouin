@@ -69,33 +69,33 @@
                               <html>             	
 
                                 <div style='background: black;'>
-                                    <img style='padding: 5px;' src='https://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
+                                    <img style='padding: 5px;' src='https://ryouin.co/images/r2.png' align='middle' alt='RYouIN' height='42' width='42'>
                                     <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Your login information</font>
                                 </div>
 
                                 <br>
 
                                 <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Your password has been changed.</font>
-                    
+
                                 <br>
                                 <br>
 
                                 <ul style='list-style-type:disc'>
-                                    <font size='3' face='Trebuchet MS'>                                       		
+                                    <font size='3' face='Trebuchet MS'>
                                         <li><span style='font-weight: bold;'>New password: </span><span style='color:blue'> " . $password . "</span></li>
 	                                </font>
-                                </ul>                                
+                                </ul>
 
                                 <br>
 
                                 <font style='color: black; padding-left: 5px;' size='3' face='Trebuchet MS'>Please remember to change your own password from the Profile section after login!</font>
-                    
+
                                 <br>
                                 <br>
 
                                 <div style='text-align: center; background: black; padding: 15px;'>
-                                <font size='4' face='Trebuchet MS' style='color: white;'>			
-                                    Login at <a href='https://areyouin.azurewebsites.net/default.html' style='color: white;'>R'YouIN</a>!
+                                <font size='4' face='Trebuchet MS' style='color: white;'>
+                                    Login at <a href='https://ryouin.co/default.html' style='color: white;'>R'YouIN</a>!
                                 </font>
                                 </div>
 

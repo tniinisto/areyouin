@@ -198,7 +198,7 @@
             'content' => "<html>             	
 
                             <div style='background: black;'>
-                                <img style='padding: 5px;' src='https://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                                <img style='padding: 5px;' src='https://ryouin.co/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
                                 <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event updated</font>
                             </div>
 
@@ -218,7 +218,7 @@
 
                             <div style='text-align: center; background: black; padding: 15px;'>
                             <font size='4' face='Trebuchet MS' style='color: white;'>			
-                                Check your status at <a href='https://areyouin.azurewebsites.net/default.html' style='color: white;'>R'YouIN</a>!
+                                Check your status at <a href='https://ryouin.co/default.html' style='color: white;'>R'YouIN</a>!
                             </font>
                             </div>
 
