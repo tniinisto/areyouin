@@ -15,7 +15,7 @@
 
     // //ChromePhp::log("logout.php end, logged_in:", $_SESSION['logged_in']);
 
-    // //header("location:default.php");
+    // //header("location:default.html");
 
     session_start();
     
@@ -57,7 +57,7 @@
     
     //ChromePhp::log("logout.php end, logged_in:", $_SESSION['logged_in']);
 
-    //header("location:default.php");
+    //header("location:default.html");
 
 ?>
     

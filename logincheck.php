@@ -27,7 +27,7 @@
         }
         if($con == 0){
             //Connection error, back to login with message...
-            header('Location:default.php'); 
+            header('Location:default.html');
         } else
             mysql_select_db($dbname, $con);        
     }
@@ -42,7 +42,7 @@
     $mypassword=$_POST['ayipassword'];
 
     if($myusername == '' || $mypassword == ''){    
-        header('Location:default.php'); 
+        header('Location:default.html');
     }    
 
 	// To protect MySQL injection
@@ -222,7 +222,7 @@
                         echo "<h1>Login failed</h1>";
                         echo "<h2>Check your username & password</h2>";
                         echo "<br>";
-                        echo "<a href='default.php'>Back to login</a>";
+                        echo "<a href='default.html'>Back to login</a>";
                         echo "<h1></h1>";
                     /*echo "</fieldset>";*/
                 echo "</div>";

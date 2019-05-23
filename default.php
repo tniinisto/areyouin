@@ -64,16 +64,16 @@
             if (r == true) {
                 //alert("here we are mobile direct referrer");
                 if (host_url.match(dev)) {
-                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.php";
+                    window.location = "https://dev-areyouin.azurewebsites.net/mobile/default.html";
                 } else
                     if (host_url.match(local)) {
-                        window.location = "http://localhost:18502/mobile/default.php";
+                        window.location = "http://localhost:18502/mobile/default.html";
                     } else
                         if (host_url.match(master)) {
-                            window.location = "https://ryouin.co/mobile/default.php";
+                            window.location = "https://ryouin.co/mobile/default.html";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "https://ryouin.co/mobile/default.php";
+                                window.location = "https://ryouin.co/mobile/default.html";
                             }
             }
             else {
@@ -155,11 +155,11 @@
         }
         catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}'; 
-            header('Location:default.php'); 
+            header('Location:default.html');
         }
 
         if($result == 0)
-            header('Location:default.php'); 
+            header('Location:default.html');
     ?>
 
 

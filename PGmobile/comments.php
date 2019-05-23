@@ -18,7 +18,7 @@
     //if(!isset($_SESSION['logged_in'])) {
     //    //ChromePhp::log("Session expired, \$_SESSION['logged_in']=", $_SESSION['logged_in']);
     //    ob_end_clean();
-    //    header("location:default.php");
+    //    header("location:default.html");
     //}
     //else if($_SESSION['logged_in'] == TRUE) {
 	    //$con = mysql_connect('eu-cdbr-azure-north-a.cloudapp.net', 'bd3d44ed2e1c4a', '8ffac735');

@@ -587,13 +587,13 @@ function toLoginPage() {
 
         var loginURL = window.location.href;
         loginURL = loginURL.substring(0, loginURL.lastIndexOf('/') + 1);
-        loginURL = loginURL + "default.php";
+        loginURL = loginURL + "default.html";
     
         window.location.assign(loginURL);      
     }     
     //alert(loginURL);
-    //window.location.assign("http://m-areyouin.azurewebsites.net/default.php");
-    //window.location.assign("http://localhost:18502/default.php")    
+    //window.location.assign("http://m-areyouin.azurewebsites.net/default.html");
+    //window.location.assign("http://localhost:18502/default.html")    
 }
 
 function toEvents() {
