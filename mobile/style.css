@@ -164,6 +164,7 @@ HEADER
 	width: 310px;
     text-align: center;
     padding: 5px;
+	color: #fff;
 }
 
 #loginform input {
