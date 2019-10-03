@@ -50,7 +50,7 @@ body {
 }
 
 .default_bgr {
-	background-image: url(../images/puonti_landscape.jpg);
+	background-image: url('http://localhost/areyouin_dev2/images/puonti_landscape.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-size: 100% 200%;
