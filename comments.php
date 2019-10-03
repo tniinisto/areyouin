@@ -1,5 +1,12 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
+
     session_start();
     
     //date_default_timezone_set('Europe/Helsinki');

@@ -13,7 +13,7 @@
     }
 
     // Check if session is not registered, redirect back to default page. 
-    if(!$_SESSION['myusername']){
+/*    if(!$_SESSION['myusername']){
 
         if($_SESSION['ChromeLog']) { ChromePhp::log('login_success.php, not session_is_registered'); }
         //SITE SPECIFIC
@@ -50,6 +50,7 @@
         } else { //Production
             header('Location:https://ryouin.co/index.html');
         }
-    }
+    }*/
 
+    header('Location:http://localhost/areyouin_dev2/index.html');
 ?>

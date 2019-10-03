@@ -247,25 +247,25 @@
         initSpinner();
         startSpinner();
 
-        //getLoginInformation();
-        getPlayerStats();
+        getLoginInformation();
+        //getPlayerStats();
 
         //Start session checking
-        CheckForSession();
+        //CheckForSession();
 
         getEvents();
 
-        getPlayersInsert();
-        getAdminStatus();
-        getAdminModalHelps();
-        getPlayerProfile();
-        getChat();
+        //getPlayersInsert();
+        //getAdminStatus();
+        //getAdminModalHelps();
+        //getPlayerProfile();
+        //getChat();
 
         //Comet for chat
-        waitForChat();
+        //waitForChat();
 
         //Comet for events, affected the whole usability too much, needs more investigation!
-        setTimeout('waitForEventUpdate()', 60000); //60 seconds after start
+        //setTimeout('waitForEventUpdate()', 60000); //60 seconds after start
         //setTimeout('waitForEventUpdate()', 8); //8 seconds
 
         //Stop spinner after events have been load

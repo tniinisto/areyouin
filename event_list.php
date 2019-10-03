@@ -1,5 +1,11 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
 
     session_start();
 
@@ -7,21 +13,21 @@
     define('MAX_NRO_EVENTS', 3);
 
     //More events parameter & session//////////////////////
-    $moreevents=$_GET["more"];    
-    if($moreevents == 0) {
+    $moreevents=0; //$_GET["more"];
+/*    if($moreevents == 0) {
         $_SESSION['more_clicks'] = 0;
     }
     else {
         $_SESSION['more_clicks'] = $moreevents;
-    }
+    }*/
     //More events parameter & session//////////////////////
 
     if($_SESSION['logged_in'] == TRUE) { //Session on and user logged in -> list events ///////////////////////////////////////
     
-        $playerid=$_SESSION['myplayerid'];
-	    $teamid=$_SESSION['myteamid'];
-        $ad=$_SESSION['myAdmin'];
-        $registrar=$_SESSION['myRegistrar'];
+        $playerid='1'; //$_SESSION['myplayerid'];
+	    $teamid='1'; //$_SESSION['myteamid'];
+        $ad='1'; //$_SESSION['myAdmin'];
+        $registrar='1'; //$_SESSION['myRegistrar'];
 
         $con = mysql_connect($dbhost, $dbuser, $dbpass);
 	    if (!$con)
