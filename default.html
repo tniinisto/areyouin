@@ -34,8 +34,9 @@
 <script src="js/toastr.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
 
-<script type="text/javascript">
-   /* if (screen.width < 574) {
+<!--<script type="text/javascript">-->
+<!--
+    if (screen.width < 574) {
         var ref = document.referrer;
         //SITE SPECIFIC
         var realmaster = "https://ryouin.co/";
@@ -84,8 +85,9 @@
             //alert("here we are mobile redirect referrer");
             window.location = "https://ryouin.co/";
         }
-    }*/
+    }
 </script>
+-->
 
 
 <!-- html5.js for IE less than 9 -->
@@ -137,23 +139,12 @@
             <h1 id="loginsite-logo" style="margin-top: 10px;">R'YouIN</h1>
         </div>
 
-        <!--<div id="spinnerlogin_id" class="spin"></div>-->
+        <div id="spinnerlogin_id" class="spin"></div>
         
         <div id="container">
 
 
-            <div id="notInUse" style="color: #FFFFFF;">
-                <p>System is currently offline.</p>
-                <br>
-                <p><span style='font-weight: bold; font-size: 120%; color: white;'><a style='color: white; text-decoration: underline;' href="https://ryouin.co">Check what the app is about</a></span></p>
-            </div>
-
-<!--
             <form id="loginform" name="loginform" method="post" action="logincheck.php">
-          
-                &lt;!&ndash;<fieldset id="loginfs">&ndash;&gt;
-                    &lt;!&ndash;<legend style="text-align: left; color: white;">Dev Login</legend>&ndash;&gt;
-                    &lt;!&ndash;<font color="white" size="3">&ndash;&gt;
 
                     <h1 style="color: #FFFFFF;">Login</h1>
 
@@ -163,7 +154,7 @@
                     <label style="color: white">Password</label>
                     <input type="password" id="password" name="ayipassword" placeholder="" required>
             
-                    &lt;!&ndash;<br>&ndash;&gt;
+                    <br>
                     <div style="padding-top: 5px;"></div>
                     <input type="submit" value="Login" name="loginbutton" id="loginbutton" class='myButton' onClick="startLoginSpinner();">
                     
@@ -172,16 +163,14 @@
                         <label style="color: white">Check username and password</label>
                         <br>
                     </div>
-
-	            &lt;!&ndash;</fieldset>&ndash;&gt;
 		    </form>
--->
 
-<!--            <br>
+
+            <br>
             <br>
                 <a style="color: white; text-decoration: underline;" class="container" href='#openModalPassword' id='passwordForgot'>Forgot my password</a>
             <br>
-            <br>-->
+            <br>
 
         </div>
     </div>
@@ -201,9 +190,9 @@
 
             <p style='margin: 0px; padding-top: 10px;'>
                                                     
-                <label for='pasword_send' style='display: inline-block; width: 60px; text-align: right; color: black;'>Email:&nbsp</label>
+                <label for='forgot_password' style='display: inline-block; width: 60px; text-align: right; color: black;'>Email:</label>
                 <input type='text' id='forgot_password' name='password_forgotten' value=''
-                        style='margin-bottom: 15px; width: 170px; required'></input>
+                        style='margin-bottom: 15px; width: 170px;'> required</input>
                 </p>
 
                 <p style="padding-left: 10px; color: black;">Email containing your new password will be sent to you in a moment.</p>
@@ -211,7 +200,7 @@
             <!--Button-->                                               
             <div class='buttonHolder' style='margin-top:15px;'>
 
-                <input type='button' class='myButton' style='float: center;' value='Send' onclick="forgotPassword(password_forgotten.value);">
+                <input type='button' class='myButton' value='Send' onclick="forgotPassword(password_forgotten.value);">
 
             </div>
 

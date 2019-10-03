@@ -1,5 +1,12 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    include('mysql.php');
+
+    $dbhost='localhost';
+    $dbuser='root';
+    $dbpass='Trinity17';
+    $dbname='RYouInLocal';
+
     ////////////////////////////////////////////////////////
     //Uncomment to enable ChromePhp-logging
     //include 'ChromePhp.php';
@@ -20,15 +27,15 @@
     $con = 0;
     if($con == 0){
         $i=0;
-        while($con == 0 && $i!=3){
+        //while($con == 0 && $i!=3){
             $con = mysql_connect($dbhost, $dbuser, $dbpass, true);            
-            sleep(1);
-            $i++;
-        }
-        if($con == 0){
+            //sleep(1);
+            //$i++;
+        //}
+        /*if($con == 0){
             //Connection error, back to login with message...
             header('Location:default.html');
-        } else
+        } else*/
             mysql_select_db($dbname, $con);        
     }
 
