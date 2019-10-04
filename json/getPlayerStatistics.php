@@ -1,5 +1,11 @@
 <?php
-include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+//include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+//include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
 
 session_start();
 
@@ -7,8 +13,9 @@ session_start();
 //    require_once 'ChromePhp.php';
 //    ChromePhp::log('getPlayerStatistics.php, start');
 //}
-        
-$team = $_SESSION['myteamid'];
+
+$team = 1;
+//$team = $_SESSION['myteamid'];
 
 $sql = "select p.name name, p.photourl photourl, count(ep.Events_eventID) games from players p
 inner join eventplayer ep on p.playerID = ep.Players_playerID

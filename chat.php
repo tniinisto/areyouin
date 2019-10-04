@@ -1,5 +1,12 @@
 <?php
-    include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+    //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
+
     session_start();
 
     date_default_timezone_set('UTC');
@@ -7,8 +14,10 @@
     //include 'ChromePhp.php';        
     //ChromePhp::log("starting chat...");
 
-    $playerid=$_SESSION['myplayerid'];
-	$teamid=$_SESSION['myteamid'];
+/*    $playerid=$_SESSION['myplayerid'];
+	$teamid=$_SESSION['myteamid'];*/
+$playerid=1;
+$teamid=1;
 
     ////Check session expiration & logged_in status
     // if(!isset($_SESSION['logged_in'])) {

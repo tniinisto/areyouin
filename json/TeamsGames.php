@@ -1,5 +1,12 @@
 <?php
-include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+//include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+
+//include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
 
 session_start();
 
@@ -7,8 +14,9 @@ session_start();
 //    require_once 'ChromePhp.php';
 //    ChromePhp::log('getPlayerStatistics.php, start');
 //}
-        
-$team = $_SESSION['myteamid'];
+
+$team = 1;
+//$team = $_SESSION['myteamid'];
 
 $sql = "select count(eventID) gamecount from events, team
 where events.Team_teamID = team.teamID and team.teamID = '" . $team . "' and events.endTime < now();";

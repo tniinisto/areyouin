@@ -72,17 +72,24 @@ $dbname='RYouInLocal';
 
         //Get events in set limit
         $sql_events = "SELECT SQL_CALC_FOUND_ROWS e.eventID, e.startTime FROM events e
-                       where e.Team_teamID = '" . $teamid  . "' and e.endTime > '" . $now->format('Y-m-d H:i:s') . "'
-                       order by e.startTIme asc
-                       LIMIT " . MAX_NRO_EVENTS . " OFFSET " . $offset . ";";
+                       where e.Team_teamID = '" . $teamid  . "' and e.endTime > '" . $now->format('Y-m-d H:i:s') . "
+                       order by e.startTime asc;";
+
         $rows_events = mysql_query($sql_events);        
         $eventrow = 0;
         $eventIDs = 0;
-        $eventrow = mysql_fetch_array($rows_events);
-        $eventIDs = $eventrow['eventID'];
-	    while($eventrow = mysql_fetch_array($rows_events)) {
-            $eventIDs .= ", " . $eventrow['eventID'];
-        }
+        //$eventrow = mysql_fetch_array($rows_events);
+
+            //if($eventrow[0] != 0) {
+                //$eventIDs = $eventrow['eventID'];
+            //} else {
+            //}
+
+            //while($eventrow = mysql_fetch_array($rows_events)) {
+                //$eventIDs .= ", " . $eventrow['eventID'];
+            //}
+
+        $eventIDs = "6064";
 
         //Get total event amount
         $sql_total = "SELECT FOUND_ROWS() AS total;";
@@ -319,7 +326,7 @@ $dbname='RYouInLocal';
 				            else
 					            echo "<td class=\"col3\"><img class=\"unseen\" width=\"40\" height=\"40\" src=\"images/" . $row['photourl'] . "\"></td>";
 				            echo "<td class=\"col4\">" . $row['name'] . "</td>";
-				
+
 				            //Show on/off switch only for the user
 				            if($playerid != $row['playerid']) {
 					            if($row['areyouin'] == 0)

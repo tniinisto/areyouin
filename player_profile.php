@@ -1,7 +1,14 @@
 <?php  
         //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+include('mysql.php');
+
+$dbhost='localhost';
+$dbuser='root';
+$dbpass='Trinity17';
+$dbname='RYouInLocal';
+
         require_once('ImageManipulator.php');
-        $player;
+        $player = 0;
 
         session_start();
 
@@ -34,8 +41,13 @@
 
         //Profile content///////////////////////////////////////////////////////////////////   
         function echoProfile() {
-            include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
-            $playerid=$_SESSION['myplayerid'];
+            //include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
+            //$playerid=$_SESSION['myplayerid'];
+            $playerid=1;
+            $dbhost='localhost';
+            $dbuser='root';
+            $dbpass='Trinity17';
+            $dbname='RYouInLocal';
 	        
             // $con = mysql_connect($dbhost, $dbuser, $dbpass);
 
