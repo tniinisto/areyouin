@@ -198,7 +198,7 @@
         'content' => "<html>             	
 
                         <div style='background: black;'>
-                            <img style='padding: 5px;' src='https://ryouin.co/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
+                            <img style='padding: 5px;' src='https://areyouin.azurewebsites.net/images/r2.png' align='middle' alt='AreYouIN' height='42' width='42'>
                             <font style='color: white; padding-left: 5px;' size='4' face='Trebuchet MS'> Event updated</font>
                         </div>
 
