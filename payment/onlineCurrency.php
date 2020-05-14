@@ -136,8 +136,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
@@ -171,8 +171,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
@@ -205,8 +205,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 30'>";
@@ -240,8 +240,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
@@ -273,8 +273,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='rm' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
@@ -305,8 +305,8 @@ $price2 = '25.00';
             echo "<input type='hidden' name='no_shipping' value='1'>";
             echo "<input type='hidden' name='bn' value='PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted'>";
             //echo "<input type='hidden' name='tax_rate' value='24.000'>";
-            echo "<input type='hidden' name='return' value='https://ryouin.co/payment/success.html'>";
-            echo "<input type='hidden' name='cancel_return' value='https://ryouin.co/payment/cancel.html'>";
+            echo "<input type='hidden' name='return' value='https://areyouin.azurewebsites.net/payment/success.html'>";
+            echo "<input type='hidden' name='cancel_return' value='https://areyouin.azurewebsites.net/payment/cancel.html'>";
 
             //Custonm field, send: "teamid | playerid | licenseDays"
             echo "<input type='hidden' name='custom' value='" . $_SESSION['myteamid'] . " | " . $_SESSION['myplayerid'] . " | 180'>";
@@ -330,8 +330,8 @@ $price2 = '25.00';
 // <input type="hidden" name="no_note" value="1">
 // <input type="hidden" name="no_shipping" value="1">
 // <input type="hidden" name="rm" value="1">
-// <input type="hidden" name="return" value="https://ryouin.co/payment/success.html">
-// <input type="hidden" name="cancel_return" value="https://ryouin.co/payment/cancel.html">
+// <input type="hidden" name="return" value="https://areyouin.azurewebsites.net/payment/success.html">
+// <input type="hidden" name="cancel_return" value="https://areyouin.azurewebsites.net/payment/cancel.html">
 // <input type="hidden" name="tax_rate" value="24.000">
 // <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
 // <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">

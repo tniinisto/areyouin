@@ -38,8 +38,8 @@
    /* if (screen.width < 574) {
         var ref = document.referrer;
         //SITE SPECIFIC
-        var realmaster = "https://ryouin.co/";
-        var master = "https://ryouin.co/";
+        var realmaster = "https://areyouin.azurewebsites.net/";
+        var master = "https://areyouin.azurewebsites.net/";
         var dev = "https://dev-areyouin.azurewebsites.net/";
         var local = "http://localhost:18502/"; //LOCAL testing
         var host_url = document.location.href; //Current url
@@ -50,10 +50,10 @@
                 var urls = new Array("http://localhost:18502/", "http://localhost:18502/mobile/");
             } else
                 if (host_url.match(master)) {
-                    var urls = new Array("https://ryouin.co/", "https://ryouin.co/mobile/");
+                    var urls = new Array("https://areyouin.azurewebsites.net/", "https://areyouin.azurewebsites.net/mobile/");
                 } else
                     if (host_url.match(realmaster)) {
-                        var urls = new Array("https://ryouin.co/", "https://ryouin.co/mobile/");
+                        var urls = new Array("https://areyouin.azurewebsites.net/", "https://areyouin.azurewebsites.net/mobile/");
                     }
         var n = ref.match(urls[0]);
         var m = ref.match(urls[1]);
@@ -70,10 +70,10 @@
                         window.location = "http://localhost:18502/mobile/default.html";
                     } else
                         if (host_url.match(master)) {
-                            window.location = "https://ryouin.co/mobile/default.html";
+                            window.location = "https://areyouin.azurewebsites.net/mobile/default.html";
                         } else
                             if (host_url.match(realmaster)) {
-                                window.location = "https://ryouin.co/mobile/default.html";
+                                window.location = "https://areyouin.azurewebsites.net/mobile/default.html";
                             }
             }
             else {
@@ -82,7 +82,7 @@
         }
         else {
             //alert("here we are mobile redirect referrer");
-            window.location = "https://ryouin.co/";
+            window.location = "https://areyouin.azurewebsites.net/";
         }
     }*/
 </script>

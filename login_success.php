@@ -29,7 +29,7 @@
         if (strpos($_SERVER['HTTP_HOST'], 'www.ryouin.co') !== false) { //Production, www, for https on custom domain a certificate is needed
             header('Location:https://www.ryouin.co/default.html');
         } else { //Production
-            header('Location:https://ryouin.co/default.html');
+            header('Location:https://areyouin.azurewebsites.net/default.html');
         }
     }
     else {
@@ -48,7 +48,7 @@
         if (strpos($_SERVER['HTTP_HOST'], 'www.ryouin.co') !== false) { //Production, www , for https on custom domain a certificate is needed
             header('Location:https://www.ryouin.co/index.html');
         } else { //Production
-            header('Location:https://ryouin.co/index.html');
+            header('Location:https://areyouin.azurewebsites.net/index.html');
         }
     }
 
