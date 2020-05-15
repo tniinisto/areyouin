@@ -91,8 +91,8 @@
         $offset = round($daylight_savings_offset_in_seconds/3600); //Hours
         
         //$sql3 = "INSERT INTO team (teamid, teamname, utcoffset, maxplayers, inuse) VALUES (:teamid, :teamname, :utcoffset, :maxplayers, :inuse)";
-        $sql3 = "INSERT INTO team (teamid, teamname, timezone, utcoffset) VALUES (:teamid, :teamname, :timezone, :utcoffset)";
-        //$sql3 = "INSERT INTO team (teamid, teamname) VALUES (:teamid, :teamname)"; //Works!
+        //$sql3 = "INSERT INTO team (teamid, teamname, timezone, utcoffset) VALUES (:teamid, :teamname, :timezone, :utcoffset)";
+        $sql3 = "INSERT INTO team (teamid, teamname) VALUES (:teamid, :teamname)"; //Works!
 
         //if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
 
