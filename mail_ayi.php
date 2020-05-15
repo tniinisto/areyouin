@@ -52,7 +52,7 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventInfo) {
     // obtain response
     $response = curl_exec($session);
 
-    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $response, ' ,cURL errno: ', curl_errno($session), ' ,error: ', curl_error($session) ); }
+    // if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $response, ' ,cURL errno: ', curl_errno($session), ' ,error: ', curl_error($session) ); }
     //$log = 'mail_ayi.php, $response: ' . $response . ' ,cURL errno: ' . curl_errno($session) . ' ,error: ' . curl_error($session);
     //if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $response: ', $log ); }
 
