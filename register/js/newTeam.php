@@ -30,7 +30,7 @@
             $photourl = 'default_avatar.jpg';
             $sql = "INSERT INTO players (name, mail, firstname, lastname, photourl, password) VALUES (:nick, :mail, :first, :last,'" . $photourl ."', '" . md5($password) ."')";
 
-            if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
+            //if($_SESSION['ChromeLog']) { ChromePhp::log('newTeamUser: ' . $sql); }
         
             $stmt = $dbh->prepare($sql);
             //$stmt->bindParam(':teamID', $_GET['teamid'], PDO::PARAM_INT);
@@ -41,7 +41,7 @@
         
             $result = $stmt->execute();
             
-            if($_SESSION['ChromeLog']) { ChromePhp::log('New player result: ' . $result); }
+           // if($_SESSION['ChromeLog']) { ChromePhp::log('New player result: ' . $result); }
         } 
 
 
@@ -49,7 +49,7 @@
         $playerid = 0;           
         $sql2 = "SELECT playerID from players WHERE mail = :mail";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql2); }
         
         $stmt2 = $dbh->prepare($sql2);
         $stmt2->bindParam(':mail', $_GET['mail'], PDO::PARAM_STR);
@@ -69,7 +69,7 @@
         $teamid_max = 0;
         $sql6 = "SELECT max(teamID) as team_max from team";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql6); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('select inserted player: ' . $sql6); }
     
         $stmt6 = $dbh->prepare($sql6);
         $result6 = $stmt6->execute();   
@@ -152,7 +152,7 @@
 
         $sql8 = "INSERT INTO registration (registered, players_playerid, team_teamid, licensevalid) VALUES (:registered, :playerid, :teamid, :licensevalid)";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
         
         $stmt8 = $dbh->prepare($sql8);
 
