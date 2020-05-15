@@ -2,11 +2,12 @@
     
     include( $_SERVER['DOCUMENT_ROOT'] . '/config/config.php' );
     include( $_SERVER['DOCUMENT_ROOT'] . '/mail_ayi.php' );
+    include( $_SERVER['DOCUMENT_ROOT'] . '/ChromePhp.php' );
 
     session_start();
 
     //if($_SESSION['ChromeLog']) {
-       require_once  $_SERVER['DOCUMENT_ROOT'] . '\ChromePhp.php';
+    //    require_once  $_SERVER['DOCUMENT_ROOT'] . '\ChromePhp.php';
     //    ChromePhp::log('newTeam.php start');
     //}
 
