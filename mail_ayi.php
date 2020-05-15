@@ -7,10 +7,10 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventInfo) {
 
     session_start();
 
-    if($_SESSION['ChromeLog']) {
-        require_once 'ChromePhp.php';
-        ChromePhp::log('mail_ayi.php, start');
-    }
+    // if($_SESSION['ChromeLog']) {
+    //     require_once 'ChromePhp.php';
+    //     ChromePhp::log('mail_ayi.php, start');
+    // }
         
   
     ////SendGrid, Web API//////////////////////////////////////////////////////////    
@@ -30,7 +30,7 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventInfo) {
     );
 
     $request = $url.'api/mail.send.json';
-    if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $request: ', $request); }
+    // if($_SESSION['ChromeLog']) { ChromePhp::log('mail_ayi.php, $request: ', $request); }
 
 
     // Generate curl request
