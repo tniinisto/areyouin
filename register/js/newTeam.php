@@ -94,7 +94,7 @@
         $sql3 = "INSERT INTO team (teamid, teamname, timezone, utcoffset) VALUES (:teamid, :teamname, :timezone, :utcoffset)";
         //$sql3 = "INSERT INTO team (teamid, teamname) VALUES (:teamid, :teamname)"; //Works!
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('Create new team: ' . $sql3); }
 
         $stmt3 = $dbh->prepare($sql3);
         $stmt3->bindParam(':teamid', $teamid_max, PDO::PARAM_INT);
@@ -110,7 +110,7 @@
         //Add user as registrar to the playerteam//////////////////////////////////////////////////////////
         $sql5 = "INSERT INTO playerteam (players_playerID, team_teamID, registrar) VALUES (:playerid, :teamid, :registrar)";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql5); }
         
         $stmt5 = $dbh->prepare($sql5);
 
@@ -127,7 +127,7 @@
 
         $sql7 = "INSERT INTO comments (comment, Players_playerID, Team_teamID, publishTime) VALUES (:comment, :playerid, :teamid, :insertdate)";
 
-        if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
+        //if($_SESSION['ChromeLog']) { ChromePhp::log('Add registrar for playerteam: ' . $sql7); }
         
         $stmt7 = $dbh->prepare($sql7);
 
