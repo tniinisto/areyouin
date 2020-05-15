@@ -23,8 +23,8 @@ function sendMail($emailTo, $mail_user, $mail_key, $eventInfo) {
         //'to' => json_encode(array('tniinisto@gmail.com', 'tuomasniinisto@hotmail.com')),
         //'to' => 'tniinisto@gmail.com',
         'to' => $emailTo,
-        'subject' => $eventInfo[subject],
-        'html' => $eventInfo[content],
+        'subject' => $eventInfo['subject'],
+        'html' => $eventInfo['content'],
         'text' => 'Testing text body txt',
         'from' => 'RYouIN@ryouin.co',
     );
