@@ -6,7 +6,7 @@
     session_start();
 
     //if($_SESSION['ChromeLog']) {
-       require_once  $_SERVER['DOCUMENT_ROOT'] . 'ChromePhp.php';
+       require_once  $_SERVER['DOCUMENT_ROOT'] . '\ChromePhp.php';
     //    ChromePhp::log('newTeam.php start');
     //}
 
